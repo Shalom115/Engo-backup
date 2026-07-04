@@ -375,12 +375,20 @@ class NodeWriter:
                 self.decisions.append(dec)
                 return dec
             tgt = r["match_id"]
-            self._add_cross_links(tgt, [{"relation": "has_status_indicator_on",
-                                        "target": source_ref.get("panel_node_id", "vcp")}],
-                                  {**prov, "note": "INDICATOR only — status lamp/signal, NOT a control relationship"})
+            # Default indicator target: the ONYX monitoring node — the established,
+            # validated pattern all session is that these status-signal taps (XA
+            # blocks etc.) report to ONYX, not to a generic/guessed panel. A caller
+            # that actually knows a more specific panel can override via
+            # source_ref["panel_node_id"]; the default is NEVER a bare literal
+            # like "vcp" — it's checked against the live Register first.
+            panel_tgt = source_ref.get("panel_node_id") or "652-onyx-monitoring"
+            if panel_tgt in self.by_id:
+                self._add_cross_links(tgt, [{"relation": "has_status_indicator_on", "target": panel_tgt}],
+                                      {**prov, "note": "INDICATOR only — status lamp/signal, NOT a control relationship"})
             self._attach_fact(tgt, "status_indicator", {"element_id": el.get("id"), "label": label},
                               {**prov, "mapped_via": "semantic_matcher", "match_score": r["confidence"]}, "caveat")
-            dec = {"element": f"{el.get('id')} {label}", "action": "attach_indicator", "target": tgt}
+            dec = {"element": f"{el.get('id')} {label}", "action": "attach_indicator", "target": tgt,
+                   "indicator_of": panel_tgt if panel_tgt in self.by_id else None}
             self.decisions.append(dec)
             return dec
 
