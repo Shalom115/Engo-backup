@@ -54,6 +54,7 @@ from providers.structure import GoogleDriveStructureProvider
 from providers.embeddings import get_embedding_provider
 from providers.vectorstore import get_vectorstore_provider
 from providers.vision import get_vision_provider
+from providers.storage import get_storage_provider
 from pipeline import visual_extract as vx
 from pipeline.glossary_correct import (correct_text, correct_components,
                                        load_glossary, CorrectionsLog)
@@ -140,6 +141,7 @@ class VisionWriter:
         self.store = get_vectorstore_provider()
         self.embedder = get_embedding_provider()
         self.vp = get_vision_provider()
+        self.image_storage = get_storage_provider()
         self.glossary = load_glossary()          # authoritative acronym expansions
         self.corrections: List[Dict[str, str]] = []  # all glossary fixes this run
         self.corr_log = CorrectionsLog()         # durable before->after audit trail
@@ -150,8 +152,8 @@ class VisionWriter:
                        locator: Dict[str, Any], placement: Dict[str, Any],
                        figure_label: str = "") -> Dict[str, Any]:
         loc_suffix = locator.get("suffix", "v0")
-        img_path = IMAGES_DIR / f"{file_hash[:16]}_{loc_suffix}.png"
-        img_path.write_bytes(image_bytes)
+        image_key = f"{file_hash[:16]}_{loc_suffix}.png"
+        img_path = self.image_storage.put(image_key, image_bytes, content_type=media_type)
 
         ctx = {"file_name": file_name,
                "system": placement.get("subsystem_label"),

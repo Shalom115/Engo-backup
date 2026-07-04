@@ -25,7 +25,12 @@ class ObjectStorage(ABC):
 
     @abstractmethod
     def put(self, key: str, data: bytes, *, content_type: str = "application/octet-stream") -> str:
-        """Store bytes under `key`. Returns a locator (path or URL) to read it back."""
+        """
+        Store bytes under `key`. Returns a STABLE locator suitable for persisting
+        in permanent metadata (e.g. a chunk's image reference) — a local path or a
+        'bucket/key' string, NEVER a time-limited signed URL. Callers who need an
+        actual fetchable URL should call url(key) fresh at read-time.
+        """
         ...
 
     @abstractmethod
@@ -38,8 +43,10 @@ class ObjectStorage(ABC):
         ...
 
     @abstractmethod
-    def url(self, key: str) -> Optional[str]:
-        """A reference for humans/logs (local path or a signed/public URL). May be None."""
+    def url(self, key: str, *, expires_in: int = 3600) -> Optional[str]:
+        """A reference for humans/logs — a local path, or (for remote providers) a
+        time-limited SIGNED url, never an unauthenticated public one for a private
+        bucket. May be None."""
         ...
 
 
@@ -67,7 +74,7 @@ class LocalFsStorage(ObjectStorage):
     def exists(self, key: str) -> bool:
         return self._path(key).exists()
 
-    def url(self, key: str) -> Optional[str]:
+    def url(self, key: str, *, expires_in: int = 3600) -> Optional[str]:
         p = self._path(key)
         return str(p) if p.exists() else None
 
@@ -103,9 +110,13 @@ class SupabaseStorage(ObjectStorage):
         self.bucket = bucket or config.VESSEL_NAMESPACE
 
     def put(self, key: str, data: bytes, *, content_type: str = "application/octet-stream") -> str:
+        """Returns the STABLE 'bucket/key' locator — NEVER a signed url() here, since
+        that expires and this return value gets persisted as permanent metadata
+        (e.g. a chunk's image reference). Resolve a fresh signed url() at read-time,
+        not at write-time."""
         self._client.storage.from_(self.bucket).upload(
             key, data, {"content-type": content_type, "upsert": "true"})
-        return self.url(key) or key
+        return f"{self.bucket}/{key}"
 
     def get(self, key: str) -> Optional[bytes]:
         try:
@@ -116,9 +127,13 @@ class SupabaseStorage(ObjectStorage):
     def exists(self, key: str) -> bool:
         return self.get(key) is not None
 
-    def url(self, key: str) -> Optional[str]:
+    def url(self, key: str, *, expires_in: int = 3600) -> Optional[str]:
+        """A time-limited SIGNED url (this bucket is private by design — a plain
+        get_public_url() would return a URL that looks valid but 403s for anyone
+        without a session, which is worse than returning None)."""
         try:
-            return self._client.storage.from_(self.bucket).get_public_url(key)
+            r = self._client.storage.from_(self.bucket).create_signed_url(key, expires_in)
+            return r.get("signedURL") or r.get("signedUrl")
         except Exception:
             return None
 
