@@ -242,10 +242,14 @@ def read_schedule_coverage(pdf_bytes: bytes, page_index: int,
     vp = get_vision_provider()
     seen: Dict[tuple, Dict[str, Any]] = {}
     panel_label = None
+    skipped = 0
     for rg in (survey_regions or []):
         r = vp.extract(_crop_box(page, rg["bbox"]), "image/png", _SCHEDULE_PROMPT, _SCHEDULE_TOOL)
         panel_label = panel_label or r.get("panel_label")
         for row in r.get("rows", []):
+            if not isinstance(row, dict):
+                skipped += 1
+                continue
             row["_via"] = "survey_region"
             row["_bbox"] = rg["bbox"]
             seen.setdefault(_row_key(row), row)
@@ -253,11 +257,16 @@ def read_schedule_coverage(pdf_bytes: bytes, page_index: int,
         r = vp.extract(_crop_box(page, gb), "image/png", _SCHEDULE_PROMPT, _SCHEDULE_TOOL)
         panel_label = panel_label or r.get("panel_label")
         for row in r.get("rows", []):
+            if not isinstance(row, dict):
+                skipped += 1
+                continue
             k = _row_key(row)
             if k not in seen:
                 row["_via"] = "grid_tile"
                 row["_bbox"] = gb
                 seen[k] = row
+    if skipped:
+        print(f"  [read_schedule_coverage] skipped {skipped} malformed (non-dict) row entries", flush=True)
     return list(seen.values()), panel_label
 
 
@@ -291,20 +300,29 @@ def read_wiring_coverage(pdf_bytes: bytes, page_index: int,
     page = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=dpi)
     vp = get_vision_provider()
     seen: Dict[tuple, Dict[str, Any]] = {}
+    skipped = 0
     for rg in (survey_regions or []):
         r = vp.extract(_crop_box(page, rg["bbox"]), "image/png", _WIRING_PROMPT, _WIRING_TOOL)
         for e in r.get("elements", []):
+            if not isinstance(e, dict):
+                skipped += 1
+                continue
             e["_via"] = "survey_region"
             e["_bbox"] = rg["bbox"]
             seen.setdefault(_el_key(e), e)
     for gb in grid_boxes():
         r = vp.extract(_crop_box(page, gb), "image/png", _WIRING_PROMPT, _WIRING_TOOL)
         for e in r.get("elements", []):
+            if not isinstance(e, dict):
+                skipped += 1
+                continue
             k = _el_key(e)
             if k not in seen:
                 e["_via"] = "grid_tile"
                 e["_bbox"] = gb
                 seen[k] = e
+    if skipped:
+        print(f"  [read_wiring_coverage] skipped {skipped} malformed (non-dict) element entries", flush=True)
     return list(seen.values())
 
 
@@ -333,20 +351,29 @@ def read_oneline_coverage(pdf_bytes: bytes, page_index: int,
     vp = get_vision_provider()
     seen: Dict[tuple, Dict[str, Any]] = {}
     edges: List[str] = []
+    skipped = 0
     for rg in (survey_regions or []):
         r = vp.extract(_crop_box(page, rg["bbox"]), "image/png", _ONELINE_PROMPT, _ONELINE_TOOL)
         for n in r.get("nodes", []):
+            if not isinstance(n, dict):
+                skipped += 1
+                continue
             n["_via"] = "survey_region"; n["_bbox"] = rg["bbox"]
             seen.setdefault(_node_key(n), n)
-        edges.extend(r.get("edges", []))
+        edges.extend(x for x in r.get("edges", []) if isinstance(x, str))
     for gb in grid_boxes():
         r = vp.extract(_crop_box(page, gb), "image/png", _ONELINE_PROMPT, _ONELINE_TOOL)
         for n in r.get("nodes", []):
+            if not isinstance(n, dict):
+                skipped += 1
+                continue
             k = _node_key(n)
             if k not in seen:
                 n["_via"] = "grid_tile"; n["_bbox"] = gb
                 seen[k] = n
-        edges.extend(r.get("edges", []))
+        edges.extend(x for x in r.get("edges", []) if isinstance(x, str))
+    if skipped:
+        print(f"  [read_oneline_coverage] skipped {skipped} malformed (non-dict) node entries", flush=True)
     # dedupe edges as plain strings, normalized
     import re as _re
     seen_e, uniq_edges = set(), []

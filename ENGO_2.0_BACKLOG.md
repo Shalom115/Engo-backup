@@ -52,3 +52,29 @@ Last full audit: 2026-07-02
 - Suppliers per-file routing for multi-subsystem vendors (Farr, SENSORS)
 - Meta Business API replaces Twilio sandbox (MessagingProvider seam exists)
 - Multi-tenant: one namespace per vessel (collection naming already vessel-scoped)
+
+## Cloud/repo decisions (2026-07-04, engineer-confirmed)
+- **OFFLINE-FIRST INVARIANT: the LIVE vessel-side agent (retrieval + system prompt + answering
+  a question) must keep working with ZERO internet.** Local JSON state + ChromaDB remain the
+  authoritative store for that path, always. The BACK-OFFICE side (Drive ingestion, vision
+  extraction, node-building, review) is ALREADY internet-dependent (Drive API + Claude API) and
+  MAY be cloud-primary — that's not a new constraint, just recognizing it was never offline
+  anyway. Any future Postgres/pgvector migration must preserve this split: cloud can host the
+  back-office and be a mirror/sync target, never a hard dependency for the boat mid-ocean.
+- **Object storage (Supabase) — SCOPE CONFIRMED: derived vision-pipeline images ONLY** (rendered
+  schematic crops, described figures written by `vision_ingest.py` to `data/images/<vessel>/`).
+  NOT the register/control_map/load_map JSON state, NOT the vector store — those stay local/git
+  for now. `providers/storage.py` built: `ObjectStorage` abstract interface, `LocalFsStorage`
+  (default, no network, what the vessel-side agent uses) + `SupabaseStorage` (needs
+  `SUPABASE_URL`/`SUPABASE_SERVICE_KEY` in `.env`, never committed). Factory via
+  `OBJECT_STORAGE_PROVIDER` env var, defaults to `local`.
+- **Repo split (Gelliceaux agent vs Engo 2.0) — HELD until after the M3 blind run.** Engineer
+  confirmed via "go with best practice": drawing the general-engine/vessel-specific boundary
+  before a second vessel exists to test it against risks freezing an interface that's still
+  moving (the node schema and protocols changed multiple times in a single week this session).
+  Single repo (`gelliceaux` on GitHub, local git already initialized + first commit made
+  2026-07-04) covers both today; split is a TODO.md M5 item, gated the same as everything else
+  in M5.
+- **Full Postgres/pgvector migration — NOT done, NOT scheduled.** Considered and explicitly
+  deferred (see offline-first invariant above) rather than rejected — revisit post-blind-run
+  when the schema has stopped churning.
