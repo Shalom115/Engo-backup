@@ -1,0 +1,57 @@
+{
+  "vessel": "gelliceaux_001",
+  "purpose": "END-OF-SWEEP ENGINEER CONFIRMATION LIST. GENERAL RULE: when a node carries multiple distinct make/models discovered during ingestion, or sources conflict on identity, Engo NEVER silently picks or silently splits \u2014 it surfaces the item here for the engineer to resolve or annotate. Reviewed at the end of an ingestion sweep.",
+  "created": "2026-07-01",
+  "entries": [
+    {
+      "id": "cf-001",
+      "node_id": "220-captive-winch",
+      "issue_type": "multi_model",
+      "detail": "One node carries two distinct captive-winch models (the bilge-pump pattern: two legitimate identities on one node).",
+      "values": [
+        {
+          "model": "Harken Air Captive 9T 930 HY CVS",
+          "function": "mainsheet captive winch",
+          "source": "MYT rev18b #37"
+        },
+        {
+          "model": "Harken CT1 tensioner",
+          "function": "tensioner captive winch",
+          "source": "MYT rev18b #38"
+        }
+      ],
+      "engo_observation": "Same granularity situation as primary/secondary (which were split). A split into two per-installation nodes looks correct, but that is the engineer's call, not Engo's.",
+      "engineer_comment": "split (2026-07-02)",
+      "status": "resolved",
+      "resolution": "parent 220-captive-winch + children 220-captive-mainsheet-9t / 220-captive-tensioner-ct1"
+    },
+    {
+      "id": "cf-002",
+      "node_id": "520-feit-bilge-pump",
+      "issue_type": "identity_conflict",
+      "detail": "Bilge-pump identity conflict between sources \u2014 a genuine one-off, surfaced not assumed (schematics do not automatically lose).",
+      "values": [
+        {
+          "make": "FEIT",
+          "source": "Bilge & Fire System schematic"
+        },
+        {
+          "make": "Gianneschi",
+          "source": "inventory"
+        }
+      ],
+      "engo_observation": "Two sources disagree on the bilge-pump make. No auto-resolution; multi-source vote deferred to engineer.",
+      "engineer_comment": "Gianneschi; Phase-2: conflicts red-penned by engineer in onboarding",
+      "status": "resolved",
+      "resolution": "installed make=Gianneschi on 520-main-bilge-pump; FEIT node kept as unresolved documentation"
+    },
+    {
+      "id": "cf-003",
+      "node_id": "520-main-bilge-pump",
+      "issue_type": "identity_check",
+      "detail": "Engineer (2026-07-04, reading the schematic): Gianneschi appears as the ELECTRIC FIRE PUMP; inventory 431B kit is a \"Bilge/Fifi\" (combined) pump. cf-002 set MAIN BILGE pump make = Gianneschi. CONFIRM: does main-bilge stay Gianneschi (separate unit), or was cf-002 actually about the fire/Fifi pump?",
+      "engineer_comment": "Two separate physical pumps, same model (Gianneschi ACB 431B) \u2014 main bilge pump and electric fire pump are distinct installations.",
+      "status": "resolved"
+    }
+  ]
+}

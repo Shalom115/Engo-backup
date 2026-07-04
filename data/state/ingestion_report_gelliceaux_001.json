@@ -1,0 +1,207 @@
+{
+  "vessel_namespace": "gelliceaux_001",
+  "ran_at": "2026-06-09T07:36:51+00:00",
+  "total_in_scope": 1689,
+  "accounted": 1689,
+  "remaining": 0,
+  "reconciled": true,
+  "chunks_ingested": 15977,
+  "buckets": {
+    "ingested": 628,
+    "pending_vision": 709,
+    "already_present": 334,
+    "unsupported": 12,
+    "error": 6
+  },
+  "per_region": {
+    "000": {
+      "ingested": 202,
+      "pending_vision": 142,
+      "already_present": 77
+    },
+    "300": {
+      "ingested": 31,
+      "pending_vision": 75,
+      "already_present": 54
+    },
+    "600": {
+      "ingested": 96,
+      "already_present": 92,
+      "pending_vision": 80
+    },
+    "200": {
+      "pending_vision": 104,
+      "ingested": 37,
+      "already_present": 25,
+      "error": 6
+    },
+    "500": {
+      "pending_vision": 107,
+      "already_present": 50,
+      "ingested": 83,
+      "unsupported": 1
+    },
+    "400": {
+      "ingested": 26,
+      "already_present": 4,
+      "pending_vision": 14,
+      "unsupported": 1
+    },
+    "900": {
+      "pending_vision": 68,
+      "ingested": 72,
+      "unsupported": 10,
+      "already_present": 9
+    },
+    "800": {
+      "pending_vision": 76,
+      "already_present": 15,
+      "ingested": 46
+    },
+    "—": {
+      "already_present": 1,
+      "ingested": 10
+    },
+    "700": {
+      "ingested": 22,
+      "pending_vision": 14,
+      "already_present": 3
+    },
+    "100": {
+      "pending_vision": 29,
+      "already_present": 4,
+      "ingested": 3
+    }
+  },
+  "unsupported": [
+    {
+      "file_id": "1YZTpGHPoLNDXekR2PrDeqk1qlup6Gtmo",
+      "bucket": "unsupported",
+      "region": "900",
+      "name": "SY Gelliceaux - Onboarding Setup.gsheet",
+      "reason": "unknown binary type"
+    },
+    {
+      "file_id": "10vQVDCzRScVUa70jm7OU1VoYoHebsCau",
+      "bucket": "unsupported",
+      "region": "900",
+      "name": "Mast Spares.gsheet",
+      "reason": "unknown binary type"
+    },
+    {
+      "file_id": "1ZqB3Tha7nxNI6Bvhvqe0fiIsuYPoONpc",
+      "bucket": "unsupported",
+      "region": "900",
+      "name": "Inventories.sealogs_2023-06-21_to_2023-06-28.csv",
+      "reason": "no csv parser"
+    },
+    {
+      "file_id": "1CSkBdu2OmhQpqHhFdkF0viYV1XZOwf3u",
+      "bucket": "unsupported",
+      "region": "900",
+      "name": "Gelliceaux 1 8-23.doc",
+      "reason": "legacy .doc (unsupported)"
+    },
+    {
+      "file_id": "1k3YdFPoGHFtQL97Y9wJCfaLUL6o1b7bX",
+      "bucket": "unsupported",
+      "region": "900",
+      "name": "580 Refridgeration.gsheet",
+      "reason": "unknown binary type"
+    },
+    {
+      "file_id": "17UfkIwPRHAtGI8Fkk-s-B25mjiNhw1Dh",
+      "bucket": "unsupported",
+      "region": "900",
+      "name": "Colors for Boat-Name on Transom.eml",
+      "reason": "email (unsupported)"
+    },
+    {
+      "file_id": "1GJJ1GlNRQOX-Kh50iIofTFDXhlphGbwm",
+      "bucket": "unsupported",
+      "region": "400",
+      "name": "Clearence cutlass bearings Gelliceaux 02/26.pptx",
+      "reason": "no pptx parser"
+    },
+    {
+      "file_id": "1y1pFwK7OhN_zoBD_gQfrWmrPv3E_Rhe_",
+      "bucket": "unsupported",
+      "region": "900",
+      "name": "FW_ CQC SI-00164.eml",
+      "reason": "email (unsupported)"
+    },
+    {
+      "file_id": "1HkV44ltbMag5IL1HXXYCHCeCbENwpWWE",
+      "bucket": "unsupported",
+      "region": "900",
+      "name": "SOUTHERN WIND SKIPPER TOOLS  QTE.xls",
+      "reason": "legacy .xls (unsupported)"
+    },
+    {
+      "file_id": "1DVjyTb3h9EI5SArzPmihcXpUa89hQiXC",
+      "bucket": "unsupported",
+      "region": "900",
+      "name": "Inventories.Sealogs_2023-06-21_to_2023-06-28.csv",
+      "reason": "no csv parser"
+    },
+    {
+      "file_id": "1IlbqmbIdUtta9NZ-LsHdDXxaIZtbJZWd",
+      "bucket": "unsupported",
+      "region": "900",
+      "name": "Inventories.Sealogs.Gelliceaux_2023-06-28.csv",
+      "reason": "no csv parser"
+    },
+    {
+      "file_id": "1uQ629xHNdPLnGQt0aPZk4nLiwmWoKdVb",
+      "bucket": "unsupported",
+      "region": "500",
+      "name": "Onyx tank calibration.gdoc",
+      "reason": "unknown binary type"
+    }
+  ],
+  "errors": [
+    {
+      "file_id": "1FfgGX5LNz2RpFxKekQh6zoe5ZMPrwsRH",
+      "bucket": "error",
+      "region": "200",
+      "name": "._Winches and deck gear.pdf",
+      "error": "Stream has ended unexpectedly"
+    },
+    {
+      "file_id": "17MuQeismJs0CQ8UDc_SM1GUii-jdbXcW",
+      "bucket": "error",
+      "region": "200",
+      "name": "._108-01 Canvas covers 2023-05-09.xlsx",
+      "error": "File is not a zip file"
+    },
+    {
+      "file_id": "1nktzRy0MgYlMEXsBytCT5AWUpz8QH8Jj",
+      "bucket": "error",
+      "region": "200",
+      "name": "._Capping Joints.pdf",
+      "error": "Stream has ended unexpectedly"
+    },
+    {
+      "file_id": "1mqESleCtJcBjWQHDOW66h0eodGTY69jn",
+      "bucket": "error",
+      "region": "200",
+      "name": "._108-01 Deck Fittings and Transom 2022-05-25.pdf",
+      "error": "Stream has ended unexpectedly"
+    },
+    {
+      "file_id": "1wMZUKJS2vC-3CSSNqoyKef-IqJul3M79",
+      "bucket": "error",
+      "region": "200",
+      "name": "._Lofrans' Hydraulic Windlasses Technical Specification.pdf",
+      "error": "Stream has ended unexpectedly"
+    },
+    {
+      "file_id": "1T_5wy5Jv40g_Cv3NsFLhf-B9SvbQvRur",
+      "bucket": "error",
+      "region": "200",
+      "name": "._Deck Block Order.xlsx",
+      "error": "File is not a zip file"
+    }
+  ],
+  "pending_vision_count": 709
+}

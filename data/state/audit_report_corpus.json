@@ -1,0 +1,213 @@
+{
+  "vessel_namespace": "gelliceaux_001",
+  "ran_at": "2026-06-17T21:31:07+00:00",
+  "structure_files": 1691,
+  "counts": {
+    "confirmed_good": 509,
+    "pending_vision": 812,
+    "text_poor": 16,
+    "skipped": 354,
+    "silent_gap": 0
+  },
+  "text_poor_pct": 3.0,
+  "gate": {
+    "passed": true,
+    "silent_gap_max": 0,
+    "text_poor_pct_max": 5.0
+  },
+  "per_region": {
+    "001, General Condition": {
+      "confirmed_good": 170,
+      "pending_vision": 172,
+      "text_poor": 2,
+      "skipped": 77
+    },
+    "100, Structure, Rudder and Keel": {
+      "confirmed_good": 3,
+      "pending_vision": 29,
+      "skipped": 4
+    },
+    "108-01 Tech details 08-2024.xlsx": {
+      "confirmed_good": 1
+    },
+    "200, Deck": {
+      "skipped": 31,
+      "pending_vision": 117,
+      "confirmed_good": 24
+    },
+    "300, Interiors": {
+      "confirmed_good": 22,
+      "pending_vision": 83,
+      "skipped": 54,
+      "text_poor": 1
+    },
+    "400, Propulsion and Machinery spaces": {
+      "pending_vision": 15,
+      "skipped": 6,
+      "confirmed_good": 25
+    },
+    "500, Systems": {
+      "pending_vision": 118,
+      "skipped": 51,
+      "confirmed_good": 70,
+      "text_poor": 2
+    },
+    "600, Electric Systems": {
+      "pending_vision": 109,
+      "confirmed_good": 66,
+      "skipped": 92,
+      "text_poor": 1
+    },
+    "700, Navigation, Communication, Entertainment": {
+      "skipped": 3,
+      "pending_vision": 15,
+      "confirmed_good": 18,
+      "text_poor": 3
+    },
+    "800, Rigging and Sailing": {
+      "skipped": 15,
+      "confirmed_good": 41,
+      "pending_vision": 80,
+      "text_poor": 1
+    },
+    "900, Miscellaneous": {
+      "confirmed_good": 63,
+      "skipped": 19,
+      "pending_vision": 73,
+      "text_poor": 4
+    },
+    "Checklists and Logs": {
+      "text_poor": 2,
+      "pending_vision": 1,
+      "confirmed_good": 1
+    },
+    "GELLICEAUX Onyx Alarms.xlsx": {
+      "confirmed_good": 1
+    },
+    "Inventory and consumables": {
+      "confirmed_good": 2
+    },
+    "Planning and research": {
+      "confirmed_good": 2,
+      "skipped": 1
+    },
+    "~$108-01 Tech details 08-2024.xlsx": {
+      "skipped": 1
+    }
+  },
+  "silent_gaps": [],
+  "text_poor": [
+    {
+      "name": "Deck strip lights.docx",
+      "distinct_words": 11,
+      "chunks": 1,
+      "avg_chunk": 379,
+      "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    },
+    {
+      "name": "Deck strip lights.docx",
+      "distinct_words": 11,
+      "chunks": 1,
+      "avg_chunk": 379,
+      "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    },
+    {
+      "name": "Interior finishes .xlsx",
+      "distinct_words": 18,
+      "chunks": 3,
+      "avg_chunk": 77,
+      "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    },
+    {
+      "name": "Southern.docx",
+      "distinct_words": 55,
+      "chunks": 1,
+      "avg_chunk": 508,
+      "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    },
+    {
+      "name": "Termodinamica.docx",
+      "distinct_words": 49,
+      "chunks": 1,
+      "avg_chunk": 499,
+      "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    },
+    {
+      "name": "Deck strip lights.docx",
+      "distinct_words": 11,
+      "chunks": 1,
+      "avg_chunk": 379,
+      "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    },
+    {
+      "name": "Radio coms.xlsx",
+      "distinct_words": 16,
+      "chunks": 4,
+      "avg_chunk": 42,
+      "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    },
+    {
+      "name": "Sat Coms.xlsx",
+      "distinct_words": 9,
+      "chunks": 3,
+      "avg_chunk": 32,
+      "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    },
+    {
+      "name": "VHF list.xlsx",
+      "distinct_words": 12,
+      "chunks": 4,
+      "avg_chunk": 32,
+      "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    },
+    {
+      "name": "Furler Inventory.xlsx",
+      "distinct_words": 16,
+      "chunks": 4,
+      "avg_chunk": 65,
+      "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    },
+    {
+      "name": "Template for Task.xlsx",
+      "distinct_words": 20,
+      "chunks": 2,
+      "avg_chunk": 140,
+      "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    },
+    {
+      "name": "Temptated for sealogs.xlsx",
+      "distinct_words": 13,
+      "chunks": 2,
+      "avg_chunk": 70,
+      "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    },
+    {
+      "name": "LOGO & NAME COLOR POANTONE CODE.xlsx",
+      "distinct_words": 16,
+      "chunks": 3,
+      "avg_chunk": 113,
+      "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    },
+    {
+      "name": "NAMES FOR BOXES.docx",
+      "distinct_words": 29,
+      "chunks": 1,
+      "avg_chunk": 721,
+      "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    },
+    {
+      "name": "Engineering Passage log",
+      "distinct_words": 3,
+      "chunks": 2,
+      "avg_chunk": 743,
+      "mime": "application/vnd.google-apps.document"
+    },
+    {
+      "name": "Race day  morning checklist ",
+      "distinct_words": 55,
+      "chunks": 1,
+      "avg_chunk": 511,
+      "mime": "application/vnd.google-apps.document"
+    }
+  ]
+}

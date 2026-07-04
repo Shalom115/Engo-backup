@@ -1,0 +1,697 @@
+{
+  "vessel": "gelliceaux_001",
+  "status": "active",
+  "schema_version": 1,
+  "built_at": "2026-06-27 (rev2: items 1-3)",
+  "governing_principle": "A hydraulic function-slice is a CONTROL FACT, not an equipment node (Path 2). It attaches to the equipment node it controls. Actuator != equipment (Decision 6): where the actuator's maker differs from the controlled equipment, a cross-link records the actuation.",
+  "primary_source": {
+    "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+    "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+    "note": "Numbered master function table (#0..#38), function -> actuator model + maker. Function numbers here are the doc's actual numbers."
+  },
+  "resolution_sequence": [
+    "1. control-map lookup (function label + zone) -> found -> attach HIGH-confidence + cite MYT doc",
+    "2. not in map -> \u00a79e semantic matcher (token+zone) >= ATTACH_THRESHOLD -> attach with caveat",
+    "3. still below -> create_flagged for engineer review (never wrong-attach)",
+    "4. Voyage embedding only as last resort on genuinely-novel labels"
+  ],
+  "function_count": 39,
+  "mappings": [
+    {
+      "myt_function": "0/1",
+      "function": "furler",
+      "aliases": [
+        "furler",
+        "code 0 furler"
+      ],
+      "target_node_id": "860-bamar-pi20",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "Bamar PI 20 A / OMP125",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "0/1"
+      }
+    },
+    {
+      "myt_function": "2",
+      "function": "jib furler",
+      "aliases": [
+        "jib furler"
+      ],
+      "target_node_id": "860-bamar-gfsi30",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "Bamar GFSI 30 CTS / OMP50",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "2"
+      }
+    },
+    {
+      "myt_function": "3",
+      "function": "forestay rta",
+      "aliases": [
+        "forestay rta"
+      ],
+      "target_node_id": "860-bamar-gfsi30",
+      "relation": "attach",
+      "cross_links": [
+        {
+          "relation": "tensions",
+          "target": "830-standing-rigging"
+        }
+      ],
+      "actuator": "Bamar GFSI 30 CTS",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "3"
+      },
+      "identity_model": "integrated"
+    },
+    {
+      "myt_function": "4",
+      "function": "staysail furler",
+      "aliases": [
+        "staysail furler"
+      ],
+      "target_node_id": "860-bamar-sit20",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "Bamar SIT 20 CD / OMS315",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "4"
+      }
+    },
+    {
+      "myt_function": "5",
+      "function": "innerstay rta",
+      "aliases": [
+        "innerstay rta"
+      ],
+      "target_node_id": "860-bamar-sit20",
+      "relation": "attach",
+      "cross_links": [
+        {
+          "relation": "tensions",
+          "target": "830-standing-rigging"
+        }
+      ],
+      "actuator": "Bamar SIT 20 CD",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "5"
+      },
+      "identity_model": "integrated"
+    },
+    {
+      "myt_function": "6",
+      "function": "windlass",
+      "aliases": [
+        "windlass"
+      ],
+      "target_node_id": "250-windlass-lewmar-v8",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "Lewmar V8",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "6"
+      }
+    },
+    {
+      "myt_function": "7",
+      "function": "jib cunningham",
+      "aliases": [
+        "jib cunningham"
+      ],
+      "target_node_id": "840-cariboni-hydraulic-cylinders",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "Cariboni CL 0100 S 0400",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "7"
+      }
+    },
+    {
+      "myt_function": "8",
+      "function": "main cunningham",
+      "aliases": [
+        "main cunningham",
+        "cunningham"
+      ],
+      "target_node_id": "840-cariboni-hydraulic-cylinders",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "Cariboni CL 055 S 0500",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "8"
+      }
+    },
+    {
+      "myt_function": "9a",
+      "function": "backstay port",
+      "aliases": [
+        "backstay port",
+        "backstay"
+      ],
+      "target_node_id": "840-cariboni-hydraulic-cylinders",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "Cariboni CL 0100 S 0600",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "9a"
+      }
+    },
+    {
+      "myt_function": "9b",
+      "function": "backstay stbd",
+      "aliases": [
+        "backstay stb",
+        "backstay stbd"
+      ],
+      "target_node_id": "840-cariboni-hydraulic-cylinders",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "Cariboni CL 0100 S 0600",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "9b"
+      }
+    },
+    {
+      "myt_function": "10",
+      "function": "backstay deflector",
+      "aliases": [
+        "backstay deflector",
+        "deflector"
+      ],
+      "target_node_id": "840-cariboni-hydraulic-cylinders",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "Cariboni CL 0100 S 1050",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "10"
+      }
+    },
+    {
+      "myt_function": "11",
+      "function": "capstan",
+      "aliases": [
+        "capstan"
+      ],
+      "target_node_id": "220-capstan-winch",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "Harken CLR 2500",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "11"
+      }
+    },
+    {
+      "myt_function": "12",
+      "function": "jib in/out",
+      "aliases": [
+        "jib in/out",
+        "jib in",
+        "jib out",
+        "jib sheet"
+      ],
+      "target_node_id": "840-cariboni-hydraulic-cylinders",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "Cariboni CL 080 S 0700",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "12"
+      }
+    },
+    {
+      "myt_function": "13",
+      "function": "jib up/down",
+      "aliases": [
+        "jib up/down",
+        "jib up",
+        "jib down",
+        "jib car"
+      ],
+      "target_node_id": "840-cariboni-hydraulic-cylinders",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "Cariboni CL 080 S 0700",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "13"
+      }
+    },
+    {
+      "myt_function": "14",
+      "function": "vang",
+      "aliases": [
+        "vang",
+        "vang dump"
+      ],
+      "target_node_id": "840-cariboni-hydraulic-cylinders",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "Cariboni VNG 130 S 0430",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "14"
+      }
+    },
+    {
+      "myt_function": "15",
+      "function": "outhaul",
+      "aliases": [
+        "outhaul"
+      ],
+      "target_node_id": "840-cariboni-hydraulic-cylinders",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "Cariboni CL 070 S 0400",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "15"
+      }
+    },
+    {
+      "myt_function": "16",
+      "function": "lifting keel",
+      "aliases": [
+        "lifting keel up/down",
+        "lifting keel",
+        "keel up",
+        "keel down"
+      ],
+      "target_node_id": "130-apm-lifting-keel",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "APM DA cylinder (3 off)",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "16"
+      }
+    },
+    {
+      "myt_function": "17",
+      "function": "lifting keel lock",
+      "aliases": [
+        "lifting keel lock",
+        "lifting keel locks",
+        "keel lock"
+      ],
+      "target_node_id": "130-apm-lifting-keel",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "APM lock cylinder (2 off)",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "17"
+      }
+    },
+    {
+      "myt_function": "18",
+      "function": "transom door",
+      "aliases": [
+        "transom door"
+      ],
+      "target_node_id": "260-transom-door",
+      "relation": "attach",
+      "cross_links": [
+        {
+          "relation": "actuated_by",
+          "target": "840-cariboni-hydraulic-cylinders"
+        }
+      ],
+      "actuator": "Cariboni CL 060 D 1000 (2 off)",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "18"
+      }
+    },
+    {
+      "myt_function": "19",
+      "function": "deck door",
+      "aliases": [
+        "deck door"
+      ],
+      "target_node_id": "260-deck-door",
+      "relation": "attach",
+      "cross_links": [
+        {
+          "relation": "actuated_by",
+          "target": "840-cariboni-hydraulic-cylinders"
+        }
+      ],
+      "actuator": "Cariboni CL 035 D 0450 (2 off)",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "19"
+      }
+    },
+    {
+      "myt_function": "20",
+      "function": "mainsheet traveller",
+      "aliases": [
+        "mainsheet traveller",
+        "traveller",
+        "traveler",
+        "mainsheet traveller cylinder"
+      ],
+      "target_node_id": "840-cariboni-hydraulic-cylinders",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "Cariboni CL 070 DS 1200",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "20"
+      }
+    },
+    {
+      "myt_function": "21",
+      "function": "mast winch fwd port",
+      "aliases": [
+        "mast winch fwd port"
+      ],
+      "target_node_id": "220-mast-winch-fwd-port",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "Harken B1111.3 HL / OMS100",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "21"
+      }
+    },
+    {
+      "myt_function": "22",
+      "function": "mast winch fwd stbd",
+      "aliases": [
+        "mast winch fwd stbd"
+      ],
+      "target_node_id": "220-mast-winch-fwd-stbd",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "Harken B1111.3 HL / OMS100",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "22"
+      }
+    },
+    {
+      "myt_function": "23",
+      "function": "mast winch aft port",
+      "aliases": [
+        "mast winch aft port"
+      ],
+      "target_node_id": "220-mast-winch-aft-port",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "Harken B1111.3 HL / OMS100",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "23"
+      }
+    },
+    {
+      "myt_function": "24",
+      "function": "mast winch aft stbd",
+      "aliases": [
+        "mast winch aft stbd"
+      ],
+      "target_node_id": "220-mast-winch-aft-stbd",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "Harken B1111.3 HL / OMS100",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "24"
+      }
+    },
+    {
+      "myt_function": "25",
+      "function": "primary winch port",
+      "aliases": [
+        "primary winch port"
+      ],
+      "target_node_id": "220-primary-winch-port",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "Harken B1235.3 ST CSAC HY",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "25"
+      }
+    },
+    {
+      "myt_function": "26",
+      "function": "primary winch stbd",
+      "aliases": [
+        "primary winch stbd"
+      ],
+      "target_node_id": "220-primary-winch-stbd",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "Harken B1235.3 ST CSAC HY",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "26"
+      }
+    },
+    {
+      "myt_function": "27",
+      "function": "secondary winch port",
+      "aliases": [
+        "secondary winch port"
+      ],
+      "target_node_id": "220-secondary-winch-port",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "Harken B1235.3 ST CSAC HY",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "27"
+      }
+    },
+    {
+      "myt_function": "28",
+      "function": "secondary winch stbd",
+      "aliases": [
+        "secondary winch stb",
+        "secondary winch stbd"
+      ],
+      "target_node_id": "220-secondary-winch-stbd",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "Harken B1235.3 ST CSAC HY",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "28"
+      }
+    },
+    {
+      "myt_function": "29",
+      "function": "bow thruster",
+      "aliases": [
+        "bow thruster"
+      ],
+      "target_node_id": "460-bow-thruster-oms-h300",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "OMS H-300 / Danfoss SNM2",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "29"
+      }
+    },
+    {
+      "myt_function": "30",
+      "function": "bow thruster lift",
+      "aliases": [
+        "bow thruster lift"
+      ],
+      "target_node_id": "460-bow-thruster-oms-h300",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "OMS H-300 / Linde",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "30"
+      }
+    },
+    {
+      "myt_function": "31",
+      "function": "bow thruster lock",
+      "aliases": [
+        "bow thruster lock cylinder",
+        "bow thruster lock"
+      ],
+      "target_node_id": "460-bow-thruster-oms-h300",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "OMS H-300 / CCH-71220-025",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "31"
+      }
+    },
+    {
+      "myt_function": "32",
+      "function": "stern thruster",
+      "aliases": [
+        "stern thruster"
+      ],
+      "target_node_id": "461-stern-thruster-oms-h250",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "OMS H-250 / Danfoss SNM2",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "32"
+      }
+    },
+    {
+      "myt_function": "33",
+      "function": "stern thruster lift",
+      "aliases": [
+        "stern thruster lift"
+      ],
+      "target_node_id": "461-stern-thruster-oms-h250",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "OMS H-250 / Linde",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "33"
+      }
+    },
+    {
+      "myt_function": "34",
+      "function": "stern thruster lock",
+      "aliases": [
+        "stern thruster lock cylinder",
+        "stern thruster lock"
+      ],
+      "target_node_id": "461-stern-thruster-oms-h250",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "OMS H-250 / CCH-71220-025",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "34"
+      }
+    },
+    {
+      "myt_function": "35",
+      "function": "tender hauling winch",
+      "aliases": [
+        "tender hauling winch",
+        "tender haul winch"
+      ],
+      "target_node_id": "270-tender-winch-warn-hy2000",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "WARN HY2000 - 68032",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "35"
+      }
+    },
+    {
+      "myt_function": "36",
+      "function": "tender car controller",
+      "aliases": [
+        "tender car controller",
+        "tender car"
+      ],
+      "target_node_id": "270-tender-car-antal-ld1500",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "ANTAL LD1500 HD",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "36"
+      }
+    },
+    {
+      "myt_function": "37",
+      "function": "mainsheet captive winch",
+      "aliases": [
+        "mainsheet captive winch",
+        "mainsheet captive",
+        "captive winch"
+      ],
+      "target_node_id": "220-captive-mainsheet-9t",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "Harken Air Captive 9T 930 HY CVS",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "37"
+      }
+    },
+    {
+      "myt_function": "38",
+      "function": "tensioner captive winch",
+      "aliases": [
+        "tensioner captive winch",
+        "tensioner captive",
+        "tensioner"
+      ],
+      "target_node_id": "220-captive-tensioner-ct1",
+      "relation": "attach",
+      "cross_links": [],
+      "actuator": "Harken CT1 tensioner",
+      "source": {
+        "source_doc": "108-01 Hydraulic Design Information-MYT-rev18b.pdf",
+        "drive_file_id": "1BjhABoLYBEU2Tysp-5jt9CcAWtaLSG2c",
+        "function_no": "38"
+      }
+    }
+  ],
+  "identity_resolution_note": "RTA (#3/#5) attaches to its Bamar unit (integrated capability, same model as the furler in the MYT table); unit cross-links tensions->830. Doors (#18/#19) attach to the door node (separate actuator: door has no own model, Cariboni cylinder is a different unit)."
+}

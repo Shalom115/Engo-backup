@@ -1,0 +1,1004 @@
+{
+  "vessel": "gelliceaux_001",
+  "status": "DRAFT_FOR_ENGINEER_REDPEN",
+  "built_at": "2026-07-02",
+  "source": {
+    "drawing": "GMMS 108'-111 +24V DC Distribution",
+    "note": "seeded from archived single (same drawing as current Oct-2023 book page); map = engineer-confirmed vocabulary, not a fact write"
+  },
+  "rule": "load-name -> equipment node. NEW:<id> = placeholder node to create (Register-first, Decision 4). Engineer red-pens every line before the map goes active.",
+  "entries": [
+    {
+      "load_name": "AFT GREY WATER PUMP",
+      "devices": [
+        "Q1(10A)"
+      ],
+      "panels": [
+        "EMERGENCY POWER SU"
+      ],
+      "proposed_node": "NEW:530-grey-water-pumps",
+      "rationale": "530 Grey water",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "PORT AFT GREY GUEST SUMP",
+      "devices": [
+        "Q2(20A)"
+      ],
+      "panels": [
+        "EMERGENCY POWER SU"
+      ],
+      "proposed_node": "NEW:530-sump-pumps",
+      "rationale": "530",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "STBD AFT GREY GUEST SUMP",
+      "devices": [
+        "Q3(20A)"
+      ],
+      "panels": [
+        "EMERGENCY POWER SU"
+      ],
+      "proposed_node": "NEW:530-sump-pumps",
+      "rationale": "530",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "AFT CREW SUMP PUMP",
+      "devices": [
+        "Q4(10A)"
+      ],
+      "panels": [
+        "EMERGENCY POWER SU"
+      ],
+      "proposed_node": "NEW:530-sump-pumps",
+      "rationale": "530",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "FWD CREW SUMP PUMP",
+      "devices": [
+        "Q5(10A)"
+      ],
+      "panels": [
+        "EMERGENCY POWER SU"
+      ],
+      "proposed_node": "NEW:530-sump-pumps",
+      "rationale": "530",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "AFT AIRCON SUMP PUMP",
+      "devices": [
+        "Q6(20A)"
+      ],
+      "panels": [
+        "EMERGENCY POWER SU"
+      ],
+      "proposed_node": "NEW:530-sump-pumps",
+      "rationale": "530",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "PORT AFT GUEST WC",
+      "devices": [
+        "Q7(20A)"
+      ],
+      "panels": [
+        "EMERGENCY POWER SU"
+      ],
+      "proposed_node": "NEW:540-wc-toilets",
+      "rationale": "540 Black water",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "STBD AFT GUEST WC",
+      "devices": [
+        "Q8(20A)"
+      ],
+      "panels": [
+        "EMERGENCY POWER SU"
+      ],
+      "proposed_node": "NEW:540-wc-toilets",
+      "rationale": "540 Black water",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "PORT CREW HEAD WC",
+      "devices": [
+        "Q9(20A)"
+      ],
+      "panels": [
+        "EMERGENCY POWER SU"
+      ],
+      "proposed_node": "NEW:540-wc-toilets",
+      "rationale": "540 Black water",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "STBD CREW HEAD WC",
+      "devices": [
+        "Q10(20A)"
+      ],
+      "panels": [
+        "EMERGENCY POWER SU"
+      ],
+      "proposed_node": "NEW:540-wc-toilets",
+      "rationale": "540 Black water",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "FWD BLACK WATER PUMP",
+      "devices": [
+        "Q11(32A)"
+      ],
+      "panels": [
+        "EMERGENCY POWER SU"
+      ],
+      "proposed_node": "NEW:540-black-water-pumps",
+      "rationale": "540 Black water",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "AFT BLACK WATER PUMP",
+      "devices": [
+        "Q12(32A)"
+      ],
+      "panels": [
+        "EMERGENCY POWER SU"
+      ],
+      "proposed_node": "NEW:540-black-water-pumps",
+      "rationale": "540 Black water",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "WATER TRANSFER VALVES",
+      "devices": [
+        "Q13(6A)"
+      ],
+      "panels": [
+        "EMERGENCY POWER SU"
+      ],
+      "proposed_node": "NEW:510-water-transfer-valves",
+      "rationale": "510",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "BILGE VALVES",
+      "devices": [
+        "Q14(10A)"
+      ],
+      "panels": [
+        "EMERGENCY POWER SU"
+      ],
+      "proposed_node": "NEW:520-bilge-valves",
+      "rationale": "520 Bilge and fire system",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "MANUAL FUEL PUMP",
+      "devices": [
+        "Q15(20A)"
+      ],
+      "panels": [
+        "EMERGENCY POWER SU"
+      ],
+      "proposed_node": "NEW:550-fuel-transfer",
+      "rationale": "550 Fuel and oil",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "FUEL / ENG. VENTILATION",
+      "devices": [
+        "Q16(10A)"
+      ],
+      "panels": [
+        "EMERGENCY POWER SU"
+      ],
+      "proposed_node": "NEW:599-ventilation-fans",
+      "rationale": "599 Ventilation",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "EMERGENCY STOP",
+      "devices": [
+        "Q17(6A)"
+      ],
+      "panels": [
+        "EMERGENCY POWER SU"
+      ],
+      "proposed_node": "NEW:650-emergency-stops",
+      "rationale": "650",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "FIRE ALARM",
+      "devices": [
+        "Q18(6A)"
+      ],
+      "panels": [
+        "EMERGENCY POWER SU"
+      ],
+      "proposed_node": "NEW:695-fire-alarm",
+      "rationale": "695 Fire system",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "PETROL VAPOUR ALARM",
+      "devices": [
+        "Q19(10A)"
+      ],
+      "panels": [
+        "EMERGENCY POWER SU"
+      ],
+      "proposed_node": "NEW:695-gas-alarms",
+      "rationale": "695",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "GAS / CO ALARM",
+      "devices": [
+        "Q20(10A)"
+      ],
+      "panels": [
+        "EMERGENCY POWER SU"
+      ],
+      "proposed_node": "UNKNOWN",
+      "rationale": "no proposal \u2014 engineer assigns",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "MYT HYDRAULICS",
+      "devices": [
+        "Q21(20A)",
+        "QE5(20A)"
+      ],
+      "panels": [
+        "EMERGENCY POWER SU"
+      ],
+      "proposed_node": "570-myt-systems-hydraulics",
+      "rationale": "existing",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "ONYX CONTROL",
+      "devices": [
+        "Q22(6A)",
+        "None(None)"
+      ],
+      "panels": [
+        "EMERGENCY POWER SU",
+        "PANEL (partial \u2014 b"
+      ],
+      "proposed_node": "NEW:650-onyx-monitoring",
+      "rationale": "650 Monitoring (ONYX)",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "NETWORK",
+      "devices": [
+        "None(A)"
+      ],
+      "panels": [
+        "PANEL (partial \u2014 b"
+      ],
+      "proposed_node": "NEW:730-network",
+      "rationale": "730 Comms",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "AUX VHF",
+      "devices": [
+        "None(A)"
+      ],
+      "panels": [
+        "PANEL (partial \u2014 b"
+      ],
+      "proposed_node": "NEW:730-vhf",
+      "rationale": "730 Comms",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "CCTV",
+      "devices": [
+        "None(A)"
+      ],
+      "panels": [
+        "PANEL (partial \u2014 b"
+      ],
+      "proposed_node": "NEW:720-cctv",
+      "rationale": "720",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "ONYX (AUTO FUEL TRANSFER PUMP)",
+      "devices": [
+        "None(A)"
+      ],
+      "panels": [
+        "PANEL (partial \u2014 b"
+      ],
+      "proposed_node": "NEW:550-fuel-transfer",
+      "rationale": "550 Fuel and oil",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "PASSARELLE",
+      "devices": [
+        "None(A)"
+      ],
+      "panels": [
+        "PANEL (partial \u2014 b"
+      ],
+      "proposed_node": "NEW:270-passerelle",
+      "rationale": "270 (no node yet)",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "WATER MAKER",
+      "devices": [
+        "CT9(A)"
+      ],
+      "panels": [
+        "PANEL (partial \u2014 b"
+      ],
+      "proposed_node": "NEW:510-watermaker",
+      "rationale": "510 Fresh water",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "AFT COMPANION WAY",
+      "devices": [
+        "None(None)"
+      ],
+      "panels": [
+        "PANEL (partial \u2014 b"
+      ],
+      "proposed_node": "UNKNOWN",
+      "rationale": "no proposal \u2014 engineer assigns",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "SALOON COMPANION WAY",
+      "devices": [
+        "None(None)"
+      ],
+      "panels": [
+        "PANEL (partial \u2014 b"
+      ],
+      "proposed_node": "NEW:690-lighting-circuits",
+      "rationale": "690",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "OIL TRANSFER PUMP",
+      "devices": [
+        "None(A)"
+      ],
+      "panels": [
+        "PANEL (partial \u2014 b"
+      ],
+      "proposed_node": "NEW:550-fuel-transfer",
+      "rationale": "550 Fuel and oil",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "AUTOPILOT PUMP",
+      "devices": [
+        "CT10(A)"
+      ],
+      "panels": [
+        "PANEL (partial \u2014 b"
+      ],
+      "proposed_node": "150-marsili-autopilot",
+      "rationale": "existing",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "AFT DC SOCKET",
+      "devices": [
+        "None(A)"
+      ],
+      "panels": [
+        "PANEL (partial \u2014 b"
+      ],
+      "proposed_node": "NEW:690-dc-sockets",
+      "rationale": "690",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "GALVANIC CONTROL",
+      "devices": [
+        "None(A)"
+      ],
+      "panels": [
+        "PANEL (partial \u2014 b"
+      ],
+      "proposed_node": "NEW:670-galvanic-control",
+      "rationale": "670 Earthing/cathodic",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "UV STERILISER",
+      "devices": [
+        "None(A)"
+      ],
+      "panels": [
+        "PANEL (partial \u2014 b"
+      ],
+      "proposed_node": "NEW:510-uv-steriliser",
+      "rationale": "510",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "DC AFT SOCKETS",
+      "devices": [
+        "None(A)"
+      ],
+      "panels": [
+        "PANEL (partial \u2014 b"
+      ],
+      "proposed_node": "NEW:690-dc-sockets",
+      "rationale": "690",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "NAVIGATION LTS",
+      "devices": [
+        "None(None)"
+      ],
+      "panels": [
+        "PANEL (partial \u2014 b"
+      ],
+      "proposed_node": "NEW:690-lighting-circuits",
+      "rationale": "690",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "COURTESY LTS",
+      "devices": [
+        "None(None)"
+      ],
+      "panels": [
+        "PANEL (partial \u2014 b"
+      ],
+      "proposed_node": "NEW:690-lighting-circuits",
+      "rationale": "690",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "ENG. ROOM / LAZ. / TRANSOM LTS",
+      "devices": [
+        "None(A)"
+      ],
+      "panels": [
+        "PANEL (partial \u2014 b"
+      ],
+      "proposed_node": "NEW:690-lighting-circuits",
+      "rationale": "690",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "YACHTICA SYSTEM",
+      "devices": [
+        "None(A)"
+      ],
+      "panels": [
+        "PANEL (partial \u2014 b"
+      ],
+      "proposed_node": "NEW:690-yachtica-lighting",
+      "rationale": "690 Lights (Yachtica)",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "GALLEY LIGHTS",
+      "devices": [
+        "None(A)"
+      ],
+      "panels": [
+        "PANEL (partial \u2014 b"
+      ],
+      "proposed_node": "NEW:690-lighting-circuits",
+      "rationale": "690",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "PORT/STBD CREW LTS",
+      "devices": [
+        "None(A)"
+      ],
+      "panels": [
+        "PANEL (partial \u2014 b"
+      ],
+      "proposed_node": "NEW:690-lighting-circuits",
+      "rationale": "690",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "STBD CREW LIGHTS",
+      "devices": [
+        "None(A)"
+      ],
+      "panels": [
+        "PANEL (partial \u2014 b"
+      ],
+      "proposed_node": "NEW:690-lighting-circuits",
+      "rationale": "690",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "PORT AFT GUEST LIGHTS",
+      "devices": [
+        "None(A)"
+      ],
+      "panels": [
+        "PANEL (partial \u2014 b"
+      ],
+      "proposed_node": "NEW:690-lighting-circuits",
+      "rationale": "690",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "STBD AFT GUEST LIGHTS",
+      "devices": [
+        "None(A)"
+      ],
+      "panels": [
+        "PANEL (partial \u2014 b"
+      ],
+      "proposed_node": "NEW:690-lighting-circuits",
+      "rationale": "690",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "FWD GREY WATER PUMP",
+      "devices": [
+        "None(None)"
+      ],
+      "panels": [
+        "FWD PANEL DC BREAK"
+      ],
+      "proposed_node": "NEW:530-grey-water-pumps",
+      "rationale": "530 Grey water",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "MAST BILGE PUMP",
+      "devices": [
+        "None(None)"
+      ],
+      "panels": [
+        "FWD PANEL DC BREAK"
+      ],
+      "proposed_node": "NEW:520-bilge-pumps",
+      "rationale": "520 (Feit/Gianneschi conflict cf-002 lives here)",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "AUX BILGE PUMP ENG. ROOM",
+      "devices": [
+        "None(None)"
+      ],
+      "panels": [
+        "FWD PANEL DC BREAK"
+      ],
+      "proposed_node": "NEW:520-bilge-pumps",
+      "rationale": "520 (Feit/Gianneschi conflict cf-002 lives here)",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "OWNERS SUMP PUMP",
+      "devices": [
+        "None(None)"
+      ],
+      "panels": [
+        "FWD PANEL DC BREAK"
+      ],
+      "proposed_node": "NEW:530-sump-pumps",
+      "rationale": "530",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "FWD GUEST SUMP PUMP",
+      "devices": [
+        "None(None)"
+      ],
+      "panels": [
+        "FWD PANEL DC BREAK"
+      ],
+      "proposed_node": "NEW:530-sump-pumps",
+      "rationale": "530",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "OWNERS WC",
+      "devices": [
+        "None(None)"
+      ],
+      "panels": [
+        "FWD PANEL DC BREAK"
+      ],
+      "proposed_node": "NEW:540-wc-toilets",
+      "rationale": "540 Black water",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "FWD GUEST WC",
+      "devices": [
+        "None(None)"
+      ],
+      "panels": [
+        "FWD PANEL DC BREAK"
+      ],
+      "proposed_node": "NEW:540-wc-toilets",
+      "rationale": "540 Black water",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "SAIL LKR LTS",
+      "devices": [
+        "None(None)"
+      ],
+      "panels": [
+        "FWD PANEL DC BREAK"
+      ],
+      "proposed_node": "NEW:690-lighting-circuits",
+      "rationale": "690",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "MAST LTS",
+      "devices": [
+        "None(None)"
+      ],
+      "panels": [
+        "FWD PANEL DC BREAK"
+      ],
+      "proposed_node": "NEW:690-lighting-circuits",
+      "rationale": "690",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "BOOM LTS",
+      "devices": [
+        "None(None)"
+      ],
+      "panels": [
+        "FWD PANEL DC BREAK"
+      ],
+      "proposed_node": "NEW:690-lighting-circuits",
+      "rationale": "690",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "DC SOCKETS",
+      "devices": [
+        "None(None)"
+      ],
+      "panels": [
+        "FWD PANEL DC BREAK"
+      ],
+      "proposed_node": "NEW:690-dc-sockets",
+      "rationale": "690",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "FOG HORN",
+      "devices": [
+        "None(None)"
+      ],
+      "panels": [
+        "FWD PANEL DC BREAK"
+      ],
+      "proposed_node": "NEW:730-fog-horn-kahlenberg",
+      "rationale": "730 (Kahlenberg S330 per mast layout)",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "CAPTIVE WINCH",
+      "devices": [
+        "None(None)",
+        "None(None)"
+      ],
+      "panels": [
+        "FWD PANEL DC BREAK"
+      ],
+      "proposed_node": "220-captive-winch",
+      "rationale": "existing",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "DECK LTS",
+      "devices": [
+        "None(None)"
+      ],
+      "panels": [
+        "FWD PANEL DC BREAK"
+      ],
+      "proposed_node": "NEW:690-lighting-circuits",
+      "rationale": "690",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "SALOON LTS",
+      "devices": [
+        "None(None)"
+      ],
+      "panels": [
+        "FWD PANEL DC BREAK"
+      ],
+      "proposed_node": "NEW:690-lighting-circuits",
+      "rationale": "690",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "SALOON/STUDIO LTS",
+      "devices": [
+        "None(None)"
+      ],
+      "panels": [
+        "FWD PANEL DC BREAK"
+      ],
+      "proposed_node": "NEW:690-lighting-circuits",
+      "rationale": "690",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "OWNERS LTS",
+      "devices": [
+        "None(None)"
+      ],
+      "panels": [
+        "FWD PANEL DC BREAK"
+      ],
+      "proposed_node": "NEW:690-lighting-circuits",
+      "rationale": "690",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "PORT FWD GUEST LTS",
+      "devices": [
+        "None(None)"
+      ],
+      "panels": [
+        "FWD PANEL DC BREAK"
+      ],
+      "proposed_node": "NEW:690-lighting-circuits",
+      "rationale": "690",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "FWD EMERGENCY LTS SUPPLY",
+      "devices": [
+        "None(None)"
+      ],
+      "panels": [
+        "FWD PANEL DC BREAK"
+      ],
+      "proposed_node": "NEW:690-lighting-circuits",
+      "rationale": "690",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "EMERGENCY SUPPLY",
+      "devices": [
+        "QE1(32A)"
+      ],
+      "panels": [
+        "EMERGENCY POWER SU"
+      ],
+      "proposed_node": "NEW:690-emergency-lighting",
+      "rationale": "690",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "ENG.ROOM GAS RELEASE ALARM",
+      "devices": [
+        "QE2(6A)"
+      ],
+      "panels": [
+        "EMERGENCY POWER SU"
+      ],
+      "proposed_node": "UNKNOWN",
+      "rationale": "no proposal \u2014 engineer assigns",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "GAS/CO2/PETROL VAPOUR ALARM",
+      "devices": [
+        "QE3(10A)"
+      ],
+      "panels": [
+        "EMERGENCY POWER SU"
+      ],
+      "proposed_node": "NEW:695-gas-alarms",
+      "rationale": "695",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "SERVICE BAT. VENTILATION",
+      "devices": [
+        "QE4(10A)"
+      ],
+      "panels": [
+        "EMERGENCY POWER SU"
+      ],
+      "proposed_node": "NEW:599-ventilation-fans",
+      "rationale": "599 Ventilation",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "FWD PANEL EM SUPPLY",
+      "devices": [
+        "QE6(20A)"
+      ],
+      "panels": [
+        "EMERGENCY POWER SU"
+      ],
+      "proposed_node": "UNKNOWN",
+      "rationale": "no proposal \u2014 engineer assigns",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "NAV. LIGHTS",
+      "devices": [
+        "<UNKNOWN>(A)"
+      ],
+      "panels": [
+        "+24 V DC DISTRIBUT"
+      ],
+      "proposed_node": "NEW:690-lighting-circuits",
+      "rationale": "690",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "EMERGENCY LTS",
+      "devices": [
+        "<UNKNOWN>(A)"
+      ],
+      "panels": [
+        "+24 V DC DISTRIBUT"
+      ],
+      "proposed_node": "NEW:690-lighting-circuits",
+      "rationale": "690",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "NAVTEX",
+      "devices": [
+        "<UNKNOWN>(A)"
+      ],
+      "panels": [
+        "+24 V DC DISTRIBUT"
+      ],
+      "proposed_node": "NEW:730-navtex",
+      "rationale": "730 Comms",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "CHART TABLE LT",
+      "devices": [
+        "<UNKNOWN>(A)"
+      ],
+      "panels": [
+        "+24 V DC DISTRIBUT"
+      ],
+      "proposed_node": "NEW:710-nav-station",
+      "rationale": "710",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "BILGE PUMP",
+      "devices": [
+        "F7(60A)"
+      ],
+      "panels": [
+        "<UNKNOWN>"
+      ],
+      "proposed_node": "NEW:520-bilge-pumps",
+      "rationale": "520 (Feit/Gianneschi conflict cf-002 lives here)",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "FIRE PUMP",
+      "devices": [
+        "F8(60A)"
+      ],
+      "panels": [
+        "<UNKNOWN>"
+      ],
+      "proposed_node": "NEW:520-fire-pump",
+      "rationale": "520 Bilge and fire",
+      "engineer_decision": "",
+      "status": "draft"
+    },
+    {
+      "load_name": "TENDER WINCH",
+      "devices": [
+        "F?(50A)"
+      ],
+      "panels": [
+        "<UNKNOWN>"
+      ],
+      "proposed_node": "270-tender-winch-warn-hy2000",
+      "rationale": "existing",
+      "engineer_decision": "",
+      "status": "draft"
+    }
+  ]
+}

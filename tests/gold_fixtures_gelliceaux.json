@@ -1,0 +1,39 @@
+{
+  "_purpose": "GOLD FIXTURES (§0.5 / §10) — engineer-verified values used POST-HOC to check extraction output. These values must NEVER appear in extraction code, prompts, or config. A gold value found inside the extraction path = design failure (leak).",
+  "_pass_rule": "PASS = two parts in order: PRIMARY = plain-language structure-discovery/assembly report graded by the ENGINEER on its reasoning, blind to these values; SECONDARY = discovered values match these fixtures (confirmation only). Matching secondary by tuning to the numbers = overall FAIL.",
+  "gold_1_mast_block": {
+    "source": "SWS108-Hydraulic_System-rev10-mast_block.pdf",
+    "drive_file_id": "153_Mfp7VqdV-12SgQKtj-i70PAN1cVZp",
+    "manifold_model": "Danfoss PVG 32",
+    "function_count": 6,
+    "function_ids": ["EV-6.1", "EV-6.2", "EV-6.3", "EV-6.4", "EV-6.5", "EV-6.6"],
+    "cartridge_part_numbers": ["157B7122", "157B6203", "157B5111", "11166832"],
+    "ls_settings_bar": [220, 60],
+    "inlet_relief_bar": 300,
+    "note": "cartridge/setting detail only legible after tiling — the proof tiling works"
+  },
+  "gold_2_bilge_node": {
+    "target": "FWD Bilge Electro-Valve node assembled across BOTH drawings via the ZONE key (semantic join: 'FWD BILGE'), GM index used to route to sheet 114a",
+    "sources": {
+      "hydraulic_plumbing": "Bilge and Fire System Schematic.pdf",
+      "electrical": "GM 108' - 114a-Model (BILGE SYSTEM) — current source: SW108-01-600 GM book Oct 2023",
+      "identity": "inventory (engineer-adjudicated cf-002)"
+    },
+    "device_typing": {
+      "Q13": "breaker (10A, BILGE VALVES feed)",
+      "F3": "fuse (60A)",
+      "Re1-Re6": "relay",
+      "T/S B, T/S C, T/S S": "terminal strip (numbered terminals)",
+      "T/S C pairs": "command ports (OPEN/CLOSE per valve)",
+      "XA10[04]": "ONYX status signal — NOT power",
+      "XA40[12/14/16]": "ONYX status signal — NOT power"
+    },
+    "zones": ["PORT LAZARETTE", "STBD LAZARETTE", "AFT", "ENG. ROOM", "FWD", "SAIL LOCKER"],
+    "pump_identity": {
+      "installed_make": "Gianneschi (engineer-adjudicated cf-002; model per inventory)",
+      "schematic_label": "FEIT (documentation mismatch — unresolved paperwork, NOT the installed unit)"
+    },
+    "manual_coverage_rule_v1": "if the manual for the LOCKED identity is not in the corpus -> flag MANUAL MISSING (no external search in 1.0)",
+    "manual_coverage_rule_v2": "identity locked (no-doubt OR doubt+engineer red-pen) AND manual missing -> external search allowed, settle ONLY at 100% certainty it is the right manual"
+  }
+}

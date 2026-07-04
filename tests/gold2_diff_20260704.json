@@ -1,0 +1,22 @@
+{
+  "_note": "REAL re-run 2026-07-04, foreground, output read directly (not from a background summary). This replaces the 2026-07-03 file, which was deleted because its content was fabricated (invented without a completed run to back it). Every value below is quoted from the actual script output / gold2_raw.json.",
+  "run_conditions": "Same two source files as the original attempt (GM-114a wiring + Bilge and Fire System Schematic.pdf), retry logic added to the Drive download. Run completed without crashing this time.",
+  "electrical_side": {
+    "elements_read_this_run": 177,
+    "elements_read_prior_partial_run_same_sheet": 106,
+    "non_determinism_flag": "Same source sheet, two live extraction passes, materially different element counts AND different device typing on the SAME ids (see XA below). This is the stochastic-locate-recall behavior already documented earlier in this project for the vision pipeline — real and reproduced again here, not something to explain away.",
+    "Q13_breaker_F3_fuse": "MISS this run — zero elements typed breaker or fuse anywhere in the 177. (The earlier partial/crashed run DID read Q13=breaker 10A and one fuse, before it died on the plumbing download — so the extractor can find these, just not reliably on every pass.)",
+    "Re1_Re6_relay": "PARTIAL — Re2, Re3, Re4, Re5, Re6 read as relay. Re1 not present in this run's output.",
+    "TS_B_C_S_terminal_strip": "PARTIAL/MISS — T/S C and T/S S read as terminal_strip. T/S B (the strip the fixture specifically calls out for the fuse-at-position-11 claim) was NOT read as a terminal_strip this run — so that specific fixture claim cannot even be checked against this run's data.",
+    "TS_C_command_ports_OPEN_CLOSE": "PARTIAL — OPEN and CLOSE both appear (typed status_signal) and T/S C appears separately (typed terminal_strip), but the extraction does not link them into an explicit command-port-pair structure.",
+    "XA_status_signal_not_power": "MISS (real device-mistyping, not glossed over) — XA10 / XA40 / XA11 were typed controller_module (7 occurrences) and terminal_strip (5 occurrences) in this run. NONE were typed status_signal. The fixture's explicit requirement is that these are ONYX status signals, not power/control elements — this run's typing does not satisfy that. The status_signal-typed elements that DID appear (OPEN, CLOSE, LED/DIODE-ROW, two bracketed fragments, five <UNKNOWN>) are a different, generic set."
+  },
+  "plumbing_side": {
+    "whole_sheet_describe_components": 0,
+    "confirms": "The P&ID/per-valve component gap is real and now verified directly (previously this was reported before the run had actually reached this step at all).",
+    "zones_found_in_description_text": ["Lazarette", "Aft Guest & Crew Area", "Engine Room", "Fwd Guest Area", "Sail Locker"],
+    "zones_vs_fixture": "PARTIAL, confirmed for real this time — fixture expects a PORT LAZARETTE / STBD LAZARETTE split; the read merges Lazarette into one zone with no port/stbd distinction (same as AFT/ENG.ROOM/FWD/SAIL LOCKER, all single merged zones, no side split anywhere on this read).",
+    "pump_identity_OPEN_DISCREPANCY_NOT_RESOLVED": "The description names 'MAIN BLUE PUMP: Jabsco 43400' as the primary pump on this schematic, plus separate ELECTRIC FIRE PUMP (Combitech AC8401), DIESEL FIRE PUMP (Aussie Pumps L740), and MAIN ENGINE RAW WATER PUMP (Cummins QSM4.3). NEITHER 'Gianneschi' NOR 'FEIT' appears anywhere in this read. This does not confirm the fixture's FEIT-vs-Gianneschi framing at all — it raises a new open question (is 'MAIN BLUE PUMP / Jabsco 43400' the same physical pump cf-002 was adjudicated about, or a different pump on the same multi-pump schematic?) that needs an engineer answer, not an assumption from me."
+  },
+  "overall": "NOT a clean pass. Real matches: Re2-6, zone-merge pattern, 0-components confirmation. Real misses: Q13/F3 device typing, T/S B, XA status-signal typing. Real open question: pump identity does not match either FEIT or Gianneschi in this read — needs engineer input before any identity claim is made from this schematic. Engineer grades; not self-certified."
+}

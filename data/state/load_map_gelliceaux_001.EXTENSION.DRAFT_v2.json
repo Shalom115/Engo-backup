@@ -1,0 +1,1755 @@
+{
+  "vessel": "gelliceaux_001",
+  "status": "DRAFT_v2_FOR_REDPEN",
+  "built": "2026-07-03",
+  "note": "batch-1 unresolved loads WITH proposals (lighting+cockpit already applied per engineer). NEW: = node to create. Engineer red-pens.",
+  "special": "VCP (p43): propose NEW hub node 641-vessel-control-panel with cross-links to everything it switches \u2014 the connects-many-boards hub the engineer described. Mode switches (S3/S4/S5) = operating-mode facts (ties to the future operational-mode feature).",
+  "sheets": [
+    {
+      "page": 3,
+      "sheet": "GMMS 108'-101 SHORE POWER INPUT",
+      "loads": [
+        {
+          "load": "None LINE VOLTAGE (Voltmeter V)",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None Frequency Meter (Hz)",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None 24V Supply",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None Re (Relay/Resistor Re)",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        }
+      ]
+    },
+    {
+      "page": 4,
+      "sheet": "GMMS 108'-101a 230V AC SERVICE SUPPLY",
+      "loads": [
+        {
+          "load": "BEL-1 PORT BEL-1 600V DC / 230V AC",
+          "proposed": "NEW:629-bel-1p/-2p/-1s/-2s (FOUR nodes \u2014 per-installation)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "BEL-2 PORT BEL-2 600V DC / 230V AC",
+          "proposed": "NEW:629-bel-1p/-2p/-1s/-2s (FOUR nodes \u2014 per-installation)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "BEL-1 BEL-1 Converter (600V DC / 230V AC)",
+          "proposed": "NEW:629-bel-1p/-2p/-1s/-2s (FOUR nodes \u2014 per-installation)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "BEL-2 BEL-2 Converter (600V DC / 230V AC)",
+          "proposed": "NEW:629-bel-1p/-2p/-1s/-2s (FOUR nodes \u2014 per-installation)",
+          "engineer_decision": ""
+        }
+      ]
+    },
+    {
+      "page": 5,
+      "sheet": "GMMS 108'-102 230V AC POWER DISTRIBUTION",
+      "loads": [
+        {
+          "load": "#1 #1 SERVICES",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "#2 #2 SERVICES",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "#3 AIR-CON",
+          "proposed": "590 aircon (existing subsystem \u2014 node: Termodinamica)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "#4 ENTERTAINMENT",
+          "proposed": "720-entertainment (NEW under 720)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "#5 CHARGERS",
+          "proposed": "630-mastervolt-batteries-chargers",
+          "engineer_decision": ""
+        },
+        {
+          "load": "#6 BAE COOLING",
+          "proposed": "NEW:625-bae-cooling-pumps (the 7 circulation pumps BCP/MCP/ECP/HCP\u2026)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "#7 AFT OUTLETS",
+          "proposed": "NEW:692a-230v-outlets (230V \u2014 separate from DC sockets)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "#8 GALLEY 1",
+          "proposed": "360 galley (existing subsystem)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "#9 GALLEY 2",
+          "proposed": "360 galley (existing subsystem)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "<UNKNOWN> AUX POWER SUPPLY",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None EARTH LEAKAGE 1",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None EARTH LEAKAGE 2",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None EARTH LEAKAGE 3",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q1 NAV. STATION ENTERTAINMENT",
+          "proposed": "720-entertainment (NEW under 720)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None EARTH LEAKAGE 4",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q3 ELECTRONICS (MAST BASE)",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q4 to AFT DB PANEL",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None START BAT. CHARGER",
+          "proposed": "630-mastervolt-batteries-chargers",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None EARTH LEAKAGE 5",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None EMERGENCY BAT. CHARGER",
+          "proposed": "630-mastervolt-batteries-chargers",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None EARTH LEAKAGE 6",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None GMDSS BAT. CHARGER",
+          "proposed": "630-mastervolt-batteries-chargers",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None EARTH LEAKAGE 7",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None PORT SEAWATER COOLING",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None EARTH LEAKAGE 8",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None STBD SEAWATER COOLING",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None EARTH LEAKAGE 9",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None CPP SEAWATER COOLING",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None EARTH LEAKAGE 10",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None CPP OIL",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None EARTH LEAKAGE 11",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None CPP OIL BOOST",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None EARTH LEAKAGE 12",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q7 PORT AFT GUEST CAB.",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q8 STBD AFT GUEST CAB.",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q9 SALOON",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q10 PORT FWD GUEST CAB.",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q11 STUDIO",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q12 OWNERS CAB.",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q13 YACHTICA LIGHTS",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q14 AIR-CON FAN COILS",
+          "proposed": "590 aircon (existing subsystem \u2014 node: Termodinamica)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q15 WATER MAKER 1 (ENG.ROOM)",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CT11 FWD WATER HEATER (OWNERS CAB.) / AFT WATER HEATER (PORT GUEST CAB.)",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q16 FWD WATER HEATER (OWNERS CAB.)",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q17 AFT WATER HEATER (PORT GUEST CAB.)",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CT12 ENG.ROOM BLOWER / ENG.ROOM EXTRACTOR",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q18 ENG.ROOM BLOWER",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q19 ENG.ROOM EXTRACTOR",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q20 AIRCON 1",
+          "proposed": "590 aircon (existing subsystem \u2014 node: Termodinamica)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q21 AIRCON 2",
+          "proposed": "590 aircon (existing subsystem \u2014 node: Termodinamica)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q22 FRESH WATER PUMP 1",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q23 FRESH WATER PUMP 2",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q24 REFRIGERATION SUPPLY",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q25 SALT WATER PUMP",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q26 WINE COOLER",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q28 AIR COMPRESSOR",
+          "proposed": "630 (ESS = Akasol; node exists in 630)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q29 SALOON UV STERILISER",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q30 LAZ / TECH-ROOM / SAIL LKR",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q31 ENGINE ROOM",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q32 DECK FRIDGE",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q34 ESS VENTILATION TENDERGARAGE",
+          "proposed": "630 (ESS = Akasol; node exists in 630)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q35 WiFi",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q36 STARLINK (MAST BASE)",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        }
+      ]
+    },
+    {
+      "page": 6,
+      "sheet": "GMMS 108'-102a 230V AFT DISTRIBUTION PANEL",
+      "loads": [
+        {
+          "load": "<UNKNOWN> AFT OUTLETS",
+          "proposed": "NEW:692a-230v-outlets (230V \u2014 separate from DC sockets)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "<UNKNOWN> GALLEY 1",
+          "proposed": "360 galley (existing subsystem)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "<UNKNOWN> GALLEY 2",
+          "proposed": "360 galley (existing subsystem)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "<UNKNOWN> OVEN",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q2 DISHWASHER 3 KW",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q3 WASHING MASHINE",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q4 DRYER",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q5 STEAM OVEN",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q6 ZIP WATER DISPENSER",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q7 MASERATOR",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q8 DIVING COMPRESSOR",
+          "proposed": "630 (ESS = Akasol; node exists in 630)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q9 WINE COOLER GALLEY",
+          "proposed": "360 galley (existing subsystem)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q10 GALLEY OUTLETS (EXTRACTOR)",
+          "proposed": "360 galley (existing subsystem)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q11 NAV. STATION OUTLETS",
+          "proposed": "NEW:692a-230v-outlets (230V \u2014 separate from DC sockets)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q12 PORT/STBD CREW OUTLETS (PRIMARY VENTILATION 0.5KW)",
+          "proposed": "NEW:692a-230v-outlets (230V \u2014 separate from DC sockets)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q13 LAZARETTE OUTLETS",
+          "proposed": "NEW:692a-230v-outlets (230V \u2014 separate from DC sockets)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q14 BLAST CHILLER",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q17 INDUCTION HOB",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        }
+      ]
+    },
+    {
+      "page": 7,
+      "sheet": "GMMS 108'-103 BAE / ELNA GROUNDING",
+      "loads": [
+        {
+          "load": "None ESS",
+          "proposed": "630 (ESS = Akasol; node exists in 630)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None PORT BEL-2",
+          "proposed": "NEW:629-bel-1p/-2p/-1s/-2s (FOUR nodes \u2014 per-installation)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None PORT MAPS-1/2",
+          "proposed": "NEW:626-maps (Modular Aux Power System, P+S)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None BEL-2",
+          "proposed": "NEW:629-bel-1p/-2p/-1s/-2s (FOUR nodes \u2014 per-installation)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None EMRAX 1",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None MAPS-1/2",
+          "proposed": "NEW:626-maps (Modular Aux Power System, P+S)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None EMRAX 2",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "<UNKNOWN> 230V AC GROUND",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "<UNKNOWN> PORT FUEL FILLER",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        }
+      ]
+    },
+    {
+      "page": 9,
+      "sheet": "GMMS 108'-110a 24V DC SERVICE SUPPLY",
+      "loads": [
+        {
+          "load": "F1 PORT S-1/2 2x5KW (100V DC / 24V DC)",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "F3 STBD S-1/2 2x5KW (100V DC / 24V DC)",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        }
+      ]
+    },
+    {
+      "page": 10,
+      "sheet": "GMMS 108'-110b AUX 24V START / AUX LV SUPPLY",
+      "loads": [
+        {
+          "load": "<UNKNOWN> CHART TABLE HMI",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB2 MPCS-P",
+          "proposed": "620-modular-propulsion-control-system-mpcs",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB3 MAPS-P",
+          "proposed": "NEW:626-maps (Modular Aux Power System, P+S)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB4 EDN-P",
+          "proposed": "NEW:627-edn-shore-charger",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB14 MCP-P PUMP",
+          "proposed": "NEW:625-bae-cooling-pumps (the 7 circulation pumps BCP/MCP/ECP/HCP\u2026)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB15 ECP-P PUMP",
+          "proposed": "NEW:625-bae-cooling-pumps (the 7 circulation pumps BCP/MCP/ECP/HCP\u2026)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB21 SEA WATER PUMP",
+          "proposed": "515 raw water (existing subsystem)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB10 ACTM (GPM-12)",
+          "proposed": "420-gpm-12-drive-motor",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB11 CCP PVED VALVE A / PVED VALVE B",
+          "proposed": "430-hundested-cpp-sterngear",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB12 SCU CONTROL",
+          "proposed": "NEW:628-scu3 (System Control Unit)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB13 SCU",
+          "proposed": "NEW:628-scu3 (System Control Unit)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CBx1 CP SWITCH",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CBx2 ESS (Re6)",
+          "proposed": "630 (ESS = Akasol; node exists in 630)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CBx3 HVIL",
+          "proposed": "625 BAE system (HVIL interlock fact)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CBx4 BEL CAN BUS ISOLATORS",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CBx8 CPP OIL",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CBx9 CONDUCTIVITY PROCESSOR",
+          "proposed": "630 (ESS = Akasol; node exists in 630)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CBx11 BEL-SYNC",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB19 BCP (ESS) PUMP",
+          "proposed": "630 (ESS = Akasol; node exists in 630)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB18 MCP-S PUMP",
+          "proposed": "NEW:625-bae-cooling-pumps (the 7 circulation pumps BCP/MCP/ECP/HCP\u2026)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB16 MCP (MOTOR) PUMP",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB17 ECP-S PUMP",
+          "proposed": "NEW:625-bae-cooling-pumps (the 7 circulation pumps BCP/MCP/ECP/HCP\u2026)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB20 HYDRAULICS",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB23 CPP (PITCH) PUMP",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CBx15 DTLGR",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CBx16 BAT. COOLING PUMP BCP AXIOMATIC",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CBx17 PARKER DISPLAY",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CBx18 MC43 POWER",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        }
+      ]
+    },
+    {
+      "page": 11,
+      "sheet": "GMMS 108'-110c AUX 24V GENERATOR START",
+      "loads": [
+        {
+          "load": "F10 GMDSS BAT.",
+          "proposed": "NEW:631-battery-gmdss",
+          "engineer_decision": ""
+        },
+        {
+          "load": "F12 EMERGENCY BAT.",
+          "proposed": "NEW:632-battery-emergency",
+          "engineer_decision": ""
+        },
+        {
+          "load": "F14 GEN START BAT.",
+          "proposed": "NEW:633-battery-gen-start",
+          "engineer_decision": ""
+        },
+        {
+          "load": "F16 AUX SERVICE BAT.",
+          "proposed": "NEW:634-battery-aux-service",
+          "engineer_decision": ""
+        },
+        {
+          "load": "<UNKNOWN> EARTH LEAKAGE 13",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "<UNKNOWN> GEN START BAT. (Charger)",
+          "proposed": "NEW:633-battery-gen-start",
+          "engineer_decision": ""
+        },
+        {
+          "load": "<UNKNOWN> EMERGENCY BAT. (Charger)",
+          "proposed": "NEW:632-battery-emergency",
+          "engineer_decision": ""
+        }
+      ]
+    },
+    {
+      "page": 12,
+      "sheet": "GMMS 108'-110d BAE LVPDU",
+      "loads": [
+        {
+          "load": "None LV5-9",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None LV5-11",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None LV5-10",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None LV5-12",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None LV5-20",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None LV5-22",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "G3-51R1 BEL1-P",
+          "proposed": "NEW:629-bel-1p/-2p/-1s/-2s (FOUR nodes \u2014 per-installation)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "G3-52R1 BEL2-P",
+          "proposed": "NEW:629-bel-1p/-2p/-1s/-2s (FOUR nodes \u2014 per-installation)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "G3-53R1 BEL1-S",
+          "proposed": "NEW:629-bel-1p/-2p/-1s/-2s (FOUR nodes \u2014 per-installation)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "G3-54R1 BEL2-S",
+          "proposed": "NEW:629-bel-1p/-2p/-1s/-2s (FOUR nodes \u2014 per-installation)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB9 T/S BA",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CBx.2 G3-41P1",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "SCU3 G3-4145",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "SCU3 G3-4144",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB11 G3-g1P1",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB11 G3-g1R1",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB11 G3-g1P2",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB11 G3-g1R2",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB11 G3-g1R3",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB13 G3-11P1",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB13 G3-11R1",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CBx.3 HVIL",
+          "proposed": "625 BAE system (HVIL interlock fact)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CBx.4 BELL CAN BU",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CBx.13 G3-f1P1",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CBx.14 G3-f2P1",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CBx.15 G3-61P1",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CBx.16 G3-91P1",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CBx.17 PARK",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CBx.18 G3-96P1",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "SW-PWR BUS-B",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        }
+      ]
+    },
+    {
+      "page": 13,
+      "sheet": "GMMS 108'-110e BAE LVPDU SYSTEM COOLING",
+      "loads": [
+        {
+          "load": "CB14 G3-P1P1 / G3-P1R1 / G3-P129",
+          "proposed": "NEW:625-bae-cooling-pumps (the 7 circulation pumps BCP/MCP/ECP/HCP\u2026)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB15 G3-P2P1 / G3-P2R1 / G3-P229",
+          "proposed": "NEW:625-bae-cooling-pumps (the 7 circulation pumps BCP/MCP/ECP/HCP\u2026)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB16 G3-P3P1 / G3-P3R1 / G3-P329",
+          "proposed": "NEW:625-bae-cooling-pumps (the 7 circulation pumps BCP/MCP/ECP/HCP\u2026)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB17 G3-P4P1 / G3-P4R1 / G3-P429",
+          "proposed": "NEW:625-bae-cooling-pumps (the 7 circulation pumps BCP/MCP/ECP/HCP\u2026)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB18 G3-P5P1 / G3-P5R1 / G3-P529",
+          "proposed": "NEW:625-bae-cooling-pumps (the 7 circulation pumps BCP/MCP/ECP/HCP\u2026)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB19 G3-P6P1 / G3-P6R1 / G3-P629",
+          "proposed": "NEW:625-bae-cooling-pumps (the 7 circulation pumps BCP/MCP/ECP/HCP\u2026)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB20 G3-P703 / G3-P704 / G3-P729 / G3-e129",
+          "proposed": "NEW:625-bae-cooling-pumps (the 7 circulation pumps BCP/MCP/ECP/HCP\u2026)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB21 Re4",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB22 Re5",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CB23 K3",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "CBx.8 CPP OIL S / K1 (G3-g1P1) / CPP OIL F / K2 (G3-g1P1) / BCP AXIO-B BLK 9",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "ECP1 / PWR-3 MAPS-P",
+          "proposed": "NEW:626-maps (Modular Aux Power System, P+S)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "ECP1 / PWR-2 BEL1/2-P",
+          "proposed": "NEW:629-bel-1p/-2p/-1s/-2s (FOUR nodes \u2014 per-installation)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "ECP1 / PWR-4 EDN-P",
+          "proposed": "NEW:627-edn-shore-charger",
+          "engineer_decision": ""
+        },
+        {
+          "load": "ECP2 / PWR-3 MPCS-P",
+          "proposed": "620-modular-propulsion-control-system-mpcs",
+          "engineer_decision": ""
+        },
+        {
+          "load": "ECP2 / PWR-2 ISG-P",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "MCP / PWR-3 MOTOR",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "MCP / PWR-2 MOTOR",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "MCP / PWR-4 MOTOR",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "ECP3 / PWR-3 MPCS-S",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "ECP3 / PWR-2 ISG-S",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "ECP4 / PWR-3 MAPS-S",
+          "proposed": "NEW:626-maps (Modular Aux Power System, P+S)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "ECP4 / PWR-2 BEL1/2-S",
+          "proposed": "NEW:629-bel-1p/-2p/-1s/-2s (FOUR nodes \u2014 per-installation)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "ECP4 / PWR-4 EDN-S",
+          "proposed": "NEW:627-edn-shore-charger",
+          "engineer_decision": ""
+        },
+        {
+          "load": "BCP / PWR-3 BATTERY COOLING",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "BCP / PWR-2 BATTERY COOLING",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "BCP / PWR-4 BATTERY COOLING",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "HCP / PWR-3 EMRAX",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "HCP / PWR-2 EMRAX",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "HCP / PWR-4 EMRAX",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        }
+      ]
+    },
+    {
+      "page": 14,
+      "sheet": "GMMS 108'-111a EMERGENCY SUPPLY RADIO/NAV./LTS",
+      "loads": [
+        {
+          "load": "Q38 ENG. ROOM LTS",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "T/S B LAZ. / TRANSOM LTS",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "QE7 MAIN PANEL",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "QE8 AUX1",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "E22/23 PORT NAV. LT.",
+          "proposed": "690-lts-navigation",
+          "engineer_decision": ""
+        },
+        {
+          "load": "E24/25 STBD NAV. LT.",
+          "proposed": "690-lts-navigation",
+          "engineer_decision": ""
+        },
+        {
+          "load": "E26/27 STERN NAV. LT.",
+          "proposed": "690-lts-navigation",
+          "engineer_decision": ""
+        },
+        {
+          "load": "E28/29 AUX PORT NAV. LT.",
+          "proposed": "690-lts-navigation",
+          "engineer_decision": ""
+        },
+        {
+          "load": "E30/31 AUX STBD NAV. LT.",
+          "proposed": "690-lts-navigation",
+          "engineer_decision": ""
+        },
+        {
+          "load": "E32/33 AUX STERN NAV. LT.",
+          "proposed": "690-lts-navigation",
+          "engineer_decision": ""
+        },
+        {
+          "load": "E34/35 STEAMING LT. 1",
+          "proposed": "690-lts-navigation",
+          "engineer_decision": ""
+        },
+        {
+          "load": "E36/37 STEAMING LT. 2",
+          "proposed": "690-lts-navigation",
+          "engineer_decision": ""
+        },
+        {
+          "load": "<UNKNOWN> TECH ROOM LTS",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "<UNKNOWN> <UNKNOWN> AREA",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "<UNKNOWN> LY/CONTROL",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "<UNKNOWN> EMERGENCY LTS SWITCH (MAIN PANEL)",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        }
+      ]
+    },
+    {
+      "page": 15,
+      "sheet": "GMMS 108'-111 +24 V DC DISTRIBUTION",
+      "loads": [
+        {
+          "load": "<UNKNOWN> PASSARELLE LIGHT",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "<UNKNOWN> TENDER REFUELING PUMP",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q6 SALOON FRIDGE",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q9 SALOON LKR LT.",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q15 FWD MAN. SUMP PUMP",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "QE1 FWD EMERGENCY LTS/HATCH SUPPLY",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "QE2 ENG. ROOM GAS RELEASE ALARM",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "QE7 MAIN PANEL",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "QE8 AUX 1 / B&G",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        }
+      ]
+    },
+    {
+      "page": 17,
+      "sheet": "GMMS 108'-112 MAIN PANEL SCHEMATIC \"A\"",
+      "loads": [
+        {
+          "load": "10 / 34 STEAMING LTs",
+          "proposed": "690-lts-navigation",
+          "engineer_decision": ""
+        },
+        {
+          "load": "11 / 36 STEAMING LTs",
+          "proposed": "690-lts-navigation",
+          "engineer_decision": ""
+        },
+        {
+          "load": "12 / 69 not used",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "119 not used",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "PLUG C [8] ALARM MOD 2 PORT PEDESTAL",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "PLUG C [9] ALARM MOD 2 PORT PEDESTAL",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "PLUG C [11] ALARM MUTE SW",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "PLUG C [12] ALARM MUTE SW",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "[12] AU<UNKNOWN>",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        }
+      ]
+    },
+    {
+      "page": 18,
+      "sheet": "GMMS 108'-113 MAIN PANEL A/B SCHEMATIC",
+      "loads": [
+        {
+          "load": "-1 / -2 LINE VOLTAGE",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "-3 / -4 LOAD CURRENT",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None Ph1",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None Ph2",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None Ph3",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None 60Hz",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "S3 MASTER SW",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "S4 MODE SW",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "S5 QUIET MODE",
+          "proposed": "VCP hub node facts (operating modes!)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "S6 VOLTAGE",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "<UNKNOWN> LOAD CURRENT",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        }
+      ]
+    },
+    {
+      "page": 19,
+      "sheet": "GMMS 108'-114 BILGE ALARM SYSTEM",
+      "loads": [
+        {
+          "load": "T/S S 1 + SERVICE BAT",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "T/S S 2 500A SHUNT",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "T/S S 3 500A SHUNT",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q2 AUX MAST BILGE PUMP",
+          "proposed": "520-bilge nodes (per switch zone)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q3 AUX ENGINE ROOM BILGE PUMP",
+          "proposed": "520-bilge nodes (per switch zone)",
+          "engineer_decision": ""
+        }
+      ]
+    },
+    {
+      "page": 22,
+      "sheet": "GMMS 108'-115 AFT SERVICE PUMPS",
+      "loads": [
+        {
+          "load": "Q1 AFT GREY WATER P.",
+          "proposed": "530-grey-water-pumps",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None EMERGENCY BAT +24V",
+          "proposed": "NEW:632-battery-emergency",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q4 FWD CREW HEAD SUMP PUMP",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q5 AFT CREW HEAD SUMP PUMP",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "T/S B not used",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q6 AFT A/C SUMP PUMP",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None +24V SERVICE BAT.",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        }
+      ]
+    },
+    {
+      "page": 23,
+      "sheet": "GMMS 108'-115a BLACK WATER SYSTEM",
+      "loads": [
+        {
+          "load": "T/S B 19 DWG115",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "T/S B 20 DWG115",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "T/S B 24 LOW BAT. ALARM",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "T/S B 25 MASTERVOLT EASY VII",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "T/S B 26 SHORE POWER PANEL",
+          "proposed": "660 shore power (existing subsystem)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "T/S B 27 GENERAL COCKPIT AL",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "T/S B 28 PEDESTAL LTS (COMPASS LTS)",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q11 FWD BLACK WATER",
+          "proposed": "540-black-water-pumps",
+          "engineer_decision": ""
+        },
+        {
+          "load": "T/S B 29 FWD BLACK WATER (sub-circuit)",
+          "proposed": "540-black-water-pumps",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q12 AFT BLACK WATER",
+          "proposed": "540-black-water-pumps",
+          "engineer_decision": ""
+        },
+        {
+          "load": "T/S B 30 AFT BLACK WATER (sub-circuit)",
+          "proposed": "540-black-water-pumps",
+          "engineer_decision": ""
+        }
+      ]
+    },
+    {
+      "page": 24,
+      "sheet": "GMMS 108'-116 E.R. FAN / FUEL VALVES / TANK IND.",
+      "loads": [
+        {
+          "load": "Q15 MANUEL FUEL PUMP",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q16 FUEL/VENTILATION",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "QE1 +24V SERVICE BAT.",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "QE6 +24V EMERGENCY BAT.",
+          "proposed": "NEW:632-battery-emergency",
+          "engineer_decision": ""
+        }
+      ]
+    },
+    {
+      "page": 36,
+      "sheet": "GMMS 108'-120 FWD SERVICE PUMPS",
+      "loads": [
+        {
+          "load": "Q1 FWD GREY WATER P.",
+          "proposed": "530-grey-water-pumps",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q2 AUX MAST BILGE PUMP",
+          "proposed": "520-bilge nodes (per switch zone)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q4 OWNERS GREY SUMP PUMP",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q6 SPARE",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        }
+      ]
+    },
+    {
+      "page": 37,
+      "sheet": "GMMS 108'-120a MAST/EXTERIOR LIGHTS & SWITCHES",
+      "loads": [
+        {
+          "load": "QE1 EMERGENCY LTS SUPPLY",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q11 MAST LIGHTS",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q12 BOOM LIGHTS",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "Q13 FWD DC SOCKETS",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        }
+      ]
+    },
+    {
+      "page": 43,
+      "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+      "loads": [
+        {
+          "load": "S1 FUEL - AIR",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "S2 BAE SYSTEM",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "S3 MASTER SWITCH",
+          "proposed": "VCP hub node facts (operating modes!)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "S4 MODE SWITCH",
+          "proposed": "VCP hub node facts (operating modes!)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "S5 QUIET MODE",
+          "proposed": "VCP hub node facts (operating modes!)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None SHORE INPUT - PHASE 1",
+          "proposed": "660 shore power (existing subsystem)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None SHORE INPUT - PHASE 2",
+          "proposed": "660 shore power (existing subsystem)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None SHORE INPUT - PHASE 3",
+          "proposed": "660 shore power (existing subsystem)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None SHORE INPUT - 60Hz",
+          "proposed": "660 shore power (existing subsystem)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "BEL-1 PORT BEL-1",
+          "proposed": "NEW:629-bel-1p/-2p/-1s/-2s (FOUR nodes \u2014 per-installation)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "BEL-2 PORT BEL-2",
+          "proposed": "NEW:629-bel-1p/-2p/-1s/-2s (FOUR nodes \u2014 per-installation)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "BEL-1 STBD BEL-1",
+          "proposed": "NEW:629-bel-1p/-2p/-1s/-2s (FOUR nodes \u2014 per-installation)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "BEL-2 STBD BEL-2",
+          "proposed": "NEW:629-bel-1p/-2p/-1s/-2s (FOUR nodes \u2014 per-installation)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "SHORE SHORE",
+          "proposed": "660 shore power (existing subsystem)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "MAPS-1 PORT MAPS-1",
+          "proposed": "NEW:626-maps (Modular Aux Power System, P+S)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "MAPS-2 PORT MAPS-2",
+          "proposed": "NEW:626-maps (Modular Aux Power System, P+S)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "MAPS-1 STBD MAPS-1",
+          "proposed": "NEW:626-maps (Modular Aux Power System, P+S)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "MAPS-2 STBD MAPS-2",
+          "proposed": "NEW:626-maps (Modular Aux Power System, P+S)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "100A AUX AUX",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "S6 EMERGENCY (SERVICE / START)",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "S7 BAE / OFF / AUX",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "S8 ANCHOR LT",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "S16 FWD GREY WATER",
+          "proposed": "530-grey-water-pumps",
+          "engineer_decision": ""
+        },
+        {
+          "load": "S9 MAST NAV LTS",
+          "proposed": "690-lts-navigation",
+          "engineer_decision": ""
+        },
+        {
+          "load": "S10 STEAMING LTS",
+          "proposed": "690-lts-navigation",
+          "engineer_decision": ""
+        },
+        {
+          "load": "S12 EMERGENCY LIGHTS",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "S14 ALARM MUTE",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "S20 LAZARETTE",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "S17 AFT GREY WATER",
+          "proposed": "530-grey-water-pumps",
+          "engineer_decision": ""
+        },
+        {
+          "load": "S18 FWD BLACK WATER",
+          "proposed": "540-black-water-pumps",
+          "engineer_decision": ""
+        },
+        {
+          "load": "S19 AFT BLACK WATER",
+          "proposed": "540-black-water-pumps",
+          "engineer_decision": ""
+        },
+        {
+          "load": "<UNKNOWN> MAST AUX BILGE PUMP",
+          "proposed": "520-bilge nodes (per switch zone)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "<UNKNOWN> ENGINE ROOM AUX BILGE PUMP",
+          "proposed": "520-bilge nodes (per switch zone)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "<UNKNOWN> OWNERS GREY WATER PUMP",
+          "proposed": "530-grey-water-pumps",
+          "engineer_decision": ""
+        },
+        {
+          "load": "<UNKNOWN> FWD GUEST GREY WATER PUMP",
+          "proposed": "530-grey-water-pumps",
+          "engineer_decision": ""
+        },
+        {
+          "load": "<UNKNOWN> PORT AFT GUEST GREY WATER PUMP",
+          "proposed": "530-grey-water-pumps",
+          "engineer_decision": ""
+        },
+        {
+          "load": "<UNKNOWN> STBD AFT GUEST GREY WATER PUMP",
+          "proposed": "530-grey-water-pumps",
+          "engineer_decision": ""
+        },
+        {
+          "load": "<UNKNOWN> AFT CREW GREY WATER PUMP",
+          "proposed": "530-grey-water-pumps",
+          "engineer_decision": ""
+        },
+        {
+          "load": "<UNKNOWN> AFT A/C SUMP PUMP",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "<UNKNOWN> EMERGENCY BACKUP POWER",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "<UNKNOWN> GMDSS BACKUP POWER",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "S24 SAIL LKR BILGE",
+          "proposed": "520-bilge nodes (per switch zone)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "S21 AFT BILGE",
+          "proposed": "520-bilge nodes (per switch zone)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "S22 ENG. ROOM",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "S23 FWD BILGE",
+          "proposed": "520-bilge nodes (per switch zone)",
+          "engineer_decision": ""
+        },
+        {
+          "load": "<UNKNOWN> VHF",
+          "proposed": "730-vhf",
+          "engineer_decision": ""
+        },
+        {
+          "load": "<UNKNOWN> SAT-C",
+          "proposed": "NEW:734-sat-c",
+          "engineer_decision": ""
+        },
+        {
+          "load": "<UNKNOWN> MASTERVOLT GMDSS",
+          "proposed": "UNKNOWN",
+          "engineer_decision": ""
+        },
+        {
+          "load": "None GPS",
+          "proposed": "711-bg-instruments/nav",
+          "engineer_decision": ""
+        }
+      ]
+    }
+  ]
+}

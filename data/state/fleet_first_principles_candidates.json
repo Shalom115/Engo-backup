@@ -1,0 +1,53 @@
+{
+  "purpose": "FLEET FIRST-PRINCIPLES CANDIDATES \u2014 vessel-AGNOSTIC, transferable patterns recognized during ingestion. NOT vessel-specific facts. Each candidate is a general rule proposed for the fleet log; promoted to a confirmed convention only after engineer review. Once confirmed, a Case-B equipment-pattern (DISTINGUISHING EQUIPMENT-PATTERN INFERENCE FROM IDENTITY CONFLICT protocol) may be acted on directly on future vessels; until then it only surfaces on the confirmation list.",
+  "created": "2026-07-01",
+  "candidates": [
+    {
+      "id": "fp-cand-001",
+      "pattern": "under-differentiated node holding a conventional equipment pair (captive winch + captive tensioner as the seed instance)",
+      "case": "B (equipment-pattern inference)",
+      "detection_rule": {
+        "trigger": "WHEN the folder-walk produced ONE node, AND the authoritative function table (hydraulic function list / electrical load list / equipment inventory) lists TWO OR MORE functions routing to that one node, AND each of those functions names a DISTINCT make+model, AND the pair matches a recognized equipment-pair convention for the equipment class (below) -> SPLIT into one per-model node each, automatically, citing both sources in each node's identity_resolution provenance (decision='pattern_split', convention=<id>).",
+        "all_of": [
+          "one folder-walk node",
+          ">=2 functions in the authoritative table route to it",
+          "each function names its OWN distinct make+model (not just an assumption there is one)",
+          "the (function-role-A, function-role-B) pair matches a convention entry in `equipment_pair_conventions` below"
+        ],
+        "else": "if ANY condition fails (only one model, no distinct model per function, pair not a recognized convention) -> DO NOT split; surface on the engineer confirmation list as multi_model. Never guess.",
+        "action_on_trigger": "split; write identity_resolution.decision='pattern_split' on each new node with both sources; record convention id",
+        "confidence_floor": "all_of must be fully satisfied \u2014 this is a hard gate, not a score"
+      },
+      "equipment_pair_conventions": [
+        {
+          "class": "sailing-yacht captive winch system",
+          "role_a": "captive winch (sheet/halyard)",
+          "role_b": "captive tensioner",
+          "note": "the seed instance"
+        }
+      ],
+      "seed_evidence": {
+        "vessel": "gelliceaux_001",
+        "node": "220-captive-winch",
+        "functions": [
+          {
+            "role": "captive winch",
+            "function": "mainsheet captive winch",
+            "model": "Harken Air Captive 9T 930 HY CVS",
+            "source": "MYT rev18b #37"
+          },
+          {
+            "role": "captive tensioner",
+            "function": "tensioner captive winch",
+            "model": "Harken CT1 tensioner",
+            "source": "MYT rev18b #38"
+          }
+        ]
+      },
+      "current_disposition": "NOT yet a confirmed convention -> for gelliceaux_001 the node was NOT split; surfaced on the confirmation list (cf-001). The RULE above is what lets Engo recognize the pattern on vessel #2 without an engineer pointing it out \u2014 once this candidate is engineer-confirmed and the convention added to the functional-equipment list.",
+      "status": "CONFIRMED_convention",
+      "deferral_note": "Engineer 2026-07-02: not crucial, wait; REMIND before the next major ingestion / vessel-#2 onboarding. Note: the Gelliceaux instance itself is now resolved (cf-001 split) \u2014 the candidate is only about making the pattern an AUTO-split convention for future vessels.",
+      "confirmation": "Engineer 2026-07-03: confirmed as a CAPTIVE-WINCH-SPECIFIC convention (captive winch + captive tensioner usually pair). NOT a general parent/child rule \u2014 the general machinery is already protocol (Decision 3 parent/child, Decision 5 auto-create, Case A/B gate). This entry = one convention row the Case-B gate may fire on for future vessels."
+    }
+  ]
+}

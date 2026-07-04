@@ -1,0 +1,182 @@
+{
+  "written_at": "2026-06-19T05:30:05+00:00",
+  "files_processed_this_run": 27,
+  "chunks_stored_this_run": 52,
+  "content_type_counts": {
+    "general_arrangement": 3,
+    "photo": 14,
+    "document_page": 12,
+    "electrical_diagram": 21,
+    "figure": 1,
+    "schematic": 1
+  },
+  "glossary_corrections_total": 0,
+  "glossary_corrections": [],
+  "sample": [
+    {
+      "chunk_id": "e9d981807f25b3a0e91914f86be876f0de9835561677fe84f5699b776adecb52:v1",
+      "file": "Electrical System GA.pdf",
+      "read_protocol": "general_arrangement",
+      "page_scanned": true,
+      "figure": "p.1",
+      "content_type": "general_arrangement",
+      "components": 14,
+      "glossary_corrections": [],
+      "desc_preview": "Electrical System General Arrangement (GA) drawing for a sailing yacht, produced by Southern Wind. The sheet contains three major sections: (1) a Plan View – Interiors at Scale 1:40 showing the full-length deck/interior layout of the vessel"
+    },
+    {
+      "chunk_id": "ead3ee4618cadb5d084c926e3a72b0fdbf514fbe642f567d985987ea3fd8a0bb:v1",
+      "file": "OWNERS CABIN ADDRESS.JPEG",
+      "read_protocol": "photo",
+      "page_scanned": null,
+      "figure": "image",
+      "content_type": "photo",
+      "components": 8,
+      "glossary_corrections": [],
+      "desc_preview": "Equipment photograph of a Termodinamica Marine Inverter Air Conditioning unit installed aboard a yacht, specifically serving the Owner's Cabin. The unit is mounted on what appears to be a white painted bulkhead or panel surface. A brushed a"
+    },
+    {
+      "chunk_id": "aeb1e008122d5bf69a0d99bf2437ce126eefad7e3b5e9ac73dfa2d59a51725ec:v1",
+      "file": "108-01-102-001 Bow Laminate.pdf",
+      "read_protocol": "document_page",
+      "page_scanned": true,
+      "figure": "p.1",
+      "content_type": "document_page",
+      "components": 19,
+      "glossary_corrections": [],
+      "desc_preview": "Engineering drawing sheet for a boat bow laminate construction. The sheet contains multiple detailed views: (1) Bow Core Layout Looking to Port at Scale 1:20, (2) Section A-A Stem to Bow Joint Detail at Scale 1:5, (3) Bow Additional Laminat"
+    },
+    {
+      "chunk_id": "d2dc298cfecfb30198430380bfac79ed8c218b0f263105286bed0cd9d99fc9ba:v3",
+      "file": "SWS_108-1 MAST PLC_Rev2.pdf",
+      "read_protocol": "document_page",
+      "page_scanned": true,
+      "figure": "p.3",
+      "content_type": "electrical_diagram",
+      "components": 43,
+      "glossary_corrections": [],
+      "desc_preview": "PLC Interface schematic drawing showing a WAGO 750-series PLC rack layout mounted on DIN 34 rail. The diagram shows two bus segments (main rack and extension rack) with all module types, part numbers, and slot positions labeled in rotated t"
+    },
+    {
+      "chunk_id": "03c3de0b221ac8918fa0cb3f5b4eeef81f81d2a1e6c136b8eaf30f8d94b39cdd:v1",
+      "file": "sw108-head-C-0001-a.JPG",
+      "read_protocol": "photo",
+      "page_scanned": null,
+      "figure": "image",
+      "content_type": "figure",
+      "components": 11,
+      "glossary_corrections": [],
+      "desc_preview": "3D rendered interior design visualisation of a yacht owner's head (bathroom), viewed from an elevated isometric perspective with the ceiling partially cut away to reveal the layout. The space features a walk-in glass-enclosed shower enclosu"
+    },
+    {
+      "chunk_id": "a39489fad4e2049507b2f0e6d28ca1e51a9b00233eee7fe33fc386a7b2468f90:v1",
+      "file": "screenshot.2.png",
+      "read_protocol": "photo",
+      "page_scanned": null,
+      "figure": "image",
+      "content_type": "schematic",
+      "components": 19,
+      "glossary_corrections": [],
+      "desc_preview": "Onyx SCADA/HMI touchscreen page layout for a yacht's Fuel Tanks monitoring and control system. The screen displays five fuel tank gauges (Port Outboard, Port Inboard, Daily Fuel, STBD Inboard, STBD Outboard), each showing a current level of"
+    },
+    {
+      "chunk_id": "d2dc298cfecfb30198430380bfac79ed8c218b0f263105286bed0cd9d99fc9ba:v25",
+      "file": "SWS_108-1 MAST PLC_Rev2.pdf",
+      "read_protocol": "document_page",
+      "page_scanned": true,
+      "figure": "p.25",
+      "content_type": "electrical_diagram",
+      "components": 26,
+      "glossary_corrections": [],
+      "desc_preview": "Electrical schematic for a 4 Analogue Output (AO) Module, part number 750-559, designated AO-01, at PLC position 33. The diagram shows a WAGO 750-559 4-channel analogue output module connected to four control circuits via Connector Type H ("
+    },
+    {
+      "chunk_id": "d2dc298cfecfb30198430380bfac79ed8c218b0f263105286bed0cd9d99fc9ba:v16",
+      "file": "SWS_108-1 MAST PLC_Rev2.pdf",
+      "read_protocol": "document_page",
+      "page_scanned": true,
+      "figure": "p.16",
+      "content_type": "electrical_diagram",
+      "components": 21,
+      "glossary_corrections": [],
+      "desc_preview": "Electrical schematic for a 16 Digital Output (DO) Module, position 08, type 750-1504, connected to a WAGO PLC CPU 750-8213. The diagram shows a central 16DO module (750-1504) with 8 channels assigned on the left and right sides. Left-side c"
+    },
+    {
+      "chunk_id": "d2dc298cfecfb30198430380bfac79ed8c218b0f263105286bed0cd9d99fc9ba:v1",
+      "file": "SWS_108-1 MAST PLC_Rev2.pdf",
+      "read_protocol": "document_page",
+      "page_scanned": true,
+      "figure": "p.1",
+      "content_type": "document_page",
+      "components": 3,
+      "glossary_corrections": [],
+      "desc_preview": "Title/cover sheet of a technical drawing package for Southern Wind Shipyard's Hydraulic System Automation – Mast PLC. The page is a standard engineering drawing border (DIN 34) with a title block in the lower-right corner. The sheet contain"
+    },
+    {
+      "chunk_id": "d2dc298cfecfb30198430380bfac79ed8c218b0f263105286bed0cd9d99fc9ba:v12",
+      "file": "SWS_108-1 MAST PLC_Rev2.pdf",
+      "read_protocol": "document_page",
+      "page_scanned": true,
+      "figure": "p.12",
+      "content_type": "electrical_diagram",
+      "components": 21,
+      "glossary_corrections": [],
+      "desc_preview": "Electrical schematic for a 16 Digital Input (DI) Module, designated POS.04, model 750-1405, labeled DI-04. The diagram is sheet 12 of 25 from the SWS_108-1 MAST PLC drawing set, revision 2, dated 19/05/2023, for project SWS 108-1 – Hydrauli"
+    },
+    {
+      "chunk_id": "b430d2b891e5cf207bd9acfeff57aedafe986674a2e6ff00c408f125c4b9223d:v1",
+      "file": "IMG_5771.JPG",
+      "read_protocol": "photo",
+      "page_scanned": null,
+      "figure": "image",
+      "content_type": "photo",
+      "components": 7,
+      "glossary_corrections": [],
+      "desc_preview": "Photograph of a packaged VHF marine antenna aboard a yacht. The item is a Pacific Aerials P6179 VHF 1.0m Longreach Pro Antenna in black finish. The product is still in its original blue retail packaging/sleeve with a white product label aff"
+    },
+    {
+      "chunk_id": "d2dc298cfecfb30198430380bfac79ed8c218b0f263105286bed0cd9d99fc9ba:v14",
+      "file": "SWS_108-1 MAST PLC_Rev2.pdf",
+      "read_protocol": "document_page",
+      "page_scanned": true,
+      "figure": "p.14",
+      "content_type": "electrical_diagram",
+      "components": 24,
+      "glossary_corrections": [],
+      "desc_preview": "Electrical schematic diagram for a 4 Analogue Input (AI) Module, POS.06, type 750-455, AI-02, part of a PLC system for hydraulic system automation on a mast. The diagram shows two sensor circuits connected to a central WAGO 750-455 4AI modu"
+    },
+    {
+      "chunk_id": "6c3f22511d8e82220da920eacf27d785c71fc8b24edcf926eb03a8b0c6a0e7f0:v1",
+      "file": "Sail configuration. A.pdf",
+      "read_protocol": "document_page",
+      "page_scanned": true,
+      "figure": "p.1",
+      "content_type": "document_page",
+      "components": 7,
+      "glossary_corrections": [],
+      "desc_preview": "A scanned engineering drawing sheet showing four sail plan configurations for a sailing yacht with a square-top mainsail. Each of the four views is a side-profile (elevation) schematic of the same vessel, illustrating different reef and hea"
+    },
+    {
+      "chunk_id": "590bc26dfc71cd1129ec8ed346e34fd81f2b1fb5eebabe23592ba7d9a55f01be:v1",
+      "file": "SALON STBD AHU.JPEG",
+      "read_protocol": "photo",
+      "page_scanned": null,
+      "figure": "image",
+      "content_type": "photo",
+      "components": 1,
+      "glossary_corrections": [],
+      "desc_preview": "Photograph taken in a confined under-deck or under-sole space aboard a yacht, identified by filename as the Starboard Salon Air Handling Unit (AHU). The image shows a compact marine HVAC/refrigeration or air-handling assembly mounted low, l"
+    },
+    {
+      "chunk_id": "d2dc298cfecfb30198430380bfac79ed8c218b0f263105286bed0cd9d99fc9ba:v2",
+      "file": "SWS_108-1 MAST PLC_Rev2.pdf",
+      "read_protocol": "document_page",
+      "page_scanned": true,
+      "figure": "p.2",
+      "content_type": "general_arrangement",
+      "components": 18,
+      "glossary_corrections": [],
+      "desc_preview": "Engineering drawing sheet 02 of 25 for a Hydraulic System Automation project (SWS 108-1) for client S.W. Shipyard. The sheet is titled \"MAST\" and shows a general arrangement of a BOX 366x546 WITH HINGED TRANSPARENT DOOR, HENSEL ENYSTAR – IP"
+    }
+  ]
+}

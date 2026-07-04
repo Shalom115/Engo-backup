@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+data/chroma/
+data/documents/
+data/images/
+logs/
+.DS_Store
+.idea/
+.vscode/
+
+# Manual timestamped snapshots — redundant once real git history exists.
+# Taken before risky in-place edits during live sessions; git commits now serve
+# this purpose going forward. Existing backups are left on disk, just untracked.
+data/state/*backup*.json

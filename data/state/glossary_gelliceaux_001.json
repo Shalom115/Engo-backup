@@ -1,0 +1,435 @@
+{
+  "vessel_namespace": "gelliceaux_001",
+  "built_at": "2026-06-15T19:55:21+00:00",
+  "source_docs": {
+    "handover": 36,
+    "owners_manual": 14
+  },
+  "count": 58,
+  "conflicts": [
+    {
+      "acronym": "BEL",
+      "readings": {
+        "handover": "INVERTERS",
+        "folder_harvest": "Inverter"
+      }
+    },
+    {
+      "acronym": "ESS",
+      "readings": {
+        "handover": "ENERGY STORAGE SYSTEM",
+        "owners_manual": "Fire Suppression"
+      }
+    },
+    {
+      "acronym": "MAPS",
+      "readings": {
+        "handover": "MODULAR AUXILIARY POWER SYSTEM",
+        "folder_harvest": "Modular Accessory Power System"
+      }
+    }
+  ],
+  "acronyms": {
+    "AC": {
+      "expansion": "ALTERNATE CURRENT",
+      "sources": {
+        "handover": "ALTERNATE CURRENT"
+      },
+      "conflict": false
+    },
+    "ACTM": {
+      "expansion": "ALTERNATE CURRENT TRACTION MOTOR",
+      "sources": {
+        "handover": "ALTERNATE CURRENT TRACTION MOTOR"
+      },
+      "conflict": false
+    },
+    "APS": {
+      "expansion": "AUXILIARY POWER SYSTEM",
+      "sources": {
+        "handover": "AUXILIARY POWER SYSTEM"
+      },
+      "conflict": false
+    },
+    "BCP": {
+      "expansion": "BATTERY COOLING PUMPS",
+      "sources": {
+        "handover": "BATTERY COOLING PUMPS"
+      },
+      "conflict": false
+    },
+    "BEL": {
+      "expansion": "INVERTERS",
+      "sources": {
+        "handover": "INVERTERS",
+        "folder_harvest": "Inverter"
+      },
+      "conflict": true
+    },
+    "BMS": {
+      "expansion": "BATTERY MANAGEMENT SYSTEM",
+      "sources": {
+        "handover": "BATTERY MANAGEMENT SYSTEM"
+      },
+      "conflict": false
+    },
+    "CPSWP": {
+      "expansion": "CPP SEA WATER PUMP",
+      "sources": {
+        "handover": "CPP SEA WATER PUMP"
+      },
+      "conflict": false
+    },
+    "DC": {
+      "expansion": "DIRECT CURRENT",
+      "sources": {
+        "handover": "DIRECT CURRENT"
+      },
+      "conflict": false
+    },
+    "DSC": {
+      "expansion": "VHF distress",
+      "sources": {
+        "owners_manual": "VHF distress"
+      },
+      "conflict": false
+    },
+    "E-STOP": {
+      "expansion": "ENGINE ROOM VENTILATION",
+      "sources": {
+        "owners_manual": "ENGINE ROOM VENTILATION"
+      },
+      "conflict": false
+    },
+    "ECP": {
+      "expansion": "ELECTRONIC COOLING PUMPS",
+      "sources": {
+        "handover": "ELECTRONIC COOLING PUMPS"
+      },
+      "conflict": false
+    },
+    "EDN": {
+      "expansion": "CHARGERS",
+      "sources": {
+        "handover": "CHARGERS"
+      },
+      "conflict": false
+    },
+    "EDN-S": {
+      "expansion": "",
+      "sources": {},
+      "conflict": false
+    },
+    "EEBD": {
+      "expansion": "",
+      "sources": {},
+      "conflict": false
+    },
+    "EMERGENCY": {
+      "expansion": "STOP",
+      "sources": {
+        "owners_manual": "STOP"
+      },
+      "conflict": false
+    },
+    "EPIRB": {
+      "expansion": "",
+      "sources": {},
+      "conflict": false
+    },
+    "ESS": {
+      "expansion": "ENERGY STORAGE SYSTEM",
+      "sources": {
+        "handover": "ENERGY STORAGE SYSTEM",
+        "owners_manual": "Fire Suppression"
+      },
+      "conflict": true
+    },
+    "GAS": {
+      "expansion": "DETECTOR",
+      "sources": {
+        "owners_manual": "DETECTOR"
+      },
+      "conflict": false
+    },
+    "GENERAL": {
+      "expansion": "INTRODUCTION",
+      "sources": {
+        "owners_manual": "INTRODUCTION"
+      },
+      "conflict": false
+    },
+    "GHG": {
+      "expansion": "GREENHOUSE GAS",
+      "sources": {
+        "handover": "GREENHOUSE GAS"
+      },
+      "conflict": false
+    },
+    "GINV": {
+      "expansion": "GENERATOR INVERTER",
+      "sources": {
+        "handover": "GENERATOR INVERTER"
+      },
+      "conflict": false
+    },
+    "GMDSS": {
+      "expansion": "Comms Batteries Installation",
+      "sources": {
+        "folder_harvest": "Comms Batteries Installation"
+      },
+      "conflict": false
+    },
+    "GPM-12": {
+      "expansion": "",
+      "sources": {},
+      "conflict": false
+    },
+    "HCP": {
+      "expansion": "HYDRAULICS COOLING PUMPS",
+      "sources": {
+        "handover": "HYDRAULICS COOLING PUMPS"
+      },
+      "conflict": false
+    },
+    "HEAT": {
+      "expansion": "DETECTOR",
+      "sources": {
+        "owners_manual": "DETECTOR"
+      },
+      "conflict": false
+    },
+    "HINV": {
+      "expansion": "HYDRAULICS INVERTER",
+      "sources": {
+        "handover": "HYDRAULICS INVERTER"
+      },
+      "conflict": false
+    },
+    "HMI": {
+      "expansion": "HUMAN MACHINE INTERFACE",
+      "sources": {
+        "handover": "HUMAN MACHINE INTERFACE"
+      },
+      "conflict": false
+    },
+    "HVPDU": {
+      "expansion": "HIGH VOLTAGE POWER DISTRIBUTION UNIT",
+      "sources": {
+        "handover": "HIGH VOLTAGE POWER DISTRIBUTION UNIT"
+      },
+      "conflict": false
+    },
+    "ICD": {
+      "expansion": "INSTALLATION CONTROL DRAWING",
+      "sources": {
+        "handover": "INSTALLATION CONTROL DRAWING"
+      },
+      "conflict": false
+    },
+    "IDS": {
+      "expansion": "INTUITIVE DIAGNOSTIC SYSTEM",
+      "sources": {
+        "handover": "INTUITIVE DIAGNOSTIC SYSTEM"
+      },
+      "conflict": false
+    },
+    "ISG": {
+      "expansion": "INTEGRATED STARTER GENERATOR",
+      "sources": {
+        "handover": "INTEGRATED STARTER GENERATOR",
+        "folder_harvest": "Integrated Starter Generator"
+      },
+      "conflict": false
+    },
+    "LED": {
+      "expansion": "Barthelme",
+      "sources": {
+        "folder_harvest": "Barthelme"
+      },
+      "conflict": false
+    },
+    "LI-ION": {
+      "expansion": "LITHIUM ION",
+      "sources": {
+        "handover": "LITHIUM ION"
+      },
+      "conflict": false
+    },
+    "LVPDU": {
+      "expansion": "LOW VOLTAGE POWER DISTRIBUTION UNIT",
+      "sources": {
+        "handover": "LOW VOLTAGE POWER DISTRIBUTION UNIT"
+      },
+      "conflict": false
+    },
+    "MAPS": {
+      "expansion": "MODULAR AUXILIARY POWER SYSTEM",
+      "sources": {
+        "handover": "MODULAR AUXILIARY POWER SYSTEM",
+        "folder_harvest": "Modular Accessory Power System"
+      },
+      "conflict": true
+    },
+    "MCP": {
+      "expansion": "MOTOR COOLING PUMP",
+      "sources": {
+        "handover": "MOTOR COOLING PUMP"
+      },
+      "conflict": false
+    },
+    "MCSWP": {
+      "expansion": "MAIN COOLING SEA WATER PUMP",
+      "sources": {
+        "handover": "MAIN COOLING SEA WATER PUMP"
+      },
+      "conflict": false
+    },
+    "MOB": {
+      "expansion": "AIS 10",
+      "sources": {
+        "owners_manual": "AIS 10"
+      },
+      "conflict": false
+    },
+    "MPCS": {
+      "expansion": "MODULAR PROPULSION CONTROL SYSTEM",
+      "sources": {
+        "handover": "MODULAR PROPULSION CONTROL SYSTEM",
+        "folder_harvest": "Modular Propulsion Control System"
+      },
+      "conflict": false
+    },
+    "MYT": {
+      "expansion": "MALLORCA YACHT TECHNOLOGIES",
+      "sources": {
+        "handover": "MALLORCA YACHT TECHNOLOGIES"
+      },
+      "conflict": false
+    },
+    "NAV": {
+      "expansion": "STATION",
+      "sources": {
+        "owners_manual": "STATION"
+      },
+      "conflict": false
+    },
+    "PCS": {
+      "expansion": "PROPULSION CONTROL SYSTEM",
+      "sources": {
+        "handover": "PROPULSION CONTROL SYSTEM"
+      },
+      "conflict": false
+    },
+    "PLB": {
+      "expansion": "Ocean Signal",
+      "sources": {
+        "folder_harvest": "Ocean Signal"
+      },
+      "conflict": false
+    },
+    "PS": {
+      "expansion": "PORT",
+      "sources": {
+        "handover": "PORT"
+      },
+      "conflict": false
+    },
+    "PSR": {
+      "expansion": "PLANETARY SPEED REDUCER (EPYCICLIC GEARBOX)",
+      "sources": {
+        "handover": "PLANETARY SPEED REDUCER (EPYCICLIC GEARBOX)"
+      },
+      "conflict": false
+    },
+    "SAFETY": {
+      "expansion": "LOOSE SAFETY EQUIPMENT PROVIDED",
+      "sources": {
+        "owners_manual": "LOOSE SAFETY EQUIPMENT PROVIDED"
+      },
+      "conflict": false
+    },
+    "SALES": {
+      "expansion": "AND MARKETING OFFICE",
+      "sources": {
+        "owners_manual": "AND MARKETING OFFICE"
+      },
+      "conflict": false
+    },
+    "SCU": {
+      "expansion": "SYSTEM CONTROL UNIT",
+      "sources": {
+        "handover": "SYSTEM CONTROL UNIT"
+      },
+      "conflict": false
+    },
+    "SCU3": {
+      "expansion": "System Control Unit",
+      "sources": {
+        "folder_harvest": "System Control Unit"
+      },
+      "conflict": false
+    },
+    "SENSORS": {
+      "expansion": "",
+      "sources": {},
+      "conflict": false
+    },
+    "SOC": {
+      "expansion": "STATE OF CHARGE",
+      "sources": {
+        "handover": "STATE OF CHARGE"
+      },
+      "conflict": false
+    },
+    "SOLAS": {
+      "expansion": "B life raft (8 Man) 2",
+      "sources": {
+        "owners_manual": "B life raft (8 Man) 2"
+      },
+      "conflict": false
+    },
+    "STB": {
+      "expansion": "STARBOARD",
+      "sources": {
+        "handover": "STARBOARD"
+      },
+      "conflict": false
+    },
+    "SWS": {
+      "expansion": "provides the owner of the yacht with OEMs manuals at the",
+      "sources": {
+        "owners_manual": "provides the owner of the yacht with OEMs manuals at the"
+      },
+      "conflict": false
+    },
+    "TECH": {
+      "expansion": "ROOM",
+      "sources": {
+        "owners_manual": "ROOM"
+      },
+      "conflict": false
+    },
+    "TINV": {
+      "expansion": "TRACTION MOTOR INVERTER",
+      "sources": {
+        "handover": "TRACTION MOTOR INVERTER"
+      },
+      "conflict": false
+    },
+    "TM": {
+      "expansion": "TRACTION MOTOR",
+      "sources": {
+        "handover": "TRACTION MOTOR"
+      },
+      "conflict": false
+    },
+    "WEG": {
+      "expansion": "WATER / ETHYLENE / GLYCOL",
+      "sources": {
+        "handover": "WATER / ETHYLENE / GLYCOL"
+      },
+      "conflict": false
+    }
+  }
+}
