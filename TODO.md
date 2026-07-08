@@ -2,6 +2,9 @@
 The whole plan, broken **Milestones → Chapters → Subjects → Sessions**. One SESSION = one
 sitting with a named deliverable and a VERIFY step. Statuses: ✅ done · 🔨 in-process · ⬜ next · 🔴 engineer gate.
 Companion ledgers: `ENGO_1.0_TRACKER.md` (live statuses) · `ENGO_2.0_BACKLOG.md` (fleet items) · `CLAUDE.md` (detailed log).
+**→ EXECUTION_SPECS.md holds the full per-task spec for EVERY open item below (context,
+files, procedure, verify, gates, traps, suggested model tier). Any executing session
+reads its spec there — and §0 of that file — before starting a task.**
 
 ---
 
@@ -16,9 +19,17 @@ Companion ledgers: `ENGO_1.0_TRACKER.md` (live statuses) · `ENGO_2.0_BACKLOG.md
 ### Ch 1.3 Cleanup 🔨
 - S1 ✅ legacy core re-place→purge→HyDE (854 out / 184 in / spot-checks pass)
 - S2 ⬜ small residue: `._` skip-list; CSV sealogs; .gsheet/.gdoc pointers 🔴(which matter)
-- S3 ⬜ operational/live lists channel (engineer: refresh daily/bi-daily; 2.0 = PMS API) — placement red-pen 🔴
+- S3 🔨 operational/live lists channel — YMP API now live changes the picture; reconcile + red-pen 🔴
+### Ch 1.4 PMS/YMP channel (NEW) ✅ read / ⬜ write (future, hard-gated)
+- Read-only YMP provider LIVE (equipment/jobs/inventory; 21 matches written as facts).
+  Write side (Engo fills log/work cards) = future, explicit 🔴 gate before any build.
 
 ## M2 — EXTRACTION PROTOCOLS, ALL DOCUMENT CLASSES (the drawings feed the nodes)
+### Ch 2.0 Cross-class layer (NEW) ✅
+- system_archetypes.md v0.4 (sheet-reading sequence · loop-following · symbol traps ·
+  15 system archetypes) + legend_first.py CODE-ENFORCED in both extractors (legends
+  read before any symbol, by default) + power_path.py (circuit-loop facts on nodes) +
+  node_crossref.py (doc-class completeness + corroboration/conflict on every fact write).
 ### Ch 2.1 Hydraulic ✅ (the template class)
 - discover_structure, tiling, locate_and_read, control-map routing, REAL write pass (10 sheets),
   per-installation repair. Remaining subject: `General` sheet parts-list → Ch 2.4 (BOM protocol).
@@ -28,10 +39,12 @@ Companion ledgers: `ENGO_1.0_TRACKER.md` (live statuses) · `ENGO_2.0_BACKLOG.md
 - S3 ✅ Class-C decoder (C1/C2 split; +29 shift proven); population survey (8 groups)
 - S4 ✅ load map v1 red-penned + applied (79 rows); GM book batch 1 (43pp surveyed, schedules written)
 - S5 ✅ batch 1b: lighting-per-zone (135) + cockpit→control-map (14)
-- S6 🔨 **batch 2a: wiring-page extraction** (26 sheets → element ledger) — RUNNING/NEXT
-- S7 ⬜ **batch 2b: wiring routing** (elements → system nodes; zone splits; XA→ONYX cross-links;
-        FEEDER≠LOAD + CONTROL≠INDICATOR rules enforced) 🔴 grade
-- S8 ⬜ **batch 2c: one-line topology routing** (13 sheets — batteries/buses/loop cross-links) 🔴 grade
+- S6 ✅ **batch 2a: wiring-page extraction** — 41 pages, 10,196 elements + topology (26 pages),
+        0 errors; ledger preserved at `data/ledgers/batch2a_v2_ledger.jsonl` (do NOT re-extract)
+- S7 🔨 **batch 2b: wiring routing** — write_sheet real pass done (62 power_path facts, GM-111
+        loads via map v1); the 2,868 flagged re-route AFTER S9 lands 🔴 grade
+- S8 ⬜ **batch 2c: one-line topology routing** (26 pages of topo in the ledger; ROUTER UNBUILT —
+        cross-sheet bus reconciliation is the design piece) 🔴 design grade
 - S9 ⬜ load map v2 red-pen applied (230V breaker-by-breaker validation; VCP hub w/ indicator semantics) 🔴
 - S10 ⬜ BAE 47pp: index-routed run (landscape variant; rotation; pinouts cross-validated vs HV/LV xlsx)
 ### Ch 2.3 PLC (MYT Wago) ⬜
