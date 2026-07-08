@@ -1,4 +1,4 @@
-# System Archetypes — fleet-general reference (v0.2, 2026-07-06)
+# System Archetypes — fleet-general reference (v0.4, 2026-07-06)
 
 **Scope: this file is FLEET-GENERAL.** No vessel-specific brands, part
 numbers, Register IDs, or "on this vessel" asides belong here — that
@@ -16,6 +16,35 @@ these are the common-case defaults and disambiguation cues, not a
 substitute for reading the sheet's own legend.
 
 Sources: [P&ID Symbols List (Projectmaterials)](https://blog.projectmaterials.com/epc-projects/engineering/pid-symbols-list/), [Valve Symbols in P&ID (Tango Valve)](https://www.tangovalve.com/understanding-valve-symbols-in-pid/), [ISO 14726 (marine piping colour ID)](https://www.iso.org/standard/44744.html)
+
+---
+
+## SHEET-READING SEQUENCE (mandatory, in this order, for EVERY system drawing)
+
+This is the executable protocol. It is not optional and does not wait to be
+prompted — every schematic/system-drawing read starts here, step 0 first.
+
+0. **Inventory the sheet's reference material.** Scan the whole sheet and
+   list EVERY legend and table present before reading any of the diagram:
+   symbols legend, pipe/line legend, text/tag legend, BOM/parts table,
+   equipment data tables (pump data, fan data, compressor data...), tank
+   connection details, operating-modes panels, notes blocks. A typical
+   system sheet carries 5-8 of these.
+1. **Read every one of them, fully, line by line** — before classifying a
+   single diagram symbol. The pipe/line legend and the BOM are the two most
+   often skipped and the two that have caused real failures.
+2. **Establish what the system IS** from the pipe legend + title block
+   (e.g. gas/refrigerant vs. chilled water; seawater vs. closed coolant).
+3. **Recall the matching archetype** (below) — what components a system of
+   this type should contain, its loop shape, its known naming traps.
+4. **Trace the loops** per the Loop-Following Protocol — one line type at a
+   time, origin to termination, cataloguing components in path order.
+5. **Reconcile against the BOM by MODEL NUMBER** — every BOM line should
+   map to traced components; every traced component should appear in the
+   BOM. Name mismatches joined by model number (Standing Rule 5); count
+   mismatches are findings to surface, not force.
+6. **Only then extract/route components to nodes** — with the loop context
+   and legend definitions attached as provenance.
 
 ---
 
@@ -55,8 +84,8 @@ Sources: [P&ID Symbols List (Projectmaterials)](https://blog.projectmaterials.co
    different parts of one drawing — cross-reference by MODEL NUMBER (the
    stable key), never by descriptive name (which varies).** A real,
    documented failure on this project: a BOM listed items as "AIR HANDLER
-   (18,000 BTU)" while the plan view labeled the IDENTICAL model numbers
-   (MR.MAXI18i) as "FANCOIL UNIT" — reading the two names without matching
+   (with a BTU rating)" while the plan view labeled the IDENTICAL model
+   numbers as "FANCOIL UNIT" — reading the two names without matching
    the model numbers invented a phantom extra component ("an air handler"
    separate from "the fancoils") that does not physically exist. **Rule:
    before treating a name in one table as a new/distinct component, check
@@ -113,8 +142,8 @@ is what turns a pile of labeled icons into the correct node structure.
    covers the whole system is a real, easy mistake.
 6. **If an OPERATING-MODES drawing exists, use it — it hands you the loops
    pre-traced.** Many systems have a companion "operating modes" sheet
-   (verified real for fuel, and it exists for bilge/grey/black/fresh/raw/
-   cooling/pneumatic too). It shows the SAME system several times, once per
+   (commonly: fuel, bilge/fire, grey/black water, fresh water, raw water,
+   cooling, pneumatic). It shows the SAME system several times, once per
    mode (Normal / Emergency / Transfer / Bunkering / etc.), with the ACTIVE
    path for that mode highlighted in a mode-specific COLOR and the valve
    states shown (open / closed / crossed-out = not used in this mode), plus
@@ -305,14 +334,14 @@ hydrants, spray heads, crash pump); a SEPARATE fixed-suppression folder
 inventory for which panel each alarm actually reports to (a system may
 report to BOTH a dedicated fire panel AND the central monitoring platform).
 
-**Loop(s) to follow:** THREE separate loops here, don't conflate them.
-(1) OPEN, fluid: seawater suction (seachest) → fire pump → fire line (ring
-main, its own color in the pipe legend) → every hydrant/spray head branch
-off it. (2) Fixed gas suppression is a much shorter path, not really a
-"loop": cylinder → release mechanism → the one protected enclosure — trace
-it as source→target, no return. (3) Detection is a SIGNAL loop, not fluid:
-each detector → wiring → alarm panel — same method as the electrical
-power-path protocol, not the fluid method.
+**Paths to follow:** THREE separate circuits here, don't conflate them.
+(1) OPEN fluid loop: seawater suction (seachest) → fire pump → fire line
+(ring main, its own color in the pipe legend) → every hydrant/spray head
+branch off it. (2) Fixed gas suppression, a short one-way path: cylinder →
+release mechanism → the one protected enclosure — trace source→target, no
+return. (3) Detection, a SIGNAL circuit, not fluid: each detector →
+wiring → alarm panel — traced with the electrical power-path method, not
+the fluid method.
 
 ### Fresh Water System
 
@@ -433,9 +462,8 @@ itself.
 - **SWITCHABLE/redundant filter pairs** — one filter operates while the
   other is spare/ready for changeover. **Expect this pattern — a filter
   branch that looks "unused" in a reading is normal, not a fault.**
-- **Oil-change unit** — often portable, for engine oil service (separate
-  fluid system riding on the same folder/schematic in many yards).
-  Australian pump handling.
+- **Oil-change unit** — often portable, for engine oil service (a separate
+  fluid system that commonly rides on the same folder/schematic).
 - **Tender/auxiliary-craft fueling provisions**, where applicable.
 - **Level sensors + high/low alarms**, per tank.
 
@@ -586,15 +614,6 @@ rejects the heat the refrigerant picked up, and is a distinct line
 refrigerant system the "supply/return" is refrigerant gas; for a chilled-
 water system it's water — same loop shape, different fluid, per the pipe
 legend.
-
-**Loop(s) to follow (CLOSED — chilled-water variant traced differently
-from direct-refrigerant):** chilled-water: chiller unit → circulation pump
-→ each zone's fancoil in turn → return line → back to the chiller — trace
-the supply and return lines as the two halves of one loop, same as
-hydraulics. Direct-refrigerant (VRV/VRF): compressor/condensing unit →
-refrigerant line → each zone's indoor unit → refrigerant return → back to
-the compressor. Confirm which variant you're looking at (see component
-list above) before assuming which loop shape applies.
 
 ### Cooling Water System (closed machinery/electrical coolant loop)
 

@@ -31,6 +31,7 @@ import io
 from typing import Any, Dict, List, Optional
 
 from pipeline import visual_extract as vx
+from pipeline import legend_first
 from providers.vision import get_vision_provider
 
 # ---- Gold-blind prompts (general hydraulic-sheet language only) -------------
@@ -353,17 +354,32 @@ def discover_structure(
     do_detail: bool = True,
     skeleton_dpi: int = 200,
     detail_dpi: int = 600,
+    legends_first: bool = True,
+    legend_context: str = "",
 ) -> Dict[str, Any]:
     """
     Run the gold-blind two-pass discovery on one schematic page.
+    LEGENDS FIRST (mandatory by default, engineer-mandated 2026-07-06): every
+    legend/reference table on the sheet is read verbatim BEFORE the skeleton
+    pass and prepended to both passes' prompts, so symbol/line classification
+    uses THIS sheet's own definitions. Pass legend_context to reuse an
+    already-built block; legends_first=False only for deliberate A/B testing.
     Returns {header, rails, block_capacity_printed, slices:[{...skeleton + detail}],
-    notes, passes}. Detail pass is per DISCOVERED slice (count is never assumed).
+    legends, notes, passes}. Detail pass is per DISCOVERED slice (count is
+    never assumed).
     """
     vp = get_vision_provider()
 
+    # PASS 0 — legends first (steps 0-2 of the sheet-reading sequence)
+    legends: Dict[str, Any] = {"tables": [], "context_block": legend_context}
+    if legends_first and not legend_context:
+        legends = legend_first.from_pdf(pdf_bytes, page_index, vp=vp)
+    ctx = legends.get("context_block", legend_context)
+
     # PASS 1 — skeleton (whole sheet, low res)
     skel_img = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=skeleton_dpi)
-    skel = vp.extract(skel_img, "image/png", _SKELETON_PROMPT, _SKELETON_TOOL)
+    skel = vp.extract(skel_img, "image/png",
+                      legend_first.with_context(ctx, _SKELETON_PROMPT), _SKELETON_TOOL)
     slices = skel.get("function_slices") or []
 
     result: Dict[str, Any] = {
@@ -372,6 +388,8 @@ def discover_structure(
         "block_capacity_printed": skel.get("block_capacity_printed"),
         "notes": skel.get("notes", ""),
         "slices": [dict(s) for s in slices],
+        "legends": legends.get("tables", []),
+        "legend_context": ctx,
         "passes": {"skeleton_dpi": skeleton_dpi, "detail_dpi": None,
                    "slices_found": len(slices), "detail_calls": 0},
         "model": skel.get("_model"),
@@ -382,13 +400,14 @@ def discover_structure(
     # PASS 2 — detail, one tile per DISCOVERED slice at high res
     page_hi = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=detail_dpi)
     detail_calls = 0
+    detail_prompt = legend_first.with_context(ctx, _DETAIL_PROMPT)
     for s in result["slices"]:
         xl, xr = s.get("x_left"), s.get("x_right")
         if xl is None or xr is None:
             s["detail"] = {"skipped": "no x-extent from skeleton"}
             continue
         tile = _crop_x(page_hi, float(xl), float(xr))
-        s["detail"] = vp.extract(tile, "image/png", _DETAIL_PROMPT, _DETAIL_TOOL)
+        s["detail"] = vp.extract(tile, "image/png", detail_prompt, _DETAIL_TOOL)
         detail_calls += 1
     result["passes"]["detail_dpi"] = detail_dpi
     result["passes"]["detail_calls"] = detail_calls

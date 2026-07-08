@@ -4,7 +4,7 @@
  "source_walked_at": "2026-06-08T21:10:38+00:00",
  "source_incomplete": false,
  "stats": {
-  "entries": 318,
+  "entries": 319,
   "tiers": {
    "Confirmed": 202,
    "Flagged": 4
@@ -34475,16 +34475,17 @@
    "confidence": "Confirmed",
    "parent_id": null,
    "children": [
-    "590-aircon-fcu-01",
-    "590-aircon-fcu-02",
-    "590-aircon-fcu-03",
-    "590-aircon-fcu-04",
-    "590-aircon-fcu-05",
-    "590-aircon-fcu-06",
-    "590-aircon-fcu-07",
-    "590-aircon-fcu-08",
-    "590-aircon-fcu-09",
-    "590-aircon-fcu-10",
+    "590-aircon-fancoil-master",
+    "590-aircon-fancoil-study",
+    "590-aircon-fancoil-saloon-port",
+    "590-aircon-fancoil-saloon-stbd",
+    "590-aircon-fancoil-aft-guest-port",
+    "590-aircon-fancoil-aft-guest-stbd",
+    "590-aircon-fancoil-crew-mess",
+    "590-aircon-fancoil-galley",
+    "590-aircon-fancoil-fwd-crew-stbd",
+    "590-aircon-fancoil-aft-crew-stbd",
+    "590-aircon-fancoil-aft-crew-port",
     "590-aircon-compressor-1",
     "590-aircon-compressor-2"
    ],
@@ -34526,7 +34527,7 @@
      }
     }
    ],
-   "note": "Parent node for the vessel's VRV direct-refrigerant (GAS supply/return per the pipe legend \u2014 NOT a chilled-water system; earlier 'chilled-water' label was WRONG) air conditioning system. Engine room: 2x Termodinamica VRV18E1 aircon units (each = twin compressor + heat exchanger + seawater cooling pump; tags 001-01/001-02) + 1 master touchscreen (010-01) + bypass valves. Cabins: 11 fancoil units per BOM (6x MR.MAXI18i 18kBTU + 5x MR.MAXI30i 30kBTU) = the 'AIR HANDLERS' of the BOM, each with a cabin thermostat (SRI-70-MOD-24) + a refrigerant ball valve that decides whether to admit gas and cool/heat that zone. Refrigerant gas flows compressor -> each fancoil -> return. FLAG: BOM says 11 fancoils, the schematic plan-view read found 10 (FCU-01..10) - one fancoil may have been missed in the earlier read; engineer to reconcile.",
+   "note": "Parent node for the vessel's VRV direct-refrigerant (GAS supply/return per the pipe legend) air conditioning system. Engine room: 2x Termodinamica VRV18E1 aircon units (twin compressor + heat exchanger + seawater cooling pump each) + master touchscreen + bypass valves. Cabins: 11 fancoil units ('AIR HANDLER' in the BOM = same equipment), one per engineer-confirmed zone: Master, Study, Saloon P, Saloon S, Aft Guest P, Aft Guest S, Crew Mess, Galley, Fwd Crew S, Aft Crew S, Aft Crew P. BOM count (6x 18kBTU + 5x 30kBTU = 11) now RECONCILED with the engineer list \u2014 the earlier 10-unit vision read was wrong. Per-zone thermostat SRI-70-MOD-24 + refrigerant valve at each fancoil; master control TS43E.",
    "cross_reference_findings": [
     {
      "kind": "identity",
@@ -34587,7 +34588,7 @@
    "fact_classes_present": [
     "system_schematic"
    ],
-   "retired": false,
+   "retired": true,
    "merged_from": [],
    "origin": "Aircon System Schematic.pdf big-picture read, 2026-07-06 (subsystem_seed split-trigger test)",
    "node_provenance": [
@@ -34599,7 +34600,7 @@
    ],
    "identity_status": "pending",
    "facts": [],
-   "note": "This IS an 'AIR HANDLER' in the BOM's terminology (items 006/007, Termodinamica MR.MAXI18i 18kBTU or MR.MAXI30i 30kBTU) - the BOM/engine-room name and the plan-view 'FANCOIL UNIT' name are the SAME equipment. Sited in the cabin/zone, fed refrigerant gas from the engine-room compressor units; has its own cabin thermostat (SRI-70-MOD-24) + a ball valve that admits refrigerant to cool/heat this zone. Exact per-unit model (18k vs 30k BTU) not yet mapped to this specific zone - flagged, not guessed."
+   "note": "RETIRED 2026-07-06: superseded by the engineer-confirmed 11-zone fancoil list. This node's zone name came from a vision read whose zone list conflicted with the engineer's ground truth (and undercounted 10 vs 11). Placeholder only \u2014 no facts lost."
   },
   {
    "equipment_id": "590-aircon-fcu-02",
@@ -34634,7 +34635,7 @@
    "fact_classes_present": [
     "system_schematic"
    ],
-   "retired": false,
+   "retired": true,
    "merged_from": [],
    "origin": "Aircon System Schematic.pdf big-picture read, 2026-07-06 (subsystem_seed split-trigger test)",
    "node_provenance": [
@@ -34646,7 +34647,7 @@
    ],
    "identity_status": "pending",
    "facts": [],
-   "note": "This IS an 'AIR HANDLER' in the BOM's terminology (items 006/007, Termodinamica MR.MAXI18i 18kBTU or MR.MAXI30i 30kBTU) - the BOM/engine-room name and the plan-view 'FANCOIL UNIT' name are the SAME equipment. Sited in the cabin/zone, fed refrigerant gas from the engine-room compressor units; has its own cabin thermostat (SRI-70-MOD-24) + a ball valve that admits refrigerant to cool/heat this zone. Exact per-unit model (18k vs 30k BTU) not yet mapped to this specific zone - flagged, not guessed."
+   "note": "RETIRED 2026-07-06: superseded by the engineer-confirmed 11-zone fancoil list. This node's zone name came from a vision read whose zone list conflicted with the engineer's ground truth (and undercounted 10 vs 11). Placeholder only \u2014 no facts lost."
   },
   {
    "equipment_id": "590-aircon-fcu-03",
@@ -34681,7 +34682,7 @@
    "fact_classes_present": [
     "system_schematic"
    ],
-   "retired": false,
+   "retired": true,
    "merged_from": [],
    "origin": "Aircon System Schematic.pdf big-picture read, 2026-07-06 (subsystem_seed split-trigger test)",
    "node_provenance": [
@@ -34693,7 +34694,7 @@
    ],
    "identity_status": "pending",
    "facts": [],
-   "note": "This IS an 'AIR HANDLER' in the BOM's terminology (items 006/007, Termodinamica MR.MAXI18i 18kBTU or MR.MAXI30i 30kBTU) - the BOM/engine-room name and the plan-view 'FANCOIL UNIT' name are the SAME equipment. Sited in the cabin/zone, fed refrigerant gas from the engine-room compressor units; has its own cabin thermostat (SRI-70-MOD-24) + a ball valve that admits refrigerant to cool/heat this zone. Exact per-unit model (18k vs 30k BTU) not yet mapped to this specific zone - flagged, not guessed."
+   "note": "RETIRED 2026-07-06: superseded by the engineer-confirmed 11-zone fancoil list. This node's zone name came from a vision read whose zone list conflicted with the engineer's ground truth (and undercounted 10 vs 11). Placeholder only \u2014 no facts lost."
   },
   {
    "equipment_id": "590-aircon-fcu-04",
@@ -34728,7 +34729,7 @@
    "fact_classes_present": [
     "system_schematic"
    ],
-   "retired": false,
+   "retired": true,
    "merged_from": [],
    "origin": "Aircon System Schematic.pdf big-picture read, 2026-07-06 (subsystem_seed split-trigger test)",
    "node_provenance": [
@@ -34740,7 +34741,7 @@
    ],
    "identity_status": "pending",
    "facts": [],
-   "note": "This IS an 'AIR HANDLER' in the BOM's terminology (items 006/007, Termodinamica MR.MAXI18i 18kBTU or MR.MAXI30i 30kBTU) - the BOM/engine-room name and the plan-view 'FANCOIL UNIT' name are the SAME equipment. Sited in the cabin/zone, fed refrigerant gas from the engine-room compressor units; has its own cabin thermostat (SRI-70-MOD-24) + a ball valve that admits refrigerant to cool/heat this zone. Exact per-unit model (18k vs 30k BTU) not yet mapped to this specific zone - flagged, not guessed."
+   "note": "RETIRED 2026-07-06: superseded by the engineer-confirmed 11-zone fancoil list. This node's zone name came from a vision read whose zone list conflicted with the engineer's ground truth (and undercounted 10 vs 11). Placeholder only \u2014 no facts lost."
   },
   {
    "equipment_id": "590-aircon-fcu-05",
@@ -34775,7 +34776,7 @@
    "fact_classes_present": [
     "system_schematic"
    ],
-   "retired": false,
+   "retired": true,
    "merged_from": [],
    "origin": "Aircon System Schematic.pdf big-picture read, 2026-07-06 (subsystem_seed split-trigger test)",
    "node_provenance": [
@@ -34787,7 +34788,7 @@
    ],
    "identity_status": "pending",
    "facts": [],
-   "note": "This IS an 'AIR HANDLER' in the BOM's terminology (items 006/007, Termodinamica MR.MAXI18i 18kBTU or MR.MAXI30i 30kBTU) - the BOM/engine-room name and the plan-view 'FANCOIL UNIT' name are the SAME equipment. Sited in the cabin/zone, fed refrigerant gas from the engine-room compressor units; has its own cabin thermostat (SRI-70-MOD-24) + a ball valve that admits refrigerant to cool/heat this zone. Exact per-unit model (18k vs 30k BTU) not yet mapped to this specific zone - flagged, not guessed."
+   "note": "RETIRED 2026-07-06: superseded by the engineer-confirmed 11-zone fancoil list. This node's zone name came from a vision read whose zone list conflicted with the engineer's ground truth (and undercounted 10 vs 11). Placeholder only \u2014 no facts lost."
   },
   {
    "equipment_id": "590-aircon-fcu-06",
@@ -34822,7 +34823,7 @@
    "fact_classes_present": [
     "system_schematic"
    ],
-   "retired": false,
+   "retired": true,
    "merged_from": [],
    "origin": "Aircon System Schematic.pdf big-picture read, 2026-07-06 (subsystem_seed split-trigger test)",
    "node_provenance": [
@@ -34834,7 +34835,7 @@
    ],
    "identity_status": "pending",
    "facts": [],
-   "note": "This IS an 'AIR HANDLER' in the BOM's terminology (items 006/007, Termodinamica MR.MAXI18i 18kBTU or MR.MAXI30i 30kBTU) - the BOM/engine-room name and the plan-view 'FANCOIL UNIT' name are the SAME equipment. Sited in the cabin/zone, fed refrigerant gas from the engine-room compressor units; has its own cabin thermostat (SRI-70-MOD-24) + a ball valve that admits refrigerant to cool/heat this zone. Exact per-unit model (18k vs 30k BTU) not yet mapped to this specific zone - flagged, not guessed."
+   "note": "RETIRED 2026-07-06: superseded by the engineer-confirmed 11-zone fancoil list. This node's zone name came from a vision read whose zone list conflicted with the engineer's ground truth (and undercounted 10 vs 11). Placeholder only \u2014 no facts lost."
   },
   {
    "equipment_id": "590-aircon-fcu-07",
@@ -34869,7 +34870,7 @@
    "fact_classes_present": [
     "system_schematic"
    ],
-   "retired": false,
+   "retired": true,
    "merged_from": [],
    "origin": "Aircon System Schematic.pdf big-picture read, 2026-07-06 (subsystem_seed split-trigger test)",
    "node_provenance": [
@@ -34881,7 +34882,7 @@
    ],
    "identity_status": "pending",
    "facts": [],
-   "note": "This IS an 'AIR HANDLER' in the BOM's terminology (items 006/007, Termodinamica MR.MAXI18i 18kBTU or MR.MAXI30i 30kBTU) - the BOM/engine-room name and the plan-view 'FANCOIL UNIT' name are the SAME equipment. Sited in the cabin/zone, fed refrigerant gas from the engine-room compressor units; has its own cabin thermostat (SRI-70-MOD-24) + a ball valve that admits refrigerant to cool/heat this zone. Exact per-unit model (18k vs 30k BTU) not yet mapped to this specific zone - flagged, not guessed."
+   "note": "RETIRED 2026-07-06: superseded by the engineer-confirmed 11-zone fancoil list. This node's zone name came from a vision read whose zone list conflicted with the engineer's ground truth (and undercounted 10 vs 11). Placeholder only \u2014 no facts lost."
   },
   {
    "equipment_id": "590-aircon-fcu-08",
@@ -34916,7 +34917,7 @@
    "fact_classes_present": [
     "system_schematic"
    ],
-   "retired": false,
+   "retired": true,
    "merged_from": [],
    "origin": "Aircon System Schematic.pdf big-picture read, 2026-07-06 (subsystem_seed split-trigger test)",
    "node_provenance": [
@@ -34928,7 +34929,7 @@
    ],
    "identity_status": "pending",
    "facts": [],
-   "note": "This IS an 'AIR HANDLER' in the BOM's terminology (items 006/007, Termodinamica MR.MAXI18i 18kBTU or MR.MAXI30i 30kBTU) - the BOM/engine-room name and the plan-view 'FANCOIL UNIT' name are the SAME equipment. Sited in the cabin/zone, fed refrigerant gas from the engine-room compressor units; has its own cabin thermostat (SRI-70-MOD-24) + a ball valve that admits refrigerant to cool/heat this zone. Exact per-unit model (18k vs 30k BTU) not yet mapped to this specific zone - flagged, not guessed."
+   "note": "RETIRED 2026-07-06: superseded by the engineer-confirmed 11-zone fancoil list. This node's zone name came from a vision read whose zone list conflicted with the engineer's ground truth (and undercounted 10 vs 11). Placeholder only \u2014 no facts lost."
   },
   {
    "equipment_id": "590-aircon-fcu-09",
@@ -34963,7 +34964,7 @@
    "fact_classes_present": [
     "system_schematic"
    ],
-   "retired": false,
+   "retired": true,
    "merged_from": [],
    "origin": "Aircon System Schematic.pdf big-picture read, 2026-07-06 (subsystem_seed split-trigger test)",
    "node_provenance": [
@@ -34975,7 +34976,7 @@
    ],
    "identity_status": "pending",
    "facts": [],
-   "note": "This IS an 'AIR HANDLER' in the BOM's terminology (items 006/007, Termodinamica MR.MAXI18i 18kBTU or MR.MAXI30i 30kBTU) - the BOM/engine-room name and the plan-view 'FANCOIL UNIT' name are the SAME equipment. Sited in the cabin/zone, fed refrigerant gas from the engine-room compressor units; has its own cabin thermostat (SRI-70-MOD-24) + a ball valve that admits refrigerant to cool/heat this zone. Exact per-unit model (18k vs 30k BTU) not yet mapped to this specific zone - flagged, not guessed."
+   "note": "RETIRED 2026-07-06: superseded by the engineer-confirmed 11-zone fancoil list. This node's zone name came from a vision read whose zone list conflicted with the engineer's ground truth (and undercounted 10 vs 11). Placeholder only \u2014 no facts lost."
   },
   {
    "equipment_id": "590-aircon-fcu-10",
@@ -35010,7 +35011,7 @@
    "fact_classes_present": [
     "system_schematic"
    ],
-   "retired": false,
+   "retired": true,
    "merged_from": [],
    "origin": "Aircon System Schematic.pdf big-picture read, 2026-07-06 (subsystem_seed split-trigger test)",
    "node_provenance": [
@@ -35022,7 +35023,7 @@
    ],
    "identity_status": "pending",
    "facts": [],
-   "note": "This IS an 'AIR HANDLER' in the BOM's terminology (items 006/007, Termodinamica MR.MAXI18i 18kBTU or MR.MAXI30i 30kBTU) - the BOM/engine-room name and the plan-view 'FANCOIL UNIT' name are the SAME equipment. Sited in the cabin/zone, fed refrigerant gas from the engine-room compressor units; has its own cabin thermostat (SRI-70-MOD-24) + a ball valve that admits refrigerant to cool/heat this zone. Exact per-unit model (18k vs 30k BTU) not yet mapped to this specific zone - flagged, not guessed."
+   "note": "RETIRED 2026-07-06: superseded by the engineer-confirmed 11-zone fancoil list. This node's zone name came from a vision read whose zone list conflicted with the engineer's ground truth (and undercounted 10 vs 11). Placeholder only \u2014 no facts lost."
   },
   {
    "equipment_id": "590-aircon-compressor-1",
@@ -35158,6 +35159,468 @@
    "identity_status": "pending",
    "facts": [],
    "note": "RETIRED 2026-07-06: phantom node. Full-legend re-read of the Aircon System Schematic confirmed there is NO air handler in the engine room. 'AIR HANDLER' in the BOM (items 006/007, MR.MAXI18i/MR.MAXI30i) is the vendor's name for the FANCOIL units in the cabins (the plan view labels the identical models 'FANCOIL UNIT'). Engine room holds only the compressor units + seawater cooling + master control. Merged concept into the fancoil nodes; no equipment lost."
+  },
+  {
+   "equipment_id": "590-aircon-fancoil-master",
+   "name": "Fancoil / Air Handler \u2014 Master Cabin (Termodinamica MR.MAXI)",
+   "make": "Termodinamica",
+   "model": null,
+   "category": "Fancoil unit",
+   "acronyms": [],
+   "region_code": "500",
+   "region_label": "Systems",
+   "subsystem_code": "590",
+   "subsystem_label": "Aircon system",
+   "functions": [
+    "air conditioning \u2014 Master Cabin"
+   ],
+   "source_paths": [],
+   "source_folder_ids": [],
+   "doc_subfolders": {},
+   "file_count": 0,
+   "flags": [],
+   "confidence": "Confirmed",
+   "parent_id": "590-aircon-system",
+   "children": [],
+   "cross_links": [],
+   "expected_fact_classes": [
+    "manual",
+    "schematic",
+    "inventory",
+    "pms"
+   ],
+   "fact_classes_present": [],
+   "retired": false,
+   "merged_from": [],
+   "origin": "engineer-confirmed zone list, 2026-07-06 (supersedes vision-read zones)",
+   "node_provenance": [
+    {
+     "source": "engineer verbal 2026-07-06 \u2014 authoritative zone list (11 units)"
+    }
+   ],
+   "identity_status": "pending",
+   "facts": [],
+   "note": "Zone identity: HIGH confidence, engineer-stated. 'AIR HANDLER' (BOM name, items 006/007) and 'FANCOIL UNIT' (plan-view name) are the SAME equipment. Per-unit model size (MR.MAXI18i 18kBTU vs MR.MAXI30i 30kBTU) and the drawing's FCU tag number for this zone are NOT yet confirmed \u2014 pending legends-first re-read; not guessed."
+  },
+  {
+   "equipment_id": "590-aircon-fancoil-study",
+   "name": "Fancoil / Air Handler \u2014 Study (Termodinamica MR.MAXI)",
+   "make": "Termodinamica",
+   "model": null,
+   "category": "Fancoil unit",
+   "acronyms": [],
+   "region_code": "500",
+   "region_label": "Systems",
+   "subsystem_code": "590",
+   "subsystem_label": "Aircon system",
+   "functions": [
+    "air conditioning \u2014 Study"
+   ],
+   "source_paths": [],
+   "source_folder_ids": [],
+   "doc_subfolders": {},
+   "file_count": 0,
+   "flags": [],
+   "confidence": "Confirmed",
+   "parent_id": "590-aircon-system",
+   "children": [],
+   "cross_links": [],
+   "expected_fact_classes": [
+    "manual",
+    "schematic",
+    "inventory",
+    "pms"
+   ],
+   "fact_classes_present": [],
+   "retired": false,
+   "merged_from": [],
+   "origin": "engineer-confirmed zone list, 2026-07-06 (supersedes vision-read zones)",
+   "node_provenance": [
+    {
+     "source": "engineer verbal 2026-07-06 \u2014 authoritative zone list (11 units)"
+    }
+   ],
+   "identity_status": "pending",
+   "facts": [],
+   "note": "Zone identity: HIGH confidence, engineer-stated. 'AIR HANDLER' (BOM name, items 006/007) and 'FANCOIL UNIT' (plan-view name) are the SAME equipment. Per-unit model size (MR.MAXI18i 18kBTU vs MR.MAXI30i 30kBTU) and the drawing's FCU tag number for this zone are NOT yet confirmed \u2014 pending legends-first re-read; not guessed."
+  },
+  {
+   "equipment_id": "590-aircon-fancoil-saloon-port",
+   "name": "Fancoil / Air Handler \u2014 Saloon Port (Termodinamica MR.MAXI)",
+   "make": "Termodinamica",
+   "model": null,
+   "category": "Fancoil unit",
+   "acronyms": [],
+   "region_code": "500",
+   "region_label": "Systems",
+   "subsystem_code": "590",
+   "subsystem_label": "Aircon system",
+   "functions": [
+    "air conditioning \u2014 Saloon Port"
+   ],
+   "source_paths": [],
+   "source_folder_ids": [],
+   "doc_subfolders": {},
+   "file_count": 0,
+   "flags": [],
+   "confidence": "Confirmed",
+   "parent_id": "590-aircon-system",
+   "children": [],
+   "cross_links": [],
+   "expected_fact_classes": [
+    "manual",
+    "schematic",
+    "inventory",
+    "pms"
+   ],
+   "fact_classes_present": [],
+   "retired": false,
+   "merged_from": [],
+   "origin": "engineer-confirmed zone list, 2026-07-06 (supersedes vision-read zones)",
+   "node_provenance": [
+    {
+     "source": "engineer verbal 2026-07-06 \u2014 authoritative zone list (11 units)"
+    }
+   ],
+   "identity_status": "pending",
+   "facts": [],
+   "note": "Zone identity: HIGH confidence, engineer-stated. 'AIR HANDLER' (BOM name, items 006/007) and 'FANCOIL UNIT' (plan-view name) are the SAME equipment. Per-unit model size (MR.MAXI18i 18kBTU vs MR.MAXI30i 30kBTU) and the drawing's FCU tag number for this zone are NOT yet confirmed \u2014 pending legends-first re-read; not guessed."
+  },
+  {
+   "equipment_id": "590-aircon-fancoil-saloon-stbd",
+   "name": "Fancoil / Air Handler \u2014 Saloon Stbd (Termodinamica MR.MAXI)",
+   "make": "Termodinamica",
+   "model": null,
+   "category": "Fancoil unit",
+   "acronyms": [],
+   "region_code": "500",
+   "region_label": "Systems",
+   "subsystem_code": "590",
+   "subsystem_label": "Aircon system",
+   "functions": [
+    "air conditioning \u2014 Saloon Stbd"
+   ],
+   "source_paths": [],
+   "source_folder_ids": [],
+   "doc_subfolders": {},
+   "file_count": 0,
+   "flags": [],
+   "confidence": "Confirmed",
+   "parent_id": "590-aircon-system",
+   "children": [],
+   "cross_links": [],
+   "expected_fact_classes": [
+    "manual",
+    "schematic",
+    "inventory",
+    "pms"
+   ],
+   "fact_classes_present": [],
+   "retired": false,
+   "merged_from": [],
+   "origin": "engineer-confirmed zone list, 2026-07-06 (supersedes vision-read zones)",
+   "node_provenance": [
+    {
+     "source": "engineer verbal 2026-07-06 \u2014 authoritative zone list (11 units)"
+    }
+   ],
+   "identity_status": "pending",
+   "facts": [],
+   "note": "Zone identity: HIGH confidence, engineer-stated. 'AIR HANDLER' (BOM name, items 006/007) and 'FANCOIL UNIT' (plan-view name) are the SAME equipment. Per-unit model size (MR.MAXI18i 18kBTU vs MR.MAXI30i 30kBTU) and the drawing's FCU tag number for this zone are NOT yet confirmed \u2014 pending legends-first re-read; not guessed."
+  },
+  {
+   "equipment_id": "590-aircon-fancoil-aft-guest-port",
+   "name": "Fancoil / Air Handler \u2014 Aft Guest Cabin Port (Termodinamica MR.MAXI)",
+   "make": "Termodinamica",
+   "model": null,
+   "category": "Fancoil unit",
+   "acronyms": [],
+   "region_code": "500",
+   "region_label": "Systems",
+   "subsystem_code": "590",
+   "subsystem_label": "Aircon system",
+   "functions": [
+    "air conditioning \u2014 Aft Guest Cabin Port"
+   ],
+   "source_paths": [],
+   "source_folder_ids": [],
+   "doc_subfolders": {},
+   "file_count": 0,
+   "flags": [],
+   "confidence": "Confirmed",
+   "parent_id": "590-aircon-system",
+   "children": [],
+   "cross_links": [],
+   "expected_fact_classes": [
+    "manual",
+    "schematic",
+    "inventory",
+    "pms"
+   ],
+   "fact_classes_present": [],
+   "retired": false,
+   "merged_from": [],
+   "origin": "engineer-confirmed zone list, 2026-07-06 (supersedes vision-read zones)",
+   "node_provenance": [
+    {
+     "source": "engineer verbal 2026-07-06 \u2014 authoritative zone list (11 units)"
+    }
+   ],
+   "identity_status": "pending",
+   "facts": [],
+   "note": "Zone identity: HIGH confidence, engineer-stated. 'AIR HANDLER' (BOM name, items 006/007) and 'FANCOIL UNIT' (plan-view name) are the SAME equipment. Per-unit model size (MR.MAXI18i 18kBTU vs MR.MAXI30i 30kBTU) and the drawing's FCU tag number for this zone are NOT yet confirmed \u2014 pending legends-first re-read; not guessed."
+  },
+  {
+   "equipment_id": "590-aircon-fancoil-aft-guest-stbd",
+   "name": "Fancoil / Air Handler \u2014 Aft Guest Cabin Stbd (Termodinamica MR.MAXI)",
+   "make": "Termodinamica",
+   "model": null,
+   "category": "Fancoil unit",
+   "acronyms": [],
+   "region_code": "500",
+   "region_label": "Systems",
+   "subsystem_code": "590",
+   "subsystem_label": "Aircon system",
+   "functions": [
+    "air conditioning \u2014 Aft Guest Cabin Stbd"
+   ],
+   "source_paths": [],
+   "source_folder_ids": [],
+   "doc_subfolders": {},
+   "file_count": 0,
+   "flags": [],
+   "confidence": "Confirmed",
+   "parent_id": "590-aircon-system",
+   "children": [],
+   "cross_links": [],
+   "expected_fact_classes": [
+    "manual",
+    "schematic",
+    "inventory",
+    "pms"
+   ],
+   "fact_classes_present": [],
+   "retired": false,
+   "merged_from": [],
+   "origin": "engineer-confirmed zone list, 2026-07-06 (supersedes vision-read zones)",
+   "node_provenance": [
+    {
+     "source": "engineer verbal 2026-07-06 \u2014 authoritative zone list (11 units)"
+    }
+   ],
+   "identity_status": "pending",
+   "facts": [],
+   "note": "Zone identity: HIGH confidence, engineer-stated. 'AIR HANDLER' (BOM name, items 006/007) and 'FANCOIL UNIT' (plan-view name) are the SAME equipment. Per-unit model size (MR.MAXI18i 18kBTU vs MR.MAXI30i 30kBTU) and the drawing's FCU tag number for this zone are NOT yet confirmed \u2014 pending legends-first re-read; not guessed."
+  },
+  {
+   "equipment_id": "590-aircon-fancoil-crew-mess",
+   "name": "Fancoil / Air Handler \u2014 Crew Mess (Termodinamica MR.MAXI)",
+   "make": "Termodinamica",
+   "model": null,
+   "category": "Fancoil unit",
+   "acronyms": [],
+   "region_code": "500",
+   "region_label": "Systems",
+   "subsystem_code": "590",
+   "subsystem_label": "Aircon system",
+   "functions": [
+    "air conditioning \u2014 Crew Mess"
+   ],
+   "source_paths": [],
+   "source_folder_ids": [],
+   "doc_subfolders": {},
+   "file_count": 0,
+   "flags": [],
+   "confidence": "Confirmed",
+   "parent_id": "590-aircon-system",
+   "children": [],
+   "cross_links": [],
+   "expected_fact_classes": [
+    "manual",
+    "schematic",
+    "inventory",
+    "pms"
+   ],
+   "fact_classes_present": [],
+   "retired": false,
+   "merged_from": [],
+   "origin": "engineer-confirmed zone list, 2026-07-06 (supersedes vision-read zones)",
+   "node_provenance": [
+    {
+     "source": "engineer verbal 2026-07-06 \u2014 authoritative zone list (11 units)"
+    }
+   ],
+   "identity_status": "pending",
+   "facts": [],
+   "note": "Zone identity: HIGH confidence, engineer-stated. 'AIR HANDLER' (BOM name, items 006/007) and 'FANCOIL UNIT' (plan-view name) are the SAME equipment. Per-unit model size (MR.MAXI18i 18kBTU vs MR.MAXI30i 30kBTU) and the drawing's FCU tag number for this zone are NOT yet confirmed \u2014 pending legends-first re-read; not guessed."
+  },
+  {
+   "equipment_id": "590-aircon-fancoil-galley",
+   "name": "Fancoil / Air Handler \u2014 Galley (Termodinamica MR.MAXI)",
+   "make": "Termodinamica",
+   "model": null,
+   "category": "Fancoil unit",
+   "acronyms": [],
+   "region_code": "500",
+   "region_label": "Systems",
+   "subsystem_code": "590",
+   "subsystem_label": "Aircon system",
+   "functions": [
+    "air conditioning \u2014 Galley"
+   ],
+   "source_paths": [],
+   "source_folder_ids": [],
+   "doc_subfolders": {},
+   "file_count": 0,
+   "flags": [],
+   "confidence": "Confirmed",
+   "parent_id": "590-aircon-system",
+   "children": [],
+   "cross_links": [],
+   "expected_fact_classes": [
+    "manual",
+    "schematic",
+    "inventory",
+    "pms"
+   ],
+   "fact_classes_present": [],
+   "retired": false,
+   "merged_from": [],
+   "origin": "engineer-confirmed zone list, 2026-07-06 (supersedes vision-read zones)",
+   "node_provenance": [
+    {
+     "source": "engineer verbal 2026-07-06 \u2014 authoritative zone list (11 units)"
+    }
+   ],
+   "identity_status": "pending",
+   "facts": [],
+   "note": "Zone identity: HIGH confidence, engineer-stated. 'AIR HANDLER' (BOM name, items 006/007) and 'FANCOIL UNIT' (plan-view name) are the SAME equipment. Per-unit model size (MR.MAXI18i 18kBTU vs MR.MAXI30i 30kBTU) and the drawing's FCU tag number for this zone are NOT yet confirmed \u2014 pending legends-first re-read; not guessed."
+  },
+  {
+   "equipment_id": "590-aircon-fancoil-fwd-crew-stbd",
+   "name": "Fancoil / Air Handler \u2014 Fwd Crew Cabin Stbd (Termodinamica MR.MAXI)",
+   "make": "Termodinamica",
+   "model": null,
+   "category": "Fancoil unit",
+   "acronyms": [],
+   "region_code": "500",
+   "region_label": "Systems",
+   "subsystem_code": "590",
+   "subsystem_label": "Aircon system",
+   "functions": [
+    "air conditioning \u2014 Fwd Crew Cabin Stbd"
+   ],
+   "source_paths": [],
+   "source_folder_ids": [],
+   "doc_subfolders": {},
+   "file_count": 0,
+   "flags": [],
+   "confidence": "Confirmed",
+   "parent_id": "590-aircon-system",
+   "children": [],
+   "cross_links": [],
+   "expected_fact_classes": [
+    "manual",
+    "schematic",
+    "inventory",
+    "pms"
+   ],
+   "fact_classes_present": [],
+   "retired": false,
+   "merged_from": [],
+   "origin": "engineer-confirmed zone list, 2026-07-06 (supersedes vision-read zones)",
+   "node_provenance": [
+    {
+     "source": "engineer verbal 2026-07-06 \u2014 authoritative zone list (11 units)"
+    }
+   ],
+   "identity_status": "pending",
+   "facts": [],
+   "note": "Zone identity: HIGH confidence, engineer-stated. 'AIR HANDLER' (BOM name, items 006/007) and 'FANCOIL UNIT' (plan-view name) are the SAME equipment. Per-unit model size (MR.MAXI18i 18kBTU vs MR.MAXI30i 30kBTU) and the drawing's FCU tag number for this zone are NOT yet confirmed \u2014 pending legends-first re-read; not guessed."
+  },
+  {
+   "equipment_id": "590-aircon-fancoil-aft-crew-stbd",
+   "name": "Fancoil / Air Handler \u2014 Aft Crew Cabin Stbd (Termodinamica MR.MAXI)",
+   "make": "Termodinamica",
+   "model": null,
+   "category": "Fancoil unit",
+   "acronyms": [],
+   "region_code": "500",
+   "region_label": "Systems",
+   "subsystem_code": "590",
+   "subsystem_label": "Aircon system",
+   "functions": [
+    "air conditioning \u2014 Aft Crew Cabin Stbd"
+   ],
+   "source_paths": [],
+   "source_folder_ids": [],
+   "doc_subfolders": {},
+   "file_count": 0,
+   "flags": [],
+   "confidence": "Confirmed",
+   "parent_id": "590-aircon-system",
+   "children": [],
+   "cross_links": [],
+   "expected_fact_classes": [
+    "manual",
+    "schematic",
+    "inventory",
+    "pms"
+   ],
+   "fact_classes_present": [],
+   "retired": false,
+   "merged_from": [],
+   "origin": "engineer-confirmed zone list, 2026-07-06 (supersedes vision-read zones)",
+   "node_provenance": [
+    {
+     "source": "engineer verbal 2026-07-06 \u2014 authoritative zone list (11 units)"
+    }
+   ],
+   "identity_status": "pending",
+   "facts": [],
+   "note": "Zone identity: HIGH confidence, engineer-stated. 'AIR HANDLER' (BOM name, items 006/007) and 'FANCOIL UNIT' (plan-view name) are the SAME equipment. Per-unit model size (MR.MAXI18i 18kBTU vs MR.MAXI30i 30kBTU) and the drawing's FCU tag number for this zone are NOT yet confirmed \u2014 pending legends-first re-read; not guessed."
+  },
+  {
+   "equipment_id": "590-aircon-fancoil-aft-crew-port",
+   "name": "Fancoil / Air Handler \u2014 Aft Crew Cabin Port (Termodinamica MR.MAXI)",
+   "make": "Termodinamica",
+   "model": null,
+   "category": "Fancoil unit",
+   "acronyms": [],
+   "region_code": "500",
+   "region_label": "Systems",
+   "subsystem_code": "590",
+   "subsystem_label": "Aircon system",
+   "functions": [
+    "air conditioning \u2014 Aft Crew Cabin Port"
+   ],
+   "source_paths": [],
+   "source_folder_ids": [],
+   "doc_subfolders": {},
+   "file_count": 0,
+   "flags": [],
+   "confidence": "Confirmed",
+   "parent_id": "590-aircon-system",
+   "children": [],
+   "cross_links": [],
+   "expected_fact_classes": [
+    "manual",
+    "schematic",
+    "inventory",
+    "pms"
+   ],
+   "fact_classes_present": [],
+   "retired": false,
+   "merged_from": [],
+   "origin": "engineer-confirmed zone list, 2026-07-06 (supersedes vision-read zones)",
+   "node_provenance": [
+    {
+     "source": "engineer verbal 2026-07-06 \u2014 authoritative zone list (11 units)"
+    }
+   ],
+   "identity_status": "pending",
+   "facts": [],
+   "note": "Zone identity: HIGH confidence, engineer-stated. 'AIR HANDLER' (BOM name, items 006/007) and 'FANCOIL UNIT' (plan-view name) are the SAME equipment. Per-unit model size (MR.MAXI18i 18kBTU vs MR.MAXI30i 30kBTU) and the drawing's FCU tag number for this zone are NOT yet confirmed \u2014 pending legends-first re-read; not guessed."
   }
  ],
  "acronyms": {

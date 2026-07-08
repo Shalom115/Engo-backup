@@ -30,6 +30,7 @@ from typing import Any, Dict, List, Optional
 from PIL import Image
 
 from pipeline import visual_extract as vx
+from pipeline import legend_first
 from providers.vision import get_vision_provider
 
 # ---------------------------------------------------------------- PASS 1 tool
@@ -126,22 +127,25 @@ def _crop_box(png: bytes, bbox: List[float], pad: float = 0.01) -> bytes:
     return out.getvalue()
 
 
-def survey(pdf_bytes: bytes, page_index: int = 0, *, dpi: int = 200) -> Dict[str, Any]:
+def survey(pdf_bytes: bytes, page_index: int = 0, *, dpi: int = 200,
+           legend_context: str = "") -> Dict[str, Any]:
     """PASS 1 — classify sub-type + detect regions (gold-blind, structural only)."""
     vp = get_vision_provider()
     img = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=dpi)
-    r = vp.extract(img, "image/png", _SURVEY_PROMPT, _SURVEY_TOOL)
+    r = vp.extract(img, "image/png",
+                   legend_first.with_context(legend_context, _SURVEY_PROMPT), _SURVEY_TOOL)
     r["_pass1_dpi"] = dpi
     return r
 
 
 def read_schedule_region(pdf_bytes: bytes, bbox: List[float], page_index: int = 0,
-                         *, dpi: int = 600) -> Dict[str, Any]:
+                         *, dpi: int = 600, legend_context: str = "") -> Dict[str, Any]:
     """PASS 2 (sub-type A) — tight-crop a schedule region and read its rows."""
     vp = get_vision_provider()
     page = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=dpi)
     tile = _crop_box(page, bbox)
-    return vp.extract(tile, "image/png", _SCHEDULE_PROMPT, _SCHEDULE_TOOL)
+    return vp.extract(tile, "image/png",
+                      legend_first.with_context(legend_context, _SCHEDULE_PROMPT), _SCHEDULE_TOOL)
 
 
 # ---------------------------------------------------------------- PASS 2 (C) tool
@@ -218,11 +222,12 @@ _ONELINE_TOOL = {
 
 
 def read_wiring_region(pdf_bytes: bytes, bbox: List[float], page_index: int = 0,
-                       *, dpi: int = 600) -> Dict[str, Any]:
+                       *, dpi: int = 600, legend_context: str = "") -> Dict[str, Any]:
     """PASS 2 (sub-type C) — tight-crop a wiring region and read its elements."""
     vp = get_vision_provider()
     page = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=dpi)
-    return vp.extract(_crop_box(page, bbox), "image/png", _WIRING_PROMPT, _WIRING_TOOL)
+    return vp.extract(_crop_box(page, bbox), "image/png",
+                      legend_first.with_context(legend_context, _WIRING_PROMPT), _WIRING_TOOL)
 
 
 def _row_key(row: Dict[str, Any]) -> tuple:
@@ -233,18 +238,19 @@ def _row_key(row: Dict[str, Any]) -> tuple:
 
 def read_schedule_coverage(pdf_bytes: bytes, page_index: int,
                            survey_regions: Optional[List[Dict[str, Any]]] = None,
-                           *, dpi: int = 600) -> List[Dict[str, Any]]:
+                           *, dpi: int = 600, legend_context: str = "") -> List[Dict[str, Any]]:
     """Schedule read with the same COVERAGE GUARANTEE as read_wiring_coverage —
     survey-detected panel/breaker regions PLUS a fixed full-sheet grid, merged with
     dedupe. Same root cause applies here: the survey's region detection is
     stochastic, so a schedule reader keyed only on it can silently miss rows."""
     page = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=dpi)
     vp = get_vision_provider()
+    _prompt = legend_first.with_context(legend_context, _SCHEDULE_PROMPT)
     seen: Dict[tuple, Dict[str, Any]] = {}
     panel_label = None
     skipped = 0
     for rg in (survey_regions or []):
-        r = vp.extract(_crop_box(page, rg["bbox"]), "image/png", _SCHEDULE_PROMPT, _SCHEDULE_TOOL)
+        r = vp.extract(_crop_box(page, rg["bbox"]), "image/png", _prompt, _SCHEDULE_TOOL)
         panel_label = panel_label or r.get("panel_label")
         for row in r.get("rows", []):
             if not isinstance(row, dict):
@@ -254,7 +260,7 @@ def read_schedule_coverage(pdf_bytes: bytes, page_index: int,
             row["_bbox"] = rg["bbox"]
             seen.setdefault(_row_key(row), row)
     for gb in grid_boxes():
-        r = vp.extract(_crop_box(page, gb), "image/png", _SCHEDULE_PROMPT, _SCHEDULE_TOOL)
+        r = vp.extract(_crop_box(page, gb), "image/png", _prompt, _SCHEDULE_TOOL)
         panel_label = panel_label or r.get("panel_label")
         for row in r.get("rows", []):
             if not isinstance(row, dict):
@@ -293,16 +299,17 @@ def _el_key(e: Dict[str, Any]) -> tuple:
 
 def read_wiring_coverage(pdf_bytes: bytes, page_index: int,
                          survey_regions: Optional[List[Dict[str, Any]]] = None,
-                         *, dpi: int = 600) -> List[Dict[str, Any]]:
+                         *, dpi: int = 600, legend_context: str = "") -> List[Dict[str, Any]]:
     """Wiring read with the COVERAGE GUARANTEE: reads the survey's wiring regions
     (tight crops, best resolution) PLUS a fixed full-sheet grid, then merges with
     dedupe. An element found by either path is kept; grid-only finds are marked."""
     page = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=dpi)
     vp = get_vision_provider()
+    _prompt = legend_first.with_context(legend_context, _WIRING_PROMPT)
     seen: Dict[tuple, Dict[str, Any]] = {}
     skipped = 0
     for rg in (survey_regions or []):
-        r = vp.extract(_crop_box(page, rg["bbox"]), "image/png", _WIRING_PROMPT, _WIRING_TOOL)
+        r = vp.extract(_crop_box(page, rg["bbox"]), "image/png", _prompt, _WIRING_TOOL)
         for e in r.get("elements", []):
             if not isinstance(e, dict):
                 skipped += 1
@@ -311,7 +318,7 @@ def read_wiring_coverage(pdf_bytes: bytes, page_index: int,
             e["_bbox"] = rg["bbox"]
             seen.setdefault(_el_key(e), e)
     for gb in grid_boxes():
-        r = vp.extract(_crop_box(page, gb), "image/png", _WIRING_PROMPT, _WIRING_TOOL)
+        r = vp.extract(_crop_box(page, gb), "image/png", _prompt, _WIRING_TOOL)
         for e in r.get("elements", []):
             if not isinstance(e, dict):
                 skipped += 1
@@ -327,11 +334,12 @@ def read_wiring_coverage(pdf_bytes: bytes, page_index: int,
 
 
 def read_oneline_region(pdf_bytes: bytes, bbox: List[float], page_index: int = 0,
-                        *, dpi: int = 400) -> Dict[str, Any]:
+                        *, dpi: int = 400, legend_context: str = "") -> Dict[str, Any]:
     """PASS 2 (sub-type B) — read the topology of a one-line region."""
     vp = get_vision_provider()
     page = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=dpi)
-    return vp.extract(_crop_box(page, bbox), "image/png", _ONELINE_PROMPT, _ONELINE_TOOL)
+    return vp.extract(_crop_box(page, bbox), "image/png",
+                      legend_first.with_context(legend_context, _ONELINE_PROMPT), _ONELINE_TOOL)
 
 
 def _node_key(n: Dict[str, Any]) -> tuple:
@@ -342,18 +350,19 @@ def _node_key(n: Dict[str, Any]) -> tuple:
 
 def read_oneline_coverage(pdf_bytes: bytes, page_index: int,
                          survey_regions: Optional[List[Dict[str, Any]]] = None,
-                         *, dpi: int = 500) -> Dict[str, Any]:
+                         *, dpi: int = 500, legend_context: str = "") -> Dict[str, Any]:
     """One-line topology read with the same COVERAGE GUARANTEE as wiring/schedule —
     survey-detected topology_network regions PLUS a fixed full-sheet grid, merged
     with dedupe on (node_type, id, label). Same root cause: survey region-detection
     is stochastic, a reader keyed only on it can silently miss nodes/edges."""
     page = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=dpi)
     vp = get_vision_provider()
+    _prompt = legend_first.with_context(legend_context, _ONELINE_PROMPT)
     seen: Dict[tuple, Dict[str, Any]] = {}
     edges: List[str] = []
     skipped = 0
     for rg in (survey_regions or []):
-        r = vp.extract(_crop_box(page, rg["bbox"]), "image/png", _ONELINE_PROMPT, _ONELINE_TOOL)
+        r = vp.extract(_crop_box(page, rg["bbox"]), "image/png", _prompt, _ONELINE_TOOL)
         for n in r.get("nodes", []):
             if not isinstance(n, dict):
                 skipped += 1
@@ -362,7 +371,7 @@ def read_oneline_coverage(pdf_bytes: bytes, page_index: int,
             seen.setdefault(_node_key(n), n)
         edges.extend(x for x in r.get("edges", []) if isinstance(x, str))
     for gb in grid_boxes():
-        r = vp.extract(_crop_box(page, gb), "image/png", _ONELINE_PROMPT, _ONELINE_TOOL)
+        r = vp.extract(_crop_box(page, gb), "image/png", _prompt, _ONELINE_TOOL)
         for n in r.get("nodes", []):
             if not isinstance(n, dict):
                 skipped += 1
@@ -394,34 +403,46 @@ _WIRING_REGIONS = ("terminal_strip", "relay_bank", "controller_module")
 _ONELINE_REGIONS = ("topology_network",)
 
 
-def extract_sheet(pdf_bytes: bytes, page_index: int = 0) -> Dict[str, Any]:
+def extract_sheet(pdf_bytes: bytes, page_index: int = 0, *,
+                  legends_first: bool = True) -> Dict[str, Any]:
     """
-    Full electrical extraction. Survey first, then dispatch a detail reader PER REGION
-    TYPE: schedule reader (breaker_bank/panel_column), wiring reader (terminal_strip/
-    relay_bank/controller_module), one-line topology reader (topology_network). All
-    three grounded on rendered sheets (GM-111 / 114a-116-119 / 110b + GA-001b + BAE).
+    Full electrical extraction. LEGENDS FIRST (mandatory by default — the
+    engineer-mandated protocol, 2026-07-06): every legend/reference table on the
+    sheet is inventoried and read verbatim BEFORE any diagram symbol, and the
+    result is prepended to every extraction prompt so classification uses THIS
+    sheet's own definitions. Then survey + dispatch a detail reader PER REGION
+    TYPE: schedule reader (breaker_bank/panel_column), wiring reader
+    (terminal_strip/relay_bank/controller_module), one-line topology reader
+    (topology_network).
     """
-    s = survey(pdf_bytes, page_index)
-    result: Dict[str, Any] = {"survey": s, "sub_type": s.get("sub_type"),
+    legends: Dict[str, Any] = {"tables": [], "context_block": ""}
+    if legends_first:
+        legends = legend_first.from_pdf(pdf_bytes, page_index)
+    ctx = legends.get("context_block", "")
+    s = survey(pdf_bytes, page_index, legend_context=ctx)
+    result: Dict[str, Any] = {"legends": legends.get("tables", []),
+                              "legend_context": ctx,
+                              "survey": s, "sub_type": s.get("sub_type"),
                               "regions_read": [], "scoped_next": []}
     for rg in s.get("regions", []):
         rtype = rg.get("type")
         if rtype in _SCHEDULE_REGIONS:
-            rows = read_schedule_region(pdf_bytes, rg["bbox"], page_index)
+            rows = read_schedule_region(pdf_bytes, rg["bbox"], page_index, legend_context=ctx)
             result["regions_read"].append({
                 "region": rg.get("label"), "region_type": rtype, "bbox": rg["bbox"],
                 "reader": "schedule", "panel_label": rows.get("panel_label"),
                 "rows": rows.get("rows", [])})
         elif rtype in _WIRING_REGIONS:
-            els = read_wiring_region(pdf_bytes, rg["bbox"], page_index)
+            els = read_wiring_region(pdf_bytes, rg["bbox"], page_index, legend_context=ctx)
             result["regions_read"].append({
                 "region": rg.get("label"), "region_type": rtype, "bbox": rg["bbox"],
                 "reader": "wiring", "elements": els.get("elements", [])})
         elif rtype in _ONELINE_REGIONS:
-            topo = read_oneline_region(pdf_bytes, rg["bbox"], page_index)
+            topo = read_oneline_region(pdf_bytes, rg["bbox"], page_index, legend_context=ctx)
             result["regions_read"].append({
                 "region": rg.get("label"), "region_type": rtype, "bbox": rg["bbox"],
                 "reader": "oneline", "nodes": topo.get("nodes", []),
                 "edges": topo.get("edges", [])})
-        # legend / other regions are skipped
+        # legend regions are no longer skipped — they were read UP FRONT by
+        # legend_first and their content rides in every prompt above.
     return result
