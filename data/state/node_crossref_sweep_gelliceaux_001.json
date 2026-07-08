@@ -1,0 +1,6032 @@
+{
+ "vessel": "gelliceaux_001",
+ "generated": "2026-07-06",
+ "method": "pipeline.node_crossref.report() run across every non-retired Register entry (read-only, no mutation)",
+ "totals": {
+  "total": 319,
+  "has_facts": 91,
+  "crossref_corroborated": 19,
+  "crossref_disagreement": 1
+ },
+ "nodes": [
+  {
+   "equipment_id": "130-apm-lifting-keel",
+   "name": "APM",
+   "has_facts": true,
+   "n_facts": 13,
+   "doc_classes_present": [
+    "hydraulic_schematic",
+    "pms"
+   ],
+   "doc_classes_missing": [
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": [
+    {
+     "kind": "identity",
+     "status": "corroborated",
+     "values": [
+      {
+       "value": "APM",
+       "fact_kind": "make",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (130-apm-lifting-keel)"
+      },
+      {
+       "value": "apm s.r.l.",
+       "fact_kind": "make",
+       "source_type": "pms",
+       "source_doc": "YMP PMS equipment record: Lifting Keel System"
+      },
+      {
+       "value": "SWS 108-1",
+       "fact_kind": "model",
+       "source_type": "pms",
+       "source_doc": "YMP PMS equipment record: Lifting Keel System"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "equipment_id": "150-marsili-autopilot",
+   "name": "MARSILI",
+   "has_facts": true,
+   "n_facts": 3,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "220-capstan-winch",
+   "name": "Capstan winch",
+   "has_facts": true,
+   "n_facts": 5,
+   "doc_classes_present": [
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "220-captive-winch",
+   "name": "Captive winch",
+   "has_facts": true,
+   "n_facts": 1,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "230-sailing-items",
+   "name": "Sailing items",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "240-companionway",
+   "name": "Companionway",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "240-foot-step",
+   "name": "Foot step",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "240-hatches",
+   "name": "Hatches",
+   "has_facts": true,
+   "n_facts": 7,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "240-inflation-tube",
+   "name": "Inflation tube",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "240-layout",
+   "name": "Layout",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "240-nav-lighting",
+   "name": "Nav lighting",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "240-pictures",
+   "name": "Pictures",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "240-windows",
+   "name": "Windows",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "250-anchor",
+   "name": "Anchor",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "250-ketten-walder-anchor-chain",
+   "name": "Ketten Walder",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "250-lofrans-windlass",
+   "name": "Lofrans",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "250-saddles",
+   "name": "Saddles",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "270-lazz-seat",
+   "name": "Lazz seat",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "280-adf-outdoor-exterior-fabric",
+   "name": "ADF Outdoor",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "310-crew",
+   "name": "Crew",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "310-exteriors",
+   "name": "Exteriors",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "310-galley",
+   "name": "Galley",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "310-general-drawings",
+   "name": "General drawings",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "310-guest",
+   "name": "Guest",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "310-interior-owner-cabin",
+   "name": "Interior - Owner Cabin",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "310-interior-owner-head",
+   "name": "Interior - Owner Head",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "310-interior-saloon",
+   "name": "Interior - Saloon",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "310-materials",
+   "name": "Materials",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "310-nav-station",
+   "name": "Nav station",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "310-owners",
+   "name": "Owners",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "310-passages",
+   "name": "Passages",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "310-renders",
+   "name": "Renders",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "310-saloon",
+   "name": "Saloon",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "310-schematics-and-drawings",
+   "name": "Schematics and Drawings",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "340-crockery-cu0tlery-and-glassware",
+   "name": "Crockery, Cu0tlery and glassware",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "340-linen",
+   "name": "Linen",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "350-crew-head-aft",
+   "name": "Crew Head Aft",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "350-crew-head-fwd",
+   "name": "Crew Head Fwd",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "350-guest-heads",
+   "name": "Guest Heads",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "350-owners-head",
+   "name": "Owners head",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "360-coffee-machine",
+   "name": "Coffee machine",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "360-cook-top",
+   "name": "Cook top",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "360-dishwasher",
+   "name": "Dishwasher",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "360-dryer",
+   "name": "Dryer",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "360-extraction-hood",
+   "name": "Extraction hood",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "360-fridges",
+   "name": "Fridges",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "360-microwave",
+   "name": "Microwave",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "360-oven",
+   "name": "Oven",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "360-sink-disposal",
+   "name": "Sink disposal",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "360-washing-machine",
+   "name": "Washing machine",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "360-wine-cooler",
+   "name": "Wine cooler",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "360-zip-tap",
+   "name": "Zip tap",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "380-barthelme-led",
+   "name": "Barthelme",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "380-notes",
+   "name": "Notes",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "380-pslab-lighting",
+   "name": "PSLab",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "380-yachtica-lighting-module",
+   "name": "Yachtica",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "410-vulkan-vibration-control",
+   "name": "Vulkan",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "420-gpm-12-drive-motor",
+   "name": "GPM-12 drive motor",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "430-hundested-cpp-sterngear",
+   "name": "Hundested",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "505-san-giorgio-gas-monitoring-tank-sensors",
+   "name": "San Giorgio",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "505-tank-calibration",
+   "name": "Tank calibration",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "510-ecosistems-watermaker",
+   "name": "EcoSistems",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "510-hem-water-purification",
+   "name": "HEM",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "515-bowman-coolers-heat-exchangers",
+   "name": "Bowman",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "515-calpeda-cpp-seawater-pump",
+   "name": "Calpeda",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "515-funke-heat-exchangers",
+   "name": "Funke",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "515-grundfos-main-seawater-cooling-pumps",
+   "name": "Grundfos",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "515-ifm-raw-water-sensors",
+   "name": "ifm",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "520-feit-bilge-pump",
+   "name": "FEIT",
+   "has_facts": true,
+   "n_facts": 1,
+   "doc_classes_present": [
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "520-vega-bilge-level-sensors",
+   "name": "Vega",
+   "has_facts": true,
+   "n_facts": 1,
+   "doc_classes_present": [
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": [
+    {
+     "kind": "identity",
+     "status": "corroborated",
+     "values": [
+      {
+       "value": "Vega",
+       "fact_kind": "make",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (520-vega-bilge-level-sensors)"
+      },
+      {
+       "value": "BOM 007: VEGA VEGAPOINT 21 capacitive high-level bilge alarm switches \u00d75 (+ BOM 025: GEMS 117716 float switches \u00d74 aux)",
+       "fact_kind": "identity",
+       "source_type": "hydraulic_schematic",
+       "source_doc": "Bilge and Fire System Schematic.pdf (108-01-520-001 rev B)"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "equipment_id": "520-whale-pumps",
+   "name": "Whale",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "530-planus-waterlift-transfer-unit",
+   "name": "Planus",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "530-viking-pump",
+   "name": "Viking pump",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "530-wave-international-greywater-treatment",
+   "name": "Wave International",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "540-gianneschi-pumps",
+   "name": "Gianneschi",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "540-toilet",
+   "name": "Toilet",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "550-fuel-pump",
+   "name": "Fuel pump",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "550-racor-fuel-filters",
+   "name": "Racor",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "550-reverso-oil-transfer-pump",
+   "name": "Reverso",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "560-igd-hf-sensor",
+   "name": "IGD",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "560-sea-fire-fire-suppression",
+   "name": "Sea-Fire",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "570-andersen-negele-hydraulic-oil-tank-pressure-transmitter",
+   "name": "Andersen Negele",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "570-elesa-oil-tank-temperature-sensor",
+   "name": "Elesa",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "570-myt-systems-hydraulics",
+   "name": "MYT Systems",
+   "has_facts": true,
+   "n_facts": 5,
+   "doc_classes_present": [
+    "electrical_schematic",
+    "pms"
+   ],
+   "doc_classes_missing": [
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": [
+    {
+     "kind": "identity",
+     "status": "corroborated",
+     "values": [
+      {
+       "value": "MYT Systems",
+       "fact_kind": "make",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (570-myt-systems-hydraulics)"
+      },
+      {
+       "value": "MYT Systems",
+       "fact_kind": "make",
+       "source_type": "pms",
+       "source_doc": "YMP PMS equipment record: MYT Systems SW108#1 Hydraulic System"
+      },
+      {
+       "value": "SW108#1",
+       "fact_kind": "model",
+       "source_type": "pms",
+       "source_doc": "YMP PMS equipment record: MYT Systems SW108#1 Hydraulic System"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "equipment_id": "570-superseded",
+   "name": "superseded",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "590-notes",
+   "name": "Notes",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "595-emp-glycol-pumps",
+   "name": "EMP",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "595-grundfos-main-seawater-cooling-pumps",
+   "name": "Grundfos",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "599-axair-battery-ventilation-fan",
+   "name": "Axair",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "500-spares-recomended-by-sws",
+   "name": "Spares recomended by SWS",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "610-chargers",
+   "name": "Chargers",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "610-cummins-qsb4-5",
+   "name": "Cummins QSB4.5",
+   "has_facts": true,
+   "n_facts": 1,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "610-edn-s",
+   "name": "EDN-S",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "610-generators",
+   "name": "Generators",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "610-images",
+   "name": "Images",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "610-integrated-starter-generator-isg",
+   "name": "Integrated Starter Generator",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "610-main-drive-moto-regeneration",
+   "name": "Main drive moto",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "610-service-reports-and-invoices",
+   "name": "Service reports and invoices",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "620-edn-s",
+   "name": "EDN-S",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "620-inverter-bel",
+   "name": "Inverter",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "620-modular-accessory-power-system-maps",
+   "name": "Modular Accessory Power System",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "620-modular-propulsion-control-system-mpcs",
+   "name": "Modular Propulsion Control System",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "620-system-control-unit-scu3",
+   "name": "System Control Unit",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "625-investigation-of-errors",
+   "name": "Investigation of Errors",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "630-akasol-ess",
+   "name": "Akasol ESS",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "630-eol-end-of-line-tests",
+   "name": "EOL",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "630-master-volt",
+   "name": "Master volt",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "630-mastervolt-batteries-chargers",
+   "name": "Mastervolt",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "650-108-01",
+   "name": "01",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "650-651-bae-monitoring",
+   "name": "BAE",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "650-jumo-conductivity-sensors",
+   "name": "Jumo",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "650-layout",
+   "name": "Layout",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "650-653-myt-hydraulic-system-monitoring",
+   "name": "MYT hydraulic system Monitoring",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "650-morton-controls-sensors-various",
+   "name": "Morton Controls",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "650-652-onyx-monitoring",
+   "name": "ONYX",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "650-onyx-page-layout",
+   "name": "Onyx page layout",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "650-sw108-01-bae-info-pack-for-client-2023-03-24",
+   "name": "SW108-01 BAE info pack for Client - 2023-03-24",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "660-edn-s",
+   "name": "EDN-S",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "670-dinnteco-elna-lightning",
+   "name": "Dinnteco - Elna",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "670-tecnoseal-hull-protection",
+   "name": "Tecnoseal",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "680-bae-electrical-design",
+   "name": "BAE electrical design",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "680-myt-electrical-design",
+   "name": "MYT electrical design",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "680-onyx-electrical-design",
+   "name": "Onyx electrical design",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "680-sws-electrical-design",
+   "name": "SWS electrical design",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "680-trunking",
+   "name": "Trunking",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "690-barthelme-led",
+   "name": "Barthelme",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "690-exterior-lighting",
+   "name": "Exterior lighting",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "690-interior-lighting",
+   "name": "Interior lighting",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "690-ital-pek-lighting",
+   "name": "Ital Pek",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "690-mast-lighting",
+   "name": "Mast lighting",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "690-navigation-lighting",
+   "name": "Navigation lighting",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "690-notes",
+   "name": "Notes",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "690-pslab-lighting",
+   "name": "PSLab",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "690-totallux-deck-strip-lights",
+   "name": "Totallux",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "690-yachtica-lighting-module",
+   "name": "Yachtica",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "695-firepro-li-ion-fire-suppression",
+   "name": "FirePro",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "695-marinelec-fire-detection",
+   "name": "Marinelec",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "600-electrical-drawings",
+   "name": "Electrical drawings",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "600-onyx-inventory",
+   "name": "ONYX inventory",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "710-furuno",
+   "name": "Furuno",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "720-ga-list",
+   "name": "GA list",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "720-sonance-sound-system",
+   "name": "Sonance",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "730-invetory",
+   "name": "Invetory",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "730-items-list",
+   "name": "Items list",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "810-hall-spars-manual-20sep2023",
+   "name": "HALL SPARS Manual 20SEP2023",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "840-cariboni-hydraulic-cylinders",
+   "name": "Cariboni",
+   "has_facts": true,
+   "n_facts": 59,
+   "doc_classes_present": [
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "840-guest-fwd",
+   "name": "Guest fwd",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "840-lazz",
+   "name": "Lazz",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "840-lower-saloon",
+   "name": "Lower saloon",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "840-manifolds",
+   "name": "Manifolds",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "840-owner-bedroom",
+   "name": "Owner bedroom",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "840-owners-bathroom",
+   "name": "Owners bathroom",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "850-rigging-projects-locking-car",
+   "name": "Rigging Projects",
+   "has_facts": true,
+   "n_facts": 2,
+   "doc_classes_present": [
+    "pms"
+   ],
+   "doc_classes_missing": [
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": [
+    {
+     "kind": "identity",
+     "status": "corroborated",
+     "values": [
+      {
+       "value": "Rigging Projects",
+       "fact_kind": "make",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (850-rigging-projects-locking-car)"
+      },
+      {
+       "value": "Rigging Projects Ltd",
+       "fact_kind": "make",
+       "source_type": "pms",
+       "source_doc": "YMP PMS equipment record: Rigging Projects Locking Headboard Car"
+      },
+      {
+       "value": "Locking Headboard Car",
+       "fact_kind": "model",
+       "source_type": "pms",
+       "source_doc": "YMP PMS equipment record: Rigging Projects Locking Headboard Car"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "equipment_id": "850-specifics",
+   "name": "Specifics",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "850-velamania",
+   "name": "Velamania",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "870-doyle-sails",
+   "name": "Doyle Sails",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "870-harken-self-lock-track",
+   "name": "Harken Self-lock track",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "870-sail-plan",
+   "name": "Sail plan",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "905-crew-medical",
+   "name": "Crew Medical",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "910-binoculars",
+   "name": "Binoculars",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "910-certificates-up-to-date",
+   "name": "Certificates up to date",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "910-coastal-life-jackets",
+   "name": "Coastal life jackets",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "910-eebd",
+   "name": "EEBD",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "910-epirb",
+   "name": "EPIRB",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "910-health-and-safety",
+   "name": "Health and Safety",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "910-life-jacket-re-arming-kit-coastal",
+   "name": "Life jacket re-arming kit",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "910-life-jacket-re-arming-kit-ocean",
+   "name": "Life jacket re-arming kit",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "910-life-jackets",
+   "name": "Life jackets",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "910-ocean-signal-plb",
+   "name": "Ocean Signal",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "910-ocean-life-jackets",
+   "name": "Ocean life jackets",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "910-survitec-life-raft",
+   "name": "Survitec",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "910-working-at-aloft",
+   "name": "Working at aloft",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "915-csvs",
+   "name": "CSVs",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "915-200-deck",
+   "name": "Deck",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "915-600-electric-systems",
+   "name": "Electric systems",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "915-300-interior",
+   "name": "Interior",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "915-900-miscellanious",
+   "name": "Miscellanious",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "915-700-nav-comms-and-entertainment",
+   "name": "Nav, Comms and Entertainment",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "915-400-propulsion-and-machinery-spaces",
+   "name": "Propulsion and Machinery spaces",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "915-800-rigging-and-sailing",
+   "name": "Rigging and sailing",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "915-sws-documentation",
+   "name": "SWS documentation",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "915-100-structure-rudder-and-keel",
+   "name": "Structure, Rudder and Keel",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "915-500-systems",
+   "name": "Systems",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "915-templates",
+   "name": "Templates",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "920-documentation",
+   "name": "Documentation",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "920-picture",
+   "name": "Picture",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "940-custom-flat-rack-proposal-20apr2023",
+   "name": "Custom Flat Rack Proposal 20APR2023",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "950-archive",
+   "name": "Archive",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "950-final-designs",
+   "name": "Final designs",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "950-logo",
+   "name": "Logo",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "950-print-companies",
+   "name": "Print companies",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "950-transom-designs",
+   "name": "Transom designs",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "970-bauer-dive-compressor",
+   "name": "Bauer",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "975-diving",
+   "name": "Diving",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "980-boat-mat",
+   "name": "Boat mat",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "980-braai",
+   "name": "Braai",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "980-drink-bottles",
+   "name": "Drink bottles",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "980-ebony",
+   "name": "Ebony",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "980-final-quotes",
+   "name": "Final quotes",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "250-windlass-lewmar-v8",
+   "name": "Lewmar V8 Windlass",
+   "has_facts": true,
+   "n_facts": 5,
+   "doc_classes_present": [
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "270-tender-winch-warn-hy2000",
+   "name": "WARN HY2000 Tender Hauling Winch",
+   "has_facts": true,
+   "n_facts": 6,
+   "doc_classes_present": [
+    "electrical_schematic",
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "270-tender-car-antal-ld1500",
+   "name": "ANTAL LD1500 HD Tender Car Controller",
+   "has_facts": true,
+   "n_facts": 5,
+   "doc_classes_present": [
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "460-thruster-system",
+   "name": "Thruster System",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "460-bow-thruster-oms-h300",
+   "name": "OMS H-300 Bow Thruster",
+   "has_facts": true,
+   "n_facts": 15,
+   "doc_classes_present": [
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "461-stern-thruster-oms-h250",
+   "name": "OMS H-250 Stern Thruster",
+   "has_facts": true,
+   "n_facts": 14,
+   "doc_classes_present": [
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "830-standing-rigging",
+   "name": "Standing Rigging",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "220-mast-winch-harken-b1111",
+   "name": "Harken B1111.3 HL Mast Winches",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "220-primary-winch-harken-b1235",
+   "name": "Harken B1235.3 Primary Winches",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "860-bamar-furling-systems",
+   "name": "Bamar Furling & Stay-Tensioning Systems",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "860-bamar-pi20",
+   "name": "Bamar PI 20 A \u2014 Code-0 Furler",
+   "has_facts": true,
+   "n_facts": 6,
+   "doc_classes_present": [
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "860-bamar-gfsi30",
+   "name": "Bamar GFSI 30 CTS \u2014 Jib Furler + Forestay RTA",
+   "has_facts": true,
+   "n_facts": 12,
+   "doc_classes_present": [
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "860-bamar-sit20",
+   "name": "Bamar SIT 20 CD \u2014 Staysail Furler + Innerstay RTA",
+   "has_facts": true,
+   "n_facts": 12,
+   "doc_classes_present": [
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "220-mast-winch-fwd-port",
+   "name": "Mast Winch Fwd Port (Harken B1111.3 HL)",
+   "has_facts": true,
+   "n_facts": 5,
+   "doc_classes_present": [
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "220-mast-winch-fwd-stbd",
+   "name": "Mast Winch Fwd Stbd (Harken B1111.3 HL)",
+   "has_facts": true,
+   "n_facts": 5,
+   "doc_classes_present": [
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "220-mast-winch-aft-port",
+   "name": "Mast Winch Aft Port (Harken B1111.3 HL)",
+   "has_facts": true,
+   "n_facts": 5,
+   "doc_classes_present": [
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "220-mast-winch-aft-stbd",
+   "name": "Mast Winch Aft Stbd (Harken B1111.3 HL)",
+   "has_facts": true,
+   "n_facts": 4,
+   "doc_classes_present": [
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "220-primary-winch-port",
+   "name": "Primary Winch PORT (Harken B1235.3)",
+   "has_facts": true,
+   "n_facts": 5,
+   "doc_classes_present": [
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "220-primary-winch-stbd",
+   "name": "Primary Winch STBD (Harken B1235.3)",
+   "has_facts": true,
+   "n_facts": 5,
+   "doc_classes_present": [
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "220-secondary-winch-harken-b1235",
+   "name": "Harken B1235.3 Secondary Winches",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "220-secondary-winch-port",
+   "name": "Secondary Winch PORT (Harken B1235.3)",
+   "has_facts": true,
+   "n_facts": 5,
+   "doc_classes_present": [
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "220-secondary-winch-stbd",
+   "name": "Secondary Winch STBD (Harken B1235.3)",
+   "has_facts": true,
+   "n_facts": 5,
+   "doc_classes_present": [
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "260-transom-door",
+   "name": "Transom Door",
+   "has_facts": true,
+   "n_facts": 5,
+   "doc_classes_present": [
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "260-deck-door",
+   "name": "Deck Door",
+   "has_facts": true,
+   "n_facts": 5,
+   "doc_classes_present": [
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "570-danfoss-pvg-32-mast-block",
+   "name": "Danfoss PVG 32",
+   "has_facts": true,
+   "n_facts": 1,
+   "doc_classes_present": [
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": [
+    {
+     "kind": "identity",
+     "status": "corroborated",
+     "values": [
+      {
+       "value": "Danfoss PVG 32",
+       "fact_kind": "model",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (570-danfoss-pvg-32-mast-block)"
+      },
+      {
+       "value": "Danfoss PVG 32",
+       "fact_kind": "block_identity",
+       "source_type": "hydraulic_schematic",
+       "source_doc": "SWS108-Hydraulic_System-rev10-mast_block.pdf"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "equipment_id": "570-danfoss-pvg-32-fwd-blocka",
+   "name": "Danfoss PVG 32 (FWD blockA)",
+   "has_facts": true,
+   "n_facts": 1,
+   "doc_classes_present": [
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": [
+    {
+     "kind": "identity",
+     "status": "corroborated",
+     "values": [
+      {
+       "value": "Danfoss",
+       "fact_kind": "make",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (570-danfoss-pvg-32-fwd-blocka)"
+      },
+      {
+       "value": "Danfoss PVG 32",
+       "fact_kind": "model",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (570-danfoss-pvg-32-fwd-blocka)"
+      },
+      {
+       "value": "Danfoss PVG 32",
+       "fact_kind": "block_identity",
+       "source_type": "hydraulic_schematic",
+       "source_doc": "SWS108-Hydraulic_System-rev10-FWD_blockA.pdf"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "equipment_id": "570-danfoss-pvg-32-16-fwd-blockb",
+   "name": "Danfoss PVG 32/16 (FWD blockB)",
+   "has_facts": true,
+   "n_facts": 1,
+   "doc_classes_present": [
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": [
+    {
+     "kind": "identity",
+     "status": "corroborated",
+     "values": [
+      {
+       "value": "Danfoss",
+       "fact_kind": "make",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (570-danfoss-pvg-32-16-fwd-blockb)"
+      },
+      {
+       "value": "Danfoss PVG 32/16",
+       "fact_kind": "model",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (570-danfoss-pvg-32-16-fwd-blockb)"
+      },
+      {
+       "value": "Danfoss PVG 32/16",
+       "fact_kind": "block_identity",
+       "source_type": "hydraulic_schematic",
+       "source_doc": "SWS108-Hydraulic_System-rev10-FWD_blockB.pdf"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "equipment_id": "570-danfoss-pvg-32-aft-blocka",
+   "name": "Danfoss PVG 32 (AFT blockA)",
+   "has_facts": true,
+   "n_facts": 1,
+   "doc_classes_present": [
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": [
+    {
+     "kind": "identity",
+     "status": "corroborated",
+     "values": [
+      {
+       "value": "Danfoss",
+       "fact_kind": "make",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (570-danfoss-pvg-32-aft-blocka)"
+      },
+      {
+       "value": "Danfoss PVG 32",
+       "fact_kind": "model",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (570-danfoss-pvg-32-aft-blocka)"
+      },
+      {
+       "value": "Danfoss PVG 32",
+       "fact_kind": "block_identity",
+       "source_type": "hydraulic_schematic",
+       "source_doc": "SWS108-Hydraulic_System-rev10-AFT_blockA.pdf"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "equipment_id": "570-danfoss-pvg-32-16-aft-blockb",
+   "name": "Danfoss PVG 32/16 (AFT blockB)",
+   "has_facts": true,
+   "n_facts": 1,
+   "doc_classes_present": [
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": [
+    {
+     "kind": "identity",
+     "status": "corroborated",
+     "values": [
+      {
+       "value": "Danfoss",
+       "fact_kind": "make",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (570-danfoss-pvg-32-16-aft-blockb)"
+      },
+      {
+       "value": "Danfoss PVG 32/16",
+       "fact_kind": "model",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (570-danfoss-pvg-32-16-aft-blockb)"
+      },
+      {
+       "value": "Danfoss PVG 32/16",
+       "fact_kind": "block_identity",
+       "source_type": "hydraulic_schematic",
+       "source_doc": "SWS108-Hydraulic_System-rev10-AFT_blockB.pdf"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "equipment_id": "570-danfoss-pvg-32-aft-blockc",
+   "name": "Danfoss PVG 32 (AFT blockC)",
+   "has_facts": true,
+   "n_facts": 1,
+   "doc_classes_present": [
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": [
+    {
+     "kind": "identity",
+     "status": "corroborated",
+     "values": [
+      {
+       "value": "Danfoss",
+       "fact_kind": "make",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (570-danfoss-pvg-32-aft-blockc)"
+      },
+      {
+       "value": "Danfoss PVG 32",
+       "fact_kind": "model",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (570-danfoss-pvg-32-aft-blockc)"
+      },
+      {
+       "value": "Danfoss PVG 32",
+       "fact_kind": "block_identity",
+       "source_type": "hydraulic_schematic",
+       "source_doc": "SWS108-Hydraulic_System-rev10-AFT_blockC.pdf"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "equipment_id": "570-myt-aft-mast-sailing-manifold",
+   "name": "MYT sailing manifold (AFT mast sailing manifold)",
+   "has_facts": true,
+   "n_facts": 1,
+   "doc_classes_present": [
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": [
+    {
+     "kind": "identity",
+     "status": "corroborated",
+     "values": [
+      {
+       "value": "MYT Systems",
+       "fact_kind": "make",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (570-myt-aft-mast-sailing-manifold)"
+      },
+      {
+       "value": "custom sailing distribution block",
+       "fact_kind": "model",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (570-myt-aft-mast-sailing-manifold)"
+      },
+      {
+       "value": "MYT Systems S.r.l. \u2013 SWS108 / Project SWS 108",
+       "fact_kind": "block_identity",
+       "source_type": "hydraulic_schematic",
+       "source_doc": "SWS108-Hydraulic_System-rev10-AFT_mast_sailing_manifold.pdf"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "equipment_id": "570-myt-aft-sailing-manifold",
+   "name": "MYT sailing manifold (AFT sailing manifold)",
+   "has_facts": true,
+   "n_facts": 1,
+   "doc_classes_present": [
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": [
+    {
+     "kind": "identity",
+     "status": "corroborated",
+     "values": [
+      {
+       "value": "MYT Systems",
+       "fact_kind": "make",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (570-myt-aft-sailing-manifold)"
+      },
+      {
+       "value": "custom sailing distribution block",
+       "fact_kind": "model",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (570-myt-aft-sailing-manifold)"
+      },
+      {
+       "value": "MYT Systems \u2013 SWS 108 / SWS108-Hydraulic_System-rev10-AFT_sailing_manifold",
+       "fact_kind": "block_identity",
+       "source_type": "hydraulic_schematic",
+       "source_doc": "SWS108-Hydraulic_System-rev10-AFT_sailing_manifold.pdf"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "equipment_id": "570-myt-fwd-mast-sailing-manifold",
+   "name": "MYT sailing manifold (FWD mast sailing manifold)",
+   "has_facts": true,
+   "n_facts": 1,
+   "doc_classes_present": [
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": [
+    {
+     "kind": "identity",
+     "status": "corroborated",
+     "values": [
+      {
+       "value": "MYT Systems",
+       "fact_kind": "make",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (570-myt-fwd-mast-sailing-manifold)"
+      },
+      {
+       "value": "custom sailing distribution block",
+       "fact_kind": "model",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (570-myt-fwd-mast-sailing-manifold)"
+      },
+      {
+       "value": "MYT Systems S.r.l. \u2014 SWS108 / SWS 108",
+       "fact_kind": "block_identity",
+       "source_type": "hydraulic_schematic",
+       "source_doc": "SWS108-Hydraulic_System-rev10-FWD_mast_sailing_manifold.pdf"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "equipment_id": "570-myt-fwd-sailing-manifold",
+   "name": "MYT sailing manifold (FWD sailing manifold)",
+   "has_facts": true,
+   "n_facts": 1,
+   "doc_classes_present": [
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": [
+    {
+     "kind": "identity",
+     "status": "corroborated",
+     "values": [
+      {
+       "value": "MYT Systems",
+       "fact_kind": "make",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (570-myt-fwd-sailing-manifold)"
+      },
+      {
+       "value": "custom sailing distribution block",
+       "fact_kind": "model",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (570-myt-fwd-sailing-manifold)"
+      },
+      {
+       "value": "MYT Systems S.r.l. \u2013 SWS108 Hydraulic System",
+       "fact_kind": "block_identity",
+       "source_type": "hydraulic_schematic",
+       "source_doc": "SWS108-Hydraulic_System-rev10-FWD_sailing_manifold.pdf"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "equipment_id": "520-bilge-pumps",
+   "name": "Bilge Pumps",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "520-main-bilge-pump",
+   "name": "Main Bilge Pump",
+   "has_facts": true,
+   "n_facts": 2,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "520-aux-bilge-pumps",
+   "name": "Aux Bilge Pumps (mast + eng.room)",
+   "has_facts": true,
+   "n_facts": 12,
+   "doc_classes_present": [
+    "electrical_schematic",
+    "hydraulic_schematic",
+    "pms"
+   ],
+   "doc_classes_missing": [
+    "inventory",
+    "manual",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": [
+    {
+     "kind": "identity",
+     "status": "corroborated",
+     "values": [
+      {
+       "value": "Whale",
+       "fact_kind": "make",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (520-aux-bilge-pumps)"
+      },
+      {
+       "value": "Gulper 320 (2054)",
+       "fact_kind": "model",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (520-aux-bilge-pumps)"
+      },
+      {
+       "value": "BOM 003: WHALE 2054 GULPER 320 24V (Central Boating SPA290) \u2014 matches engineer: mast + eng.room aux share this model",
+       "fact_kind": "identity",
+       "source_type": "hydraulic_schematic",
+       "source_doc": "Bilge and Fire System Schematic.pdf (108-01-520-001 rev B)"
+      },
+      {
+       "value": "Whale",
+       "fact_kind": "make",
+       "source_type": "pms",
+       "source_doc": "YMP PMS equipment record: Whale Gulper 320 High Capacity Shower/Galley Waste and Bilge Pump"
+      },
+      {
+       "value": "Gulper 320",
+       "fact_kind": "model",
+       "source_type": "pms",
+       "source_doc": "YMP PMS equipment record: Whale Gulper 320 High Capacity Shower/Galley Waste and Bilge Pump"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "equipment_id": "520-fire-pump",
+   "name": "Fire Pump",
+   "has_facts": true,
+   "n_facts": 3,
+   "doc_classes_present": [
+    "electrical_schematic",
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": [
+    {
+     "kind": "identity",
+     "status": "corroborated",
+     "values": [
+      {
+       "value": "Gianneschi",
+       "fact_kind": "make",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (520-fire-pump)"
+      },
+      {
+       "value": "ACB 431 B",
+       "fact_kind": "model",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (520-fire-pump)"
+      },
+      {
+       "value": "BOM 024: GIANNESCHI SRL ACB 431 B, 24V CC, 1.5kW, 1500rpm (SWS code GIA-01AAC9991)",
+       "fact_kind": "identity",
+       "source_type": "hydraulic_schematic",
+       "source_doc": "Bilge and Fire System Schematic.pdf (108-01-520-001 rev B)"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "equipment_id": "520-bilge-valves",
+   "name": "Bilge Valves",
+   "has_facts": true,
+   "n_facts": 3,
+   "doc_classes_present": [
+    "electrical_schematic",
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": [
+    {
+     "kind": "identity",
+     "status": "corroborated",
+     "values": [
+      {
+       "value": "Burkert",
+       "fact_kind": "make",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (520-bilge-valves)"
+      },
+      {
+       "value": "BOM 016+017: BURKERT electric rotary actuators (0018, BURK005) on Burkert 2-way DN050 ball valves (9670) \u00d75 \u2014 the electric-actuated bilge valves",
+       "fact_kind": "identity",
+       "source_type": "hydraulic_schematic",
+       "source_doc": "Bilge and Fire System Schematic.pdf (108-01-520-001 rev B)"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "equipment_id": "530-grey-water-pumps",
+   "name": "Grey Water Pumps",
+   "has_facts": true,
+   "n_facts": 4,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "530-sump-pumps",
+   "name": "Sump Pumps",
+   "has_facts": true,
+   "n_facts": 14,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "540-black-water-pumps",
+   "name": "Black Water Pumps",
+   "has_facts": true,
+   "n_facts": 4,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "540-wc-toilets",
+   "name": "WC / Toilets",
+   "has_facts": true,
+   "n_facts": 12,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "510-watermaker",
+   "name": "Watermaker",
+   "has_facts": true,
+   "n_facts": 4,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "510-uv-steriliser",
+   "name": "UV Steriliser",
+   "has_facts": true,
+   "n_facts": 1,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "510-water-transfer-valves",
+   "name": "Water Transfer Valves",
+   "has_facts": true,
+   "n_facts": 2,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "550-fuel-transfer",
+   "name": "Fuel Transfer",
+   "has_facts": true,
+   "n_facts": 5,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "551-dirty-oil-transfer",
+   "name": "Dirty Oil Transfer Pump",
+   "has_facts": true,
+   "n_facts": 3,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "599-ventilation-fans",
+   "name": "Ventilation Fans",
+   "has_facts": true,
+   "n_facts": 4,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "652-onyx-monitoring",
+   "name": "ONYX Monitoring & Control",
+   "has_facts": true,
+   "n_facts": 4,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "654-emergency-stops",
+   "name": "Emergency Stops",
+   "has_facts": true,
+   "n_facts": 2,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "670-galvanic-control",
+   "name": "Galvanic Control",
+   "has_facts": true,
+   "n_facts": 1,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "690-lighting-circuits",
+   "name": "Lighting Circuits",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "691-yachtica-lighting-control",
+   "name": "Yachtica Lighting Control",
+   "has_facts": true,
+   "n_facts": 1,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "692-dc-sockets",
+   "name": "DC Sockets",
+   "has_facts": true,
+   "n_facts": 4,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "693-emergency-lighting",
+   "name": "Emergency Lighting & EM Supply",
+   "has_facts": true,
+   "n_facts": 11,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "695-fire-alarm",
+   "name": "Fire Alarm",
+   "has_facts": true,
+   "n_facts": 4,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "695-fire-system",
+   "name": "Fire System (gas release)",
+   "has_facts": true,
+   "n_facts": 2,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "696-gas-alarms",
+   "name": "Gas / Vapour Alarms",
+   "has_facts": true,
+   "n_facts": 4,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "710-radar-furuno",
+   "name": "Radar (Furuno)",
+   "has_facts": true,
+   "n_facts": 2,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "711-bg-instruments",
+   "name": "B&G Instruments",
+   "has_facts": true,
+   "n_facts": 2,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "712-nav-station",
+   "name": "Nav Station (PC / chart table)",
+   "has_facts": true,
+   "n_facts": 3,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "713-external-screens",
+   "name": "External Screens",
+   "has_facts": true,
+   "n_facts": 2,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "720-cctv",
+   "name": "CCTV",
+   "has_facts": true,
+   "n_facts": 2,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "730-vhf",
+   "name": "VHF",
+   "has_facts": true,
+   "n_facts": 2,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "731-navtex",
+   "name": "Navtex",
+   "has_facts": true,
+   "n_facts": 1,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "732-network",
+   "name": "Network / LAN",
+   "has_facts": true,
+   "n_facts": 2,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "733-fog-horn",
+   "name": "Fog Horn (Kahlenberg S330)",
+   "has_facts": true,
+   "n_facts": 2,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "260-passerelle",
+   "name": "Passerelle",
+   "has_facts": true,
+   "n_facts": 1,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "575-pneumatic-system",
+   "name": "Pneumatic System (companionways)",
+   "has_facts": true,
+   "n_facts": 6,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "640-dc-distribution",
+   "name": "DC Distribution Panels",
+   "has_facts": true,
+   "n_facts": 4,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "690-lts-navigation",
+   "name": "Lights \u2014 navigation",
+   "has_facts": true,
+   "n_facts": 1,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "690-lts-courtesy",
+   "name": "Lights \u2014 courtesy",
+   "has_facts": true,
+   "n_facts": 10,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "690-lts-engroom-laz-transom",
+   "name": "Lights \u2014 engroom laz transom",
+   "has_facts": true,
+   "n_facts": 1,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "690-lts-galley",
+   "name": "Lights \u2014 galley",
+   "has_facts": true,
+   "n_facts": 2,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "690-lts-crew",
+   "name": "Lights \u2014 crew",
+   "has_facts": true,
+   "n_facts": 41,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "690-lts-guest-aft",
+   "name": "Lights \u2014 guest aft",
+   "has_facts": true,
+   "n_facts": 44,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "690-lts-sail-locker",
+   "name": "Lights \u2014 sail locker",
+   "has_facts": true,
+   "n_facts": 2,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "690-lts-mast",
+   "name": "Lights \u2014 mast",
+   "has_facts": true,
+   "n_facts": 2,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "690-lts-boom",
+   "name": "Lights \u2014 boom",
+   "has_facts": true,
+   "n_facts": 4,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "690-lts-deck",
+   "name": "Lights \u2014 deck",
+   "has_facts": true,
+   "n_facts": 4,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "690-lts-saloon",
+   "name": "Lights \u2014 saloon",
+   "has_facts": true,
+   "n_facts": 4,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "690-lts-owners",
+   "name": "Lights \u2014 owners",
+   "has_facts": true,
+   "n_facts": 3,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "690-lts-guest-fwd",
+   "name": "Lights \u2014 guest fwd",
+   "has_facts": true,
+   "n_facts": 34,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "690-lts-nav-em",
+   "name": "Lights \u2014 nav em",
+   "has_facts": true,
+   "n_facts": 1,
+   "doc_classes_present": [
+    "electrical_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "220-captive-mainsheet-9t",
+   "name": "Mainsheet Captive Winch (Harken Air Captive 9T)",
+   "has_facts": true,
+   "n_facts": 2,
+   "doc_classes_present": [
+    "pms"
+   ],
+   "doc_classes_missing": [
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": [
+    {
+     "kind": "identity",
+     "status": "corroborated",
+     "values": [
+      {
+       "value": "Harken",
+       "fact_kind": "make",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (220-captive-mainsheet-9t)"
+      },
+      {
+       "value": "Air Captive 9T 930 HY CVS",
+       "fact_kind": "model",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (220-captive-mainsheet-9t)"
+      },
+      {
+       "value": "Harken",
+       "fact_kind": "make",
+       "source_type": "pms",
+       "source_doc": "YMP PMS equipment record: Harken Captive Air 9T Winch"
+      },
+      {
+       "value": "Captive Air 9T",
+       "fact_kind": "model",
+       "source_type": "pms",
+       "source_doc": "YMP PMS equipment record: Harken Captive Air 9T Winch"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "equipment_id": "220-captive-tensioner-ct1",
+   "name": "Captive Tensioner (Harken CT1)",
+   "has_facts": true,
+   "n_facts": 2,
+   "doc_classes_present": [
+    "pms"
+   ],
+   "doc_classes_missing": [
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": [
+    {
+     "kind": "identity",
+     "status": "corroborated",
+     "values": [
+      {
+       "value": "Harken",
+       "fact_kind": "make",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (220-captive-tensioner-ct1)"
+      },
+      {
+       "value": "CT1 tensioner",
+       "fact_kind": "model",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (220-captive-tensioner-ct1)"
+      },
+      {
+       "value": "Harken",
+       "fact_kind": "make",
+       "source_type": "pms",
+       "source_doc": "YMP PMS equipment record: Harken CT1 Tensioner"
+      },
+      {
+       "value": "CT1",
+       "fact_kind": "model",
+       "source_type": "pms",
+       "source_doc": "YMP PMS equipment record: Harken CT1 Tensioner"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "equipment_id": "629-bel",
+   "name": "BELs (Battery Eliminator/Line units)",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "629-bel1-p",
+   "name": "BEL1 PORT",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "629-bel2-p",
+   "name": "BEL2 PORT",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "629-bel1-s",
+   "name": "BEL1 STBD",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "629-bel2-s",
+   "name": "BEL2 STBD",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "626-maps",
+   "name": "MAPS (Modular Auxiliary Power System)",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "626-maps-p",
+   "name": "MAPS-P (port)",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "626-maps-s",
+   "name": "MAPS-S (stbd)",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "628-scu3",
+   "name": "SCU3 (System Control Unit)",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "627-edn",
+   "name": "EDN Shore Charger (P+S)",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "635-bae-cooling-pumps",
+   "name": "BAE Cooling Circulation Pumps (BCP/MCP/ECP/HCP\u2026)",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "631-battery-gmdss",
+   "name": "GMDSS Battery Bank (200Ah 24V)",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "632-battery-emergency",
+   "name": "Emergency Battery Bank (200Ah 24V)",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "633-battery-gen-start",
+   "name": "Generator Start Battery Bank",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "634-battery-aux-service",
+   "name": "Aux Service Battery Bank",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "694-230v-outlets",
+   "name": "230V Outlets",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "720-entertainment-system",
+   "name": "Entertainment System",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "641-vessel-control-panel",
+   "name": "Vessel Control Panel (VCP)",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "520-diesel-fire-pump",
+   "name": "Diesel Fire Pump (\"crash pump\")",
+   "has_facts": true,
+   "n_facts": 1,
+   "doc_classes_present": [
+    "hydraulic_schematic"
+   ],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": [
+    {
+     "kind": "identity",
+     "status": "disagreement",
+     "values": [
+      {
+       "value": "Aussie Pumps (pump) / Yanmar (engine)",
+       "fact_kind": "make",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (520-diesel-fire-pump)"
+      },
+      {
+       "value": "RSEBUV/L48 NF (Yanmar L48)",
+       "fact_kind": "model",
+       "source_type": "register_seed",
+       "source_doc": "Register folder-walk build (520-diesel-fire-pump)"
+      },
+      {
+       "value": "BOM 002: AUSTRALIAN PUMP RSEBUV/L48 NF \u2014 YANMAR L48 diesel pump (the crash pump)",
+       "fact_kind": "identity",
+       "source_type": "hydraulic_schematic",
+       "source_doc": "Bilge and Fire System Schematic.pdf (108-01-520-001 rev B)"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "equipment_id": "590-aircon-system",
+   "name": "Aircon System (Termodinamica)",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "590-aircon-fcu-01",
+   "name": "Fancoil FCU-01 (Port Crew Cabin)",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "590-aircon-fcu-02",
+   "name": "Fancoil FCU-02 (Aft Crew Cabin Port)",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "590-aircon-fcu-03",
+   "name": "Fancoil FCU-03 (Galley)",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "590-aircon-fcu-04",
+   "name": "Fancoil FCU-04 (Aft Guest Cabin Port)",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "590-aircon-fcu-05",
+   "name": "Fancoil FCU-05 (Saloon + Studio)",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "590-aircon-fcu-06",
+   "name": "Fancoil FCU-06 (Two Guest Cabin)",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "590-aircon-fcu-07",
+   "name": "Fancoil FCU-07 (Owner's Cabin)",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "590-aircon-fcu-08",
+   "name": "Fancoil FCU-08 (Stbd Crew Cabin)",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "590-aircon-fcu-09",
+   "name": "Fancoil FCU-09 (Two Crew Cabin)",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "590-aircon-fcu-10",
+   "name": "Fancoil FCU-10 (Aft Guest Cabin Stbd)",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "590-aircon-compressor-1",
+   "name": "Aircon Compressor Unit 1 (Termodinamica)",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "590-aircon-compressor-2",
+   "name": "Aircon Compressor Unit 2 (Termodinamica)",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  },
+  {
+   "equipment_id": "590-aircon-ahu-engine-room",
+   "name": "Air Handler Unit (Engine Room)",
+   "has_facts": false,
+   "n_facts": 0,
+   "doc_classes_present": [],
+   "doc_classes_missing": [
+    "pms",
+    "inventory",
+    "manual",
+    "hydraulic_schematic",
+    "electrical_schematic",
+    "monitoring_system"
+   ],
+   "complete": false,
+   "cross_reference_findings": []
+  }
+ ]
+}

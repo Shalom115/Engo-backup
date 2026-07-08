@@ -31,6 +31,8 @@ import config
 from pipeline import node_match
 from pipeline import abbrev
 from pipeline import revision_gate
+from pipeline import power_path
+from pipeline import node_crossref
 
 FUZZY_FLOOR = 0.5  # token-set Jaccard floor for a fuzzy control-map match; below -> flag
 
@@ -168,7 +170,73 @@ class NodeWriter:
         st = provenance.get("source_type")
         if st and st not in node.get("fact_classes_present", []):
             node.setdefault("fact_classes_present", []).append(st)
+
+        # CROSS-REFERENCE STEP (engineer-mandated 2026-07-06): every fact-write
+        # now checks whether this node's identity-bearing facts, taken across
+        # ALL the doc classes contributed so far (not just this one write),
+        # actually agree — "if I hadn't told you, you wouldn't have cross-
+        # referenced the drawing with the P&ID and the ONYX together." The
+        # existing make/model-only conflict check above stays as-is (it's
+        # already wired to identity_status/confirmation_flags); this widens
+        # the same discipline to the fuller identity-kind set
+        # (node_crossref._IDENTITY_KINDS) and to CORROBORATION, not just
+        # conflict, using token-boundary matching (never raw substring).
+        # TIMING (engineer question, 2026-07-06): should this run per-write or
+        # at end-of-sweep? Neither alone is right. DISAGREEMENT detection stays
+        # per-write (cheap; catching a wrong-attach early is strictly better
+        # than catching it late — no reason to wait). But a POSITIVE
+        # confidence upgrade from corroboration is held back from becoming
+        # the node's authoritative status until this node's own doc-class
+        # sweep is actually done (see crossref_completeness below) — two
+        # sources agreeing before a third, not-yet-read source is available
+        # is a real signal worth boosting individual fact confidence on now,
+        # but not yet strong enough to call the NODE's identity "confirmed";
+        # that designation is reserved for when nothing is left to
+        # contradict it. So: per-write for facts, completeness-gated for the
+        # node-level verdict — not a single global "run once at the end of
+        # the whole corpus sweep" step, since different nodes reach
+        # completeness at different times.
+        existing_conflict_kinds = {c["kind"] for c in node.get("conflicts", [])}
+        for finding in node_crossref.cross_reference(node):
+            if finding["kind"] in ("make", "model") and finding["kind"] in existing_conflict_kinds:
+                continue  # already surfaced by the narrower check above -- don't duplicate
+            if finding["status"] == "disagreement":
+                node["identity_status"] = "conflict"
+                node.setdefault("cross_reference_findings", []).append(finding)
+                self.confirmation_flags.append({
+                    "node_id": node_id, "issue_type": "identity_conflict",
+                    "detail": f"cross-reference: {finding['kind']} disagrees across doc classes",
+                    **finding,
+                })
+            else:  # corroborated -- an ACTIVE confidence boost, not just a log entry
+                existing = node.setdefault("cross_reference_findings", [])
+                if finding not in existing:
+                    existing.append(finding)
+                # bump each corroborated fact's own confidence up one notch now
+                # (cheap, immediate, never wrong to do -- more agreement is
+                # never bad news) ...
+                corroborated_docs = {v["source_doc"] for v in finding["values"]}
+                for f in node["facts"]:
+                    if (f.get("provenance") or {}).get("source_doc") in corroborated_docs \
+                            and f.get("confidence") in ("caveat", "medium"):
+                        f["confidence"] = "high"
+                # ... and if THIS node's doc-class sweep is now complete with
+                # no open disagreement, that's the real "end of sweep for
+                # this node" moment -- promote the node itself, not just the
+                # individual facts.
+                if node["identity_status"] != "conflict" and node_crossref.check_completeness(node)["complete"]:
+                    node["identity_status"] = "confirmed"
+
         return {"attached_to": node_id, "kind": kind, "conflict": bool(conflict)}
+
+    def crossref_completeness(self, node_id: str,
+                              expected: Optional[List[str]] = None) -> Dict[str, Any]:
+        """Doc-class completeness for one node — which of the expected
+        classes (PMS/inventory/manual/hydraulic/electrical/monitoring by
+        default, per system archetype) has this node actually seen facts
+        from, and which are still missing. Callers use this to decide what
+        to go read next for a node, rather than reading arbitrarily."""
+        return node_crossref.check_completeness(self.by_id[node_id], expected)
 
     def _add_cross_links(self, node_id: str, cross_links: List[Dict[str, str]], source: Dict) -> None:
         node = self.by_id[node_id]
@@ -411,6 +479,123 @@ class NodeWriter:
                "reason": f"element_type='{etype}' is structural/descriptive — routing not built this pass"}
         self.decisions.append(dec)
         return dec
+
+    # ---- POWER-PATH PROTOCOL (engineer-mandated 2026-07-05) ----
+    # Relays/terminals/controller_modules were previously not_routed and status_
+    # signal/switch elements with raw pin/signal-tag labels ("OPEN", "XA10-04")
+    # mostly create_flagged, because their bare label carries no equipment-name
+    # content for §9e to match. Both gaps close the same way: elements on one
+    # sheet are wired together, and pipeline.power_path already resolves that
+    # wiring (the `connections` text electrical_extract captures) into a graph.
+    # write_sheet() routes a WHOLE sheet at once (not element-by-element) so it
+    # can (a) use the sheet's SUPPLY anchors as resolution targets for RAW-
+    # LABEL indicator/control elements found nearby in the graph, and (b)
+    # attach a `power_path` fact — the full relay/terminal/negative-return
+    # chain — onto every equipment node the sheet resolves supply for.
+    def _nearest_resolved(self, start_index: int, edges: Dict[int, List[Dict[str, Any]]],
+                          resolved_node_by_index: Dict[int, str], *, max_hops: int = 3):
+        """BFS outward from start_index over the sheet's wiring graph for the
+        nearest element already resolved to an equipment node THIS sheet.
+        Returns (node_id, hop_count) or None — never guesses across an
+        unresolved edge, never crosses sheets."""
+        adj: Dict[int, List[Dict[str, Any]]] = {i: list(v) for i, v in edges.items()}
+        for i, es in edges.items():
+            for ed in es:
+                if ed["to"] is not None:
+                    adj.setdefault(ed["to"], []).append({"to": i})
+        visited = {start_index}
+        frontier = [start_index]
+        depth = 0
+        while frontier and depth < max_hops:
+            nxt = []
+            for i in frontier:
+                for ed in adj.get(i, []):
+                    j = ed["to"]
+                    if j is None or j in visited:
+                        continue
+                    visited.add(j)
+                    if j in resolved_node_by_index:
+                        return resolved_node_by_index[j], depth + 1
+                    nxt.append(j)
+            frontier = nxt
+            depth += 1
+        return None
+
+    def write_sheet(self, elements: List[Dict[str, Any]], source_ref: Dict[str, Any],
+                    *, attach_power_paths: bool = True) -> List[Dict[str, Any]]:
+        """
+        Route one wiring sheet's elements TOGETHER. PASS 1 resolves SUPPLY
+        elements first (these become the sheet's equipment anchors, exactly
+        as write_wiring_element already does one at a time). PASS 2 routes
+        everything else; an INDICATOR/CONTROL element whose own label fails
+        §9e (a raw signal/pin tag, no equipment-name content) is NOT
+        immediately flagged — it's resolved by walking the sheet's wiring
+        graph to the nearest already-anchored equipment (never across an
+        unresolved/absent edge, never guessed — genuinely isolated raw labels
+        still fall through to create_flagged). PASS 3 attaches a `power_path`
+        fact (the full relay/terminal/rail chain) to every SUPPLY anchor,
+        rendered both as structured hops and a plain-language trace string.
+        """
+        refused = self._revision_refused(source_ref)
+        if refused:
+            return [refused]
+        elements = [e for e in elements if isinstance(e, dict)]
+        edges = power_path.build_edges(elements)
+        decisions: List[Dict[str, Any]] = []
+        resolved_node_by_index: Dict[int, str] = {}
+
+        for i, el in enumerate(elements):
+            if el.get("element_type") in self._SUPPLY_TYPES:
+                d = self.write_wiring_element(el, source_ref)
+                decisions.append(d)
+                tgt = d.get("target")
+                if tgt:
+                    resolved_node_by_index[i] = tgt
+
+        for i, el in enumerate(elements):
+            if el.get("element_type") in self._SUPPLY_TYPES:
+                continue
+            d = self.write_wiring_element(el, source_ref)
+            etype = el.get("element_type")
+            if d.get("action") == "create_flagged" and etype in (self._INDICATOR_TYPES | self._CONTROL_TYPES):
+                near = self._nearest_resolved(i, edges, resolved_node_by_index)
+                if near:
+                    tgt, hops_away = near
+                    kind = "status_indicator" if etype in self._INDICATOR_TYPES else "control_element"
+                    label = (el.get("label") or "").strip()
+                    prov = {**source_ref, "authority": source_ref.get("authority", "electrical_schematic"),
+                           "element_id": el.get("id"), "bbox": el.get("_bbox"),
+                           "mapped_via": "wiring_graph_proximity", "hops": hops_away,
+                           "note": "raw signal/pin label had no equipment-name content for the semantic "
+                                   "matcher; resolved by walking the sheet's wiring graph to the nearest "
+                                   "already-resolved equipment instead"}
+                    self._attach_fact(tgt, kind, {"element_id": el.get("id"), "label": label}, prov, "caveat")
+                    d = {"element": f"{el.get('id')} {label}", "action": f"attach_{kind}",
+                         "target": tgt, "via": "wiring_graph_proximity", "hops": hops_away}
+            decisions.append(d)
+            tgt = d.get("target")
+            if tgt:
+                resolved_node_by_index[i] = tgt
+
+        self.decisions.extend(decisions)
+
+        if attach_power_paths:
+            # gold-blind DC hint: read from the SHEET'S OWN title/doc text (not
+            # a vessel assumption) so a sheet titled e.g. "+24V DC DISTRIBUTION"
+            # closes the text-detection gap for individual labels that never
+            # repeat the word "DC" (see power_path.check_dc_fuse_completeness).
+            sheet_text = f"{source_ref.get('source_doc') or ''} {source_ref.get('title') or ''}"
+            assume_dc = bool(re.search(r"\bdc\b", sheet_text, re.I))
+            for i, tgt in resolved_node_by_index.items():
+                if elements[i].get("element_type") not in self._SUPPLY_TYPES:
+                    continue  # trace the "what powers this" question from supply anchors
+                trace = power_path.build_power_path_fact(i, elements, max_hops=6, assume_dc=assume_dc)
+                if trace["hops"] or trace["unresolved_refs"]:
+                    prov = {**source_ref, "authority": source_ref.get("authority", "electrical_schematic"),
+                           "element_id": elements[i].get("id"), "bbox": elements[i].get("_bbox"),
+                           "note": "assembled from this sheet's wiring elements per the power-path protocol"}
+                    self._attach_fact(tgt, "power_path", trace, prov, "medium")
+        return decisions
 
     # ---- PATH 1: a manifold / block (is equipment) ----
     def _create_flagged_node(self, make_model: str, block: Dict[str, Any],

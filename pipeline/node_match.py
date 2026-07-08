@@ -37,6 +37,30 @@ _STOP = {"the", "and", "of", "a", "for", "to", "system", "unit", "general",
          "features", "appliances", "applicances", "drive"}
 ATTACH_THRESHOLD = 0.45  # >= this on the best candidate → confident attach
 
+# GENERIC/PLACEHOLDER model-or-make VALUES that carry no real identity signal —
+# excluded from scoring entirely (caught 2026-07-05 via the PMS cross-reference:
+# a YMP equipment entry with model="custom" scored 0.5 against an unrelated
+# Register node whose model field happened to be "Custom Flat Rack Proposal...").
+_GENERIC_VALUES = {"custom", "n a", "na", "asstd", "tbc", "standard", "generic",
+                   "various", "assorted", "unknown", "n/a"}
+
+
+def _token_contains(needle: str, haystack: str) -> bool:
+    """True if needle's tokens appear as a CONTIGUOUS run within haystack's
+    tokens (word-boundary safe) — NOT a raw substring check. A raw substring
+    check lets a short string falsely match inside an unrelated longer word
+    (caught 2026-07-05 via the PMS cross-reference: model 'crew' is a raw
+    substring of 'screw', so a pump entry mentioning '...Single Screw...'
+    falsely scored against the Register's 'Crew' node). Same fix already
+    applied to pipeline/power_path.py's connection matching the same day."""
+    nt, ht = needle.split(), haystack.split()
+    if not nt or not ht:
+        return False
+    for i in range(len(ht) - len(nt) + 1):
+        if ht[i:i + len(nt)] == nt:
+            return True
+    return False
+
 
 def load_register(vessel: Optional[str] = None) -> List[Dict[str, Any]]:
     vessel = vessel or config.VESSEL_NAMESPACE
@@ -83,9 +107,13 @@ def _score(comp: Dict[str, Any], e: Dict[str, Any]) -> tuple:
     cacr = _n(comp.get("acronym"))
     eacr = {_n(a) for a in (e.get("acronyms") or [])}
 
-    if cmodel and emodel and (cmodel == emodel or cmodel in emodel or emodel in cmodel):
+    model_ok = (cmodel and emodel and cmodel not in _GENERIC_VALUES and emodel not in _GENERIC_VALUES
+                and (cmodel == emodel or _token_contains(cmodel, emodel) or _token_contains(emodel, cmodel)))
+    if model_ok:
         s += 0.5; why.append("model")
-    if cmake and emake and (cmake == emake or cmake in emake or emake in cmake):
+    make_ok = (cmake and emake and cmake not in _GENERIC_VALUES and emake not in _GENERIC_VALUES
+               and (cmake == emake or _token_contains(cmake, emake) or _token_contains(emake, cmake)))
+    if make_ok:
         s += 0.25; why.append("make")
     if cacr and cacr in eacr:
         s += 0.45; why.append("acronym")
@@ -101,6 +129,55 @@ def _score(comp: Dict[str, Any], e: Dict[str, Any]) -> tuple:
     if comp.get("subsystem_code") and e.get("subsystem_code") == comp.get("subsystem_code"):
         s += 0.15; why.append("subsystem")
     return round(s, 3), why
+
+
+_MIN_DISTINCTIVE_MAKE_LEN = 4  # 'BAE' (3 chars) stays excluded from this boost
+
+
+def _exact_make_boost(comp: Dict[str, Any],
+                      register: List[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
+    """
+    An EXACT (full-string, not just token-contains), DISTINCTIVE make match is
+    a strong identity signal even when surrounding term-overlap is weak — a
+    PMS/document entry titled "...System" often shares few words with a
+    Register node's own name, but the manufacturer name alone can still be
+    unambiguous. Real case, 2026-07-06: a PMS entry with make="Termodinamica"
+    scored only 0.294 against the Register's aircon nodes (below the 0.45
+    threshold) despite "Termodinamica" being a distinctive manufacturer name
+    with no unrelated collisions elsewhere in the Register.
+
+    Fires ONLY when:
+      - comp's make normalizes to an EXACT full-string match with a
+        candidate's make (containment alone is already handled by the
+        normal scorer and is deliberately NOT enough here — exact only);
+      - that make string clears a minimum length and isn't in the generic
+        stoplist (no boosting on "BAE" or a bare "marine");
+      - every Register entry sharing that exact make belongs to ONE
+        equipment FAMILY (one parent + its children, or a single standalone
+        node). If the same exact make is shared across UNRELATED families
+        (e.g. "Gianneschi" appears on a bilge pump AND a fire pump AND a
+        generic pumps bucket — three unrelated pieces of equipment), this
+        does NOT fire — surfaced as ambiguous instead of guessed. When it
+        does fire and multiple nodes tie within the one family, prefers the
+        PARENT node over a sibling/child — never picks a leaf arbitrarily.
+    Returns an alternate resolve()-shaped result, or None if it doesn't apply.
+    """
+    cmake = _n(comp.get("make"))
+    if not cmake or cmake in _GENERIC_VALUES or len(cmake) < _MIN_DISTINCTIVE_MAKE_LEN:
+        return None
+    exact_matches = [e for e in register if _n(e.get("make")) == cmake]
+    if not exact_matches:
+        return None
+    families = {e.get("parent_id") or e["equipment_id"] for e in exact_matches}
+    if len(families) != 1:
+        return None  # shared across unrelated families -- don't guess which one
+    parent_id = next(iter(families))
+    target = next((e for e in exact_matches if e["equipment_id"] == parent_id), exact_matches[0])
+    return {
+        "action": "attach", "match": target, "match_id": target["equipment_id"],
+        "confidence": 0.25, "reason": ["make_exact_distinctive"],
+        "candidates": [(0.25, e["equipment_id"], ["make_exact_distinctive"]) for e in exact_matches[:3]],
+    }
 
 
 def resolve(comp: Dict[str, Any], register: Optional[List[Dict[str, Any]]] = None,
@@ -121,6 +198,10 @@ def resolve(comp: Dict[str, Any], register: Optional[List[Dict[str, Any]]] = Non
     # guard: a bare zone/region-only match (no identity signal) is NOT confident
     identity_signal = any(w.startswith(("model", "make", "acronym", "terms")) for w in top_why)
     confident = confident and identity_signal
+    if not confident:
+        boost = _exact_make_boost(comp, register)
+        if boost:
+            return boost
     return {
         "action": "attach" if confident else "create_flagged",
         "match": top_e if confident else None,

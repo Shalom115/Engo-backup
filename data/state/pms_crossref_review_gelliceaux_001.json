@@ -1,0 +1,5378 @@
+{
+ "vessel": "gelliceaux_001",
+ "generated": "2026-07-05",
+ "source": "YMP API /api/group/custom/... (142 live equipment entries) cross-referenced against register_gelliceaux_001.json via pipeline.node_match.resolve()",
+ "totals": {
+  "total": 142,
+  "attach": 21,
+  "create_flagged": 121,
+  "borderline_attach_needs_review": 19
+ },
+ "note": "This is a READ-ONLY cross-reference check -- nothing has been written to the Register from this. 'attach' entries are candidate matches, not yet applied as facts. 'borderline_attach_needs_review' are attaches that cleared the 0.45 threshold but sit close to it -- these are the ones most likely to be wrong matches (2 confirmed wrong on inspection: BAE hybrid system -> a flat-rack proposal node, and a Gianneschi pump entry -> the crew node).",
+ "borderline_attach_needs_review": [
+  {
+   "ymp_equipment_ref": "695fa5c033c0917bcc164135",
+   "ymp_name": "12V Gel Backup Generator Start Battery",
+   "ymp_make": "MASTERVOLT",
+   "ymp_model": "MVG series 12/25, 12/55, 12/85, 12/120, 12/140, 12/200",
+   "action": "attach",
+   "confidence": 0.25,
+   "reason": [
+    "make_exact_distinctive"
+   ],
+   "matched_register_id": "630-mastervolt-batteries-chargers",
+   "matched_register_name": "Mastervolt",
+   "top_candidates": [
+    {
+     "score": 0.25,
+     "equipment_id": "630-mastervolt-batteries-chargers",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "69f880e575306f30b4aadc5f",
+   "ymp_name": "12V Gel Comms/GMDSS Battery",
+   "ymp_make": "MASTERVOLT",
+   "ymp_model": "MVG series 12/25, 12/55, 12/85, 12/120, 12/140, 12/200",
+   "action": "attach",
+   "confidence": 0.25,
+   "reason": [
+    "make_exact_distinctive"
+   ],
+   "matched_register_id": "630-mastervolt-batteries-chargers",
+   "matched_register_name": "Mastervolt",
+   "top_candidates": [
+    {
+     "score": 0.25,
+     "equipment_id": "630-mastervolt-batteries-chargers",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "69f880f175306f30b4aadc6e",
+   "ymp_name": "12V Gel Emergency Battery",
+   "ymp_make": "MASTERVOLT",
+   "ymp_model": "MVG series 12/25, 12/55, 12/85, 12/120, 12/140, 12/200",
+   "action": "attach",
+   "confidence": 0.25,
+   "reason": [
+    "make_exact_distinctive"
+   ],
+   "matched_register_id": "630-mastervolt-batteries-chargers",
+   "matched_register_name": "Mastervolt",
+   "top_candidates": [
+    {
+     "score": 0.25,
+     "equipment_id": "630-mastervolt-batteries-chargers",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695f8b2a33c0917bcc16298d",
+   "ymp_name": "Bamar GFSI CTS 10 / 20 / 30 Hydraulic Foresail Furler",
+   "ymp_make": "Bamar",
+   "ymp_model": "GFSI CTS 10 / 20 / 30",
+   "action": "attach",
+   "confidence": 0.25,
+   "reason": [
+    "make_exact_distinctive"
+   ],
+   "matched_register_id": "860-bamar-furling-systems",
+   "matched_register_name": "Bamar Furling & Stay-Tensioning Systems",
+   "top_candidates": [
+    {
+     "score": 0.25,
+     "equipment_id": "860-bamar-furling-systems",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    },
+    {
+     "score": 0.25,
+     "equipment_id": "860-bamar-pi20",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    },
+    {
+     "score": 0.25,
+     "equipment_id": "860-bamar-gfsi30",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695f7fe533c0917bcc16249c",
+   "ymp_name": "Bamar PI 10t / 20t Hydraulic Furling Pad Eye",
+   "ymp_make": "Bamar",
+   "ymp_model": "PI 10t / 20t",
+   "action": "attach",
+   "confidence": 0.25,
+   "reason": [
+    "make_exact_distinctive"
+   ],
+   "matched_register_id": "860-bamar-furling-systems",
+   "matched_register_name": "Bamar Furling & Stay-Tensioning Systems",
+   "top_candidates": [
+    {
+     "score": 0.25,
+     "equipment_id": "860-bamar-furling-systems",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    },
+    {
+     "score": 0.25,
+     "equipment_id": "860-bamar-pi20",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    },
+    {
+     "score": 0.25,
+     "equipment_id": "860-bamar-gfsi30",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695f7b668ff053ce8d3ce398",
+   "ymp_name": "Bamar SIT WL 10t / WL 20t Hydraulic Furler",
+   "ymp_make": "Bamar",
+   "ymp_model": "SIT WL 10t / WL 20t",
+   "action": "attach",
+   "confidence": 0.25,
+   "reason": [
+    "make_exact_distinctive"
+   ],
+   "matched_register_id": "860-bamar-furling-systems",
+   "matched_register_name": "Bamar Furling & Stay-Tensioning Systems",
+   "top_candidates": [
+    {
+     "score": 0.25,
+     "equipment_id": "860-bamar-furling-systems",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    },
+    {
+     "score": 0.25,
+     "equipment_id": "860-bamar-pi20",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    },
+    {
+     "score": 0.25,
+     "equipment_id": "860-bamar-gfsi30",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "69a0262b6487e3d302e2afcb",
+   "ymp_name": "Battery Charger Emergency",
+   "ymp_make": "Mastervolt ",
+   "ymp_model": "Mass 12/30-2, 24/15-2, 24/25-2",
+   "action": "attach",
+   "confidence": 0.25,
+   "reason": [
+    "make_exact_distinctive"
+   ],
+   "matched_register_id": "630-mastervolt-batteries-chargers",
+   "matched_register_name": "Mastervolt",
+   "top_candidates": [
+    {
+     "score": 0.25,
+     "equipment_id": "630-mastervolt-batteries-chargers",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "69f885d875306f30b4aafb6c",
+   "ymp_name": "Battery Charger GMDSS",
+   "ymp_make": "Mastervolt ",
+   "ymp_model": "Mass 12/30-2, 24/15-2, 24/25-2",
+   "action": "attach",
+   "confidence": 0.25,
+   "reason": [
+    "make_exact_distinctive"
+   ],
+   "matched_register_id": "630-mastervolt-batteries-chargers",
+   "matched_register_name": "Mastervolt",
+   "top_candidates": [
+    {
+     "score": 0.25,
+     "equipment_id": "630-mastervolt-batteries-chargers",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "69f885e075306f30b4aafb7b",
+   "ymp_name": "Battery Charger Start",
+   "ymp_make": "Mastervolt ",
+   "ymp_model": "Mass 12/30-2, 24/15-2, 24/25-2",
+   "action": "attach",
+   "confidence": 0.25,
+   "reason": [
+    "make_exact_distinctive"
+   ],
+   "matched_register_id": "630-mastervolt-batteries-chargers",
+   "matched_register_name": "Mastervolt",
+   "top_candidates": [
+    {
+     "score": 0.25,
+     "equipment_id": "630-mastervolt-batteries-chargers",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695e1511b63c6b281f5922b8",
+   "ymp_name": "Grey Water Filter System",
+   "ymp_make": "Wave International ",
+   "ymp_model": "WB 300",
+   "action": "attach",
+   "confidence": 0.25,
+   "reason": [
+    "make_exact_distinctive"
+   ],
+   "matched_register_id": "530-wave-international-greywater-treatment",
+   "matched_register_name": "Wave International",
+   "top_candidates": [
+    {
+     "score": 0.25,
+     "equipment_id": "530-wave-international-greywater-treatment",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695ceab9b63c6b281f58a84f",
+   "ymp_name": "Harken Captive Air 9T Winch",
+   "ymp_make": "Harken ",
+   "ymp_model": "Captive Air 9T",
+   "action": "attach",
+   "confidence": 0.472,
+   "reason": [
+    "make",
+    "terms=0.56"
+   ],
+   "matched_register_id": "220-captive-mainsheet-9t",
+   "matched_register_name": "Mainsheet Captive Winch (Harken Air Captive 9T)",
+   "top_candidates": [
+    {
+     "score": 0.472,
+     "equipment_id": "220-captive-mainsheet-9t",
+     "reasons": [
+      "make",
+      "terms=0.56"
+     ]
+    },
+    {
+     "score": 0.37,
+     "equipment_id": "220-captive-tensioner-ct1",
+     "reasons": [
+      "make",
+      "terms=0.30"
+     ]
+    },
+    {
+     "score": 0.323,
+     "equipment_id": "220-mast-winch-harken-b1111",
+     "reasons": [
+      "make",
+      "terms=0.18"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695cb481485f8ff57607aead",
+   "ymp_name": "Lifting Keel System",
+   "ymp_make": "apm s.r.l. ",
+   "ymp_model": "SWS 108-1 ",
+   "action": "attach",
+   "confidence": 0.45,
+   "reason": [
+    "make",
+    "terms=0.50"
+   ],
+   "matched_register_id": "130-apm-lifting-keel",
+   "matched_register_name": "APM",
+   "top_candidates": [
+    {
+     "score": 0.45,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": [
+      "make",
+      "terms=0.50"
+     ]
+    },
+    {
+     "score": 0.08,
+     "equipment_id": "915-100-structure-rudder-and-keel",
+     "reasons": [
+      "terms=0.20"
+     ]
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "150-marsili-autopilot",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6960e1f7a31e44ce2e6a9ad3",
+   "ymp_name": "Lofrans SX5 Vertical Windlasses",
+   "ymp_make": "Lofrans",
+   "ymp_model": "SX5",
+   "action": "attach",
+   "confidence": 0.25,
+   "reason": [
+    "make_exact_distinctive"
+   ],
+   "matched_register_id": "250-lofrans-windlass",
+   "matched_register_name": "Lofrans",
+   "top_candidates": [
+    {
+     "score": 0.25,
+     "equipment_id": "250-lofrans-windlass",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "69fd9da0d95b09fa4191d10a",
+   "ymp_name": "MYT Systems SW108#1 Hydraulic System",
+   "ymp_make": "MYT Systems",
+   "ymp_model": "SW108#1",
+   "action": "attach",
+   "confidence": 0.45,
+   "reason": [
+    "make",
+    "terms=0.50"
+   ],
+   "matched_register_id": "570-myt-systems-hydraulics",
+   "matched_register_name": "MYT Systems",
+   "top_candidates": [
+    {
+     "score": 0.45,
+     "equipment_id": "570-myt-systems-hydraulics",
+     "reasons": [
+      "make",
+      "terms=0.50"
+     ]
+    },
+    {
+     "score": 0.383,
+     "equipment_id": "570-myt-aft-sailing-manifold",
+     "reasons": [
+      "make",
+      "terms=0.33"
+     ]
+    },
+    {
+     "score": 0.383,
+     "equipment_id": "570-myt-fwd-sailing-manifold",
+     "reasons": [
+      "make",
+      "terms=0.33"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695d096db63c6b281f58bcd5",
+   "ymp_name": "Rigging Projects Locking Headboard Car",
+   "ymp_make": "Rigging Projects Ltd",
+   "ymp_model": "Locking Headboard Car",
+   "action": "attach",
+   "confidence": 0.517,
+   "reason": [
+    "make",
+    "terms=0.67"
+   ],
+   "matched_register_id": "850-rigging-projects-locking-car",
+   "matched_register_name": "Rigging Projects",
+   "top_candidates": [
+    {
+     "score": 0.517,
+     "equipment_id": "850-rigging-projects-locking-car",
+     "reasons": [
+      "make",
+      "terms=0.67"
+     ]
+    },
+    {
+     "score": 0.057,
+     "equipment_id": "850-specifics",
+     "reasons": [
+      "terms=0.14"
+     ]
+    },
+    {
+     "score": 0.057,
+     "equipment_id": "850-velamania",
+     "reasons": [
+      "terms=0.14"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695d2339b63c6b281f58e406",
+   "ymp_name": "Tecnoseal SW-108 Antifouling + Monitoring System",
+   "ymp_make": "Tecnoseal ",
+   "ymp_model": "SW-108 ",
+   "action": "attach",
+   "confidence": 0.25,
+   "reason": [
+    "make_exact_distinctive"
+   ],
+   "matched_register_id": "670-tecnoseal-hull-protection",
+   "matched_register_name": "Tecnoseal",
+   "top_candidates": [
+    {
+     "score": 0.25,
+     "equipment_id": "670-tecnoseal-hull-protection",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6964b01d17c8954141698712",
+   "ymp_name": "Termodinamica Marine Air Conditioning System",
+   "ymp_make": "Termodinamica",
+   "ymp_model": null,
+   "action": "attach",
+   "confidence": 0.25,
+   "reason": [
+    "make_exact_distinctive"
+   ],
+   "matched_register_id": "590-aircon-system",
+   "matched_register_name": "Aircon System (Termodinamica)",
+   "top_candidates": [
+    {
+     "score": 0.25,
+     "equipment_id": "590-aircon-system",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    },
+    {
+     "score": 0.25,
+     "equipment_id": "590-aircon-compressor-1",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    },
+    {
+     "score": 0.25,
+     "equipment_id": "590-aircon-compressor-2",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6964bff21955cb2d0b33317b",
+   "ymp_name": "Wave International WB 300 Wavebrite",
+   "ymp_make": "Wave International",
+   "ymp_model": "WB 300",
+   "action": "attach",
+   "confidence": 0.25,
+   "reason": [
+    "make_exact_distinctive"
+   ],
+   "matched_register_id": "530-wave-international-greywater-treatment",
+   "matched_register_name": "Wave International",
+   "top_candidates": [
+    {
+     "score": 0.25,
+     "equipment_id": "530-wave-international-greywater-treatment",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6964bbde1955cb2d0b332fc4",
+   "ymp_name": "Wave International WBSL, WBSLLite, WBSL2010, WBSL2020 Slimline ",
+   "ymp_make": "Wave International",
+   "ymp_model": "WBSL, WBSLLite, WBSL2010, WBSL2020",
+   "action": "attach",
+   "confidence": 0.25,
+   "reason": [
+    "make_exact_distinctive"
+   ],
+   "matched_register_id": "530-wave-international-greywater-treatment",
+   "matched_register_name": "Wave International",
+   "top_candidates": [
+    {
+     "score": 0.25,
+     "equipment_id": "530-wave-international-greywater-treatment",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    }
+   ]
+  }
+ ],
+ "all_attach": [
+  {
+   "ymp_equipment_ref": "695fa5c033c0917bcc164135",
+   "ymp_name": "12V Gel Backup Generator Start Battery",
+   "ymp_make": "MASTERVOLT",
+   "ymp_model": "MVG series 12/25, 12/55, 12/85, 12/120, 12/140, 12/200",
+   "action": "attach",
+   "confidence": 0.25,
+   "reason": [
+    "make_exact_distinctive"
+   ],
+   "matched_register_id": "630-mastervolt-batteries-chargers",
+   "matched_register_name": "Mastervolt",
+   "top_candidates": [
+    {
+     "score": 0.25,
+     "equipment_id": "630-mastervolt-batteries-chargers",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "69f880e575306f30b4aadc5f",
+   "ymp_name": "12V Gel Comms/GMDSS Battery",
+   "ymp_make": "MASTERVOLT",
+   "ymp_model": "MVG series 12/25, 12/55, 12/85, 12/120, 12/140, 12/200",
+   "action": "attach",
+   "confidence": 0.25,
+   "reason": [
+    "make_exact_distinctive"
+   ],
+   "matched_register_id": "630-mastervolt-batteries-chargers",
+   "matched_register_name": "Mastervolt",
+   "top_candidates": [
+    {
+     "score": 0.25,
+     "equipment_id": "630-mastervolt-batteries-chargers",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "69f880f175306f30b4aadc6e",
+   "ymp_name": "12V Gel Emergency Battery",
+   "ymp_make": "MASTERVOLT",
+   "ymp_model": "MVG series 12/25, 12/55, 12/85, 12/120, 12/140, 12/200",
+   "action": "attach",
+   "confidence": 0.25,
+   "reason": [
+    "make_exact_distinctive"
+   ],
+   "matched_register_id": "630-mastervolt-batteries-chargers",
+   "matched_register_name": "Mastervolt",
+   "top_candidates": [
+    {
+     "score": 0.25,
+     "equipment_id": "630-mastervolt-batteries-chargers",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695f8b2a33c0917bcc16298d",
+   "ymp_name": "Bamar GFSI CTS 10 / 20 / 30 Hydraulic Foresail Furler",
+   "ymp_make": "Bamar",
+   "ymp_model": "GFSI CTS 10 / 20 / 30",
+   "action": "attach",
+   "confidence": 0.25,
+   "reason": [
+    "make_exact_distinctive"
+   ],
+   "matched_register_id": "860-bamar-furling-systems",
+   "matched_register_name": "Bamar Furling & Stay-Tensioning Systems",
+   "top_candidates": [
+    {
+     "score": 0.25,
+     "equipment_id": "860-bamar-furling-systems",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    },
+    {
+     "score": 0.25,
+     "equipment_id": "860-bamar-pi20",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    },
+    {
+     "score": 0.25,
+     "equipment_id": "860-bamar-gfsi30",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695f7fe533c0917bcc16249c",
+   "ymp_name": "Bamar PI 10t / 20t Hydraulic Furling Pad Eye",
+   "ymp_make": "Bamar",
+   "ymp_model": "PI 10t / 20t",
+   "action": "attach",
+   "confidence": 0.25,
+   "reason": [
+    "make_exact_distinctive"
+   ],
+   "matched_register_id": "860-bamar-furling-systems",
+   "matched_register_name": "Bamar Furling & Stay-Tensioning Systems",
+   "top_candidates": [
+    {
+     "score": 0.25,
+     "equipment_id": "860-bamar-furling-systems",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    },
+    {
+     "score": 0.25,
+     "equipment_id": "860-bamar-pi20",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    },
+    {
+     "score": 0.25,
+     "equipment_id": "860-bamar-gfsi30",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695f7b668ff053ce8d3ce398",
+   "ymp_name": "Bamar SIT WL 10t / WL 20t Hydraulic Furler",
+   "ymp_make": "Bamar",
+   "ymp_model": "SIT WL 10t / WL 20t",
+   "action": "attach",
+   "confidence": 0.25,
+   "reason": [
+    "make_exact_distinctive"
+   ],
+   "matched_register_id": "860-bamar-furling-systems",
+   "matched_register_name": "Bamar Furling & Stay-Tensioning Systems",
+   "top_candidates": [
+    {
+     "score": 0.25,
+     "equipment_id": "860-bamar-furling-systems",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    },
+    {
+     "score": 0.25,
+     "equipment_id": "860-bamar-pi20",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    },
+    {
+     "score": 0.25,
+     "equipment_id": "860-bamar-gfsi30",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "69a0262b6487e3d302e2afcb",
+   "ymp_name": "Battery Charger Emergency",
+   "ymp_make": "Mastervolt ",
+   "ymp_model": "Mass 12/30-2, 24/15-2, 24/25-2",
+   "action": "attach",
+   "confidence": 0.25,
+   "reason": [
+    "make_exact_distinctive"
+   ],
+   "matched_register_id": "630-mastervolt-batteries-chargers",
+   "matched_register_name": "Mastervolt",
+   "top_candidates": [
+    {
+     "score": 0.25,
+     "equipment_id": "630-mastervolt-batteries-chargers",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "69f885d875306f30b4aafb6c",
+   "ymp_name": "Battery Charger GMDSS",
+   "ymp_make": "Mastervolt ",
+   "ymp_model": "Mass 12/30-2, 24/15-2, 24/25-2",
+   "action": "attach",
+   "confidence": 0.25,
+   "reason": [
+    "make_exact_distinctive"
+   ],
+   "matched_register_id": "630-mastervolt-batteries-chargers",
+   "matched_register_name": "Mastervolt",
+   "top_candidates": [
+    {
+     "score": 0.25,
+     "equipment_id": "630-mastervolt-batteries-chargers",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "69f885e075306f30b4aafb7b",
+   "ymp_name": "Battery Charger Start",
+   "ymp_make": "Mastervolt ",
+   "ymp_model": "Mass 12/30-2, 24/15-2, 24/25-2",
+   "action": "attach",
+   "confidence": 0.25,
+   "reason": [
+    "make_exact_distinctive"
+   ],
+   "matched_register_id": "630-mastervolt-batteries-chargers",
+   "matched_register_name": "Mastervolt",
+   "top_candidates": [
+    {
+     "score": 0.25,
+     "equipment_id": "630-mastervolt-batteries-chargers",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695e1511b63c6b281f5922b8",
+   "ymp_name": "Grey Water Filter System",
+   "ymp_make": "Wave International ",
+   "ymp_model": "WB 300",
+   "action": "attach",
+   "confidence": 0.25,
+   "reason": [
+    "make_exact_distinctive"
+   ],
+   "matched_register_id": "530-wave-international-greywater-treatment",
+   "matched_register_name": "Wave International",
+   "top_candidates": [
+    {
+     "score": 0.25,
+     "equipment_id": "530-wave-international-greywater-treatment",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695cec14b63c6b281f58a93b",
+   "ymp_name": "Harken CT1 Tensioner",
+   "ymp_make": "Harken ",
+   "ymp_model": "CT1 ",
+   "action": "attach",
+   "confidence": 0.9,
+   "reason": [
+    "model",
+    "make",
+    "terms=0.38"
+   ],
+   "matched_register_id": "220-captive-tensioner-ct1",
+   "matched_register_name": "Captive Tensioner (Harken CT1)",
+   "top_candidates": [
+    {
+     "score": 0.9,
+     "equipment_id": "220-captive-tensioner-ct1",
+     "reasons": [
+      "model",
+      "make",
+      "terms=0.38"
+     ]
+    },
+    {
+     "score": 0.29,
+     "equipment_id": "220-mast-winch-harken-b1111",
+     "reasons": [
+      "make",
+      "terms=0.10"
+     ]
+    },
+    {
+     "score": 0.29,
+     "equipment_id": "220-primary-winch-harken-b1235",
+     "reasons": [
+      "make",
+      "terms=0.10"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695ceab9b63c6b281f58a84f",
+   "ymp_name": "Harken Captive Air 9T Winch",
+   "ymp_make": "Harken ",
+   "ymp_model": "Captive Air 9T",
+   "action": "attach",
+   "confidence": 0.472,
+   "reason": [
+    "make",
+    "terms=0.56"
+   ],
+   "matched_register_id": "220-captive-mainsheet-9t",
+   "matched_register_name": "Mainsheet Captive Winch (Harken Air Captive 9T)",
+   "top_candidates": [
+    {
+     "score": 0.472,
+     "equipment_id": "220-captive-mainsheet-9t",
+     "reasons": [
+      "make",
+      "terms=0.56"
+     ]
+    },
+    {
+     "score": 0.37,
+     "equipment_id": "220-captive-tensioner-ct1",
+     "reasons": [
+      "make",
+      "terms=0.30"
+     ]
+    },
+    {
+     "score": 0.323,
+     "equipment_id": "220-mast-winch-harken-b1111",
+     "reasons": [
+      "make",
+      "terms=0.18"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695cb481485f8ff57607aead",
+   "ymp_name": "Lifting Keel System",
+   "ymp_make": "apm s.r.l. ",
+   "ymp_model": "SWS 108-1 ",
+   "action": "attach",
+   "confidence": 0.45,
+   "reason": [
+    "make",
+    "terms=0.50"
+   ],
+   "matched_register_id": "130-apm-lifting-keel",
+   "matched_register_name": "APM",
+   "top_candidates": [
+    {
+     "score": 0.45,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": [
+      "make",
+      "terms=0.50"
+     ]
+    },
+    {
+     "score": 0.08,
+     "equipment_id": "915-100-structure-rudder-and-keel",
+     "reasons": [
+      "terms=0.20"
+     ]
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "150-marsili-autopilot",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6960e1f7a31e44ce2e6a9ad3",
+   "ymp_name": "Lofrans SX5 Vertical Windlasses",
+   "ymp_make": "Lofrans",
+   "ymp_model": "SX5",
+   "action": "attach",
+   "confidence": 0.25,
+   "reason": [
+    "make_exact_distinctive"
+   ],
+   "matched_register_id": "250-lofrans-windlass",
+   "matched_register_name": "Lofrans",
+   "top_candidates": [
+    {
+     "score": 0.25,
+     "equipment_id": "250-lofrans-windlass",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "69fd9da0d95b09fa4191d10a",
+   "ymp_name": "MYT Systems SW108#1 Hydraulic System",
+   "ymp_make": "MYT Systems",
+   "ymp_model": "SW108#1",
+   "action": "attach",
+   "confidence": 0.45,
+   "reason": [
+    "make",
+    "terms=0.50"
+   ],
+   "matched_register_id": "570-myt-systems-hydraulics",
+   "matched_register_name": "MYT Systems",
+   "top_candidates": [
+    {
+     "score": 0.45,
+     "equipment_id": "570-myt-systems-hydraulics",
+     "reasons": [
+      "make",
+      "terms=0.50"
+     ]
+    },
+    {
+     "score": 0.383,
+     "equipment_id": "570-myt-aft-sailing-manifold",
+     "reasons": [
+      "make",
+      "terms=0.33"
+     ]
+    },
+    {
+     "score": 0.383,
+     "equipment_id": "570-myt-fwd-sailing-manifold",
+     "reasons": [
+      "make",
+      "terms=0.33"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695d096db63c6b281f58bcd5",
+   "ymp_name": "Rigging Projects Locking Headboard Car",
+   "ymp_make": "Rigging Projects Ltd",
+   "ymp_model": "Locking Headboard Car",
+   "action": "attach",
+   "confidence": 0.517,
+   "reason": [
+    "make",
+    "terms=0.67"
+   ],
+   "matched_register_id": "850-rigging-projects-locking-car",
+   "matched_register_name": "Rigging Projects",
+   "top_candidates": [
+    {
+     "score": 0.517,
+     "equipment_id": "850-rigging-projects-locking-car",
+     "reasons": [
+      "make",
+      "terms=0.67"
+     ]
+    },
+    {
+     "score": 0.057,
+     "equipment_id": "850-specifics",
+     "reasons": [
+      "terms=0.14"
+     ]
+    },
+    {
+     "score": 0.057,
+     "equipment_id": "850-velamania",
+     "reasons": [
+      "terms=0.14"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695d2339b63c6b281f58e406",
+   "ymp_name": "Tecnoseal SW-108 Antifouling + Monitoring System",
+   "ymp_make": "Tecnoseal ",
+   "ymp_model": "SW-108 ",
+   "action": "attach",
+   "confidence": 0.25,
+   "reason": [
+    "make_exact_distinctive"
+   ],
+   "matched_register_id": "670-tecnoseal-hull-protection",
+   "matched_register_name": "Tecnoseal",
+   "top_candidates": [
+    {
+     "score": 0.25,
+     "equipment_id": "670-tecnoseal-hull-protection",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6964b01d17c8954141698712",
+   "ymp_name": "Termodinamica Marine Air Conditioning System",
+   "ymp_make": "Termodinamica",
+   "ymp_model": null,
+   "action": "attach",
+   "confidence": 0.25,
+   "reason": [
+    "make_exact_distinctive"
+   ],
+   "matched_register_id": "590-aircon-system",
+   "matched_register_name": "Aircon System (Termodinamica)",
+   "top_candidates": [
+    {
+     "score": 0.25,
+     "equipment_id": "590-aircon-system",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    },
+    {
+     "score": 0.25,
+     "equipment_id": "590-aircon-compressor-1",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    },
+    {
+     "score": 0.25,
+     "equipment_id": "590-aircon-compressor-2",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6964bff21955cb2d0b33317b",
+   "ymp_name": "Wave International WB 300 Wavebrite",
+   "ymp_make": "Wave International",
+   "ymp_model": "WB 300",
+   "action": "attach",
+   "confidence": 0.25,
+   "reason": [
+    "make_exact_distinctive"
+   ],
+   "matched_register_id": "530-wave-international-greywater-treatment",
+   "matched_register_name": "Wave International",
+   "top_candidates": [
+    {
+     "score": 0.25,
+     "equipment_id": "530-wave-international-greywater-treatment",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6964bbde1955cb2d0b332fc4",
+   "ymp_name": "Wave International WBSL, WBSLLite, WBSL2010, WBSL2020 Slimline ",
+   "ymp_make": "Wave International",
+   "ymp_model": "WBSL, WBSLLite, WBSL2010, WBSL2020",
+   "action": "attach",
+   "confidence": 0.25,
+   "reason": [
+    "make_exact_distinctive"
+   ],
+   "matched_register_id": "530-wave-international-greywater-treatment",
+   "matched_register_name": "Wave International",
+   "top_candidates": [
+    {
+     "score": 0.25,
+     "equipment_id": "530-wave-international-greywater-treatment",
+     "reasons": [
+      "make_exact_distinctive"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6964d7451955cb2d0b33376e",
+   "ymp_name": "Whale Gulper 320 High Capacity Shower/Galley Waste and Bilge Pump",
+   "ymp_make": "Whale",
+   "ymp_model": "Gulper 320",
+   "action": "attach",
+   "confidence": 0.771,
+   "reason": [
+    "model",
+    "make",
+    "terms=0.05"
+   ],
+   "matched_register_id": "520-aux-bilge-pumps",
+   "matched_register_name": "Aux Bilge Pumps (mast + eng.room)",
+   "top_candidates": [
+    {
+     "score": 0.771,
+     "equipment_id": "520-aux-bilge-pumps",
+     "reasons": [
+      "model",
+      "make",
+      "terms=0.05"
+     ]
+    },
+    {
+     "score": 0.317,
+     "equipment_id": "520-whale-pumps",
+     "reasons": [
+      "make",
+      "terms=0.17"
+     ]
+    },
+    {
+     "score": 0.067,
+     "equipment_id": "520-feit-bilge-pump",
+     "reasons": [
+      "terms=0.17"
+     ]
+    }
+   ]
+  }
+ ],
+ "all_create_flagged": [
+  {
+   "ymp_equipment_ref": "6a3a371461cc67696489d48d",
+   "ymp_name": "Air Conditioning",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.114,
+   "reason": [
+    "terms=0.29"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.114,
+     "equipment_id": "590-aircon-fcu-03",
+     "reasons": [
+      "terms=0.29"
+     ]
+    },
+    {
+     "score": 0.1,
+     "equipment_id": "590-aircon-fcu-05",
+     "reasons": [
+      "terms=0.25"
+     ]
+    },
+    {
+     "score": 0.1,
+     "equipment_id": "590-aircon-fcu-07",
+     "reasons": [
+      "terms=0.25"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a156c2cd9aeba42551c78f3",
+   "ymp_name": "Aircon System",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.2,
+   "reason": [
+    "terms=0.50"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.2,
+     "equipment_id": "590-notes",
+     "reasons": [
+      "terms=0.50"
+     ]
+    },
+    {
+     "score": 0.067,
+     "equipment_id": "590-aircon-system",
+     "reasons": [
+      "terms=0.17"
+     ]
+    },
+    {
+     "score": 0.067,
+     "equipment_id": "590-aircon-compressor-1",
+     "reasons": [
+      "terms=0.17"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695e48d58ff053ce8d3caf4f",
+   "ymp_name": "Anderson-Negele P41 Pressure Transmitter",
+   "ymp_make": "Anderson-Negele",
+   "ymp_model": "P41 ",
+   "action": "create_flagged",
+   "confidence": 0.109,
+   "reason": [
+    "terms=0.27"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.109,
+     "equipment_id": "570-andersen-negele-hydraulic-oil-tank-pressure-transmitter",
+     "reasons": [
+      "terms=0.27"
+     ]
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "150-marsili-autopilot",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a2ff70dce652b534a71f3e5",
+   "ymp_name": "Autopilot",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.133,
+   "reason": [
+    "terms=0.33"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.133,
+     "equipment_id": "150-marsili-autopilot",
+     "reasons": [
+      "terms=0.33"
+     ]
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "220-capstan-winch",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3a3b6961cc67696489e4bf",
+   "ymp_name": "BAE hybrid system",
+   "ymp_make": null,
+   "ymp_model": "custom",
+   "action": "create_flagged",
+   "confidence": 0.1,
+   "reason": [
+    "terms=0.25"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.1,
+     "equipment_id": "625-investigation-of-errors",
+     "reasons": [
+      "terms=0.25"
+     ]
+    },
+    {
+     "score": 0.1,
+     "equipment_id": "650-651-bae-monitoring",
+     "reasons": [
+      "terms=0.25"
+     ]
+    },
+    {
+     "score": 0.067,
+     "equipment_id": "680-bae-electrical-design",
+     "reasons": [
+      "terms=0.17"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3a2b8b61cc67696489bf4e",
+   "ymp_name": "Backstay Cylinder",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.05,
+   "reason": [
+    "terms=0.12"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.05,
+     "equipment_id": "830-standing-rigging",
+     "reasons": [
+      "terms=0.12"
+     ]
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "150-marsili-autopilot",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a156bf3d9aeba42551c78c7",
+   "ymp_name": "Bilge And Fire System",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.2,
+   "reason": [
+    "terms=0.50"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.2,
+     "equipment_id": "520-feit-bilge-pump",
+     "reasons": [
+      "terms=0.50"
+     ]
+    },
+    {
+     "score": 0.2,
+     "equipment_id": "520-whale-pumps",
+     "reasons": [
+      "terms=0.50"
+     ]
+    },
+    {
+     "score": 0.16,
+     "equipment_id": "520-vega-bilge-level-sensors",
+     "reasons": [
+      "terms=0.40"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a39e3e3a6933e3a46f6055a",
+   "ymp_name": "Bilge/ Fifi Pump",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.16,
+   "reason": [
+    "terms=0.40"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.16,
+     "equipment_id": "520-feit-bilge-pump",
+     "reasons": [
+      "terms=0.40"
+     ]
+    },
+    {
+     "score": 0.114,
+     "equipment_id": "520-bilge-pumps",
+     "reasons": [
+      "terms=0.29"
+     ]
+    },
+    {
+     "score": 0.114,
+     "equipment_id": "520-fire-pump",
+     "reasons": [
+      "terms=0.29"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a0ac59d46140fcb65ed9de3",
+   "ymp_name": "Black Water System",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.267,
+   "reason": [
+    "terms=0.67"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.267,
+     "equipment_id": "540-toilet",
+     "reasons": [
+      "terms=0.67"
+     ]
+    },
+    {
+     "score": 0.2,
+     "equipment_id": "540-gianneschi-pumps",
+     "reasons": [
+      "terms=0.50"
+     ]
+    },
+    {
+     "score": 0.133,
+     "equipment_id": "540-black-water-pumps",
+     "reasons": [
+      "terms=0.33"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3aa64961cc6769648a8700",
+   "ymp_name": "Black water pump",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.2,
+   "reason": [
+    "terms=0.50"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.2,
+     "equipment_id": "540-toilet",
+     "reasons": [
+      "terms=0.50"
+     ]
+    },
+    {
+     "score": 0.16,
+     "equipment_id": "530-viking-pump",
+     "reasons": [
+      "terms=0.40"
+     ]
+    },
+    {
+     "score": 0.16,
+     "equipment_id": "540-gianneschi-pumps",
+     "reasons": [
+      "terms=0.40"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "69fc83d329c6d6df4e385397",
+   "ymp_name": "Bow Thruster",
+   "ymp_make": "Ocean Marine Systems",
+   "ymp_model": "H-0300-S-048-06",
+   "action": "create_flagged",
+   "confidence": 0.133,
+   "reason": [
+    "terms=0.33"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.133,
+     "equipment_id": "460-thruster-system",
+     "reasons": [
+      "terms=0.33"
+     ]
+    },
+    {
+     "score": 0.114,
+     "equipment_id": "460-bow-thruster-oms-h300",
+     "reasons": [
+      "terms=0.29"
+     ]
+    },
+    {
+     "score": 0.05,
+     "equipment_id": "461-stern-thruster-oms-h250",
+     "reasons": [
+      "terms=0.12"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3a8f0b61cc6769648a399d",
+   "ymp_name": "CAN bus ",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.0,
+   "reason": [],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "150-marsili-autopilot",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "220-capstan-winch",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "69fc694e29c6d6df4e384739",
+   "ymp_name": "Cariboni s.r.l. SWS 108#1 Hydraulic Devices",
+   "ymp_make": "Cariboni s.r.l. ",
+   "ymp_model": "SWS 108#1",
+   "action": "create_flagged",
+   "confidence": 0.364,
+   "reason": [
+    "make",
+    "terms=0.29"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.364,
+     "equipment_id": "840-cariboni-hydraulic-cylinders",
+     "reasons": [
+      "make",
+      "terms=0.29"
+     ]
+    },
+    {
+     "score": 0.057,
+     "equipment_id": "840-lazz",
+     "reasons": [
+      "terms=0.14"
+     ]
+    },
+    {
+     "score": 0.057,
+     "equipment_id": "840-manifolds",
+     "reasons": [
+      "terms=0.14"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a156c33d9aeba42551c798a",
+   "ymp_name": "Cooling System",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.1,
+   "reason": [
+    "terms=0.25"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.1,
+     "equipment_id": "595-emp-glycol-pumps",
+     "reasons": [
+      "terms=0.25"
+     ]
+    },
+    {
+     "score": 0.08,
+     "equipment_id": "595-grundfos-main-seawater-cooling-pumps",
+     "reasons": [
+      "terms=0.20"
+     ]
+    },
+    {
+     "score": 0.057,
+     "equipment_id": "515-grundfos-main-seawater-cooling-pumps",
+     "reasons": [
+      "terms=0.14"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3aa4ec61cc6769648a80ff",
+   "ymp_name": "Cooling water pump",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.16,
+   "reason": [
+    "terms=0.40"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.16,
+     "equipment_id": "530-viking-pump",
+     "reasons": [
+      "terms=0.40"
+     ]
+    },
+    {
+     "score": 0.114,
+     "equipment_id": "515-calpeda-cpp-seawater-pump",
+     "reasons": [
+      "terms=0.29"
+     ]
+    },
+    {
+     "score": 0.1,
+     "equipment_id": "515-grundfos-main-seawater-cooling-pumps",
+     "reasons": [
+      "terms=0.25"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a156bded9aeba42551c78be",
+   "ymp_name": "Deck Drains System",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.133,
+   "reason": [
+    "terms=0.33"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.133,
+     "equipment_id": "915-200-deck",
+     "reasons": [
+      "terms=0.33"
+     ]
+    },
+    {
+     "score": 0.1,
+     "equipment_id": "220-winches",
+     "reasons": [
+      "terms=0.25"
+     ]
+    },
+    {
+     "score": 0.08,
+     "equipment_id": "220-deck-harken-winches",
+     "reasons": [
+      "terms=0.20"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3a2c8161cc67696489c7cb",
+   "ymp_name": "Deck door Cylinder",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.133,
+   "reason": [
+    "terms=0.33"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.133,
+     "equipment_id": "260-deck-door",
+     "reasons": [
+      "terms=0.33"
+     ]
+    },
+    {
+     "score": 0.1,
+     "equipment_id": "915-200-deck",
+     "reasons": [
+      "terms=0.25"
+     ]
+    },
+    {
+     "score": 0.08,
+     "equipment_id": "220-winches",
+     "reasons": [
+      "terms=0.20"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3aa93361cc6769648a8dbe",
+   "ymp_name": "Deck- cockpit table",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.1,
+   "reason": [
+    "terms=0.25"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.1,
+     "equipment_id": "915-200-deck",
+     "reasons": [
+      "terms=0.25"
+     ]
+    },
+    {
+     "score": 0.08,
+     "equipment_id": "220-winches",
+     "reasons": [
+      "terms=0.20"
+     ]
+    },
+    {
+     "score": 0.067,
+     "equipment_id": "220-deck-harken-winches",
+     "reasons": [
+      "terms=0.17"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695e49288ff053ce8d3cafa2",
+   "ymp_name": "Deep Sea Seals ManeGuard PSE Inboard Seal ",
+   "ymp_make": "Deep Sea Seals",
+   "ymp_model": "ManeGuard PSE",
+   "action": "create_flagged",
+   "confidence": 0.04,
+   "reason": [
+    "terms=0.10"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.04,
+     "equipment_id": "560-sea-fire-fire-suppression",
+     "reasons": [
+      "terms=0.10"
+     ]
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "150-marsili-autopilot",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6960c0b233c0917bcc16a281",
+   "ymp_name": "Delonghi PrimaDonna Class ECAM 550.65.SB Coffee Machine",
+   "ymp_make": "Delonghi",
+   "ymp_model": "PrimaDonna Class ECAM 550.65.SB",
+   "action": "create_flagged",
+   "confidence": 0.08,
+   "reason": [
+    "terms=0.20"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.08,
+     "equipment_id": "360-coffee-machine",
+     "reasons": [
+      "terms=0.20"
+     ]
+    },
+    {
+     "score": 0.036,
+     "equipment_id": "360-washing-machine",
+     "reasons": [
+      "terms=0.09"
+     ]
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3aa48e61cc6769648a79b2",
+   "ymp_name": "Dive compressor",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.267,
+   "reason": [
+    "terms=0.67"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.267,
+     "equipment_id": "970-bauer-dive-compressor",
+     "reasons": [
+      "terms=0.67"
+     ]
+    },
+    {
+     "score": 0.057,
+     "equipment_id": "590-aircon-compressor-1",
+     "reasons": [
+      "terms=0.14"
+     ]
+    },
+    {
+     "score": 0.057,
+     "equipment_id": "590-aircon-compressor-2",
+     "reasons": [
+      "terms=0.14"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695f9d5733c0917bcc163e2f",
+   "ymp_name": "ELNA Lightning Protection Leisure Boats",
+   "ymp_make": "ELNA",
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.383,
+   "reason": [
+    "make",
+    "terms=0.33"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.383,
+     "equipment_id": "670-dinnteco-elna-lightning",
+     "reasons": [
+      "make",
+      "terms=0.33"
+     ]
+    },
+    {
+     "score": 0.04,
+     "equipment_id": "670-tecnoseal-hull-protection",
+     "reasons": [
+      "terms=0.10"
+     ]
+    },
+    {
+     "score": 0.031,
+     "equipment_id": "670-galvanic-control",
+     "reasons": [
+      "terms=0.08"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "69f9916d75306f30b4ab9d0d",
+   "ymp_name": "ESS 1",
+   "ymp_make": "AKASOL",
+   "ymp_model": "AKASYSTEM 15 OEM 50 PRO",
+   "action": "create_flagged",
+   "confidence": 0.1,
+   "reason": [
+    "terms=0.25"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.1,
+     "equipment_id": "630-akasol-ess",
+     "reasons": [
+      "terms=0.25"
+     ]
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "150-marsili-autopilot",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695faaef33c0917bcc16428b",
+   "ymp_name": "ESS 2",
+   "ymp_make": "AKASOL",
+   "ymp_model": "AKASYSTEM 15 OEM 50 PRO",
+   "action": "create_flagged",
+   "confidence": 0.1,
+   "reason": [
+    "terms=0.25"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.1,
+     "equipment_id": "630-akasol-ess",
+     "reasons": [
+      "terms=0.25"
+     ]
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "150-marsili-autopilot",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "69f9917275306f30b4ab9d2b",
+   "ymp_name": "ESS 3",
+   "ymp_make": "AKASOL",
+   "ymp_model": "AKASYSTEM 15 OEM 50 PRO",
+   "action": "create_flagged",
+   "confidence": 0.1,
+   "reason": [
+    "terms=0.25"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.1,
+     "equipment_id": "630-akasol-ess",
+     "reasons": [
+      "terms=0.25"
+     ]
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "150-marsili-autopilot",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695cdb31b63c6b281f58a2cf",
+   "ymp_name": "Eco-Sistems Compact Efficient A-200/A-300 Watermaker",
+   "ymp_make": "Eco-Sistems",
+   "ymp_model": "Compact Efficient A-200/A-300",
+   "action": "create_flagged",
+   "confidence": 0.04,
+   "reason": [
+    "terms=0.10"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.04,
+     "equipment_id": "510-ecosistems-watermaker",
+     "reasons": [
+      "terms=0.10"
+     ]
+    },
+    {
+     "score": 0.033,
+     "equipment_id": "510-watermaker",
+     "reasons": [
+      "terms=0.08"
+     ]
+    },
+    {
+     "score": 0.031,
+     "equipment_id": "460-bow-thruster-oms-h300",
+     "reasons": [
+      "terms=0.08"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695cd7bfb63c6b281f58a091",
+   "ymp_name": "Eco-Sistems Water-Pro Series Compact S-60/90 12/24V DC Watermaker",
+   "ymp_make": "Eco-Sistems",
+   "ymp_model": "Water-Pro Series Compact S-60/90 12/24V DC",
+   "action": "create_flagged",
+   "confidence": 0.057,
+   "reason": [
+    "terms=0.14"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.057,
+     "equipment_id": "510-ecosistems-watermaker",
+     "reasons": [
+      "terms=0.14"
+     ]
+    },
+    {
+     "score": 0.05,
+     "equipment_id": "510-watermaker",
+     "reasons": [
+      "terms=0.12"
+     ]
+    },
+    {
+     "score": 0.029,
+     "equipment_id": "540-toilet",
+     "reasons": [
+      "terms=0.07"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3a3b7d61cc67696489e4c5",
+   "ymp_name": "Electrical Spares",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.133,
+   "reason": [
+    "terms=0.33"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.133,
+     "equipment_id": "600-electrical-drawings",
+     "reasons": [
+      "terms=0.33"
+     ]
+    },
+    {
+     "score": 0.08,
+     "equipment_id": "500-spares-recomended-by-sws",
+     "reasons": [
+      "terms=0.20"
+     ]
+    },
+    {
+     "score": 0.08,
+     "equipment_id": "680-trunking",
+     "reasons": [
+      "terms=0.20"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3a399b61cc67696489dd6a",
+   "ymp_name": "Entertainment",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.4,
+   "reason": [
+    "terms=1.00"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.4,
+     "equipment_id": "720-entertainment-system",
+     "reasons": [
+      "terms=1.00"
+     ]
+    },
+    {
+     "score": 0.133,
+     "equipment_id": "720-ga-list",
+     "reasons": [
+      "terms=0.33"
+     ]
+    },
+    {
+     "score": 0.133,
+     "equipment_id": "720-sonance-sound-system",
+     "reasons": [
+      "terms=0.33"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695f6b758ff053ce8d3cda3b",
+   "ymp_name": "FURUNO DFF-3D Multi Beam Sonar",
+   "ymp_make": "FURUNO",
+   "ymp_model": "DFF-3D",
+   "action": "create_flagged",
+   "confidence": 0.044,
+   "reason": [
+    "terms=0.11"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.044,
+     "equipment_id": "710-furuno",
+     "reasons": [
+      "terms=0.11"
+     ]
+    },
+    {
+     "score": 0.031,
+     "equipment_id": "710-radar-furuno",
+     "reasons": [
+      "terms=0.08"
+     ]
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695f6f5b8ff053ce8d3cdc38",
+   "ymp_name": "FURUNO SCX-20 Satellite Compass TM",
+   "ymp_make": "FURUNO",
+   "ymp_model": "SCX-20",
+   "action": "create_flagged",
+   "confidence": 0.044,
+   "reason": [
+    "terms=0.11"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.044,
+     "equipment_id": "710-furuno",
+     "reasons": [
+      "terms=0.11"
+     ]
+    },
+    {
+     "score": 0.036,
+     "equipment_id": "860-bamar-pi20",
+     "reasons": [
+      "terms=0.09"
+     ]
+    },
+    {
+     "score": 0.031,
+     "equipment_id": "710-radar-furuno",
+     "reasons": [
+      "terms=0.08"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a156bfed9aeba42551c78cd",
+   "ymp_name": "Fire Suppression System",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.2,
+   "reason": [
+    "terms=0.50"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.2,
+     "equipment_id": "560-sea-fire-fire-suppression",
+     "reasons": [
+      "terms=0.50"
+     ]
+    },
+    {
+     "score": 0.16,
+     "equipment_id": "695-firepro-li-ion-fire-suppression",
+     "reasons": [
+      "terms=0.40"
+     ]
+    },
+    {
+     "score": 0.1,
+     "equipment_id": "695-marinelec-fire-detection",
+     "reasons": [
+      "terms=0.25"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a156bebd9aeba42551c78c4",
+   "ymp_name": "Fresh Water System",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.2,
+   "reason": [
+    "terms=0.50"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.2,
+     "equipment_id": "510-ecosistems-watermaker",
+     "reasons": [
+      "terms=0.50"
+     ]
+    },
+    {
+     "score": 0.2,
+     "equipment_id": "510-hem-water-purification",
+     "reasons": [
+      "terms=0.50"
+     ]
+    },
+    {
+     "score": 0.133,
+     "equipment_id": "510-watermaker",
+     "reasons": [
+      "terms=0.33"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3a2cd961cc67696489c886",
+   "ymp_name": "Fresh water Pump",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.16,
+   "reason": [
+    "terms=0.40"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.16,
+     "equipment_id": "510-ecosistems-watermaker",
+     "reasons": [
+      "terms=0.40"
+     ]
+    },
+    {
+     "score": 0.16,
+     "equipment_id": "510-hem-water-purification",
+     "reasons": [
+      "terms=0.40"
+     ]
+    },
+    {
+     "score": 0.16,
+     "equipment_id": "530-viking-pump",
+     "reasons": [
+      "terms=0.40"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a156bf9d9aeba42551c78ca",
+   "ymp_name": "Fuel And Oil System",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.267,
+   "reason": [
+    "terms=0.67"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.267,
+     "equipment_id": "550-fuel-pump",
+     "reasons": [
+      "terms=0.67"
+     ]
+    },
+    {
+     "score": 0.2,
+     "equipment_id": "550-racor-fuel-filters",
+     "reasons": [
+      "terms=0.50"
+     ]
+    },
+    {
+     "score": 0.16,
+     "equipment_id": "550-reverso-oil-transfer-pump",
+     "reasons": [
+      "terms=0.40"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a39e996a6933e3a46f61196",
+   "ymp_name": "Fuel Pump 24V",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.2,
+   "reason": [
+    "terms=0.50"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.2,
+     "equipment_id": "550-fuel-pump",
+     "reasons": [
+      "terms=0.50"
+     ]
+    },
+    {
+     "score": 0.133,
+     "equipment_id": "550-reverso-oil-transfer-pump",
+     "reasons": [
+      "terms=0.33"
+     ]
+    },
+    {
+     "score": 0.073,
+     "equipment_id": "551-dirty-oil-transfer",
+     "reasons": [
+      "terms=0.18"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a39e95ca6933e3a46f60f9e",
+   "ymp_name": "Fuel system",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.133,
+   "reason": [
+    "terms=0.33"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.133,
+     "equipment_id": "550-fuel-pump",
+     "reasons": [
+      "terms=0.33"
+     ]
+    },
+    {
+     "score": 0.1,
+     "equipment_id": "550-racor-fuel-filters",
+     "reasons": [
+      "terms=0.25"
+     ]
+    },
+    {
+     "score": 0.08,
+     "equipment_id": "550-reverso-oil-transfer-pump",
+     "reasons": [
+      "terms=0.20"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3aa94261cc6769648a8dc1",
+   "ymp_name": "Galley vent",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.133,
+   "reason": [
+    "terms=0.33"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.133,
+     "equipment_id": "310-galley",
+     "reasons": [
+      "terms=0.33"
+     ]
+    },
+    {
+     "score": 0.133,
+     "equipment_id": "360-dishwasher",
+     "reasons": [
+      "terms=0.33"
+     ]
+    },
+    {
+     "score": 0.133,
+     "equipment_id": "360-dryer",
+     "reasons": [
+      "terms=0.33"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a39ea70a6933e3a46f613ca",
+   "ymp_name": "Generator",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.08,
+   "reason": [
+    "terms=0.20"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.08,
+     "equipment_id": "610-integrated-starter-generator-isg",
+     "reasons": [
+      "terms=0.20"
+     ]
+    },
+    {
+     "score": 0.05,
+     "equipment_id": "633-battery-gen-start",
+     "reasons": [
+      "terms=0.12"
+     ]
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "69a025fd6487e3d302e2af6a",
+   "ymp_name": "Genset PORT",
+   "ymp_make": "Cummins ",
+   "ymp_model": "QSB4.5 and QSB6.7",
+   "action": "create_flagged",
+   "confidence": 0.057,
+   "reason": [
+    "terms=0.14"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.057,
+     "equipment_id": "240-hatches",
+     "reasons": [
+      "terms=0.14"
+     ]
+    },
+    {
+     "score": 0.057,
+     "equipment_id": "240-windows",
+     "reasons": [
+      "terms=0.14"
+     ]
+    },
+    {
+     "score": 0.057,
+     "equipment_id": "629-bel1-p",
+     "reasons": [
+      "terms=0.14"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "69a026016487e3d302e2af85",
+   "ymp_name": "Genset STBD",
+   "ymp_make": "Cummins ",
+   "ymp_model": "QSB4.5 and QSB6.7",
+   "action": "create_flagged",
+   "confidence": 0.057,
+   "reason": [
+    "terms=0.14"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.057,
+     "equipment_id": "629-bel1-s",
+     "reasons": [
+      "terms=0.14"
+     ]
+    },
+    {
+     "score": 0.057,
+     "equipment_id": "629-bel2-s",
+     "reasons": [
+      "terms=0.14"
+     ]
+    },
+    {
+     "score": 0.057,
+     "equipment_id": "626-maps-s",
+     "reasons": [
+      "terms=0.14"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695e48db8ff053ce8d3caf5b",
+   "ymp_name": "Gianneschi ACB 331, ACB 332, ACB 431 Centrifugal Pumps ",
+   "ymp_make": "Gianneschi",
+   "ymp_model": "ACB 331, ACB 332, ACB 431 ",
+   "action": "create_flagged",
+   "confidence": 0.339,
+   "reason": [
+    "make",
+    "terms=0.22"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.339,
+     "equipment_id": "540-gianneschi-pumps",
+     "reasons": [
+      "make",
+      "terms=0.22"
+     ]
+    },
+    {
+     "score": 0.25,
+     "equipment_id": "520-main-bilge-pump",
+     "reasons": [
+      "make"
+     ]
+    },
+    {
+     "score": 0.25,
+     "equipment_id": "520-fire-pump",
+     "reasons": [
+      "make"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695e48e18ff053ce8d3caf6d",
+   "ymp_name": "Gianneschi M-BMA Engine Driven Pump",
+   "ymp_make": "Gianneschi ",
+   "ymp_model": "M-BMA",
+   "action": "create_flagged",
+   "confidence": 0.3,
+   "reason": [
+    "make",
+    "terms=0.12"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.3,
+     "equipment_id": "540-gianneschi-pumps",
+     "reasons": [
+      "make",
+      "terms=0.12"
+     ]
+    },
+    {
+     "score": 0.29,
+     "equipment_id": "520-fire-pump",
+     "reasons": [
+      "make",
+      "terms=0.10"
+     ]
+    },
+    {
+     "score": 0.286,
+     "equipment_id": "520-main-bilge-pump",
+     "reasons": [
+      "make",
+      "terms=0.09"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "69610adba31e44ce2e6aa907",
+   "ymp_name": "Gianneschi MBMA Self-priming Motor pumps",
+   "ymp_make": "Gianneschi ",
+   "ymp_model": "MBMA",
+   "action": "create_flagged",
+   "confidence": 0.35,
+   "reason": [
+    "make",
+    "terms=0.25"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.35,
+     "equipment_id": "540-gianneschi-pumps",
+     "reasons": [
+      "make",
+      "terms=0.25"
+     ]
+    },
+    {
+     "score": 0.25,
+     "equipment_id": "520-main-bilge-pump",
+     "reasons": [
+      "make"
+     ]
+    },
+    {
+     "score": 0.25,
+     "equipment_id": "520-fire-pump",
+     "reasons": [
+      "make"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6961065fa31e44ce2e6aa6cc",
+   "ymp_name": "Gianneschi MVG - MVI Single Screw EL/Pumps",
+   "ymp_make": "Gianneschi ",
+   "ymp_model": "MVG - MVI Single Screw EL/Pumps",
+   "action": "create_flagged",
+   "confidence": 0.339,
+   "reason": [
+    "make",
+    "terms=0.22"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.339,
+     "equipment_id": "540-gianneschi-pumps",
+     "reasons": [
+      "make",
+      "terms=0.22"
+     ]
+    },
+    {
+     "score": 0.25,
+     "equipment_id": "520-main-bilge-pump",
+     "reasons": [
+      "make"
+     ]
+    },
+    {
+     "score": 0.25,
+     "equipment_id": "520-fire-pump",
+     "reasons": [
+      "make"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a39e419a6933e3a46f606f4",
+   "ymp_name": "Gray water",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.1,
+   "reason": [
+    "terms=0.25"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.1,
+     "equipment_id": "540-toilet",
+     "reasons": [
+      "terms=0.25"
+     ]
+    },
+    {
+     "score": 0.08,
+     "equipment_id": "510-ecosistems-watermaker",
+     "reasons": [
+      "terms=0.20"
+     ]
+    },
+    {
+     "score": 0.08,
+     "equipment_id": "510-hem-water-purification",
+     "reasons": [
+      "terms=0.20"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a0ac5bd46140fcb65ed9ea1",
+   "ymp_name": "Grey Water System",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.2,
+   "reason": [
+    "terms=0.50"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.2,
+     "equipment_id": "530-viking-pump",
+     "reasons": [
+      "terms=0.50"
+     ]
+    },
+    {
+     "score": 0.16,
+     "equipment_id": "530-planus-waterlift-transfer-unit",
+     "reasons": [
+      "terms=0.40"
+     ]
+    },
+    {
+     "score": 0.133,
+     "equipment_id": "530-wave-international-greywater-treatment",
+     "reasons": [
+      "terms=0.33"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6964a6f717c89541416984f8",
+   "ymp_name": "Grundfos CRE, CRIE, CRNE, SPKE, MTRE, CME Pump",
+   "ymp_make": "Grundfos",
+   "ymp_model": "CRE, CRIE, CRNE, SPKE, MTRE, CME",
+   "action": "create_flagged",
+   "confidence": 0.283,
+   "reason": [
+    "make",
+    "terms=0.08"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.283,
+     "equipment_id": "595-grundfos-main-seawater-cooling-pumps",
+     "reasons": [
+      "make",
+      "terms=0.08"
+     ]
+    },
+    {
+     "score": 0.279,
+     "equipment_id": "515-grundfos-main-seawater-cooling-pumps",
+     "reasons": [
+      "make",
+      "terms=0.07"
+     ]
+    },
+    {
+     "score": 0.04,
+     "equipment_id": "550-fuel-pump",
+     "reasons": [
+      "terms=0.10"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a39e39ca6933e3a46f603b9",
+   "ymp_name": "Gulper pump 320",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.08,
+   "reason": [
+    "terms=0.20"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.08,
+     "equipment_id": "550-fuel-pump",
+     "reasons": [
+      "terms=0.20"
+     ]
+    },
+    {
+     "score": 0.067,
+     "equipment_id": "520-feit-bilge-pump",
+     "reasons": [
+      "terms=0.17"
+     ]
+    },
+    {
+     "score": 0.067,
+     "equipment_id": "530-viking-pump",
+     "reasons": [
+      "terms=0.17"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695ce532b63c6b281f58a778",
+   "ymp_name": "H + B Technics Winch-Floor-Mounted, Hydraulics Connectors at the Top",
+   "ymp_make": "H + B Technics",
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.04,
+   "reason": [
+    "terms=0.10"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.04,
+     "equipment_id": "360-cook-top",
+     "reasons": [
+      "terms=0.10"
+     ]
+    },
+    {
+     "score": 0.033,
+     "equipment_id": "220-capstan-winch",
+     "reasons": [
+      "terms=0.08"
+     ]
+    },
+    {
+     "score": 0.033,
+     "equipment_id": "220-captive-winch",
+     "reasons": [
+      "terms=0.08"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6964a09f17c895414169819b",
+   "ymp_name": "Hall P03818 Southern Wind 108-01",
+   "ymp_make": "Hall ",
+   "ymp_model": "P03818",
+   "action": "create_flagged",
+   "confidence": 0.05,
+   "reason": [
+    "terms=0.12"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.05,
+     "equipment_id": "650-108-01",
+     "reasons": [
+      "terms=0.12"
+     ]
+    },
+    {
+     "score": 0.04,
+     "equipment_id": "810-hall-spars-manual-20sep2023",
+     "reasons": [
+      "terms=0.10"
+     ]
+    },
+    {
+     "score": 0.029,
+     "equipment_id": "590-aircon-fcu-01",
+     "reasons": [
+      "terms=0.07"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6960f7c0a31e44ce2e6a9fc5",
+   "ymp_name": "Harken Mooring Winch 600-1200-2500 Compact Light Retractable (CLR)",
+   "ymp_make": "Harken",
+   "ymp_model": "600 - 1200 - 2500 ",
+   "action": "create_flagged",
+   "confidence": 0.3,
+   "reason": [
+    "make",
+    "terms=0.12"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.3,
+     "equipment_id": "220-mast-winch-harken-b1111",
+     "reasons": [
+      "make",
+      "terms=0.12"
+     ]
+    },
+    {
+     "score": 0.3,
+     "equipment_id": "220-primary-winch-harken-b1235",
+     "reasons": [
+      "make",
+      "terms=0.12"
+     ]
+    },
+    {
+     "score": 0.3,
+     "equipment_id": "220-secondary-winch-harken-b1235",
+     "reasons": [
+      "make",
+      "terms=0.12"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6964dcc51955cb2d0b333859",
+   "ymp_name": "Hem B40 Silver Ions Sterilizer",
+   "ymp_make": "Hem",
+   "ymp_model": "B40",
+   "action": "create_flagged",
+   "confidence": 0.3,
+   "reason": [
+    "make",
+    "terms=0.12"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.3,
+     "equipment_id": "510-hem-water-purification",
+     "reasons": [
+      "make",
+      "terms=0.12"
+     ]
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "150-marsili-autopilot",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "69a044c86487e3d302e2d0b0",
+   "ymp_name": "Hydraulic Motor PORT",
+   "ymp_make": "Emrax",
+   "ymp_model": "268 Axial Flux Motor",
+   "action": "create_flagged",
+   "confidence": 0.08,
+   "reason": [
+    "terms=0.20"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.08,
+     "equipment_id": "840-lazz",
+     "reasons": [
+      "terms=0.20"
+     ]
+    },
+    {
+     "score": 0.08,
+     "equipment_id": "840-manifolds",
+     "reasons": [
+      "terms=0.20"
+     ]
+    },
+    {
+     "score": 0.067,
+     "equipment_id": "570-superseded",
+     "reasons": [
+      "terms=0.17"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "69a044cc6487e3d302e2d0c2",
+   "ymp_name": "Hydraulic Motor STBD",
+   "ymp_make": "Emrax",
+   "ymp_model": "268 Axial Flux Motor",
+   "action": "create_flagged",
+   "confidence": 0.08,
+   "reason": [
+    "terms=0.20"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.08,
+     "equipment_id": "840-lazz",
+     "reasons": [
+      "terms=0.20"
+     ]
+    },
+    {
+     "score": 0.08,
+     "equipment_id": "840-manifolds",
+     "reasons": [
+      "terms=0.20"
+     ]
+    },
+    {
+     "score": 0.067,
+     "equipment_id": "570-superseded",
+     "reasons": [
+      "terms=0.17"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a39e845a6933e3a46f60d7b",
+   "ymp_name": "Hydraulic power pack",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.16,
+   "reason": [
+    "terms=0.40"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.16,
+     "equipment_id": "570-superseded",
+     "reasons": [
+      "terms=0.40"
+     ]
+    },
+    {
+     "score": 0.133,
+     "equipment_id": "570-myt-systems-hydraulics",
+     "reasons": [
+      "terms=0.33"
+     ]
+    },
+    {
+     "score": 0.089,
+     "equipment_id": "570-elesa-oil-tank-temperature-sensor",
+     "reasons": [
+      "terms=0.22"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3a311e61cc67696489ceba",
+   "ymp_name": "Hydraulic system",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.133,
+   "reason": [
+    "terms=0.33"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.133,
+     "equipment_id": "840-lazz",
+     "reasons": [
+      "terms=0.33"
+     ]
+    },
+    {
+     "score": 0.133,
+     "equipment_id": "840-manifolds",
+     "reasons": [
+      "terms=0.33"
+     ]
+    },
+    {
+     "score": 0.1,
+     "equipment_id": "570-superseded",
+     "reasons": [
+      "terms=0.25"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a156bd6d9aeba42551c78bb",
+   "ymp_name": "Integral Tanks System",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.2,
+   "reason": [
+    "terms=0.50"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.2,
+     "equipment_id": "505-tank-calibration",
+     "reasons": [
+      "terms=0.50"
+     ]
+    },
+    {
+     "score": 0.1,
+     "equipment_id": "505-san-giorgio-gas-monitoring-tank-sensors",
+     "reasons": [
+      "terms=0.25"
+     ]
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3aa92261cc6769648a8db8",
+   "ymp_name": "Interior",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.2,
+   "reason": [
+    "terms=0.50"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.2,
+     "equipment_id": "915-300-interior",
+     "reasons": [
+      "terms=0.50"
+     ]
+    },
+    {
+     "score": 0.133,
+     "equipment_id": "310-interior-saloon",
+     "reasons": [
+      "terms=0.33"
+     ]
+    },
+    {
+     "score": 0.133,
+     "equipment_id": "980-braai",
+     "reasons": [
+      "terms=0.33"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3a39c961cc67696489e096",
+   "ymp_name": "Interior power ",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.133,
+   "reason": [
+    "terms=0.33"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.133,
+     "equipment_id": "915-300-interior",
+     "reasons": [
+      "terms=0.33"
+     ]
+    },
+    {
+     "score": 0.1,
+     "equipment_id": "310-interior-saloon",
+     "reasons": [
+      "terms=0.25"
+     ]
+    },
+    {
+     "score": 0.1,
+     "equipment_id": "610-chargers",
+     "reasons": [
+      "terms=0.25"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3aa92b61cc6769648a8dbb",
+   "ymp_name": "Interior- Saloon Table",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.2,
+   "reason": [
+    "terms=0.50"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.2,
+     "equipment_id": "310-interior-saloon",
+     "reasons": [
+      "terms=0.50"
+     ]
+    },
+    {
+     "score": 0.1,
+     "equipment_id": "310-saloon",
+     "reasons": [
+      "terms=0.25"
+     ]
+    },
+    {
+     "score": 0.1,
+     "equipment_id": "915-300-interior",
+     "reasons": [
+      "terms=0.25"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3a2c6961cc67696489c796",
+   "ymp_name": "Jib cunningham cylinder",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.031,
+   "reason": [
+    "terms=0.08"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.031,
+     "equipment_id": "860-bamar-gfsi30",
+     "reasons": [
+      "terms=0.08"
+     ]
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "150-marsili-autopilot",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3a2c0561cc67696489c1fc",
+   "ymp_name": "Jib in/out cylinder",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.044,
+   "reason": [
+    "terms=0.11"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.044,
+     "equipment_id": "570-danfoss-pvg-32-mast-block",
+     "reasons": [
+      "terms=0.11"
+     ]
+    },
+    {
+     "score": 0.029,
+     "equipment_id": "860-bamar-gfsi30",
+     "reasons": [
+      "terms=0.07"
+     ]
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3a37b861cc67696489d7cc",
+   "ymp_name": "Lighting",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.1,
+   "reason": [
+    "terms=0.25"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.1,
+     "equipment_id": "380-pslab-lighting",
+     "reasons": [
+      "terms=0.25"
+     ]
+    },
+    {
+     "score": 0.08,
+     "equipment_id": "380-yachtica-lighting-module",
+     "reasons": [
+      "terms=0.20"
+     ]
+    },
+    {
+     "score": 0.08,
+     "equipment_id": "690-exterior-lighting",
+     "reasons": [
+      "terms=0.20"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a2fb6c9ce652b534a6fcbc8",
+   "ymp_name": "MPCS PORT",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.057,
+   "reason": [
+    "terms=0.14"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.057,
+     "equipment_id": "240-hatches",
+     "reasons": [
+      "terms=0.14"
+     ]
+    },
+    {
+     "score": 0.057,
+     "equipment_id": "240-windows",
+     "reasons": [
+      "terms=0.14"
+     ]
+    },
+    {
+     "score": 0.057,
+     "equipment_id": "629-bel1-p",
+     "reasons": [
+      "terms=0.14"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a2fb6cece652b534a6fcbcb",
+   "ymp_name": "MPCS STBD",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.057,
+   "reason": [
+    "terms=0.14"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.057,
+     "equipment_id": "629-bel1-s",
+     "reasons": [
+      "terms=0.14"
+     ]
+    },
+    {
+     "score": 0.057,
+     "equipment_id": "629-bel2-s",
+     "reasons": [
+      "terms=0.14"
+     ]
+    },
+    {
+     "score": 0.057,
+     "equipment_id": "626-maps-s",
+     "reasons": [
+      "terms=0.14"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3a2ce961cc67696489c891",
+   "ymp_name": "MYT Hydraulic PLC",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.16,
+   "reason": [
+    "terms=0.40"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.16,
+     "equipment_id": "650-653-myt-hydraulic-system-monitoring",
+     "reasons": [
+      "terms=0.40"
+     ]
+    },
+    {
+     "score": 0.133,
+     "equipment_id": "570-myt-systems-hydraulics",
+     "reasons": [
+      "terms=0.33"
+     ]
+    },
+    {
+     "score": 0.089,
+     "equipment_id": "570-myt-aft-sailing-manifold",
+     "reasons": [
+      "terms=0.22"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3a2c7261cc67696489c7a9",
+   "ymp_name": "Main cunningham cylinder",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.057,
+   "reason": [
+    "terms=0.14"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.057,
+     "equipment_id": "595-grundfos-main-seawater-cooling-pumps",
+     "reasons": [
+      "terms=0.14"
+     ]
+    },
+    {
+     "score": 0.057,
+     "equipment_id": "610-main-drive-moto-regeneration",
+     "reasons": [
+      "terms=0.14"
+     ]
+    },
+    {
+     "score": 0.044,
+     "equipment_id": "515-grundfos-main-seawater-cooling-pumps",
+     "reasons": [
+      "terms=0.11"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3a2c9161cc67696489c7e5",
+   "ymp_name": "Main traveler cylinder",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.057,
+   "reason": [
+    "terms=0.14"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.057,
+     "equipment_id": "595-grundfos-main-seawater-cooling-pumps",
+     "reasons": [
+      "terms=0.14"
+     ]
+    },
+    {
+     "score": 0.057,
+     "equipment_id": "610-main-drive-moto-regeneration",
+     "reasons": [
+      "terms=0.14"
+     ]
+    },
+    {
+     "score": 0.044,
+     "equipment_id": "515-grundfos-main-seawater-cooling-pumps",
+     "reasons": [
+      "terms=0.11"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6960af2233c0917bcc169959",
+   "ymp_name": "Miele H 7890 BP Oven",
+   "ymp_make": "Miele",
+   "ymp_model": "H 7890 BP",
+   "action": "create_flagged",
+   "confidence": 0.08,
+   "reason": [
+    "terms=0.20"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.08,
+     "equipment_id": "360-oven",
+     "reasons": [
+      "terms=0.20"
+     ]
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "150-marsili-autopilot",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6960b29a33c0917bcc169bdc",
+   "ymp_name": "Miele M 7140 TC, M 7240 TC Microwave Oven",
+   "ymp_make": "Miele",
+   "ymp_model": "M 7140 TC, M 7240 TC",
+   "action": "create_flagged",
+   "confidence": 0.057,
+   "reason": [
+    "terms=0.14"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.057,
+     "equipment_id": "360-microwave",
+     "reasons": [
+      "terms=0.14"
+     ]
+    },
+    {
+     "score": 0.057,
+     "equipment_id": "360-oven",
+     "reasons": [
+      "terms=0.14"
+     ]
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6960b9dc33c0917bcc169e41",
+   "ymp_name": "Miele Marine PG 8056 Commercial Dishwasher",
+   "ymp_make": "Miele Marine",
+   "ymp_model": "PG 8056",
+   "action": "create_flagged",
+   "confidence": 0.057,
+   "reason": [
+    "terms=0.14"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.057,
+     "equipment_id": "360-dishwasher",
+     "reasons": [
+      "terms=0.14"
+     ]
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "150-marsili-autopilot",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6960a68e33c0917bcc16940f",
+   "ymp_name": "Miele WWR 880 WPS Washing Machine",
+   "ymp_make": "Miele",
+   "ymp_model": "WWR 880 WPS",
+   "action": "create_flagged",
+   "confidence": 0.114,
+   "reason": [
+    "terms=0.29"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.114,
+     "equipment_id": "360-washing-machine",
+     "reasons": [
+      "terms=0.29"
+     ]
+    },
+    {
+     "score": 0.05,
+     "equipment_id": "360-coffee-machine",
+     "reasons": [
+      "terms=0.12"
+     ]
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3a3b7461cc67696489e4c2",
+   "ymp_name": "Navigation system",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.1,
+   "reason": [
+    "terms=0.25"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.1,
+     "equipment_id": "710-furuno",
+     "reasons": [
+      "terms=0.25"
+     ]
+    },
+    {
+     "score": 0.08,
+     "equipment_id": "690-navigation-lighting",
+     "reasons": [
+      "terms=0.20"
+     ]
+    },
+    {
+     "score": 0.057,
+     "equipment_id": "690-lts-navigation",
+     "reasons": [
+      "terms=0.14"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695d05dfb63c6b281f58b920",
+   "ymp_name": "Ocean Signal rescueME PLB3 Personal Locator Beacon",
+   "ymp_make": "Ocean Signal",
+   "ymp_model": "rescueME PLB3",
+   "action": "create_flagged",
+   "confidence": 0.089,
+   "reason": [
+    "terms=0.22"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.089,
+     "equipment_id": "910-ocean-signal-plb",
+     "reasons": [
+      "terms=0.22"
+     ]
+    },
+    {
+     "score": 0.036,
+     "equipment_id": "910-ocean-life-jackets",
+     "reasons": [
+      "terms=0.09"
+     ]
+    },
+    {
+     "score": 0.029,
+     "equipment_id": "910-life-jacket-re-arming-kit-ocean",
+     "reasons": [
+      "terms=0.07"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695fa22c33c0917bcc164026",
+   "ymp_name": "On-Board Charger PORT",
+   "ymp_make": "EDN Group",
+   "ymp_model": "EVO Series",
+   "action": "create_flagged",
+   "confidence": 0.044,
+   "reason": [
+    "terms=0.11"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.044,
+     "equipment_id": "240-hatches",
+     "reasons": [
+      "terms=0.11"
+     ]
+    },
+    {
+     "score": 0.044,
+     "equipment_id": "240-windows",
+     "reasons": [
+      "terms=0.11"
+     ]
+    },
+    {
+     "score": 0.044,
+     "equipment_id": "629-bel1-p",
+     "reasons": [
+      "terms=0.11"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "69a933d319c12287e69d7b5f",
+   "ymp_name": "On-Board Charger STBD",
+   "ymp_make": "EDN Group",
+   "ymp_model": "EVO Series",
+   "action": "create_flagged",
+   "confidence": 0.044,
+   "reason": [
+    "terms=0.11"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.044,
+     "equipment_id": "629-bel1-s",
+     "reasons": [
+      "terms=0.11"
+     ]
+    },
+    {
+     "score": 0.044,
+     "equipment_id": "629-bel2-s",
+     "reasons": [
+      "terms=0.11"
+     ]
+    },
+    {
+     "score": 0.044,
+     "equipment_id": "626-maps-s",
+     "reasons": [
+      "terms=0.11"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a39e32da6933e3a46f60213",
+   "ymp_name": "Onyx monitor and contro",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.1,
+   "reason": [
+    "terms=0.25"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.1,
+     "equipment_id": "600-onyx-inventory",
+     "reasons": [
+      "terms=0.25"
+     ]
+    },
+    {
+     "score": 0.08,
+     "equipment_id": "650-652-onyx-monitoring",
+     "reasons": [
+      "terms=0.20"
+     ]
+    },
+    {
+     "score": 0.057,
+     "equipment_id": "650-onyx-page-layout",
+     "reasons": [
+      "terms=0.14"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695e48cf8ff053ce8d3caf3a",
+   "ymp_name": "Parker Racor 500FG Turbine Series Fuel Filter / Water Separator",
+   "ymp_make": "Parker Racor",
+   "ymp_model": "500FG Turbine Series",
+   "action": "create_flagged",
+   "confidence": 0.323,
+   "reason": [
+    "make",
+    "terms=0.18"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.323,
+     "equipment_id": "550-racor-fuel-filters",
+     "reasons": [
+      "make",
+      "terms=0.18"
+     ]
+    },
+    {
+     "score": 0.036,
+     "equipment_id": "540-toilet",
+     "reasons": [
+      "terms=0.09"
+     ]
+    },
+    {
+     "score": 0.036,
+     "equipment_id": "550-fuel-pump",
+     "reasons": [
+      "terms=0.09"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3a96c661cc6769648a6c19",
+   "ymp_name": "Pedistel",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.0,
+   "reason": [],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "150-marsili-autopilot",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "220-capstan-winch",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6964b69b17c8954141698953",
+   "ymp_name": "Piusi 12Vdc - 24Vdc Bi-Pump",
+   "ymp_make": "Piusi",
+   "ymp_model": "12Vdc - 24Vdc",
+   "action": "create_flagged",
+   "confidence": 0.057,
+   "reason": [
+    "terms=0.14"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.057,
+     "equipment_id": "550-fuel-pump",
+     "reasons": [
+      "terms=0.14"
+     ]
+    },
+    {
+     "score": 0.05,
+     "equipment_id": "520-feit-bilge-pump",
+     "reasons": [
+      "terms=0.12"
+     ]
+    },
+    {
+     "score": 0.05,
+     "equipment_id": "530-viking-pump",
+     "reasons": [
+      "terms=0.12"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a39eacfa6933e3a46f615d4",
+   "ymp_name": "Plumbing",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.0,
+   "reason": [],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "150-marsili-autopilot",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "220-capstan-winch",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a156c0dd9aeba42551c78d7",
+   "ymp_name": "Pneumatic System",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.044,
+   "reason": [
+    "terms=0.11"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.044,
+     "equipment_id": "575-pneumatic-system",
+     "reasons": [
+      "terms=0.11"
+     ]
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "150-marsili-autopilot",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a156c05d9aeba42551c78d0",
+   "ymp_name": "Power Hydraulic Systems",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.3,
+   "reason": [
+    "terms=0.75"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.3,
+     "equipment_id": "570-superseded",
+     "reasons": [
+      "terms=0.75"
+     ]
+    },
+    {
+     "score": 0.24,
+     "equipment_id": "570-myt-systems-hydraulics",
+     "reasons": [
+      "terms=0.60"
+     ]
+    },
+    {
+     "score": 0.15,
+     "equipment_id": "570-elesa-oil-tank-temperature-sensor",
+     "reasons": [
+      "terms=0.38"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "69609b2e33c0917bcc168bee",
+   "ymp_name": "Propeller",
+   "ymp_make": "Hundested Propeller A/S",
+   "ymp_model": "Unit 6614",
+   "action": "create_flagged",
+   "confidence": 0.25,
+   "reason": [
+    "make"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.25,
+     "equipment_id": "430-hundested-cpp-sterngear",
+     "reasons": [
+      "make"
+     ]
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "150-marsili-autopilot",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a39e99fa6933e3a46f61199",
+   "ymp_name": "Racor filters",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.2,
+   "reason": [
+    "terms=0.50"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.2,
+     "equipment_id": "550-racor-fuel-filters",
+     "reasons": [
+      "terms=0.50"
+     ]
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "150-marsili-autopilot",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a0ac5c746140fcb65ed9eb2",
+   "ymp_name": "Raw Water System",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.2,
+   "reason": [
+    "terms=0.50"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.2,
+     "equipment_id": "515-ifm-raw-water-sensors",
+     "reasons": [
+      "terms=0.50"
+     ]
+    },
+    {
+     "score": 0.16,
+     "equipment_id": "515-funke-heat-exchangers",
+     "reasons": [
+      "terms=0.40"
+     ]
+    },
+    {
+     "score": 0.133,
+     "equipment_id": "515-bowman-coolers-heat-exchangers",
+     "reasons": [
+      "terms=0.33"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695d1b8db63c6b281f58cea4",
+   "ymp_name": "Raymarine Ray53 / Ray63 / Ray73 VHF Radio",
+   "ymp_make": "Raymarine ",
+   "ymp_model": "Ray53 / Ray63 / Ray73",
+   "action": "create_flagged",
+   "confidence": 0.036,
+   "reason": [
+    "terms=0.09"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.036,
+     "equipment_id": "730-vhf",
+     "reasons": [
+      "terms=0.09"
+     ]
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "150-marsili-autopilot",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a156c14d9aeba42551c78da",
+   "ymp_name": "Refrigeration System",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.0,
+   "reason": [],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "150-marsili-autopilot",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "220-capstan-winch",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695b8852485f8ff576074587",
+   "ymp_name": "Running Hours Update",
+   "ymp_make": "YMP",
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.08,
+   "reason": [
+    "terms=0.20"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.08,
+     "equipment_id": "850-specifics",
+     "reasons": [
+      "terms=0.20"
+     ]
+    },
+    {
+     "score": 0.08,
+     "equipment_id": "850-velamania",
+     "reasons": [
+      "terms=0.20"
+     ]
+    },
+    {
+     "score": 0.057,
+     "equipment_id": "850-rigging-projects-locking-car",
+     "reasons": [
+      "terms=0.14"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6964e28e1955cb2d0b333a2c",
+   "ymp_name": "SAN GIORGIO S.E.I.N. TGD40618 Explosive Gasses Detector",
+   "ymp_make": "SAN GIORGIO S.E.I.N.",
+   "ymp_model": "TGD40618 ",
+   "action": "create_flagged",
+   "confidence": 0.317,
+   "reason": [
+    "make",
+    "terms=0.17"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.317,
+     "equipment_id": "505-san-giorgio-gas-monitoring-tank-sensors",
+     "reasons": [
+      "make",
+      "terms=0.17"
+     ]
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "150-marsili-autopilot",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6964c66a1955cb2d0b333380",
+   "ymp_name": "SPXFLOW Viking Power 32 & Viking Power Vacuum Diaphragm Pump",
+   "ymp_make": "SPXFLOW",
+   "ymp_model": "Viking Power 32 & Viking Power Vacuum",
+   "action": "create_flagged",
+   "confidence": 0.089,
+   "reason": [
+    "terms=0.22"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.089,
+     "equipment_id": "530-viking-pump",
+     "reasons": [
+      "terms=0.22"
+     ]
+    },
+    {
+     "score": 0.053,
+     "equipment_id": "570-danfoss-pvg-32-fwd-blocka",
+     "reasons": [
+      "terms=0.13"
+     ]
+    },
+    {
+     "score": 0.053,
+     "equipment_id": "570-danfoss-pvg-32-aft-blocka",
+     "reasons": [
+      "terms=0.13"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3a2ca261cc67696489c805",
+   "ymp_name": "Sailing hydraulics",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.1,
+   "reason": [
+    "terms=0.25"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.1,
+     "equipment_id": "840-lazz",
+     "reasons": [
+      "terms=0.25"
+     ]
+    },
+    {
+     "score": 0.1,
+     "equipment_id": "840-manifolds",
+     "reasons": [
+      "terms=0.25"
+     ]
+    },
+    {
+     "score": 0.1,
+     "equipment_id": "915-800-rigging-and-sailing",
+     "reasons": [
+      "terms=0.25"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a39e4a0a6933e3a46f608b1",
+   "ymp_name": "Shaft Seal",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.0,
+   "reason": [],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "150-marsili-autopilot",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "220-capstan-winch",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "69fc83dd29c6d6df4e3853b2",
+   "ymp_name": "Stern Thruster",
+   "ymp_make": "Ocean Marine Systems",
+   "ymp_model": "H-0250-S-034-02",
+   "action": "create_flagged",
+   "confidence": 0.133,
+   "reason": [
+    "terms=0.33"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.133,
+     "equipment_id": "460-thruster-system",
+     "reasons": [
+      "terms=0.33"
+     ]
+    },
+    {
+     "score": 0.114,
+     "equipment_id": "461-stern-thruster-oms-h250",
+     "reasons": [
+      "terms=0.29"
+     ]
+    },
+    {
+     "score": 0.05,
+     "equipment_id": "460-bow-thruster-oms-h300",
+     "reasons": [
+      "terms=0.12"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695caa59485f8ff57607aa23",
+   "ymp_name": "Stewardess Captains Cabin Detail - Every Monday (or preffered week day)",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.031,
+   "reason": [
+    "terms=0.08"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.031,
+     "equipment_id": "310-interior-owner-cabin",
+     "reasons": [
+      "terms=0.08"
+     ]
+    },
+    {
+     "score": 0.024,
+     "equipment_id": "590-aircon-fcu-07",
+     "reasons": [
+      "terms=0.06"
+     ]
+    },
+    {
+     "score": 0.022,
+     "equipment_id": "590-aircon-fcu-01",
+     "reasons": [
+      "terms=0.06"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695caa60485f8ff57607aa2f",
+   "ymp_name": "Stewardess Crew Mess",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.1,
+   "reason": [
+    "terms=0.25"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.1,
+     "equipment_id": "310-crew",
+     "reasons": [
+      "terms=0.25"
+     ]
+    },
+    {
+     "score": 0.1,
+     "equipment_id": "905-crew-medical",
+     "reasons": [
+      "terms=0.25"
+     ]
+    },
+    {
+     "score": 0.05,
+     "equipment_id": "350-crew-head-aft",
+     "reasons": [
+      "terms=0.12"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695caa68485f8ff57607aa3b",
+   "ymp_name": "Stewardess DOWNTIME \t\t\t",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.0,
+   "reason": [],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "150-marsili-autopilot",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "220-capstan-winch",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695caa71485f8ff57607aa47",
+   "ymp_name": "Stewardess Guest",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.133,
+   "reason": [
+    "terms=0.33"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.133,
+     "equipment_id": "310-guest",
+     "reasons": [
+      "terms=0.33"
+     ]
+    },
+    {
+     "score": 0.08,
+     "equipment_id": "350-guest-heads",
+     "reasons": [
+      "terms=0.20"
+     ]
+    },
+    {
+     "score": 0.08,
+     "equipment_id": "840-guest-fwd",
+     "reasons": [
+      "terms=0.20"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695caa7b485f8ff57607aa5c",
+   "ymp_name": "Stewardess LONG GAP/END OF SEASON\t",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.044,
+   "reason": [
+    "terms=0.11"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.044,
+     "equipment_id": "630-eol-end-of-line-tests",
+     "reasons": [
+      "terms=0.11"
+     ]
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "150-marsili-autopilot",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695caa83485f8ff57607aa68",
+   "ymp_name": "Stewardess Monthly",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.0,
+   "reason": [],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "150-marsili-autopilot",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "220-capstan-winch",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695caa8c485f8ff57607aa74",
+   "ymp_name": "Stewardess Trip Jobs",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.0,
+   "reason": [],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "150-marsili-autopilot",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "220-capstan-winch",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695caa94485f8ff57607aa86",
+   "ymp_name": "Stewardess Weekly",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.0,
+   "reason": [],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "150-marsili-autopilot",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "220-capstan-winch",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3a072461cc676964899caa",
+   "ymp_name": "Strainers ",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.0,
+   "reason": [],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "150-marsili-autopilot",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "220-capstan-winch",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a156be5d9aeba42551c78c1",
+   "ymp_name": "Tank Breathers And Cross-overs System",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.057,
+   "reason": [
+    "terms=0.14"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.057,
+     "equipment_id": "505-tank-calibration",
+     "reasons": [
+      "terms=0.14"
+     ]
+    },
+    {
+     "score": 0.036,
+     "equipment_id": "505-san-giorgio-gas-monitoring-tank-sensors",
+     "reasons": [
+      "terms=0.09"
+     ]
+    },
+    {
+     "score": 0.036,
+     "equipment_id": "570-elesa-oil-tank-temperature-sensor",
+     "reasons": [
+      "terms=0.09"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695f5f428ff053ce8d3cd1ba",
+   "ymp_name": "Tender Engine",
+   "ymp_make": "YANMAR",
+   "ymp_model": "3JH40, 4JH45, 4JH57, 4JH80, 4JH110",
+   "action": "create_flagged",
+   "confidence": 0.25,
+   "reason": [
+    "make"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.25,
+     "equipment_id": "520-diesel-fire-pump",
+     "reasons": [
+      "make"
+     ]
+    },
+    {
+     "score": 0.133,
+     "equipment_id": "920-documentation",
+     "reasons": [
+      "terms=0.33"
+     ]
+    },
+    {
+     "score": 0.133,
+     "equipment_id": "920-picture",
+     "reasons": [
+      "terms=0.33"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a156bced9aeba42551c78b8",
+   "ymp_name": "Through Hull Fittings System",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.067,
+   "reason": [
+    "terms=0.17"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.067,
+     "equipment_id": "230-sailing-items",
+     "reasons": [
+      "terms=0.17"
+     ]
+    },
+    {
+     "score": 0.05,
+     "equipment_id": "670-tecnoseal-hull-protection",
+     "reasons": [
+      "terms=0.12"
+     ]
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3a2c3a61cc67696489c4ba",
+   "ymp_name": "Transom door cylinder",
+   "ymp_make": null,
+   "ymp_model": "Cariboni",
+   "action": "create_flagged",
+   "confidence": 0.16,
+   "reason": [
+    "terms=0.40"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.16,
+     "equipment_id": "260-transom-door",
+     "reasons": [
+      "terms=0.40"
+     ]
+    },
+    {
+     "score": 0.133,
+     "equipment_id": "260-deck-door",
+     "reasons": [
+      "terms=0.33"
+     ]
+    },
+    {
+     "score": 0.08,
+     "equipment_id": "950-transom-designs",
+     "reasons": [
+      "terms=0.20"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3aa3fb61cc6769648a7603",
+   "ymp_name": "Unknown",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.0,
+   "reason": [],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "150-marsili-autopilot",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "220-capstan-winch",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3a2c8861cc67696489c7d5",
+   "ymp_name": "Unknown sailing hydraulic ram",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.16,
+   "reason": [
+    "terms=0.40"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.16,
+     "equipment_id": "840-lazz",
+     "reasons": [
+      "terms=0.40"
+     ]
+    },
+    {
+     "score": 0.16,
+     "equipment_id": "840-manifolds",
+     "reasons": [
+      "terms=0.40"
+     ]
+    },
+    {
+     "score": 0.133,
+     "equipment_id": "840-cariboni-hydraulic-cylinders",
+     "reasons": [
+      "terms=0.33"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3a2c9961cc67696489c7f0",
+   "ymp_name": "Vang",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.0,
+   "reason": [],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "150-marsili-autopilot",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "220-capstan-winch",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a39e550a6933e3a46f60a8c",
+   "ymp_name": "Variable Pitch control",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.2,
+   "reason": [
+    "terms=0.50"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.2,
+     "equipment_id": "430-hundested-cpp-sterngear",
+     "reasons": [
+      "terms=0.50"
+     ]
+    },
+    {
+     "score": 0.08,
+     "equipment_id": "620-system-control-unit-scu3",
+     "reasons": [
+      "terms=0.20"
+     ]
+    },
+    {
+     "score": 0.08,
+     "equipment_id": "650-108-01",
+     "reasons": [
+      "terms=0.20"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a156c38d9aeba42551c7a2c",
+   "ymp_name": "Ventilation System",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.1,
+   "reason": [
+    "terms=0.25"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.1,
+     "equipment_id": "599-axair-battery-ventilation-fan",
+     "reasons": [
+      "terms=0.25"
+     ]
+    },
+    {
+     "score": 0.08,
+     "equipment_id": "599-ventilation-fans",
+     "reasons": [
+      "terms=0.20"
+     ]
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "695d0203b63c6b281f58b4cd",
+   "ymp_name": "Vulkan VULKARDAN F Coupling",
+   "ymp_make": "VULKAN Kupplungs- und Getriebebau",
+   "ymp_model": "VULKARDAN F",
+   "action": "create_flagged",
+   "confidence": 0.3,
+   "reason": [
+    "make",
+    "terms=0.12"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.3,
+     "equipment_id": "410-vulkan-vibration-control",
+     "reasons": [
+      "make",
+      "terms=0.12"
+     ]
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "150-marsili-autopilot",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3a2cbf61cc67696489c863",
+   "ymp_name": "Water heater",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.1,
+   "reason": [
+    "terms=0.25"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.1,
+     "equipment_id": "540-toilet",
+     "reasons": [
+      "terms=0.25"
+     ]
+    },
+    {
+     "score": 0.08,
+     "equipment_id": "510-ecosistems-watermaker",
+     "reasons": [
+      "terms=0.20"
+     ]
+    },
+    {
+     "score": 0.08,
+     "equipment_id": "510-hem-water-purification",
+     "reasons": [
+      "terms=0.20"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3a2ce061cc67696489c88e",
+   "ymp_name": "Water maker 230V",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.08,
+   "reason": [
+    "terms=0.20"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.08,
+     "equipment_id": "540-toilet",
+     "reasons": [
+      "terms=0.20"
+     ]
+    },
+    {
+     "score": 0.067,
+     "equipment_id": "510-ecosistems-watermaker",
+     "reasons": [
+      "terms=0.17"
+     ]
+    },
+    {
+     "score": 0.067,
+     "equipment_id": "510-hem-water-purification",
+     "reasons": [
+      "terms=0.17"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3a2ccf61cc67696489c86e",
+   "ymp_name": "Water maker 24V",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.08,
+   "reason": [
+    "terms=0.20"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.08,
+     "equipment_id": "540-toilet",
+     "reasons": [
+      "terms=0.20"
+     ]
+    },
+    {
+     "score": 0.067,
+     "equipment_id": "510-ecosistems-watermaker",
+     "reasons": [
+      "terms=0.17"
+     ]
+    },
+    {
+     "score": 0.067,
+     "equipment_id": "510-hem-water-purification",
+     "reasons": [
+      "terms=0.17"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3aa66b61cc6769648a8706",
+   "ymp_name": "Watermaker 230",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.08,
+   "reason": [
+    "terms=0.20"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.08,
+     "equipment_id": "510-ecosistems-watermaker",
+     "reasons": [
+      "terms=0.20"
+     ]
+    },
+    {
+     "score": 0.057,
+     "equipment_id": "510-watermaker",
+     "reasons": [
+      "terms=0.14"
+     ]
+    },
+    {
+     "score": 0.0,
+     "equipment_id": "130-apm-lifting-keel",
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6960cafe33c0917bcc16a662",
+   "ymp_name": "Zip HydroTap G5 Command Centre Water System",
+   "ymp_make": "Zip ",
+   "ymp_model": "HydroTap G5 Command Centre",
+   "action": "create_flagged",
+   "confidence": 0.05,
+   "reason": [
+    "terms=0.12"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.05,
+     "equipment_id": "360-zip-tap",
+     "reasons": [
+      "terms=0.12"
+     ]
+    },
+    {
+     "score": 0.05,
+     "equipment_id": "540-toilet",
+     "reasons": [
+      "terms=0.12"
+     ]
+    },
+    {
+     "score": 0.044,
+     "equipment_id": "510-ecosistems-watermaker",
+     "reasons": [
+      "terms=0.11"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3aa65b61cc6769648a8703",
+   "ymp_name": "interior Lights",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.16,
+   "reason": [
+    "terms=0.40"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.16,
+     "equipment_id": "690-interior-lighting",
+     "reasons": [
+      "terms=0.40"
+     ]
+    },
+    {
+     "score": 0.133,
+     "equipment_id": "915-300-interior",
+     "reasons": [
+      "terms=0.33"
+     ]
+    },
+    {
+     "score": 0.1,
+     "equipment_id": "310-interior-saloon",
+     "reasons": [
+      "terms=0.25"
+     ]
+    }
+   ]
+  },
+  {
+   "ymp_equipment_ref": "6a3a9a0761cc6769648a70ce",
+   "ymp_name": "oil/water seperator",
+   "ymp_make": null,
+   "ymp_model": null,
+   "action": "create_flagged",
+   "confidence": 0.08,
+   "reason": [
+    "terms=0.20"
+   ],
+   "matched_register_id": null,
+   "matched_register_name": null,
+   "top_candidates": [
+    {
+     "score": 0.08,
+     "equipment_id": "540-toilet",
+     "reasons": [
+      "terms=0.20"
+     ]
+    },
+    {
+     "score": 0.08,
+     "equipment_id": "550-fuel-pump",
+     "reasons": [
+      "terms=0.20"
+     ]
+    },
+    {
+     "score": 0.067,
+     "equipment_id": "510-ecosistems-watermaker",
+     "reasons": [
+      "terms=0.17"
+     ]
+    }
+   ]
+  }
+ ]
+}

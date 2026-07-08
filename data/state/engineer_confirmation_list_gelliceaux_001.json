@@ -52,6 +52,111 @@
       "detail": "Engineer (2026-07-04, reading the schematic): Gianneschi appears as the ELECTRIC FIRE PUMP; inventory 431B kit is a \"Bilge/Fifi\" (combined) pump. cf-002 set MAIN BILGE pump make = Gianneschi. CONFIRM: does main-bilge stay Gianneschi (separate unit), or was cf-002 actually about the fire/Fifi pump?",
       "engineer_comment": "Two separate physical pumps, same model (Gianneschi ACB 431B) \u2014 main bilge pump and electric fire pump are distinct installations.",
       "status": "resolved"
+    },
+    {
+      "id": "cf-004",
+      "node_id": "860-bamar-furling-systems",
+      "issue_type": "identity_conflict",
+      "detail": "conflicting model values from different sources",
+      "kind": "model",
+      "values": [
+        {
+          "value": "GFSI CTS 10 / 20 / 30",
+          "provenance": {
+            "source_doc": "YMP PMS equipment record: Bamar GFSI CTS 10 / 20 / 30 Hydraulic Foresail Furler",
+            "source_type": "pms",
+            "authority": "pms",
+            "ymp_equipment_ref": "695f8b2a33c0917bcc16298d",
+            "match_mechanism": [
+              "make_exact_distinctive"
+            ]
+          }
+        },
+        {
+          "value": "PI 10t / 20t",
+          "provenance": {
+            "source_doc": "YMP PMS equipment record: Bamar PI 10t / 20t Hydraulic Furling Pad Eye",
+            "source_type": "pms",
+            "authority": "pms",
+            "ymp_equipment_ref": "695f7fe533c0917bcc16249c",
+            "match_mechanism": [
+              "make_exact_distinctive"
+            ]
+          }
+        }
+      ],
+      "engineer_comment": "",
+      "status": "open"
+    },
+    {
+      "id": "cf-005",
+      "node_id": "630-mastervolt-batteries-chargers",
+      "issue_type": "identity_conflict",
+      "detail": "conflicting model values from different sources",
+      "kind": "model",
+      "values": [
+        {
+          "value": "MVG series 12/25, 12/55, 12/85, 12/120, 12/140, 12/200",
+          "provenance": {
+            "source_doc": "YMP PMS equipment record: 12V Gel Backup Generator Start Battery",
+            "source_type": "pms",
+            "authority": "pms",
+            "ymp_equipment_ref": "695fa5c033c0917bcc164135",
+            "match_mechanism": [
+              "make_exact_distinctive"
+            ]
+          }
+        },
+        {
+          "value": "Mass 12/30-2, 24/15-2, 24/25-2",
+          "provenance": {
+            "source_doc": "YMP PMS equipment record: Battery Charger Emergency",
+            "source_type": "pms",
+            "authority": "pms",
+            "ymp_equipment_ref": "69a0262b6487e3d302e2afcb",
+            "match_mechanism": [
+              "make_exact_distinctive"
+            ]
+          }
+        }
+      ],
+      "engineer_comment": "",
+      "status": "open"
+    },
+    {
+      "id": "cf-006",
+      "node_id": "530-wave-international-greywater-treatment",
+      "issue_type": "identity_conflict",
+      "detail": "conflicting model values from different sources",
+      "kind": "model",
+      "values": [
+        {
+          "value": "WB 300",
+          "provenance": {
+            "source_doc": "YMP PMS equipment record: Grey Water Filter System",
+            "source_type": "pms",
+            "authority": "pms",
+            "ymp_equipment_ref": "695e1511b63c6b281f5922b8",
+            "match_mechanism": [
+              "make_exact_distinctive"
+            ]
+          }
+        },
+        {
+          "value": "WBSL, WBSLLite, WBSL2010, WBSL2020",
+          "provenance": {
+            "source_doc": "YMP PMS equipment record: Wave International WBSL, WBSLLite, WBSL2010, WBSL2020 Slimline ",
+            "source_type": "pms",
+            "authority": "pms",
+            "ymp_equipment_ref": "6964bbde1955cb2d0b332fc4",
+            "match_mechanism": [
+              "make_exact_distinctive"
+            ]
+          }
+        }
+      ],
+      "engineer_comment": "",
+      "status": "open"
     }
   ]
 }
