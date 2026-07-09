@@ -231,3 +231,49 @@ fp-cand-001: **CONFIRMED as captive-winch-specific convention** (2026-07-03). Ge
 **`EXECUTION_SPECS.md` written** — every open TODO.md task expanded to execution grade so a cold-start Sonnet/Opus session can run it without conversation history: §0 mandatory preamble (environment, python3.12 trap, Drive ids + retry rule, key modules as prior-art map, the 11 standing disciplines each traced to its real scar, the known misread-trap library), then per-task GOAL/STATUS/CONTEXT/INPUTS/PROCEDURE/VERIFY/GATES/TRAPS/MODEL-tier for M1 residue+PMS channel, M2 (S7 re-route, S8 topology-router design, S9 load-map-v2 apply, S10 BAE, PLC, P&ID join, building-drawing router, vision backlog, retrieval refresh), M3 (protocol docs, occupancy-check-into-code, blind-run + diff script), M4 (Exocet poller w/ GNSS clock cross-check, multi-turn, WhatsApp, Case #3 + eval harness). Model tiers tagged per the engineer's economy rule. **TODO.md statuses refreshed** (S6 ✅ w/ ledger path, S7 🔨, new Ch 1.4 PMS + Ch 2.0 cross-class layer) + pointer to the specs added. **Ledger preservation:** `batch2a_v2_ledger.jsonl` (10,196 elements + topology — real API money) copied from the EPHEMERAL tmp scratchpad into `data/ledgers/` and committed, plus batch2b_result/hyd_write/legacy_cleanup ledgers; standing discipline #10 added to the specs (persist expensive artifacts to the repo immediately).
 
 **→ SPECS BROUGHT TO FULL CATCH-UP STATE + COLLABORATOR ADDED (2026-07-09).** `EXECUTION_SPECS.md` gained **§0.5 WHERE WE ARE RIGHT NOW** — the fresh-session catch-up layer: live state (319 active / 17 retired, 0 integrity; ~21.3K chunks; commit arc), the compressed 2026-07-04→08 changelog (power-path, YMP live + 21 facts, cross-ref step, aircon VRV/11-fancoil correction, loop protocol v0.4, legends-first enforcement, batch-2a ledger rescue), the **11-item OPEN ENGINEER QUEUE** (load map v2, flagged list, cf-004/5/6, Midship valve reconciliation, fancoil sizes, YMP status field + vendor questions, pointer files, BAE gate, legacy placement red-pens, fp-cand-001 reminder, PMS write-path hard gate), ordered IMMEDIATE NEXT ACTIONS, and the repo-hygiene facts (CLAUDE.md symlink; Downloads skeleton is stale; scratchpads ephemeral). A fresh chat reads §0 → §0.5 → its task spec and is current. **GitHub: @Shalom115 (engineer's personal account) invited as collaborator with WRITE permission** via the REST API (no gh CLI on this machine; used the stored git credential). Invitation pending acceptance from that account; upgrade to admin is one API call if he wants settings control from it.
+
+## M. GM ELECTRICAL FLAGGED-LIST RECHECK (2026-07-09, engineer-requested) — 0 change, root cause identified, engineer's manual red-pen NOT touched
+Engineer asked to re-run the 2,868-item GM electrical flagged list against the improved
+protocol and check whether the same items still fail, cross-checked against his own
+in-progress manual red-pen. **No red-pen artifact found** in the repo (`git diff` on the
+flagged-list file = clean since last commit) or in his connected Drive (searched by
+title/fulltext for "flagged"/"electrical"/"red pen" — only source PDFs came back, no
+spreadsheet/annotated copy). His review is presumably local/offline — **not reconciled
+against; the original file was read-only, untouched.**
+**Re-run method:** the exact original generator script (`build_flagged_final2.py`,
+found + read from its scratchpad, byte-for-byte) re-executed unmodified, `dry_run=True`
+(nothing written), against the SAME already-extracted ledger (`data/ledgers/batch2a_v2_ledger.jsonl`
+— no new vision calls, $0) but TODAY's Register/§9e-matcher/load-map instead of the
+2026-07-05 snapshot. Output: `data/state/flagged_electrical_gelliceaux_001.RECHECK_20260709.json`
+(new file, original untouched).
+**Result: byte-identical.** 2,868/2,868 same entries, same order, same reasons. 0 resolved,
+0 newly flagged, 0 regressions.
+**Root cause (why nothing moved, explained not just observed):** the Register/matcher
+did improve since July 5 (aircon 11-fancoil fix, PMS matcher exact-distinctive-make boost,
+cross-reference step) — but none of that vocabulary overlaps this book's flagged content.
+Confirmed via `git log` on `node_match.py`/`abbrev.py`/the maps: only one commit touched
+matcher code since the list was generated (694d246, the PMS make-boost), and that boost
+only fires when a *make* string maps to exactly one equipment family — none of the 2,868
+flagged elements carry a make string.
+**Breakdown of the 2,868 (by element_type/role/reason — confirms exactly 3 buckets, no
+overlap, no relay/terminal/controller_module noise — those are in the separate 7,154
+`not_routed` bucket, not here):**
+  - 785 breaker/fuse — "load not resolvable to a Register node" (the schedule-row path;
+    load map lookup + §9e both missed)
+  - 694 switch — "control target not resolvable"
+  - 1,389 status_signal — "indicator target not resolvable" (mostly orphaned because
+    the wiring-graph-proximity walk needs a nearby RESOLVED supply anchor to attach to —
+    when the upstream breaker/fuse doesn't resolve, its downstream indicators don't either)
+**The actual lever, concretely identified:** the 785 breaker/fuse loads are exactly what
+`load_map_gelliceaux_001.EXTENSION.DRAFT.json` (29 sheets, 479 distinct loads, drafted
+2026-07-02, still awaiting engineer red-pen — TODO Ch2.2 S9) is FOR. Red-penning that map
+and re-running is expected to cascade: resolving a breaker/fuse also creates a supply
+anchor the proximity walk can reach, so a chunk of the 2,083 indicator/switch flags should
+clear as a side effect, not from separate work.
+**Legends-first / loop-following protocols do NOT touch this list at all** — they change
+what a FUTURE vision extraction reads off a sheet; this ledger was extracted 2026-07-04,
+before either protocol existed. Re-extracting the 41 pages to test whether legends-first
+would have read any of these differently is a separate, costed action (new vision calls),
+not done here — held for an explicit engineer go per the cost-economy standing rule.
+**Open question sent to engineer:** where does his in-progress red-pen live (so it can be
+reconciled directly instead of guessed at)?
