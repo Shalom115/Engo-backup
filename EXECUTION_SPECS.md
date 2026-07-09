@@ -99,6 +99,106 @@ reflexively.
 
 ---
 
+## §0.5 — WHERE WE ARE RIGHT NOW (snapshot 2026-07-08; update this section whenever state moves)
+
+**A fresh session starts here:** read §0, then this section, then `git pull`, then the
+spec of whatever task you're given. `ENGO_1.0_TRACKER.md` sections H-L hold the fuller
+narrative; `CLAUDE.md` the complete log.
+
+### Live state
+- Register: **319 active / 17 retired entries, 0 integrity issues**
+  (`data/state/register_gelliceaux_001.json`). Vector store ~21.3K chunks.
+- Git (all pushed to `engineergelliceaux/Engo` main): `8f5f`→`41c1` cover the
+  2026-07-04→08 arc — object storage + cloud decisions → batch 2a/2b extraction →
+  power-path/PMS/cross-ref/matcher-fixes → aircon correction + loop protocol +
+  legends-first enforcement → these specs + ledger rescue.
+- Repo hygiene facts a fresh chat must know: `/Users/captain/Downloads/CLAUDE.md` is a
+  **symlink** into the repo (single source; the old duplicate diverged once — fixed
+  permanently). `/Users/captain/Downloads/gelliceaux/` is a stale day-1 skeleton —
+  ignore it; the project is ONLY `/Users/captain/projects/gelliceaux`. Session
+  scratchpads under `/private/tmp` are ephemeral — renders/artifacts referenced in old
+  session notes may be gone; re-render from Drive if needed.
+
+### What landed 2026-07-04 → 08 (compressed; details in tracker H-L)
+1. **Power-path/circuit-loop protocol** (`power_path.py` + `node_write.write_sheet()`):
+   per-node supply→relay→terminal→return traces assembled from already-extracted
+   wiring `connections` text; REAL write done (62 power_path facts); raw signal-tag
+   labels (SW8/SO 6…) resolve by wiring-graph proximity; activation roles + DC-fuse
+   check added and verified (Q13→T/S B→terminal 8→Re1→XA40 chain reproduces).
+2. **YMP PMS live** (`providers/pms.py`): 142 equipment / 229 jobs / 615 inventory.
+   Two vendor-doc errors found+fixed (bare host fails TLS-SNI → force `www.`; jobs
+   path is `/api/worklist/` singular). **21 equipment matches written as Register
+   facts** after two real §9e bug-fixes (token-boundary matching — the crew/"screw"
+   substring bug; generic-value stoplist — model="custom") + an exact-distinctive-make
+   boost (fires only when a make maps to ONE equipment family; Gianneschi correctly
+   refuses).
+3. **Cross-reference step** (`node_crossref.py`, wired into every `_attach_fact`):
+   doc-class completeness per node + identity corroboration/disagreement across
+   sources, INCLUDING each node's folder-walk make/model (`register_seed`) — sweep
+   went 1→20 findings on that fix. Corroboration bumps fact confidence; node flips
+   `confirmed` only when ITS OWN doc-class sweep completes. Full-register sweep
+   artifact: `data/state/node_crossref_sweep_gelliceaux_001.json`.
+4. **Aircon corrected end-to-end** (the phantom-AHU lesson): it's a **VRV
+   direct-refrigerant (GAS) system**, not chilled-water; BOM "AIR HANDLER" == plan-view
+   "FANCOIL" (join by model number — Standing Rule 5); engine room = 2× Termodinamica
+   VRV18E1 units + master touchscreen + bypass valves, NO separate AHU. **11 fancoils,
+   engineer-confirmed zones** (Master, Study, Saloon P/S, Aft Guest P/S, Crew Mess,
+   Galley, Fwd Crew S, Aft Crew S, Aft Crew P) — Register children rebuilt accordingly.
+5. **Loop-following protocol + system archetypes** (`prompts/system_archetypes.md`
+   v0.4): mandatory SHEET-READING SEQUENCE, loop defs for all 15 system types
+   (open/closed/hub/independent-path shapes), verified against 5 real drawings
+   (fuel op-modes = pre-traced colored loops per mode; refrigeration = hub structure
+   refinement). Proofread fixed a duplicate aircon loop paragraph + fleet-general leaks.
+6. **Legends-first CODE-ENFORCED** (`pipeline/legend_first.py`): both extractors read
+   ALL legends/tables verbatim before any symbol, by default; validated on the aircon
+   sheet (9 tables found; pipe legend + BOM verbatim — both documented failures now
+   caught automatically).
+7. **Batch 2a preserved**: `data/ledgers/batch2a_v2_ledger.jsonl` — 41 GM-book pages,
+   10,196 wiring elements, topology for 26 pages, 0 errors. Input for S7/S8; never
+   re-extract.
+
+### OPEN ENGINEER QUEUE (🔴 waiting on him — ask status, never assume)
+1. **Load map v2 red-pen** — `data/state/load_map_gelliceaux_001.EXTENSION.DRAFT_v2.json`
+   (324 loads). He said "I'll get on it." Unblocks Ch 2.2 S9→S7.
+2. **Electrical flagged list review** — `data/state/flagged_electrical_gelliceaux_001.json`
+   (2,868 items). He started it.
+3. **cf-004 / cf-005 / cf-006** (confirmation list): Bamar, Mastervolt, Wave
+   International parent nodes each carry MULTIPLE model claims because PMS child-level
+   entries attached at family-parent level. Likely resolution = per-unit children or
+   family-variant recording — HIS call, never auto-resolve.
+4. **Midship bilge valves**: drawing shows TWO motor-valve instances there
+   (016-01/017-01 and 016-02/017-02); BOM total is fixed at 5; his zone list said
+   1-per-zone across 5 zones → one stated zone must actually be 0. His later note
+   (main line = 5 areas; midship has 2 pickups; aux line = 3 pickups + 2 hose
+   connections) partially clarifies but the valve↔zone reconciliation is still his.
+   `520-bilge-valves` split stays HELD.
+5. **Fancoil model sizes**: which zones get MR.MAXI18i (×6) vs MR.MAXI30i (×5) —
+   unmapped; pending a legends-first re-read of the AIR HANDLER DATA table + his check.
+6. **YMP `status` boolean meaning** (jobs) — unanswered; `list_open_jobs()` stays
+   unfiltered until he answers. Also queued for the YMP vendor when he engages them:
+   the two instruction-doc errors, webhook availability, manual-URL stability,
+   per-vessel key model, rate limits.
+7. **`.gsheet/.gdoc` pointers** — which of the 5 matter (Ch 1.3 S2c).
+8. **BAE 47pp run** — needs his go + budget ack (≈$15-30).
+9. **Legacy placement red-pens**: BAE manuals carry suspect 500/570 placement from the
+   Suppliers vendor map (625/420 more likely right); CM-26 report placed 600/625 by
+   Claude (local-only file).
+10. **fp-cand-001** reminder due before the next major ingestion (captive-winch
+    auto-split convention for future vessels; Gelliceaux instance already resolved).
+11. **PMS write path** (Engo filling log/work cards from chat) — engineer WANTS it,
+    explicitly future + hard-gated; do not start.
+
+### IMMEDIATE NEXT ACTIONS (in order, for whoever picks up)
+1. If red-pens (queue #1/#2) returned → execute Ch 2.2 S9 (apply map v2) then S7
+   (re-route the 2,868) per their specs.
+2. Otherwise, no-gate work: Ch 1.3 S2a/S2b (skip-list + CSV sealogs), or Ch 2.2 S8
+   DESIGN doc (topology router — design only, free), or Ch 3.1 S2 (occupancy-check
+   into auto-create code).
+3. BAE (S10) / vision backlog (Ch 2.6) / HyDE rebuild (Ch 2.7) — all cost money:
+   pilot + estimate + 🔴 gate first.
+
+---
+
 ## M1 — KNOWLEDGE BASE
 
 ### Ch 1.1 Text corpus ✅ / Ch 1.2 Node architecture ✅
