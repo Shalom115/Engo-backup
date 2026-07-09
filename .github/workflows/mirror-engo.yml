@@ -1,0 +1,42 @@
+name: Mirror engo (backup)
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mirror-engo
+  cancel-in-progress: true
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mirror engo branches/tags into mirror/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SOURCE_TOKEN: ${{ secrets.ENGO_SOURCE_TOKEN }}
+          SOURCE_REPO: engineergelliceaux/engo
+        run: |
+          set -euo pipefail
+
+          if [ -z "${SOURCE_TOKEN}" ]; then
+            echo "::error::ENGO_SOURCE_TOKEN secret is not set. Add a read-only PAT for ${SOURCE_REPO} as a repo secret named ENGO_SOURCE_TOKEN." >&2
+            exit 1
+          fi
+
+          git clone --mirror "https://${SOURCE_TOKEN}@github.com/${SOURCE_REPO}.git" source.git
+          cd source.git
+
+          git remote add backup "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+
+          # Only touch the mirror/* namespace so the workflow file itself
+          # (which lives on the default branch, outside mirror/*) is never
+          # overwritten or pruned by this sync.
+          git push backup --prune \
+            '+refs/heads/*:refs/heads/mirror/*' \
+            '+refs/tags/*:refs/tags/mirror/*'
