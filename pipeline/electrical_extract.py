@@ -288,9 +288,45 @@ def read_wiring_region(pdf_bytes: bytes, bbox: List[float], page_index: int = 0,
     if cross_reference and (r.get("elements") or []):
         enriched = enrich_region_against_full_page(
             r["elements"], pdf_bytes, page_index, bbox, legend_context=legend_context)
-        if enriched.get("elements"):
-            r = {**r, "elements": enriched["elements"], "_cross_referenced": True}
+        r = _merge_enriched(r, enriched.get("elements") or [])
     return r
+
+
+def _norm_id(v: Any) -> str:
+    import re as _re
+    return _re.sub(r"[^a-z0-9]+", "", str(v or "").lower())
+
+
+def _merge_enriched(r: Dict[str, Any], enriched: List[Dict[str, Any]]) -> Dict[str, Any]:
+    """RECONCILE the enrich pass against the crop read — the enrich prompt says
+    'never invent or drop', but a prompt is not a guarantee, so enforce it here:
+    each crop element is REPLACED by its id-matched enriched version and KEPT
+    as-is when the enrich pass dropped it; enriched entries with ids the crop
+    never read are DISCARDED (an enrich pass may only correct, never originate —
+    a full-page-only 'element' at overview resolution is exactly the kind of
+    low-res read the §4 finding forbids trusting). Counters record what happened
+    so a systematic drift shows up in review, not silently."""
+    crop_els = r.get("elements") or []
+    if not enriched:
+        return {**r, "_cross_referenced": False,
+                "_enrich_note": "enrich pass returned no elements — crop-only read kept"}
+    by_id: Dict[str, Dict[str, Any]] = {}
+    for e in enriched:
+        by_id.setdefault(_norm_id(e.get("id")), e)
+    merged, dropped = [], 0
+    used: set = set()
+    for e in crop_els:
+        k = _norm_id(e.get("id"))
+        if k and k in by_id and k not in used:
+            merged.append({**e, **by_id[k]})   # enriched fields win; crop fields survive where absent
+            used.add(k)
+        else:
+            merged.append(e)                    # enrich dropped it -> keep the crop read
+            dropped += 1
+    invented = sum(1 for k in by_id if k not in used)
+    return {**r, "elements": merged, "_cross_referenced": True,
+            "_enrich_dropped_kept_from_crop": dropped,
+            "_enrich_invented_discarded": invented}
 
 
 _ENRICH_PROMPT = (

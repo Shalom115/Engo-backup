@@ -1,45 +1,111 @@
-p3 GMMS 108'-101 — S1 -> selector to change which reading shown on Voltage gauge between L1-L2, L2-L3, L3-L1 (gauge selector)
-p3 GMMS 108'-101 — pin-7 -> correct, it's a negative
-p3 GMMS 108'-101 — dotted-line rectangle below F1/F2 -> dotted rectangle = confined box, here the HVPDU
-p3 GMMS 108'-101 — Q1/Q2 signal tap -> Q1 in the HVPDU, used for BEL
-p3 GMMS 108'-101 — Q3 signal tap -> Q3 connected to the EDN
-p4 GMMS 108'-101a — GR-1..GR-5 disconnect/synk -> skip
-p4 GMMS 108'-101a — GR-12/11/10/9 BELn TRIP -> connects to GM main panel to signal if the BEL is on or not; also a trip signal to a breaker to trip
-p4 GMMS 108'-101a — GR+6/GR-7 24V-SYNC P/R -> yes (signal)
-p4 GMMS 108'-101a — BLK SYNC pins (1,2,3,4,9,10,11,12) -> indicator for if this BEL is synced with the others
-p4 GMMS 108'-101a — Terminals 2-10 (incl AUX/BAE/NEG/+EM) -> directions to another drawing, dwg 410a
-p4 GMMS 108'-101a — BEL1-P/BEL2-P/BEL1-S/BEL2-S I/O contacts 3,7 -> signal to turn on or off over CAN bus
-p4 GMMS 108'-101a — S4 25A -> Breaker
-p4 GMMS 108'-101a — AUX 1 -> label in the emergency panel
-p4 GMMS 108'-101a — L1 / N 230V AC BUS -> power supply bus
-p4 GMMS 108'-101a — Aux contacts below K4 -> Relay 5, very important, follow its loop
-p4 GMMS 108'-101a — BAE / AUX -> power source selector
-p4 GMMS 108'-101a — +EM -> 24V + power from emergency panel
-p4 GMMS 108'-101a — contact group row 1 -> K1 contactor connecting BEL1 to power lines; engaged=connects BEL to 230V bus, disengaged=disconnects
-p4 GMMS 108'-101a — contact group row 2 -> K2 contactor (BEL2)
-p4 GMMS 108'-101a — contact group row 3 -> K3 contactor (BEL3)
-p4 GMMS 108'-101a — contact group row 4 -> K4 contactor (BEL4)
-p4 GMMS 108'-101a — lower section row 1 -> K5 controls auxiliary shore power (shore direct to boat when BAE off)
-p4 GMMS 108'-101a — dotted signal taps on contact groups -> this relay activates K5
-p5 GMMS 108'-102 — FW Pump contactor / 3-pole dotted gang -> current control relay model Siemens Sirius
-p5 GMMS 108'-102 — 27-1 MU-XX NO POWER IND -> these labels describe the T/C below it
-p5 GMMS 108'-102 — 28-2..32-6 MU-XX + MU-XX pin 1 -> indicator to control panel in Dwg 117, follow the loop; emergency ventilation control
-p5 GMMS 108'-102 — switch left-edge partial -> not sure
-p7 GMMS 108'-103 — 10 / 16 / 120 Junction/tap -> diamond with a number in it = wire gauge (covered already)
-p7 GMMS 108'-103 — to PORT MPCS from Port ISG -> shows power from Port ISG connected to Port MPCS
-p7 GMMS 108'-103 — to STBD MPCS from Stbd ISG (incl three arrow taps) -> shows power from STB ISG goes to STB MPCS
-p7 GMMS 108'-103 — 50 DINN partial -> partial reading, cropped equipment Dinnteco dinfil in folder 670, a lightning filter
-p7 GMMS 108'-103 — B+ STBD GENERATOR 112KW -> skip
-p8 GMMS 108'-110 — HVIL top -> HV safety interlock; if open the ESS shuts down for safety
-p8 GMMS 108'-110 — dotted line between 2 breaker signs -> breaker for + and breaker for -, if one trips it trips the other
-p8 GMMS 108'-110 — MAPS-P -> power supply from 600V bus bar to MAPS-P, follow that loop
-p8 GMMS 108'-110 — ESS -> + and - from the ESS supply the bar; MPCS supplies power to charge the ESS through that bar
-p8 GMMS 108'-110 — MPCS -> power supply from 600V bus bar to MPCS-P, follow that loop
-p8 GMMS 108'-110 — 23 / G3-K336 S (all shields) -> shield of twisted shielded cable; 1 pin hi, 1 pin lo + shield = CAN bus (twisted shielded pair)
-p8 GMMS 108'-110 — G3-K300R Key -> not sure
-p8 GMMS 108'-110 — G3-K321/K320/K421/K420 HVIL OUT/IN -> HVIL; on HV connections if the plug is not fully connected it shuts the power down
-p8 GMMS 108'-110 — G3-K337/K334/K339/K323 (Position/Temp HI) -> CAN hi connection
-p8 GMMS 108'-110 — G3-K138/K335/K340/K324 (Position/Temp Lo) -> CAN Low connection
-p8 GMMS 108'-110 — PORT/STBD STATUS TAP F3F4/F5F6/F7F8/F9F10 -> F3=Fuse 3; rectangle with a line in it, in a line = fuse (F4..F10 same)
-p8 GMMS 108'-110 — SWITCH PORT / SWITCH STBD (with HVIL) -> multi-pin wire harness connectors (plug interfaces), NOT mechanical toggles or network switches; physical connection point between the external control system and the internal motor/sensor wiring
-p8 GMMS 108'-110 — MPCS A/C SELECTION -> selector for which MPCS will power the traction motor
+p3 GMMS 108'-101 — S1 "S1 – switch, connected between lower terminal strip and line-voltage/frequency measurement circuit" (was switch/control) -> this is a selector to change which reading will be shown on the Voltage gauge  between L1-L2, L2-L3,L3-L1 so it's a selector fot that gauge
+p3 GMMS 108'-101 — pin-7 "Signal tap / output pin at terminal 7 (24V negative / signal out)" (was status_signal/indicator) -> correct its a negative
+p3 GMMS 108'-101 — <UNKNOWN> "Dotted-line tap/signal block below F1/F2 – monitoring/supervision signal collected from fuse outputs" (was status_signal/indicator) -> the dotted line is a rectangle that shows that it is in a confined box in this case the HVPDU
+p3 GMMS 108'-101 — Q1-signal-tap "Status/monitoring signal tap on Q1 (dotted line)" (was status_signal/indicator) -> Q1 is in the HVPDU and is used for BEL
+p3 GMMS 108'-101 — Q2-signal-tap "Status/monitoring signal tap on Q2 (dotted line)" (was status_signal/indicator) -> Q1 is in the HVPDU and is used for BEL
+p3 GMMS 108'-101 — Q3-signal-tap "Status/monitoring signal tap on Q3 (dotted line)" (was status_signal/indicator) -> Q3 is connected to the EDN
+p4 GMMS 108'-101a — GR-5 "G3-21xx Common SYNK – common synchronisation signal tap" (was status_signal/indicator) -> skip
+p4 GMMS 108'-101a — GR-1 "G3-21XX BEL1 Disconnect – BEL1 disconnect status signal" (was status_signal/indicator) -> skip
+p4 GMMS 108'-101a — GR-2 "G3-21XX BEL2 Disconnect – BEL2 disconnect status signal" (was status_signal/indicator) -> skip
+p4 GMMS 108'-101a — GR-3 "G3-21XX BEL3 Disconnect – BEL3 disconnect status signal" (was status_signal/indicator) -> skip
+p4 GMMS 108'-101a — GR-4 "G3-21XX BEL4 Disconnect – BEL4 disconnect status signal" (was status_signal/indicator) -> skip
+p4 GMMS 108'-101a — GR-12 "BEL1-P TRIP – BEL1 primary trip status signal" (was status_signal/indicator) -> this connects to the GM main panel to signal if the BEL is on or not
+p4 GMMS 108'-101a — GR-11 "BEL2-P TRIP – BEL2 primary trip status signal" (was status_signal/indicator) -> this connects to the GM main panel to signal if the BEL is on or not
+p4 GMMS 108'-101a — GR-10 "BEL3-S TRIP – BEL3 secondary trip status signal" (was status_signal/indicator) -> this connects to the GM main panel to signal if the BEL is on or not
+p4 GMMS 108'-101a — GR-9 "BEL4-S TRIP – BEL4 secondary trip status signal" (was status_signal/indicator) -> this connects to the GM main panel to signal if the BEL is on or not
+p4 GMMS 108'-101a — GR+6 "24V-SYNC P – 24V sync positive supply signal" (was status_signal/indicator) -> yes
+p4 GMMS 108'-101a — GR-7 "24V-SYNC R – 24V sync return signal" (was status_signal/indicator) -> yes
+p4 GMMS 108'-101a — BLK-1 "G3-S1S2 SYNC – S1/S2 synchronisation signal (BLK group)" (was status_signal/indicator) -> indiacator for if this BEL is synced with the others
+p4 GMMS 108'-101a — BLK-12 "G3-S1R1 SYNC RTN – S1/R1 synchronisation return signal (BLK group)" (was status_signal/indicator) -> indiacator for if this BEL is synced with the others
+p4 GMMS 108'-101a — BLK pin 1 "G3-S1S2 SYNC" (was status_signal/indicator) -> indiacator for if this BEL is synced with the others
+p4 GMMS 108'-101a — BLK pin 12 "G3-S1R1 SYNC RTN" (was status_signal/indicator) -> indiacator for if this BEL is synced with the others
+p4 GMMS 108'-101a — BLK pin 2 "G3-S2S2 SYNC" (was status_signal/indicator) -> indiacator for if this BEL is synced with the others
+p4 GMMS 108'-101a — BLK pin 11 "G3-S2R1 SYNC RTN" (was status_signal/indicator) -> indiacator for if this BEL is synced with the others
+p4 GMMS 108'-101a — BLK pin 3 "G3-S3S2 SYNC" (was status_signal/indicator) -> indiacator for if this BEL is synced with the others
+p4 GMMS 108'-101a — BLK pin 10 "G3-S3R1 SYNC RTN" (was status_signal/indicator) -> indiacator for if this BEL is synced with the others
+p4 GMMS 108'-101a — BLK pin 4 "G3-S4S2 SYNC" (was status_signal/indicator) -> indiacator for if this BEL is synced with the others
+p4 GMMS 108'-101a — BLK pin 9 "G3-S1R1 SYNC RTN" (was status_signal/indicator) -> indiacator for if this BEL is synced with the others
+p4 GMMS 108'-101a — BLK pin +6 "24V-SYNC P" (was status_signal/indicator) -> signal
+p4 GMMS 108'-101a — BLK pin -7 "24V-SYNC R" (was status_signal/indicator) -> signal
+p4 GMMS 108'-101a — BLK pin 11 (top) "BEL2-P TRIP" (was status_signal/indicator) -> signal
+p4 GMMS 108'-101a — BLK pin 10 (top) "BEL3-S TRIP" (was status_signal/indicator) -> signal
+p4 GMMS 108'-101a — BLK pin 9 (top) "BEL4-S TRIP" (was status_signal/indicator) -> signal
+p4 GMMS 108'-101a — 2 "Terminal 2" (was status_signal/indicator) -> directions to go to another drawing  dwg 410a
+p4 GMMS 108'-101a — 3 "Terminal 3" (was status_signal/indicator) -> directions to go to another drawing  dwg 410a
+p4 GMMS 108'-101a — 4 "Terminal 4" (was status_signal/indicator) -> directions to go to another drawing  dwg 410a
+p4 GMMS 108'-101a — 5 "Terminal 5" (was status_signal/indicator) -> directions to go to another drawing  dwg 410a
+p4 GMMS 108'-101a — 6 "AUX – Terminal 6" (was status_signal/indicator) -> directions to go to another drawing  dwg 410a
+p4 GMMS 108'-101a — 7 "BAE – Terminal 7" (was status_signal/indicator) -> directions to go to another drawing  dwg 410a
+p4 GMMS 108'-101a — 8 "NEG – Terminal 8" (was status_signal/indicator) -> directions to go to another drawing  dwg 410a
+p4 GMMS 108'-101a — 9 "+EM – Terminal 9" (was status_signal/indicator) -> directions to go to another drawing  dwg 410a
+p4 GMMS 108'-101a — 10 "Terminal 10" (was status_signal/indicator) -> directions to go to another drawing  dwg 410a
+p4 GMMS 108'-101a — BEL1-P "BEL1-P I/O, contacts 3, 7" (was switch/control) -> signal to turn on or off over CAN bus
+p4 GMMS 108'-101a — BEL2-P "BEL2-P I/O, contacts 3, 7" (was switch/control) -> signal to turn on or off over CAN bus
+p4 GMMS 108'-101a — BEL1-S "BEL1-S I/O, contacts 3, 7" (was switch/control) -> signal to turn on or off over CAN bus
+p4 GMMS 108'-101a — BEL2-S "BEL2-S I/O, contacts 3, 7" (was switch/control) -> signal to turn on or off over CAN bus
+p4 GMMS 108'-101a — S4 "S4 25A" (was switch/control) -> Breaker
+p4 GMMS 108'-101a — AUX 1 "AUX 1 – signal/monitoring tap" (was status_signal/indicator) -> lable in the emergency panel
+p4 GMMS 108'-101a — L1 "230V AC BUS – Line L1 tap/bus bar" (was status_signal/indicator) -> power supply bus
+p4 GMMS 108'-101a — N "230V AC BUS – Neutral N tap/bus bar" (was status_signal/indicator) -> Power sypply bus
+p4 GMMS 108'-101a — <UNKNOWN> "Auxiliary contacts below K4 (bottom of diagram)" (was switch/control) -> Relay 5 very important follow it's loop!
+p4 GMMS 108'-101a — BAE "BAE" (was status_signal/indicator) -> power source selector
+p4 GMMS 108'-101a — AUX "AUX" (was status_signal/indicator) -> power source selector
+p4 GMMS 108'-101a — +EM "+EM (Emergency Power positive)" (was status_signal/indicator) -> 24V + power from emergency panel
+p4 GMMS 108'-101a — <UNKNOWN> "Switch/contact group - row 1 (top left, first group)" (was switch/control) -> this is K1 contactor that connects the pwoer that comes from BEL1 to the power lines it is a control contactor that when engaged it connects the bel to power the 230V bus and when disengages disconnects it
+p4 GMMS 108'-101a — <UNKNOWN> "Switch/contact group - row 2 (second group from top)" (was switch/control) -> this is K2 contactor that connects the pwoer that comes from BEL2 to the power lines it is a control contactor that when engaged it connects the bel to power the 230V bus and when disengages disconnects it
+p4 GMMS 108'-101a — <UNKNOWN> "Switch/contact group - row 3 (third group from top)" (was switch/control) -> this is K3 contactor that connects the pwoer that comes from BEL3 to the power lines it is a control contactor that when engaged it connects the bel to power the 230V bus and when disengages disconnects it
+p4 GMMS 108'-101a — <UNKNOWN> "Switch/contact group - row 4 (fourth group from top)" (was switch/control) -> this is K4 contactor that connects the pwoer that comes from BEL4 to the power lines it is a control contactor that when engaged it connects the bel to power the 230V bus and when disengages disconnects it
+p4 GMMS 108'-101a — <UNKNOWN> "Switch/contact group - lower section row 1" (was switch/control) -> this is K5 that controls the auxilary power from shore power ( when shore power connects directly to the boat and powers it whe nthe BAE is off
+p4 GMMS 108'-101a — <UNKNOWN> "Signal tap junction - dotted signal taps on contact groups (rows 1-4 and lower)" (was status_signal/indicator) -> this relay activates K5
+p5 GMMS 108'-102 — <UNKNOWN> "Contactor/switch contact (normally-open) – Fresh Water Pump 1, above motor-starter" (was switch/control) -> this is a current control relay model Simens Sirius
+p5 GMMS 108'-102 — 27-1 "MU-XX to PASSAGE PANEL – NO POWER IND." (was status_signal/indicator) -> these labels descrobe the T/C below it
+p5 GMMS 108'-102 — 28-2 "MU-XX to PASSAGE PANEL – pin 2" (was status_signal/indicator) -> indicator to control panel in Dwg 117 foolow up the loop and learn in this is for the emergency ventilation control
+p5 GMMS 108'-102 — 29-3 "MU-XX to PASSAGE PANEL – pin 3" (was status_signal/indicator) -> indicator to control panel in Dwg 117 foolow up the loop and learn in this is for the emergency ventilation control
+p5 GMMS 108'-102 — 30-4 "MU-XX to PASSAGE PANEL – ON/OFF status" (was status_signal/indicator) -> indicator to control panel in Dwg 117 foolow up the loop and learn in this is for the emergency ventilation control
+p5 GMMS 108'-102 — 31-5 "MU-XX to PASSAGE PANEL – pin 5 (+)" (was status_signal/indicator) -> indicator to control panel in Dwg 117 foolow up the loop and learn in this is for the emergency ventilation control
+p5 GMMS 108'-102 — 32-6 "MU-XX to PASSAGE PANEL – pin 6" (was status_signal/indicator) -> indicator to control panel in Dwg 117 foolow up the loop and learn in this is for the emergency ventilation control
+p5 GMMS 108'-102 — <UNKNOWN> "Multi-pole switch/contactor (upper, 3-pole dotted gang)" (was switch/control) -> this is a current control relay model Simens Sirius
+p5 GMMS 108'-102 — MU-XX pin 1 "MU-XX to PASSAGE PANEL – status signal output from terminal 27 pin 1" (was status_signal/indicator) -> this is an indicator to the control panel in Dwg 117 foolow up the loop and learn in this is for the emergency ventilation control
+p5 GMMS 108'-102 — <UNKNOWN> "Switch – left-edge switch symbol (partially cropped)" (was switch/control) -> not sure
+p7 GMMS 108'-103 — 10 "Junction/tap 10 — to 230V AC GROUND" (was status_signal/indicator) -> this is a diamond shape with a number in it we covered it already this is a wire gauge
+p7 GMMS 108'-103 — 16 "Junction/tap 16 — FWD MAST LKR side connection to GROUND BUS" (was status_signal/indicator) -> this is a diamond shape with a number in it we covered it already this is a wire gauge
+p7 GMMS 108'-103 — <UNKNOWN> "to PORT MPCS – signal tap from Port ISG" (was status_signal/indicator) -> that is to show that the power coming from  the Port ISG is connected to Port MPCS
+p7 GMMS 108'-103 — <UNKNOWN> "to STBD MPCS – signal tap from Starboard ISG" (was status_signal/indicator) -> this is to show that the power coming from STB ISG goes to the STB MPCS
+p7 GMMS 108'-103 — 50 "DINN / ground filter (partial label)" (was status_signal/indicator) -> that's a partial reading, it's a cropped equipment called Dinnteco dinfil in folder 670 it's a lightning filter
+p7 GMMS 108'-103 — 120 "120" (was status_signal/indicator) -> same as before , diamond with a number in it, wire gauge
+p7 GMMS 108'-103 — B+ "B+ power output terminal of STBD GENERATOR 112KW" (was status_signal/indicator) -> skip
+p7 GMMS 108'-103 — to STBD MPCS "Signal lines routed to STBD MPCS (three arrow taps from ISG)" (was status_signal/indicator) -> as before it shows that the power coming from ISG goes to the mpcs
+p8 GMMS 108'-110 — HVIL "HVIL (top – interlock switch on main feed)" (was switch/control) -> correct this is the HV safety interlock that if it's open the ESS shuts down for safety
+p8 GMMS 108'-110 — <UNKNOWN> "Status/monitoring signal tap block (upper right, dotted line connection) – Q1/Q2 area" (was status_signal/indicator) -> not sure what you refer to, if it is the dotted line between the 2 breaker signs it'x because theres a breaker for + and breaker for - and if one trips it trips tthe other
+p8 GMMS 108'-110 — MAPS-P "MAPS-P" (was status_signal/indicator) -> no this is power supply from 600V bus bar to MAPS-P follow that loop!
+p8 GMMS 108'-110 — ESS "ESS" (was status_signal/indicator) -> these are the + and - from the ESS that supplies power to the bar and also the MPCS supplies power to charge the ESS through that bar
+p8 GMMS 108'-110 — MPCS "MPCS" (was status_signal/indicator) -> no this is power supply from 600V bus bar to MPCS-P follow that loop!
+p8 GMMS 108'-110 — 23 "Common junction/tap 23 (upper group: pins 3,4)" (was status_signal/indicator) -> this is the sheild from the twisted sheilded cable whe nyou see  1 pin hi, 1pin lo, and sheild this is CAN bus, this will also look like this where the  lo and hi cables are twisted and that means its a twisted sheilded cable
+p8 GMMS 108'-110 — G3-K336 (upper) "G3-K336 S (signal tap, upper group)" (was status_signal/indicator) -> this is the sheild from the twisted sheilded cable whe nyou see  1 pin hi, 1pin lo, and sheild this is CAN bus, this will also look like this where the  lo and hi cables are twisted and that means its a twisted sheilded cable
+p8 GMMS 108'-110 — G3-K336 (second) "G3-K336 S (signal tap, second group)" (was status_signal/indicator) -> this is the sheild from the twisted sheilded cable whe nyou see  1 pin hi, 1pin lo, and sheild this is CAN bus, this will also look like this where the  lo and hi cables are twisted and that means its a twisted sheilded cable
+p8 GMMS 108'-110 — G3-K336 (third) "G3-K336 S (signal tap, third group)" (was status_signal/indicator) -> this is the sheild from the twisted sheilded cable whe nyou see  1 pin hi, 1pin lo, and sheild this is CAN bus, this will also look like this where the  lo and hi cables are twisted and that means its a twisted sheilded cable
+p8 GMMS 108'-110 — G3-K300R "G3-K300R Key (key switch)" (was switch/control) -> not sure
+p8 GMMS 108'-110 — G3-K336-SHIELD-PIN5 "G3-K336 Shield (Position Sensor A circuit shield)" (was status_signal/indicator) -> this is the sheild from the twisted sheilded cable whe nyou see  1 pin hi, 1pin lo, and sheild this is CAN bus, this will also look like this where the  lo and hi cables are twisted and that means its a twisted sheilded cable
+p8 GMMS 108'-110 — G3-K336-SHIELD-PIN8 "G3-K336 Shield (Position Sensor B circuit shield)" (was status_signal/indicator) -> this is the sheild from the twisted sheilded cable whe nyou see  1 pin hi, 1pin lo, and sheild this is CAN bus, this will also look like this where the  lo and hi cables are twisted and that means its a twisted sheilded cable
+p8 GMMS 108'-110 — G3-K336-SHIELD-PIN11 "G3-K336 Shield (Position Exc circuit shield)" (was status_signal/indicator) -> this is the sheild from the twisted sheilded cable whe nyou see  1 pin hi, 1pin lo, and sheild this is CAN bus, this will also look like this where the  lo and hi cables are twisted and that means its a twisted sheilded cable
+p8 GMMS 108'-110 — G3-K321 "G3-K321 HVIL OUT" (was status_signal/indicator) -> HVIL signal
+p8 GMMS 108'-110 — G3-K320 "G3-K320 HVIL IN" (was status_signal/indicator) -> correct
+p8 GMMS 108'-110 — G3-K337 "G3-K337 Position Sensor A HI" (was status_signal/indicator) -> This is a CAN hi connection
+p8 GMMS 108'-110 — G3-K138 "G3-K138 Position Sensor A Lo" (was status_signal/indicator) -> This is a CAN Low connection
+p8 GMMS 108'-110 — G3-K334 "G3-K334 Position Sensor B HI" (was status_signal/indicator) -> This is a CAN hi connection
+p8 GMMS 108'-110 — G3-K335 "G3-K335 Position Sensor B Lo" (was status_signal/indicator) -> This is a CAN Low connection
+p8 GMMS 108'-110 — G3-K339 "G3-K339 Position Exc HI" (was status_signal/indicator) -> This is a CAN hi connection
+p8 GMMS 108'-110 — G3-K340 "G3-K340 Position Exc lo" (was status_signal/indicator) -> This is a CAN Low connection
+p8 GMMS 108'-110 — G3-K323 "G3-K323 Stator Temp in HI" (was status_signal/indicator) -> This is a CAN hi connection
+p8 GMMS 108'-110 — G3-K324 "G3-K324 Stator Temp in HI" (was status_signal/indicator) -> This is a CAN Low connection
+p8 GMMS 108'-110 — PORT-STATUS-TAP-F3F4 "Status signal tap (PORT, F3/F4 group)" (was status_signal/indicator) -> F3 is Fuse 3 when you see a rectangle with a line in it in a line that is a fuse same goes for F4 is Fuse 4
+p8 GMMS 108'-110 — PORT-STATUS-TAP-F5F6 "Status signal tap (PORT, F5/F6 group)" (was status_signal/indicator) -> F5 is Fuse 5 when you see a rectangle with a line in it in a line that is a fuse same goes for F6 is Fuse 6
+p8 GMMS 108'-110 — STBD-STATUS-TAP-F7F8 "Status signal tap (STBD, F7/F8 group)" (was status_signal/indicator) -> F7 is Fuse 7 when you see a rectangle with a line in it in a line that is a fuse same goes for F8 is Fuse 8
+p8 GMMS 108'-110 — STBD-STATUS-TAP-F9F10 "Status signal tap (STBD, F9/F10 group)" (was status_signal/indicator) -> F9 is Fuse 9 when you see a rectangle with a line in it in a line that is a fuse same goes for F10 is Fuse 10
+p8 GMMS 108'-110 — SWITCH PORT "SWITCH PORT – with HVIL" (was switch/control) -> Based on the provided electrical schematic, the SWITCH labels (specifically SWITCH PORT on the left and SWITCH STBD on the right) represent multi-pin wire harness connectors (or plug interfaces), not mechanical toggles or network switches.They serve as the physical connection point between the external control system and the internal motor/sensor wiring.
+p8 GMMS 108'-110 — SWITCH STBD "SWITCH STBD – with HVIL" (was switch/control) -> Based on the provided electrical schematic, the SWITCH labels (specifically SWITCH PORT on the left and SWITCH STBD on the right) represent multi-pin wire harness connectors (or plug interfaces), not mechanical toggles or network switches.They serve as the physical connection point between the external control system and the internal motor/sensor wiring.
+p8 GMMS 108'-110 — MPCS A/C SELECTION "MPCS A/C SELECTION – dotted-boundary selector/tap block routing A/C phase selection signals to motor M1" (was status_signal/indicator) -> this is a selector for witch MPCS will power the traction motor, so it's a selector
+p8 GMMS 108'-110 — <UNKNOWN> "SWITCH / PORT (partially cropped)" (was switch/control) -> look at switch port and switch stb
+p8 GMMS 108'-110 — SWITCH "SWITCH (STBD)" (was switch/control) -> See switch above
+p8 GMMS 108'-110 — G3-K421 "HVIL OUT" (was status_signal/indicator) -> High voltage interloc, on high voltage connections theres a HVIL that if the plug is not connected fully it will shut the power down
+p8 GMMS 108'-110 — G3-K420 "HVIL IN" (was status_signal/indicator) -> High voltage interloc, on high voltage connections theres a HVIL that if the plug is not connected fully it will shut the power down

@@ -388,7 +388,20 @@ def trace_full_loop(anchor_index: int, page: Dict[str, Any],
     while queue and len(segments) < max_sheets:
         dkey, pg, aidx, pinned, via = queue.pop(0)
         els = [e for e in (pg.get("wiring_elements") or []) if isinstance(e, dict)]
-        if not els or aidx is None or aidx >= len(els):
+        if not els:
+            continue
+        if not pinned or aidx is None or aidx >= len(els):
+            # ENTRY NOT PINNED: the pointer named the drawing but no element on
+            # the target sheet token-matched it. Tracing from an arbitrary
+            # element would present NOISE as the loop's continuation (P6:
+            # never fabricate) — record the un-pinned continuation honestly
+            # instead, with no trace.
+            segments.append({"drawing": pg.get("drawing_no"), "drawing_key": dkey,
+                             "anchor": None, "entry_pinned": False,
+                             "entered_via": via, "trace": None,
+                             "note": "loop continues on this sheet, but the pointer "
+                                     "did not name a specific terminal/element — "
+                                     "entry point needs the sheet read directly"})
             continue
         trace = build_power_path_fact(aidx, els, max_hops=max_hops, assume_dc=assume_dc)
         segments.append({"drawing": pg.get("drawing_no"), "drawing_key": dkey,
@@ -432,10 +445,13 @@ def render_full_loop(segments: List[Dict[str, Any]],
                      external: List[Dict[str, Any]]) -> str:
     lines: List[str] = []
     for n, seg in enumerate(segments, 1):
+        if seg.get("trace") is None:
+            lines.append(f"── Sheet {n}: {seg['drawing']}  [loop continues here — "
+                         f"entry not pinned to a terminal; read this sheet directly] "
+                         f"(from: \"{seg['entered_via']}\")")
+            continue
         head = f"── Sheet {n}: {seg['drawing']} (anchor {seg['anchor']['id']})"
-        if not seg["entry_pinned"] and n > 1:
-            head += "  [entry point not pinned — pointer named the drawing, not a specific terminal]"
-        elif n > 1:
+        if n > 1:
             head += f"  [entered via: \"{seg['entered_via']}\"]"
         lines.append(head)
         lines.append(seg["trace"]["trace_text"])
