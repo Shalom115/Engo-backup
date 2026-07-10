@@ -32,3 +32,7 @@ VESSEL_NAMESPACE = os.getenv("VESSEL_NAMESPACE", "gelliceaux_001")
 # --- Retrieval ---
 _threshold = os.getenv("RETRIEVAL_DISTANCE_THRESHOLD")
 RETRIEVAL_DISTANCE_THRESHOLD: float | None = float(_threshold) if _threshold else None
+
+# --- Sensors (Exocet read-only data tap; architecture rule 2: never write to vessel systems) ---
+EXOCET_URL = os.getenv("EXOCET_URL", "http://192.168.1.101/data")
+EXOCET_POLL_INTERVAL_SECONDS = int(os.getenv("EXOCET_POLL_INTERVAL_SECONDS", "60"))
