@@ -31,7 +31,15 @@ from PIL import Image
 
 from pipeline import visual_extract as vx
 from pipeline import legend_first
+from pipeline import symbol_glossary
 from providers.vision import get_vision_provider
+
+
+def _ctx(legend_context: str, prompt: str) -> str:
+    """Prompt assembly order: sheet's own legends (authoritative) -> fleet-general
+    symbol glossary -> task prompt. The glossary text itself states the sheet
+    legend overrides it."""
+    return legend_first.with_context(legend_context, symbol_glossary.with_glossary(prompt))
 
 # ---------------------------------------------------------------- PASS 1 tool
 _SURVEY_PROMPT = (
@@ -133,7 +141,7 @@ def survey(pdf_bytes: bytes, page_index: int = 0, *, dpi: int = 200,
     vp = get_vision_provider()
     img = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=dpi)
     r = vp.extract(img, "image/png",
-                   legend_first.with_context(legend_context, _SURVEY_PROMPT), _SURVEY_TOOL)
+                   _ctx(legend_context, _SURVEY_PROMPT), _SURVEY_TOOL)
     r["_pass1_dpi"] = dpi
     return r
 
@@ -145,7 +153,7 @@ def read_schedule_region(pdf_bytes: bytes, bbox: List[float], page_index: int = 
     page = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=dpi)
     tile = _crop_box(page, bbox)
     return vp.extract(tile, "image/png",
-                      legend_first.with_context(legend_context, _SCHEDULE_PROMPT), _SCHEDULE_TOOL)
+                      _ctx(legend_context, _SCHEDULE_PROMPT), _SCHEDULE_TOOL)
 
 
 # ---------------------------------------------------------------- PASS 2 (C) tool
@@ -162,7 +170,11 @@ _WIRING_PROMPT = (
     "circuit — do not skip edge devices. For each element record:\n"
     " - element_type: terminal_strip | terminal | relay | controller_module | device "
     "(motor/valve/sender/pump/light-circuit endpoint) | status_signal | plug_pin | "
-    "fuse | breaker | switch | unknown\n"
+    "fuse | breaker | switch | annotation | unknown\n"
+    "ANNOTATIONS are drawing markup, not circuit elements: wire-gauge callouts "
+    "(a diamond with a number = conductor mm²), captions describing the device "
+    "below them, cross-drawing pointers ('see DWG n'). Type these annotation — "
+    "never status_signal or terminal.\n"
     " - id (as printed, e.g. a relay number, terminal number, module model), the "
     "function/label text near it, and its connections as printed (from -> to).\n"
     "Read ONLY what is printed. '<UNKNOWN>' for illegible fields. Mark ambiguous "
@@ -179,7 +191,7 @@ _WIRING_TOOL = {
                 "element_type": {"type": "string", "enum": [
                     "terminal_strip", "terminal", "relay", "controller_module",
                     "device", "status_signal", "plug_pin", "fuse", "breaker",
-                    "switch", "unknown"]},
+                    "switch", "annotation", "unknown"]},
                 "id": {"type": "string"}, "label": {"type": "string"},
                 "connections": {"type": "array", "items": {"type": "string"}},
                 "ambiguous": {"type": "boolean"}},
@@ -227,7 +239,7 @@ def read_wiring_region(pdf_bytes: bytes, bbox: List[float], page_index: int = 0,
     vp = get_vision_provider()
     page = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=dpi)
     return vp.extract(_crop_box(page, bbox), "image/png",
-                      legend_first.with_context(legend_context, _WIRING_PROMPT), _WIRING_TOOL)
+                      _ctx(legend_context, _WIRING_PROMPT), _WIRING_TOOL)
 
 
 def _row_key(row: Dict[str, Any]) -> tuple:
@@ -245,7 +257,7 @@ def read_schedule_coverage(pdf_bytes: bytes, page_index: int,
     stochastic, so a schedule reader keyed only on it can silently miss rows."""
     page = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=dpi)
     vp = get_vision_provider()
-    _prompt = legend_first.with_context(legend_context, _SCHEDULE_PROMPT)
+    _prompt = _ctx(legend_context, _SCHEDULE_PROMPT)
     seen: Dict[tuple, Dict[str, Any]] = {}
     panel_label = None
     skipped = 0
@@ -305,7 +317,7 @@ def read_wiring_coverage(pdf_bytes: bytes, page_index: int,
     dedupe. An element found by either path is kept; grid-only finds are marked."""
     page = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=dpi)
     vp = get_vision_provider()
-    _prompt = legend_first.with_context(legend_context, _WIRING_PROMPT)
+    _prompt = _ctx(legend_context, _WIRING_PROMPT)
     seen: Dict[tuple, Dict[str, Any]] = {}
     skipped = 0
     for rg in (survey_regions or []):
@@ -339,7 +351,7 @@ def read_oneline_region(pdf_bytes: bytes, bbox: List[float], page_index: int = 0
     vp = get_vision_provider()
     page = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=dpi)
     return vp.extract(_crop_box(page, bbox), "image/png",
-                      legend_first.with_context(legend_context, _ONELINE_PROMPT), _ONELINE_TOOL)
+                      _ctx(legend_context, _ONELINE_PROMPT), _ONELINE_TOOL)
 
 
 def _node_key(n: Dict[str, Any]) -> tuple:
@@ -357,7 +369,7 @@ def read_oneline_coverage(pdf_bytes: bytes, page_index: int,
     is stochastic, a reader keyed only on it can silently miss nodes/edges."""
     page = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=dpi)
     vp = get_vision_provider()
-    _prompt = legend_first.with_context(legend_context, _ONELINE_PROMPT)
+    _prompt = _ctx(legend_context, _ONELINE_PROMPT)
     seen: Dict[tuple, Dict[str, Any]] = {}
     edges: List[str] = []
     skipped = 0
