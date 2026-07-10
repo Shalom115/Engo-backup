@@ -1,0 +1,33 @@
+{
+  "conversation_id": "val1-bel-20260710",
+  "created_at": "2026-07-10T13:48:35+00:00",
+  "updated_at": "2026-07-10T13:50:18+00:00",
+  "turns_compressed": 2,
+  "summary": "**Summary of BEL Crash Investigation — Two Root-Cause Findings**\n\nTwo separate investigations identified root causes for BEL crashes when the ACTM was engaged. \n\n**CM-24-1732** identified sync signal noise causing BELs to fall out of synchronisation. When desynchronised, large circulating currents flowed between units, causing cascading failures and 240V AC system shutdown. Two wiring issues were found: BEL 4's sync wire was routed alongside its AC output connector, picking up interference; and sync signal shields terminated at LVPDU ground instead of locally at each BEL chassis ground. Corrective actions included rerouting BEL 4's sync wire, terminating shields at each BEL chassis ground, and adding CAN chokes to each BEL stub. [CM-24-1732 SW108-01 Investigation Report.docx, section='BEL Corrective action']\n\n**CM-26-2024** refined the root cause further: the BEL sync reference was wired to BEL chassis (CAN GND) instead of BEL RTN (PIN 7). Ground-plane noise from the GPM-12 corrupted the sync signal through this incorrect reference point; CAN bus noise was ruled out as primary cause. [108-01_BAE-report-20260403.pdf, p.7] Corrective actions included reconnecting sync reference to BEL RTN / PIN 7, cleaning all bonding connections, and relocating PORT/STBD MPCS grounds to the same busbar terminal as the GPM-12.\n\nPropulsion operation contributed to the noise environment corrupting sync signals, but the underlying vulnerability was wiring configuration.\n\n**Open item:** A log entry from 31 December 2025 records CPP cooling loss and BEL shutdown when engaging propulsion with both generators running; the problem does not occur with generators off. Root cause remains undetermined. [Running log.xlsx, sheet=Sheet1, row=22] This is consistent with an unresolved BEL overloading issue flagged in CM-26-2024 §6: 50A current peaks per BEL during nominal AUX load, still open as of",
+  "summary_meta": {
+    "model": "claude-haiku-4-5",
+    "updated_at": "2026-07-10T13:50:18+00:00",
+    "input_tokens": 1482,
+    "output_tokens": 500
+  },
+  "turns": [
+    {
+      "turn_index": 2,
+      "timestamp": "2026-07-10T13:49:44+00:00",
+      "question": "Is any of that still an open issue today?",
+      "answer": "Based on the locked vessel facts and the retrieved context, here's the status of each item from CM-26-2024:\n\n---\n\n**Sync reference reconnected to BEL RTN / PIN 7** — closed. Completed during the April 2026 site visit.\n\n**Bonding connections cleaned** — closed. Completed during the April 2026 site visit.\n\n**PORT + STBD MPCS grounds relocated to GPM-12 busbar terminal** — closed. Completed during the April 2026 site visit.\n\n**Additional grounding cables GPM-12 ↔ PORT MPCS and GPM-12 ↔ STBD MPCS** — closed. Completed during the April 2026 site visit.\n\n---\n\n**Still open as of April 2026 (CM-26-2024 §6), and no log entry resolves either:**\n\n1. **BEL overloading** — 50A current peaks per BEL during nominal AUX load, tripping breakers and taking the system offline. Root cause not yet determined. Nothing in the running log or retrieved context closes this.\n\n2. **GPM-12 alignment** — motor orbiting the main shaft, alignment out of spec, threatening the GPM-12 input bearing and Hundested gearbox. Nothing in the running log or retrieved context closes this either.\n\n[108-01_BAE-report-20260403.pdf, p.4]\n\n---\n\nBoth of those were flagged as unresolved at the time of the BAE report (3 April 2026 — just over three months ago). I have no log entry showing either has been addressed since. Worth confirming with the running log directly, but as of what I can see: **both remain open**."
+    },
+    {
+      "turn_index": 3,
+      "timestamp": "2026-07-10T13:49:59+00:00",
+      "question": "One line only: which document is the current authoritative source on the BEL root cause?",
+      "answer": "**CM-26-2024, documented in [108-01_BAE-report-20260403.pdf].**"
+    },
+    {
+      "turn_index": 4,
+      "timestamp": "2026-07-10T13:50:11+00:00",
+      "question": "And one line: who is the BAE contact for escalating the two open items?",
+      "answer": "**George Zalesski, Advanced Apps Systems Lead — the engineer who authored CM-26-2024.** [108-01_BAE-report-20260403.pdf, p.1]"
+    }
+  ]
+}

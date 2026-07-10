@@ -35,6 +35,18 @@ class LLMProvider(ABC):
         cache_creation_input_tokens}."""
         ...
 
+    @abstractmethod
+    def complete_messages(
+        self,
+        system: Union[str, List[Dict[str, Any]]],
+        messages: List[Dict[str, str]],
+        max_tokens: int = 1024,
+    ) -> Dict[str, Any]:
+        """Multi-turn completion over an explicit message list
+        ([{"role": "user"|"assistant", "content": str}, ...], ending on a
+        user turn). Returns the same usage dict shape as complete_full()."""
+        ...
+
     @property
     @abstractmethod
     def model_name(self) -> str:
@@ -53,11 +65,21 @@ class AnthropicProvider(LLMProvider):
         return self.complete_full(system, user, max_tokens)["text"]
 
     def complete_full(self, system, user: str, max_tokens: int = 1024) -> Dict[str, Any]:
+        return self.complete_messages(
+            system, [{"role": "user", "content": user}], max_tokens
+        )
+
+    def complete_messages(
+        self,
+        system,
+        messages: List[Dict[str, str]],
+        max_tokens: int = 1024,
+    ) -> Dict[str, Any]:
         response = self._client.messages.create(
             model=self._model,
             max_tokens=max_tokens,
             system=system,
-            messages=[{"role": "user", "content": user}],
+            messages=messages,
         )
         usage = response.usage
         return {
