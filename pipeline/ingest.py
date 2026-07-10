@@ -186,7 +186,7 @@ def ingest_file(
     # Parser-specific summary fields (presentational; suffix-branched per spec).
     if suffix == ".pdf":
         summary.update({"pages_total": 0, "pages_with_text": 0, "pages_skipped": 0})
-    elif suffix == ".xlsx":
+    elif suffix in (".xlsx", ".csv"):
         summary.update({"rows_total": 0, "sheets_total": 0})
     elif suffix == ".docx":
         summary.update({"sections_total": 0, "images_skipped": 0})
@@ -220,7 +220,7 @@ def ingest_file(
             path.name, summary["pages_with_text"], summary["pages_total"],
             summary["pages_skipped"],
         )
-    elif suffix == ".xlsx":
+    elif suffix in (".xlsx", ".csv"):
         summary["rows_total"] = int(parsed["total_rows"])
         summary["sheets_total"] = int(parsed["total_sheets"])
         rows_kept = len(parsed["rows"])

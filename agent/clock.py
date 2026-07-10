@@ -68,14 +68,59 @@ def clock_floor() -> Optional[datetime]:
     return floor
 
 
+# Forward-jump tolerance: how far ahead of the agent's own last outbound call
+# the clock may read before being flagged. Soft by design — a legitimately
+# dormant laptop looks identical to a CMOS reset into the future, so we flag
+# (stop trusting recency) rather than hard-block. 45 days accommodates a yard
+# period / long delivery gap; a BIOS-default jump is typically years.
+_FORWARD_JUMP_TOLERANCE_DAYS = 45
+
+
+def _last_agent_activity() -> Optional[datetime]:
+    """Timestamp of the agent's own most recent logged call (logs/agent.log,
+    JSON-lines, each with an ISO 'timestamp'). None if no log yet."""
+    path = config.LOGS_DIR / "agent.log"
+    if not path.exists():
+        return None
+    last: Optional[datetime] = None
+    try:
+        with path.open(encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    dt = _parse_iso(json.loads(line).get("timestamp"))
+                except (json.JSONDecodeError, AttributeError):
+                    continue
+                if dt and (last is None or dt > last):
+                    last = dt
+    except OSError:
+        return None
+    return last
+
+
 def clock_status(now: Optional[datetime] = None) -> Tuple[datetime, bool, Optional[datetime]]:
     """
     Return (now, suspect, floor).
 
     `now` defaults to the live system clock (UTC). `suspect` is True when the
-    clock reads earlier than the most recent recorded ingest — i.e. it cannot be
-    trusted to judge how recent an event is. `floor` is that reference timestamp
-    (or None if nothing has been ingested yet, in which case suspect is False).
+    clock cannot be trusted to judge how recent an event is, in either direction:
+
+    BEHIND (hard): now < floor, where floor is the most recent recorded
+    ingest/build timestamp — you can't query before your last ingest. Fails
+    toward caution (old-looking events are under-mentioned, never fabricated
+    as recent).
+
+    AHEAD (soft): now runs more than _FORWARD_JUMP_TOLERANCE_DAYS past the
+    agent's own last logged call AND past the ingest floor. A forward-jumped
+    clock is the MORE dangerous direction — it makes genuinely old documented
+    patterns compute as 'recent', re-introducing the Step-0 priming risk. A
+    genuinely dormant laptop trips this too, which is acceptable: the cost is
+    the agent not volunteering recency, never a wrong fact. The proper fix is
+    the GNSS cross-check once the Exocet poller lands.
+
+    `floor` is the behind-check reference (or None if nothing ingested yet).
     """
     now = now or datetime.now(timezone.utc)
     floor = clock_floor()
@@ -86,4 +131,19 @@ def clock_status(now: Optional[datetime] = None) -> Tuple[datetime, bool, Option
             "unreliable; recent-event window flagged to the agent.",
             now.date().isoformat(), floor.date().isoformat(),
         )
+        return now, suspect, floor
+
+    last_call = _last_agent_activity()
+    refs = [t for t in (last_call, floor) if t is not None]
+    if refs:
+        newest = max(refs)
+        ahead_days = (now - newest).total_seconds() / 86400.0
+        if ahead_days > _FORWARD_JUMP_TOLERANCE_DAYS:
+            suspect = True
+            logger.warning(
+                "System clock (%s) runs %.0f days past the last recorded "
+                "activity (%s) — possible forward clock jump (or long dormancy); "
+                "recency judgements flagged as untrusted either way.",
+                now.date().isoformat(), ahead_days, newest.date().isoformat(),
+            )
     return now, suspect, floor

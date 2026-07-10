@@ -443,9 +443,83 @@ def parse_pptx(path: Path) -> Dict[str, Any]:
             "sections": sections}
 
 
+def parse_csv(path: Path) -> Dict[str, Any]:
+    """
+    Parse a .csv into one chunk per non-empty data row — the tabular treatment
+    parse_xlsx already gives workbooks, so CSV sealogs cite as [file, row=N].
+
+    Same header rule as parse_xlsx: header = first row with >=2 non-empty
+    cells within the first 10 rows (skips title/blank lead-ins). Delimiter is
+    sniffed (comma/semicolon/tab); encoding tried utf-8-sig then latin-1
+    (sealog exports are frequently latin-1).
+
+    Returns the parse_xlsx shape: {"total_rows", "total_sheets": 1,
+    "rows": [{"row_number", "sheet_name": "csv", "text", "token_count"}]}.
+    """
+    import csv as _csv
+
+    path = Path(path)
+    if not path.exists():
+        raise FileNotFoundError(f"CSV not found: {path}")
+
+    raw = path.read_bytes()
+    for enc in ("utf-8-sig", "latin-1"):
+        try:
+            text = raw.decode(enc)
+            break
+        except UnicodeDecodeError:
+            continue
+    else:
+        raise ValueError(f"CSV not decodable as utf-8 or latin-1: {path}")
+
+    # Delimiter: the candidate most frequent across the first 20 lines. The
+    # stdlib Sniffer fails on files with a delimiter-free title line; counting
+    # is robust to that.
+    head = text.splitlines()[:20]
+    delim = max(",;\t", key=lambda d: sum(ln.count(d) for ln in head))
+
+    reader = _csv.reader(text.splitlines(), delimiter=delim)
+    HEADER_SCAN_LIMIT = 10
+    headers: List[tuple] = []
+    header_row_num = 0
+    rows_out: List[Dict[str, Any]] = []
+    total_rows = 0
+    for idx, row in enumerate(reader, start=1):
+        if not headers:
+            candidate = [(ci, c.strip()) for ci, c in enumerate(row) if c and c.strip()]
+            if len(candidate) >= 2:
+                headers = candidate
+                header_row_num = idx
+            elif idx >= HEADER_SCAN_LIMIT:
+                break
+            continue
+        total_rows += 1
+        lines = []
+        for col_idx, header in headers:
+            if col_idx >= len(row):
+                continue
+            cell = (row[col_idx] or "").strip()
+            if cell:
+                lines.append(f"{header}: {cell}")
+        if not lines:
+            continue
+        body = "\n".join(lines)
+        rows_out.append({
+            "row_number": idx,
+            "sheet_name": "csv",
+            "text": body,
+            "token_count": len(_XLSX_ENCODER.encode(body)),
+        })
+    if not headers:
+        logger.warning("CSV %s: no header row (>=2 cells) found in first %d rows.",
+                       path.name, HEADER_SCAN_LIMIT)
+    return {"total_rows": total_rows, "total_sheets": 1, "rows": rows_out}
+
+
 PARSER_REGISTRY = {
     ".pdf":  {"parser": parse_pdf,  "needs_chunking": True},
     ".xlsx": {"parser": parse_xlsx, "needs_chunking": False},
     ".docx": {"parser": parse_docx, "needs_chunking": True},
     ".pptx": {"parser": parse_pptx, "needs_chunking": True},
+    ".csv":  {"parser": parse_csv,  "needs_chunking": False},
 }

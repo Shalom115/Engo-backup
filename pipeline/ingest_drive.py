@@ -63,11 +63,11 @@ TEXT_MIMES = {
     "application/vnd.openxmlformats-officedocument.wordprocessingml.document": ("docx", ".docx"),
     "application/vnd.google-apps.document": ("gdoc", ".docx"),
     "application/vnd.google-apps.spreadsheet": ("gsheet", ".xlsx"),
+    "text/csv": ("csv", ".csv"),
 }
 VISION_PREFIXES = ("image/",)
 VISION_MIMES = {"application/dxf", "application/postscript"}
 UNSUPPORTED_REASON = {
-    "text/csv": "no csv parser",
     "application/vnd.ms-excel": "legacy .xls (unsupported)",
     "application/msword": "legacy .doc (unsupported)",
     "message/rfc822": "email (unsupported)",
@@ -212,6 +212,13 @@ def run(regions: Optional[List[str]] = None, limit: Optional[int] = None,
         mime = p.get("mime", "")
         kind = _classify(mime)
         region = p.get("region_code") or "—"
+
+        # macOS AppleDouble resource-fork stubs ('._<name>') are not documents —
+        # the 2026-06-09 run's 6 "errors" were all these. Skip explicitly.
+        if p.get("name", "").startswith("._"):
+            record({"file_id": fid, "bucket": "skipped", "region": region,
+                    "name": p["name"], "reason": "macOS AppleDouble stub (._)"})
+            continue
 
         if kind == "vision":
             record({"file_id": fid, "bucket": "pending_vision", "region": region,

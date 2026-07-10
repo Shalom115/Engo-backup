@@ -18,7 +18,7 @@ reads its spec there — and §0 of that file — before starting a task.**
   confirmation-list mechanism. **All done + engineer-graded.**
 ### Ch 1.3 Cleanup 🔨
 - S1 ✅ legacy core re-place→purge→HyDE (854 out / 184 in / spot-checks pass)
-- S2 ⬜ small residue: `._` skip-list; CSV sealogs; .gsheet/.gdoc pointers 🔴(which matter)
+- S2 🔨 small residue: `._` skip-list ✅ + CSV parser ✅ (built+tested 2026-07-10; sealog ingest on next drive run); .gsheet/.gdoc pointers 🔴(which matter)
 - S3 🔨 operational/live lists channel — YMP API now live changes the picture; reconcile + red-pen 🔴
 ### Ch 1.4 PMS/YMP channel (NEW) ✅ read / ⬜ write (future, hard-gated)
 - Read-only YMP provider LIVE (equipment/jobs/inventory; 21 matches written as facts).
@@ -29,7 +29,10 @@ reads its spec there — and §0 of that file — before starting a task.**
 - system_archetypes.md v0.4 (sheet-reading sequence · loop-following · symbol traps ·
   15 system archetypes) + legend_first.py CODE-ENFORCED in both extractors (legends
   read before any symbol, by default) + power_path.py (circuit-loop facts on nodes) +
-  node_crossref.py (doc-class completeness + corroboration/conflict on every fact write).
+  node_crossref.py (doc-class completeness + corroboration/conflict on every fact write) +
+  **drawing-symbol glossary** (prompts/drawing_symbol_glossary.md, engineer-confirmed
+  red-pen rules → injected into all electrical prompts via symbol_glossary.py; the §6
+  future-build; validated live: wire-gauge diamonds now read as annotation, 2026-07-10).
 ### Ch 2.1 Hydraulic ✅ (the template class)
 - discover_structure, tiling, locate_and_read, control-map routing, REAL write pass (10 sheets),
   per-installation repair. Remaining subject: `General` sheet parts-list → Ch 2.4 (BOM protocol).
