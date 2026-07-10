@@ -1,0 +1,76 @@
+{
+  "description": "Retrieval eval query set for Engo (Ch 4.4 S2). Each entry: id, query, expected_files (substring patterns matched case-insensitively against retrieved chunk file_name/display_name metadata), k, notes. A query PASSES if ANY expected pattern matches ANY of the top-k retrieved chunks' file names. Entries with empty expected_files are known-absent probes: no relevance assertion, the harness records best distance (documents the deferred ~0.6 threshold question). Assert top-k membership only, NEVER exact rank (Voyage embeddings are non-deterministic across calls). Engineer: extend freely — add entries with new ids; patterns must be verified to exist in the store (or deliberately absent, with expected_files []).",
+  "vessel_namespace": "gelliceaux_001",
+  "queries": [
+    {
+      "id": "case1_bel_crash",
+      "query": "What caused the BEL crashes when the ACTM was engaged?",
+      "expected_files": ["108-01_BAE-report", "CM-24-1732"],
+      "k": 5,
+      "notes": "Validation case #1. CM-26-2024 (108-01_BAE-report-20260403.pdf) is authoritative (sync signal corruption); CM-24-1732 is the earlier investigation. Either in top-5 passes."
+    },
+    {
+      "id": "case_actm_definition",
+      "query": "What does ACTM stand for?",
+      "expected_files": ["M50GB3825"],
+      "k": 5,
+      "notes": "Test A (definitional). M50GB3825 Diesel Electric User's Manual contains the definition (p.20)."
+    },
+    {
+      "id": "case2_traction_motor_maintenance",
+      "query": "What maintenance is due on the traction motor?",
+      "expected_files": ["BAE GPM-12 Datasheet", "M50GB3822"],
+      "k": 5,
+      "notes": "Validation case #2. GPM-12 datasheet (CS-21-D82, ingested as 'BAE GPM-12 Datasheet.pdf') or the HybriGen Maintenance Manual (M50GB3822 — variant-disambiguation source) in top-5."
+    },
+    {
+      "id": "crossvocab_exocet_simultaneous_load",
+      "query": "simultaneous load on BAE_Motor_LoadPower_pt and _stbd",
+      "expected_files": ["CM-22-702"],
+      "k": 5,
+      "notes": "THE HyDE cross-vocabulary case: Exocet sensor vocabulary -> HVPDU architecture doc. Pre-HyDE this ranked ~7th (0.6451); post-HyDE position 2 (0.5491). Regression guard for HyDE coverage."
+    },
+    {
+      "id": "engvocab_hvpdu_s2_switch",
+      "query": "How does the HVPDU S2 switch select which MPCS drives the propulsion motor?",
+      "expected_files": ["CM-22-702"],
+      "k": 5,
+      "notes": "Same topic as crossvocab case but in engineering-document vocabulary. Historically strong (0.37-0.46). Control pair for the cross-vocab case."
+    },
+    {
+      "id": "xlsx_running_log_raw_water",
+      "query": "raw water system repair December 2025",
+      "expected_files": ["Running log"],
+      "k": 5,
+      "notes": "xlsx row retrieval — 15 Dec 2025 MSWCP-P repair entry in Running log.xlsx (pattern also matches 'Running log Shalom(AutoRecovered).xlsx', the same log's autorecovered copy)."
+    },
+    {
+      "id": "xlsx_inventory_bow_thruster_spares",
+      "query": "OMS bow thruster spares",
+      "expected_files": ["Gelliceaux inventory"],
+      "k": 5,
+      "notes": "xlsx inventory lookup — Box 31 O-ring entries in Gelliceaux inventory.xlsx. Pattern kept tight to the file the original validation ran against; other inventory files matching would be a miss to examine, not silently accept."
+    },
+    {
+      "id": "xlsx_tools_fluke_thermal",
+      "query": "Fluke thermal camera onboard?",
+      "expected_files": ["Gelliceaux tools"],
+      "k": 5,
+      "notes": "xlsx tools lookup — validated 2026-05-16 with sheet/row citation."
+    },
+    {
+      "id": "handover_dock_water_bypass",
+      "query": "bypass to dock water procedure",
+      "expected_files": ["Handover Notes 2025"],
+      "k": 5,
+      "notes": "Procedure-aware chunking case (Block C) — FRESH WATER tab of 'SY Gelliceaux Engineering Handover Notes 2025.pdf' ranked #1 at d=0.419 when validated 2026-06-17."
+    },
+    {
+      "id": "absent_keel_bolt_torque",
+      "query": "keel bolt torque spec",
+      "expected_files": [],
+      "k": 5,
+      "notes": "KNOWN-ABSENT case (Test C). The spec is not in the corpus; no relevance assertion. Harness records best distance — the data point for the deferred ~0.6 distance-threshold decision (historically Owner's Manual chunks at 0.61-0.63). Pass = recorded, nothing more."
+    }
+  ]
+}

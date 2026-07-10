@@ -1,0 +1,582 @@
+{
+  "ran_at": "2026-07-10T13:45:36.971614+00:00",
+  "vessel_namespace": "gelliceaux_001",
+  "queries_file": "/Users/captain/projects/gelliceaux/tests/eval_queries_gelliceaux.json",
+  "retrieval_distance_threshold_in_effect": null,
+  "assertion_policy": "expected document appears in top-k; exact rank NEVER asserted (Voyage non-determinism)",
+  "aggregate": {
+    "scored_queries": 9,
+    "hits": 8,
+    "misses": 1,
+    "hit_rate": 0.8889,
+    "known_absent_probes": 1,
+    "miss_ids": [
+      "crossvocab_exocet_simultaneous_load"
+    ]
+  },
+  "threshold_stats": {
+    "matched_chunk_distances": {
+      "n": 8,
+      "min": 0.3729,
+      "max": 0.537,
+      "mean": 0.4618,
+      "median": 0.4758
+    },
+    "matched_chunk_distance_values": [
+      0.5252,
+      0.4932,
+      0.4082,
+      0.3734,
+      0.5259,
+      0.3729,
+      0.4585,
+      0.537
+    ],
+    "known_absent_best_distances": [
+      0.4183
+    ],
+    "note": "A distance threshold must sit ABOVE max(matched_chunk_distances) and ideally BELOW min(known_absent_best_distances). Observation only \u2014 tuning stays deferred per CLAUDE.md until the engineer decides."
+  },
+  "results": [
+    {
+      "id": "case1_bel_crash",
+      "query": "What caused the BEL crashes when the ACTM was engaged?",
+      "k": 5,
+      "expected_files": [
+        "108-01_BAE-report",
+        "CM-24-1732"
+      ],
+      "known_absent": false,
+      "hit_at_k": true,
+      "matched_file": "CM-24-1732 SW108-01 Investigation Report.docx",
+      "matched_pattern": "CM-24-1732",
+      "matched_rank_informational": 1,
+      "best_distance": 0.5252,
+      "distances": [
+        0.5252,
+        0.5376,
+        0.5628,
+        0.563,
+        0.563
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "file_name": "CM-24-1732 SW108-01 Investigation Report.docx",
+          "chunk_id": "7e54248da253ac9d8ae3d41ec355329607a7a1516b404a5ecd6349f2f6b0c0ee:18",
+          "distance": 0.5252
+        },
+        {
+          "rank": 2,
+          "file_name": "CM-24-1732 SW108-01 Investigation Report.docx",
+          "chunk_id": "7e54248da253ac9d8ae3d41ec355329607a7a1516b404a5ecd6349f2f6b0c0ee:17",
+          "distance": 0.5376
+        },
+        {
+          "rank": 3,
+          "file_name": "CM-24-1732 SW108-01 Investigation Report.docx",
+          "chunk_id": "7e54248da253ac9d8ae3d41ec355329607a7a1516b404a5ecd6349f2f6b0c0ee:16",
+          "distance": 0.5628
+        },
+        {
+          "rank": 4,
+          "file_name": "Running log.xlsx",
+          "chunk_id": "c9455e98394f1e6a59352725334d7276bb7ab5e766c5db5b3922de210c0452d4:20",
+          "distance": 0.563
+        },
+        {
+          "rank": 5,
+          "file_name": "Running log Shalom(AutoRecovered).xlsx",
+          "chunk_id": "3a0cf0abc52d5c5121ac292386b02e1c310d7c526270c9d0d4c5a56d2bc03e12:20",
+          "distance": 0.563
+        }
+      ],
+      "notes": "Validation case #1. CM-26-2024 (108-01_BAE-report-20260403.pdf) is authoritative (sync signal corruption); CM-24-1732 is the earlier investigation. Either in top-5 passes."
+    },
+    {
+      "id": "case_actm_definition",
+      "query": "What does ACTM stand for?",
+      "k": 5,
+      "expected_files": [
+        "M50GB3825"
+      ],
+      "known_absent": false,
+      "hit_at_k": true,
+      "matched_file": "M50GB3825, Rev -, Diesel Electric User's Manual.pdf",
+      "matched_pattern": "M50GB3825",
+      "matched_rank_informational": 1,
+      "best_distance": 0.4932,
+      "distances": [
+        0.4932,
+        0.5042,
+        0.5074,
+        0.5425,
+        0.552
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "file_name": "M50GB3825, Rev -, Diesel Electric User's Manual.pdf",
+          "chunk_id": "5a329b4b99d40e1cde859ce4693b78e3b4116c4c7bc514c65f41f2647a1c90c2:30",
+          "distance": 0.4932
+        },
+        {
+          "rank": 2,
+          "file_name": "M50GB3825, Rev -, Diesel Electric User's Manual.pdf",
+          "chunk_id": "5a329b4b99d40e1cde859ce4693b78e3b4116c4c7bc514c65f41f2647a1c90c2:37",
+          "distance": 0.5042
+        },
+        {
+          "rank": 3,
+          "file_name": "M50GB3822, HybriGen-\u00ab Maintenance Manual.pdf",
+          "chunk_id": "7be82c90990261841e144d4923815300c91093578e4a1efa3d2b57e0ef99b6d3:20",
+          "distance": 0.5074
+        },
+        {
+          "rank": 4,
+          "file_name": "ACTM ISG_datasheet.pdf",
+          "chunk_id": "5dd651820bc6f2836d1714b0c280b5a6122832df25068bf83013a27d4ea51063:1",
+          "distance": 0.5425
+        },
+        {
+          "rank": 5,
+          "file_name": "M50GB3825, Rev -, Diesel Electric User's Manual.pdf",
+          "chunk_id": "5a329b4b99d40e1cde859ce4693b78e3b4116c4c7bc514c65f41f2647a1c90c2:25",
+          "distance": 0.552
+        }
+      ],
+      "notes": "Test A (definitional). M50GB3825 Diesel Electric User's Manual contains the definition (p.20)."
+    },
+    {
+      "id": "case2_traction_motor_maintenance",
+      "query": "What maintenance is due on the traction motor?",
+      "k": 5,
+      "expected_files": [
+        "BAE GPM-12 Datasheet",
+        "M50GB3822"
+      ],
+      "known_absent": false,
+      "hit_at_k": true,
+      "matched_file": "M50GB3822, HybriGen-\u00ab Maintenance Manual.pdf",
+      "matched_pattern": "M50GB3822",
+      "matched_rank_informational": 1,
+      "best_distance": 0.4082,
+      "distances": [
+        0.4082,
+        0.4803,
+        0.5075,
+        0.5099,
+        0.5134
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "file_name": "M50GB3822, HybriGen-\u00ab Maintenance Manual.pdf",
+          "chunk_id": "7be82c90990261841e144d4923815300c91093578e4a1efa3d2b57e0ef99b6d3:1",
+          "distance": 0.4082
+        },
+        {
+          "rank": 2,
+          "file_name": "M50GB3822, HybriGen-\u00ab Maintenance Manual.pdf",
+          "chunk_id": "7be82c90990261841e144d4923815300c91093578e4a1efa3d2b57e0ef99b6d3:20",
+          "distance": 0.4803
+        },
+        {
+          "rank": 3,
+          "file_name": "M50GB3822, HybriGen-\u00ab Maintenance Manual.pdf",
+          "chunk_id": "7be82c90990261841e144d4923815300c91093578e4a1efa3d2b57e0ef99b6d3:25",
+          "distance": 0.5075
+        },
+        {
+          "rank": 4,
+          "file_name": "M50GB3822, HybriGen-\u00ab Maintenance Manual.pdf",
+          "chunk_id": "7be82c90990261841e144d4923815300c91093578e4a1efa3d2b57e0ef99b6d3:8",
+          "distance": 0.5099
+        },
+        {
+          "rank": 5,
+          "file_name": "M50GB3825, Rev -, Diesel Electric User's Manual.pdf",
+          "chunk_id": "5a329b4b99d40e1cde859ce4693b78e3b4116c4c7bc514c65f41f2647a1c90c2:2",
+          "distance": 0.5134
+        }
+      ],
+      "notes": "Validation case #2. GPM-12 datasheet (CS-21-D82, ingested as 'BAE GPM-12 Datasheet.pdf') or the HybriGen Maintenance Manual (M50GB3822 \u2014 variant-disambiguation source) in top-5."
+    },
+    {
+      "id": "crossvocab_exocet_simultaneous_load",
+      "query": "simultaneous load on BAE_Motor_LoadPower_pt and _stbd",
+      "k": 5,
+      "expected_files": [
+        "CM-22-702"
+      ],
+      "known_absent": false,
+      "hit_at_k": false,
+      "matched_file": null,
+      "matched_pattern": null,
+      "matched_rank_informational": null,
+      "best_distance": 0.4437,
+      "distances": [
+        0.4437,
+        0.4553,
+        0.4972,
+        0.5029,
+        0.5031
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "file_name": "108-01 Owner's Manual Rev1 2023-08-08.pdf",
+          "chunk_id": "1972ad90d67024ea876f80011bb2275ef46398918290a4f6b41395f94d4bf357:64",
+          "distance": 0.4437
+        },
+        {
+          "rank": 2,
+          "file_name": "M50GB3822, HybriGen-\u00ab Maintenance Manual.pdf",
+          "chunk_id": "7be82c90990261841e144d4923815300c91093578e4a1efa3d2b57e0ef99b6d3:6",
+          "distance": 0.4553
+        },
+        {
+          "rank": 3,
+          "file_name": "108-01_BAE-report-20260403.pdf",
+          "chunk_id": "65344cf2ccecdc06df3fada833216aee3cc8e2f00ffff79a51d7701530d615cd:15",
+          "distance": 0.4972
+        },
+        {
+          "rank": 4,
+          "file_name": "108-01_BAE-report-20260403.pdf",
+          "chunk_id": "65344cf2ccecdc06df3fada833216aee3cc8e2f00ffff79a51d7701530d615cd:0",
+          "distance": 0.5029
+        },
+        {
+          "rank": 5,
+          "file_name": "108-01 Owner's Manual Rev1 2023-08-08.pdf",
+          "chunk_id": "1972ad90d67024ea876f80011bb2275ef46398918290a4f6b41395f94d4bf357:31",
+          "distance": 0.5031
+        }
+      ],
+      "notes": "THE HyDE cross-vocabulary case: Exocet sensor vocabulary -> HVPDU architecture doc. Pre-HyDE this ranked ~7th (0.6451); post-HyDE position 2 (0.5491). Regression guard for HyDE coverage."
+    },
+    {
+      "id": "engvocab_hvpdu_s2_switch",
+      "query": "How does the HVPDU S2 switch select which MPCS drives the propulsion motor?",
+      "k": 5,
+      "expected_files": [
+        "CM-22-702"
+      ],
+      "known_absent": false,
+      "hit_at_k": true,
+      "matched_file": "CM-22-702 - SW108-01 HVPDU Requirements, Rev 1.pdf",
+      "matched_pattern": "CM-22-702",
+      "matched_rank_informational": 1,
+      "best_distance": 0.3734,
+      "distances": [
+        0.3734,
+        0.3837,
+        0.4111,
+        0.4306,
+        0.4306
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "file_name": "CM-22-702 - SW108-01 HVPDU Requirements, Rev 1.pdf",
+          "chunk_id": "17bfd6b501a4de0bfe21951683b41d5800125b46511f254ef2db73834016c3f9:2",
+          "distance": 0.3734
+        },
+        {
+          "rank": 2,
+          "file_name": "CM-22-702 - SW108-01 HVPDU Requirements, Rev 1.pdf",
+          "chunk_id": "17bfd6b501a4de0bfe21951683b41d5800125b46511f254ef2db73834016c3f9:3",
+          "distance": 0.3837
+        },
+        {
+          "rank": 3,
+          "file_name": "CM-22-702 - SW108-01 HVPDU Requirements, Rev 1.pdf",
+          "chunk_id": "17bfd6b501a4de0bfe21951683b41d5800125b46511f254ef2db73834016c3f9:8",
+          "distance": 0.4111
+        },
+        {
+          "rank": 4,
+          "file_name": "HV Wiring.xlsx",
+          "chunk_id": "5ef9b6b20f6d8f40359fc8ffd274966e22c88e1d5b2aa44c35e1c1663d3dff8d:10",
+          "distance": 0.4306
+        },
+        {
+          "rank": 5,
+          "file_name": "HV Wiring.xlsx",
+          "chunk_id": "5ef9b6b20f6d8f40359fc8ffd274966e22c88e1d5b2aa44c35e1c1663d3dff8d:11",
+          "distance": 0.4306
+        }
+      ],
+      "notes": "Same topic as crossvocab case but in engineering-document vocabulary. Historically strong (0.37-0.46). Control pair for the cross-vocab case."
+    },
+    {
+      "id": "xlsx_running_log_raw_water",
+      "query": "raw water system repair December 2025",
+      "k": 5,
+      "expected_files": [
+        "Running log"
+      ],
+      "known_absent": false,
+      "hit_at_k": true,
+      "matched_file": "Running log.xlsx",
+      "matched_pattern": "Running log",
+      "matched_rank_informational": 3,
+      "best_distance": 0.5082,
+      "distances": [
+        0.5082,
+        0.5098,
+        0.5259,
+        0.5265,
+        0.5283
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "file_name": "Ventilation spares list in process.xlsx",
+          "chunk_id": "bd4cdf6c1909f96c4a863a2728b69064ec6ea439ea18b05ad00549879ade330d:23",
+          "distance": 0.5082
+        },
+        {
+          "rank": 2,
+          "file_name": "Ventilation spares list in process.xlsx",
+          "chunk_id": "bd4cdf6c1909f96c4a863a2728b69064ec6ea439ea18b05ad00549879ade330d:20",
+          "distance": 0.5098
+        },
+        {
+          "rank": 3,
+          "file_name": "Running log.xlsx",
+          "chunk_id": "c9455e98394f1e6a59352725334d7276bb7ab5e766c5db5b3922de210c0452d4:71",
+          "distance": 0.5259
+        },
+        {
+          "rank": 4,
+          "file_name": "Ventilation spares list in process.xlsx",
+          "chunk_id": "bd4cdf6c1909f96c4a863a2728b69064ec6ea439ea18b05ad00549879ade330d:22",
+          "distance": 0.5265
+        },
+        {
+          "rank": 5,
+          "file_name": "Ventilation spares list in process.xlsx",
+          "chunk_id": "bd4cdf6c1909f96c4a863a2728b69064ec6ea439ea18b05ad00549879ade330d:21",
+          "distance": 0.5283
+        }
+      ],
+      "notes": "xlsx row retrieval \u2014 15 Dec 2025 MSWCP-P repair entry in Running log.xlsx (pattern also matches 'Running log Shalom(AutoRecovered).xlsx', the same log's autorecovered copy)."
+    },
+    {
+      "id": "xlsx_inventory_bow_thruster_spares",
+      "query": "OMS bow thruster spares",
+      "k": 5,
+      "expected_files": [
+        "Gelliceaux inventory"
+      ],
+      "known_absent": false,
+      "hit_at_k": true,
+      "matched_file": "Gelliceaux inventory.xlsx",
+      "matched_pattern": "Gelliceaux inventory",
+      "matched_rank_informational": 2,
+      "best_distance": 0.3605,
+      "distances": [
+        0.3605,
+        0.3729,
+        0.3767,
+        0.3783,
+        0.387
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "file_name": "108-01_Lanzarote_list_20231123.xlsx",
+          "chunk_id": "364ec7b9323df500cf8f468535d07b9518996073992fc55f39c1ab43dcad140d:99",
+          "distance": 0.3605
+        },
+        {
+          "rank": 2,
+          "file_name": "Gelliceaux inventory.xlsx",
+          "chunk_id": "6185b9d27b1f941b6f99906b0e08f99262b8c3fbbadb4740f04db694405b7c41:0",
+          "distance": 0.3729
+        },
+        {
+          "rank": 3,
+          "file_name": "108-01 SPARES LIST - SYSTEMS (Shared with Crew 2023-09-20).xlsx",
+          "chunk_id": "a8011bdb57dd5bf5338d994ead7c7e420b14eeb89f81438cdfafde425ded7a49:29",
+          "distance": 0.3767
+        },
+        {
+          "rank": 4,
+          "file_name": "108-01 SPARES LIST - SYSTEMS (Shared with Crew 2023-09-20).xlsx",
+          "chunk_id": "a8011bdb57dd5bf5338d994ead7c7e420b14eeb89f81438cdfafde425ded7a49:31",
+          "distance": 0.3783
+        },
+        {
+          "rank": 5,
+          "file_name": "Gelliceaux inventory.xlsx",
+          "chunk_id": "6185b9d27b1f941b6f99906b0e08f99262b8c3fbbadb4740f04db694405b7c41:2",
+          "distance": 0.387
+        }
+      ],
+      "notes": "xlsx inventory lookup \u2014 Box 31 O-ring entries in Gelliceaux inventory.xlsx. Pattern kept tight to the file the original validation ran against; other inventory files matching would be a miss to examine, not silently accept."
+    },
+    {
+      "id": "xlsx_tools_fluke_thermal",
+      "query": "Fluke thermal camera onboard?",
+      "k": 5,
+      "expected_files": [
+        "Gelliceaux tools"
+      ],
+      "known_absent": false,
+      "hit_at_k": true,
+      "matched_file": "Gelliceaux tools.xlsx",
+      "matched_pattern": "Gelliceaux tools",
+      "matched_rank_informational": 2,
+      "best_distance": 0.4367,
+      "distances": [
+        0.4367,
+        0.4585,
+        0.5592,
+        0.5736,
+        0.5982
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "file_name": "Tools list for sealogs.xlsx",
+          "chunk_id": "1e218b0ae16abe219db4e9a9b11a01e088c6e8dabe22247bf8a1c668a8d2fffa:3",
+          "distance": 0.4367
+        },
+        {
+          "rank": 2,
+          "file_name": "Gelliceaux tools.xlsx",
+          "chunk_id": "b160fbec928283b95f20c33c8618cc5b4deca7b0b15ef5d24d5b904b0b249722:6",
+          "distance": 0.4585
+        },
+        {
+          "rank": 3,
+          "file_name": "Navnet TZT3 brochure.pdf",
+          "chunk_id": "f174ec29d1dc37e1416ef808394edf456f8992717d39be5eb1d2dee4393ab25b:12",
+          "distance": 0.5592
+        },
+        {
+          "rank": 4,
+          "file_name": "Ray Marine VHF.pdf",
+          "chunk_id": "cb56bf321e3857e99bf1e5c4d5d074007e9b6687f627cd49b85ec1359fec087e:373",
+          "distance": 0.5736
+        },
+        {
+          "rank": 5,
+          "file_name": "Ray Marine VHF.pdf",
+          "chunk_id": "cb56bf321e3857e99bf1e5c4d5d074007e9b6687f627cd49b85ec1359fec087e:353",
+          "distance": 0.5982
+        }
+      ],
+      "notes": "xlsx tools lookup \u2014 validated 2026-05-16 with sheet/row citation."
+    },
+    {
+      "id": "handover_dock_water_bypass",
+      "query": "bypass to dock water procedure",
+      "k": 5,
+      "expected_files": [
+        "Handover Notes 2025"
+      ],
+      "known_absent": false,
+      "hit_at_k": true,
+      "matched_file": "SY Gelliceaux Engineering Handover Notes 2025.pdf",
+      "matched_pattern": "Handover Notes 2025",
+      "matched_rank_informational": 1,
+      "best_distance": 0.537,
+      "distances": [
+        0.537,
+        0.5896,
+        0.5922,
+        0.6082,
+        0.6097
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "file_name": "SY Gelliceaux Engineering Handover Notes 2025.pdf",
+          "chunk_id": "c73f3ffb57feb4b017d6c5f0ef49d5537fbaed99fb554d5c3095cade767bda97:5",
+          "distance": 0.537
+        },
+        {
+          "rank": 2,
+          "file_name": "SWS 108-01 Stability Information Booklet.pdf",
+          "chunk_id": "929ac75db529b6ad8f4ab61a9724f8b2b79c38727d9006173f92751b00404d90:68",
+          "distance": 0.5896
+        },
+        {
+          "rank": 3,
+          "file_name": "108-01 Stability Booklet-Approved.PDF",
+          "chunk_id": "16b4f9289c09f98cd6da5716b932b7303bbab8d23eac25548b8101ca33ef31bf:68",
+          "distance": 0.5922
+        },
+        {
+          "rank": 4,
+          "file_name": "Williams, owners manual.pdf",
+          "chunk_id": "0ec916e8ac73ab760ff4bda521ac7646a5b1955500d7f7bc2ccc05fb7c3e38a3:254",
+          "distance": 0.6082
+        },
+        {
+          "rank": 5,
+          "file_name": "Williams, owners manual.pdf",
+          "chunk_id": "0ec916e8ac73ab760ff4bda521ac7646a5b1955500d7f7bc2ccc05fb7c3e38a3:27",
+          "distance": 0.6097
+        }
+      ],
+      "notes": "Procedure-aware chunking case (Block C) \u2014 FRESH WATER tab of 'SY Gelliceaux Engineering Handover Notes 2025.pdf' ranked #1 at d=0.419 when validated 2026-06-17."
+    },
+    {
+      "id": "absent_keel_bolt_torque",
+      "query": "keel bolt torque spec",
+      "k": 5,
+      "expected_files": [],
+      "known_absent": true,
+      "hit_at_k": null,
+      "matched_file": null,
+      "matched_pattern": null,
+      "matched_rank_informational": null,
+      "best_distance": 0.4183,
+      "distances": [
+        0.4183,
+        0.5073,
+        0.5089,
+        0.5102,
+        0.5121
+      ],
+      "retrieved": [
+        {
+          "rank": 1,
+          "file_name": "27521400-00 Lifting keel Manual SWS 108-1.pdf",
+          "chunk_id": "12ab12297eb0a83fe7b21ead3a0516cea6eb8a528eac5fb77a8d9fe5415810a6:36",
+          "distance": 0.4183
+        },
+        {
+          "rank": 2,
+          "file_name": "Gelliceaux tools.xlsx",
+          "chunk_id": "b160fbec928283b95f20c33c8618cc5b4deca7b0b15ef5d24d5b904b0b249722:27",
+          "distance": 0.5073
+        },
+        {
+          "rank": 3,
+          "file_name": "27521400-00 Lifting keel Manual SWS 108-1.pdf",
+          "chunk_id": "12ab12297eb0a83fe7b21ead3a0516cea6eb8a528eac5fb77a8d9fe5415810a6:6",
+          "distance": 0.5089
+        },
+        {
+          "rank": 4,
+          "file_name": "108-01 Stability Booklet-Approved.PDF",
+          "chunk_id": "16b4f9289c09f98cd6da5716b932b7303bbab8d23eac25548b8101ca33ef31bf:98",
+          "distance": 0.5102
+        },
+        {
+          "rank": 5,
+          "file_name": "108-01 Stability Booklet-Approved.PDF",
+          "chunk_id": "16b4f9289c09f98cd6da5716b932b7303bbab8d23eac25548b8101ca33ef31bf:92",
+          "distance": 0.5121
+        }
+      ],
+      "notes": "KNOWN-ABSENT case (Test C). The spec is not in the corpus; no relevance assertion. Harness records best distance \u2014 the data point for the deferred ~0.6 distance-threshold decision (historically Owner's Manual chunks at 0.61-0.63). Pass = recorded, nothing more."
+    }
+  ]
+}
