@@ -16,7 +16,33 @@
 
 - [ENG] A DIAMOND enclosing a number, sitting ON a wire, is a WIRE-GAUGE CALLOUT —
   the number is the conductor cross-section in mm². It is an ANNOTATION, not a
-  device, not a terminal, and NOT a status signal.
+  device, not a terminal, and NOT a status signal. This holds however the callout
+  is labelled: a bare number, or a "junction/tap N", or "N — to <somewhere>",
+  drawn in a diamond on a conductor, is the same wire-gauge annotation.
+- [ENG] A group of conductors — one HI, one LO, and a SHIELD — twisted together is
+  a CAN BUS (twisted shielded pair). Any conductor labelled …HI / …LO with an
+  associated shield tap is a CAN-bus conductor: a signal bus, not a power line.
+  Type the shield tap and the HI/LO lines as status_signal (CAN), never power.
+- [ENG] HVIL = HIGH-VOLTAGE INTERLOCK LOOP — a safety signal on high-voltage
+  connectors: if a plug is not fully mated the loop opens and the HV system shuts
+  down. "HVIL", "HVIL IN", "HVIL OUT" are interlock signals (status_signal), not
+  power and not a manual switch.
+- [ENG] A block labelled "SWITCH" (e.g. SWITCH PORT / SWITCH STBD) on a
+  high-voltage or motor feed that carries MANY PINS and mates to external wiring
+  is a multi-pin HARNESS CONNECTOR / plug interface — the physical junction
+  between an external control system and internal motor/sensor wiring. It is NOT a
+  mechanical toggle and NOT a network switch. Type it as a connector/plug, not a
+  switch. (This is the plug-mistaken-for-a-switch trap.)
+- [ENG] A FUSE is drawn as a rectangle with a single line through it, placed inline
+  in a conductor; id prefix F (F3, F4…). Distinguish from a breaker; never type a
+  fuse as a status signal just because a monitoring tap sits near it.
+- [ENG] A label naming a power unit or bus (a battery/energy-storage bank, a
+  power-conversion/control unit, a HV/LV distribution bus) sitting on a HEAVY
+  conductor is a POWER connection to that unit — trace the loop supply→return,
+  don't type it status_signal just because the label is short. "follow that loop."
+- [ENG] A block that routes between alternative SUPPLIES (shore / auxiliary /
+  emergency, or which of two controllers drives a load) is a SOURCE SELECTOR — a
+  control, not a status signal.
 - [ENG] ID prefix "Re" (Re1, Re aux2, Re6…) = RELAY, always.
 - [ENG] The relay SYMBOL: a small rectangle with a dash through the middle and a
   dotted line above it. Dotted linkage lines tie a relay coil to the contacts it

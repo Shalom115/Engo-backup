@@ -1,0 +1,45 @@
+p3 GMMS 108'-101 — S1 -> selector to change which reading shown on Voltage gauge between L1-L2, L2-L3, L3-L1 (gauge selector)
+p3 GMMS 108'-101 — pin-7 -> correct, it's a negative
+p3 GMMS 108'-101 — dotted-line rectangle below F1/F2 -> dotted rectangle = confined box, here the HVPDU
+p3 GMMS 108'-101 — Q1/Q2 signal tap -> Q1 in the HVPDU, used for BEL
+p3 GMMS 108'-101 — Q3 signal tap -> Q3 connected to the EDN
+p4 GMMS 108'-101a — GR-1..GR-5 disconnect/synk -> skip
+p4 GMMS 108'-101a — GR-12/11/10/9 BELn TRIP -> connects to GM main panel to signal if the BEL is on or not; also a trip signal to a breaker to trip
+p4 GMMS 108'-101a — GR+6/GR-7 24V-SYNC P/R -> yes (signal)
+p4 GMMS 108'-101a — BLK SYNC pins (1,2,3,4,9,10,11,12) -> indicator for if this BEL is synced with the others
+p4 GMMS 108'-101a — Terminals 2-10 (incl AUX/BAE/NEG/+EM) -> directions to another drawing, dwg 410a
+p4 GMMS 108'-101a — BEL1-P/BEL2-P/BEL1-S/BEL2-S I/O contacts 3,7 -> signal to turn on or off over CAN bus
+p4 GMMS 108'-101a — S4 25A -> Breaker
+p4 GMMS 108'-101a — AUX 1 -> label in the emergency panel
+p4 GMMS 108'-101a — L1 / N 230V AC BUS -> power supply bus
+p4 GMMS 108'-101a — Aux contacts below K4 -> Relay 5, very important, follow its loop
+p4 GMMS 108'-101a — BAE / AUX -> power source selector
+p4 GMMS 108'-101a — +EM -> 24V + power from emergency panel
+p4 GMMS 108'-101a — contact group row 1 -> K1 contactor connecting BEL1 to power lines; engaged=connects BEL to 230V bus, disengaged=disconnects
+p4 GMMS 108'-101a — contact group row 2 -> K2 contactor (BEL2)
+p4 GMMS 108'-101a — contact group row 3 -> K3 contactor (BEL3)
+p4 GMMS 108'-101a — contact group row 4 -> K4 contactor (BEL4)
+p4 GMMS 108'-101a — lower section row 1 -> K5 controls auxiliary shore power (shore direct to boat when BAE off)
+p4 GMMS 108'-101a — dotted signal taps on contact groups -> this relay activates K5
+p5 GMMS 108'-102 — FW Pump contactor / 3-pole dotted gang -> current control relay model Siemens Sirius
+p5 GMMS 108'-102 — 27-1 MU-XX NO POWER IND -> these labels describe the T/C below it
+p5 GMMS 108'-102 — 28-2..32-6 MU-XX + MU-XX pin 1 -> indicator to control panel in Dwg 117, follow the loop; emergency ventilation control
+p5 GMMS 108'-102 — switch left-edge partial -> not sure
+p7 GMMS 108'-103 — 10 / 16 / 120 Junction/tap -> diamond with a number in it = wire gauge (covered already)
+p7 GMMS 108'-103 — to PORT MPCS from Port ISG -> shows power from Port ISG connected to Port MPCS
+p7 GMMS 108'-103 — to STBD MPCS from Stbd ISG (incl three arrow taps) -> shows power from STB ISG goes to STB MPCS
+p7 GMMS 108'-103 — 50 DINN partial -> partial reading, cropped equipment Dinnteco dinfil in folder 670, a lightning filter
+p7 GMMS 108'-103 — B+ STBD GENERATOR 112KW -> skip
+p8 GMMS 108'-110 — HVIL top -> HV safety interlock; if open the ESS shuts down for safety
+p8 GMMS 108'-110 — dotted line between 2 breaker signs -> breaker for + and breaker for -, if one trips it trips the other
+p8 GMMS 108'-110 — MAPS-P -> power supply from 600V bus bar to MAPS-P, follow that loop
+p8 GMMS 108'-110 — ESS -> + and - from the ESS supply the bar; MPCS supplies power to charge the ESS through that bar
+p8 GMMS 108'-110 — MPCS -> power supply from 600V bus bar to MPCS-P, follow that loop
+p8 GMMS 108'-110 — 23 / G3-K336 S (all shields) -> shield of twisted shielded cable; 1 pin hi, 1 pin lo + shield = CAN bus (twisted shielded pair)
+p8 GMMS 108'-110 — G3-K300R Key -> not sure
+p8 GMMS 108'-110 — G3-K321/K320/K421/K420 HVIL OUT/IN -> HVIL; on HV connections if the plug is not fully connected it shuts the power down
+p8 GMMS 108'-110 — G3-K337/K334/K339/K323 (Position/Temp HI) -> CAN hi connection
+p8 GMMS 108'-110 — G3-K138/K335/K340/K324 (Position/Temp Lo) -> CAN Low connection
+p8 GMMS 108'-110 — PORT/STBD STATUS TAP F3F4/F5F6/F7F8/F9F10 -> F3=Fuse 3; rectangle with a line in it, in a line = fuse (F4..F10 same)
+p8 GMMS 108'-110 — SWITCH PORT / SWITCH STBD (with HVIL) -> multi-pin wire harness connectors (plug interfaces), NOT mechanical toggles or network switches; physical connection point between the external control system and the internal motor/sensor wiring
+p8 GMMS 108'-110 — MPCS A/C SELECTION -> selector for which MPCS will power the traction motor

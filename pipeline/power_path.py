@@ -299,3 +299,148 @@ def build_power_path_fact(anchor_index: int, elements: List[Dict[str, Any]],
     trace["dc_fuse_flag"] = check_dc_fuse_completeness(anchor, trace, assume_dc=assume_dc)
     trace["trace_text"] = render_trace(f"{anchor.get('id')} ({anchor.get('label')})", trace)
     return trace
+
+
+# ===========================================================================
+# CROSS-DRAWING LOOP FOLLOWING (engineer-mandated 2026-07-10).
+#
+# "Follow the power loop from supply to return... look at the full cycle even
+# if it means moving to another drawing in the book when it indicates to move
+# to another drawing." A single-sheet trace stops at the sheet edge, but the
+# real supply→return cycle frequently CONTINUES on another sheet: a wire
+# leaves with a "see DWG N" / "→ DWG N" reference and the rest of the loop
+# lives there. This walks INTO the referenced sheet (when that drawing is in
+# the book) and keeps tracing; a target NOT in the book is flagged with its
+# name, never silently dropped (P6). Loop protection + a sheet budget bound it.
+# Gold-blind: operates only on drawing-number tokens + element id/label/
+# connection text, no vessel specifics.
+# ===========================================================================
+
+# A wire that references another drawing: "DWG 117", "DWG. 410a", "see DWG 102",
+# "→ DWG 117", "Drawing 102", "ref sheet 110b". The captured token is the
+# drawing number (2-3 digits + optional letter), the join key to the book index.
+_XDWG_RE = re.compile(r"\b(?:dwg|drawing|sheet|ref)\.?\s*#?\s*(\d{2,3}[a-z]?)\b", re.I)
+
+
+def drawing_ref(text: Optional[str]) -> Optional[str]:
+    """The drawing number a text points to ('see DWG 117' -> '117'), or None."""
+    m = _XDWG_RE.search(text or "")
+    return m.group(1).lower() if m else None
+
+
+def normalize_drawing_key(drawing_no: Optional[str]) -> Optional[str]:
+    """A ledger drawing_no -> its join key: 'GMMS 108'-110b' -> '110b'."""
+    m = re.search(r"(\d{2,3}[a-z]?)\s*$", (drawing_no or "").strip())
+    return m.group(1).lower() if m else None
+
+
+def build_book_index(pages: List[Dict[str, Any]]) -> Dict[str, Dict[str, Any]]:
+    """Map drawing-number key -> that page record, for cross-sheet continuation.
+    `pages` are ledger records carrying {drawing_no, wiring_elements}."""
+    idx: Dict[str, Dict[str, Any]] = {}
+    for p in pages:
+        key = normalize_drawing_key(p.get("drawing_no"))
+        if key:
+            idx.setdefault(key, p)
+    return idx
+
+
+def _entry_index_on_sheet(elements: List[Dict[str, Any]], hint_text: str) -> Optional[int]:
+    """Where a cross-drawing pointer lands on the TARGET sheet. The pointer
+    text often carries a pin/panel hint ('to PASSAGE PANEL pin 2, see DWG 117');
+    match it to a target element by shared whole tokens (P2). Returns the
+    best-matched element index, or None when nothing on the sheet matches —
+    then the continuation is recorded as 'entry not pinned', never guessed."""
+    hint = _toks(hint_text) - {"dwg", "drawing", "sheet", "ref", "see", "to", "the"}
+    hint = {t for t in hint if not (t.isdigit() and len(t) == 3)}  # drop the drawing number itself
+    if not hint:
+        return None
+    best, best_overlap = None, 0
+    for j, e in enumerate(elements):
+        etoks = _toks(str(e.get("id") or "")) | _toks(str(e.get("label") or ""))
+        overlap = len(hint & etoks)
+        if overlap > best_overlap:
+            best, best_overlap = j, overlap
+    return best if best_overlap >= 1 else None
+
+
+def trace_full_loop(anchor_index: int, page: Dict[str, Any],
+                    all_pages: List[Dict[str, Any]], *, max_hops: int = 6,
+                    max_sheets: int = 4, assume_dc: bool = False) -> Dict[str, Any]:
+    """
+    Trace supply→return ACROSS sheets. Start on `page` at `anchor_index`; when a
+    traced edge or unresolved ref points to another drawing in the book, continue
+    the trace there (entry pinned by the pointer's hint tokens when possible).
+
+    Returns {segments:[{drawing, anchor, trace, entry_pinned}],
+    external_continuations:[{target_drawing, from_text}], sheets_visited,
+    cross_sheet, trace_text}. Bounded by max_sheets and a visited-drawing set
+    (no infinite ping-pong between two mutually-referencing sheets).
+    """
+    book = build_book_index(all_pages)
+    start_key = normalize_drawing_key(page.get("drawing_no")) or "?"
+    segments: List[Dict[str, Any]] = []
+    external: List[Dict[str, Any]] = []
+    visited_drawings = {start_key}
+
+    # queue entries: (drawing_key, page_record, anchor_index, entry_pinned, via_text)
+    queue = [(start_key, page, anchor_index, True, "")]
+    while queue and len(segments) < max_sheets:
+        dkey, pg, aidx, pinned, via = queue.pop(0)
+        els = [e for e in (pg.get("wiring_elements") or []) if isinstance(e, dict)]
+        if not els or aidx is None or aidx >= len(els):
+            continue
+        trace = build_power_path_fact(aidx, els, max_hops=max_hops, assume_dc=assume_dc)
+        segments.append({"drawing": pg.get("drawing_no"), "drawing_key": dkey,
+                         "anchor": _brief(els[aidx]), "entry_pinned": pinned,
+                         "entered_via": via, "trace": trace})
+        # collect cross-drawing pointers from EVERYWHERE they appear on this
+        # segment: the anchor's own label + connections (the "see DWG N" is
+        # frequently on the terminal strip itself), each hop's via-text AND the
+        # label of the element it reaches, and the unresolved refs.
+        pointer_texts = [els[aidx].get("label") or ""]
+        pointer_texts += [c for c in (els[aidx].get("connections") or []) if isinstance(c, str)]
+        for h in trace["hops"]:
+            pointer_texts.append(h["via_text"])
+            pointer_texts.append((h["to"] or {}).get("label") or "")
+        pointer_texts += [u["raw"] for u in trace["unresolved_refs"]]
+        for txt in pointer_texts:
+            ref = drawing_ref(txt)
+            if not ref or ref in visited_drawings:
+                continue
+            visited_drawings.add(ref)
+            if ref in book:
+                tgt_pg = book[ref]
+                tgt_els = [e for e in (tgt_pg.get("wiring_elements") or []) if isinstance(e, dict)]
+                entry = _entry_index_on_sheet(tgt_els, txt)
+                queue.append((ref, tgt_pg, entry if entry is not None else 0,
+                              entry is not None, txt))
+            else:
+                external.append({"target_drawing": ref, "from_text": txt,
+                                 "note": "referenced drawing is not in this book — "
+                                         "loop continues on an external sheet"})
+    return {
+        "segments": segments,
+        "external_continuations": external,
+        "sheets_visited": [s["drawing"] for s in segments],
+        "cross_sheet": len(segments) > 1 or bool(external),
+        "trace_text": render_full_loop(segments, external),
+    }
+
+
+def render_full_loop(segments: List[Dict[str, Any]],
+                     external: List[Dict[str, Any]]) -> str:
+    lines: List[str] = []
+    for n, seg in enumerate(segments, 1):
+        head = f"── Sheet {n}: {seg['drawing']} (anchor {seg['anchor']['id']})"
+        if not seg["entry_pinned"] and n > 1:
+            head += "  [entry point not pinned — pointer named the drawing, not a specific terminal]"
+        elif n > 1:
+            head += f"  [entered via: \"{seg['entered_via']}\"]"
+        lines.append(head)
+        lines.append(seg["trace"]["trace_text"])
+    if external:
+        lines.append("── Loop continues on drawings OUTSIDE this book (not traceable here):")
+        for x in external:
+            lines.append(f"    → DWG {x['target_drawing']}  (from: \"{x['from_text']}\")")
+    return "\n".join(lines)

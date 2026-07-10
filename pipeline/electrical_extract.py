@@ -233,13 +233,104 @@ _ONELINE_TOOL = {
 }
 
 
+# Full-page CROSS-REFERENCE (engineer-mandated 2026-07-10): reading a tight crop
+# in isolation misreads elements that are obvious with the whole sheet in view —
+# a block the crop calls a "switch" that the full sheet shows is a multi-pin
+# harness connector, a signal
+# tap whose destination is only labelled elsewhere on the page, a partial label
+# ("DINN…") that the full sheet completes. The fix: send BOTH a downsampled full
+# page (region outlined) for CONTEXT and the high-res crop for DETAIL, and tell
+# the reader to resolve the crop using the full sheet. Resolution for reading
+# stays in the crop (the §4 finding); context comes free from the overview.
+def _full_page_with_box(pdf_bytes: bytes, page_index: int, bbox: List[float],
+                        *, dpi: int = 200) -> bytes:
+    """Render the whole page at a moderate DPI and outline `bbox` in red — the
+    CONTEXT image for a cross-referenced crop read."""
+    from PIL import ImageDraw
+    page_png = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=dpi)
+    im = Image.open(io.BytesIO(page_png)).convert("RGB")
+    w, h = im.size
+    x0, y0, x1, y1 = bbox
+    box = (int(min(x0, x1) * w), int(min(y0, y1) * h),
+           int(max(x0, x1) * w), int(max(y0, y1) * h))
+    draw = ImageDraw.Draw(im)
+    draw.rectangle(box, outline=(220, 0, 0), width=max(3, w // 300))
+    out = io.BytesIO()
+    im.save(out, "PNG")
+    return out.getvalue()
+
+
 def read_wiring_region(pdf_bytes: bytes, bbox: List[float], page_index: int = 0,
-                       *, dpi: int = 600, legend_context: str = "") -> Dict[str, Any]:
-    """PASS 2 (sub-type C) — tight-crop a wiring region and read its elements."""
+                       *, dpi: int = 600, legend_context: str = "",
+                       cross_reference: bool = False) -> Dict[str, Any]:
+    """PASS 2 (sub-type C) — read a wiring region.
+
+    Default (1 call): tight high-res crop, glossary-boosted — already corrects
+    the core crop misreads (a multi-pin block the crop calls a 'switch' read as a
+    harness connector; interlock signals, fuses, wire-gauge diamonds typed right).
+
+    cross_reference=True (2 calls, VALIDATED 2026-07-10 on the GMMS-110 SWITCH
+    region): read the crop, THEN enrich each element against the full page via
+    enrich_region_against_full_page(). This is the engineer-mandated crop↔full-
+    page cross-reference. It is a TWO-CALL flow on purpose: a single call with
+    two images makes Claude return a region SUMMARY and omit the elements array
+    (finding, see extract_multi note) — call 2 gets the element LIST to correct,
+    so it enumerates reliably AND resolves types/connections from the whole
+    sheet (validated: a control-module block →controller_module with 15
+    connections, diamonds→annotation, CAN HI/LO/shield identified, all elements
+    returned — vs the crop-only read that under-typed them).
+    Costs one extra call per region — apply selectively to ambiguous sheets."""
     vp = get_vision_provider()
     page = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=dpi)
-    return vp.extract(_crop_box(page, bbox), "image/png",
-                      _ctx(legend_context, _WIRING_PROMPT), _WIRING_TOOL)
+    crop = _crop_box(page, bbox)
+    r = vp.extract(crop, "image/png",
+                   _ctx(legend_context, _WIRING_PROMPT), _WIRING_TOOL)
+    if cross_reference and (r.get("elements") or []):
+        enriched = enrich_region_against_full_page(
+            r["elements"], pdf_bytes, page_index, bbox, legend_context=legend_context)
+        if enriched.get("elements"):
+            r = {**r, "elements": enriched["elements"], "_cross_referenced": True}
+    return r
+
+
+_ENRICH_PROMPT = (
+    "This image is the WHOLE electrical sheet (the region under study is outlined "
+    "in red). Below is a list of elements ALREADY READ from a high-resolution crop "
+    "of that region. Your job is NOT to re-read the crop and NOT to summarize — it "
+    "is to CORRECT and ENRICH each listed element using the full sheet:\n"
+    " - fix element_type where the full sheet makes it clear (e.g. a block the crop "
+    "called a 'switch' that the whole sheet shows is a multi-pin harness "
+    "connector/plug; a tap the crop called a signal that is actually a power bus);\n"
+    " - complete any label cut off at the crop edge (e.g. a partial maker name);\n"
+    " - fill connections: what each element connects to across the sheet, which "
+    "enclosure/section (dotted boundary) it sits in, and any cross-drawing "
+    "reference.\n"
+    "Return the SAME elements, corrected — one entry per input element, preserving "
+    "its id. Change a type only when the full sheet genuinely shows the crop was "
+    "wrong; otherwise keep it. Never invent new elements or drop existing ones."
+)
+
+
+def enrich_region_against_full_page(
+        elements: List[Dict[str, Any]], pdf_bytes: bytes, page_index: int,
+        bbox: List[float], *, legend_context: str = "", dpi: int = 200) -> Dict[str, Any]:
+    """
+    TWO-CALL cross-reference, call 2 (the designed fix for the summarize failure
+    of the two-image single call): given the crop-only element list, send the
+    FULL PAGE + that list and ask the model to CORRECT each element's type/label/
+    connections against the whole sheet. Because call 2 receives a concrete list
+    to fix (not a blank enumerate), it does not collapse into a region summary.
+    Returns the corrected {elements: [...]}.
+    """
+    if not elements:
+        return {"elements": []}
+    vp = get_vision_provider()
+    overview = _full_page_with_box(pdf_bytes, page_index, bbox)
+    listing = "\n".join(
+        f"- id={e.get('id')!r} type={e.get('element_type')!r} label={e.get('label')!r}"
+        for e in elements)
+    prompt = _ctx(legend_context, _ENRICH_PROMPT) + "\n\nELEMENTS READ FROM THE CROP:\n" + listing
+    return vp.extract_multi([(overview, "image/png")], prompt, _WIRING_TOOL)
 
 
 def _row_key(row: Dict[str, Any]) -> tuple:

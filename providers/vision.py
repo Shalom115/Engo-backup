@@ -265,6 +265,38 @@ class AnthropicVisionProvider(VisionProvider):
         out["_model"] = self._model
         return out
 
+    def extract_multi(self, images, prompt, tool_schema, max_tokens=4096):
+        """
+        Like extract(), but sends MULTIPLE images in one call so the model can
+        CROSS-REFERENCE them. `images` is an ordered list of (image_bytes,
+        media_type) — the prompt is responsible for saying what each image is
+        (e.g. "IMAGE 1 = full sheet for context, IMAGE 2 = detail crop"). Used
+        by the electrical/schematic readers to give a tight high-res crop AND a
+        downsampled full-page overview together, so an element ambiguous in the
+        crop is resolved by what it connects to on the full sheet.
+        """
+        content = []
+        for i, (img_bytes, mt_in) in enumerate(images, 1):
+            data, mt = self._prepare(img_bytes, mt_in)
+            content.append({"type": "text", "text": f"IMAGE {i}:"})
+            content.append({"type": "image",
+                            "source": {"type": "base64", "media_type": mt,
+                                       "data": base64.b64encode(data).decode()}})
+        content.append({"type": "text", "text": prompt})
+        resp = self._client.messages.create(
+            model=self._model,
+            max_tokens=max_tokens,
+            tools=[tool_schema],
+            tool_choice={"type": "tool", "name": tool_schema["name"]},
+            messages=[{"role": "user", "content": content}],
+        )
+        tool_block = next((b for b in resp.content if b.type == "tool_use"), None)
+        if tool_block is None:
+            raise ValueError(f"Vision returned no tool_use (stop={resp.stop_reason}).")
+        out = dict(tool_block.input)
+        out["_model"] = self._model
+        return out
+
     @staticmethod
     def _normalize(obj: Dict[str, Any]) -> Dict[str, Any]:
         """Validate/clamp the structured tool input (already valid JSON via the SDK)."""
