@@ -57,7 +57,33 @@ def verdict(rec: dict, flagged: list) -> str:
 
 
 if __name__ == "__main__":
+    if len(sys.argv) > 1 and sys.argv[1] == "--follow":
+        follow(start_line=int(sys.argv[2]) if len(sys.argv) > 2 else 0)
+    else:
+        flagged = json.load(open("data/state/flagged_electrical_gelliceaux_001.json"))[
+            "create_flagged_entries"]
+        rec = json.loads(sys.stdin.read())
+        print(verdict(rec, flagged))
+
+
+def follow(start_line: int = 0, poll_s: int = 60) -> None:
+    """Follow the ledger from start_line, printing one verdict per new page.
+    Pure-Python file tailing — no shell line-splitting/escaping pitfalls."""
+    import time
     flagged = json.load(open("data/state/flagged_electrical_gelliceaux_001.json"))[
         "create_flagged_entries"]
-    rec = json.loads(sys.stdin.read())
-    print(verdict(rec, flagged))
+    seen = start_line
+    while True:
+        try:
+            lines = open("data/ledgers/batch3_reextract_ledger.jsonl").read().splitlines()
+        except FileNotFoundError:
+            lines = []
+        for ln in lines[seen:]:
+            if not ln.strip():
+                continue
+            try:
+                print(verdict(json.loads(ln), flagged), flush=True)
+            except Exception as e:  # noqa: BLE001 — verdict failure is an event, not a crash
+                print(f"VERDICT-ERROR: {e}", flush=True)
+        seen = len(lines)
+        time.sleep(poll_s)
