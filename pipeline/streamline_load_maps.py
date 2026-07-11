@@ -113,6 +113,11 @@ def decode_node(proposed_raw: str) -> Dict[str, Any]:
 
 # ---------------------------------------------------------------- kind classifier
 _PATTERNS: List[tuple] = [
+    ("spare", re.compile(r"\bspare\b", re.I)),
+    ("feeder_subpanel", re.compile(
+        # FEEDER != LOAD (engineer standing rule 2026-07-04): a row that feeds a
+        # sub-distribution box/panel is not an equipment load
+        r"services$|sub.?panel|dist(ribution)? (box|panel)|em supply|panel .*supply|supply$", re.I)),
     ("instrument_gauge", re.compile(
         r"volt\s*meter|voltage.*\(v\)|frequency meter|\(hz\)|ammeter|\(a\)$|"
         r"pressure gauge|temp(erature)? gauge|\bgauge\b", re.I)),
