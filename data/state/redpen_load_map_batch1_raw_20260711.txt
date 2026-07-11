@@ -1,0 +1,133 @@
+p3 GMMS 108'-101 SHORE POWER INPUT — None LINE VOLTAGE (Voltmeter V) (no proposal) -> gauge, should be on Shore power 660
+p3 GMMS 108'-101 SHORE POWER INPUT — None Frequency Meter (Hz) (no proposal) -> same as the voltmeter 660
+p3 GMMS 108'-101 SHORE POWER INPUT — None 24V Supply (no proposal) -> distribution, not a node
+p3 GMMS 108'-101 SHORE POWER INPUT — None Re (Relay/Resistor Re) (no proposal) -> Re=Relay
+p4 GMMS 108'-101a 230V AC SERVICE SUPPLY — BEL-1 PORT BEL-1 600V DC / 230V AC (proposed: 629-bel-1p/-2p/-1s/-2s) -> yes the bel is one of the power converters onboard, the logic should be 600Electrical->620Power convertion-629BEL- Node: BEL-1-P
+p4 GMMS 108'-101a 230V AC SERVICE SUPPLY — BEL-2 PORT BEL-2 600V DC / 230V AC (proposed: 629-bel-1p/-2p/-1s/-2s) -> yes the bel is one of the power converters onboard, the logic should be 600Electrical->620Power convertion-629BEL- Node: BEL-2-P
+p4 GMMS 108'-101a 230V AC SERVICE SUPPLY — BEL-1 BEL-1 Converter (600V DC / 230V AC) (proposed: 629-bel-1p/-2p/-1s/-2s) -> yes the bel is one of the power converters onboard, the logic should be 600Electrical->620Power convertion-629BEL- Node: BEL-1-S
+p4 GMMS 108'-101a 230V AC SERVICE SUPPLY — BEL-2 BEL-2 Converter (600V DC / 230V AC) (proposed: 629-bel-1p/-2p/-1s/-2s) -> yes the bel is one of the power converters onboard, the logic should be 600Electrical->620Power convertion-629BEL- Node: BEL-2-S
+p5 GMMS 108'-102 — #1 #1 SERVICES -> is a subpanel. no node
+p5 GMMS 108'-102 — #2 #2 SERVICES -> subpanel no node
+p5 GMMS 108'-102 — #3 AIR-CON (proposed: 590 aircon) -> yes its a system and in the system there will be nodes for each AHU and for each compressor
+p5 GMMS 108'-102 — #4 ENTERTAINMENT (proposed: 720-entertainment) -> correct
+p5 GMMS 108'-102 — #5 CHARGERS (proposed: 630-mastervolt-batteries-chargers) -> wrong! Mastervolt battery chargers go to 620 mastervolt chargers that was a human error that i now corrected and in 620 theres a mastervolt chargers folder with the manuals
+p5 GMMS 108'-102 — #6 BAE COOLING (proposed: 625-bae-cooling-pumps) -> wrong! BAE cooling pumps are part of 595 cooling system so it's 500-595- Grundfoss (the cooling pump)
+p5 GMMS 108'-102 — #7 AFT OUTLETS (proposed: 692a-230v-outlets) -> correct
+p5 GMMS 108'-102 — #8 GALLEY 1 (proposed: 360 galley) -> same as services this is a distribution box
+p5 GMMS 108'-102 — #9 GALLEY 2 (proposed: 360 galley) -> same as services #1 and #2 this is a distribution box
+p5 GMMS 108'-102 — <UNKNOWN> AUX POWER SUPPLY -> feeder not part of node but a
+p5 GMMS 108'-102 — EARTH LEAKAGE 1 -> Breaker that protects from an equipment or a distribution line earth leak (current flows through the case grounding) and trips the power of that equipment or dist. board. each one say what it is for; if it's for an equipment it should be added to the equipment's node. #1 is for services 1 dist. line
+p5 GMMS 108'-102 — EARTH LEAKAGE 2 -> #2 is for services 2 dist. line
+p5 GMMS 108'-102 — EARTH LEAKAGE 3 -> #3 is for the air conditioning system and should be added to the main 590 card
+p5 GMMS 108'-102 — Q1 NAV. STATION ENTERTAINMENT (proposed: 720-entertainment) -> correct
+p5 GMMS 108'-102 — EARTH LEAKAGE 4 -> #4 is for the Entertainment power dist.
+p5 GMMS 108'-102 — Q3 ELECTRONICS (MAST BASE) -> correct
+p5 GMMS 108'-102 — Q4 to AFT DB PANEL -> breaker for a distribution panel
+p5 GMMS 108'-102 — START BAT. CHARGER (proposed: 630) -> wrong! Mastervolt battery chargers go to 620; logic is 600-620- Create SFI that is free for Mastervolt chargers - this mastervolt charger node (should be linked to the relevant battery bank as well). also in this drawing's case this is Earth leakage #5
+p5 GMMS 108'-102 — EARTH LEAKAGE 5 -> #5 is for the start battery chargers
+p5 GMMS 108'-102 — EMERGENCY BAT. CHARGER (proposed: 630) -> wrong! same 620 mastervolt logic; linked to battery bank; this is Earth leakage #6
+p5 GMMS 108'-102 — EARTH LEAKAGE 6 -> #6 is for the Emergency battery charger
+p5 GMMS 108'-102 — GMDSS BAT. CHARGER (proposed: 630) -> wrong! same 620 mastervolt logic; linked to battery bank; this is Earth leakage #7
+p5 GMMS 108'-102 — EARTH LEAKAGE 7 -> #7 is for the GMDSS battery charger
+p5 GMMS 108'-102 — PORT SEAWATER COOLING -> Earth leakage 8 is for the port seawater cooling pump
+p5 GMMS 108'-102 — EARTH LEAKAGE 8 -> #8 is for port seawater cooling pump
+p5 GMMS 108'-102 — STBD SEAWATER COOLING -> Earth leakage 9 is for the STBD seawater cooling pump
+p5 GMMS 108'-102 — EARTH LEAKAGE 9 -> #9 is for STBD cooling pump
+p5 GMMS 108'-102 — CPP SEAWATER COOLING -> CPP cooling pump's earth leak breaker, also Earth leak #10
+p5 GMMS 108'-102 — EARTH LEAKAGE 10 -> #10 is for CPP cooling pump
+p5 GMMS 108'-102 — CPP OIL -> CPP oil pump's earth leak breaker, also Earth leak #11
+p5 GMMS 108'-102 — EARTH LEAKAGE 11 -> #11 CPP oil pump
+p5 GMMS 108'-102 — CPP OIL BOOST -> CPP oil boost pump's earth leak breaker, also Earth leak #12
+p5 GMMS 108'-102 — EARTH LEAKAGE 12 -> #12 is for CPP boost pump
+p5 GMMS 108'-102 — Q7 PORT AFT GUEST CAB. -> Breaker for the power sockets in the cabin in the description name
+p5 GMMS 108'-102 — Q8 STBD AFT GUEST CAB. -> Breaker for the power sockets in the cabin in the description name
+p5 GMMS 108'-102 — Q9 SALOON -> Breaker for the power sockets in the cabin in the description name
+p5 GMMS 108'-102 — Q10 PORT FWD GUEST CAB. -> Breaker for the power sockets in the cabin in the description name
+p5 GMMS 108'-102 — Q11 STUDIO -> Breaker for the power sockets in the cabin in the description name
+p5 GMMS 108'-102 — Q12 OWNERS CAB. -> Breaker for the power sockets in the cabin in the description name
+p5 GMMS 108'-102 — Q13 YACHTICA LIGHTS -> Breaker for the Lighting PLC system
+p5 GMMS 108'-102 — Q14 AIR-CON FAN COILS (proposed: 590 aircon) -> correct
+p5 GMMS 108'-102 — Q15 WATER MAKER 1 (ENG.ROOM) -> Breaker for the water maker; 500-510-Ecosystem water maker (allocate an SFI number; there are 2: a 230VAC one and a 24VDC one; this breaker is for the 230VAC one, model A-300)
+p5 GMMS 108'-102 — CT11 FWD/AFT WATER HEATER -> CT stands for Current transmitter; in this boat goes to the Onyx monitoring system node, cross link to Water heaters nodes
+p5 GMMS 108'-102 — Q16 FWD WATER HEATER (OWNERS CAB.) -> make a new node (right to flag, no manual; engineer will make a folder) logic: 500-510 fresh water- Water heaters (allocate a free SFI between 510-515) - FWD water heater node
+p5 GMMS 108'-102 — Q17 AFT WATER HEATER (PORT GUEST CAB.) -> same; Aft water heater node
+p5 GMMS 108'-102 — CT12 ENG.ROOM BLOWER/EXTRACTOR -> CT to Onyx monitoring node; cross link to the Eng. room blower/extractor node
+p5 GMMS 108'-102 — Q18 ENG.ROOM BLOWER -> 500-599 ventilation- Eng. room blower/extractor
+p5 GMMS 108'-102 — Q19 ENG.ROOM EXTRACTOR -> 500-599 ventilation- Eng. room blower/extractor
+p5 GMMS 108'-102 — Q20 AIRCON 1 (590) -> correct
+p5 GMMS 108'-102 — Q21 AIRCON 2 (590) -> correct
+p5 GMMS 108'-102 — Q22 FRESH WATER PUMP 1 -> 500-510 Fresh water- Node fresh water pump 1
+p5 GMMS 108'-102 — Q23 FRESH WATER PUMP 2 -> 500-510 Fresh water- Node fresh water pump 2
+p5 GMMS 108'-102 — Q24 REFRIGERATION SUPPLY -> 580 refrigeration system- node: Frigomar refrigerator
+p5 GMMS 108'-102 — Q25 SALT WATER PUMP -> 500-510-salt water pump node
+p5 GMMS 108'-102 — Q26 WINE COOLER -> 580 refrigeration system- node: wine cooler
+p5 GMMS 108'-102 — Q28 AIR COMPRESSOR (proposed: 630) -> wrong! 500-575 pneumatic system
+p5 GMMS 108'-102 — Q29 SALOON UV STERILISER -> 500-510 fresh water- node: HEM UV sterilizer
+p5 GMMS 108'-102 — Q30 LAZ / TECH-ROOM / SAIL LKR -> vre [UNCLEAR — clarify]
+p5 GMMS 108'-102 — Q31 ENGINE ROOM -> Breaker for the power sockets in the cabin in the description name
+p5 GMMS 108'-102 — Q32 DECK FRIDGE -> 500-580 refrigeration- frigomar
+p5 GMMS 108'-102 — Q34 ESS VENTILATION TENDERGARAGE (proposed: 630) -> correct
+p5 GMMS 108'-102 — Q35 WiFi -> 730 communication and networking
+p5 GMMS 108'-102 — Q36 STARLINK (MAST BASE) -> 730 communication and networking
+p6 GMMS 108'-102a — AFT OUTLETS (692a-230v-outlets) -> correct
+p6 GMMS 108'-102a — GALLEY 1 / GALLEY 2 (proposed: 360 galley) -> Distribution box
+p6 GMMS 108'-102a — OVEN -> 300-360-allocate free SFI between 360-370 node Oven
+p6 GMMS 108'-102a — Q2 DISHWASHER 3 KW -> 300-360-allocate free SFI between 360-370 node dishwasher
+p6 GMMS 108'-102a — Q3 WASHING MASHINE -> 300-360-allocate free SFI between 360-370 node washing machine
+p6 GMMS 108'-102a — Q4 DRYER -> 300-360-allocate free SFI between 360-370 node dryer
+p6 GMMS 108'-102a — Q5 STEAM OVEN -> 300-360-allocate free SFI between 360-370 node steam oven
+p6 GMMS 108'-102a — Q6 ZIP WATER DISPENSER -> 300-360-allocate free SFI between 360-370 node zip tap
+p6 GMMS 108'-102a — Q7 MASERATOR -> 300-360-allocate free SFI between 360-370 node sink disposal
+p6 GMMS 108'-102a — Q8 DIVING COMPRESSOR (proposed: 630) -> Wrong disregard
+p6 GMMS 108'-102a — Q9 WINE COOLER GALLEY (360) -> 300-360-allocate free SFI between 360-370 node wine cooler
+p6 GMMS 108'-102a — Q10 GALLEY OUTLETS (EXTRACTOR) (360) -> 300-360-allocate free SFI between 360-370 node extraction hood
+p6 GMMS 108'-102a — Q11 NAV. STATION OUTLETS (692a) -> yes
+p6 GMMS 108'-102a — Q12 PORT/STBD CREW OUTLETS (692a) -> yes
+p6 GMMS 108'-102a — Q13 LAZARETTE OUTLETS (692a) -> yes
+p6 GMMS 108'-102a — Q14 BLAST CHILLER -> disregard
+p6 GMMS 108'-102a — Q17 INDUCTION HOB -> 300-360-allocate free SFI between 360-370 Cook top
+p7 GMMS 108'-103 — PORT BEL-2 (629) -> see BEL above
+p7 GMMS 108'-103 — PORT MAPS-1/2 (proposed: 626-maps) -> correct
+p7 GMMS 108'-103 — BEL-2 (629) -> See BEL above
+p7 GMMS 108'-103 — EMRAX 1 -> the emrax is the motor of the hydraulic pump, 600 VDC motor, belongs to 500-570- MYT with cross link to BAE hybrid system as that system powers it
+p7 GMMS 108'-103 — MAPS-1/2 (proposed: 626-maps) -> MAPS is a power converter, under power conversion; try and Allocate an SFI between 620-625; in that SFI a node for PORT MAPS and STBD MAPS
+p7 GMMS 108'-103 — EMRAX 2 -> same as EMRAX 1 (570 MYT + cross link BAE)
+p7 GMMS 108'-103 — 230V AC GROUND -> grounding for all the 230VAC
+p7 GMMS 108'-103 — PORT FUEL FILLER -> disregard
+p9 GMMS 108'-110a — F1 PORT S-1/2 2x5KW (100V DC / 24V DC) -> F1 is one of the fuses of the PORT MAPS; after allocating the MAPS SFI/node, F1 is a fuse for it (also F2 in that drawing)
+p9 GMMS 108'-110a — F3 STBD S-1/2 2x5KW -> F3 is a fuse of the STBD MAPS (also F4)
+p10 GMMS 108'-110b — CHART TABLE HMI -> BAE system 625
+p10 GMMS 108'-110b — CB2 MPCS-P (620-mpcs) -> yes
+p10 GMMS 108'-110b — CB3 MAPS-P (626-maps) -> MAPS under power conversion, allocate SFI 620-625, PORT/STBD nodes; this one is MAPS-P, P = port
+p10 GMMS 108'-110b — CB4 EDN-P (627-edn-shore-charger) -> correct
+p10 GMMS 108'-110b — CB14 MCP-P PUMP (625-bae-cooling-pumps) -> yes correct
+p10 GMMS 108'-110b — CB15 ECP-P PUMP (625) -> correct
+p10 GMMS 108'-110b — CB21 SEA WATER PUMP (proposed: 515 raw water) -> should be on 595 cooling system, cross link to 515
+p10 GMMS 108'-110b — CB10 ACTM (GPM-12) (420-gpm-12-drive-motor) -> correct, cross link to 625 BAE
+p10 GMMS 108'-110b — CB11 CPP PVED VALVE A/B (430-hundested-cpp-sterngear) -> Correct
+p10 GMMS 108'-110b — CB12 SCU CONTROL (628-scu3) -> yes
+p10 GMMS 108'-110b — CB13 SCU (628-scu3) -> Yes
+p10 GMMS 108'-110b — CBx1 CP SWITCH -> fuse
+p10 GMMS 108'-110b — CBx2 ESS (Re6) (630) -> fuse for ESS
+p10 GMMS 108'-110b — CBx3 HVIL (625 BAE system) -> correct
+p10 GMMS 108'-110b — CBx4 BEL CAN BUS ISOLATORS -> add to BEL nodes
+p10 GMMS 108'-110b — CBx8 CPP OIL -> 430
+p10 GMMS 108'-110b — CBx9 CONDUCTIVITY PROCESSOR (proposed: 630) -> 625
+p10 GMMS 108'-110b — CBx11 BEL-SYNC -> both 625 and BEL nodes
+p10 GMMS 108'-110b — CB19 BCP (ESS) PUMP (proposed: 630) -> 625 bae cooling pumps AND 595 cooling system - node EMP
+p10 GMMS 108'-110b — CB18 MCP-S PUMP (625) -> 625 bae cooling pumps AND 595 cooling system - node EMP
+p10 GMMS 108'-110b — CB16 MCP (MOTOR) PUMP -> 625 bae cooling pumps AND 595 cooling system - node EMP
+p10 GMMS 108'-110b — CB17 ECP-S PUMP (625) -> 625 bae cooling pumps AND 595 cooling system - node EMP
+p10 GMMS 108'-110b — CB20 HYDRAULICS -> 570
+p10 GMMS 108'-110b — CB23 CPP (PITCH) PUMP -> 430
+p10 GMMS 108'-110b — CBx15 DTLGR -> skip
+p10 GMMS 108'-110b — CBx16 BAT. COOLING PUMP BCP AXIOMATIC -> 625 bae cooling pumps AND 595 cooling system - node EMP
+p10 GMMS 108'-110b — CBx17 PARKER DISPLAY -> 625
+p10 GMMS 108'-110b — CBx18 MC43 POWER -> 625
+p11 GMMS 108'-110c — F10 GMDSS BAT. (631-battery-gmdss) -> correct
+p11 GMMS 108'-110c — F12 EMERGENCY BAT. (632-battery-emergency) -> correct
+p11 GMMS 108'-110c — F14 GEN START BAT. (633-battery-gen-start) -> correct
+p11 GMMS 108'-110c — F16 AUX SERVICE BAT. (634-battery-aux-service) -> correct
+p11 GMMS 108'-110c — EARTH LEAKAGE 13 -> emergency inverter, make a new node under power conversion
+p11 GMMS 108'-110c — GEN START BAT. (Charger) (633) -> yes and cross link to the relevant mastervolt node asked above
+p11 GMMS 108'-110c — EMERGENCY BAT. (Charger) (632) -> yes and cross link to the relevant mastervolt node asked above
