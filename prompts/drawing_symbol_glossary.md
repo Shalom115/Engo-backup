@@ -66,7 +66,10 @@
   manual switch.
 - [ENG] A reference like "see DWG 410a" / "→ DWG 102" on a terminal or wire is a
   CROSS-DRAWING POINTER — the circuit continues on that drawing. It is not a
-  device; record it as a cross-reference and follow the loop there.
+  device; record it as a cross-reference and follow the loop there. ONLY an
+  explicit drawing/sheet reference qualifies — a letters+digits tag block on a
+  stub wire tapping a circuit toward a monitoring/alarm loom is a STATUS SIGNAL,
+  not a pointer, even though its wire leaves the local circuit.
 - [ENG] A DOTTED/DASHED RECTANGLE enclosing a group of components marks an
   ENCLOSURE BOUNDARY — everything inside lives in one physical box/panel/unit.
   A dotted rectangle is NOT automatically a signal path.
