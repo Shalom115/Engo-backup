@@ -1,0 +1,3104 @@
+{
+ "generated": "2026-07-11",
+ "basis": "engineer red-pen batch-1 logic propagated (v2: zone matching + pin/wire-tag rule)",
+ "auto_answered": [
+  {
+   "page": 12,
+   "sheet": "GMMS 108'-110d BAE LVPDU",
+   "instrument": "None LV5-9",
+   "kind": "equipment",
+   "proposed": "WIRING-DETAIL (connector pin / wire tag \u2014 handled by the wiring pipeline, not a load)",
+   "rule": "pin/wire-tag rule",
+   "engineer_decision": ""
+  },
+  {
+   "page": 12,
+   "sheet": "GMMS 108'-110d BAE LVPDU",
+   "instrument": "None LV5-11",
+   "kind": "equipment",
+   "proposed": "WIRING-DETAIL (connector pin / wire tag \u2014 handled by the wiring pipeline, not a load)",
+   "rule": "pin/wire-tag rule",
+   "engineer_decision": ""
+  },
+  {
+   "page": 12,
+   "sheet": "GMMS 108'-110d BAE LVPDU",
+   "instrument": "None LV5-10",
+   "kind": "equipment",
+   "proposed": "WIRING-DETAIL (connector pin / wire tag \u2014 handled by the wiring pipeline, not a load)",
+   "rule": "pin/wire-tag rule",
+   "engineer_decision": ""
+  },
+  {
+   "page": 12,
+   "sheet": "GMMS 108'-110d BAE LVPDU",
+   "instrument": "None LV5-12",
+   "kind": "equipment",
+   "proposed": "WIRING-DETAIL (connector pin / wire tag \u2014 handled by the wiring pipeline, not a load)",
+   "rule": "pin/wire-tag rule",
+   "engineer_decision": ""
+  },
+  {
+   "page": 12,
+   "sheet": "GMMS 108'-110d BAE LVPDU",
+   "instrument": "None LV5-20",
+   "kind": "equipment",
+   "proposed": "WIRING-DETAIL (connector pin / wire tag \u2014 handled by the wiring pipeline, not a load)",
+   "rule": "pin/wire-tag rule",
+   "engineer_decision": ""
+  },
+  {
+   "page": 12,
+   "sheet": "GMMS 108'-110d BAE LVPDU",
+   "instrument": "None LV5-22",
+   "kind": "equipment",
+   "proposed": "WIRING-DETAIL (connector pin / wire tag \u2014 handled by the wiring pipeline, not a load)",
+   "rule": "pin/wire-tag rule",
+   "engineer_decision": ""
+  },
+  {
+   "page": 12,
+   "sheet": "GMMS 108'-110d BAE LVPDU",
+   "instrument": "G3-51R1 BEL1-P",
+   "kind": "equipment",
+   "proposed": "WIRING-DETAIL (connector pin / wire tag \u2014 handled by the wiring pipeline, not a load)",
+   "rule": "pin/wire-tag rule",
+   "engineer_decision": ""
+  },
+  {
+   "page": 12,
+   "sheet": "GMMS 108'-110d BAE LVPDU",
+   "instrument": "G3-52R1 BEL2-P",
+   "kind": "equipment",
+   "proposed": "WIRING-DETAIL (connector pin / wire tag \u2014 handled by the wiring pipeline, not a load)",
+   "rule": "pin/wire-tag rule",
+   "engineer_decision": ""
+  },
+  {
+   "page": 12,
+   "sheet": "GMMS 108'-110d BAE LVPDU",
+   "instrument": "G3-53R1 BEL1-S",
+   "kind": "equipment",
+   "proposed": "WIRING-DETAIL (connector pin / wire tag \u2014 handled by the wiring pipeline, not a load)",
+   "rule": "pin/wire-tag rule",
+   "engineer_decision": ""
+  },
+  {
+   "page": 12,
+   "sheet": "GMMS 108'-110d BAE LVPDU",
+   "instrument": "G3-54R1 BEL2-S",
+   "kind": "equipment",
+   "proposed": "WIRING-DETAIL (connector pin / wire tag \u2014 handled by the wiring pipeline, not a load)",
+   "rule": "pin/wire-tag rule",
+   "engineer_decision": ""
+  },
+  {
+   "page": 14,
+   "sheet": "GMMS 108'-111a EMERGENCY SUPPLY RADIO/NAV./LTS",
+   "instrument": "Q38 ENG. ROOM LTS",
+   "kind": "breaker_protective_device",
+   "proposed": "690-lts-engroom-laz-transom",
+   "rule": "lights zone match",
+   "engineer_decision": ""
+  },
+  {
+   "page": 14,
+   "sheet": "GMMS 108'-111a EMERGENCY SUPPLY RADIO/NAV./LTS",
+   "instrument": "T/S B LAZ. / TRANSOM LTS",
+   "kind": "equipment",
+   "proposed": "690-lts-engroom-laz-transom",
+   "rule": "lights zone match",
+   "engineer_decision": ""
+  },
+  {
+   "page": 14,
+   "sheet": "GMMS 108'-111a EMERGENCY SUPPLY RADIO/NAV./LTS",
+   "instrument": "<UNKNOWN> TECH ROOM LTS",
+   "kind": "equipment",
+   "proposed": "690-lts-engroom-laz-transom",
+   "rule": "lights zone match",
+   "engineer_decision": ""
+  },
+  {
+   "page": 14,
+   "sheet": "GMMS 108'-111a EMERGENCY SUPPLY RADIO/NAV./LTS",
+   "instrument": "<UNKNOWN> EMERGENCY LTS SWITCH (MAIN PANEL)",
+   "kind": "equipment",
+   "proposed": "693-emergency-lighting",
+   "rule": "lights zone match",
+   "engineer_decision": ""
+  },
+  {
+   "page": 15,
+   "sheet": "GMMS 108'-111 +24 V DC DISTRIBUTION",
+   "instrument": "<UNKNOWN> PASSARELLE LIGHT",
+   "kind": "equipment",
+   "proposed": "260-passerelle",
+   "rule": "lights zone match",
+   "engineer_decision": ""
+  },
+  {
+   "page": 15,
+   "sheet": "GMMS 108'-111 +24 V DC DISTRIBUTION",
+   "instrument": "<UNKNOWN> TENDER REFUELING PUMP",
+   "kind": "equipment",
+   "proposed": "550-fuel-transfer",
+   "rule": "fuel",
+   "engineer_decision": ""
+  },
+  {
+   "page": 15,
+   "sheet": "GMMS 108'-111 +24 V DC DISTRIBUTION",
+   "instrument": "Q15 FWD MAN. SUMP PUMP",
+   "kind": "breaker_protective_device",
+   "proposed": "530-sump-pumps",
+   "rule": "sump (existing map)",
+   "engineer_decision": ""
+  },
+  {
+   "page": 15,
+   "sheet": "GMMS 108'-111 +24 V DC DISTRIBUTION",
+   "instrument": "QE1 FWD EMERGENCY LTS/HATCH SUPPLY",
+   "kind": "feeder_subpanel",
+   "proposed": "NO-NODE (feeder)",
+   "rule": "FEEDER\u2260LOAD",
+   "engineer_decision": ""
+  },
+  {
+   "page": 15,
+   "sheet": "GMMS 108'-111 +24 V DC DISTRIBUTION",
+   "instrument": "QE2 ENG. ROOM GAS RELEASE ALARM",
+   "kind": "alarm_monitor",
+   "proposed": "695-fire-alarm / 652-onyx (which alarm?)",
+   "rule": "alarm \u2014 specify",
+   "engineer_decision": ""
+  },
+  {
+   "page": 17,
+   "sheet": "GMMS 108'-112 MAIN PANEL SCHEMATIC \"A\"",
+   "instrument": "10 / 34 STEAMING LTs",
+   "kind": "equipment",
+   "proposed": "690-lts-? (name the zone)",
+   "rule": "lights \u2014 zone unclear",
+   "engineer_decision": ""
+  },
+  {
+   "page": 17,
+   "sheet": "GMMS 108'-112 MAIN PANEL SCHEMATIC \"A\"",
+   "instrument": "11 / 36 STEAMING LTs",
+   "kind": "equipment",
+   "proposed": "690-lts-? (name the zone)",
+   "rule": "lights \u2014 zone unclear",
+   "engineer_decision": ""
+  },
+  {
+   "page": 17,
+   "sheet": "GMMS 108'-112 MAIN PANEL SCHEMATIC \"A\"",
+   "instrument": "PLUG C [8] ALARM MOD 2 PORT PEDESTAL",
+   "kind": "alarm_monitor",
+   "proposed": "WIRING-DETAIL (connector pin / wire tag \u2014 handled by the wiring pipeline, not a load)",
+   "rule": "pin/wire-tag rule",
+   "engineer_decision": ""
+  },
+  {
+   "page": 17,
+   "sheet": "GMMS 108'-112 MAIN PANEL SCHEMATIC \"A\"",
+   "instrument": "PLUG C [9] ALARM MOD 2 PORT PEDESTAL",
+   "kind": "alarm_monitor",
+   "proposed": "WIRING-DETAIL (connector pin / wire tag \u2014 handled by the wiring pipeline, not a load)",
+   "rule": "pin/wire-tag rule",
+   "engineer_decision": ""
+  },
+  {
+   "page": 17,
+   "sheet": "GMMS 108'-112 MAIN PANEL SCHEMATIC \"A\"",
+   "instrument": "PLUG C [11] ALARM MUTE SW",
+   "kind": "alarm_monitor",
+   "proposed": "WIRING-DETAIL (connector pin / wire tag \u2014 handled by the wiring pipeline, not a load)",
+   "rule": "pin/wire-tag rule",
+   "engineer_decision": ""
+  },
+  {
+   "page": 17,
+   "sheet": "GMMS 108'-112 MAIN PANEL SCHEMATIC \"A\"",
+   "instrument": "PLUG C [12] ALARM MUTE SW",
+   "kind": "alarm_monitor",
+   "proposed": "WIRING-DETAIL (connector pin / wire tag \u2014 handled by the wiring pipeline, not a load)",
+   "rule": "pin/wire-tag rule",
+   "engineer_decision": ""
+  },
+  {
+   "page": 17,
+   "sheet": "GMMS 108'-112 MAIN PANEL SCHEMATIC \"A\"",
+   "instrument": "[12] AU<UNKNOWN>",
+   "kind": "equipment",
+   "proposed": "WIRING-DETAIL (connector pin / wire tag \u2014 handled by the wiring pipeline, not a load)",
+   "rule": "pin/wire-tag rule",
+   "engineer_decision": ""
+  },
+  {
+   "page": 19,
+   "sheet": "GMMS 108'-114 BILGE ALARM SYSTEM",
+   "instrument": "T/S S 1 + SERVICE BAT",
+   "kind": "equipment",
+   "proposed": "WIRING-DETAIL (connector pin / wire tag \u2014 handled by the wiring pipeline, not a load)",
+   "rule": "pin/wire-tag rule",
+   "engineer_decision": ""
+  },
+  {
+   "page": 19,
+   "sheet": "GMMS 108'-114 BILGE ALARM SYSTEM",
+   "instrument": "T/S S 2 500A SHUNT",
+   "kind": "equipment",
+   "proposed": "WIRING-DETAIL (connector pin / wire tag \u2014 handled by the wiring pipeline, not a load)",
+   "rule": "pin/wire-tag rule",
+   "engineer_decision": ""
+  },
+  {
+   "page": 19,
+   "sheet": "GMMS 108'-114 BILGE ALARM SYSTEM",
+   "instrument": "T/S S 3 500A SHUNT",
+   "kind": "equipment",
+   "proposed": "WIRING-DETAIL (connector pin / wire tag \u2014 handled by the wiring pipeline, not a load)",
+   "rule": "pin/wire-tag rule",
+   "engineer_decision": ""
+  },
+  {
+   "page": 19,
+   "sheet": "GMMS 108'-114 BILGE ALARM SYSTEM",
+   "instrument": "Q2 AUX MAST BILGE PUMP",
+   "kind": "breaker_protective_device",
+   "proposed": "520-*",
+   "rule": "bilge",
+   "engineer_decision": ""
+  },
+  {
+   "page": 19,
+   "sheet": "GMMS 108'-114 BILGE ALARM SYSTEM",
+   "instrument": "Q3 AUX ENGINE ROOM BILGE PUMP",
+   "kind": "breaker_protective_device",
+   "proposed": "520-*",
+   "rule": "bilge",
+   "engineer_decision": ""
+  },
+  {
+   "page": 22,
+   "sheet": "GMMS 108'-115 AFT SERVICE PUMPS",
+   "instrument": "Q1 AFT GREY WATER P.",
+   "kind": "breaker_protective_device",
+   "proposed": "530-grey-water-pumps",
+   "rule": "grey (existing map)",
+   "engineer_decision": ""
+  },
+  {
+   "page": 22,
+   "sheet": "GMMS 108'-115 AFT SERVICE PUMPS",
+   "instrument": "Q4 FWD CREW HEAD SUMP PUMP",
+   "kind": "breaker_protective_device",
+   "proposed": "530-sump-pumps",
+   "rule": "sump (existing map)",
+   "engineer_decision": ""
+  },
+  {
+   "page": 22,
+   "sheet": "GMMS 108'-115 AFT SERVICE PUMPS",
+   "instrument": "Q5 AFT CREW HEAD SUMP PUMP",
+   "kind": "breaker_protective_device",
+   "proposed": "530-sump-pumps",
+   "rule": "sump (existing map)",
+   "engineer_decision": ""
+  },
+  {
+   "page": 22,
+   "sheet": "GMMS 108'-115 AFT SERVICE PUMPS",
+   "instrument": "T/S B not used",
+   "kind": "equipment",
+   "proposed": "WIRING-DETAIL (connector pin / wire tag \u2014 handled by the wiring pipeline, not a load)",
+   "rule": "pin/wire-tag rule",
+   "engineer_decision": ""
+  },
+  {
+   "page": 22,
+   "sheet": "GMMS 108'-115 AFT SERVICE PUMPS",
+   "instrument": "Q6 AFT A/C SUMP PUMP",
+   "kind": "breaker_protective_device",
+   "proposed": "530-sump-pumps",
+   "rule": "sump (existing map)",
+   "engineer_decision": ""
+  },
+  {
+   "page": 23,
+   "sheet": "GMMS 108'-115a BLACK WATER SYSTEM",
+   "instrument": "T/S B 19 DWG115",
+   "kind": "equipment",
+   "proposed": "WIRING-DETAIL (connector pin / wire tag \u2014 handled by the wiring pipeline, not a load)",
+   "rule": "pin/wire-tag rule",
+   "engineer_decision": ""
+  },
+  {
+   "page": 23,
+   "sheet": "GMMS 108'-115a BLACK WATER SYSTEM",
+   "instrument": "T/S B 20 DWG115",
+   "kind": "equipment",
+   "proposed": "WIRING-DETAIL (connector pin / wire tag \u2014 handled by the wiring pipeline, not a load)",
+   "rule": "pin/wire-tag rule",
+   "engineer_decision": ""
+  },
+  {
+   "page": 23,
+   "sheet": "GMMS 108'-115a BLACK WATER SYSTEM",
+   "instrument": "T/S B 24 LOW BAT. ALARM",
+   "kind": "alarm_monitor",
+   "proposed": "WIRING-DETAIL (connector pin / wire tag \u2014 handled by the wiring pipeline, not a load)",
+   "rule": "pin/wire-tag rule",
+   "engineer_decision": ""
+  },
+  {
+   "page": 23,
+   "sheet": "GMMS 108'-115a BLACK WATER SYSTEM",
+   "instrument": "T/S B 25 MASTERVOLT EASY VII",
+   "kind": "equipment",
+   "proposed": "WIRING-DETAIL (connector pin / wire tag \u2014 handled by the wiring pipeline, not a load)",
+   "rule": "pin/wire-tag rule",
+   "engineer_decision": ""
+  },
+  {
+   "page": 23,
+   "sheet": "GMMS 108'-115a BLACK WATER SYSTEM",
+   "instrument": "T/S B 26 SHORE POWER PANEL",
+   "kind": "power_source_unit",
+   "proposed": "WIRING-DETAIL (connector pin / wire tag \u2014 handled by the wiring pipeline, not a load)",
+   "rule": "pin/wire-tag rule",
+   "engineer_decision": ""
+  },
+  {
+   "page": 23,
+   "sheet": "GMMS 108'-115a BLACK WATER SYSTEM",
+   "instrument": "T/S B 27 GENERAL COCKPIT AL",
+   "kind": "equipment",
+   "proposed": "WIRING-DETAIL (connector pin / wire tag \u2014 handled by the wiring pipeline, not a load)",
+   "rule": "pin/wire-tag rule",
+   "engineer_decision": ""
+  },
+  {
+   "page": 23,
+   "sheet": "GMMS 108'-115a BLACK WATER SYSTEM",
+   "instrument": "T/S B 28 PEDESTAL LTS (COMPASS LTS)",
+   "kind": "equipment",
+   "proposed": "690-lts-? (name the zone)",
+   "rule": "lights \u2014 zone unclear",
+   "engineer_decision": ""
+  },
+  {
+   "page": 23,
+   "sheet": "GMMS 108'-115a BLACK WATER SYSTEM",
+   "instrument": "Q11 FWD BLACK WATER",
+   "kind": "breaker_protective_device",
+   "proposed": "540-black-water-pumps",
+   "rule": "black (existing map)",
+   "engineer_decision": ""
+  },
+  {
+   "page": 23,
+   "sheet": "GMMS 108'-115a BLACK WATER SYSTEM",
+   "instrument": "T/S B 29 FWD BLACK WATER (sub-circuit)",
+   "kind": "equipment",
+   "proposed": "WIRING-DETAIL (connector pin / wire tag \u2014 handled by the wiring pipeline, not a load)",
+   "rule": "pin/wire-tag rule",
+   "engineer_decision": ""
+  },
+  {
+   "page": 23,
+   "sheet": "GMMS 108'-115a BLACK WATER SYSTEM",
+   "instrument": "Q12 AFT BLACK WATER",
+   "kind": "breaker_protective_device",
+   "proposed": "540-black-water-pumps",
+   "rule": "black (existing map)",
+   "engineer_decision": ""
+  },
+  {
+   "page": 23,
+   "sheet": "GMMS 108'-115a BLACK WATER SYSTEM",
+   "instrument": "T/S B 30 AFT BLACK WATER (sub-circuit)",
+   "kind": "equipment",
+   "proposed": "WIRING-DETAIL (connector pin / wire tag \u2014 handled by the wiring pipeline, not a load)",
+   "rule": "pin/wire-tag rule",
+   "engineer_decision": ""
+  },
+  {
+   "page": 24,
+   "sheet": "GMMS 108'-116 E.R. FAN / FUEL VALVES / TANK IND.",
+   "instrument": "Q15 MANUEL FUEL PUMP",
+   "kind": "breaker_protective_device",
+   "proposed": "550-fuel-transfer",
+   "rule": "fuel",
+   "engineer_decision": ""
+  },
+  {
+   "page": 24,
+   "sheet": "GMMS 108'-116 E.R. FAN / FUEL VALVES / TANK IND.",
+   "instrument": "Q16 FUEL/VENTILATION",
+   "kind": "breaker_protective_device",
+   "proposed": "599-engroom-blower-extractor / 599-*",
+   "rule": "ventilation",
+   "engineer_decision": ""
+  },
+  {
+   "page": 29,
+   "sheet": "GMMS 108'-119 AFT DC DB LIGHTS PANELa",
+   "instrument": "Q40 GALLEY LTS",
+   "kind": "breaker_protective_device",
+   "proposed": "690-lts-galley",
+   "rule": "lights zone match",
+   "engineer_decision": ""
+  },
+  {
+   "page": 29,
+   "sheet": "GMMS 108'-119 AFT DC DB LIGHTS PANELa",
+   "instrument": "33 CREW READING LT /FANS/LKR LTS",
+   "kind": "equipment",
+   "proposed": "690-lts-crew",
+   "rule": "lights zone match",
+   "engineer_decision": ""
+  },
+  {
+   "page": 29,
+   "sheet": "GMMS 108'-119 AFT DC DB LIGHTS PANELa",
+   "instrument": "36 spare",
+   "kind": "spare",
+   "proposed": "SKIP",
+   "rule": "spare",
+   "engineer_decision": ""
+  },
+  {
+   "page": 29,
+   "sheet": "GMMS 108'-119 AFT DC DB LIGHTS PANELa",
+   "instrument": "<UNKNOWN> COURTESY / EMERGENCY LTS",
+   "kind": "equipment",
+   "proposed": "690-lts-courtesy",
+   "rule": "lights zone match",
+   "engineer_decision": ""
+  },
+  {
+   "page": 30,
+   "sheet": "GMMS 108'-119a AFT DC DB LIGHTS PANEL b",
+   "instrument": "129 CREW READING LT /FANS/LKR LTS",
+   "kind": "equipment",
+   "proposed": "690-lts-crew",
+   "rule": "lights zone match",
+   "engineer_decision": ""
+  },
+  {
+   "page": 30,
+   "sheet": "GMMS 108'-119a AFT DC DB LIGHTS PANEL b",
+   "instrument": "131 spare",
+   "kind": "spare",
+   "proposed": "SKIP",
+   "rule": "spare",
+   "engineer_decision": ""
+  },
+  {
+   "page": 30,
+   "sheet": "GMMS 108'-119a AFT DC DB LIGHTS PANEL b",
+   "instrument": "170 COURTESY LIGHTS",
+   "kind": "equipment",
+   "proposed": "690-lts-courtesy",
+   "rule": "lights zone match",
+   "engineer_decision": ""
+  },
+  {
+   "page": 30,
+   "sheet": "GMMS 108'-119a AFT DC DB LIGHTS PANEL b",
+   "instrument": "172 EMERGENCY LTS SW",
+   "kind": "equipment",
+   "proposed": "693-emergency-lighting",
+   "rule": "lights zone match",
+   "engineer_decision": ""
+  },
+  {
+   "page": 31,
+   "sheet": "GMMS 108'-119b PORT/STBD CREW/GALLEY LTS",
+   "instrument": "49 CREW READING LT /FANS/LKR LTS",
+   "kind": "equipment",
+   "proposed": "690-lts-crew",
+   "rule": "lights zone match",
+   "engineer_decision": ""
+  },
+  {
+   "page": 31,
+   "sheet": "GMMS 108'-119b PORT/STBD CREW/GALLEY LTS",
+   "instrument": "51 spare",
+   "kind": "spare",
+   "proposed": "SKIP",
+   "rule": "spare",
+   "engineer_decision": ""
+  },
+  {
+   "page": 31,
+   "sheet": "GMMS 108'-119b PORT/STBD CREW/GALLEY LTS",
+   "instrument": "65 COURTESY LIGHTS",
+   "kind": "equipment",
+   "proposed": "690-lts-courtesy",
+   "rule": "lights zone match",
+   "engineer_decision": ""
+  },
+  {
+   "page": 31,
+   "sheet": "GMMS 108'-119b PORT/STBD CREW/GALLEY LTS",
+   "instrument": "66 COURTESY / EMERGENCY LTS SW",
+   "kind": "equipment",
+   "proposed": "690-lts-courtesy",
+   "rule": "lights zone match",
+   "engineer_decision": ""
+  },
+  {
+   "page": 31,
+   "sheet": "GMMS 108'-119b PORT/STBD CREW/GALLEY LTS",
+   "instrument": "67 EMERGENCY LTS SW",
+   "kind": "equipment",
+   "proposed": "693-emergency-lighting",
+   "rule": "lights zone match",
+   "engineer_decision": ""
+  },
+  {
+   "page": 32,
+   "sheet": "GMMS 108'-119c PORT/STBD CREW/GALLEY LTS",
+   "instrument": "Q16 DECK LIGHTS",
+   "kind": "breaker_protective_device",
+   "proposed": "690-lts-deck",
+   "rule": "lights zone match",
+   "engineer_decision": ""
+  },
+  {
+   "page": 32,
+   "sheet": "GMMS 108'-119c PORT/STBD CREW/GALLEY LTS",
+   "instrument": "SW/ BIMINI LTS",
+   "kind": "equipment",
+   "proposed": "690-lts-? (name the zone)",
+   "rule": "lights \u2014 zone unclear",
+   "engineer_decision": ""
+  },
+  {
+   "page": 32,
+   "sheet": "GMMS 108'-119c PORT/STBD CREW/GALLEY LTS",
+   "instrument": "33 CREW READING LT /FANS/LKR LTS",
+   "kind": "equipment",
+   "proposed": "690-lts-crew",
+   "rule": "lights zone match",
+   "engineer_decision": ""
+  },
+  {
+   "page": 32,
+   "sheet": "GMMS 108'-119c PORT/STBD CREW/GALLEY LTS",
+   "instrument": "44 spare",
+   "kind": "spare",
+   "proposed": "SKIP",
+   "rule": "spare",
+   "engineer_decision": ""
+  },
+  {
+   "page": 32,
+   "sheet": "GMMS 108'-119c PORT/STBD CREW/GALLEY LTS",
+   "instrument": "52 COURTESY LIGHTS",
+   "kind": "equipment",
+   "proposed": "690-lts-courtesy",
+   "rule": "lights zone match",
+   "engineer_decision": ""
+  },
+  {
+   "page": 32,
+   "sheet": "GMMS 108'-119c PORT/STBD CREW/GALLEY LTS",
+   "instrument": "53 COURTESY / EMERGENCY LTS SW",
+   "kind": "equipment",
+   "proposed": "690-lts-courtesy",
+   "rule": "lights zone match",
+   "engineer_decision": ""
+  },
+  {
+   "page": 32,
+   "sheet": "GMMS 108'-119c PORT/STBD CREW/GALLEY LTS",
+   "instrument": "54 EMERGENCY LTS SW",
+   "kind": "equipment",
+   "proposed": "693-emergency-lighting",
+   "rule": "lights zone match",
+   "engineer_decision": ""
+  },
+  {
+   "page": 32,
+   "sheet": "GMMS 108'-119c PORT/STBD CREW/GALLEY LTS",
+   "instrument": "<UNKNOWN> BOOM LTS (2W)",
+   "kind": "equipment",
+   "proposed": "690-lts-boom",
+   "rule": "lights zone match",
+   "engineer_decision": ""
+  },
+  {
+   "page": 32,
+   "sheet": "GMMS 108'-119c PORT/STBD CREW/GALLEY LTS",
+   "instrument": "<UNKNOWN> BIMINI LIGHTS",
+   "kind": "equipment",
+   "proposed": "690-lts-? (name the zone)",
+   "rule": "lights \u2014 zone unclear",
+   "engineer_decision": ""
+  },
+  {
+   "page": 33,
+   "sheet": "GMMS 108'-119d FWD LIGHTS DB PANEL a",
+   "instrument": "33 CREW READING LT /FANS/LKR LTS",
+   "kind": "equipment",
+   "proposed": "690-lts-crew",
+   "rule": "lights zone match",
+   "engineer_decision": ""
+  },
+  {
+   "page": 33,
+   "sheet": "GMMS 108'-119d FWD LIGHTS DB PANEL a",
+   "instrument": "97 COURTESY LIGHTS",
+   "kind": "equipment",
+   "proposed": "690-lts-courtesy",
+   "rule": "lights zone match",
+   "engineer_decision": ""
+  },
+  {
+   "page": 33,
+   "sheet": "GMMS 108'-119d FWD LIGHTS DB PANEL a",
+   "instrument": "98 COURTESY / EMERGENCY LTS SW",
+   "kind": "equipment",
+   "proposed": "690-lts-courtesy",
+   "rule": "lights zone match",
+   "engineer_decision": ""
+  },
+  {
+   "page": 33,
+   "sheet": "GMMS 108'-119d FWD LIGHTS DB PANEL a",
+   "instrument": "99 EMERGENCY LTS SW",
+   "kind": "equipment",
+   "proposed": "693-emergency-lighting",
+   "rule": "lights zone match",
+   "engineer_decision": ""
+  },
+  {
+   "page": 33,
+   "sheet": "GMMS 108'-119d FWD LIGHTS DB PANEL a",
+   "instrument": "Q20 FWD GUEST LTS",
+   "kind": "breaker_protective_device",
+   "proposed": "690-lts-guest-fwd",
+   "rule": "lights zone match",
+   "engineer_decision": ""
+  },
+  {
+   "page": 34,
+   "sheet": "GMMS 108'-119e FWD LIGHTS DB PANEL b",
+   "instrument": "148 CREW READING LT /FANS/LKR LTS",
+   "kind": "equipment",
+   "proposed": "690-lts-crew",
+   "rule": "lights zone match",
+   "engineer_decision": ""
+  },
+  {
+   "page": 34,
+   "sheet": "GMMS 108'-119e FWD LIGHTS DB PANEL b",
+   "instrument": "151 spare",
+   "kind": "spare",
+   "proposed": "SKIP",
+   "rule": "spare",
+   "engineer_decision": ""
+  },
+  {
+   "page": 35,
+   "sheet": "GMMS 108'-119f STBD AFT GUEST CABIN LTS",
+   "instrument": "33 CREW READING LT /FANS/LKR LTS",
+   "kind": "equipment",
+   "proposed": "690-lts-crew",
+   "rule": "lights zone match",
+   "engineer_decision": ""
+  },
+  {
+   "page": 35,
+   "sheet": "GMMS 108'-119f STBD AFT GUEST CABIN LTS",
+   "instrument": "35 spare",
+   "kind": "spare",
+   "proposed": "SKIP",
+   "rule": "spare",
+   "engineer_decision": ""
+  },
+  {
+   "page": 36,
+   "sheet": "GMMS 108'-120 FWD SERVICE PUMPS",
+   "instrument": "Q1 FWD GREY WATER P.",
+   "kind": "breaker_protective_device",
+   "proposed": "530-grey-water-pumps",
+   "rule": "grey (existing map)",
+   "engineer_decision": ""
+  },
+  {
+   "page": 36,
+   "sheet": "GMMS 108'-120 FWD SERVICE PUMPS",
+   "instrument": "Q2 AUX MAST BILGE PUMP",
+   "kind": "breaker_protective_device",
+   "proposed": "520-*",
+   "rule": "bilge",
+   "engineer_decision": ""
+  },
+  {
+   "page": 36,
+   "sheet": "GMMS 108'-120 FWD SERVICE PUMPS",
+   "instrument": "Q4 OWNERS GREY SUMP PUMP",
+   "kind": "breaker_protective_device",
+   "proposed": "530-sump-pumps",
+   "rule": "sump (existing map)",
+   "engineer_decision": ""
+  },
+  {
+   "page": 36,
+   "sheet": "GMMS 108'-120 FWD SERVICE PUMPS",
+   "instrument": "Q6 SPARE",
+   "kind": "spare",
+   "proposed": "SKIP",
+   "rule": "spare",
+   "engineer_decision": ""
+  },
+  {
+   "page": 37,
+   "sheet": "GMMS 108'-120a MAST/EXTERIOR LIGHTS & SWITCHES",
+   "instrument": "QE1 EMERGENCY LTS SUPPLY",
+   "kind": "feeder_subpanel",
+   "proposed": "NO-NODE (feeder)",
+   "rule": "FEEDER\u2260LOAD",
+   "engineer_decision": ""
+  },
+  {
+   "page": 37,
+   "sheet": "GMMS 108'-120a MAST/EXTERIOR LIGHTS & SWITCHES",
+   "instrument": "Q11 MAST LIGHTS",
+   "kind": "breaker_protective_device",
+   "proposed": "690-lts-mast",
+   "rule": "lights zone match",
+   "engineer_decision": ""
+  },
+  {
+   "page": 37,
+   "sheet": "GMMS 108'-120a MAST/EXTERIOR LIGHTS & SWITCHES",
+   "instrument": "Q12 BOOM LIGHTS",
+   "kind": "breaker_protective_device",
+   "proposed": "690-lts-boom",
+   "rule": "lights zone match",
+   "engineer_decision": ""
+  },
+  {
+   "page": 37,
+   "sheet": "GMMS 108'-120a MAST/EXTERIOR LIGHTS & SWITCHES",
+   "instrument": "Q13 FWD DC SOCKETS",
+   "kind": "breaker_protective_device",
+   "proposed": "694-230v-outlets",
+   "rule": "outlets rule",
+   "engineer_decision": ""
+  },
+  {
+   "page": 42,
+   "sheet": "GMMS 108'-124 COCKPIT HYDRAULIC CONTROL PANELS",
+   "instrument": "None BACK LIGHTING +",
+   "kind": "equipment",
+   "proposed": "690-lts-? (name the zone)",
+   "rule": "lights \u2014 zone unclear",
+   "engineer_decision": ""
+  },
+  {
+   "page": 42,
+   "sheet": "GMMS 108'-124 COCKPIT HYDRAULIC CONTROL PANELS",
+   "instrument": "None BACK LIGHTING -",
+   "kind": "equipment",
+   "proposed": "690-lts-? (name the zone)",
+   "rule": "lights \u2014 zone unclear",
+   "engineer_decision": ""
+  },
+  {
+   "page": 42,
+   "sheet": "GMMS 108'-124 COCKPIT HYDRAULIC CONTROL PANELS",
+   "instrument": "SUB-5 BACK LIGHTING",
+   "kind": "equipment",
+   "proposed": "690-lts-? (name the zone)",
+   "rule": "lights \u2014 zone unclear",
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "S1 FUEL - AIR",
+   "kind": "equipment",
+   "proposed": "550-fuel-transfer",
+   "rule": "fuel",
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "S16 FWD GREY WATER",
+   "kind": "equipment",
+   "proposed": "530-grey-water-pumps",
+   "rule": "grey (existing map)",
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "S9 MAST NAV LTS",
+   "kind": "equipment",
+   "proposed": "690-lts-mast",
+   "rule": "lights zone match",
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "S10 STEAMING LTS",
+   "kind": "equipment",
+   "proposed": "690-lts-? (name the zone)",
+   "rule": "lights \u2014 zone unclear",
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "S12 EMERGENCY LIGHTS",
+   "kind": "equipment",
+   "proposed": "693-emergency-lighting",
+   "rule": "lights zone match",
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "S14 ALARM MUTE",
+   "kind": "alarm_monitor",
+   "proposed": "695-fire-alarm / 652-onyx (which alarm?)",
+   "rule": "alarm \u2014 specify",
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "S17 AFT GREY WATER",
+   "kind": "equipment",
+   "proposed": "530-grey-water-pumps",
+   "rule": "grey (existing map)",
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "S18 FWD BLACK WATER",
+   "kind": "equipment",
+   "proposed": "540-black-water-pumps",
+   "rule": "black (existing map)",
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "S19 AFT BLACK WATER",
+   "kind": "equipment",
+   "proposed": "540-black-water-pumps",
+   "rule": "black (existing map)",
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "<UNKNOWN> MAST AUX BILGE PUMP",
+   "kind": "equipment",
+   "proposed": "520-*",
+   "rule": "bilge",
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "<UNKNOWN> ENGINE ROOM AUX BILGE PUMP",
+   "kind": "equipment",
+   "proposed": "520-*",
+   "rule": "bilge",
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "<UNKNOWN> OWNERS GREY WATER PUMP",
+   "kind": "equipment",
+   "proposed": "530-grey-water-pumps",
+   "rule": "grey (existing map)",
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "<UNKNOWN> FWD GUEST GREY WATER PUMP",
+   "kind": "equipment",
+   "proposed": "530-grey-water-pumps",
+   "rule": "grey (existing map)",
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "<UNKNOWN> PORT AFT GUEST GREY WATER PUMP",
+   "kind": "equipment",
+   "proposed": "530-grey-water-pumps",
+   "rule": "grey (existing map)",
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "<UNKNOWN> STBD AFT GUEST GREY WATER PUMP",
+   "kind": "equipment",
+   "proposed": "530-grey-water-pumps",
+   "rule": "grey (existing map)",
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "<UNKNOWN> AFT CREW GREY WATER PUMP",
+   "kind": "equipment",
+   "proposed": "530-grey-water-pumps",
+   "rule": "grey (existing map)",
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "<UNKNOWN> AFT A/C SUMP PUMP",
+   "kind": "equipment",
+   "proposed": "530-sump-pumps",
+   "rule": "sump (existing map)",
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "S24 SAIL LKR BILGE",
+   "kind": "equipment",
+   "proposed": "520-*",
+   "rule": "bilge",
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "S21 AFT BILGE",
+   "kind": "equipment",
+   "proposed": "520-*",
+   "rule": "bilge",
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "S23 FWD BILGE",
+   "kind": "equipment",
+   "proposed": "520-*",
+   "rule": "bilge",
+   "engineer_decision": ""
+  }
+ ],
+ "still_open": [
+  {
+   "page": 12,
+   "sheet": "GMMS 108'-110d BAE LVPDU",
+   "instrument": "CB9 T/S BA",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 12,
+   "sheet": "GMMS 108'-110d BAE LVPDU",
+   "instrument": "CBx.2 G3-41P1",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 12,
+   "sheet": "GMMS 108'-110d BAE LVPDU",
+   "instrument": "SCU3 G3-4145",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 12,
+   "sheet": "GMMS 108'-110d BAE LVPDU",
+   "instrument": "SCU3 G3-4144",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 12,
+   "sheet": "GMMS 108'-110d BAE LVPDU",
+   "instrument": "CB11 G3-g1P1",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 12,
+   "sheet": "GMMS 108'-110d BAE LVPDU",
+   "instrument": "CB11 G3-g1R1",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 12,
+   "sheet": "GMMS 108'-110d BAE LVPDU",
+   "instrument": "CB11 G3-g1P2",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 12,
+   "sheet": "GMMS 108'-110d BAE LVPDU",
+   "instrument": "CB11 G3-g1R2",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 12,
+   "sheet": "GMMS 108'-110d BAE LVPDU",
+   "instrument": "CB11 G3-g1R3",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 12,
+   "sheet": "GMMS 108'-110d BAE LVPDU",
+   "instrument": "CB13 G3-11P1",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 12,
+   "sheet": "GMMS 108'-110d BAE LVPDU",
+   "instrument": "CB13 G3-11R1",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 12,
+   "sheet": "GMMS 108'-110d BAE LVPDU",
+   "instrument": "CBx.3 HVIL",
+   "kind": "signal_status_tap",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 12,
+   "sheet": "GMMS 108'-110d BAE LVPDU",
+   "instrument": "CBx.4 BELL CAN BU",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 12,
+   "sheet": "GMMS 108'-110d BAE LVPDU",
+   "instrument": "CBx.13 G3-f1P1",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 12,
+   "sheet": "GMMS 108'-110d BAE LVPDU",
+   "instrument": "CBx.14 G3-f2P1",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 12,
+   "sheet": "GMMS 108'-110d BAE LVPDU",
+   "instrument": "CBx.15 G3-61P1",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 12,
+   "sheet": "GMMS 108'-110d BAE LVPDU",
+   "instrument": "CBx.16 G3-91P1",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 12,
+   "sheet": "GMMS 108'-110d BAE LVPDU",
+   "instrument": "CBx.17 PARK",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 12,
+   "sheet": "GMMS 108'-110d BAE LVPDU",
+   "instrument": "CBx.18 G3-96P1",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 12,
+   "sheet": "GMMS 108'-110d BAE LVPDU",
+   "instrument": "SW-PWR BUS-B",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 13,
+   "sheet": "GMMS 108'-110e BAE LVPDU SYSTEM COOLING",
+   "instrument": "CB14 G3-P1P1 / G3-P1R1 / G3-P129",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 13,
+   "sheet": "GMMS 108'-110e BAE LVPDU SYSTEM COOLING",
+   "instrument": "CB15 G3-P2P1 / G3-P2R1 / G3-P229",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 13,
+   "sheet": "GMMS 108'-110e BAE LVPDU SYSTEM COOLING",
+   "instrument": "CB16 G3-P3P1 / G3-P3R1 / G3-P329",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 13,
+   "sheet": "GMMS 108'-110e BAE LVPDU SYSTEM COOLING",
+   "instrument": "CB17 G3-P4P1 / G3-P4R1 / G3-P429",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 13,
+   "sheet": "GMMS 108'-110e BAE LVPDU SYSTEM COOLING",
+   "instrument": "CB18 G3-P5P1 / G3-P5R1 / G3-P529",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 13,
+   "sheet": "GMMS 108'-110e BAE LVPDU SYSTEM COOLING",
+   "instrument": "CB19 G3-P6P1 / G3-P6R1 / G3-P629",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 13,
+   "sheet": "GMMS 108'-110e BAE LVPDU SYSTEM COOLING",
+   "instrument": "CB20 G3-P703 / G3-P704 / G3-P729 / G3-e129",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 13,
+   "sheet": "GMMS 108'-110e BAE LVPDU SYSTEM COOLING",
+   "instrument": "CB21 Re4",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 13,
+   "sheet": "GMMS 108'-110e BAE LVPDU SYSTEM COOLING",
+   "instrument": "CB22 Re5",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 13,
+   "sheet": "GMMS 108'-110e BAE LVPDU SYSTEM COOLING",
+   "instrument": "CB23 K3",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 13,
+   "sheet": "GMMS 108'-110e BAE LVPDU SYSTEM COOLING",
+   "instrument": "CBx.8 CPP OIL S / K1 (G3-g1P1) / CPP OIL F / K2 (G3-g1P1) / BCP AXIO-B BLK 9",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 13,
+   "sheet": "GMMS 108'-110e BAE LVPDU SYSTEM COOLING",
+   "instrument": "ECP1 / PWR-3 MAPS-P",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 13,
+   "sheet": "GMMS 108'-110e BAE LVPDU SYSTEM COOLING",
+   "instrument": "ECP1 / PWR-2 BEL1/2-P",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 13,
+   "sheet": "GMMS 108'-110e BAE LVPDU SYSTEM COOLING",
+   "instrument": "ECP1 / PWR-4 EDN-P",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 13,
+   "sheet": "GMMS 108'-110e BAE LVPDU SYSTEM COOLING",
+   "instrument": "ECP2 / PWR-3 MPCS-P",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 13,
+   "sheet": "GMMS 108'-110e BAE LVPDU SYSTEM COOLING",
+   "instrument": "ECP2 / PWR-2 ISG-P",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 13,
+   "sheet": "GMMS 108'-110e BAE LVPDU SYSTEM COOLING",
+   "instrument": "MCP / PWR-3 MOTOR",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 13,
+   "sheet": "GMMS 108'-110e BAE LVPDU SYSTEM COOLING",
+   "instrument": "MCP / PWR-2 MOTOR",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 13,
+   "sheet": "GMMS 108'-110e BAE LVPDU SYSTEM COOLING",
+   "instrument": "MCP / PWR-4 MOTOR",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 13,
+   "sheet": "GMMS 108'-110e BAE LVPDU SYSTEM COOLING",
+   "instrument": "ECP3 / PWR-3 MPCS-S",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 13,
+   "sheet": "GMMS 108'-110e BAE LVPDU SYSTEM COOLING",
+   "instrument": "ECP3 / PWR-2 ISG-S",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 13,
+   "sheet": "GMMS 108'-110e BAE LVPDU SYSTEM COOLING",
+   "instrument": "ECP4 / PWR-3 MAPS-S",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 13,
+   "sheet": "GMMS 108'-110e BAE LVPDU SYSTEM COOLING",
+   "instrument": "ECP4 / PWR-2 BEL1/2-S",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 13,
+   "sheet": "GMMS 108'-110e BAE LVPDU SYSTEM COOLING",
+   "instrument": "ECP4 / PWR-4 EDN-S",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 13,
+   "sheet": "GMMS 108'-110e BAE LVPDU SYSTEM COOLING",
+   "instrument": "BCP / PWR-3 BATTERY COOLING",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 13,
+   "sheet": "GMMS 108'-110e BAE LVPDU SYSTEM COOLING",
+   "instrument": "BCP / PWR-2 BATTERY COOLING",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 13,
+   "sheet": "GMMS 108'-110e BAE LVPDU SYSTEM COOLING",
+   "instrument": "BCP / PWR-4 BATTERY COOLING",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 13,
+   "sheet": "GMMS 108'-110e BAE LVPDU SYSTEM COOLING",
+   "instrument": "HCP / PWR-3 EMRAX",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 13,
+   "sheet": "GMMS 108'-110e BAE LVPDU SYSTEM COOLING",
+   "instrument": "HCP / PWR-2 EMRAX",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 13,
+   "sheet": "GMMS 108'-110e BAE LVPDU SYSTEM COOLING",
+   "instrument": "HCP / PWR-4 EMRAX",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 14,
+   "sheet": "GMMS 108'-111a EMERGENCY SUPPLY RADIO/NAV./LTS",
+   "instrument": "QE7 MAIN PANEL",
+   "kind": "breaker_protective_device",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 14,
+   "sheet": "GMMS 108'-111a EMERGENCY SUPPLY RADIO/NAV./LTS",
+   "instrument": "QE8 AUX1",
+   "kind": "breaker_protective_device",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 14,
+   "sheet": "GMMS 108'-111a EMERGENCY SUPPLY RADIO/NAV./LTS",
+   "instrument": "E22/23 PORT NAV. LT.",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 14,
+   "sheet": "GMMS 108'-111a EMERGENCY SUPPLY RADIO/NAV./LTS",
+   "instrument": "E24/25 STBD NAV. LT.",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 14,
+   "sheet": "GMMS 108'-111a EMERGENCY SUPPLY RADIO/NAV./LTS",
+   "instrument": "E26/27 STERN NAV. LT.",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 14,
+   "sheet": "GMMS 108'-111a EMERGENCY SUPPLY RADIO/NAV./LTS",
+   "instrument": "E28/29 AUX PORT NAV. LT.",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 14,
+   "sheet": "GMMS 108'-111a EMERGENCY SUPPLY RADIO/NAV./LTS",
+   "instrument": "E30/31 AUX STBD NAV. LT.",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 14,
+   "sheet": "GMMS 108'-111a EMERGENCY SUPPLY RADIO/NAV./LTS",
+   "instrument": "E32/33 AUX STERN NAV. LT.",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 14,
+   "sheet": "GMMS 108'-111a EMERGENCY SUPPLY RADIO/NAV./LTS",
+   "instrument": "E34/35 STEAMING LT. 1",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 14,
+   "sheet": "GMMS 108'-111a EMERGENCY SUPPLY RADIO/NAV./LTS",
+   "instrument": "E36/37 STEAMING LT. 2",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 14,
+   "sheet": "GMMS 108'-111a EMERGENCY SUPPLY RADIO/NAV./LTS",
+   "instrument": "<UNKNOWN> <UNKNOWN> AREA",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 14,
+   "sheet": "GMMS 108'-111a EMERGENCY SUPPLY RADIO/NAV./LTS",
+   "instrument": "<UNKNOWN> LY/CONTROL",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 15,
+   "sheet": "GMMS 108'-111 +24 V DC DISTRIBUTION",
+   "instrument": "Q6 SALOON FRIDGE",
+   "kind": "breaker_protective_device",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 15,
+   "sheet": "GMMS 108'-111 +24 V DC DISTRIBUTION",
+   "instrument": "Q9 SALOON LKR LT.",
+   "kind": "breaker_protective_device",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 15,
+   "sheet": "GMMS 108'-111 +24 V DC DISTRIBUTION",
+   "instrument": "QE7 MAIN PANEL",
+   "kind": "breaker_protective_device",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 15,
+   "sheet": "GMMS 108'-111 +24 V DC DISTRIBUTION",
+   "instrument": "QE8 AUX 1 / B&G",
+   "kind": "breaker_protective_device",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 17,
+   "sheet": "GMMS 108'-112 MAIN PANEL SCHEMATIC \"A\"",
+   "instrument": "12 / 69 not used",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 17,
+   "sheet": "GMMS 108'-112 MAIN PANEL SCHEMATIC \"A\"",
+   "instrument": "119 not used",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 18,
+   "sheet": "GMMS 108'-113 MAIN PANEL A/B SCHEMATIC",
+   "instrument": "-1 / -2 LINE VOLTAGE",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 18,
+   "sheet": "GMMS 108'-113 MAIN PANEL A/B SCHEMATIC",
+   "instrument": "-3 / -4 LOAD CURRENT",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 18,
+   "sheet": "GMMS 108'-113 MAIN PANEL A/B SCHEMATIC",
+   "instrument": "None Ph1",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 18,
+   "sheet": "GMMS 108'-113 MAIN PANEL A/B SCHEMATIC",
+   "instrument": "None Ph2",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 18,
+   "sheet": "GMMS 108'-113 MAIN PANEL A/B SCHEMATIC",
+   "instrument": "None Ph3",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 18,
+   "sheet": "GMMS 108'-113 MAIN PANEL A/B SCHEMATIC",
+   "instrument": "None 60Hz",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 18,
+   "sheet": "GMMS 108'-113 MAIN PANEL A/B SCHEMATIC",
+   "instrument": "S3 MASTER SW",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 18,
+   "sheet": "GMMS 108'-113 MAIN PANEL A/B SCHEMATIC",
+   "instrument": "S4 MODE SW",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 18,
+   "sheet": "GMMS 108'-113 MAIN PANEL A/B SCHEMATIC",
+   "instrument": "S5 QUIET MODE",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 18,
+   "sheet": "GMMS 108'-113 MAIN PANEL A/B SCHEMATIC",
+   "instrument": "S6 VOLTAGE",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 18,
+   "sheet": "GMMS 108'-113 MAIN PANEL A/B SCHEMATIC",
+   "instrument": "<UNKNOWN> LOAD CURRENT",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 22,
+   "sheet": "GMMS 108'-115 AFT SERVICE PUMPS",
+   "instrument": "None EMERGENCY BAT +24V",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 22,
+   "sheet": "GMMS 108'-115 AFT SERVICE PUMPS",
+   "instrument": "None +24V SERVICE BAT.",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 24,
+   "sheet": "GMMS 108'-116 E.R. FAN / FUEL VALVES / TANK IND.",
+   "instrument": "QE1 +24V SERVICE BAT.",
+   "kind": "breaker_protective_device",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 24,
+   "sheet": "GMMS 108'-116 E.R. FAN / FUEL VALVES / TANK IND.",
+   "instrument": "QE6 +24V EMERGENCY BAT.",
+   "kind": "breaker_protective_device",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 29,
+   "sheet": "GMMS 108'-119 AFT DC DB LIGHTS PANELa",
+   "instrument": "34 HATCHES #4",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 29,
+   "sheet": "GMMS 108'-119 AFT DC DB LIGHTS PANELa",
+   "instrument": "35 HATCHES #5",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 29,
+   "sheet": "GMMS 108'-119 AFT DC DB LIGHTS PANELa",
+   "instrument": "39 CIRCUIT 10.1 (36W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 29,
+   "sheet": "GMMS 108'-119 AFT DC DB LIGHTS PANELa",
+   "instrument": "40 CIRCUIT 10.2 (16W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 29,
+   "sheet": "GMMS 108'-119 AFT DC DB LIGHTS PANELa",
+   "instrument": "41 CIRCUIT 10.3 (5W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 29,
+   "sheet": "GMMS 108'-119 AFT DC DB LIGHTS PANELa",
+   "instrument": "42 CIRCUIT 10.4 (24W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 29,
+   "sheet": "GMMS 108'-119 AFT DC DB LIGHTS PANELa",
+   "instrument": "43 EMERGENCY LT (10.1)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 29,
+   "sheet": "GMMS 108'-119 AFT DC DB LIGHTS PANELa",
+   "instrument": "46 CIRCUIT 11.1 RED (16W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 29,
+   "sheet": "GMMS 108'-119 AFT DC DB LIGHTS PANELa",
+   "instrument": "47 CIRCUIT 11.2 (65W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 29,
+   "sheet": "GMMS 108'-119 AFT DC DB LIGHTS PANELa",
+   "instrument": "48 CIRCUIT 11.3 (50W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 29,
+   "sheet": "GMMS 108'-119 AFT DC DB LIGHTS PANELa",
+   "instrument": "49 CIRCUIT 11.4 (2W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 29,
+   "sheet": "GMMS 108'-119 AFT DC DB LIGHTS PANELa",
+   "instrument": "87 CIRCUIT 12.1 (90W +)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 29,
+   "sheet": "GMMS 108'-119 AFT DC DB LIGHTS PANELa",
+   "instrument": "88 CIRCUIT 12.2 (5W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 29,
+   "sheet": "GMMS 108'-119 AFT DC DB LIGHTS PANELa",
+   "instrument": "89 CIRCUIT 12.3",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 29,
+   "sheet": "GMMS 108'-119 AFT DC DB LIGHTS PANELa",
+   "instrument": "90 CIRCUIT 12.4",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 29,
+   "sheet": "GMMS 108'-119 AFT DC DB LIGHTS PANELa",
+   "instrument": "93 CIRCUIT 13.1",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 29,
+   "sheet": "GMMS 108'-119 AFT DC DB LIGHTS PANELa",
+   "instrument": "94 CIRCUIT 13.2",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 29,
+   "sheet": "GMMS 108'-119 AFT DC DB LIGHTS PANELa",
+   "instrument": "95 CIRCUIT 13.3",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 29,
+   "sheet": "GMMS 108'-119 AFT DC DB LIGHTS PANELa",
+   "instrument": "96 CIRCUIT 13.4",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 30,
+   "sheet": "GMMS 108'-119a AFT DC DB LIGHTS PANEL b",
+   "instrument": "135 CIRCUIT 14.1",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 30,
+   "sheet": "GMMS 108'-119a AFT DC DB LIGHTS PANEL b",
+   "instrument": "136 CIRCUIT 14.2",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 30,
+   "sheet": "GMMS 108'-119a AFT DC DB LIGHTS PANEL b",
+   "instrument": "137 CIRCUIT 14.3",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 30,
+   "sheet": "GMMS 108'-119a AFT DC DB LIGHTS PANEL b",
+   "instrument": "138 CIRCUIT 14.4",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 30,
+   "sheet": "GMMS 108'-119a AFT DC DB LIGHTS PANEL b",
+   "instrument": "141 CIRCUIT 15.1",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 30,
+   "sheet": "GMMS 108'-119a AFT DC DB LIGHTS PANEL b",
+   "instrument": "142 CIRCUIT 15.2",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 30,
+   "sheet": "GMMS 108'-119a AFT DC DB LIGHTS PANEL b",
+   "instrument": "143 CIRCUIT 15.3",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 30,
+   "sheet": "GMMS 108'-119a AFT DC DB LIGHTS PANEL b",
+   "instrument": "144 CIRCUIT 15.4",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 30,
+   "sheet": "GMMS 108'-119a AFT DC DB LIGHTS PANEL b",
+   "instrument": "166 CIRCUIT 19.1",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 30,
+   "sheet": "GMMS 108'-119a AFT DC DB LIGHTS PANEL b",
+   "instrument": "167 CIRCUIT 19.2",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 30,
+   "sheet": "GMMS 108'-119a AFT DC DB LIGHTS PANEL b",
+   "instrument": "168 CIRCUIT 19.3",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 30,
+   "sheet": "GMMS 108'-119a AFT DC DB LIGHTS PANEL b",
+   "instrument": "169 CIRCUIT 19.4 (?W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 30,
+   "sheet": "GMMS 108'-119a AFT DC DB LIGHTS PANEL b",
+   "instrument": "171 COURTESY / EMERGENCY",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 31,
+   "sheet": "GMMS 108'-119b PORT/STBD CREW/GALLEY LTS",
+   "instrument": "50 BLINDS",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 31,
+   "sheet": "GMMS 108'-119b PORT/STBD CREW/GALLEY LTS",
+   "instrument": "55 CIRCUIT 8.1 (16W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 31,
+   "sheet": "GMMS 108'-119b PORT/STBD CREW/GALLEY LTS",
+   "instrument": "56 CIRCUIT 8.2 (4W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 31,
+   "sheet": "GMMS 108'-119b PORT/STBD CREW/GALLEY LTS",
+   "instrument": "57 CIRCUIT 8.3 (24W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 31,
+   "sheet": "GMMS 108'-119b PORT/STBD CREW/GALLEY LTS",
+   "instrument": "58 CIRCUIT 8.4 (16W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 31,
+   "sheet": "GMMS 108'-119b PORT/STBD CREW/GALLEY LTS",
+   "instrument": "61 CIRCUIT 9.1 (16W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 31,
+   "sheet": "GMMS 108'-119b PORT/STBD CREW/GALLEY LTS",
+   "instrument": "62 CIRCUIT 9.2 (8W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 31,
+   "sheet": "GMMS 108'-119b PORT/STBD CREW/GALLEY LTS",
+   "instrument": "63 CIRCUIT 9.3 (2W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 31,
+   "sheet": "GMMS 108'-119b PORT/STBD CREW/GALLEY LTS",
+   "instrument": "64 CIRCUIT 9.4 (12W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 31,
+   "sheet": "GMMS 108'-119b PORT/STBD CREW/GALLEY LTS",
+   "instrument": "68 CIRCUIT 21.1 (12W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 31,
+   "sheet": "GMMS 108'-119b PORT/STBD CREW/GALLEY LTS",
+   "instrument": "70 CIRCUIT 21.2 (12W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 31,
+   "sheet": "GMMS 108'-119b PORT/STBD CREW/GALLEY LTS",
+   "instrument": "<UNKNOWN> CIRCUIT 21.3 (12W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 31,
+   "sheet": "GMMS 108'-119b PORT/STBD CREW/GALLEY LTS",
+   "instrument": "<UNKNOWN> CIRCUIT 21.4 (12W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 32,
+   "sheet": "GMMS 108'-119c PORT/STBD CREW/GALLEY LTS",
+   "instrument": "34 PORT BLINDS",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 32,
+   "sheet": "GMMS 108'-119c PORT/STBD CREW/GALLEY LTS",
+   "instrument": "35 STBD BLINDS",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 32,
+   "sheet": "GMMS 108'-119c PORT/STBD CREW/GALLEY LTS",
+   "instrument": "36 CENTER BLINDS",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 32,
+   "sheet": "GMMS 108'-119c PORT/STBD CREW/GALLEY LTS",
+   "instrument": "39 CIRCUIT 5.1 (40W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 32,
+   "sheet": "GMMS 108'-119c PORT/STBD CREW/GALLEY LTS",
+   "instrument": "40 CIRCUIT 5.2 (56W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 32,
+   "sheet": "GMMS 108'-119c PORT/STBD CREW/GALLEY LTS",
+   "instrument": "41 CIRCUIT 5.3 (16W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 32,
+   "sheet": "GMMS 108'-119c PORT/STBD CREW/GALLEY LTS",
+   "instrument": "42 CIRCUIT 5.4 (?W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 32,
+   "sheet": "GMMS 108'-119c PORT/STBD CREW/GALLEY LTS",
+   "instrument": "43 EMERGENCY LT (5.1)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 32,
+   "sheet": "GMMS 108'-119c PORT/STBD CREW/GALLEY LTS",
+   "instrument": "48 CIRCUIT 6.1 (8W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 32,
+   "sheet": "GMMS 108'-119c PORT/STBD CREW/GALLEY LTS",
+   "instrument": "49 CIRCUIT 6.2 (8W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 32,
+   "sheet": "GMMS 108'-119c PORT/STBD CREW/GALLEY LTS",
+   "instrument": "50 CIRCUIT 6.3 (30W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 32,
+   "sheet": "GMMS 108'-119c PORT/STBD CREW/GALLEY LTS",
+   "instrument": "51 CIRCUIT 6.4 (110W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 32,
+   "sheet": "GMMS 108'-119c PORT/STBD CREW/GALLEY LTS",
+   "instrument": "None CAN",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 33,
+   "sheet": "GMMS 108'-119d FWD LIGHTS DB PANEL a",
+   "instrument": "34 HATCHES #1",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 33,
+   "sheet": "GMMS 108'-119d FWD LIGHTS DB PANEL a",
+   "instrument": "35 HATCHES #2",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 33,
+   "sheet": "GMMS 108'-119d FWD LIGHTS DB PANEL a",
+   "instrument": "36 HATCHES #3",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 33,
+   "sheet": "GMMS 108'-119d FWD LIGHTS DB PANEL a",
+   "instrument": "39 CIRCUIT 1.1 (16W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 33,
+   "sheet": "GMMS 108'-119d FWD LIGHTS DB PANEL a",
+   "instrument": "40 CIRCUIT 1.2 (32W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 33,
+   "sheet": "GMMS 108'-119d FWD LIGHTS DB PANEL a",
+   "instrument": "41 CIRCUIT 1.3 (5W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 33,
+   "sheet": "GMMS 108'-119d FWD LIGHTS DB PANEL a",
+   "instrument": "42 CIRCUIT 1.4 (24W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 33,
+   "sheet": "GMMS 108'-119d FWD LIGHTS DB PANEL a",
+   "instrument": "43 EMERGENCY LT (1.1)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 33,
+   "sheet": "GMMS 108'-119d FWD LIGHTS DB PANEL a",
+   "instrument": "46 CIRCUIT 2.1 RED (16W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 33,
+   "sheet": "GMMS 108'-119d FWD LIGHTS DB PANEL a",
+   "instrument": "47 CIRCUIT 2.2 (65W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 33,
+   "sheet": "GMMS 108'-119d FWD LIGHTS DB PANEL a",
+   "instrument": "48 CIRCUIT 2.3 (50W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 33,
+   "sheet": "GMMS 108'-119d FWD LIGHTS DB PANEL a",
+   "instrument": "49 CIRCUIT 2.4 (?W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 33,
+   "sheet": "GMMS 108'-119d FWD LIGHTS DB PANEL a",
+   "instrument": "83 PORT BLINDS",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 33,
+   "sheet": "GMMS 108'-119d FWD LIGHTS DB PANEL a",
+   "instrument": "84 STBD BLINDS",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 33,
+   "sheet": "GMMS 108'-119d FWD LIGHTS DB PANEL a",
+   "instrument": "87 CIRCUIT 18.1",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 33,
+   "sheet": "GMMS 108'-119d FWD LIGHTS DB PANEL a",
+   "instrument": "88 CIRCUIT 18.2",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 33,
+   "sheet": "GMMS 108'-119d FWD LIGHTS DB PANEL a",
+   "instrument": "89 CIRCUIT 18.3",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 33,
+   "sheet": "GMMS 108'-119d FWD LIGHTS DB PANEL a",
+   "instrument": "90 CIRCUIT 18.4",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 33,
+   "sheet": "GMMS 108'-119d FWD LIGHTS DB PANEL a",
+   "instrument": "93 CIRCUIT 3.1",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 33,
+   "sheet": "GMMS 108'-119d FWD LIGHTS DB PANEL a",
+   "instrument": "94 CIRCUIT 3.2",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 33,
+   "sheet": "GMMS 108'-119d FWD LIGHTS DB PANEL a",
+   "instrument": "95 CIRCUIT 3.3",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 33,
+   "sheet": "GMMS 108'-119d FWD LIGHTS DB PANEL a",
+   "instrument": "96 CIRCUIT 3.4",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 33,
+   "sheet": "GMMS 108'-119d FWD LIGHTS DB PANEL a",
+   "instrument": "<UNKNOWN> BAT.",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 33,
+   "sheet": "GMMS 108'-119d FWD LIGHTS DB PANEL a",
+   "instrument": "None +24V SERVICE BAT.",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 34,
+   "sheet": "GMMS 108'-119e FWD LIGHTS DB PANEL b",
+   "instrument": "149 HATCHES #4",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 34,
+   "sheet": "GMMS 108'-119e FWD LIGHTS DB PANEL b",
+   "instrument": "150 HATCHES #5",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 34,
+   "sheet": "GMMS 108'-119e FWD LIGHTS DB PANEL b",
+   "instrument": "154 CIRCUIT 4.1 (12W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 34,
+   "sheet": "GMMS 108'-119e FWD LIGHTS DB PANEL b",
+   "instrument": "155 CIRCUIT 4.2 (12W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 34,
+   "sheet": "GMMS 108'-119e FWD LIGHTS DB PANEL b",
+   "instrument": "156 CIRCUIT 4.3 (12W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 34,
+   "sheet": "GMMS 108'-119e FWD LIGHTS DB PANEL b",
+   "instrument": "157 CIRCUIT 4.4 (12W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 34,
+   "sheet": "GMMS 108'-119e FWD LIGHTS DB PANEL b",
+   "instrument": "160 CIRCUIT 7.1 (12W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 34,
+   "sheet": "GMMS 108'-119e FWD LIGHTS DB PANEL b",
+   "instrument": "161 CIRCUIT 7.2 (12W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 34,
+   "sheet": "GMMS 108'-119e FWD LIGHTS DB PANEL b",
+   "instrument": "162 CIRCUIT 7.3",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 34,
+   "sheet": "GMMS 108'-119e FWD LIGHTS DB PANEL b",
+   "instrument": "163 CIRCUIT 79.4",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 34,
+   "sheet": "GMMS 108'-119e FWD LIGHTS DB PANEL b",
+   "instrument": "164 DRIVER 0-10V / CIRCUIT 20.1",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 34,
+   "sheet": "GMMS 108'-119e FWD LIGHTS DB PANEL b",
+   "instrument": "166 DRIVER 0-10V / CIRCUIT 20.2",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 34,
+   "sheet": "GMMS 108'-119e FWD LIGHTS DB PANEL b",
+   "instrument": "<UNKNOWN> DRIVER 0-10V / CIRCUIT 20.3",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 35,
+   "sheet": "GMMS 108'-119f STBD AFT GUEST CABIN LTS",
+   "instrument": "34 BLINDS",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 35,
+   "sheet": "GMMS 108'-119f STBD AFT GUEST CABIN LTS",
+   "instrument": "39 CIRCUIT 16.1 (12W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 35,
+   "sheet": "GMMS 108'-119f STBD AFT GUEST CABIN LTS",
+   "instrument": "40 CIRCUIT 16.2 (12W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 35,
+   "sheet": "GMMS 108'-119f STBD AFT GUEST CABIN LTS",
+   "instrument": "41 CIRCUIT 16.3 (12W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 35,
+   "sheet": "GMMS 108'-119f STBD AFT GUEST CABIN LTS",
+   "instrument": "42 CIRCUIT 16.4 (12W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 35,
+   "sheet": "GMMS 108'-119f STBD AFT GUEST CABIN LTS",
+   "instrument": "45 CIRCUIT 17.1 (12W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 35,
+   "sheet": "GMMS 108'-119f STBD AFT GUEST CABIN LTS",
+   "instrument": "46 CIRCUIT 17.2 (12W)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 35,
+   "sheet": "GMMS 108'-119f STBD AFT GUEST CABIN LTS",
+   "instrument": "47 CIRCUIT 17.3",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 35,
+   "sheet": "GMMS 108'-119f STBD AFT GUEST CABIN LTS",
+   "instrument": "48 CIRCUIT 17.4",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 42,
+   "sheet": "GMMS 108'-124 COCKPIT HYDRAULIC CONTROL PANELS",
+   "instrument": "None FURL (unlabelled / header)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 42,
+   "sheet": "GMMS 108'-124 COCKPIT HYDRAULIC CONTROL PANELS",
+   "instrument": "None FURL JIB",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 42,
+   "sheet": "GMMS 108'-124 COCKPIT HYDRAULIC CONTROL PANELS",
+   "instrument": "None FURL STAYSAIL",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 42,
+   "sheet": "GMMS 108'-124 COCKPIT HYDRAULIC CONTROL PANELS",
+   "instrument": "None JIB TACK UP",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 42,
+   "sheet": "GMMS 108'-124 COCKPIT HYDRAULIC CONTROL PANELS",
+   "instrument": "None JIB TACK DOWN",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 42,
+   "sheet": "GMMS 108'-124 COCKPIT HYDRAULIC CONTROL PANELS",
+   "instrument": "None JIB SHEET UP",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 42,
+   "sheet": "GMMS 108'-124 COCKPIT HYDRAULIC CONTROL PANELS",
+   "instrument": "None JIB SHEET DOWN",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 42,
+   "sheet": "GMMS 108'-124 COCKPIT HYDRAULIC CONTROL PANELS",
+   "instrument": "None JIB SHEET IN",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 42,
+   "sheet": "GMMS 108'-124 COCKPIT HYDRAULIC CONTROL PANELS",
+   "instrument": "None JIB SHEET OUT",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 42,
+   "sheet": "GMMS 108'-124 COCKPIT HYDRAULIC CONTROL PANELS",
+   "instrument": "None + (positive supply rail)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 42,
+   "sheet": "GMMS 108'-124 COCKPIT HYDRAULIC CONTROL PANELS",
+   "instrument": "None + (positive supply)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 42,
+   "sheet": "GMMS 108'-124 COCKPIT HYDRAULIC CONTROL PANELS",
+   "instrument": "None - (negative / return)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 42,
+   "sheet": "GMMS 108'-124 COCKPIT HYDRAULIC CONTROL PANELS",
+   "instrument": "1 FURL",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 42,
+   "sheet": "GMMS 108'-124 COCKPIT HYDRAULIC CONTROL PANELS",
+   "instrument": "2 JIB",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 42,
+   "sheet": "GMMS 108'-124 COCKPIT HYDRAULIC CONTROL PANELS",
+   "instrument": "3 STAYSAIL",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 42,
+   "sheet": "GMMS 108'-124 COCKPIT HYDRAULIC CONTROL PANELS",
+   "instrument": "8 IN",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 42,
+   "sheet": "GMMS 108'-124 COCKPIT HYDRAULIC CONTROL PANELS",
+   "instrument": "9 OUT",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "S2 BAE SYSTEM",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "S3 MASTER SWITCH",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "S4 MODE SWITCH",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "S5 QUIET MODE",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "None SHORE INPUT - PHASE 1",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "None SHORE INPUT - PHASE 2",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "None SHORE INPUT - PHASE 3",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "None SHORE INPUT - 60Hz",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "BEL-1 PORT BEL-1",
+   "kind": "power_source_unit",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "BEL-2 PORT BEL-2",
+   "kind": "power_source_unit",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "BEL-1 STBD BEL-1",
+   "kind": "power_source_unit",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "BEL-2 STBD BEL-2",
+   "kind": "power_source_unit",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "SHORE SHORE",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "MAPS-1 PORT MAPS-1",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "MAPS-2 PORT MAPS-2",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "MAPS-1 STBD MAPS-1",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "MAPS-2 STBD MAPS-2",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "100A AUX AUX",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "S6 EMERGENCY (SERVICE / START)",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "S7 BAE / OFF / AUX",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "S8 ANCHOR LT",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "S20 LAZARETTE",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "<UNKNOWN> EMERGENCY BACKUP POWER",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "<UNKNOWN> GMDSS BACKUP POWER",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "S22 ENG. ROOM",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "<UNKNOWN> VHF",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "<UNKNOWN> SAT-C",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "<UNKNOWN> MASTERVOLT GMDSS",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  },
+  {
+   "page": 43,
+   "sheet": "<UNKNOWN> Southern Wind \u2014 Vessel Control Panel (Marine Electrical Panel Face)",
+   "instrument": "None GPS",
+   "kind": "equipment",
+   "proposed": null,
+   "rule": null,
+   "engineer_decision": ""
+  }
+ ]
+}
