@@ -1,0 +1,19 @@
+p14 GMMS 108'-111a — Q38 ENG. ROOM LTS (690-lts-engroom-laz-transom) -> yes
+p14 — T/S B LAZ. / TRANSOM LTS -> Laz/Transom lights is ONE line; T/S B indicates fuse 6 in T/S B; they are SEPARATE from each other
+p14 — QE7 MAIN PANEL -> breaker that powers the indicators on the main panels
+p14 — QE8 AUX1 -> skip
+p14 — E22/23 PORT NAV. LT.; E24/25 STBD; E26/27 STERN; E28/29 AUX PORT; E30/31 AUX STBD; E32/33 AUX STERN; E34/35 STEAMING LT.1; E36/37 STEAMING LT.2 -> NAV LIGHTS must be SEPARATED from the rest of the lights — nav lights are a NODE OF THEIR OWN
+p14 — TECH ROOM LTS -> correct (690-lts-engroom-laz-transom)
+p14 — <UNKNOWN> AREA -> skip
+p14 — LY/CONTROL -> skip
+p14 — EMERGENCY LTS SWITCH (MAIN PANEL) (693-emergency-lighting) -> correct
+p15 GMMS 108'-111 — PASSARELLE LIGHT (260-passerelle) -> correct
+p15 — TENDER REFUELING PUMP (550-fuel-transfer) -> correct
+p15 — Q6 SALOON FRIDGE -> Skip
+p15 — Q9 SALOON LKR LT. -> lighting, saloon
+p15 — Q15 FWD MAN. SUMP PUMP (530-sump-pumps) -> yes
+p15 — QE1 FWD EMERGENCY LTS/HATCH SUPPLY -> emergency lights, zone fwd
+p15 — QE2 ENG. ROOM GAS RELEASE ALARM -> 695 only
+p15 — QE7 MAIN PANEL -> powers the main GM panel that has a node of its own
+p15 — QE8 AUX 1 / B&G -> emergency supply to B&G (B&G node created when the navigation system is ingested with the NMEA network, under 710 navigation)
+p17 GMMS 108'-112 MAIN PANEL "A" — 10/34 STEAMING LTs; 11/36 STEAMING LTs -> NAV LIGHTS, node of their own
