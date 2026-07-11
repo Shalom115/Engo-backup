@@ -187,7 +187,28 @@
     "ECP4": "595-ecp4",
     "MCP": "595-mcp",
     "BCP": "595-bcp",
-    "HCP": "595-hcp"
+    "HCP": "595-hcp",
+    "PORT NAV. LT.": "690-navigation-lights",
+    "STBD NAV. LT.": "690-navigation-lights",
+    "STERN NAV. LT.": "690-navigation-lights",
+    "AUX PORT NAV. LT.": "690-navigation-lights",
+    "AUX STBD NAV. LT.": "690-navigation-lights",
+    "AUX STERN NAV. LT.": "690-navigation-lights",
+    "STEAMING LT. 1": "690-navigation-lights",
+    "STEAMING LT. 2": "690-navigation-lights",
+    "STEAMING LTS": "690-navigation-lights",
+    "NAV. LT.": "690-navigation-lights",
+    "NAV LIGHTS": "690-navigation-lights",
+    "ENG. ROOM LTS": "690-lts-engroom-laz-transom",
+    "TECH ROOM LTS": "690-lts-engroom-laz-transom",
+    "SALOON LKR LT.": "690-lts-saloon-locker",
+    "PASSARELLE LIGHT": "260-passerelle",
+    "TENDER REFUELING PUMP": "550-fuel-transfer",
+    "FWD MAN. SUMP PUMP": "530-sump-pumps",
+    "ENG. ROOM GAS RELEASE ALARM": "695-fire-alarm",
+    "MAIN PANEL": "641-vessel-control-panel",
+    "EMERGENCY LTS SWITCH (MAIN PANEL)": "693-emergency-lighting",
+    "FWD EMERGENCY LTS/HATCH SUPPLY": "693-emergency-lighting"
   },
   "non_node_dispositions": {
     "#1 SERVICES": "feeder_subpanel",
@@ -206,13 +227,19 @@
     "EARTH LEAKAGE 2": "protects_services2_dist_line",
     "EARTH LEAKAGE 4": "protects_entertainment_dist",
     "SW-PWR BUS-B": "skip_engineer",
-    "LV5-*": "pin_of:620-modular-propulsion-control-system-mpcs"
+    "LV5-*": "pin_of:620-modular-propulsion-control-system-mpcs",
+    "QE8 AUX1": "skip_engineer",
+    "SALOON FRIDGE": "skip_engineer",
+    "<UNKNOWN> AREA": "skip_engineer",
+    "LY/CONTROL": "skip_engineer",
+    "AUX 1 / B&G": "deferred_710_navigation_when_NMEA_ingested"
   },
   "updated": "2026-07-11 \u2014 engineer red-pen batch 1 applied (GM book pages 3-11)",
   "rules": [
     "PIN RULE (engineer 2026-07-11): a connector pin / wire tag is not a load \u2014 it attaches to the equipment its plug serves; find the owner by FOLLOWING THE LINE to the labeled box (header).",
     "SHEET-SCOPED VOCAB: device-prefix meaning is per-sheet (CBx on GMMS 110b/d/e = retractable fuse).",
     "COOLING TOPOLOGY: cooling pump <-> cooled equipment are first-class cross-links (cools/cooled_by).",
-    "CONTROL CHAIN: switch -> relay -> pump chains link the controlling system (BAE/SCU3/MC43) AND the actuated equipment."
+    "CONTROL CHAIN: switch -> relay -> pump chains link the controlling system (BAE/SCU3/MC43) AND the actuated equipment.",
+    "NAV-LIGHTS RULE (engineer 2026-07-11): navigation/steaming lights are ALWAYS a node of their own (690-navigation-lights), separated from all general lighting \u2014 safety-critical, tracked distinctly."
   ]
 }

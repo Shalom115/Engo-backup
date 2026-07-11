@@ -18491,6 +18491,18 @@
       ],
       "note": "assembled from this sheet's wiring elements per the power-path protocol"
      }
+    },
+    {
+     "kind": "electrical_supply",
+     "value": "Q15 FWD MAN. SUMP PUMP (GMMS 111)",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 3 (GMMS 111a/111/112)",
+      "file": "data/state/redpen_load_map_batch3_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
     }
    ],
    "note": null
@@ -19728,6 +19740,18 @@
        0.7066666666666667
       ],
       "note": "assembled from this sheet's wiring elements per the power-path protocol"
+     }
+    },
+    {
+     "kind": "electrical_supply",
+     "value": "TENDER REFUELING PUMP (GMMS 111)",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 3 (GMMS 111a/111/112)",
+      "file": "data/state/redpen_load_map_batch3_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
      }
     }
    ],
@@ -22309,6 +22333,18 @@
       "load_as_printed": "EMERGENCY LTS SW",
       "mapped_via": "engineer_rule_lighting_per_zone"
      }
+    },
+    {
+     "kind": "electrical_supply",
+     "value": "EMERGENCY LTS SWITCH (main panel) + QE1 FWD EMERGENCY LTS/HATCH SUPPLY (fwd zone) (GMMS 111a/111)",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 3 (GMMS 111a/111/112)",
+      "file": "data/state/redpen_load_map_batch3_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
     }
    ],
    "note": null
@@ -22621,6 +22657,18 @@
        0.7066666666666667
       ],
       "note": "assembled from this sheet's wiring elements per the power-path protocol"
+     }
+    },
+    {
+     "kind": "electrical_supply",
+     "value": "QE2 ENG.ROOM GAS RELEASE ALARM \u2014 695 only (GMMS 111)",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 3 (GMMS 111a/111/112)",
+      "file": "data/state/redpen_load_map_batch3_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
      }
     }
    ],
@@ -26887,6 +26935,18 @@
       "mapped_via": "load_map_engineer_confirmed",
       "load_as_printed": "PASSARELLE"
      }
+    },
+    {
+     "kind": "electrical_supply",
+     "value": "PASSARELLE LIGHT (GMMS 111)",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 3 (GMMS 111a/111/112)",
+      "file": "data/state/redpen_load_map_batch3_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
     }
    ],
    "note": "engineer: passerelle lives under the transom section"
@@ -28687,6 +28747,18 @@
       "mapped_via": "load_map_engineer_confirmed",
       "load_as_printed": "ENG. ROOM / LAZ. / TRANSOM LTS",
       "enrichment_note": "kept most-complete read; partial duplicate reads of the same printed row removed 2026-07-03"
+     }
+    },
+    {
+     "kind": "electrical_supply",
+     "value": "Q38 ENG.ROOM LTS + TECH ROOM LTS; LAZ/TRANSOM lts = one line on fuse 6 of T/S B (SEPARATE circuits) (GMMS 111a)",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 3 (GMMS 111a/111/112)",
+      "file": "data/state/redpen_load_map_batch3_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
      }
     }
    ],
@@ -35829,7 +35901,20 @@
     }
    ],
    "identity_status": "pending",
-   "facts": [],
+   "facts": [
+    {
+     "kind": "electrical_supply",
+     "value": "QE7 MAIN PANEL \u2014 powers the main GM panel indicators (GMMS 111a/111)",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 3 (GMMS 111a/111/112)",
+      "file": "data/state/redpen_load_map_batch3_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    }
+   ],
    "note": "HUB: connects to many boards. ELEMENT SEMANTICS MANDATORY (engineer 2026-07-04): each panel element is CONTROL (switch feeding/commanding) OR INDICATOR (status lamp/display) OR SUPPLY \u2014 BEL and MAPS elements are INDICATORS (cross-link indicates_status_of), NOT controls. Mode switches S3/S4/S5 = operating-mode facts. Validate element-by-element from the wiring, never from the label."
   },
   {
@@ -39333,6 +39418,114 @@
     }
    ],
    "note": "Per-pump child created 2026-07-11 from the engineer's per-installation logic + per-pump cooling targets on GMMS 110e; engineer grades the granularity."
+  },
+  {
+   "equipment_id": "690-navigation-lights",
+   "name": "Navigation Lights",
+   "make": null,
+   "model": null,
+   "category": "Navigation lights",
+   "acronyms": [],
+   "region_code": "600",
+   "region_label": "",
+   "subsystem_code": "690",
+   "subsystem_label": "Navigation lighting (separate from general lights)",
+   "functions": [],
+   "source_paths": [],
+   "source_folder_ids": [],
+   "doc_subfolders": {},
+   "file_count": 0,
+   "flags": [],
+   "confidence": "Confirmed",
+   "parent_id": null,
+   "children": [],
+   "cross_links": [],
+   "expected_fact_classes": [
+    "electrical_schematic",
+    "photo"
+   ],
+   "fact_classes_present": [],
+   "retired": false,
+   "merged_from": [],
+   "origin": "engineer red-pen batch 3",
+   "node_provenance": [
+    {
+     "source_doc": "engineer red-pen batch 3 (GMMS 111a/111/112)",
+     "file": "data/state/redpen_load_map_batch3_raw_20260711.txt",
+     "source_type": "engineer_redpen",
+     "authority": "engineer",
+     "as_of": "2026-07-11"
+    }
+   ],
+   "facts": [
+    {
+     "kind": "electrical_supply",
+     "value": "E22-E37: PORT/STBD/STERN + AUX PORT/STBD/STERN nav lts + STEAMING LT 1/2 (GMMS 111a); also 10/34 & 11/36 STEAMING LTs (GMMS 112)",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 3 (GMMS 111a/111/112)",
+      "file": "data/state/redpen_load_map_batch3_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    }
+   ],
+   "note": "Engineer rule 2026-07-11: nav lights MUST be a node of their own, separate from 690 general lighting. Port/Stbd/Stern/Aux/Steaming."
+  },
+  {
+   "equipment_id": "690-lts-saloon-locker",
+   "name": "Saloon Locker Light",
+   "make": null,
+   "model": null,
+   "category": "Light circuit",
+   "acronyms": [],
+   "region_code": "600",
+   "region_label": "",
+   "subsystem_code": "690",
+   "subsystem_label": "Lighting circuits",
+   "functions": [],
+   "source_paths": [],
+   "source_folder_ids": [],
+   "doc_subfolders": {},
+   "file_count": 0,
+   "flags": [],
+   "confidence": "Confirmed",
+   "parent_id": null,
+   "children": [],
+   "cross_links": [],
+   "expected_fact_classes": [
+    "electrical_schematic",
+    "photo"
+   ],
+   "fact_classes_present": [],
+   "retired": false,
+   "merged_from": [],
+   "origin": "engineer red-pen batch 3",
+   "node_provenance": [
+    {
+     "source_doc": "engineer red-pen batch 3 (GMMS 111a/111/112)",
+     "file": "data/state/redpen_load_map_batch3_raw_20260711.txt",
+     "source_type": "engineer_redpen",
+     "authority": "engineer",
+     "as_of": "2026-07-11"
+    }
+   ],
+   "facts": [
+    {
+     "kind": "electrical_supply",
+     "value": "Q9 SALOON LKR LT. (GMMS 111)",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 3 (GMMS 111a/111/112)",
+      "file": "data/state/redpen_load_map_batch3_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    }
+   ],
+   "note": ""
   }
  ],
  "acronyms": {

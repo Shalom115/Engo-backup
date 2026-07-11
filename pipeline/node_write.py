@@ -308,6 +308,27 @@ class NodeWriter:
             return True
         return False
 
+    _DEVID_PREFIX = re.compile(
+        r"^\s*(Q|QE|F|CB[x]?|S|SW|CT|K|Re|E)\s?\.?\d*[a-z]?\s*(?:/\s?\d+)?\s*[-–:]?\s*", re.I)
+
+    def _load_map_lookup(self, load: str):
+        """Load-map lookup that tolerates a wiring-element label carrying its
+        DEVICE-ID PREFIX ('Q22 FRESH WATER PUMP 1' -> 'FRESH WATER PUMP 1').
+        Tries: exact -> device-prefix-stripped exact -> stripped whole-word
+        containment against a load-map key. Containment only fires on a key >=4
+        chars matched at a word boundary, so it can't hit on a stray short token."""
+        up = load.strip().upper()
+        if up in self.load_map:
+            return self.load_map[up]
+        stripped = self._DEVID_PREFIX.sub("", load).strip().upper()
+        if stripped and stripped in self.load_map:
+            return self.load_map[stripped]
+        if len(stripped) >= 4:
+            for k, v in self.load_map.items():
+                if len(k) >= 4 and re.search(r"(?<![A-Z0-9])" + re.escape(k) + r"(?![A-Z0-9])", stripped):
+                    return v
+        return None
+
     def write_electrical_row(self, row: Dict[str, Any], source_ref: Dict[str, Any]) -> Dict[str, Any]:
         """
         Route one schedule row. The LOAD is the equipment -> resolve via §9e (NEVER the
@@ -329,7 +350,7 @@ class NodeWriter:
             self.decisions.append(dec)
             return dec
         # 1) ENGINEER-CONFIRMED LOAD MAP first (mirrors the hydraulic control map)
-        tgt = self.load_map.get(load.strip().upper())
+        tgt = self._load_map_lookup(load)
         if tgt and tgt in self.by_id and self._is_feeder(load, self.by_id[tgt]):
             fact = {"device_type": row.get("device_type"), "device_id": row.get("device_id"),
                     "rating": row.get("rating"), "panel": source_ref.get("panel")}
@@ -348,8 +369,11 @@ class NodeWriter:
             # idempotency: the same supply fact (device id + load) re-read from another
             # export of the same drawing must ENRICH-or-skip, never duplicate
             for f in (self.by_id[tgt].get("facts") or []):
+                fv = f.get("value")
+                if not isinstance(fv, dict):
+                    continue  # string-valued facts (engineer red-pen) aren't device rows
                 if (f.get("kind") == "electrical_supply"
-                        and (f.get("value") or {}).get("device_id") == fact["device_id"]
+                        and fv.get("device_id") == fact["device_id"]
                         and (f.get("provenance") or {}).get("load_as_printed") == load):
                     dec = {"row": f"{row.get('device_id')} {load}", "action": "already_attached",
                            "target": tgt}
