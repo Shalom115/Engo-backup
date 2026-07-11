@@ -313,10 +313,15 @@ def _merge_enriched(r: Dict[str, Any], enriched: List[Dict[str, Any]]) -> Dict[s
     a full-page-only 'element' at overview resolution is exactly the kind of
     low-res read the §4 finding forbids trusting). Counters record what happened
     so a systematic drift shows up in review, not silently."""
-    crop_els = r.get("elements") or []
+    # Both lists come from vision tool-use output — the JSON-schema "items":
+    # {"type":"object"} is a request, not a guarantee; a malformed array entry
+    # (bare string) has been observed in practice. Same isinstance guard used
+    # throughout this module (read_wiring_coverage / read_schedule_coverage).
+    crop_els = [e for e in (r.get("elements") or []) if isinstance(e, dict)]
+    enriched = [e for e in enriched if isinstance(e, dict)]
     if not enriched:
-        return {**r, "_cross_referenced": False,
-                "_enrich_note": "enrich pass returned no elements — crop-only read kept"}
+        return {**r, "elements": crop_els, "_cross_referenced": False,
+                "_enrich_note": "enrich pass returned no usable elements — crop-only read kept"}
     by_id: Dict[str, Dict[str, Any]] = {}
     for e in enriched:
         by_id.setdefault(_norm_id(e.get("id")), e)
