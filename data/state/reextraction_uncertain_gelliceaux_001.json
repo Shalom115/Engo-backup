@@ -1,0 +1,495 @@
+{
+ "vessel": "gelliceaux_001",
+ "generated": "2026-07-11",
+ "purpose": "Consolidated uncertain-items list for engineer review (engineer-requested). Nothing here is auto-resolved.",
+ "a_dropped_wired_crossdrawing_elements": {
+  "count": 22,
+  "note": "The CP-SW class: elements that carry BOTH a wire and a 'see DWG n' reference. The batch-3 annotation rule demoted/dropped them. Rule now fixed (glossary + prompt: 'the wire is the test'). Disposition at gate: carry the old (verified-good) reads forward with provenance; targeted re-read later if wanted.",
+  "items": [
+   {
+    "page": 3,
+    "drawing_no": "GMMS 108'-101a",
+    "id": "T/S A (right, see DWG 113)",
+    "type": "terminal_strip",
+    "label": "T/S A \u2013 see DWG 113",
+    "connections": [
+     "terminal 10",
+     "terminal 11",
+     "terminal 12",
+     "terminal 13"
+    ],
+    "status": "carry-forward candidate \u2014 wired cross-drawing element dropped by new read"
+   },
+   {
+    "page": 4,
+    "drawing_no": "GMMS 108'-102",
+    "id": "TB_27",
+    "type": "status_signal",
+    "label": "Terminal block pin 27 \u2013 NO POWER IND. ON/OFF (see DWG 117)",
+    "connections": [
+     "27"
+    ],
+    "status": "carry-forward candidate \u2014 wired cross-drawing element dropped by new read"
+   },
+   {
+    "page": 4,
+    "drawing_no": "GMMS 108'-102",
+    "id": "TB_28",
+    "type": "status_signal",
+    "label": "Terminal block pin 28 \u2013 2 (NO POWER IND. ON/OFF, see DWG 117)",
+    "connections": [
+     "28"
+    ],
+    "status": "carry-forward candidate \u2014 wired cross-drawing element dropped by new read"
+   },
+   {
+    "page": 4,
+    "drawing_no": "GMMS 108'-102",
+    "id": "TB_29",
+    "type": "status_signal",
+    "label": "Terminal block pin 29 \u2013 3 (see DWG 117)",
+    "connections": [
+     "29"
+    ],
+    "status": "carry-forward candidate \u2014 wired cross-drawing element dropped by new read"
+   },
+   {
+    "page": 4,
+    "drawing_no": "GMMS 108'-102",
+    "id": "TB_30",
+    "type": "status_signal",
+    "label": "Terminal block pin 30 \u2013 4 (see DWG 117)",
+    "connections": [
+     "30"
+    ],
+    "status": "carry-forward candidate \u2014 wired cross-drawing element dropped by new read"
+   },
+   {
+    "page": 4,
+    "drawing_no": "GMMS 108'-102",
+    "id": "TB_31",
+    "type": "status_signal",
+    "label": "Terminal block pin 31 \u2013 5, + (positive supply tap, see DWG 117)",
+    "connections": [
+     "31"
+    ],
+    "status": "carry-forward candidate \u2014 wired cross-drawing element dropped by new read"
+   },
+   {
+    "page": 4,
+    "drawing_no": "GMMS 108'-102",
+    "id": "TB_32",
+    "type": "status_signal",
+    "label": "Terminal block pin 32 \u2013 6 (see DWG 117)",
+    "connections": [
+     "32"
+    ],
+    "status": "carry-forward candidate \u2014 wired cross-drawing element dropped by new read"
+   },
+   {
+    "page": 12,
+    "drawing_no": "GMMS 108'-110e",
+    "id": "CP-SW",
+    "type": "switch",
+    "label": "CP-SW (see DWG110d)",
+    "connections": [
+     "CB14",
+     "T/S BA terminal 38"
+    ],
+    "status": "VERIFIED_REAL (CP-SW, engineer+render)"
+   },
+   {
+    "page": 13,
+    "drawing_no": "GMMS 108'-111a",
+    "id": "26/27",
+    "type": "fuse",
+    "label": "F 0.x (fuse pair, terminals 26 & 27) \u2014 see DWG 111b",
+    "connections": [
+     "26",
+     "27"
+    ],
+    "status": "carry-forward candidate \u2014 wired cross-drawing element dropped by new read"
+   },
+   {
+    "page": 13,
+    "drawing_no": "GMMS 108'-111a",
+    "id": "PLUG B / ALARMODULE",
+    "type": "plug_pin",
+    "label": "to ALARMODULE PLUG B (see DWG 511b)",
+    "connections": [
+     "Emergency Panel terminal 12 ->"
+    ],
+    "status": "carry-forward candidate \u2014 wired cross-drawing element dropped by new read"
+   },
+   {
+    "page": 13,
+    "drawing_no": "GMMS 108'-111a",
+    "id": "EMERGENCY MAST LTS / MU4-12[10]",
+    "type": "device",
+    "label": "EMERGENCY MAST LTS (MU4-12 [10] see DWG112)",
+    "connections": [
+     "terminal 57"
+    ],
+    "status": "carry-forward candidate \u2014 wired cross-drawing element dropped by new read"
+   },
+   {
+    "page": 15,
+    "drawing_no": "GMMS 108'-111b",
+    "id": "DWG 111a - RELAIS 1",
+    "type": "status_signal",
+    "label": "Cross-reference: to RELAIS 1 (see DWG 111a)",
+    "connections": [
+     "from T/S E terminals 36/37"
+    ],
+    "status": "carry-forward candidate \u2014 wired cross-drawing element dropped by new read"
+   },
+   {
+    "page": 15,
+    "drawing_no": "GMMS 108'-111b",
+    "id": "DWG 111a - see DWG 111a (top)",
+    "type": "status_signal",
+    "label": "Cross-reference signal input (see DWG 111a) - top of sheet",
+    "connections": [
+     "feeds diode input to C1/C2/C3 bus"
+    ],
+    "status": "carry-forward candidate \u2014 wired cross-drawing element dropped by new read"
+   },
+   {
+    "page": 16,
+    "drawing_no": "GMMS 108'-112",
+    "id": "PLUG B-119",
+    "type": "plug_pin",
+    "label": "Plug B pin 119 \u2013 not used (see DWG 120), pin 11",
+    "connections": [
+     "pin 11"
+    ],
+    "status": "carry-forward candidate \u2014 wired cross-drawing element dropped by new read"
+   },
+   {
+    "page": 16,
+    "drawing_no": "GMMS 108'-112",
+    "id": "PLUG B-120",
+    "type": "plug_pin",
+    "label": "Plug B pin 120 \u2013 not used (see DWG 120), pin 12",
+    "connections": [
+     "pin 12"
+    ],
+    "status": "carry-forward candidate \u2014 wired cross-drawing element dropped by new read"
+   },
+   {
+    "page": 16,
+    "drawing_no": "GMMS 108'-112",
+    "id": "AUX PLUG ON PC BOARD [1]",
+    "type": "plug_pin",
+    "label": "Aux Plug on PC Board Pin 1 (see DWG 114)",
+    "connections": [
+     "PLUG C [8]"
+    ],
+    "status": "carry-forward candidate \u2014 wired cross-drawing element dropped by new read"
+   },
+   {
+    "page": 16,
+    "drawing_no": "GMMS 108'-112",
+    "id": "AUX PLUG ON PC BOARD [2]",
+    "type": "plug_pin",
+    "label": "Aux Plug on PC Board Pin 2 (see DWG 114)",
+    "connections": [
+     "PLUG C [9]"
+    ],
+    "status": "carry-forward candidate \u2014 wired cross-drawing element dropped by new read"
+   },
+   {
+    "page": 16,
+    "drawing_no": "GMMS 108'-112",
+    "id": "AUX PLUG ON PC BOARD [3]",
+    "type": "plug_pin",
+    "label": "Aux Plug on PC Board Pin 3 (see DWG 114)",
+    "connections": [
+     "PLUG C [10]"
+    ],
+    "status": "carry-forward candidate \u2014 wired cross-drawing element dropped by new read"
+   },
+   {
+    "page": 16,
+    "drawing_no": "GMMS 108'-112",
+    "id": "AUX PLUG ON PC BOARD [4]",
+    "type": "plug_pin",
+    "label": "Aux Plug on PC Board Pin 4 (see DWG 114)",
+    "connections": [
+     "PLUG C [11]"
+    ],
+    "status": "carry-forward candidate \u2014 wired cross-drawing element dropped by new read"
+   },
+   {
+    "page": 21,
+    "drawing_no": "GMMS 108'-115",
+    "id": "FWD BLACK WATER TANK FULL SIGNAL (102)",
+    "type": "status_signal",
+    "label": "FWD BLACK WATER TANK FULL SIGNAL \u2013 see DWG115a",
+    "connections": [
+     "102",
+     "downstream"
+    ],
+    "status": "carry-forward candidate \u2014 wired cross-drawing element dropped by new read"
+   },
+   {
+    "page": 24,
+    "drawing_no": "GMMS 108'-117",
+    "id": "T/S C \u2013 181-186",
+    "type": "terminal_strip",
+    "label": "T/S C terminals 181\u2013186, MU-XX to AC PANEL (see DWG 102)",
+    "connections": [
+     "terminal 181 \u2013 MU-XX/1",
+     "terminal 182 \u2013 MU-XX/2",
+     "terminal 183 \u2013 MU-XX/3",
+     "terminal 184 \u2013 MU-XX/4",
+     "terminal 185 \u2013 MU-XX/5",
+     "terminal 186 \u2013 MU-XX/6"
+    ],
+    "status": "carry-forward candidate \u2014 wired cross-drawing element dropped by new read"
+   },
+   {
+    "page": 36,
+    "drawing_no": "GMMS 108'-120a",
+    "id": "MU4-12 [10] / 22",
+    "type": "status_signal",
+    "label": "T/S F Terminal 22 \u2014 MU4-12 [10] (see DWG120/112/111a)",
+    "connections": [
+     "T/S F bus",
+     "MU4-12 controller module pin 10 via terminal 22"
+    ],
+    "status": "carry-forward candidate \u2014 wired cross-drawing element dropped by new read"
+   }
+  ]
+ },
+ "b_named_uncertainties": [
+  {
+   "page": 10,
+   "issue": "old read had bare 'SW1' \u2014 no counterpart in new read (new has SW11-16 consistently); likely a truncated fragment but unconfirmed"
+  },
+  {
+   "page": 18,
+   "issue": "MUTE switch digit: old read 'S13', new read 'S15' (beside TEST S14, internally consistent) \u2014 one misread a digit"
+  }
+ ],
+ "c_same_type_suspects": {
+  "count": 35,
+  "note": "Flagged items re-read with the SAME type whose new label carries a glossary-trap keyword \u2014 mostly the unrated-isolator question (is an unrated battery isolator a breaker or a switch?).",
+  "items": [
+   {
+    "page": 2,
+    "id": "S1",
+    "type": "switch",
+    "label": "S1 \u2013 selector/isolator switch (positions 1-2-3 / 4-5) within Shore/Shi"
+   },
+   {
+    "page": 2,
+    "id": "S1",
+    "type": "switch",
+    "label": "S1 \u2013 selector/isolator switch (positions 1-2-3 / 4-5) within Shore/Shi"
+   },
+   {
+    "page": 8,
+    "id": "2a (113)",
+    "type": "status_signal",
+    "label": "BAE START KEY SW signal stub \u2013 '2a / 113 / KEY SW (Service Mode)' \u2013 st"
+   },
+   {
+    "page": 8,
+    "id": "Re 2a",
+    "type": "status_signal",
+    "label": "BAE START KEY SW signal stub \u2013 '2a / 113 / KEY SW (Service Mode)' \u2013 st"
+   },
+   {
+    "page": 8,
+    "id": "SW11",
+    "type": "switch",
+    "label": "SW11 \u2013 isolator switch"
+   },
+   {
+    "page": 8,
+    "id": "SW5",
+    "type": "switch",
+    "label": "SW5 \u2013 isolator switch on +24V SERVICE BUS / SO5 branch; part of ISOLAT"
+   },
+   {
+    "page": 8,
+    "id": "to Re 2a",
+    "type": "status_signal",
+    "label": "BAE START KEY SW signal stub \u2013 '2a / 113 / KEY SW (Service Mode)' \u2013 st"
+   },
+   {
+    "page": 8,
+    "id": "SO 5",
+    "type": "status_signal",
+    "label": "SO 5 \u2013 status/output signal (isolator status)"
+   },
+   {
+    "page": 8,
+    "id": "SW11",
+    "type": "switch",
+    "label": "SW11 \u2013 isolator switch"
+   },
+   {
+    "page": 8,
+    "id": "AUX",
+    "type": "status_signal",
+    "label": "AUX \u2014 supply/signal label on left side of PC CARD (connects to BEL-1/4"
+   },
+   {
+    "page": 8,
+    "id": "BAE",
+    "type": "status_signal",
+    "label": "BAE \u2014 supply/signal label on left side of PC CARD (connects to BEL-1/4"
+   },
+   {
+    "page": 8,
+    "id": "NEG",
+    "type": "status_signal",
+    "label": "NEG \u2014 negative reference label on left side of PC CARD (connects to BE"
+   },
+   {
+    "page": 8,
+    "id": "+EM",
+    "type": "status_signal",
+    "label": "+EM \u2014 emergency positive supply label on left side of PC CARD (connect"
+   },
+   {
+    "page": 10,
+    "id": "SW13",
+    "type": "switch",
+    "label": "SW13 \u2014 GMDSS Battery isolator switch; feeds GMDSS SUPPLY output arrow "
+   },
+   {
+    "page": 10,
+    "id": "SW12",
+    "type": "switch",
+    "label": "SW12 \u2014 Emergency Battery isolator switch; feeds EMERGENCY BAT. SUPPLY "
+   },
+   {
+    "page": 10,
+    "id": "SW13",
+    "type": "switch",
+    "label": "SW13 \u2014 GMDSS Battery isolator switch; feeds GMDSS SUPPLY output arrow "
+   },
+   {
+    "page": 10,
+    "id": "SW12",
+    "type": "switch",
+    "label": "SW12 \u2014 Emergency Battery isolator switch; feeds EMERGENCY BAT. SUPPLY "
+   },
+   {
+    "page": 10,
+    "id": "SW15",
+    "type": "switch",
+    "label": "SW15 \u2014 Switch associated with CB2 50A upper breaker, inside Battery Is"
+   },
+   {
+    "page": 10,
+    "id": "SW14",
+    "type": "switch",
+    "label": "SW14 \u2014 Selector switch, positions 1 and 2, inside Battery Isolator Pan"
+   },
+   {
+    "page": 10,
+    "id": "SW16",
+    "type": "switch",
+    "label": "SW16 \u2014 Switch associated with CB2 50A lower breaker, inside Battery Is"
+   },
+   {
+    "page": 10,
+    "id": "SW11",
+    "type": "switch",
+    "label": "SW11 \u2014 Isolator switch with 70 mm\u00b2 wire callout (diamond), inside Batt"
+   },
+   {
+    "page": 11,
+    "id": "CP-SW",
+    "type": "switch",
+    "label": "CP-SW (see DWG110e)"
+   },
+   {
+    "page": 11,
+    "id": "CP-SW",
+    "type": "switch",
+    "label": "CP-SW (see DWG110e)"
+   },
+   {
+    "page": 13,
+    "id": "MUTE",
+    "type": "switch",
+    "label": "MUTE \u2013 normally open switch contact (Emergency Panel terminal 9); rout"
+   },
+   {
+    "page": 13,
+    "id": "SW13",
+    "type": "switch",
+    "label": "SW13 (selector/isolator switch)"
+   },
+   {
+    "page": 13,
+    "id": "MU5-12 [10]",
+    "type": "status_signal",
+    "label": "MU5-12 [10] \u2014 monitoring/status signal tap on STEAMING LT. 1 line; ind"
+   },
+   {
+    "page": 13,
+    "id": "MU5-12 [11]",
+    "type": "status_signal",
+    "label": "MU5-12 [11] \u2014 monitoring/status signal tap on STEAMING LT. 2 line; ind"
+   },
+   {
+    "page": 13,
+    "id": "MUTE",
+    "type": "switch",
+    "label": "MUTE \u2013 normally open switch contact (Emergency Panel terminal 9); rout"
+   },
+   {
+    "page": 17,
+    "id": "SW10",
+    "type": "switch",
+    "label": "SW10 (see DWG 110a)"
+   },
+   {
+    "page": 26,
+    "id": "LOWER-BLOCK-PIN-1",
+    "type": "status_signal",
+    "label": "Lower signal group line 1 \u2013 to PEDESTAL J/BOX 3 (see DWG 124d), pin 1"
+   },
+   {
+    "page": 26,
+    "id": "LOWER-BLOCK-PIN-2",
+    "type": "status_signal",
+    "label": "Lower signal group line 2 \u2013 to PEDESTAL J/BOX 3 (see DWG 124d), pin 2"
+   },
+   {
+    "page": 26,
+    "id": "LOWER-BLOCK-PIN-3",
+    "type": "status_signal",
+    "label": "Lower signal group line 1 \u2013 to PEDESTAL J/BOX 3 (see DWG 124d), pin 1"
+   },
+   {
+    "page": 26,
+    "id": "LOWER-BLOCK-PIN-4",
+    "type": "status_signal",
+    "label": "Lower signal group line 4 \u2013 to PEDESTAL J/BOX 3 (see DWG 124d), pin 4"
+   },
+   {
+    "page": 26,
+    "id": "LOWER-BLOCK-PIN-5",
+    "type": "status_signal",
+    "label": "Lower signal group line 5 \u2013 to PEDESTAL J/BOX 3 (see DWG 124d), pin 5"
+   },
+   {
+    "page": 35,
+    "id": "120a",
+    "type": "status_signal",
+    "label": "see DWG120a"
+   }
+  ]
+ },
+ "d_multi_instance": {
+  "count": 161,
+  "note": "Ids read with more than one type \u2014 several physical elements legitimately share the id, or grid tiles double-detected one part. Routed with per-instance provenance; not auto-merged."
+ }
+}

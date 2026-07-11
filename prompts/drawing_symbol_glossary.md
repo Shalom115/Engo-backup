@@ -69,7 +69,12 @@
   device; record it as a cross-reference and follow the loop there. ONLY an
   explicit drawing/sheet reference qualifies — a letters+digits tag block on a
   stub wire tapping a circuit toward a monitoring/alarm loom is a STATUS SIGNAL,
-  not a pointer, even though its wire leaves the local circuit.
+  not a pointer, even though its wire leaves the local circuit. AND: when the
+  cross-drawing reference sits on an element that CARRIES A WIRE into this
+  sheet's circuit (a source/target flag wired to a terminal, a terminal block
+  continuing on another sheet), that element STAYS an element — typed by its
+  electrical function, with the drawing reference recorded on it — never
+  demoted to annotation-only and never dropped. The wire is the test.
 - [ENG] A DOTTED/DASHED RECTANGLE enclosing a group of components marks an
   ENCLOSURE BOUNDARY — everything inside lives in one physical box/panel/unit.
   A dotted rectangle is NOT automatically a signal path.
