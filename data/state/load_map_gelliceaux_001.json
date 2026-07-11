@@ -166,8 +166,8 @@
     "CPP OIL": "430-hundested-cpp-sterngear",
     "HVIL": "625-bae-system",
     "CONDUCTIVITY PROCESSOR": "625-bae-system",
-    "PARKER DISPLAY": "625-bae-system",
-    "MC43 POWER": "625-bae-system",
+    "PARKER DISPLAY": "625-parker-mc43-display",
+    "MC43 POWER": "625-parker-mc43-display",
     "CHART TABLE HMI": "625-bae-system",
     "BEL-SYNC": "625-bae-system",
     "BEL CAN BUS ISOLATORS": "629-bel",
@@ -175,7 +175,19 @@
     "GMDSS BAT.": "631-battery-gmdss",
     "EMERGENCY BAT.": "632-battery-emergency",
     "GEN START BAT.": "633-battery-gen-start",
-    "AUX SERVICE BAT.": "634-battery-aux-service"
+    "AUX SERVICE BAT.": "634-battery-aux-service",
+    "PORT THROTTLE": "625-bae-system",
+    "STBD THROTTLE": "625-bae-system",
+    "DATA LOGGER": "625-bae-system",
+    "ISG-P": "625-isg-port",
+    "ISG-S": "625-isg-stbd",
+    "ECP1": "595-ecp1",
+    "ECP2": "595-ecp2",
+    "ECP3": "595-ecp3",
+    "ECP4": "595-ecp4",
+    "MCP": "595-mcp",
+    "BCP": "595-bcp",
+    "HCP": "595-hcp"
   },
   "non_node_dispositions": {
     "#1 SERVICES": "feeder_subpanel",
@@ -192,7 +204,15 @@
     "230V AC GROUND": "grounding_bus_not_a_node",
     "EARTH LEAKAGE 1": "protects_services1_dist_line",
     "EARTH LEAKAGE 2": "protects_services2_dist_line",
-    "EARTH LEAKAGE 4": "protects_entertainment_dist"
+    "EARTH LEAKAGE 4": "protects_entertainment_dist",
+    "SW-PWR BUS-B": "skip_engineer",
+    "LV5-*": "pin_of:620-modular-propulsion-control-system-mpcs"
   },
-  "updated": "2026-07-11 \u2014 engineer red-pen batch 1 applied (GM book pages 3-11)"
+  "updated": "2026-07-11 \u2014 engineer red-pen batch 1 applied (GM book pages 3-11)",
+  "rules": [
+    "PIN RULE (engineer 2026-07-11): a connector pin / wire tag is not a load \u2014 it attaches to the equipment its plug serves; find the owner by FOLLOWING THE LINE to the labeled box (header).",
+    "SHEET-SCOPED VOCAB: device-prefix meaning is per-sheet (CBx on GMMS 110b/d/e = retractable fuse).",
+    "COOLING TOPOLOGY: cooling pump <-> cooled equipment are first-class cross-links (cools/cooled_by).",
+    "CONTROL CHAIN: switch -> relay -> pump chains link the controlling system (BAE/SCU3/MC43) AND the actuated equipment."
+  ]
 }

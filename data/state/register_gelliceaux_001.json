@@ -3087,6 +3087,17 @@
       "authority": "engineer",
       "as_of": "2026-07-11"
      }
+    },
+    {
+     "relation": "cooled_by",
+     "target": "595-mcp",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
     }
    ]
   },
@@ -3140,10 +3151,73 @@
       "authority": "engineer",
       "as_of": "2026-07-11"
      }
+    },
+    {
+     "kind": "connector_pins",
+     "value": "CB11 plug pins G3-g1P1/R1/P2/R2/R3 \u2014 the plug to the CPP box (GMMS 110d, follow-the-line-to-header)",
+     "confidence": "high",
+     "note": "",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "kind": "protective_device",
+     "value": "CBx.18 (G3-96P1) \u2014 retractable fuse for the CPP; the BAE's control of the CPP (GMMS 110d)",
+     "confidence": "high",
+     "note": "",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "kind": "control_chain",
+     "value": "CBx.8 retractable fuse -> relays K1/K2 run BOTH CPP oil pumps on a signal from the MC43 (GMMS 110e)",
+     "confidence": "high",
+     "note": "",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
     }
    ],
    "fact_classes_present": [
     "electrical_schematic_redpen"
+   ],
+   "cross_links": [
+    {
+     "relation": "cooled_by",
+     "target": "515-calpeda-cpp-seawater-pump",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "relation": "controlled_by_signal_from",
+     "target": "625-parker-mc43-display",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    }
    ]
   },
   {
@@ -3343,10 +3417,36 @@
       "authority": "engineer",
       "as_of": "2026-07-11"
      }
+    },
+    {
+     "kind": "control_chain",
+     "value": "CB23 -> contactor K3 = CPP seawater cooling pump control (GMMS 110e; also linked 430 + BAE)",
+     "confidence": "high",
+     "note": "",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
     }
    ],
    "fact_classes_present": [
     "electrical_schematic_redpen"
+   ],
+   "cross_links": [
+    {
+     "relation": "cools",
+     "target": "430-hundested-cpp-sterngear",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    }
    ]
   },
   {
@@ -4552,6 +4652,17 @@
       "authority": "engineer",
       "as_of": "2026-07-11"
      }
+    },
+    {
+     "relation": "cooled_by",
+     "target": "595-hcp",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
     }
    ]
   },
@@ -4659,6 +4770,15 @@
       "as_of": "2026-07-11"
      }
     }
+   ],
+   "children": [
+    "595-ecp1",
+    "595-ecp2",
+    "595-mcp",
+    "595-ecp3",
+    "595-ecp4",
+    "595-bcp",
+    "595-hcp"
    ]
   },
   {
@@ -4720,6 +4840,19 @@
      "provenance": {
       "source_doc": "engineer red-pen, GM electrical book load map",
       "file": "data/state/redpen_load_map_batch1_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "kind": "control_chain",
+     "value": "CB21 -> relay Re4 = PORT seawater cooling pump control; CB22 -> Re5 = STBD (GMMS 110e; LV control from the BAE LVPDU)",
+     "confidence": "high",
+     "note": "",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
       "source_type": "engineer_redpen",
       "authority": "engineer",
       "as_of": "2026-07-11"
@@ -5141,6 +5274,19 @@
       "authority": "engineer",
       "as_of": "2026-07-11"
      }
+    },
+    {
+     "kind": "connector_pins",
+     "value": "LV5 plug pins 9/10/11/12/20/22 \u2014 the plug that connects the LVPDU to the PORT MPCS (GMMS 110d)",
+     "confidence": "high",
+     "note": "",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
     }
    ],
    "fact_classes_present": [
@@ -5153,6 +5299,28 @@
      "source": {
       "source_doc": "engineer red-pen, GM electrical book load map",
       "file": "data/state/redpen_load_map_batch1_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "relation": "cooled_by",
+     "target": "595-ecp2",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "relation": "cooled_by",
+     "target": "595-ecp3",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
       "source_type": "engineer_redpen",
       "authority": "engineer",
       "as_of": "2026-07-11"
@@ -5262,6 +5430,19 @@
       "authority": "engineer",
       "as_of": "2026-07-11"
      }
+    },
+    {
+     "kind": "control_wiring",
+     "value": "CB9 (T/S BA) + CBx.2 (G3-41P1) \u2014 LVPDU control pins for the ESS (GMMS 110d); LVPDU is the BAE system's LV control panel",
+     "confidence": "high",
+     "note": "",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
     }
    ],
    "fact_classes_present": [
@@ -5274,6 +5455,28 @@
      "source": {
       "source_doc": "engineer red-pen, GM electrical book load map",
       "file": "data/state/redpen_load_map_batch1_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "relation": "cooled_by",
+     "target": "595-bcp",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "relation": "controlled_by",
+     "target": "628-scu3",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
       "source_type": "engineer_redpen",
       "authority": "engineer",
       "as_of": "2026-07-11"
@@ -34303,6 +34506,19 @@
       "authority": "engineer",
       "as_of": "2026-07-11"
      }
+    },
+    {
+     "kind": "protective_device",
+     "value": "CBx.4 \u2014 retractable fuse for the BEL CAN bus (GMMS 110d)",
+     "confidence": "high",
+     "note": "",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
     }
    ],
    "note": null
@@ -34329,7 +34545,19 @@
    "confidence": "Flagged",
    "parent_id": "629-bel",
    "children": [],
-   "cross_links": [],
+   "cross_links": [
+    {
+     "relation": "cooled_by",
+     "target": "595-ecp1",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    }
+   ],
    "expected_fact_classes": [
     "manual",
     "schematic",
@@ -34361,6 +34589,19 @@
       "authority": "engineer",
       "as_of": "2026-07-11"
      }
+    },
+    {
+     "kind": "connector_pins",
+     "value": "G3-51R1 \u2014 pin connecting the LVPDU to this BEL (GMMS 110d)",
+     "confidence": "high",
+     "note": "",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
     }
    ],
    "note": null
@@ -34387,7 +34628,19 @@
    "confidence": "Flagged",
    "parent_id": "629-bel",
    "children": [],
-   "cross_links": [],
+   "cross_links": [
+    {
+     "relation": "cooled_by",
+     "target": "595-ecp1",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    }
+   ],
    "expected_fact_classes": [
     "manual",
     "schematic",
@@ -34419,6 +34672,19 @@
       "authority": "engineer",
       "as_of": "2026-07-11"
      }
+    },
+    {
+     "kind": "connector_pins",
+     "value": "G3-52R1 \u2014 pin connecting the LVPDU to this BEL (GMMS 110d)",
+     "confidence": "high",
+     "note": "",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
     }
    ],
    "note": null
@@ -34445,7 +34711,19 @@
    "confidence": "Flagged",
    "parent_id": "629-bel",
    "children": [],
-   "cross_links": [],
+   "cross_links": [
+    {
+     "relation": "cooled_by",
+     "target": "595-ecp4",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    }
+   ],
    "expected_fact_classes": [
     "manual",
     "schematic",
@@ -34477,6 +34755,19 @@
       "authority": "engineer",
       "as_of": "2026-07-11"
      }
+    },
+    {
+     "kind": "connector_pins",
+     "value": "G3-53R1 \u2014 pin connecting the LVPDU to this BEL (GMMS 110d)",
+     "confidence": "high",
+     "note": "",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
     }
    ],
    "note": null
@@ -34503,7 +34794,19 @@
    "confidence": "Flagged",
    "parent_id": "629-bel",
    "children": [],
-   "cross_links": [],
+   "cross_links": [
+    {
+     "relation": "cooled_by",
+     "target": "595-ecp4",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    }
+   ],
    "expected_fact_classes": [
     "manual",
     "schematic",
@@ -34531,6 +34834,19 @@
      "provenance": {
       "source_doc": "engineer red-pen, GM electrical book load map",
       "file": "data/state/redpen_load_map_batch1_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "kind": "connector_pins",
+     "value": "G3-54R1 \u2014 pin connecting the LVPDU to this BEL (GMMS 110d)",
+     "confidence": "high",
+     "note": "",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
       "source_type": "engineer_redpen",
       "authority": "engineer",
       "as_of": "2026-07-11"
@@ -34618,7 +34934,19 @@
    "confidence": "Flagged",
    "parent_id": "626-maps",
    "children": [],
-   "cross_links": [],
+   "cross_links": [
+    {
+     "relation": "cooled_by",
+     "target": "595-ecp1",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    }
+   ],
    "expected_fact_classes": [
     "manual",
     "schematic",
@@ -34689,7 +35017,19 @@
    "confidence": "Flagged",
    "parent_id": "626-maps",
    "children": [],
-   "cross_links": [],
+   "cross_links": [
+    {
+     "relation": "cooled_by",
+     "target": "595-ecp4",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    }
+   ],
    "expected_fact_classes": [
     "manual",
     "schematic",
@@ -34758,6 +35098,17 @@
       "authority": "engineer",
       "as_of": "2026-07-11"
      }
+    },
+    {
+     "relation": "controls_via_relay_re6",
+     "target": "630-akasol-ess",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
     }
    ],
    "expected_fact_classes": [
@@ -34787,6 +35138,32 @@
      "provenance": {
       "source_doc": "engineer red-pen, GM electrical book load map",
       "file": "data/state/redpen_load_map_batch1_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "kind": "control_wiring",
+     "value": "G3-4145 + G3-4144 \u2014 control wiring letting the SCU3 drive relay Re6 for the ESS (GMMS 110d)",
+     "confidence": "high",
+     "note": "",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "kind": "connector_pins",
+     "value": "CB13 pins G3-11P1/11R1 \u2014 connect to the SCU3 (GMMS 110d)",
+     "confidence": "high",
+     "note": "",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
       "source_type": "engineer_redpen",
       "authority": "engineer",
       "as_of": "2026-07-11"
@@ -34824,6 +35201,28 @@
      "source": {
       "source_doc": "engineer red-pen, GM electrical book load map",
       "file": "data/state/redpen_load_map_batch1_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "relation": "cooled_by",
+     "target": "595-ecp1",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "relation": "cooled_by",
+     "target": "595-ecp4",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
       "source_type": "engineer_redpen",
       "authority": "engineer",
       "as_of": "2026-07-11"
@@ -34905,6 +35304,83 @@
      "source": {
       "source_doc": "engineer red-pen, GM electrical book load map",
       "file": "data/state/redpen_load_map_batch1_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "relation": "same_system",
+     "target": "595-ecp1",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "relation": "same_system",
+     "target": "595-ecp2",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "relation": "same_system",
+     "target": "595-mcp",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "relation": "same_system",
+     "target": "595-ecp3",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "relation": "same_system",
+     "target": "595-ecp4",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "relation": "same_system",
+     "target": "595-bcp",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "relation": "same_system",
+     "target": "595-hcp",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
       "source_type": "engineer_redpen",
       "authority": "engineer",
       "as_of": "2026-07-11"
@@ -37055,6 +37531,17 @@
       "authority": "engineer",
       "as_of": "2026-07-11"
      }
+    },
+    {
+     "relation": "system_component",
+     "target": "625-parker-mc43-display",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
     }
    ],
    "expected_fact_classes": [
@@ -37112,6 +37599,19 @@
      "provenance": {
       "source_doc": "engineer red-pen, GM electrical book load map",
       "file": "data/state/redpen_load_map_batch1_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "kind": "protective_device",
+     "value": "CBx retractable fuses (GMMS 110d): CBx.3 HVIL; CBx.13 PORT THROTTLE; CBx.14 STBD THROTTLE; CBx.15 DATA LOGGER (engineer type: retractable fuse)",
+     "confidence": "high",
+     "note": "",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
       "source_type": "engineer_redpen",
       "authority": "engineer",
       "as_of": "2026-07-11"
@@ -37883,6 +38383,956 @@
     }
    ],
    "note": ""
+  },
+  {
+   "equipment_id": "625-parker-mc43-display",
+   "name": "Parker MC43 Display",
+   "make": "Parker",
+   "model": null,
+   "category": "Propulsion display/controller",
+   "acronyms": [],
+   "region_code": "600",
+   "region_label": "",
+   "subsystem_code": "625",
+   "subsystem_label": "BAE System",
+   "functions": [],
+   "source_paths": [],
+   "source_folder_ids": [],
+   "doc_subfolders": {},
+   "file_count": 0,
+   "flags": [],
+   "confidence": "Confirmed",
+   "parent_id": null,
+   "children": [],
+   "cross_links": [
+    {
+     "relation": "part_of_system",
+     "target": "625-bae-system",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "relation": "signals",
+     "target": "430-hundested-cpp-sterngear",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    }
+   ],
+   "expected_fact_classes": [
+    "oem_manual",
+    "electrical_schematic",
+    "photo"
+   ],
+   "fact_classes_present": [],
+   "retired": false,
+   "merged_from": [],
+   "origin": "engineer load-map red-pen batch 2, 2026-07-11",
+   "node_provenance": [
+    {
+     "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+     "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+     "source_type": "engineer_redpen",
+     "authority": "engineer",
+     "as_of": "2026-07-11"
+    }
+   ],
+   "facts": [
+    {
+     "kind": "protective_device",
+     "value": "CBx.17 \u2014 retractable fuse for the Parker display (GMMS 110d)",
+     "confidence": "high",
+     "note": "",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    }
+   ],
+   "note": "The Parker MC43 screen (locked-fact vocabulary). CBx.17 retractable fuse feeds it."
+  },
+  {
+   "equipment_id": "625-isg-port",
+   "name": "ISG Port (Integrated Starter Generator)",
+   "make": null,
+   "model": null,
+   "category": "Integrated starter generator",
+   "acronyms": [],
+   "region_code": "600",
+   "region_label": "",
+   "subsystem_code": "625",
+   "subsystem_label": "BAE System",
+   "functions": [],
+   "source_paths": [],
+   "source_folder_ids": [],
+   "doc_subfolders": {},
+   "file_count": 0,
+   "flags": [
+    "model_unconfirmed"
+   ],
+   "confidence": "Flagged",
+   "parent_id": null,
+   "children": [],
+   "cross_links": [
+    {
+     "relation": "cooled_by",
+     "target": "595-ecp2",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    }
+   ],
+   "expected_fact_classes": [
+    "oem_manual",
+    "electrical_schematic",
+    "photo"
+   ],
+   "fact_classes_present": [],
+   "retired": false,
+   "merged_from": [],
+   "origin": "engineer load-map red-pen batch 2, 2026-07-11",
+   "node_provenance": [
+    {
+     "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+     "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+     "source_type": "engineer_redpen",
+     "authority": "engineer",
+     "as_of": "2026-07-11"
+    }
+   ],
+   "facts": [],
+   "note": "Named on GMMS 110e as ECP2 cooling target; model/make to confirm."
+  },
+  {
+   "equipment_id": "625-isg-stbd",
+   "name": "ISG Stbd (Integrated Starter Generator)",
+   "make": null,
+   "model": null,
+   "category": "Integrated starter generator",
+   "acronyms": [],
+   "region_code": "600",
+   "region_label": "",
+   "subsystem_code": "625",
+   "subsystem_label": "BAE System",
+   "functions": [],
+   "source_paths": [],
+   "source_folder_ids": [],
+   "doc_subfolders": {},
+   "file_count": 0,
+   "flags": [
+    "model_unconfirmed"
+   ],
+   "confidence": "Flagged",
+   "parent_id": null,
+   "children": [],
+   "cross_links": [
+    {
+     "relation": "cooled_by",
+     "target": "595-ecp3",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    }
+   ],
+   "expected_fact_classes": [
+    "oem_manual",
+    "electrical_schematic",
+    "photo"
+   ],
+   "fact_classes_present": [],
+   "retired": false,
+   "merged_from": [],
+   "origin": "engineer load-map red-pen batch 2, 2026-07-11",
+   "node_provenance": [
+    {
+     "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+     "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+     "source_type": "engineer_redpen",
+     "authority": "engineer",
+     "as_of": "2026-07-11"
+    }
+   ],
+   "facts": [],
+   "note": "Named on GMMS 110e as ECP3 cooling target (sheet evidence); model/make to confirm."
+  },
+  {
+   "equipment_id": "595-ecp1",
+   "name": "ECP1 Glycol Cooling Pump",
+   "make": "EMP",
+   "model": null,
+   "category": "Cooling pump (EMP)",
+   "acronyms": [],
+   "region_code": "500",
+   "region_label": "",
+   "subsystem_code": "595",
+   "subsystem_label": "Cooling system",
+   "functions": [],
+   "source_paths": [],
+   "source_folder_ids": [],
+   "doc_subfolders": {},
+   "file_count": 0,
+   "flags": [
+    "structure_decision_pending_grade"
+   ],
+   "confidence": "Confirmed",
+   "parent_id": "595-emp-glycol-pumps",
+   "children": [],
+   "cross_links": [
+    {
+     "relation": "same_system",
+     "target": "635-bae-cooling-pumps",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "relation": "cools",
+     "target": "626-maps-p",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "relation": "cools",
+     "target": "629-bel1-p",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "relation": "cools",
+     "target": "629-bel2-p",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "relation": "cools",
+     "target": "627-edn",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    }
+   ],
+   "expected_fact_classes": [
+    "oem_manual",
+    "electrical_schematic",
+    "photo"
+   ],
+   "fact_classes_present": [],
+   "retired": false,
+   "merged_from": [],
+   "origin": "engineer load-map red-pen batch 2, 2026-07-11",
+   "node_provenance": [
+    {
+     "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+     "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+     "source_type": "engineer_redpen",
+     "authority": "engineer",
+     "as_of": "2026-07-11"
+    }
+   ],
+   "facts": [
+    {
+     "kind": "electrical_supply",
+     "value": "CB14 (G3-P1P1/R1/129) \u2014 GMMS 110e; engineer: yes to BAE and link to 595 cooling",
+     "confidence": "high",
+     "note": "",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "kind": "cooling_targets",
+     "value": "Cools MAPS-P, BEL1-P, BEL2-P, EDN-P (engineer, GMMS 110e)",
+     "confidence": "high",
+     "note": "",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    }
+   ],
+   "note": "Per-pump child created 2026-07-11 from the engineer's per-installation logic + per-pump cooling targets on GMMS 110e; engineer grades the granularity."
+  },
+  {
+   "equipment_id": "595-ecp2",
+   "name": "ECP2 Glycol Cooling Pump",
+   "make": "EMP",
+   "model": null,
+   "category": "Cooling pump (EMP)",
+   "acronyms": [],
+   "region_code": "500",
+   "region_label": "",
+   "subsystem_code": "595",
+   "subsystem_label": "Cooling system",
+   "functions": [],
+   "source_paths": [],
+   "source_folder_ids": [],
+   "doc_subfolders": {},
+   "file_count": 0,
+   "flags": [
+    "structure_decision_pending_grade"
+   ],
+   "confidence": "Confirmed",
+   "parent_id": "595-emp-glycol-pumps",
+   "children": [],
+   "cross_links": [
+    {
+     "relation": "same_system",
+     "target": "635-bae-cooling-pumps",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "relation": "cools",
+     "target": "620-modular-propulsion-control-system-mpcs",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "relation": "cools",
+     "target": "625-isg-port",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    }
+   ],
+   "expected_fact_classes": [
+    "oem_manual",
+    "electrical_schematic",
+    "photo"
+   ],
+   "fact_classes_present": [],
+   "retired": false,
+   "merged_from": [],
+   "origin": "engineer load-map red-pen batch 2, 2026-07-11",
+   "node_provenance": [
+    {
+     "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+     "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+     "source_type": "engineer_redpen",
+     "authority": "engineer",
+     "as_of": "2026-07-11"
+    }
+   ],
+   "facts": [
+    {
+     "kind": "electrical_supply",
+     "value": "CB15 (G3-P2*) \u2014 GMMS 110e; engineer: yes to BAE and link to 595 cooling",
+     "confidence": "high",
+     "note": "",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "kind": "cooling_targets",
+     "value": "Cools MPCS-P and ISG-P (engineer, GMMS 110e)",
+     "confidence": "high",
+     "note": "",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    }
+   ],
+   "note": "Per-pump child created 2026-07-11 from the engineer's per-installation logic + per-pump cooling targets on GMMS 110e; engineer grades the granularity."
+  },
+  {
+   "equipment_id": "595-mcp",
+   "name": "MCP Motor Cooling Pump",
+   "make": "EMP",
+   "model": null,
+   "category": "Cooling pump (EMP)",
+   "acronyms": [],
+   "region_code": "500",
+   "region_label": "",
+   "subsystem_code": "595",
+   "subsystem_label": "Cooling system",
+   "functions": [],
+   "source_paths": [],
+   "source_folder_ids": [],
+   "doc_subfolders": {},
+   "file_count": 0,
+   "flags": [
+    "structure_decision_pending_grade"
+   ],
+   "confidence": "Confirmed",
+   "parent_id": "595-emp-glycol-pumps",
+   "children": [],
+   "cross_links": [
+    {
+     "relation": "same_system",
+     "target": "635-bae-cooling-pumps",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "relation": "cools",
+     "target": "420-gpm-12-drive-motor",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    }
+   ],
+   "expected_fact_classes": [
+    "oem_manual",
+    "electrical_schematic",
+    "photo"
+   ],
+   "fact_classes_present": [],
+   "retired": false,
+   "merged_from": [],
+   "origin": "engineer load-map red-pen batch 2, 2026-07-11",
+   "node_provenance": [
+    {
+     "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+     "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+     "source_type": "engineer_redpen",
+     "authority": "engineer",
+     "as_of": "2026-07-11"
+    }
+   ],
+   "facts": [
+    {
+     "kind": "electrical_supply",
+     "value": "CB16 (G3-P3*) \u2014 GMMS 110e; engineer: yes to BAE and link to 595 cooling",
+     "confidence": "high",
+     "note": "",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "kind": "cooling_targets",
+     "value": "Cools the traction motor ACTM/GPM-12 (engineer, GMMS 110e)",
+     "confidence": "high",
+     "note": "",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    }
+   ],
+   "note": "Per-pump child created 2026-07-11 from the engineer's per-installation logic + per-pump cooling targets on GMMS 110e; engineer grades the granularity."
+  },
+  {
+   "equipment_id": "595-ecp3",
+   "name": "ECP3 Glycol Cooling Pump",
+   "make": "EMP",
+   "model": null,
+   "category": "Cooling pump (EMP)",
+   "acronyms": [],
+   "region_code": "500",
+   "region_label": "",
+   "subsystem_code": "595",
+   "subsystem_label": "Cooling system",
+   "functions": [],
+   "source_paths": [],
+   "source_folder_ids": [],
+   "doc_subfolders": {},
+   "file_count": 0,
+   "flags": [
+    "structure_decision_pending_grade"
+   ],
+   "confidence": "Confirmed",
+   "parent_id": "595-emp-glycol-pumps",
+   "children": [],
+   "cross_links": [
+    {
+     "relation": "same_system",
+     "target": "635-bae-cooling-pumps",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "relation": "cools",
+     "target": "620-modular-propulsion-control-system-mpcs",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "relation": "cools",
+     "target": "625-isg-stbd",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    }
+   ],
+   "expected_fact_classes": [
+    "oem_manual",
+    "electrical_schematic",
+    "photo"
+   ],
+   "fact_classes_present": [],
+   "retired": false,
+   "merged_from": [],
+   "origin": "engineer load-map red-pen batch 2, 2026-07-11",
+   "node_provenance": [
+    {
+     "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+     "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+     "source_type": "engineer_redpen",
+     "authority": "engineer",
+     "as_of": "2026-07-11"
+    }
+   ],
+   "facts": [
+    {
+     "kind": "electrical_supply",
+     "value": "CB17 (G3-P4*) \u2014 GMMS 110e; engineer: yes to BAE and link to 595 cooling",
+     "confidence": "high",
+     "note": "",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "kind": "cooling_targets",
+     "value": "Cools MPCS-S and ISG-S (sheet evidence: ECP3 label 'MPCS-S / ISG-S', GMMS 110e \u2014 STBD mirror of the engineer's ECP2 answer)",
+     "confidence": "high",
+     "note": "",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    }
+   ],
+   "note": "Per-pump child created 2026-07-11 from the engineer's per-installation logic + per-pump cooling targets on GMMS 110e; engineer grades the granularity."
+  },
+  {
+   "equipment_id": "595-ecp4",
+   "name": "ECP4 Glycol Cooling Pump",
+   "make": "EMP",
+   "model": null,
+   "category": "Cooling pump (EMP)",
+   "acronyms": [],
+   "region_code": "500",
+   "region_label": "",
+   "subsystem_code": "595",
+   "subsystem_label": "Cooling system",
+   "functions": [],
+   "source_paths": [],
+   "source_folder_ids": [],
+   "doc_subfolders": {},
+   "file_count": 0,
+   "flags": [
+    "structure_decision_pending_grade"
+   ],
+   "confidence": "Confirmed",
+   "parent_id": "595-emp-glycol-pumps",
+   "children": [],
+   "cross_links": [
+    {
+     "relation": "same_system",
+     "target": "635-bae-cooling-pumps",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "relation": "cools",
+     "target": "626-maps-s",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "relation": "cools",
+     "target": "629-bel1-s",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "relation": "cools",
+     "target": "629-bel2-s",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "relation": "cools",
+     "target": "627-edn",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    }
+   ],
+   "expected_fact_classes": [
+    "oem_manual",
+    "electrical_schematic",
+    "photo"
+   ],
+   "fact_classes_present": [],
+   "retired": false,
+   "merged_from": [],
+   "origin": "engineer load-map red-pen batch 2, 2026-07-11",
+   "node_provenance": [
+    {
+     "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+     "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+     "source_type": "engineer_redpen",
+     "authority": "engineer",
+     "as_of": "2026-07-11"
+    }
+   ],
+   "facts": [
+    {
+     "kind": "electrical_supply",
+     "value": "CB18 (G3-P5*) \u2014 GMMS 110e; engineer: yes to BAE and link to 595 cooling",
+     "confidence": "high",
+     "note": "",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "kind": "cooling_targets",
+     "value": "Cools MAPS-S, BEL1-S, BEL2-S, EDN-S (sheet evidence: ECP4 label, GMMS 110e \u2014 STBD mirror)",
+     "confidence": "high",
+     "note": "",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    }
+   ],
+   "note": "Per-pump child created 2026-07-11 from the engineer's per-installation logic + per-pump cooling targets on GMMS 110e; engineer grades the granularity."
+  },
+  {
+   "equipment_id": "595-bcp",
+   "name": "BCP Battery (ESS) Cooling Pump",
+   "make": "EMP",
+   "model": null,
+   "category": "Cooling pump (EMP)",
+   "acronyms": [],
+   "region_code": "500",
+   "region_label": "",
+   "subsystem_code": "595",
+   "subsystem_label": "Cooling system",
+   "functions": [],
+   "source_paths": [],
+   "source_folder_ids": [],
+   "doc_subfolders": {},
+   "file_count": 0,
+   "flags": [
+    "structure_decision_pending_grade"
+   ],
+   "confidence": "Confirmed",
+   "parent_id": "595-emp-glycol-pumps",
+   "children": [],
+   "cross_links": [
+    {
+     "relation": "same_system",
+     "target": "635-bae-cooling-pumps",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "relation": "cools",
+     "target": "630-akasol-ess",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    }
+   ],
+   "expected_fact_classes": [
+    "oem_manual",
+    "electrical_schematic",
+    "photo"
+   ],
+   "fact_classes_present": [],
+   "retired": false,
+   "merged_from": [],
+   "origin": "engineer load-map red-pen batch 2, 2026-07-11",
+   "node_provenance": [
+    {
+     "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+     "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+     "source_type": "engineer_redpen",
+     "authority": "engineer",
+     "as_of": "2026-07-11"
+    }
+   ],
+   "facts": [
+    {
+     "kind": "electrical_supply",
+     "value": "CB19 (G3-P6*) \u2014 GMMS 110e; engineer: yes to BAE and link to 595 cooling",
+     "confidence": "high",
+     "note": "",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "kind": "cooling_targets",
+     "value": "Cools the ESS (Akasol) \u2014 BCP AXIO-B (GMMS 110e)",
+     "confidence": "high",
+     "note": "",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "kind": "protective_device",
+     "value": "CBx.16 (G3-91P1) \u2014 retractable fuse for BCP (GMMS 110d); links BAE + ESS",
+     "confidence": "high",
+     "note": "",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    }
+   ],
+   "note": "Per-pump child created 2026-07-11 from the engineer's per-installation logic + per-pump cooling targets on GMMS 110e; engineer grades the granularity."
+  },
+  {
+   "equipment_id": "595-hcp",
+   "name": "HCP EMRAX Cooling Pump",
+   "make": "EMP",
+   "model": null,
+   "category": "Cooling pump (EMP)",
+   "acronyms": [],
+   "region_code": "500",
+   "region_label": "",
+   "subsystem_code": "595",
+   "subsystem_label": "Cooling system",
+   "functions": [],
+   "source_paths": [],
+   "source_folder_ids": [],
+   "doc_subfolders": {},
+   "file_count": 0,
+   "flags": [
+    "structure_decision_pending_grade"
+   ],
+   "confidence": "Confirmed",
+   "parent_id": "595-emp-glycol-pumps",
+   "children": [],
+   "cross_links": [
+    {
+     "relation": "same_system",
+     "target": "635-bae-cooling-pumps",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "relation": "cools",
+     "target": "570-myt-systems-hydraulics",
+     "source": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    }
+   ],
+   "expected_fact_classes": [
+    "oem_manual",
+    "electrical_schematic",
+    "photo"
+   ],
+   "fact_classes_present": [],
+   "retired": false,
+   "merged_from": [],
+   "origin": "engineer load-map red-pen batch 2, 2026-07-11",
+   "node_provenance": [
+    {
+     "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+     "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+     "source_type": "engineer_redpen",
+     "authority": "engineer",
+     "as_of": "2026-07-11"
+    }
+   ],
+   "facts": [
+    {
+     "kind": "electrical_supply",
+     "value": "CB20 (G3-P7*/e129) \u2014 GMMS 110e; engineer: yes to BAE and link to 595 cooling",
+     "confidence": "high",
+     "note": "",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    },
+    {
+     "kind": "cooling_targets",
+     "value": "Cools the EMRAX hydraulic-pump motors (sheet: 'HCP \u2013 EMRAX', GMMS 110e)",
+     "confidence": "high",
+     "note": "",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 2 (GMMS 110d/110e)",
+      "file": "data/state/redpen_load_map_batch2_raw_20260711.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-11"
+     }
+    }
+   ],
+   "note": "Per-pump child created 2026-07-11 from the engineer's per-installation logic + per-pump cooling targets on GMMS 110e; engineer grades the granularity."
   }
  ],
  "acronyms": {

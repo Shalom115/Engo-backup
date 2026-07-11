@@ -1,0 +1,27 @@
+p12 GMMS 108'-110d BAE LVPDU — LV5-9/-10/-11/-12/-20/-22 -> pins that are part of the plug that connects to the PORT MPCS
+p12 — G3-51R1 BEL1-P -> pin that connects to the BEL, should be on the BEL 1 P node (Each BEL should have its own node)
+p12 — G3-52R1 BEL2-P -> on the BEL 2 P node
+p12 — G3-53R1 BEL1-S -> on the BEL 1 S node
+p12 — G3-54R1 BEL2-S -> on the BEL 2 S node
+p12 — CB9 T/S BA -> wiring-detail control (LVPDU is the low-voltage control panel for the BAE system so link also to BAE); this pin is for the ESS so link to it as well
+p12 — CBx.2 G3-41P1 -> same: control, link BAE + ESS
+p12 — SCU3 G3-4145 / G3-4144 -> control wiring that allows the SCU3 to control a relay (Re6) for the ESS; link SCU3, BAE, and ESS
+p12 — CB11 G3-g1P1/R1/P2/R2/R3 -> pins of the plug that connects to the CPP (follow the line to the square whose header is CPP)
+p12 — CB13 G3-11P1/R1 -> pins that connect to the SCU3
+p12 — CBx.3 HVIL (625 BAE system) -> yes
+p12 — CBx.4 BELL CAN BUS -> CBx in this drawing is a RETRACTABLE FUSE; this one is for the CAN bus of the BEL; link BAE + BEL
+p12 — CBx.13 G3-f1P1 -> retractable fuse for the PORT THROTTLE; link BAE
+p12 — CBx.14 G3-f2P1 -> retractable fuse for the STBD THROTTLE; link BAE
+p12 — CBx.15 G3-61P1 -> retractable fuse for the DATA LOGGER; link BAE
+p12 — CBx.16 G3-91P1 -> retractable fuse for BCP; link BAE + ESS
+p12 — CBx.17 PARK -> retractable fuse for the PARKER DISPLAY; link BAE + MC43
+p12 — CBx.18 G3-96P1 -> retractable fuse for CPP; link CPP + BAE (BAE's control of the CPP)
+p12 — SW-PWR BUS-B -> skip
+p13 GMMS 108'-110e COOLING — CB14..CB20 (G3-P*) -> yes to BAE and link to 500-595 cooling system
+p13 — CB21 Re4 -> low-voltage control switch engaging a relay for the PORT sea water cooling pump; 625 BAE + 595
+p13 — CB22 Re5 -> same for STBD sea water cooling pump; 625 BAE + 595
+p13 — CB23 K3 -> same for the CPP sea water cooling pump; 625 BAE + 595 + 430 CPP
+p13 — CBx.8 CPP OIL S/F + K1/K2 + BCP AXIO-B -> retractable fuse for both CPP oil pumps; activates a relay that runs the pumps on a signal from the MC43; link BAE + 430 CPP + MC43
+p13 — ECP1 PWR-3/2/4 (MAPS-P, BEL1/2-P, EDN-P) -> ECP1 COOLS MAPS port, BEL1+2 Port and EDN port; ECP1 links to all 3 + BAE + 595
+p13 — ECP2 PWR-3/2 (MPCS-P, ISG-P) -> ECP2 COOLS MPCS-P and ISG-P; links to both + BAE + 595
+p13 — MCP PWR-3/2/4 (MOTOR) -> the MCP motor cooling pump COOLS the traction motor; connect to ACTM (GPM-12) + BAE + 595

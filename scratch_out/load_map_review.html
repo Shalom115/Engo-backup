@@ -90,13 +90,11 @@ button.ghost { cursor: pointer; }
       <span class="eyebrow">Engo · Load Map</span>
       <h1>Streamlined review</h1>
     </div>
-    <span class="stat"><b id="answeredCount">0</b> / 344 decided</span>
+    <span class="stat"><b id="answeredCount">0</b> / 284 decided</span>
     <input type="text" id="search" placeholder="filter…" />
     <select id="pageJump" onchange="if(this.value) location.hash = this.value;">
       <option value="">Jump to page…</option>
-      <option value="page-12">Page 12 — GMMS 108&#x27;-110d BAE LVPDU (30)</option>
-<option value="page-13">Page 13 — GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING (30)</option>
-<option value="page-14">Page 14 — GMMS 108&#x27;-111a EMERGENCY SUPPLY RADIO/NA (16)</option>
+      <option value="page-14">Page 14 — GMMS 108&#x27;-111a EMERGENCY SUPPLY RADIO/NA (16)</option>
 <option value="page-15">Page 15 — GMMS 108&#x27;-111 +24 V DC DISTRIBUTION (9)</option>
 <option value="page-17">Page 17 — GMMS 108&#x27;-112 MAIN PANEL SCHEMATIC &quot;A&quot; (9)</option>
 <option value="page-18">Page 18 — GMMS 108&#x27;-113 MAIN PANEL A/B SCHEMATIC (11)</option>
@@ -125,648 +123,12 @@ button.ghost { cursor: pointer; }
     Merged from all 3 draft files — <code>DRAFT.json</code> (v1, GMMS-111) is <strong>fully closed</strong> and not shown (every entry already confirmed in the active map). Below is every load from <code>EXTENSION.DRAFT</code> (29 sheets, 479 loads) with <code>EXTENSION.DRAFT_v2</code>'s proposals merged in where they exist — <strong>8 sheets never got a v2 pass and are flagged</strong>, not dropped. Each row: what the instrument <strong>IS</strong> (equipment / breaker / instrument / alarm / relay / signal — auto-classified from the read text), what <strong>SYSTEM the sheet is</strong> (page header), and the <strong>proposed node</strong> decoded into its plain-language system + a cross-check against what's <em>already in the Register</em> at that SFI code. <span style="color:var(--warn);font-weight:600;">57 rows are flagged ⚠ MAY BE STALE</span> — they propose a brand-new node under an SFI code where real nodes already exist (built after these proposals were drafted back on 2026-07-03) — check those first, they may just need to attach to what's already there instead of creating a duplicate.
   </div>
   <div class="summary">
-    <div class="stile"><div class="n">344</div><div class="l">Total loads</div></div>
-    <div class="stile flag"><div class="n">188</div><div class="l">No proposal at all</div></div>
-    <div class="stile warn"><div class="n">27</div><div class="l">Possibly stale NEW</div></div>
+    <div class="stile"><div class="n">284</div><div class="l">Total loads</div></div>
+    <div class="stile flag"><div class="n">153</div><div class="l">No proposal at all</div></div>
+    <div class="stile warn"><div class="n">10</div><div class="l">Possibly stale NEW</div></div>
     <div class="stile"><div class="n">8</div><div class="l">Sheets never reached by v2</div></div>
   </div>
   
-    <section class="page-section" id="page-12">
-      <div class="page-head">
-        <h2>Page 12</h2>
-        <div class="page-meta">
-          <span class="drawing-title">GMMS 108&#x27;-110d BAE LVPDU</span>
-          <span class="count-chip">30 loads</span>
-        </div>
-      </div>
-      
-      <div class="lgrid">
-        <div class="lrow lhead">
-          <div class="lcell">INSTRUMENT / LOAD (what + kind)</div>
-          <div class="lcell">PROPOSED NODE (system + id)</div>
-          <div class="lcell">YOUR DECISION</div>
-        </div>
-        
-          <div class="lrow" data-search="GMMS 108&#x27;-110d BAE LVPDU LV5-9 WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)">
-            <div class="lcell linst">
-              <div class="iname">LV5-9</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto from your logic: pin/wire-tag rule</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k92c1b585b01b" data-page="12" data-sheet="GMMS 108&#x27;-110d BAE LVPDU"
-                   data-instrument="None LV5-9" data-proposed="WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)"></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110d BAE LVPDU LV5-11 WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)">
-            <div class="lcell linst">
-              <div class="iname">LV5-11</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto from your logic: pin/wire-tag rule</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k298571441fab" data-page="12" data-sheet="GMMS 108&#x27;-110d BAE LVPDU"
-                   data-instrument="None LV5-11" data-proposed="WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)"></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110d BAE LVPDU LV5-10 WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)">
-            <div class="lcell linst">
-              <div class="iname">LV5-10</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto from your logic: pin/wire-tag rule</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k67dd2140bef7" data-page="12" data-sheet="GMMS 108&#x27;-110d BAE LVPDU"
-                   data-instrument="None LV5-10" data-proposed="WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)"></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110d BAE LVPDU LV5-12 WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)">
-            <div class="lcell linst">
-              <div class="iname">LV5-12</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto from your logic: pin/wire-tag rule</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k913ef2268aaf" data-page="12" data-sheet="GMMS 108&#x27;-110d BAE LVPDU"
-                   data-instrument="None LV5-12" data-proposed="WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)"></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110d BAE LVPDU LV5-20 WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)">
-            <div class="lcell linst">
-              <div class="iname">LV5-20</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto from your logic: pin/wire-tag rule</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k3e053f5260ff" data-page="12" data-sheet="GMMS 108&#x27;-110d BAE LVPDU"
-                   data-instrument="None LV5-20" data-proposed="WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)"></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110d BAE LVPDU LV5-22 WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)">
-            <div class="lcell linst">
-              <div class="iname">LV5-22</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto from your logic: pin/wire-tag rule</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k92dcea863170" data-page="12" data-sheet="GMMS 108&#x27;-110d BAE LVPDU"
-                   data-instrument="None LV5-22" data-proposed="WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)"></textarea>
-          </div>
-          <div class="lrow stale" data-search="GMMS 108&#x27;-110d BAE LVPDU G3-51R1 BEL1-P WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)">
-            <div class="lcell linst">
-              <div class="iname">G3-51R1 BEL1-P</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-new">NEW NODE</span><span class="badge b-stale">⚠ MAY BE STALE</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="sysline">BAE System (logical 629)</div><div class="note">auto from your logic: pin/wire-tag rule</div><div class="existing">Register already has: <code>629-bel</code>, <code>629-bel1-p</code>, <code>629-bel2-p</code>, <code>629-bel1-s</code>, <code>629-bel2-s</code></div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k753b08572373" data-page="12" data-sheet="GMMS 108&#x27;-110d BAE LVPDU"
-                   data-instrument="G3-51R1 BEL1-P" data-proposed="WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)"></textarea>
-          </div>
-          <div class="lrow stale" data-search="GMMS 108&#x27;-110d BAE LVPDU G3-52R1 BEL2-P WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)">
-            <div class="lcell linst">
-              <div class="iname">G3-52R1 BEL2-P</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-new">NEW NODE</span><span class="badge b-stale">⚠ MAY BE STALE</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="sysline">BAE System (logical 629)</div><div class="note">auto from your logic: pin/wire-tag rule</div><div class="existing">Register already has: <code>629-bel</code>, <code>629-bel1-p</code>, <code>629-bel2-p</code>, <code>629-bel1-s</code>, <code>629-bel2-s</code></div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="kcd968aaf5269" data-page="12" data-sheet="GMMS 108&#x27;-110d BAE LVPDU"
-                   data-instrument="G3-52R1 BEL2-P" data-proposed="WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)"></textarea>
-          </div>
-          <div class="lrow stale" data-search="GMMS 108&#x27;-110d BAE LVPDU G3-53R1 BEL1-S WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)">
-            <div class="lcell linst">
-              <div class="iname">G3-53R1 BEL1-S</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-new">NEW NODE</span><span class="badge b-stale">⚠ MAY BE STALE</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="sysline">BAE System (logical 629)</div><div class="note">auto from your logic: pin/wire-tag rule</div><div class="existing">Register already has: <code>629-bel</code>, <code>629-bel1-p</code>, <code>629-bel2-p</code>, <code>629-bel1-s</code>, <code>629-bel2-s</code></div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="kea76fa6e8d91" data-page="12" data-sheet="GMMS 108&#x27;-110d BAE LVPDU"
-                   data-instrument="G3-53R1 BEL1-S" data-proposed="WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)"></textarea>
-          </div>
-          <div class="lrow stale" data-search="GMMS 108&#x27;-110d BAE LVPDU G3-54R1 BEL2-S WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)">
-            <div class="lcell linst">
-              <div class="iname">G3-54R1 BEL2-S</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-new">NEW NODE</span><span class="badge b-stale">⚠ MAY BE STALE</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="sysline">BAE System (logical 629)</div><div class="note">auto from your logic: pin/wire-tag rule</div><div class="existing">Register already has: <code>629-bel</code>, <code>629-bel1-p</code>, <code>629-bel2-p</code>, <code>629-bel1-s</code>, <code>629-bel2-s</code></div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k5cc2b768be1a" data-page="12" data-sheet="GMMS 108&#x27;-110d BAE LVPDU"
-                   data-instrument="G3-54R1 BEL2-S" data-proposed="WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)"></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110d BAE LVPDU CB9 T/S BA ">
-            <div class="lcell linst">
-              <div class="iname">CB9 T/S BA</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k939dd28193a3" data-page="12" data-sheet="GMMS 108&#x27;-110d BAE LVPDU"
-                   data-instrument="CB9 T/S BA" data-proposed=""></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110d BAE LVPDU CBx.2 G3-41P1 ">
-            <div class="lcell linst">
-              <div class="iname">CBx.2 G3-41P1</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="ka366562e190e" data-page="12" data-sheet="GMMS 108&#x27;-110d BAE LVPDU"
-                   data-instrument="CBx.2 G3-41P1" data-proposed=""></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110d BAE LVPDU SCU3 G3-4145 ">
-            <div class="lcell linst">
-              <div class="iname">SCU3 G3-4145</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k01fce7f61bde" data-page="12" data-sheet="GMMS 108&#x27;-110d BAE LVPDU"
-                   data-instrument="SCU3 G3-4145" data-proposed=""></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110d BAE LVPDU SCU3 G3-4144 ">
-            <div class="lcell linst">
-              <div class="iname">SCU3 G3-4144</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k49f1056ad0b5" data-page="12" data-sheet="GMMS 108&#x27;-110d BAE LVPDU"
-                   data-instrument="SCU3 G3-4144" data-proposed=""></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110d BAE LVPDU CB11 G3-g1P1 ">
-            <div class="lcell linst">
-              <div class="iname">CB11 G3-g1P1</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k42b7621ff48d" data-page="12" data-sheet="GMMS 108&#x27;-110d BAE LVPDU"
-                   data-instrument="CB11 G3-g1P1" data-proposed=""></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110d BAE LVPDU CB11 G3-g1R1 ">
-            <div class="lcell linst">
-              <div class="iname">CB11 G3-g1R1</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k2fd724feb1d0" data-page="12" data-sheet="GMMS 108&#x27;-110d BAE LVPDU"
-                   data-instrument="CB11 G3-g1R1" data-proposed=""></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110d BAE LVPDU CB11 G3-g1P2 ">
-            <div class="lcell linst">
-              <div class="iname">CB11 G3-g1P2</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="kbab1aca13e71" data-page="12" data-sheet="GMMS 108&#x27;-110d BAE LVPDU"
-                   data-instrument="CB11 G3-g1P2" data-proposed=""></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110d BAE LVPDU CB11 G3-g1R2 ">
-            <div class="lcell linst">
-              <div class="iname">CB11 G3-g1R2</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="ke923a5f88678" data-page="12" data-sheet="GMMS 108&#x27;-110d BAE LVPDU"
-                   data-instrument="CB11 G3-g1R2" data-proposed=""></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110d BAE LVPDU CB11 G3-g1R3 ">
-            <div class="lcell linst">
-              <div class="iname">CB11 G3-g1R3</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="kc3ece0beee04" data-page="12" data-sheet="GMMS 108&#x27;-110d BAE LVPDU"
-                   data-instrument="CB11 G3-g1R3" data-proposed=""></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110d BAE LVPDU CB13 G3-11P1 ">
-            <div class="lcell linst">
-              <div class="iname">CB13 G3-11P1</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="kc1698466c9b7" data-page="12" data-sheet="GMMS 108&#x27;-110d BAE LVPDU"
-                   data-instrument="CB13 G3-11P1" data-proposed=""></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110d BAE LVPDU CB13 G3-11R1 ">
-            <div class="lcell linst">
-              <div class="iname">CB13 G3-11R1</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="kdb557ca9546e" data-page="12" data-sheet="GMMS 108&#x27;-110d BAE LVPDU"
-                   data-instrument="CB13 G3-11R1" data-proposed=""></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110d BAE LVPDU CBx.3 HVIL 625 BAE system">
-            <div class="lcell linst">
-              <div class="iname">CBx.3 HVIL</div>
-              <div class="badges"><span class="badge kind-signal_status_tap">SIGNAL / STATUS TAP</span><span class="badge b-existing">EXISTING</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid">625 BAE system</div><div class="sysline">BAE System</div><div class="note">HVIL interlock fact</div><div class="existing">Register already has: <code>625-investigation-of-errors</code></div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k17115f3b4084" data-page="12" data-sheet="GMMS 108&#x27;-110d BAE LVPDU"
-                   data-instrument="CBx.3 HVIL" data-proposed="625 BAE system"></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110d BAE LVPDU CBx.4 BELL CAN BU ">
-            <div class="lcell linst">
-              <div class="iname">CBx.4 BELL CAN BU</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="ke4623fda2726" data-page="12" data-sheet="GMMS 108&#x27;-110d BAE LVPDU"
-                   data-instrument="CBx.4 BELL CAN BU" data-proposed=""></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110d BAE LVPDU CBx.13 G3-f1P1 ">
-            <div class="lcell linst">
-              <div class="iname">CBx.13 G3-f1P1</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k5cb5369e63b2" data-page="12" data-sheet="GMMS 108&#x27;-110d BAE LVPDU"
-                   data-instrument="CBx.13 G3-f1P1" data-proposed=""></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110d BAE LVPDU CBx.14 G3-f2P1 ">
-            <div class="lcell linst">
-              <div class="iname">CBx.14 G3-f2P1</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k4edb2c3e8949" data-page="12" data-sheet="GMMS 108&#x27;-110d BAE LVPDU"
-                   data-instrument="CBx.14 G3-f2P1" data-proposed=""></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110d BAE LVPDU CBx.15 G3-61P1 ">
-            <div class="lcell linst">
-              <div class="iname">CBx.15 G3-61P1</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k25c3c165b1ed" data-page="12" data-sheet="GMMS 108&#x27;-110d BAE LVPDU"
-                   data-instrument="CBx.15 G3-61P1" data-proposed=""></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110d BAE LVPDU CBx.16 G3-91P1 ">
-            <div class="lcell linst">
-              <div class="iname">CBx.16 G3-91P1</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k6609bc577834" data-page="12" data-sheet="GMMS 108&#x27;-110d BAE LVPDU"
-                   data-instrument="CBx.16 G3-91P1" data-proposed=""></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110d BAE LVPDU CBx.17 PARK ">
-            <div class="lcell linst">
-              <div class="iname">CBx.17 PARK</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k232639f6ba0e" data-page="12" data-sheet="GMMS 108&#x27;-110d BAE LVPDU"
-                   data-instrument="CBx.17 PARK" data-proposed=""></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110d BAE LVPDU CBx.18 G3-96P1 ">
-            <div class="lcell linst">
-              <div class="iname">CBx.18 G3-96P1</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k39f489f0ea5e" data-page="12" data-sheet="GMMS 108&#x27;-110d BAE LVPDU"
-                   data-instrument="CBx.18 G3-96P1" data-proposed=""></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110d BAE LVPDU SW-PWR BUS-B ">
-            <div class="lcell linst">
-              <div class="iname">SW-PWR BUS-B</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="kddcdc0d6fe93" data-page="12" data-sheet="GMMS 108&#x27;-110d BAE LVPDU"
-                   data-instrument="SW-PWR BUS-B" data-proposed=""></textarea>
-          </div>
-      </div>
-    </section>
-    <section class="page-section" id="page-13">
-      <div class="page-head">
-        <h2>Page 13</h2>
-        <div class="page-meta">
-          <span class="drawing-title">GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING</span>
-          <span class="count-chip">30 loads</span>
-        </div>
-      </div>
-      
-      <div class="lgrid">
-        <div class="lrow lhead">
-          <div class="lcell">INSTRUMENT / LOAD (what + kind)</div>
-          <div class="lcell">PROPOSED NODE (system + id)</div>
-          <div class="lcell">YOUR DECISION</div>
-        </div>
-        
-          <div class="lrow stale" data-search="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING CB14 G3-P1P1 / G3-P1R1 / G3-P129 625-bae-cooling-pumps">
-            <div class="lcell linst">
-              <div class="iname">CB14 G3-P1P1 / G3-P1R1 / G3-P129</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-new">NEW NODE</span><span class="badge b-stale">⚠ MAY BE STALE</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid">625-bae-cooling-pumps</div><div class="sysline">BAE System</div><div class="note">the 7 circulation pumps BCP/MCP/ECP/HCP…</div><div class="existing">Register already has: <code>625-investigation-of-errors</code></div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="kc182ebc9be1c" data-page="13" data-sheet="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING"
-                   data-instrument="CB14 G3-P1P1 / G3-P1R1 / G3-P129" data-proposed="625-bae-cooling-pumps"></textarea>
-          </div>
-          <div class="lrow stale" data-search="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING CB15 G3-P2P1 / G3-P2R1 / G3-P229 625-bae-cooling-pumps">
-            <div class="lcell linst">
-              <div class="iname">CB15 G3-P2P1 / G3-P2R1 / G3-P229</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-new">NEW NODE</span><span class="badge b-stale">⚠ MAY BE STALE</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid">625-bae-cooling-pumps</div><div class="sysline">BAE System</div><div class="note">the 7 circulation pumps BCP/MCP/ECP/HCP…</div><div class="existing">Register already has: <code>625-investigation-of-errors</code></div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k1c02d93dd097" data-page="13" data-sheet="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING"
-                   data-instrument="CB15 G3-P2P1 / G3-P2R1 / G3-P229" data-proposed="625-bae-cooling-pumps"></textarea>
-          </div>
-          <div class="lrow stale" data-search="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING CB16 G3-P3P1 / G3-P3R1 / G3-P329 625-bae-cooling-pumps">
-            <div class="lcell linst">
-              <div class="iname">CB16 G3-P3P1 / G3-P3R1 / G3-P329</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-new">NEW NODE</span><span class="badge b-stale">⚠ MAY BE STALE</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid">625-bae-cooling-pumps</div><div class="sysline">BAE System</div><div class="note">the 7 circulation pumps BCP/MCP/ECP/HCP…</div><div class="existing">Register already has: <code>625-investigation-of-errors</code></div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="ka99699587853" data-page="13" data-sheet="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING"
-                   data-instrument="CB16 G3-P3P1 / G3-P3R1 / G3-P329" data-proposed="625-bae-cooling-pumps"></textarea>
-          </div>
-          <div class="lrow stale" data-search="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING CB17 G3-P4P1 / G3-P4R1 / G3-P429 625-bae-cooling-pumps">
-            <div class="lcell linst">
-              <div class="iname">CB17 G3-P4P1 / G3-P4R1 / G3-P429</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-new">NEW NODE</span><span class="badge b-stale">⚠ MAY BE STALE</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid">625-bae-cooling-pumps</div><div class="sysline">BAE System</div><div class="note">the 7 circulation pumps BCP/MCP/ECP/HCP…</div><div class="existing">Register already has: <code>625-investigation-of-errors</code></div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k47de7b29dc26" data-page="13" data-sheet="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING"
-                   data-instrument="CB17 G3-P4P1 / G3-P4R1 / G3-P429" data-proposed="625-bae-cooling-pumps"></textarea>
-          </div>
-          <div class="lrow stale" data-search="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING CB18 G3-P5P1 / G3-P5R1 / G3-P529 625-bae-cooling-pumps">
-            <div class="lcell linst">
-              <div class="iname">CB18 G3-P5P1 / G3-P5R1 / G3-P529</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-new">NEW NODE</span><span class="badge b-stale">⚠ MAY BE STALE</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid">625-bae-cooling-pumps</div><div class="sysline">BAE System</div><div class="note">the 7 circulation pumps BCP/MCP/ECP/HCP…</div><div class="existing">Register already has: <code>625-investigation-of-errors</code></div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k39e1592c4107" data-page="13" data-sheet="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING"
-                   data-instrument="CB18 G3-P5P1 / G3-P5R1 / G3-P529" data-proposed="625-bae-cooling-pumps"></textarea>
-          </div>
-          <div class="lrow stale" data-search="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING CB19 G3-P6P1 / G3-P6R1 / G3-P629 625-bae-cooling-pumps">
-            <div class="lcell linst">
-              <div class="iname">CB19 G3-P6P1 / G3-P6R1 / G3-P629</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-new">NEW NODE</span><span class="badge b-stale">⚠ MAY BE STALE</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid">625-bae-cooling-pumps</div><div class="sysline">BAE System</div><div class="note">the 7 circulation pumps BCP/MCP/ECP/HCP…</div><div class="existing">Register already has: <code>625-investigation-of-errors</code></div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="kb13e0c0ab706" data-page="13" data-sheet="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING"
-                   data-instrument="CB19 G3-P6P1 / G3-P6R1 / G3-P629" data-proposed="625-bae-cooling-pumps"></textarea>
-          </div>
-          <div class="lrow stale" data-search="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING CB20 G3-P703 / G3-P704 / G3-P729 / G3-e129 625-bae-cooling-pumps">
-            <div class="lcell linst">
-              <div class="iname">CB20 G3-P703 / G3-P704 / G3-P729 / G3-e129</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-new">NEW NODE</span><span class="badge b-stale">⚠ MAY BE STALE</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid">625-bae-cooling-pumps</div><div class="sysline">BAE System</div><div class="note">the 7 circulation pumps BCP/MCP/ECP/HCP…</div><div class="existing">Register already has: <code>625-investigation-of-errors</code></div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k12526421609a" data-page="13" data-sheet="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING"
-                   data-instrument="CB20 G3-P703 / G3-P704 / G3-P729 / G3-e129" data-proposed="625-bae-cooling-pumps"></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING CB21 Re4 ">
-            <div class="lcell linst">
-              <div class="iname">CB21 Re4</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k65104ecdbaee" data-page="13" data-sheet="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING"
-                   data-instrument="CB21 Re4" data-proposed=""></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING CB22 Re5 ">
-            <div class="lcell linst">
-              <div class="iname">CB22 Re5</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k4e1bdfd4d24a" data-page="13" data-sheet="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING"
-                   data-instrument="CB22 Re5" data-proposed=""></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING CB23 K3 ">
-            <div class="lcell linst">
-              <div class="iname">CB23 K3</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="kfd1bb40c8b10" data-page="13" data-sheet="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING"
-                   data-instrument="CB23 K3" data-proposed=""></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING CBx.8 CPP OIL S / K1 (G3-g1P1) / CPP OIL F / K2 (G3-g1P1) / BCP AXIO-B BLK 9 ">
-            <div class="lcell linst">
-              <div class="iname">CBx.8 CPP OIL S / K1 (G3-g1P1) / CPP OIL F / K2 (G3-g1P1) / BCP AXIO-B BLK 9</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k71a6ba8e14f3" data-page="13" data-sheet="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING"
-                   data-instrument="CBx.8 CPP OIL S / K1 (G3-g1P1) / CPP OIL F / K2 (G3-g1P1) / BCP AXIO-B BLK 9" data-proposed=""></textarea>
-          </div>
-          <div class="lrow stale" data-search="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING ECP1 / PWR-3 MAPS-P 626-maps">
-            <div class="lcell linst">
-              <div class="iname">ECP1 / PWR-3 MAPS-P</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-new">NEW NODE</span><span class="badge b-stale">⚠ MAY BE STALE</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid">626-maps</div><div class="sysline">BAE System (logical 626)</div><div class="note">Modular Aux Power System, P+S</div><div class="existing">Register already has: <code>626-maps</code>, <code>626-maps-p</code>, <code>626-maps-s</code></div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="kaa74737d9ac9" data-page="13" data-sheet="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING"
-                   data-instrument="ECP1 / PWR-3 MAPS-P" data-proposed="626-maps"></textarea>
-          </div>
-          <div class="lrow stale" data-search="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING ECP1 / PWR-2 BEL1/2-P 629-bel-1p/-2p/-1s/-2s">
-            <div class="lcell linst">
-              <div class="iname">ECP1 / PWR-2 BEL1/2-P</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-new">NEW NODE</span><span class="badge b-stale">⚠ MAY BE STALE</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid">629-bel-1p/-2p/-1s/-2s</div><div class="sysline">BAE System (logical 629)</div><div class="note">FOUR nodes — per-installation</div><div class="existing">Register already has: <code>629-bel</code>, <code>629-bel1-p</code>, <code>629-bel2-p</code>, <code>629-bel1-s</code>, <code>629-bel2-s</code></div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k0e53e6ca57ab" data-page="13" data-sheet="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING"
-                   data-instrument="ECP1 / PWR-2 BEL1/2-P" data-proposed="629-bel-1p/-2p/-1s/-2s"></textarea>
-          </div>
-          <div class="lrow stale" data-search="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING ECP1 / PWR-4 EDN-P 627-edn-shore-charger">
-            <div class="lcell linst">
-              <div class="iname">ECP1 / PWR-4 EDN-P</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-new">NEW NODE</span><span class="badge b-stale">⚠ MAY BE STALE</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid">627-edn-shore-charger</div><div class="sysline">BAE System (logical 627)</div><div class="existing">Register already has: <code>627-edn</code></div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="kc6c69369568f" data-page="13" data-sheet="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING"
-                   data-instrument="ECP1 / PWR-4 EDN-P" data-proposed="627-edn-shore-charger"></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING ECP2 / PWR-3 MPCS-P 620-modular-propulsion-control-system-mpcs">
-            <div class="lcell linst">
-              <div class="iname">ECP2 / PWR-3 MPCS-P</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid">620-modular-propulsion-control-system-mpcs</div><div class="sysline">Power conversion</div><div class="existing">Register already has: <code>620-edn-s</code>, <code>620-inverter-bel</code>, <code>620-modular-accessory-power-system-maps</code>, <code>620-modular-propulsion-control-system-mpcs</code>, <code>620-system-control-unit-scu3</code></div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k603a6d352d5e" data-page="13" data-sheet="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING"
-                   data-instrument="ECP2 / PWR-3 MPCS-P" data-proposed="620-modular-propulsion-control-system-mpcs"></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING ECP2 / PWR-2 ISG-P ">
-            <div class="lcell linst">
-              <div class="iname">ECP2 / PWR-2 ISG-P</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k5295708d9fcc" data-page="13" data-sheet="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING"
-                   data-instrument="ECP2 / PWR-2 ISG-P" data-proposed=""></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING MCP / PWR-3 MOTOR ">
-            <div class="lcell linst">
-              <div class="iname">MCP / PWR-3 MOTOR</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="ke53a2e009700" data-page="13" data-sheet="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING"
-                   data-instrument="MCP / PWR-3 MOTOR" data-proposed=""></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING MCP / PWR-2 MOTOR ">
-            <div class="lcell linst">
-              <div class="iname">MCP / PWR-2 MOTOR</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k74131b69ce4e" data-page="13" data-sheet="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING"
-                   data-instrument="MCP / PWR-2 MOTOR" data-proposed=""></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING MCP / PWR-4 MOTOR ">
-            <div class="lcell linst">
-              <div class="iname">MCP / PWR-4 MOTOR</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="kec190b928ace" data-page="13" data-sheet="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING"
-                   data-instrument="MCP / PWR-4 MOTOR" data-proposed=""></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING ECP3 / PWR-3 MPCS-S ">
-            <div class="lcell linst">
-              <div class="iname">ECP3 / PWR-3 MPCS-S</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k31edf2259d9f" data-page="13" data-sheet="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING"
-                   data-instrument="ECP3 / PWR-3 MPCS-S" data-proposed=""></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING ECP3 / PWR-2 ISG-S ">
-            <div class="lcell linst">
-              <div class="iname">ECP3 / PWR-2 ISG-S</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="ke7f0ec2ec303" data-page="13" data-sheet="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING"
-                   data-instrument="ECP3 / PWR-2 ISG-S" data-proposed=""></textarea>
-          </div>
-          <div class="lrow stale" data-search="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING ECP4 / PWR-3 MAPS-S 626-maps">
-            <div class="lcell linst">
-              <div class="iname">ECP4 / PWR-3 MAPS-S</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-new">NEW NODE</span><span class="badge b-stale">⚠ MAY BE STALE</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid">626-maps</div><div class="sysline">BAE System (logical 626)</div><div class="note">Modular Aux Power System, P+S</div><div class="existing">Register already has: <code>626-maps</code>, <code>626-maps-p</code>, <code>626-maps-s</code></div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k2b9fa42e2055" data-page="13" data-sheet="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING"
-                   data-instrument="ECP4 / PWR-3 MAPS-S" data-proposed="626-maps"></textarea>
-          </div>
-          <div class="lrow stale" data-search="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING ECP4 / PWR-2 BEL1/2-S 629-bel-1p/-2p/-1s/-2s">
-            <div class="lcell linst">
-              <div class="iname">ECP4 / PWR-2 BEL1/2-S</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-new">NEW NODE</span><span class="badge b-stale">⚠ MAY BE STALE</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid">629-bel-1p/-2p/-1s/-2s</div><div class="sysline">BAE System (logical 629)</div><div class="note">FOUR nodes — per-installation</div><div class="existing">Register already has: <code>629-bel</code>, <code>629-bel1-p</code>, <code>629-bel2-p</code>, <code>629-bel1-s</code>, <code>629-bel2-s</code></div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k704f76ec5c40" data-page="13" data-sheet="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING"
-                   data-instrument="ECP4 / PWR-2 BEL1/2-S" data-proposed="629-bel-1p/-2p/-1s/-2s"></textarea>
-          </div>
-          <div class="lrow stale" data-search="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING ECP4 / PWR-4 EDN-S 627-edn-shore-charger">
-            <div class="lcell linst">
-              <div class="iname">ECP4 / PWR-4 EDN-S</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-new">NEW NODE</span><span class="badge b-stale">⚠ MAY BE STALE</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid">627-edn-shore-charger</div><div class="sysline">BAE System (logical 627)</div><div class="existing">Register already has: <code>627-edn</code></div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k97f1fe6a6f48" data-page="13" data-sheet="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING"
-                   data-instrument="ECP4 / PWR-4 EDN-S" data-proposed="627-edn-shore-charger"></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING BCP / PWR-3 BATTERY COOLING ">
-            <div class="lcell linst">
-              <div class="iname">BCP / PWR-3 BATTERY COOLING</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k5b2c0fa67298" data-page="13" data-sheet="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING"
-                   data-instrument="BCP / PWR-3 BATTERY COOLING" data-proposed=""></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING BCP / PWR-2 BATTERY COOLING ">
-            <div class="lcell linst">
-              <div class="iname">BCP / PWR-2 BATTERY COOLING</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k85f73b8ede0f" data-page="13" data-sheet="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING"
-                   data-instrument="BCP / PWR-2 BATTERY COOLING" data-proposed=""></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING BCP / PWR-4 BATTERY COOLING ">
-            <div class="lcell linst">
-              <div class="iname">BCP / PWR-4 BATTERY COOLING</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k816ef0aa5f31" data-page="13" data-sheet="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING"
-                   data-instrument="BCP / PWR-4 BATTERY COOLING" data-proposed=""></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING HCP / PWR-3 EMRAX ">
-            <div class="lcell linst">
-              <div class="iname">HCP / PWR-3 EMRAX</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="kf00cf8174057" data-page="13" data-sheet="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING"
-                   data-instrument="HCP / PWR-3 EMRAX" data-proposed=""></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING HCP / PWR-2 EMRAX ">
-            <div class="lcell linst">
-              <div class="iname">HCP / PWR-2 EMRAX</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="kaf4023a79292" data-page="13" data-sheet="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING"
-                   data-instrument="HCP / PWR-2 EMRAX" data-proposed=""></textarea>
-          </div>
-          <div class="lrow" data-search="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING HCP / PWR-4 EMRAX ">
-            <div class="lcell linst">
-              <div class="iname">HCP / PWR-4 EMRAX</div>
-              <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-needs">NO PROPOSAL</span></div>
-            </div>
-            <div class="lcell lnode"><div class="nodeid dim">— no proposal —</div></div>
-            <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
-                   id="k469b3fa1ded9" data-page="13" data-sheet="GMMS 108&#x27;-110e BAE LVPDU SYSTEM COOLING"
-                   data-instrument="HCP / PWR-4 EMRAX" data-proposed=""></textarea>
-          </div>
-      </div>
-    </section>
     <section class="page-section" id="page-14">
       <div class="page-head">
         <h2>Page 14</h2>
@@ -788,7 +150,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">Q38 ENG. ROOM LTS</div>
               <div class="badges"><span class="badge kind-breaker_protective_device">BREAKER / PROTECTIVE DEVICE</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-engroom-laz-transom</div><div class="note">auto from your logic: lights zone match</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-engroom-laz-transom</div><div class="note">auto: lights zone match</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="kda966c5af317" data-page="14" data-sheet="GMMS 108&#x27;-111a EMERGENCY SUPPLY RADIO/NAV./LTS"
                    data-instrument="Q38 ENG. ROOM LTS" data-proposed="690-lts-engroom-laz-transom"></textarea>
@@ -798,7 +160,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">T/S B LAZ. / TRANSOM LTS</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-engroom-laz-transom</div><div class="note">auto from your logic: lights zone match</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-engroom-laz-transom</div><div class="note">auto: lights zone match</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="kd97a1be73f81" data-page="14" data-sheet="GMMS 108&#x27;-111a EMERGENCY SUPPLY RADIO/NAV./LTS"
                    data-instrument="T/S B LAZ. / TRANSOM LTS" data-proposed="690-lts-engroom-laz-transom"></textarea>
@@ -908,7 +270,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">TECH ROOM LTS</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-engroom-laz-transom</div><div class="note">auto from your logic: lights zone match</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-engroom-laz-transom</div><div class="note">auto: lights zone match</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="kb8152441a595" data-page="14" data-sheet="GMMS 108&#x27;-111a EMERGENCY SUPPLY RADIO/NAV./LTS"
                    data-instrument="&lt;UNKNOWN&gt; TECH ROOM LTS" data-proposed="690-lts-engroom-laz-transom"></textarea>
@@ -938,7 +300,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">EMERGENCY LTS SWITCH (MAIN PANEL)</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">693-emergency-lighting</div><div class="note">auto from your logic: lights zone match</div></div>
+            <div class="lcell lnode"><div class="nodeid">693-emergency-lighting</div><div class="note">auto: lights zone match</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k4604de45269d" data-page="14" data-sheet="GMMS 108&#x27;-111a EMERGENCY SUPPLY RADIO/NAV./LTS"
                    data-instrument="&lt;UNKNOWN&gt; EMERGENCY LTS SWITCH (MAIN PANEL)" data-proposed="693-emergency-lighting"></textarea>
@@ -966,7 +328,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">PASSARELLE LIGHT</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">260-passerelle</div><div class="note">auto from your logic: lights zone match</div></div>
+            <div class="lcell lnode"><div class="nodeid">260-passerelle</div><div class="note">auto: lights zone match</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k88ac443d68e7" data-page="15" data-sheet="GMMS 108&#x27;-111 +24 V DC DISTRIBUTION"
                    data-instrument="&lt;UNKNOWN&gt; PASSARELLE LIGHT" data-proposed="260-passerelle"></textarea>
@@ -976,7 +338,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">TENDER REFUELING PUMP</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">550-fuel-transfer</div><div class="note">auto from your logic: fuel</div></div>
+            <div class="lcell lnode"><div class="nodeid">550-fuel-transfer</div><div class="note">auto: fuel</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k08d1f892fb8d" data-page="15" data-sheet="GMMS 108&#x27;-111 +24 V DC DISTRIBUTION"
                    data-instrument="&lt;UNKNOWN&gt; TENDER REFUELING PUMP" data-proposed="550-fuel-transfer"></textarea>
@@ -1006,7 +368,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">Q15 FWD MAN. SUMP PUMP</div>
               <div class="badges"><span class="badge kind-breaker_protective_device">BREAKER / PROTECTIVE DEVICE</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">530-sump-pumps</div><div class="note">auto from your logic: sump (existing map)</div></div>
+            <div class="lcell lnode"><div class="nodeid">530-sump-pumps</div><div class="note">auto: sump (existing map)</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k7291769283a2" data-page="15" data-sheet="GMMS 108&#x27;-111 +24 V DC DISTRIBUTION"
                    data-instrument="Q15 FWD MAN. SUMP PUMP" data-proposed="530-sump-pumps"></textarea>
@@ -1016,7 +378,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">QE1 FWD EMERGENCY LTS/HATCH SUPPLY</div>
               <div class="badges"><span class="badge kind-feeder_subpanel">feeder_subpanel</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">NO-NODE (feeder)</div><div class="note">auto from your logic: FEEDER≠LOAD</div></div>
+            <div class="lcell lnode"><div class="nodeid">NO-NODE (feeder)</div><div class="note">auto: FEEDER≠LOAD</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k72ce0c16289f" data-page="15" data-sheet="GMMS 108&#x27;-111 +24 V DC DISTRIBUTION"
                    data-instrument="QE1 FWD EMERGENCY LTS/HATCH SUPPLY" data-proposed="NO-NODE (feeder)"></textarea>
@@ -1026,7 +388,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">QE2 ENG. ROOM GAS RELEASE ALARM</div>
               <div class="badges"><span class="badge kind-alarm_monitor">ALARM / MONITOR</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">695-fire-alarm / 652-onyx (which alarm?)</div><div class="note">auto from your logic: alarm — specify</div></div>
+            <div class="lcell lnode"><div class="nodeid">695-fire-alarm / 652-onyx (which alarm?)</div><div class="note">auto: alarm — specify</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k025ebeb40742" data-page="15" data-sheet="GMMS 108&#x27;-111 +24 V DC DISTRIBUTION"
                    data-instrument="QE2 ENG. ROOM GAS RELEASE ALARM" data-proposed="695-fire-alarm / 652-onyx (which alarm?)"></textarea>
@@ -1074,7 +436,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">10 / 34 STEAMING LTs</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-? (name the zone)</div><div class="sysline">Lights, switches and sockets</div><div class="note">auto from your logic: lights — zone unclear</div><div class="existing">Register already has: <code>690-barthelme-led</code>, <code>690-exterior-lighting</code>, <code>690-interior-lighting</code>, <code>690-ital-pek-lighting</code>, <code>690-mast-lighting</code> +20 more</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-? (name the zone)</div><div class="sysline">Lights, switches and sockets</div><div class="note">auto: lights — zone unclear</div><div class="existing">Register already has: <code>690-barthelme-led</code>, <code>690-exterior-lighting</code>, <code>690-interior-lighting</code>, <code>690-ital-pek-lighting</code>, <code>690-mast-lighting</code> +20 more</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k111eb177a479" data-page="17" data-sheet="GMMS 108&#x27;-112 MAIN PANEL SCHEMATIC &quot;A&quot;"
                    data-instrument="10 / 34 STEAMING LTs" data-proposed="690-lts-? (name the zone)"></textarea>
@@ -1084,7 +446,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">11 / 36 STEAMING LTs</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-? (name the zone)</div><div class="sysline">Lights, switches and sockets</div><div class="note">auto from your logic: lights — zone unclear</div><div class="existing">Register already has: <code>690-barthelme-led</code>, <code>690-exterior-lighting</code>, <code>690-interior-lighting</code>, <code>690-ital-pek-lighting</code>, <code>690-mast-lighting</code> +20 more</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-? (name the zone)</div><div class="sysline">Lights, switches and sockets</div><div class="note">auto: lights — zone unclear</div><div class="existing">Register already has: <code>690-barthelme-led</code>, <code>690-exterior-lighting</code>, <code>690-interior-lighting</code>, <code>690-ital-pek-lighting</code>, <code>690-mast-lighting</code> +20 more</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k328c3d7db271" data-page="17" data-sheet="GMMS 108&#x27;-112 MAIN PANEL SCHEMATIC &quot;A&quot;"
                    data-instrument="11 / 36 STEAMING LTs" data-proposed="690-lts-? (name the zone)"></textarea>
@@ -1114,7 +476,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">PLUG C [8] ALARM MOD 2 PORT PEDESTAL</div>
               <div class="badges"><span class="badge kind-alarm_monitor">ALARM / MONITOR</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto from your logic: pin/wire-tag rule</div></div>
+            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto: pin/wire-tag rule</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="kbfd4d930904e" data-page="17" data-sheet="GMMS 108&#x27;-112 MAIN PANEL SCHEMATIC &quot;A&quot;"
                    data-instrument="PLUG C [8] ALARM MOD 2 PORT PEDESTAL" data-proposed="WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)"></textarea>
@@ -1124,7 +486,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">PLUG C [9] ALARM MOD 2 PORT PEDESTAL</div>
               <div class="badges"><span class="badge kind-alarm_monitor">ALARM / MONITOR</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto from your logic: pin/wire-tag rule</div></div>
+            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto: pin/wire-tag rule</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k90e3f9b490ee" data-page="17" data-sheet="GMMS 108&#x27;-112 MAIN PANEL SCHEMATIC &quot;A&quot;"
                    data-instrument="PLUG C [9] ALARM MOD 2 PORT PEDESTAL" data-proposed="WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)"></textarea>
@@ -1134,7 +496,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">PLUG C [11] ALARM MUTE SW</div>
               <div class="badges"><span class="badge kind-alarm_monitor">ALARM / MONITOR</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto from your logic: pin/wire-tag rule</div></div>
+            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto: pin/wire-tag rule</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k757249bb66ae" data-page="17" data-sheet="GMMS 108&#x27;-112 MAIN PANEL SCHEMATIC &quot;A&quot;"
                    data-instrument="PLUG C [11] ALARM MUTE SW" data-proposed="WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)"></textarea>
@@ -1144,7 +506,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">PLUG C [12] ALARM MUTE SW</div>
               <div class="badges"><span class="badge kind-alarm_monitor">ALARM / MONITOR</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto from your logic: pin/wire-tag rule</div></div>
+            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto: pin/wire-tag rule</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k88136a605cc1" data-page="17" data-sheet="GMMS 108&#x27;-112 MAIN PANEL SCHEMATIC &quot;A&quot;"
                    data-instrument="PLUG C [12] ALARM MUTE SW" data-proposed="WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)"></textarea>
@@ -1154,7 +516,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">[12] AU&lt;UNKNOWN&gt;</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto from your logic: pin/wire-tag rule</div></div>
+            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto: pin/wire-tag rule</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k99bb90a1b193" data-page="17" data-sheet="GMMS 108&#x27;-112 MAIN PANEL SCHEMATIC &quot;A&quot;"
                    data-instrument="[12] AU&lt;UNKNOWN&gt;" data-proposed="WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)"></textarea>
@@ -1310,7 +672,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">T/S S 1 + SERVICE BAT</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto from your logic: pin/wire-tag rule</div></div>
+            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto: pin/wire-tag rule</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k1012fb80a2d9" data-page="19" data-sheet="GMMS 108&#x27;-114 BILGE ALARM SYSTEM"
                    data-instrument="T/S S 1 + SERVICE BAT" data-proposed="WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)"></textarea>
@@ -1320,7 +682,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">T/S S 2 500A SHUNT</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto from your logic: pin/wire-tag rule</div></div>
+            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto: pin/wire-tag rule</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k9090677109f7" data-page="19" data-sheet="GMMS 108&#x27;-114 BILGE ALARM SYSTEM"
                    data-instrument="T/S S 2 500A SHUNT" data-proposed="WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)"></textarea>
@@ -1330,7 +692,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">T/S S 3 500A SHUNT</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto from your logic: pin/wire-tag rule</div></div>
+            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto: pin/wire-tag rule</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k69e75d4ca366" data-page="19" data-sheet="GMMS 108&#x27;-114 BILGE ALARM SYSTEM"
                    data-instrument="T/S S 3 500A SHUNT" data-proposed="WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)"></textarea>
@@ -1340,7 +702,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">Q2 AUX MAST BILGE PUMP</div>
               <div class="badges"><span class="badge kind-breaker_protective_device">BREAKER / PROTECTIVE DEVICE</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">520-*</div><div class="sysline">Bilge and fire system</div><div class="note">auto from your logic: bilge</div><div class="existing">Register already has: <code>520-feit-bilge-pump</code>, <code>520-vega-bilge-level-sensors</code>, <code>520-whale-pumps</code>, <code>520-bilge-pumps</code>, <code>520-main-bilge-pump</code> +4 more</div></div>
+            <div class="lcell lnode"><div class="nodeid">520-*</div><div class="sysline">Bilge and fire system</div><div class="note">auto: bilge</div><div class="existing">Register already has: <code>520-feit-bilge-pump</code>, <code>520-vega-bilge-level-sensors</code>, <code>520-whale-pumps</code>, <code>520-bilge-pumps</code>, <code>520-main-bilge-pump</code> +4 more</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k2ab9d41e7a3a" data-page="19" data-sheet="GMMS 108&#x27;-114 BILGE ALARM SYSTEM"
                    data-instrument="Q2 AUX MAST BILGE PUMP" data-proposed="520-*"></textarea>
@@ -1350,7 +712,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">Q3 AUX ENGINE ROOM BILGE PUMP</div>
               <div class="badges"><span class="badge kind-breaker_protective_device">BREAKER / PROTECTIVE DEVICE</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">520-*</div><div class="sysline">Bilge and fire system</div><div class="note">auto from your logic: bilge</div><div class="existing">Register already has: <code>520-feit-bilge-pump</code>, <code>520-vega-bilge-level-sensors</code>, <code>520-whale-pumps</code>, <code>520-bilge-pumps</code>, <code>520-main-bilge-pump</code> +4 more</div></div>
+            <div class="lcell lnode"><div class="nodeid">520-*</div><div class="sysline">Bilge and fire system</div><div class="note">auto: bilge</div><div class="existing">Register already has: <code>520-feit-bilge-pump</code>, <code>520-vega-bilge-level-sensors</code>, <code>520-whale-pumps</code>, <code>520-bilge-pumps</code>, <code>520-main-bilge-pump</code> +4 more</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k56e1f8c8b464" data-page="19" data-sheet="GMMS 108&#x27;-114 BILGE ALARM SYSTEM"
                    data-instrument="Q3 AUX ENGINE ROOM BILGE PUMP" data-proposed="520-*"></textarea>
@@ -1378,7 +740,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">Q1 AFT GREY WATER P.</div>
               <div class="badges"><span class="badge kind-breaker_protective_device">BREAKER / PROTECTIVE DEVICE</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">530-grey-water-pumps</div><div class="sysline">Grey water system</div><div class="note">auto from your logic: grey (existing map)</div><div class="existing">Register already has: <code>530-planus-waterlift-transfer-unit</code>, <code>530-viking-pump</code>, <code>530-wave-international-greywater-treatment</code>, <code>530-grey-water-pumps</code>, <code>530-sump-pumps</code></div></div>
+            <div class="lcell lnode"><div class="nodeid">530-grey-water-pumps</div><div class="sysline">Grey water system</div><div class="note">auto: grey (existing map)</div><div class="existing">Register already has: <code>530-planus-waterlift-transfer-unit</code>, <code>530-viking-pump</code>, <code>530-wave-international-greywater-treatment</code>, <code>530-grey-water-pumps</code>, <code>530-sump-pumps</code></div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k1fc94fe90905" data-page="22" data-sheet="GMMS 108&#x27;-115 AFT SERVICE PUMPS"
                    data-instrument="Q1 AFT GREY WATER P." data-proposed="530-grey-water-pumps"></textarea>
@@ -1398,7 +760,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">Q4 FWD CREW HEAD SUMP PUMP</div>
               <div class="badges"><span class="badge kind-breaker_protective_device">BREAKER / PROTECTIVE DEVICE</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">530-sump-pumps</div><div class="note">auto from your logic: sump (existing map)</div></div>
+            <div class="lcell lnode"><div class="nodeid">530-sump-pumps</div><div class="note">auto: sump (existing map)</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k76937f021097" data-page="22" data-sheet="GMMS 108&#x27;-115 AFT SERVICE PUMPS"
                    data-instrument="Q4 FWD CREW HEAD SUMP PUMP" data-proposed="530-sump-pumps"></textarea>
@@ -1408,7 +770,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">Q5 AFT CREW HEAD SUMP PUMP</div>
               <div class="badges"><span class="badge kind-breaker_protective_device">BREAKER / PROTECTIVE DEVICE</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">530-sump-pumps</div><div class="note">auto from your logic: sump (existing map)</div></div>
+            <div class="lcell lnode"><div class="nodeid">530-sump-pumps</div><div class="note">auto: sump (existing map)</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k1303dc1a5634" data-page="22" data-sheet="GMMS 108&#x27;-115 AFT SERVICE PUMPS"
                    data-instrument="Q5 AFT CREW HEAD SUMP PUMP" data-proposed="530-sump-pumps"></textarea>
@@ -1418,7 +780,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">T/S B not used</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto from your logic: pin/wire-tag rule</div></div>
+            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto: pin/wire-tag rule</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k01302a9eeccc" data-page="22" data-sheet="GMMS 108&#x27;-115 AFT SERVICE PUMPS"
                    data-instrument="T/S B not used" data-proposed="WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)"></textarea>
@@ -1428,7 +790,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">Q6 AFT A/C SUMP PUMP</div>
               <div class="badges"><span class="badge kind-breaker_protective_device">BREAKER / PROTECTIVE DEVICE</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">530-sump-pumps</div><div class="note">auto from your logic: sump (existing map)</div></div>
+            <div class="lcell lnode"><div class="nodeid">530-sump-pumps</div><div class="note">auto: sump (existing map)</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k41696671485a" data-page="22" data-sheet="GMMS 108&#x27;-115 AFT SERVICE PUMPS"
                    data-instrument="Q6 AFT A/C SUMP PUMP" data-proposed="530-sump-pumps"></textarea>
@@ -1466,7 +828,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">T/S B 19 DWG115</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto from your logic: pin/wire-tag rule</div></div>
+            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto: pin/wire-tag rule</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="kf46f7dede187" data-page="23" data-sheet="GMMS 108&#x27;-115a BLACK WATER SYSTEM"
                    data-instrument="T/S B 19 DWG115" data-proposed="WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)"></textarea>
@@ -1476,7 +838,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">T/S B 20 DWG115</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto from your logic: pin/wire-tag rule</div></div>
+            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto: pin/wire-tag rule</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k8741bd1fbdaa" data-page="23" data-sheet="GMMS 108&#x27;-115a BLACK WATER SYSTEM"
                    data-instrument="T/S B 20 DWG115" data-proposed="WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)"></textarea>
@@ -1486,7 +848,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">T/S B 24 LOW BAT. ALARM</div>
               <div class="badges"><span class="badge kind-alarm_monitor">ALARM / MONITOR</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto from your logic: pin/wire-tag rule</div></div>
+            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto: pin/wire-tag rule</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="kbdf1894335d7" data-page="23" data-sheet="GMMS 108&#x27;-115a BLACK WATER SYSTEM"
                    data-instrument="T/S B 24 LOW BAT. ALARM" data-proposed="WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)"></textarea>
@@ -1496,7 +858,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">T/S B 25 MASTERVOLT EASY VII</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto from your logic: pin/wire-tag rule</div></div>
+            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto: pin/wire-tag rule</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k993a62f5e5fe" data-page="23" data-sheet="GMMS 108&#x27;-115a BLACK WATER SYSTEM"
                    data-instrument="T/S B 25 MASTERVOLT EASY VII" data-proposed="WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)"></textarea>
@@ -1506,7 +868,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">T/S B 26 SHORE POWER PANEL</div>
               <div class="badges"><span class="badge kind-power_source_unit">POWER SOURCE UNIT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="sysline">Shore power converter</div><div class="note">auto from your logic: pin/wire-tag rule</div><div class="existing">Register already has: <code>660-edn-s</code></div></div>
+            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="sysline">Shore power converter</div><div class="note">auto: pin/wire-tag rule</div><div class="existing">Register already has: <code>660-edn-s</code></div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k4584bb19a148" data-page="23" data-sheet="GMMS 108&#x27;-115a BLACK WATER SYSTEM"
                    data-instrument="T/S B 26 SHORE POWER PANEL" data-proposed="WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)"></textarea>
@@ -1516,7 +878,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">T/S B 27 GENERAL COCKPIT AL</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto from your logic: pin/wire-tag rule</div></div>
+            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="note">auto: pin/wire-tag rule</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k9f3d53c6fdc3" data-page="23" data-sheet="GMMS 108&#x27;-115a BLACK WATER SYSTEM"
                    data-instrument="T/S B 27 GENERAL COCKPIT AL" data-proposed="WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)"></textarea>
@@ -1526,7 +888,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">T/S B 28 PEDESTAL LTS (COMPASS LTS)</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-? (name the zone)</div><div class="note">auto from your logic: lights — zone unclear</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-? (name the zone)</div><div class="note">auto: lights — zone unclear</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="kbd68196cc061" data-page="23" data-sheet="GMMS 108&#x27;-115a BLACK WATER SYSTEM"
                    data-instrument="T/S B 28 PEDESTAL LTS (COMPASS LTS)" data-proposed="690-lts-? (name the zone)"></textarea>
@@ -1536,7 +898,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">Q11 FWD BLACK WATER</div>
               <div class="badges"><span class="badge kind-breaker_protective_device">BREAKER / PROTECTIVE DEVICE</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">540-black-water-pumps</div><div class="sysline">Black water system</div><div class="note">auto from your logic: black (existing map)</div><div class="existing">Register already has: <code>540-gianneschi-pumps</code>, <code>540-toilet</code>, <code>540-black-water-pumps</code>, <code>540-wc-toilets</code></div></div>
+            <div class="lcell lnode"><div class="nodeid">540-black-water-pumps</div><div class="sysline">Black water system</div><div class="note">auto: black (existing map)</div><div class="existing">Register already has: <code>540-gianneschi-pumps</code>, <code>540-toilet</code>, <code>540-black-water-pumps</code>, <code>540-wc-toilets</code></div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k75fc10a785c1" data-page="23" data-sheet="GMMS 108&#x27;-115a BLACK WATER SYSTEM"
                    data-instrument="Q11 FWD BLACK WATER" data-proposed="540-black-water-pumps"></textarea>
@@ -1546,7 +908,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">T/S B 29 FWD BLACK WATER (sub-circuit)</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="sysline">Black water system</div><div class="note">auto from your logic: pin/wire-tag rule</div><div class="existing">Register already has: <code>540-gianneschi-pumps</code>, <code>540-toilet</code>, <code>540-black-water-pumps</code>, <code>540-wc-toilets</code></div></div>
+            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="sysline">Black water system</div><div class="note">auto: pin/wire-tag rule</div><div class="existing">Register already has: <code>540-gianneschi-pumps</code>, <code>540-toilet</code>, <code>540-black-water-pumps</code>, <code>540-wc-toilets</code></div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k56f0e9456c5c" data-page="23" data-sheet="GMMS 108&#x27;-115a BLACK WATER SYSTEM"
                    data-instrument="T/S B 29 FWD BLACK WATER (sub-circuit)" data-proposed="WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)"></textarea>
@@ -1556,7 +918,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">Q12 AFT BLACK WATER</div>
               <div class="badges"><span class="badge kind-breaker_protective_device">BREAKER / PROTECTIVE DEVICE</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">540-black-water-pumps</div><div class="sysline">Black water system</div><div class="note">auto from your logic: black (existing map)</div><div class="existing">Register already has: <code>540-gianneschi-pumps</code>, <code>540-toilet</code>, <code>540-black-water-pumps</code>, <code>540-wc-toilets</code></div></div>
+            <div class="lcell lnode"><div class="nodeid">540-black-water-pumps</div><div class="sysline">Black water system</div><div class="note">auto: black (existing map)</div><div class="existing">Register already has: <code>540-gianneschi-pumps</code>, <code>540-toilet</code>, <code>540-black-water-pumps</code>, <code>540-wc-toilets</code></div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k38b9e64e2c93" data-page="23" data-sheet="GMMS 108&#x27;-115a BLACK WATER SYSTEM"
                    data-instrument="Q12 AFT BLACK WATER" data-proposed="540-black-water-pumps"></textarea>
@@ -1566,7 +928,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">T/S B 30 AFT BLACK WATER (sub-circuit)</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="sysline">Black water system</div><div class="note">auto from your logic: pin/wire-tag rule</div><div class="existing">Register already has: <code>540-gianneschi-pumps</code>, <code>540-toilet</code>, <code>540-black-water-pumps</code>, <code>540-wc-toilets</code></div></div>
+            <div class="lcell lnode"><div class="nodeid">WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)</div><div class="sysline">Black water system</div><div class="note">auto: pin/wire-tag rule</div><div class="existing">Register already has: <code>540-gianneschi-pumps</code>, <code>540-toilet</code>, <code>540-black-water-pumps</code>, <code>540-wc-toilets</code></div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k625a28b1efe2" data-page="23" data-sheet="GMMS 108&#x27;-115a BLACK WATER SYSTEM"
                    data-instrument="T/S B 30 AFT BLACK WATER (sub-circuit)" data-proposed="WIRING-DETAIL (connector pin / wire tag — handled by the wiring pipeline, not a load)"></textarea>
@@ -1594,7 +956,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">Q15 MANUEL FUEL PUMP</div>
               <div class="badges"><span class="badge kind-breaker_protective_device">BREAKER / PROTECTIVE DEVICE</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">550-fuel-transfer</div><div class="note">auto from your logic: fuel</div></div>
+            <div class="lcell lnode"><div class="nodeid">550-fuel-transfer</div><div class="note">auto: fuel</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k87f229b52fb9" data-page="24" data-sheet="GMMS 108&#x27;-116 E.R. FAN / FUEL VALVES / TANK IND."
                    data-instrument="Q15 MANUEL FUEL PUMP" data-proposed="550-fuel-transfer"></textarea>
@@ -1604,7 +966,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">Q16 FUEL/VENTILATION</div>
               <div class="badges"><span class="badge kind-breaker_protective_device">BREAKER / PROTECTIVE DEVICE</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">599-engroom-blower-extractor / 599-*</div><div class="note">auto from your logic: ventilation</div></div>
+            <div class="lcell lnode"><div class="nodeid">599-engroom-blower-extractor / 599-*</div><div class="note">auto: ventilation</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k7568af7983b5" data-page="24" data-sheet="GMMS 108&#x27;-116 E.R. FAN / FUEL VALVES / TANK IND."
                    data-instrument="Q16 FUEL/VENTILATION" data-proposed="599-engroom-blower-extractor / 599-*"></textarea>
@@ -1652,7 +1014,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">Q40 GALLEY LTS</div>
               <div class="badges"><span class="badge kind-breaker_protective_device">BREAKER / PROTECTIVE DEVICE</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-galley</div><div class="note">auto from your logic: lights zone match</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-galley</div><div class="note">auto: lights zone match</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k1154602b7a1e" data-page="29" data-sheet="GMMS 108&#x27;-119 AFT DC DB LIGHTS PANELa"
                    data-instrument="Q40 GALLEY LTS" data-proposed="690-lts-galley"></textarea>
@@ -1662,7 +1024,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">33 CREW READING LT /FANS/LKR LTS</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-crew</div><div class="note">auto from your logic: lights zone match</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-crew</div><div class="note">auto: lights zone match</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k50b2f19c4efd" data-page="29" data-sheet="GMMS 108&#x27;-119 AFT DC DB LIGHTS PANELa"
                    data-instrument="33 CREW READING LT /FANS/LKR LTS" data-proposed="690-lts-crew"></textarea>
@@ -1692,7 +1054,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">36 spare</div>
               <div class="badges"><span class="badge kind-spare">spare</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">SKIP</div><div class="note">auto from your logic: spare</div></div>
+            <div class="lcell lnode"><div class="nodeid">SKIP</div><div class="note">auto: spare</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k879623aadd7a" data-page="29" data-sheet="GMMS 108&#x27;-119 AFT DC DB LIGHTS PANELa"
                    data-instrument="36 spare" data-proposed="SKIP"></textarea>
@@ -1872,7 +1234,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">COURTESY / EMERGENCY LTS</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-courtesy</div><div class="note">auto from your logic: lights zone match</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-courtesy</div><div class="note">auto: lights zone match</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k93178060a4ae" data-page="29" data-sheet="GMMS 108&#x27;-119 AFT DC DB LIGHTS PANELa"
                    data-instrument="&lt;UNKNOWN&gt; COURTESY / EMERGENCY LTS" data-proposed="690-lts-courtesy"></textarea>
@@ -1900,7 +1262,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">129 CREW READING LT /FANS/LKR LTS</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-crew</div><div class="note">auto from your logic: lights zone match</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-crew</div><div class="note">auto: lights zone match</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="kce2e065883ea" data-page="30" data-sheet="GMMS 108&#x27;-119a AFT DC DB LIGHTS PANEL b"
                    data-instrument="129 CREW READING LT /FANS/LKR LTS" data-proposed="690-lts-crew"></textarea>
@@ -1910,7 +1272,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">131 spare</div>
               <div class="badges"><span class="badge kind-spare">spare</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">SKIP</div><div class="note">auto from your logic: spare</div></div>
+            <div class="lcell lnode"><div class="nodeid">SKIP</div><div class="note">auto: spare</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k0cdab6b1f5d8" data-page="30" data-sheet="GMMS 108&#x27;-119a AFT DC DB LIGHTS PANEL b"
                    data-instrument="131 spare" data-proposed="SKIP"></textarea>
@@ -2040,7 +1402,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">170 COURTESY LIGHTS</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-courtesy</div><div class="note">auto from your logic: lights zone match</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-courtesy</div><div class="note">auto: lights zone match</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="kae6b050da382" data-page="30" data-sheet="GMMS 108&#x27;-119a AFT DC DB LIGHTS PANEL b"
                    data-instrument="170 COURTESY LIGHTS" data-proposed="690-lts-courtesy"></textarea>
@@ -2060,7 +1422,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">172 EMERGENCY LTS SW</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">693-emergency-lighting</div><div class="note">auto from your logic: lights zone match</div></div>
+            <div class="lcell lnode"><div class="nodeid">693-emergency-lighting</div><div class="note">auto: lights zone match</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="ka87c7914533a" data-page="30" data-sheet="GMMS 108&#x27;-119a AFT DC DB LIGHTS PANEL b"
                    data-instrument="172 EMERGENCY LTS SW" data-proposed="693-emergency-lighting"></textarea>
@@ -2088,7 +1450,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">49 CREW READING LT /FANS/LKR LTS</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-crew</div><div class="note">auto from your logic: lights zone match</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-crew</div><div class="note">auto: lights zone match</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k0ac6a781461c" data-page="31" data-sheet="GMMS 108&#x27;-119b PORT/STBD CREW/GALLEY LTS"
                    data-instrument="49 CREW READING LT /FANS/LKR LTS" data-proposed="690-lts-crew"></textarea>
@@ -2108,7 +1470,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">51 spare</div>
               <div class="badges"><span class="badge kind-spare">spare</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">SKIP</div><div class="note">auto from your logic: spare</div></div>
+            <div class="lcell lnode"><div class="nodeid">SKIP</div><div class="note">auto: spare</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="kd6ff7baed16b" data-page="31" data-sheet="GMMS 108&#x27;-119b PORT/STBD CREW/GALLEY LTS"
                    data-instrument="51 spare" data-proposed="SKIP"></textarea>
@@ -2198,7 +1560,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">65 COURTESY LIGHTS</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-courtesy</div><div class="note">auto from your logic: lights zone match</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-courtesy</div><div class="note">auto: lights zone match</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k6dc67489cfab" data-page="31" data-sheet="GMMS 108&#x27;-119b PORT/STBD CREW/GALLEY LTS"
                    data-instrument="65 COURTESY LIGHTS" data-proposed="690-lts-courtesy"></textarea>
@@ -2208,7 +1570,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">66 COURTESY / EMERGENCY LTS SW</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-courtesy</div><div class="note">auto from your logic: lights zone match</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-courtesy</div><div class="note">auto: lights zone match</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k6ad0ebc1be74" data-page="31" data-sheet="GMMS 108&#x27;-119b PORT/STBD CREW/GALLEY LTS"
                    data-instrument="66 COURTESY / EMERGENCY LTS SW" data-proposed="690-lts-courtesy"></textarea>
@@ -2218,7 +1580,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">67 EMERGENCY LTS SW</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">693-emergency-lighting</div><div class="note">auto from your logic: lights zone match</div></div>
+            <div class="lcell lnode"><div class="nodeid">693-emergency-lighting</div><div class="note">auto: lights zone match</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="kc3d49491e265" data-page="31" data-sheet="GMMS 108&#x27;-119b PORT/STBD CREW/GALLEY LTS"
                    data-instrument="67 EMERGENCY LTS SW" data-proposed="693-emergency-lighting"></textarea>
@@ -2286,7 +1648,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">Q16 DECK LIGHTS</div>
               <div class="badges"><span class="badge kind-breaker_protective_device">BREAKER / PROTECTIVE DEVICE</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-deck</div><div class="note">auto from your logic: lights zone match</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-deck</div><div class="note">auto: lights zone match</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="kdb05059c69d7" data-page="32" data-sheet="GMMS 108&#x27;-119c PORT/STBD CREW/GALLEY LTS"
                    data-instrument="Q16 DECK LIGHTS" data-proposed="690-lts-deck"></textarea>
@@ -2296,7 +1658,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">SW/ BIMINI LTS</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-? (name the zone)</div><div class="note">auto from your logic: lights — zone unclear</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-? (name the zone)</div><div class="note">auto: lights — zone unclear</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k80d9343e34bd" data-page="32" data-sheet="GMMS 108&#x27;-119c PORT/STBD CREW/GALLEY LTS"
                    data-instrument="SW/ BIMINI LTS" data-proposed="690-lts-? (name the zone)"></textarea>
@@ -2306,7 +1668,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">33 CREW READING LT /FANS/LKR LTS</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-crew</div><div class="note">auto from your logic: lights zone match</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-crew</div><div class="note">auto: lights zone match</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k0a3cc618de32" data-page="32" data-sheet="GMMS 108&#x27;-119c PORT/STBD CREW/GALLEY LTS"
                    data-instrument="33 CREW READING LT /FANS/LKR LTS" data-proposed="690-lts-crew"></textarea>
@@ -2396,7 +1758,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">44 spare</div>
               <div class="badges"><span class="badge kind-spare">spare</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">SKIP</div><div class="note">auto from your logic: spare</div></div>
+            <div class="lcell lnode"><div class="nodeid">SKIP</div><div class="note">auto: spare</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k7276902b8d1c" data-page="32" data-sheet="GMMS 108&#x27;-119c PORT/STBD CREW/GALLEY LTS"
                    data-instrument="44 spare" data-proposed="SKIP"></textarea>
@@ -2446,7 +1808,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">52 COURTESY LIGHTS</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-courtesy</div><div class="note">auto from your logic: lights zone match</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-courtesy</div><div class="note">auto: lights zone match</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k4277a7831a94" data-page="32" data-sheet="GMMS 108&#x27;-119c PORT/STBD CREW/GALLEY LTS"
                    data-instrument="52 COURTESY LIGHTS" data-proposed="690-lts-courtesy"></textarea>
@@ -2456,7 +1818,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">53 COURTESY / EMERGENCY LTS SW</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-courtesy</div><div class="note">auto from your logic: lights zone match</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-courtesy</div><div class="note">auto: lights zone match</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="kdf5f39c68cfc" data-page="32" data-sheet="GMMS 108&#x27;-119c PORT/STBD CREW/GALLEY LTS"
                    data-instrument="53 COURTESY / EMERGENCY LTS SW" data-proposed="690-lts-courtesy"></textarea>
@@ -2466,7 +1828,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">54 EMERGENCY LTS SW</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">693-emergency-lighting</div><div class="note">auto from your logic: lights zone match</div></div>
+            <div class="lcell lnode"><div class="nodeid">693-emergency-lighting</div><div class="note">auto: lights zone match</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k27120e07d166" data-page="32" data-sheet="GMMS 108&#x27;-119c PORT/STBD CREW/GALLEY LTS"
                    data-instrument="54 EMERGENCY LTS SW" data-proposed="693-emergency-lighting"></textarea>
@@ -2476,7 +1838,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">BOOM LTS (2W)</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-boom</div><div class="note">auto from your logic: lights zone match</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-boom</div><div class="note">auto: lights zone match</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k2776960c1308" data-page="32" data-sheet="GMMS 108&#x27;-119c PORT/STBD CREW/GALLEY LTS"
                    data-instrument="&lt;UNKNOWN&gt; BOOM LTS (2W)" data-proposed="690-lts-boom"></textarea>
@@ -2496,7 +1858,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">BIMINI LIGHTS</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-? (name the zone)</div><div class="note">auto from your logic: lights — zone unclear</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-? (name the zone)</div><div class="note">auto: lights — zone unclear</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="kefac438e937f" data-page="32" data-sheet="GMMS 108&#x27;-119c PORT/STBD CREW/GALLEY LTS"
                    data-instrument="&lt;UNKNOWN&gt; BIMINI LIGHTS" data-proposed="690-lts-? (name the zone)"></textarea>
@@ -2524,7 +1886,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">33 CREW READING LT /FANS/LKR LTS</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-crew</div><div class="note">auto from your logic: lights zone match</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-crew</div><div class="note">auto: lights zone match</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k073b0296cf5c" data-page="33" data-sheet="GMMS 108&#x27;-119d FWD LIGHTS DB PANEL a"
                    data-instrument="33 CREW READING LT /FANS/LKR LTS" data-proposed="690-lts-crew"></textarea>
@@ -2754,7 +2116,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">97 COURTESY LIGHTS</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-courtesy</div><div class="note">auto from your logic: lights zone match</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-courtesy</div><div class="note">auto: lights zone match</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k09b0cd64a0b9" data-page="33" data-sheet="GMMS 108&#x27;-119d FWD LIGHTS DB PANEL a"
                    data-instrument="97 COURTESY LIGHTS" data-proposed="690-lts-courtesy"></textarea>
@@ -2764,7 +2126,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">98 COURTESY / EMERGENCY LTS SW</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-courtesy</div><div class="note">auto from your logic: lights zone match</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-courtesy</div><div class="note">auto: lights zone match</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k2cef890cc27b" data-page="33" data-sheet="GMMS 108&#x27;-119d FWD LIGHTS DB PANEL a"
                    data-instrument="98 COURTESY / EMERGENCY LTS SW" data-proposed="690-lts-courtesy"></textarea>
@@ -2774,7 +2136,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">99 EMERGENCY LTS SW</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">693-emergency-lighting</div><div class="note">auto from your logic: lights zone match</div></div>
+            <div class="lcell lnode"><div class="nodeid">693-emergency-lighting</div><div class="note">auto: lights zone match</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="ke150e2a70752" data-page="33" data-sheet="GMMS 108&#x27;-119d FWD LIGHTS DB PANEL a"
                    data-instrument="99 EMERGENCY LTS SW" data-proposed="693-emergency-lighting"></textarea>
@@ -2784,7 +2146,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">Q20 FWD GUEST LTS</div>
               <div class="badges"><span class="badge kind-breaker_protective_device">BREAKER / PROTECTIVE DEVICE</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-guest-fwd</div><div class="note">auto from your logic: lights zone match</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-guest-fwd</div><div class="note">auto: lights zone match</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k3b4863452648" data-page="33" data-sheet="GMMS 108&#x27;-119d FWD LIGHTS DB PANEL a"
                    data-instrument="Q20 FWD GUEST LTS" data-proposed="690-lts-guest-fwd"></textarea>
@@ -2832,7 +2194,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">148 CREW READING LT /FANS/LKR LTS</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-crew</div><div class="note">auto from your logic: lights zone match</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-crew</div><div class="note">auto: lights zone match</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k5a6343c39c78" data-page="34" data-sheet="GMMS 108&#x27;-119e FWD LIGHTS DB PANEL b"
                    data-instrument="148 CREW READING LT /FANS/LKR LTS" data-proposed="690-lts-crew"></textarea>
@@ -2862,7 +2224,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">151 spare</div>
               <div class="badges"><span class="badge kind-spare">spare</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">SKIP</div><div class="note">auto from your logic: spare</div></div>
+            <div class="lcell lnode"><div class="nodeid">SKIP</div><div class="note">auto: spare</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="kce9ddf1c7f3d" data-page="34" data-sheet="GMMS 108&#x27;-119e FWD LIGHTS DB PANEL b"
                    data-instrument="151 spare" data-proposed="SKIP"></textarea>
@@ -3000,7 +2362,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">33 CREW READING LT /FANS/LKR LTS</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-crew</div><div class="note">auto from your logic: lights zone match</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-crew</div><div class="note">auto: lights zone match</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k37972a893435" data-page="35" data-sheet="GMMS 108&#x27;-119f STBD AFT GUEST CABIN LTS"
                    data-instrument="33 CREW READING LT /FANS/LKR LTS" data-proposed="690-lts-crew"></textarea>
@@ -3020,7 +2382,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">35 spare</div>
               <div class="badges"><span class="badge kind-spare">spare</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">SKIP</div><div class="note">auto from your logic: spare</div></div>
+            <div class="lcell lnode"><div class="nodeid">SKIP</div><div class="note">auto: spare</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k15f7dbeb81f8" data-page="35" data-sheet="GMMS 108&#x27;-119f STBD AFT GUEST CABIN LTS"
                    data-instrument="35 spare" data-proposed="SKIP"></textarea>
@@ -3128,7 +2490,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">Q1 FWD GREY WATER P.</div>
               <div class="badges"><span class="badge kind-breaker_protective_device">BREAKER / PROTECTIVE DEVICE</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">530-grey-water-pumps</div><div class="sysline">Grey water system</div><div class="note">auto from your logic: grey (existing map)</div><div class="existing">Register already has: <code>530-planus-waterlift-transfer-unit</code>, <code>530-viking-pump</code>, <code>530-wave-international-greywater-treatment</code>, <code>530-grey-water-pumps</code>, <code>530-sump-pumps</code></div></div>
+            <div class="lcell lnode"><div class="nodeid">530-grey-water-pumps</div><div class="sysline">Grey water system</div><div class="note">auto: grey (existing map)</div><div class="existing">Register already has: <code>530-planus-waterlift-transfer-unit</code>, <code>530-viking-pump</code>, <code>530-wave-international-greywater-treatment</code>, <code>530-grey-water-pumps</code>, <code>530-sump-pumps</code></div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="kb8fcedd4fb85" data-page="36" data-sheet="GMMS 108&#x27;-120 FWD SERVICE PUMPS"
                    data-instrument="Q1 FWD GREY WATER P." data-proposed="530-grey-water-pumps"></textarea>
@@ -3138,7 +2500,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">Q2 AUX MAST BILGE PUMP</div>
               <div class="badges"><span class="badge kind-breaker_protective_device">BREAKER / PROTECTIVE DEVICE</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">520-*</div><div class="sysline">Bilge and fire system</div><div class="note">auto from your logic: bilge</div><div class="existing">Register already has: <code>520-feit-bilge-pump</code>, <code>520-vega-bilge-level-sensors</code>, <code>520-whale-pumps</code>, <code>520-bilge-pumps</code>, <code>520-main-bilge-pump</code> +4 more</div></div>
+            <div class="lcell lnode"><div class="nodeid">520-*</div><div class="sysline">Bilge and fire system</div><div class="note">auto: bilge</div><div class="existing">Register already has: <code>520-feit-bilge-pump</code>, <code>520-vega-bilge-level-sensors</code>, <code>520-whale-pumps</code>, <code>520-bilge-pumps</code>, <code>520-main-bilge-pump</code> +4 more</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k175009db9a7e" data-page="36" data-sheet="GMMS 108&#x27;-120 FWD SERVICE PUMPS"
                    data-instrument="Q2 AUX MAST BILGE PUMP" data-proposed="520-*"></textarea>
@@ -3148,7 +2510,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">Q4 OWNERS GREY SUMP PUMP</div>
               <div class="badges"><span class="badge kind-breaker_protective_device">BREAKER / PROTECTIVE DEVICE</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">530-sump-pumps</div><div class="note">auto from your logic: sump (existing map)</div></div>
+            <div class="lcell lnode"><div class="nodeid">530-sump-pumps</div><div class="note">auto: sump (existing map)</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="kc3165736bbad" data-page="36" data-sheet="GMMS 108&#x27;-120 FWD SERVICE PUMPS"
                    data-instrument="Q4 OWNERS GREY SUMP PUMP" data-proposed="530-sump-pumps"></textarea>
@@ -3158,7 +2520,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">Q6 SPARE</div>
               <div class="badges"><span class="badge kind-spare">spare</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">SKIP</div><div class="note">auto from your logic: spare</div></div>
+            <div class="lcell lnode"><div class="nodeid">SKIP</div><div class="note">auto: spare</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="ka3de1a94667f" data-page="36" data-sheet="GMMS 108&#x27;-120 FWD SERVICE PUMPS"
                    data-instrument="Q6 SPARE" data-proposed="SKIP"></textarea>
@@ -3186,7 +2548,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">QE1 EMERGENCY LTS SUPPLY</div>
               <div class="badges"><span class="badge kind-feeder_subpanel">feeder_subpanel</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">NO-NODE (feeder)</div><div class="note">auto from your logic: FEEDER≠LOAD</div></div>
+            <div class="lcell lnode"><div class="nodeid">NO-NODE (feeder)</div><div class="note">auto: FEEDER≠LOAD</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k67c51811cef0" data-page="37" data-sheet="GMMS 108&#x27;-120a MAST/EXTERIOR LIGHTS &amp; SWITCHES"
                    data-instrument="QE1 EMERGENCY LTS SUPPLY" data-proposed="NO-NODE (feeder)"></textarea>
@@ -3196,7 +2558,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">Q11 MAST LIGHTS</div>
               <div class="badges"><span class="badge kind-breaker_protective_device">BREAKER / PROTECTIVE DEVICE</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-mast</div><div class="note">auto from your logic: lights zone match</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-mast</div><div class="note">auto: lights zone match</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k73c5dfb5e375" data-page="37" data-sheet="GMMS 108&#x27;-120a MAST/EXTERIOR LIGHTS &amp; SWITCHES"
                    data-instrument="Q11 MAST LIGHTS" data-proposed="690-lts-mast"></textarea>
@@ -3206,7 +2568,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">Q12 BOOM LIGHTS</div>
               <div class="badges"><span class="badge kind-breaker_protective_device">BREAKER / PROTECTIVE DEVICE</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-boom</div><div class="note">auto from your logic: lights zone match</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-boom</div><div class="note">auto: lights zone match</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="kaff6044a51f6" data-page="37" data-sheet="GMMS 108&#x27;-120a MAST/EXTERIOR LIGHTS &amp; SWITCHES"
                    data-instrument="Q12 BOOM LIGHTS" data-proposed="690-lts-boom"></textarea>
@@ -3216,7 +2578,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">Q13 FWD DC SOCKETS</div>
               <div class="badges"><span class="badge kind-breaker_protective_device">BREAKER / PROTECTIVE DEVICE</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">694-230v-outlets</div><div class="note">auto from your logic: outlets rule</div></div>
+            <div class="lcell lnode"><div class="nodeid">694-230v-outlets</div><div class="note">auto: outlets rule</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="kcd7253205eda" data-page="37" data-sheet="GMMS 108&#x27;-120a MAST/EXTERIOR LIGHTS &amp; SWITCHES"
                    data-instrument="Q13 FWD DC SOCKETS" data-proposed="694-230v-outlets"></textarea>
@@ -3364,7 +2726,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">BACK LIGHTING +</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-? (name the zone)</div><div class="note">auto from your logic: lights — zone unclear</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-? (name the zone)</div><div class="note">auto: lights — zone unclear</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k2b7f48e197df" data-page="42" data-sheet="GMMS 108&#x27;-124 COCKPIT HYDRAULIC CONTROL PANELS"
                    data-instrument="None BACK LIGHTING +" data-proposed="690-lts-? (name the zone)"></textarea>
@@ -3374,7 +2736,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">BACK LIGHTING -</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-? (name the zone)</div><div class="note">auto from your logic: lights — zone unclear</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-? (name the zone)</div><div class="note">auto: lights — zone unclear</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="ke5e0584f09ae" data-page="42" data-sheet="GMMS 108&#x27;-124 COCKPIT HYDRAULIC CONTROL PANELS"
                    data-instrument="None BACK LIGHTING -" data-proposed="690-lts-? (name the zone)"></textarea>
@@ -3434,7 +2796,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">SUB-5 BACK LIGHTING</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-? (name the zone)</div><div class="note">auto from your logic: lights — zone unclear</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-? (name the zone)</div><div class="note">auto: lights — zone unclear</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="kc9bdf8c06b33" data-page="42" data-sheet="GMMS 108&#x27;-124 COCKPIT HYDRAULIC CONTROL PANELS"
                    data-instrument="SUB-5 BACK LIGHTING" data-proposed="690-lts-? (name the zone)"></textarea>
@@ -3462,7 +2824,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">S1 FUEL - AIR</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">550-fuel-transfer</div><div class="note">auto from your logic: fuel</div></div>
+            <div class="lcell lnode"><div class="nodeid">550-fuel-transfer</div><div class="note">auto: fuel</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="kbb9cc603845d" data-page="43" data-sheet="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face)"
                    data-instrument="S1 FUEL - AIR" data-proposed="550-fuel-transfer"></textarea>
@@ -3547,45 +2909,45 @@ button.ghost { cursor: pointer; }
                    id="k51d664e4910f" data-page="43" data-sheet="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face)"
                    data-instrument="None SHORE INPUT - 60Hz" data-proposed="660 shore power"></textarea>
           </div>
-          <div class="lrow stale" data-search="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face) BEL-1 PORT BEL-1 629-bel-1p/-2p/-1s/-2s">
+          <div class="lrow stale" data-search="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face) BEL-1 PORT BEL-1 629-bel (pin/wiring attaches to its equipment)">
             <div class="lcell linst">
               <div class="iname">BEL-1 PORT BEL-1</div>
               <div class="badges"><span class="badge kind-power_source_unit">POWER SOURCE UNIT</span><span class="badge b-new">NEW NODE</span><span class="badge b-stale">⚠ MAY BE STALE</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">629-bel-1p/-2p/-1s/-2s</div><div class="sysline">BAE System (logical 629)</div><div class="note">FOUR nodes — per-installation</div><div class="existing">Register already has: <code>629-bel</code>, <code>629-bel1-p</code>, <code>629-bel2-p</code>, <code>629-bel1-s</code>, <code>629-bel2-s</code></div></div>
+            <div class="lcell lnode"><div class="nodeid">629-bel (pin/wiring attaches to its equipment)</div><div class="sysline">BAE System (logical 629)</div><div class="note">auto: equipment-vocab: BEL family</div><div class="existing">Register already has: <code>629-bel</code>, <code>629-bel1-p</code>, <code>629-bel2-p</code>, <code>629-bel1-s</code>, <code>629-bel2-s</code></div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k6a37c154af85" data-page="43" data-sheet="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face)"
-                   data-instrument="BEL-1 PORT BEL-1" data-proposed="629-bel-1p/-2p/-1s/-2s"></textarea>
+                   data-instrument="BEL-1 PORT BEL-1" data-proposed="629-bel (pin/wiring attaches to its equipment)"></textarea>
           </div>
-          <div class="lrow stale" data-search="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face) BEL-2 PORT BEL-2 629-bel-1p/-2p/-1s/-2s">
+          <div class="lrow stale" data-search="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face) BEL-2 PORT BEL-2 629-bel (pin/wiring attaches to its equipment)">
             <div class="lcell linst">
               <div class="iname">BEL-2 PORT BEL-2</div>
               <div class="badges"><span class="badge kind-power_source_unit">POWER SOURCE UNIT</span><span class="badge b-new">NEW NODE</span><span class="badge b-stale">⚠ MAY BE STALE</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">629-bel-1p/-2p/-1s/-2s</div><div class="sysline">BAE System (logical 629)</div><div class="note">FOUR nodes — per-installation</div><div class="existing">Register already has: <code>629-bel</code>, <code>629-bel1-p</code>, <code>629-bel2-p</code>, <code>629-bel1-s</code>, <code>629-bel2-s</code></div></div>
+            <div class="lcell lnode"><div class="nodeid">629-bel (pin/wiring attaches to its equipment)</div><div class="sysline">BAE System (logical 629)</div><div class="note">auto: equipment-vocab: BEL family</div><div class="existing">Register already has: <code>629-bel</code>, <code>629-bel1-p</code>, <code>629-bel2-p</code>, <code>629-bel1-s</code>, <code>629-bel2-s</code></div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k5418a8188c74" data-page="43" data-sheet="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face)"
-                   data-instrument="BEL-2 PORT BEL-2" data-proposed="629-bel-1p/-2p/-1s/-2s"></textarea>
+                   data-instrument="BEL-2 PORT BEL-2" data-proposed="629-bel (pin/wiring attaches to its equipment)"></textarea>
           </div>
-          <div class="lrow stale" data-search="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face) BEL-1 STBD BEL-1 629-bel-1p/-2p/-1s/-2s">
+          <div class="lrow stale" data-search="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face) BEL-1 STBD BEL-1 629-bel (pin/wiring attaches to its equipment)">
             <div class="lcell linst">
               <div class="iname">BEL-1 STBD BEL-1</div>
               <div class="badges"><span class="badge kind-power_source_unit">POWER SOURCE UNIT</span><span class="badge b-new">NEW NODE</span><span class="badge b-stale">⚠ MAY BE STALE</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">629-bel-1p/-2p/-1s/-2s</div><div class="sysline">BAE System (logical 629)</div><div class="note">FOUR nodes — per-installation</div><div class="existing">Register already has: <code>629-bel</code>, <code>629-bel1-p</code>, <code>629-bel2-p</code>, <code>629-bel1-s</code>, <code>629-bel2-s</code></div></div>
+            <div class="lcell lnode"><div class="nodeid">629-bel (pin/wiring attaches to its equipment)</div><div class="sysline">BAE System (logical 629)</div><div class="note">auto: equipment-vocab: BEL family</div><div class="existing">Register already has: <code>629-bel</code>, <code>629-bel1-p</code>, <code>629-bel2-p</code>, <code>629-bel1-s</code>, <code>629-bel2-s</code></div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k11459b9d7a54" data-page="43" data-sheet="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face)"
-                   data-instrument="BEL-1 STBD BEL-1" data-proposed="629-bel-1p/-2p/-1s/-2s"></textarea>
+                   data-instrument="BEL-1 STBD BEL-1" data-proposed="629-bel (pin/wiring attaches to its equipment)"></textarea>
           </div>
-          <div class="lrow stale" data-search="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face) BEL-2 STBD BEL-2 629-bel-1p/-2p/-1s/-2s">
+          <div class="lrow stale" data-search="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face) BEL-2 STBD BEL-2 629-bel (pin/wiring attaches to its equipment)">
             <div class="lcell linst">
               <div class="iname">BEL-2 STBD BEL-2</div>
               <div class="badges"><span class="badge kind-power_source_unit">POWER SOURCE UNIT</span><span class="badge b-new">NEW NODE</span><span class="badge b-stale">⚠ MAY BE STALE</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">629-bel-1p/-2p/-1s/-2s</div><div class="sysline">BAE System (logical 629)</div><div class="note">FOUR nodes — per-installation</div><div class="existing">Register already has: <code>629-bel</code>, <code>629-bel1-p</code>, <code>629-bel2-p</code>, <code>629-bel1-s</code>, <code>629-bel2-s</code></div></div>
+            <div class="lcell lnode"><div class="nodeid">629-bel (pin/wiring attaches to its equipment)</div><div class="sysline">BAE System (logical 629)</div><div class="note">auto: equipment-vocab: BEL family</div><div class="existing">Register already has: <code>629-bel</code>, <code>629-bel1-p</code>, <code>629-bel2-p</code>, <code>629-bel1-s</code>, <code>629-bel2-s</code></div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k1f5aed41cb09" data-page="43" data-sheet="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face)"
-                   data-instrument="BEL-2 STBD BEL-2" data-proposed="629-bel-1p/-2p/-1s/-2s"></textarea>
+                   data-instrument="BEL-2 STBD BEL-2" data-proposed="629-bel (pin/wiring attaches to its equipment)"></textarea>
           </div>
           <div class="lrow" data-search="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face) SHORE SHORE 660 shore power">
             <div class="lcell linst">
@@ -3597,45 +2959,45 @@ button.ghost { cursor: pointer; }
                    id="k8a9a5603870a" data-page="43" data-sheet="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face)"
                    data-instrument="SHORE SHORE" data-proposed="660 shore power"></textarea>
           </div>
-          <div class="lrow stale" data-search="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face) MAPS-1 PORT MAPS-1 626-maps">
+          <div class="lrow stale" data-search="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face) MAPS-1 PORT MAPS-1 626-maps (pin/wiring attaches to its equipment)">
             <div class="lcell linst">
               <div class="iname">MAPS-1 PORT MAPS-1</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-new">NEW NODE</span><span class="badge b-stale">⚠ MAY BE STALE</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">626-maps</div><div class="sysline">BAE System (logical 626)</div><div class="note">Modular Aux Power System, P+S</div><div class="existing">Register already has: <code>626-maps</code>, <code>626-maps-p</code>, <code>626-maps-s</code></div></div>
+            <div class="lcell lnode"><div class="nodeid">626-maps (pin/wiring attaches to its equipment)</div><div class="sysline">BAE System (logical 626)</div><div class="note">auto: equipment-vocab: MAPS family</div><div class="existing">Register already has: <code>626-maps</code>, <code>626-maps-p</code>, <code>626-maps-s</code></div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="ke0e75f3cc221" data-page="43" data-sheet="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face)"
-                   data-instrument="MAPS-1 PORT MAPS-1" data-proposed="626-maps"></textarea>
+                   data-instrument="MAPS-1 PORT MAPS-1" data-proposed="626-maps (pin/wiring attaches to its equipment)"></textarea>
           </div>
-          <div class="lrow stale" data-search="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face) MAPS-2 PORT MAPS-2 626-maps">
+          <div class="lrow stale" data-search="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face) MAPS-2 PORT MAPS-2 626-maps (pin/wiring attaches to its equipment)">
             <div class="lcell linst">
               <div class="iname">MAPS-2 PORT MAPS-2</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-new">NEW NODE</span><span class="badge b-stale">⚠ MAY BE STALE</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">626-maps</div><div class="sysline">BAE System (logical 626)</div><div class="note">Modular Aux Power System, P+S</div><div class="existing">Register already has: <code>626-maps</code>, <code>626-maps-p</code>, <code>626-maps-s</code></div></div>
+            <div class="lcell lnode"><div class="nodeid">626-maps (pin/wiring attaches to its equipment)</div><div class="sysline">BAE System (logical 626)</div><div class="note">auto: equipment-vocab: MAPS family</div><div class="existing">Register already has: <code>626-maps</code>, <code>626-maps-p</code>, <code>626-maps-s</code></div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k15c410df2e02" data-page="43" data-sheet="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face)"
-                   data-instrument="MAPS-2 PORT MAPS-2" data-proposed="626-maps"></textarea>
+                   data-instrument="MAPS-2 PORT MAPS-2" data-proposed="626-maps (pin/wiring attaches to its equipment)"></textarea>
           </div>
-          <div class="lrow stale" data-search="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face) MAPS-1 STBD MAPS-1 626-maps">
+          <div class="lrow stale" data-search="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face) MAPS-1 STBD MAPS-1 626-maps (pin/wiring attaches to its equipment)">
             <div class="lcell linst">
               <div class="iname">MAPS-1 STBD MAPS-1</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-new">NEW NODE</span><span class="badge b-stale">⚠ MAY BE STALE</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">626-maps</div><div class="sysline">BAE System (logical 626)</div><div class="note">Modular Aux Power System, P+S</div><div class="existing">Register already has: <code>626-maps</code>, <code>626-maps-p</code>, <code>626-maps-s</code></div></div>
+            <div class="lcell lnode"><div class="nodeid">626-maps (pin/wiring attaches to its equipment)</div><div class="sysline">BAE System (logical 626)</div><div class="note">auto: equipment-vocab: MAPS family</div><div class="existing">Register already has: <code>626-maps</code>, <code>626-maps-p</code>, <code>626-maps-s</code></div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k2a6a47d676f4" data-page="43" data-sheet="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face)"
-                   data-instrument="MAPS-1 STBD MAPS-1" data-proposed="626-maps"></textarea>
+                   data-instrument="MAPS-1 STBD MAPS-1" data-proposed="626-maps (pin/wiring attaches to its equipment)"></textarea>
           </div>
-          <div class="lrow stale" data-search="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face) MAPS-2 STBD MAPS-2 626-maps">
+          <div class="lrow stale" data-search="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face) MAPS-2 STBD MAPS-2 626-maps (pin/wiring attaches to its equipment)">
             <div class="lcell linst">
               <div class="iname">MAPS-2 STBD MAPS-2</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-new">NEW NODE</span><span class="badge b-stale">⚠ MAY BE STALE</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">626-maps</div><div class="sysline">BAE System (logical 626)</div><div class="note">Modular Aux Power System, P+S</div><div class="existing">Register already has: <code>626-maps</code>, <code>626-maps-p</code>, <code>626-maps-s</code></div></div>
+            <div class="lcell lnode"><div class="nodeid">626-maps (pin/wiring attaches to its equipment)</div><div class="sysline">BAE System (logical 626)</div><div class="note">auto: equipment-vocab: MAPS family</div><div class="existing">Register already has: <code>626-maps</code>, <code>626-maps-p</code>, <code>626-maps-s</code></div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k3a092d9f4fed" data-page="43" data-sheet="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face)"
-                   data-instrument="MAPS-2 STBD MAPS-2" data-proposed="626-maps"></textarea>
+                   data-instrument="MAPS-2 STBD MAPS-2" data-proposed="626-maps (pin/wiring attaches to its equipment)"></textarea>
           </div>
           <div class="lrow" data-search="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face) 100A AUX AUX ">
             <div class="lcell linst">
@@ -3682,7 +3044,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">S16 FWD GREY WATER</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">530-grey-water-pumps</div><div class="sysline">Grey water system</div><div class="note">auto from your logic: grey (existing map)</div><div class="existing">Register already has: <code>530-planus-waterlift-transfer-unit</code>, <code>530-viking-pump</code>, <code>530-wave-international-greywater-treatment</code>, <code>530-grey-water-pumps</code>, <code>530-sump-pumps</code></div></div>
+            <div class="lcell lnode"><div class="nodeid">530-grey-water-pumps</div><div class="sysline">Grey water system</div><div class="note">auto: grey (existing map)</div><div class="existing">Register already has: <code>530-planus-waterlift-transfer-unit</code>, <code>530-viking-pump</code>, <code>530-wave-international-greywater-treatment</code>, <code>530-grey-water-pumps</code>, <code>530-sump-pumps</code></div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="kbbdacb18b838" data-page="43" data-sheet="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face)"
                    data-instrument="S16 FWD GREY WATER" data-proposed="530-grey-water-pumps"></textarea>
@@ -3692,7 +3054,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">S9 MAST NAV LTS</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-mast</div><div class="sysline">Lights, switches and sockets</div><div class="note">auto from your logic: lights zone match</div><div class="existing">Register already has: <code>690-barthelme-led</code>, <code>690-exterior-lighting</code>, <code>690-interior-lighting</code>, <code>690-ital-pek-lighting</code>, <code>690-mast-lighting</code> +20 more</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-mast</div><div class="sysline">Lights, switches and sockets</div><div class="note">auto: lights zone match</div><div class="existing">Register already has: <code>690-barthelme-led</code>, <code>690-exterior-lighting</code>, <code>690-interior-lighting</code>, <code>690-ital-pek-lighting</code>, <code>690-mast-lighting</code> +20 more</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k346d7317ac14" data-page="43" data-sheet="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face)"
                    data-instrument="S9 MAST NAV LTS" data-proposed="690-lts-mast"></textarea>
@@ -3702,7 +3064,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">S10 STEAMING LTS</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">690-lts-? (name the zone)</div><div class="sysline">Lights, switches and sockets</div><div class="note">auto from your logic: lights — zone unclear</div><div class="existing">Register already has: <code>690-barthelme-led</code>, <code>690-exterior-lighting</code>, <code>690-interior-lighting</code>, <code>690-ital-pek-lighting</code>, <code>690-mast-lighting</code> +20 more</div></div>
+            <div class="lcell lnode"><div class="nodeid">690-lts-? (name the zone)</div><div class="sysline">Lights, switches and sockets</div><div class="note">auto: lights — zone unclear</div><div class="existing">Register already has: <code>690-barthelme-led</code>, <code>690-exterior-lighting</code>, <code>690-interior-lighting</code>, <code>690-ital-pek-lighting</code>, <code>690-mast-lighting</code> +20 more</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k089b84b336b2" data-page="43" data-sheet="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face)"
                    data-instrument="S10 STEAMING LTS" data-proposed="690-lts-? (name the zone)"></textarea>
@@ -3712,7 +3074,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">S12 EMERGENCY LIGHTS</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">693-emergency-lighting</div><div class="note">auto from your logic: lights zone match</div></div>
+            <div class="lcell lnode"><div class="nodeid">693-emergency-lighting</div><div class="note">auto: lights zone match</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k88dfb5ac222d" data-page="43" data-sheet="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face)"
                    data-instrument="S12 EMERGENCY LIGHTS" data-proposed="693-emergency-lighting"></textarea>
@@ -3722,7 +3084,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">S14 ALARM MUTE</div>
               <div class="badges"><span class="badge kind-alarm_monitor">ALARM / MONITOR</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">695-fire-alarm / 652-onyx (which alarm?)</div><div class="note">auto from your logic: alarm — specify</div></div>
+            <div class="lcell lnode"><div class="nodeid">695-fire-alarm / 652-onyx (which alarm?)</div><div class="note">auto: alarm — specify</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="ked690d8507a4" data-page="43" data-sheet="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face)"
                    data-instrument="S14 ALARM MUTE" data-proposed="695-fire-alarm / 652-onyx (which alarm?)"></textarea>
@@ -3742,7 +3104,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">S17 AFT GREY WATER</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">530-grey-water-pumps</div><div class="sysline">Grey water system</div><div class="note">auto from your logic: grey (existing map)</div><div class="existing">Register already has: <code>530-planus-waterlift-transfer-unit</code>, <code>530-viking-pump</code>, <code>530-wave-international-greywater-treatment</code>, <code>530-grey-water-pumps</code>, <code>530-sump-pumps</code></div></div>
+            <div class="lcell lnode"><div class="nodeid">530-grey-water-pumps</div><div class="sysline">Grey water system</div><div class="note">auto: grey (existing map)</div><div class="existing">Register already has: <code>530-planus-waterlift-transfer-unit</code>, <code>530-viking-pump</code>, <code>530-wave-international-greywater-treatment</code>, <code>530-grey-water-pumps</code>, <code>530-sump-pumps</code></div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="ka85eee7f6c66" data-page="43" data-sheet="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face)"
                    data-instrument="S17 AFT GREY WATER" data-proposed="530-grey-water-pumps"></textarea>
@@ -3752,7 +3114,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">S18 FWD BLACK WATER</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">540-black-water-pumps</div><div class="sysline">Black water system</div><div class="note">auto from your logic: black (existing map)</div><div class="existing">Register already has: <code>540-gianneschi-pumps</code>, <code>540-toilet</code>, <code>540-black-water-pumps</code>, <code>540-wc-toilets</code></div></div>
+            <div class="lcell lnode"><div class="nodeid">540-black-water-pumps</div><div class="sysline">Black water system</div><div class="note">auto: black (existing map)</div><div class="existing">Register already has: <code>540-gianneschi-pumps</code>, <code>540-toilet</code>, <code>540-black-water-pumps</code>, <code>540-wc-toilets</code></div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k486faa21c1bb" data-page="43" data-sheet="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face)"
                    data-instrument="S18 FWD BLACK WATER" data-proposed="540-black-water-pumps"></textarea>
@@ -3762,7 +3124,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">S19 AFT BLACK WATER</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">540-black-water-pumps</div><div class="sysline">Black water system</div><div class="note">auto from your logic: black (existing map)</div><div class="existing">Register already has: <code>540-gianneschi-pumps</code>, <code>540-toilet</code>, <code>540-black-water-pumps</code>, <code>540-wc-toilets</code></div></div>
+            <div class="lcell lnode"><div class="nodeid">540-black-water-pumps</div><div class="sysline">Black water system</div><div class="note">auto: black (existing map)</div><div class="existing">Register already has: <code>540-gianneschi-pumps</code>, <code>540-toilet</code>, <code>540-black-water-pumps</code>, <code>540-wc-toilets</code></div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k29812027f94a" data-page="43" data-sheet="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face)"
                    data-instrument="S19 AFT BLACK WATER" data-proposed="540-black-water-pumps"></textarea>
@@ -3772,7 +3134,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">MAST AUX BILGE PUMP</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">520-*</div><div class="sysline">Bilge and fire system</div><div class="note">auto from your logic: bilge</div><div class="existing">Register already has: <code>520-feit-bilge-pump</code>, <code>520-vega-bilge-level-sensors</code>, <code>520-whale-pumps</code>, <code>520-bilge-pumps</code>, <code>520-main-bilge-pump</code> +4 more</div></div>
+            <div class="lcell lnode"><div class="nodeid">520-*</div><div class="sysline">Bilge and fire system</div><div class="note">auto: bilge</div><div class="existing">Register already has: <code>520-feit-bilge-pump</code>, <code>520-vega-bilge-level-sensors</code>, <code>520-whale-pumps</code>, <code>520-bilge-pumps</code>, <code>520-main-bilge-pump</code> +4 more</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="kbe579527b76b" data-page="43" data-sheet="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face)"
                    data-instrument="&lt;UNKNOWN&gt; MAST AUX BILGE PUMP" data-proposed="520-*"></textarea>
@@ -3782,7 +3144,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">ENGINE ROOM AUX BILGE PUMP</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">520-*</div><div class="sysline">Bilge and fire system</div><div class="note">auto from your logic: bilge</div><div class="existing">Register already has: <code>520-feit-bilge-pump</code>, <code>520-vega-bilge-level-sensors</code>, <code>520-whale-pumps</code>, <code>520-bilge-pumps</code>, <code>520-main-bilge-pump</code> +4 more</div></div>
+            <div class="lcell lnode"><div class="nodeid">520-*</div><div class="sysline">Bilge and fire system</div><div class="note">auto: bilge</div><div class="existing">Register already has: <code>520-feit-bilge-pump</code>, <code>520-vega-bilge-level-sensors</code>, <code>520-whale-pumps</code>, <code>520-bilge-pumps</code>, <code>520-main-bilge-pump</code> +4 more</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="kf6071eb2a710" data-page="43" data-sheet="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face)"
                    data-instrument="&lt;UNKNOWN&gt; ENGINE ROOM AUX BILGE PUMP" data-proposed="520-*"></textarea>
@@ -3792,7 +3154,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">OWNERS GREY WATER PUMP</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">530-grey-water-pumps</div><div class="sysline">Grey water system</div><div class="note">auto from your logic: grey (existing map)</div><div class="existing">Register already has: <code>530-planus-waterlift-transfer-unit</code>, <code>530-viking-pump</code>, <code>530-wave-international-greywater-treatment</code>, <code>530-grey-water-pumps</code>, <code>530-sump-pumps</code></div></div>
+            <div class="lcell lnode"><div class="nodeid">530-grey-water-pumps</div><div class="sysline">Grey water system</div><div class="note">auto: grey (existing map)</div><div class="existing">Register already has: <code>530-planus-waterlift-transfer-unit</code>, <code>530-viking-pump</code>, <code>530-wave-international-greywater-treatment</code>, <code>530-grey-water-pumps</code>, <code>530-sump-pumps</code></div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k1261bdc3d72d" data-page="43" data-sheet="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face)"
                    data-instrument="&lt;UNKNOWN&gt; OWNERS GREY WATER PUMP" data-proposed="530-grey-water-pumps"></textarea>
@@ -3802,7 +3164,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">FWD GUEST GREY WATER PUMP</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">530-grey-water-pumps</div><div class="sysline">Grey water system</div><div class="note">auto from your logic: grey (existing map)</div><div class="existing">Register already has: <code>530-planus-waterlift-transfer-unit</code>, <code>530-viking-pump</code>, <code>530-wave-international-greywater-treatment</code>, <code>530-grey-water-pumps</code>, <code>530-sump-pumps</code></div></div>
+            <div class="lcell lnode"><div class="nodeid">530-grey-water-pumps</div><div class="sysline">Grey water system</div><div class="note">auto: grey (existing map)</div><div class="existing">Register already has: <code>530-planus-waterlift-transfer-unit</code>, <code>530-viking-pump</code>, <code>530-wave-international-greywater-treatment</code>, <code>530-grey-water-pumps</code>, <code>530-sump-pumps</code></div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k45f57b817d37" data-page="43" data-sheet="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face)"
                    data-instrument="&lt;UNKNOWN&gt; FWD GUEST GREY WATER PUMP" data-proposed="530-grey-water-pumps"></textarea>
@@ -3812,7 +3174,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">PORT AFT GUEST GREY WATER PUMP</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">530-grey-water-pumps</div><div class="sysline">Grey water system</div><div class="note">auto from your logic: grey (existing map)</div><div class="existing">Register already has: <code>530-planus-waterlift-transfer-unit</code>, <code>530-viking-pump</code>, <code>530-wave-international-greywater-treatment</code>, <code>530-grey-water-pumps</code>, <code>530-sump-pumps</code></div></div>
+            <div class="lcell lnode"><div class="nodeid">530-grey-water-pumps</div><div class="sysline">Grey water system</div><div class="note">auto: grey (existing map)</div><div class="existing">Register already has: <code>530-planus-waterlift-transfer-unit</code>, <code>530-viking-pump</code>, <code>530-wave-international-greywater-treatment</code>, <code>530-grey-water-pumps</code>, <code>530-sump-pumps</code></div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k0344b6cd4e04" data-page="43" data-sheet="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face)"
                    data-instrument="&lt;UNKNOWN&gt; PORT AFT GUEST GREY WATER PUMP" data-proposed="530-grey-water-pumps"></textarea>
@@ -3822,7 +3184,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">STBD AFT GUEST GREY WATER PUMP</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">530-grey-water-pumps</div><div class="sysline">Grey water system</div><div class="note">auto from your logic: grey (existing map)</div><div class="existing">Register already has: <code>530-planus-waterlift-transfer-unit</code>, <code>530-viking-pump</code>, <code>530-wave-international-greywater-treatment</code>, <code>530-grey-water-pumps</code>, <code>530-sump-pumps</code></div></div>
+            <div class="lcell lnode"><div class="nodeid">530-grey-water-pumps</div><div class="sysline">Grey water system</div><div class="note">auto: grey (existing map)</div><div class="existing">Register already has: <code>530-planus-waterlift-transfer-unit</code>, <code>530-viking-pump</code>, <code>530-wave-international-greywater-treatment</code>, <code>530-grey-water-pumps</code>, <code>530-sump-pumps</code></div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="kd024814b3250" data-page="43" data-sheet="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face)"
                    data-instrument="&lt;UNKNOWN&gt; STBD AFT GUEST GREY WATER PUMP" data-proposed="530-grey-water-pumps"></textarea>
@@ -3832,7 +3194,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">AFT CREW GREY WATER PUMP</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">530-grey-water-pumps</div><div class="sysline">Grey water system</div><div class="note">auto from your logic: grey (existing map)</div><div class="existing">Register already has: <code>530-planus-waterlift-transfer-unit</code>, <code>530-viking-pump</code>, <code>530-wave-international-greywater-treatment</code>, <code>530-grey-water-pumps</code>, <code>530-sump-pumps</code></div></div>
+            <div class="lcell lnode"><div class="nodeid">530-grey-water-pumps</div><div class="sysline">Grey water system</div><div class="note">auto: grey (existing map)</div><div class="existing">Register already has: <code>530-planus-waterlift-transfer-unit</code>, <code>530-viking-pump</code>, <code>530-wave-international-greywater-treatment</code>, <code>530-grey-water-pumps</code>, <code>530-sump-pumps</code></div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k404bb6238bec" data-page="43" data-sheet="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face)"
                    data-instrument="&lt;UNKNOWN&gt; AFT CREW GREY WATER PUMP" data-proposed="530-grey-water-pumps"></textarea>
@@ -3842,7 +3204,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">AFT A/C SUMP PUMP</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">530-sump-pumps</div><div class="note">auto from your logic: sump (existing map)</div></div>
+            <div class="lcell lnode"><div class="nodeid">530-sump-pumps</div><div class="note">auto: sump (existing map)</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="kdc25b63351fa" data-page="43" data-sheet="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face)"
                    data-instrument="&lt;UNKNOWN&gt; AFT A/C SUMP PUMP" data-proposed="530-sump-pumps"></textarea>
@@ -3872,7 +3234,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">S24 SAIL LKR BILGE</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">520-*</div><div class="sysline">Bilge and fire system</div><div class="note">auto from your logic: bilge</div><div class="existing">Register already has: <code>520-feit-bilge-pump</code>, <code>520-vega-bilge-level-sensors</code>, <code>520-whale-pumps</code>, <code>520-bilge-pumps</code>, <code>520-main-bilge-pump</code> +4 more</div></div>
+            <div class="lcell lnode"><div class="nodeid">520-*</div><div class="sysline">Bilge and fire system</div><div class="note">auto: bilge</div><div class="existing">Register already has: <code>520-feit-bilge-pump</code>, <code>520-vega-bilge-level-sensors</code>, <code>520-whale-pumps</code>, <code>520-bilge-pumps</code>, <code>520-main-bilge-pump</code> +4 more</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="ka66d3ce50b7b" data-page="43" data-sheet="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face)"
                    data-instrument="S24 SAIL LKR BILGE" data-proposed="520-*"></textarea>
@@ -3882,7 +3244,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">S21 AFT BILGE</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">520-*</div><div class="sysline">Bilge and fire system</div><div class="note">auto from your logic: bilge</div><div class="existing">Register already has: <code>520-feit-bilge-pump</code>, <code>520-vega-bilge-level-sensors</code>, <code>520-whale-pumps</code>, <code>520-bilge-pumps</code>, <code>520-main-bilge-pump</code> +4 more</div></div>
+            <div class="lcell lnode"><div class="nodeid">520-*</div><div class="sysline">Bilge and fire system</div><div class="note">auto: bilge</div><div class="existing">Register already has: <code>520-feit-bilge-pump</code>, <code>520-vega-bilge-level-sensors</code>, <code>520-whale-pumps</code>, <code>520-bilge-pumps</code>, <code>520-main-bilge-pump</code> +4 more</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="ke32502c9ba84" data-page="43" data-sheet="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face)"
                    data-instrument="S21 AFT BILGE" data-proposed="520-*"></textarea>
@@ -3902,7 +3264,7 @@ button.ghost { cursor: pointer; }
               <div class="iname">S23 FWD BILGE</div>
               <div class="badges"><span class="badge kind-equipment">EQUIPMENT</span><span class="badge b-existing">EXISTING</span></div>
             </div>
-            <div class="lcell lnode"><div class="nodeid">520-*</div><div class="sysline">Bilge and fire system</div><div class="note">auto from your logic: bilge</div><div class="existing">Register already has: <code>520-feit-bilge-pump</code>, <code>520-vega-bilge-level-sensors</code>, <code>520-whale-pumps</code>, <code>520-bilge-pumps</code>, <code>520-main-bilge-pump</code> +4 more</div></div>
+            <div class="lcell lnode"><div class="nodeid">520-*</div><div class="sysline">Bilge and fire system</div><div class="note">auto: bilge</div><div class="existing">Register already has: <code>520-feit-bilge-pump</code>, <code>520-vega-bilge-level-sensors</code>, <code>520-whale-pumps</code>, <code>520-bilge-pumps</code>, <code>520-main-bilge-pump</code> +4 more</div></div>
             <textarea class="lcell einput" rows="1" placeholder="engineer decision…"
                    id="k8f369c200a89" data-page="43" data-sheet="&lt;UNKNOWN&gt; Southern Wind — Vessel Control Panel (Marine Electrical Panel Face)"
                    data-instrument="S23 FWD BILGE" data-proposed="520-*"></textarea>
