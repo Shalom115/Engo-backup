@@ -1,0 +1,20 @@
+[EXTENDS batch 3 — p14/p15 identical (already applied); NEW = p17 cable-rule rows + PLUG C pins + all of p18 GMMS-113]
+
+p17 GMMS 108'-112 MAIN PANEL "A" — 12/69 not used -> MULTI-CORE CABLE: a thick line with multiple thinner numbered legs on BOTH sides (equal count each side) = a multi-wire (multi-core) cable connecting two Terminal Strips. Label on the top-middle "MUx-N": MUx = cable label, N = number of wires in the cable. Each numbered leg 1..N connects to a terminal; to know WHICH T/S, read the label at the TOP of the terminal column on each side. Here MU5-12: right side = T/S E (terminal 69 = not used), left side = T/S F (12 pins to T/S F terminals). MU4-12 below = same logic. 12/69 itself = a wire number + terminal, NOT equipment, and not in use. [ENGINEER: make a general rule, pass for approval]
+p17 GMMS 108'-112 MAIN PANEL "A" — 119 not used -> same as 12/69 (wire+terminal, not equipment, not in use)
+p17 GMMS 108'-112 MAIN PANEL "A" — PLUG C [8] ALARM MOD 2 PORT PEDESTAL -> correct: C = a plug in the PORT PEDESTAL, 8 = the pin number
+p17 GMMS 108'-112 MAIN PANEL "A" — PLUG C [9] ALARM MOD 2 PORT PEDESTAL -> same: C = plug, 9 = pin number
+p17 GMMS 108'-112 MAIN PANEL "A" — PLUG C [11] ALARM MUTE SW -> same as 8/9
+p17 GMMS 108'-112 MAIN PANEL "A" — PLUG C [12] ALARM MUTE SW -> same as 8/9
+p17 GMMS 108'-112 MAIN PANEL "A" — [12] AU<UNKNOWN> -> skip
+p18 GMMS 108'-113 MAIN PANEL A/B — -1/-2 LINE VOLTAGE -> multi-core cable variant (like MU14-12) but a 4-WIRE cable with NO top label; one side T/S, other side GAUGES. Here 1-2 come from T/S AA. NOTE the terminal symbol: a rectangle containing another rectangle with a line across it = a TERMINAL WITH A BUILT-IN FUSE. Other side = a VOLTAGE METER showing line voltage. [add to the multi-core cable rule]
+p18 GMMS 108'-113 MAIN PANEL A/B — -3/-4 LOAD CURRENT -> same 4-wire cable; 3-4 from T/S AA; other side = a CURRENT METER showing line amperage. [add to the multi-core cable rule]
+p18 GMMS 108'-113 MAIN PANEL A/B — Ph1 -> phase 1 power measurement from shore power; NO node, just an indicator
+p18 GMMS 108'-113 MAIN PANEL A/B — Ph2 -> phase 2 power measurement from shore power; NO node, indicator
+p18 GMMS 108'-113 MAIN PANEL A/B — Ph3 -> phase 3 power measurement from shore power; NO node, indicator
+p18 GMMS 108'-113 MAIN PANEL A/B — 60Hz -> frequency measurement from shore power; NO node, indicator
+p18 GMMS 108'-113 MAIN PANEL A/B — S3 MASTER SW -> switch that turns on the BAE hybrid system (like an ignition switch); 3 modes: 1=ON, 2=OFF, 3=SERVICE (in service the SCU and MC43 can receive software updates and changes)
+p18 GMMS 108'-113 MAIN PANEL A/B — S4 MODE SW -> BAE hybrid system 4 modes: EV (electric vehicle — boat runs on ESS power until 20%, then charges up to 45%); HEV (hybrid electric — when motor unused or <15kW, boat runs off ESS keeping it 40-65%; when motor >15kW, system starts a generator or both to keep ESS to 65% while covering motor + aux); CHEV (acronym unsure — generators run constantly, charge ESS to 75-80% then cover motor and/or aux); SHORE (connected to shore power, EDNs charge the battery to full and top-balance the cells, cover aux consumption)
+p18 GMMS 108'-113 MAIN PANEL A/B — S5 QUIET MODE -> correct (VCP hub node fact)
+p18 GMMS 108'-113 MAIN PANEL A/B — S6 VOLTAGE -> voltage meter VIEW SELECTOR — selects which voltage to show on the main-panel voltmeter, choose between the 3 banks
+p18 GMMS 108'-113 MAIN PANEL A/B — <UNKNOWN> LOAD CURRENT -> current of the relevant bank
