@@ -24,10 +24,53 @@ from __future__ import annotations
 import base64
 import io
 import json
+import logging
 import os
 import re
+import time
 from abc import ABC, abstractmethod
 from typing import Any, Dict, Optional
+
+logger = logging.getLogger("providers.vision")
+
+# Bounded retry for TRANSIENT API failures (rate limit, overloaded, connection
+# drop, 5xx). One transient error must never kill a long paid extraction run —
+# the Gold #2 lesson (a one-shot network call crashed the whole run), fixed at
+# the PROVIDER so every caller is covered. Permanent errors (4xx bad request)
+# are NOT retried — they fail loud immediately.
+_RETRY_ATTEMPTS = 4
+_RETRY_BACKOFF = (2.0, 5.0, 15.0)  # seconds between attempts
+
+
+def _is_transient_api_error(exc: Exception) -> bool:
+    """True for rate-limit / overloaded / connection / server-side errors."""
+    import anthropic
+    if isinstance(exc, (anthropic.APIConnectionError, anthropic.APITimeoutError,
+                        anthropic.RateLimitError)):
+        return True
+    if isinstance(exc, anthropic.APIStatusError):
+        # 429 rate limit, 5xx server errors, 529 overloaded
+        return exc.status_code == 429 or exc.status_code >= 500
+    return False
+
+
+def _call_with_retry(fn, *args, **kwargs):
+    """Run an API call with bounded retry on transient errors only."""
+    last_exc: Exception | None = None
+    for attempt in range(_RETRY_ATTEMPTS):
+        try:
+            return fn(*args, **kwargs)
+        except Exception as e:
+            if not _is_transient_api_error(e):
+                raise
+            last_exc = e
+            if attempt < _RETRY_ATTEMPTS - 1:
+                backoff = _RETRY_BACKOFF[min(attempt, len(_RETRY_BACKOFF) - 1)]
+                logger.warning("Transient vision-API error (attempt %d/%d): %s — "
+                               "retrying in %.0fs", attempt + 1, _RETRY_ATTEMPTS, e, backoff)
+                time.sleep(backoff)
+    assert last_exc is not None
+    raise last_exc
 
 
 # Prompt per content kind. Schematics get topology; photos get identification;
@@ -212,7 +255,8 @@ class AnthropicVisionProvider(VisionProvider):
         prompt = (f"{instructions}{ctx_lines}\n\n{_COMPONENT_RULES}\n\n"
                   "Call record_figure with the structured result.")
 
-        resp = self._client.messages.create(
+        resp = _call_with_retry(
+            self._client.messages.create,
             model=self._model,
             max_tokens=4096,
             tools=[_FIGURE_TOOL],
@@ -243,7 +287,8 @@ class AnthropicVisionProvider(VisionProvider):
         SDK stays inside providers/ per architecture rule #1.
         """
         data, mt = self._prepare(image_bytes, media_type)
-        resp = self._client.messages.create(
+        resp = _call_with_retry(
+            self._client.messages.create,
             model=self._model,
             max_tokens=max_tokens,
             tools=[tool_schema],
@@ -283,7 +328,8 @@ class AnthropicVisionProvider(VisionProvider):
                             "source": {"type": "base64", "media_type": mt,
                                        "data": base64.b64encode(data).decode()}})
         content.append({"type": "text", "text": prompt})
-        resp = self._client.messages.create(
+        resp = _call_with_retry(
+            self._client.messages.create,
             model=self._model,
             max_tokens=max_tokens,
             tools=[tool_schema],

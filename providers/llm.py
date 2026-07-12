@@ -82,8 +82,17 @@ class AnthropicProvider(LLMProvider):
             messages=messages,
         )
         usage = response.usage
+        # Join ALL text blocks rather than trusting content[0] — the response can
+        # legally carry multiple/non-text blocks, and content[0].text would then
+        # crash or silently drop text. Fail loud if there is no text at all.
+        text_parts = [b.text for b in response.content if getattr(b, "type", "") == "text"]
+        if not text_parts:
+            raise RuntimeError(
+                f"LLM returned no text content (stop_reason={response.stop_reason!r}, "
+                f"blocks={[getattr(b, 'type', '?') for b in response.content]})."
+            )
         return {
-            "text": response.content[0].text,
+            "text": "".join(text_parts),
             "input_tokens": int(getattr(usage, "input_tokens", 0) or 0),
             "output_tokens": int(getattr(usage, "output_tokens", 0) or 0),
             "cache_read_input_tokens": int(getattr(usage, "cache_read_input_tokens", 0) or 0),

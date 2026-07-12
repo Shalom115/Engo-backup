@@ -36,17 +36,15 @@ import logging
 import re
 from typing import Any, Dict, List
 
-import tiktoken
+from pipeline.tokens import get_encoder
 
 logger = logging.getLogger(__name__)
-
-_ENCODER = tiktoken.get_encoding("cl100k_base")
 
 
 # ----- Shared low-level helpers -----
 
 def _count_tokens(text: str) -> int:
-    return len(_ENCODER.encode(text))
+    return len(get_encoder().encode(text))
 
 
 def _split_long_text(
@@ -62,14 +60,14 @@ def _split_long_text(
 
     Operates on token IDs to make sizing exact, decodes back for storage.
     """
-    token_ids = _ENCODER.encode(text)
+    token_ids = get_encoder().encode(text)
     pieces: List[Dict[str, Any]] = []
     step = max(1, chunk_size - overlap)
     start = 0
     while start < len(token_ids):
         end = min(start + chunk_size, len(token_ids))
         slice_ids = token_ids[start:end]
-        piece_text = _ENCODER.decode(slice_ids)
+        piece_text = get_encoder().decode(slice_ids)
         pieces.append({
             "text": piece_text,
             "token_count": len(slice_ids),
@@ -113,9 +111,9 @@ def _apply_overlap(
             final.append(entry)
             continue
         prev_text = str(raw_chunks[i - 1]["text"])
-        prev_ids = _ENCODER.encode(prev_text)
+        prev_ids = get_encoder().encode(prev_text)
         tail_ids = prev_ids[-overlap_tokens:] if len(prev_ids) > overlap_tokens else prev_ids
-        tail_text = _ENCODER.decode(tail_ids)
+        tail_text = get_encoder().decode(tail_ids)
         merged_text = tail_text + "\n\n" + str(c["text"])
         entry = {"text": merged_text}
         for k in position_keys:

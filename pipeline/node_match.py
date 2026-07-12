@@ -165,7 +165,8 @@ def _exact_make_boost(comp: Dict[str, Any],
     cmake = _n(comp.get("make"))
     if not cmake or cmake in _GENERIC_VALUES or len(cmake) < _MIN_DISTINCTIVE_MAKE_LEN:
         return None
-    exact_matches = [e for e in register if _n(e.get("make")) == cmake]
+    exact_matches = [e for e in register
+                     if not e.get("retired") and _n(e.get("make")) == cmake]
     if not exact_matches:
         return None
     families = {e.get("parent_id") or e["equipment_id"] for e in exact_matches}
@@ -191,7 +192,14 @@ def resolve(comp: Dict[str, Any], register: Optional[List[Dict[str, Any]]] = Non
        reason, candidates:[(score, equipment_id, reasons)]}
     """
     register = load_register() if register is None else register
-    scored = sorted(((*_score(comp, e), e) for e in register),
+    # RETIRED nodes (merged debris, superseded duplicates) are never match
+    # targets — a fact attached to a retired node is invisible to anything
+    # that respects `retired`. Their content lives on via merged_into.
+    candidates = [e for e in register if not e.get("retired")]
+    if not candidates:
+        return {"action": "create_flagged", "match": None, "match_id": None,
+                "confidence": 0.0, "reason": ["empty register"], "candidates": []}
+    scored = sorted(((*_score(comp, e), e) for e in candidates),
                     key=lambda x: -x[0])
     top_score, top_why, top_e = scored[0]
     confident = top_score >= threshold

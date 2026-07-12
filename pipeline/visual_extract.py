@@ -60,7 +60,9 @@ def pdf_embedded_images(pdf_bytes: bytes, page_index: int) -> List[Tuple[bytes, 
             pil = Image.open(io.BytesIO(data))
             if pil.width * pil.height < MIN_FIGURE_PIXELS:
                 continue
-        except Exception:
+        except Exception as e:
+            logger.debug("unreadable embedded image on page %d skipped: %s",
+                         page_index + 1, e)
             continue
         ext = (im.name.rsplit(".", 1)[-1] if "." in im.name else "png").lower()
         out.append((data, ext))

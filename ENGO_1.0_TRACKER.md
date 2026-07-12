@@ -333,3 +333,22 @@ reconciled directly instead of guessed at)?
 - **verify-gate** — "clean means verified": the 4-bucket split (unanimous/same+suspects/multi-instance/lost), exact-id-first matching, render-every-lost, the anti-fabrication rule.
 - **register-write** — node schema, bidirectional cross-links, sfi_allocate R1/R2/R3, parent/child, identity-conflict-to-engineer, integrity gate. Guards (non-dict fact value) baked in.
 All frontmatter-valid, tight (500-725 words), every referenced module/function verified to exist. This is the foundation for the other 6 gaps (word-box extraction, deterministic symbol CV, ground-truth regression suite, campaign harness, red-pen tooling, node-graph→retrieval) — skills first so the procedures are captured before the tooling accelerates them.
+
+
+## N. SANITY-PASS HARDENING (2026-07-12, engineer-approved after full-code review)
+| Item | Status |
+|---|---|
+| #1 Retry/backoff in vision + Drive PROVIDERS (transient 429/5xx/529/network; permanent 4xx still fail-loud) | ✅ |
+| #2 Atomic Register + confirmation-list saves (tmp + os.replace) | ✅ |
+| #3 Retired nodes excluded from §9e matching (resolve + exact-make boost) | ✅ |
+| #4 Fact idempotency on exact re-runs (single choke point in _attach_fact; bbox excluded from key) | ✅ |
+| #5 tiktoken lazy-load + repo-local cache + seeder script; requirements.txt completed | ✅ |
+| #8a LLM multi-text-block join (content[0] fragility) | ✅ |
+| #10 Poller daily-log retention (EXOCET_LOG_RETENTION_DAYS=90) + corrupt-state quarantine | ✅ |
+| #11 Directory ingest covers all PARSER_REGISTRY types; HyDE over-fetch 3x→6x; 2 silent excepts now log | ✅ |
+| 12 regression tests in tests/test_sanity_fixes.py; full suite 44/44 | ✅ |
+| #6 Abstract-interface drift (extract/extract_multi/delete_where/set_metadata_where → ABCs) | ⬜ before vessel #2 |
+| #7 Vessel tokens hardcoded in general pipeline (revision_gate 108-01 regex/_OVERRIDES; node_write 652 default) | ⬜ before vessel #2 |
+| #9 CLAUDE.md slimming (153KB auto-loads every session) | 🔴 engineer editorial call |
+| #8b Voyage silent dims default · #8c LocalFsStorage key sanitization | ⬜ minor, unscheduled |
+| ONE-TIME ACTION for the boat laptop: run `python3 -m tools.seed_tiktoken_cache` once online (then commit data/tiktoken_cache) | 🔴 engineer |

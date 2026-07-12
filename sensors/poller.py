@@ -81,6 +81,11 @@ _GNSS_MIN_PLAUSIBLE_YEAR = 2023
 DEFAULT_STATE_PATH = config.STATE_DIR / "exocet_rolling.json"
 DEFAULT_HTTP_TIMEOUT_SECONDS = 10.0
 
+# Daily JSONL logs carry the full flattened sample every minute (~250 channels)
+# — that grows to multi-GB per year on the boat laptop if never pruned. Files
+# older than this are deleted by prune_daily_logs(); 0 disables pruning.
+LOG_RETENTION_DAYS = int(os.getenv("EXOCET_LOG_RETENTION_DAYS", "90"))
+
 _STATE_VERSION = 1
 
 
@@ -328,10 +333,49 @@ def write_state(state: Dict[str, Any], path: Path) -> None:
 
 
 def load_state(path: Path) -> Optional[Dict[str, Any]]:
-    """Load persisted rolling state, or None if the file doesn't exist yet."""
+    """
+    Load persisted rolling state, or None if the file doesn't exist yet.
+
+    A CORRUPT state file (truncated write, disk glitch) is QUARANTINED — renamed
+    to <name>.corrupt-<timestamp> with a loud error log — and None is returned
+    so the monitor starts fresh instead of staying down until a human deletes
+    the file. Losing the rolling window is recoverable; a monitor that can't
+    restart isn't. The quarantined file is kept on disk for inspection.
+    """
     if not path.exists():
         return None
-    return json.loads(path.read_text(encoding="utf-8"))
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, UnicodeDecodeError) as e:
+        stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+        quarantine = path.with_name(f"{path.name}.corrupt-{stamp}")
+        os.replace(path, quarantine)
+        logger.error(
+            "Rolling state file %s is CORRUPT (%s) — quarantined to %s; "
+            "starting with a fresh rolling window.", path, e, quarantine,
+        )
+        return None
+
+
+def prune_daily_logs(logs_dir: Path, now: datetime,
+                     retention_days: int = LOG_RETENTION_DAYS) -> int:
+    """Delete exocet_YYYYMMDD.jsonl files older than `retention_days`.
+    Returns the number of files removed. retention_days <= 0 disables pruning."""
+    if retention_days <= 0:
+        return 0
+    removed = 0
+    cutoff = now.timestamp() - retention_days * 86400
+    for f in logs_dir.glob("exocet_*.jsonl"):
+        try:
+            day = datetime.strptime(f.stem, "exocet_%Y%m%d").replace(tzinfo=timezone.utc)
+        except ValueError:
+            continue  # not one of ours — never delete what we didn't write
+        if day.timestamp() < cutoff:
+            f.unlink()
+            removed += 1
+    if removed:
+        logger.info("Pruned %d daily log file(s) older than %d days.", removed, retention_days)
+    return removed
 
 
 def append_daily_log(record: Dict[str, Any], logs_dir: Path, now: datetime) -> Path:
@@ -411,9 +455,14 @@ def run(
         "Exocet poller starting: %s every %ds (state=%s, resumed=%s)",
         url, interval_seconds, state_path, prior is not None,
     )
+    prune_daily_logs(logs_dir, datetime.now(timezone.utc))
+    last_prune_date = datetime.now(timezone.utc).date()
     while True:
         started = time.monotonic()
         now = datetime.now(timezone.utc)
+        if now.date() != last_prune_date:  # once per day, on rollover
+            prune_daily_logs(logs_dir, now)
+            last_prune_date = now.date()
         try:
             poll_once(url, summarizer, state_path, logs_dir, now)
         except (urllib.error.URLError, OSError, ExocetPayloadError) as e:

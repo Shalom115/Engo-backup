@@ -104,8 +104,9 @@ def build_vendor_map(reg: Dict[str, Any]):
             if code and len(code) == 3 and code != region_for_code(code):  # XX0 subsystem, not X00 region
                 rc = region_for_code(code)
                 subsystems.setdefault((rc, code), rest)
-    except Exception:
-        pass
+    except Exception as e:
+        logger.warning("vendor/subsystem map build failed partway (%s) — "
+                       "continuing with what was collected so far", e)
     return vmap, subsystems
 
 
