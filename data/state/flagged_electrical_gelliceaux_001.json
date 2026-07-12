@@ -21,7 +21,7 @@
    "element_id": "63A",
    "label": "63A main breaker / switch at Shore Power Socket (R, S, T, N lines)",
    "element_type": "breaker",
-   "role": null,
+   "role": engineer note: role: to trip if the current on any of the legs  exceeds it's value,
    "reason": "load not resolvable to a Register node (thin-Register expected)"
   },
   {
@@ -29,20 +29,21 @@
    "drawing_no": "GMMS 108'-101",
    "title": "SHORE POWER INPUT",
    "element_id": "16-R",
-   "label": "Fuse 16A on R (BROWN) phase",
+   "label": "Fuse 16A on R (BROWN) phase",wrong read note at the end of this flag
    "element_type": "fuse",
    "role": null,
    "reason": "load not resolvable to a Register node (thin-Register expected)"
-  },
+  },engineer note: Wire Gauge: The diamond symbols containing the number 16 likely specify a wire cross-section of \(16\text{ mm}^2\), which is appropriate for a \(63\text{A}\) load.
   {
    "page": 3,
    "drawing_no": "GMMS 108'-101",
    "title": "SHORE POWER INPUT",
-   "element_id": "16-S",
-   "label": "Fuse 16A on S (BLACK) phase",
-   "element_type": "fuse",
+   "element_id": "16-S",wrong
+   "label": "Fuse 16A on S (BLACK) phase",wrong
+   "element_type": "Wire Gauge: The diamond symbols containing the number 16 likely specify a wire cross-section of \(16\text{ mm}^2\), which is appropriate for a \(63\text{A}\) load.
    "role": null,
-   "reason": "load not resolvable to a Register node (thin-Register expected)"
+   "reason": "load not resolvable to a Register node (thin-Register expected)"engineer note: Wire Gauge: The diamond symbols containing the number 16 likely specify a wire cross-section of \(16\text{ mm}^2\), which is appropriate for a \(63\text{A}\) load.
+  {
   },
   {
    "page": 3,
@@ -52,7 +53,8 @@
    "label": "Fuse 16A on T (GREY) phase",
    "element_type": "fuse",
    "role": null,
-   "reason": "load not resolvable to a Register node (thin-Register expected)"
+   "reason": "load not resolvable to a Register node (thin-Register expected)"engineer note: Wire Gauge: The diamond symbols containing the number 16 likely specify a wire cross-section of \(16\text{ mm}^2\), which is appropriate for a \(63\text{A}\) load.
+  {
   },
   {
    "page": 3,
@@ -62,7 +64,8 @@
    "label": "Fuse 16A on N (BLUE) neutral",
    "element_type": "fuse",
    "role": null,
-   "reason": "load not resolvable to a Register node (thin-Register expected)"
+   "reason": "load not resolvable to a Register node (thin-Register expected)"engineer note: Wire Gauge: The diamond symbols containing the number 16 likely specify a wire cross-section of \(16\text{ mm}^2\), which is appropriate for a \(63\text{A}\) load.
+  {
   },
   {
    "page": 3,
@@ -72,7 +75,8 @@
    "label": "Fuse 16A on E (GREEN) earth/ground",
    "element_type": "fuse",
    "role": null,
-   "reason": "load not resolvable to a Register node (thin-Register expected)"
+   "reason": "load not resolvable to a Register node (thin-Register expected)"engineer note: Wire Gauge: The diamond symbols containing the number 16 likely specify a wire cross-section of \(16\text{ mm}^2\), which is appropriate for a \(63\text{A}\) load.
+  {
   },
   {
    "page": 3,
@@ -82,7 +86,7 @@
    "label": "20A breaker (upper group)",
    "element_type": "breaker",
    "role": null,
-   "reason": "load not resolvable to a Register node (thin-Register expected)"
+   "reason": "load not resolvable to a Register node (thin-Register expected)" Engineer note: this is the breaker for the EDN-P
   },
   {
    "page": 3,
@@ -92,7 +96,7 @@
    "label": "20A breaker (middle group)",
    "element_type": "breaker",
    "role": null,
-   "reason": "load not resolvable to a Register node (thin-Register expected)"
+   "reason": "load not resolvable to a Register node (thin-Register expected)" Engineer note- this is the breaker for EDN-s
   },
   {
    "page": 3,
@@ -102,7 +106,7 @@
    "label": "63A breaker (lower group)",
    "element_type": "breaker",
    "role": null,
-   "reason": "load not resolvable to a Register node (thin-Register expected)"
+   "reason": "load not resolvable to a Register node (thin-Register expected)" not - this is the breaker for the Aux shore power, meanning that the shoe power powers the boat directly rather tan charge the batteries and the BAE system runs the boat's power
   },
   {
    "page": 3,
@@ -113,7 +117,7 @@
    "element_type": "breaker",
    "role": null,
    "reason": "load not resolvable to a Register node (thin-Register expected)"
-  },
+  },engineer note: look at the HVPDU drawing Q1 and Q2 on each side are for either the MPCS, the BEL or the MAPS
   {
    "page": 3,
    "drawing_no": "GMMS 108'-101",
@@ -123,7 +127,8 @@
    "element_type": "breaker",
    "role": null,
    "reason": "load not resolvable to a Register node (thin-Register expected)"
-  },
+  },engineer note: look at the HVPDU drawing Q1 and Q2 on each side are for either the MPCS, the BEL or the MAPS
+  {
   {
    "page": 3,
    "drawing_no": "GMMS 108'-101",
@@ -133,7 +138,8 @@
    "element_type": "breaker",
    "role": null,
    "reason": "load not resolvable to a Register node (thin-Register expected)"
-  },
+  },engineer note: look at the HVPDU drawing Q1 and Q2 on each side are for either the MPCS, the BEL or the MAPS
+  {
   {
    "page": 3,
    "drawing_no": "GMMS 108'-101",
@@ -143,7 +149,7 @@
    "element_type": "fuse",
    "role": null,
    "reason": "load not resolvable to a Register node (thin-Register expected)"
-  },
+  },Correct
   {
    "page": 3,
    "drawing_no": "GMMS 108'-101",
@@ -153,6 +159,8 @@
    "element_type": "fuse",
    "role": null,
    "reason": "load not resolvable to a Register node (thin-Register expected)"
+   ,engineer note- correct
+  {
   },
   {
    "page": 3,
@@ -163,7 +171,7 @@
    "element_type": "breaker",
    "role": null,
    "reason": "load not resolvable to a Register node (thin-Register expected)"
-  },
+  },Engineer note: I need to see more that the 63A to conclude. i f its's a breaker there will be 2 dots and an arc between them
   {
    "page": 3,
    "drawing_no": "GMMS 108'-101",
@@ -173,7 +181,7 @@
    "element_type": "fuse",
    "role": null,
    "reason": "load not resolvable to a Register node (thin-Register expected)"
-  },
+  },Engineer note: Wire Gauge in mm2
   {
    "page": 3,
    "drawing_no": "GMMS 108'-101",
@@ -183,7 +191,7 @@
    "element_type": "fuse",
    "role": null,
    "reason": "load not resolvable to a Register node (thin-Register expected)"
-  },
+  },,Engineer note: Wire Gauge in mm2
   {
    "page": 3,
    "drawing_no": "GMMS 108'-101",
@@ -193,7 +201,7 @@
    "element_type": "fuse",
    "role": null,
    "reason": "load not resolvable to a Register node (thin-Register expected)"
-  },
+  },,Engineer note: Wire Gauge in mm2
   {
    "page": 3,
    "drawing_no": "GMMS 108'-101",
@@ -203,7 +211,7 @@
    "element_type": "fuse",
    "role": null,
    "reason": "load not resolvable to a Register node (thin-Register expected)"
-  },
+  },,Engineer note: Wire Gauge in mm2
   {
    "page": 3,
    "drawing_no": "GMMS 108'-101",
@@ -213,7 +221,7 @@
    "element_type": "fuse",
    "role": null,
    "reason": "load not resolvable to a Register node (thin-Register expected)"
-  },
+  },,Engineer note: Wire Gauge in mm2
   {
    "page": 3,
    "drawing_no": "GMMS 108'-101",
@@ -223,7 +231,7 @@
    "element_type": "fuse",
    "role": null,
    "reason": "load not resolvable to a Register node (thin-Register expected)"
-  },
+  },,Engineer note: Wire Gauge in mm2
   {
    "page": 3,
    "drawing_no": "GMMS 108'-101",
