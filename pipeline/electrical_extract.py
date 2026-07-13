@@ -138,7 +138,7 @@ def _crop_box(png: bytes, bbox: List[float], pad: float = 0.01) -> bytes:
 def survey(pdf_bytes: bytes, page_index: int = 0, *, dpi: int = 200,
            legend_context: str = "") -> Dict[str, Any]:
     """PASS 1 — classify sub-type + detect regions (gold-blind, structural only)."""
-    vp = get_vision_provider()
+    vp = get_vision_provider("electrical")
     img = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=dpi)
     r = vp.extract(img, "image/png",
                    _ctx(legend_context, _SURVEY_PROMPT), _SURVEY_TOOL)
@@ -149,7 +149,7 @@ def survey(pdf_bytes: bytes, page_index: int = 0, *, dpi: int = 200,
 def read_schedule_region(pdf_bytes: bytes, bbox: List[float], page_index: int = 0,
                          *, dpi: int = 600, legend_context: str = "") -> Dict[str, Any]:
     """PASS 2 (sub-type A) — tight-crop a schedule region and read its rows."""
-    vp = get_vision_provider()
+    vp = get_vision_provider("electrical")
     page = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=dpi)
     tile = _crop_box(page, bbox)
     return vp.extract(tile, "image/png",
@@ -291,7 +291,7 @@ def read_wiring_region(pdf_bytes: bytes, bbox: List[float], page_index: int = 0,
     connections, diamonds→annotation, CAN HI/LO/shield identified, all elements
     returned — vs the crop-only read that under-typed them).
     Costs one extra call per region — apply selectively to ambiguous sheets."""
-    vp = get_vision_provider()
+    vp = get_vision_provider("electrical")
     page = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=dpi)
     crop = _crop_box(page, bbox)
     r = vp.extract(crop, "image/png",
@@ -376,7 +376,7 @@ def enrich_region_against_full_page(
     """
     if not elements:
         return {"elements": []}
-    vp = get_vision_provider()
+    vp = get_vision_provider("electrical")
     overview = _full_page_with_box(pdf_bytes, page_index, bbox)
     listing = "\n".join(
         f"- id={e.get('id')!r} type={e.get('element_type')!r} label={e.get('label')!r}"
@@ -399,7 +399,7 @@ def read_schedule_coverage(pdf_bytes: bytes, page_index: int,
     dedupe. Same root cause applies here: the survey's region detection is
     stochastic, so a schedule reader keyed only on it can silently miss rows."""
     page = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=dpi)
-    vp = get_vision_provider()
+    vp = get_vision_provider("electrical")
     _prompt = _ctx(legend_context, _SCHEDULE_PROMPT)
     seen: Dict[tuple, Dict[str, Any]] = {}
     panel_label = None
@@ -459,7 +459,7 @@ def read_wiring_coverage(pdf_bytes: bytes, page_index: int,
     (tight crops, best resolution) PLUS a fixed full-sheet grid, then merges with
     dedupe. An element found by either path is kept; grid-only finds are marked."""
     page = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=dpi)
-    vp = get_vision_provider()
+    vp = get_vision_provider("electrical")
     _prompt = _ctx(legend_context, _WIRING_PROMPT)
     seen: Dict[tuple, Dict[str, Any]] = {}
     skipped = 0
@@ -491,7 +491,7 @@ def read_wiring_coverage(pdf_bytes: bytes, page_index: int,
 def read_oneline_region(pdf_bytes: bytes, bbox: List[float], page_index: int = 0,
                         *, dpi: int = 400, legend_context: str = "") -> Dict[str, Any]:
     """PASS 2 (sub-type B) — read the topology of a one-line region."""
-    vp = get_vision_provider()
+    vp = get_vision_provider("electrical")
     page = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=dpi)
     return vp.extract(_crop_box(page, bbox), "image/png",
                       _ctx(legend_context, _ONELINE_PROMPT), _ONELINE_TOOL)
@@ -511,7 +511,7 @@ def read_oneline_coverage(pdf_bytes: bytes, page_index: int,
     with dedupe on (node_type, id, label). Same root cause: survey region-detection
     is stochastic, a reader keyed only on it can silently miss nodes/edges."""
     page = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=dpi)
-    vp = get_vision_provider()
+    vp = get_vision_provider("electrical")
     _prompt = _ctx(legend_context, _ONELINE_PROMPT)
     seen: Dict[tuple, Dict[str, Any]] = {}
     edges: List[str] = []

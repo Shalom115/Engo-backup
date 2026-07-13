@@ -24,6 +24,10 @@ requests>=2.31.0
 # Diagram tools (tools/draw_*.py only)
 matplotlib>=3.8.0
 
+# Multi-provider vision (benchmark + per-class routing; back-office side)
+google-genai>=1.0.0
+openai>=1.60.0
+
 # Dev / tests
 pytest>=8.0.0
 

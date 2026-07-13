@@ -352,3 +352,20 @@ All frontmatter-valid, tight (500-725 words), every referenced module/function v
 | #9 CLAUDE.md slimming (153KB auto-loads every session) | 🔴 engineer editorial call |
 | #8b Voyage silent dims default · #8c LocalFsStorage key sanitization | ⬜ minor, unscheduled |
 | ONE-TIME ACTION for the boat laptop: run `python3 -m tools.seed_tiktoken_cache` once online (then commit data/tiktoken_cache) | 🔴 engineer |
+
+
+## O. MULTI-LLM VISION ROUTING + BENCHMARK (2026-07-12, engineer-approved plan)
+| Item | Status |
+|---|---|
+| Claude vision upgrade: VISION_MODEL default claude-sonnet-5, model-dependent max_side (2576px high-res on 4.7+/Sonnet 5), §4 crop cap parameterized | ✅ |
+| VisionProvider ABC formalized (extract/extract_multi on the interface) | ✅ |
+| GeminiVisionProvider + OpenAIVisionProvider (same contract, gold-blind prompts unchanged, retry policy shared) | ✅ built, ⬜ live-verified (needs GEMINI_API_KEY / OPENAI_API_KEY) |
+| Per-class routing: get_vision_provider(task_class) + VISION_ROUTES env map | ✅ |
+| Benchmark harness tests/vision_bench.py (full protocol per provider, ledger, grading report) | ✅ built |
+| Benchmark manifest — 10 categories × 2 sheets | 🔴 engineer picks the sheets (tests/vision_bench_manifest.json) |
+| API keys GEMINI_API_KEY + OPENAI_API_KEY in .env | 🔴 engineer |
+| $3 single-sheet plumbing check (mast_block × 3 providers) | 🔴 cost gate — engineer GO |
+| Full benchmark run (~$40-100) + engineer grading → VISION_ROUTES set from results | 🔴 after plumbing check |
+| Consensus/dual-read mode (the 2000-item list shrinker) | ⬜ design ready, build after routing results |
+| Deterministic word-box OCR provider (locate-recall fix) | ⬜ propose after benchmark |
+| 8 new offline tests; suite 52/52 | ✅ |

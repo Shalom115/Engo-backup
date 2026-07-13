@@ -1,5 +1,55 @@
 # Changelog
 
+## 2026-07-12 (2) — Multi-LLM vision routing + benchmark harness
+
+Engineer decision: use the best model per task — Claude for backbone/orchestration,
+the best vision model per DRAWING CLASS for reading, decided empirically by an
+engineer-graded benchmark (2 sheets per category × 3 providers through the full
+existing protocols). Plan: /root plan 'Multi-LLM Vision Routing'.
+
+### Added
+
+- **`providers/vision.py`** — (a) `extract`/`extract_multi` formalized on the
+  `VisionProvider` ABC (provider swap now fails at the interface, closing part
+  of deferred finding #6); (b) **`GeminiVisionProvider`** (google-genai SDK,
+  response_schema structured output, schema-cleaning for unsupported JSON-Schema
+  keys, max_side 3072) and **`OpenAIVisionProvider`** (openai SDK, forced
+  function-calling mirroring the Anthropic tool mechanism, max_side 2048), both
+  with the same transient-retry policy and the caller-owned gold-blind prompts
+  untouched; (c) **per-class routing**: `get_vision_provider(task_class)` reads
+  `VISION_ROUTES` (e.g. `electrical:gemini,hydraulic_schematic:anthropic`),
+  default vendor `VISION_PROVIDER`; model ids env-tunable
+  (`VISION_MODEL`/`GEMINI_VISION_MODEL`/`OPENAI_VISION_MODEL`).
+- **Claude vision upgrade**: default `VISION_MODEL` → `claude-sonnet-5`;
+  `max_side` is now model-dependent — **2576px** on Opus 4.7/4.8, Sonnet 5,
+  Fable 5 (high-res vision) vs 1568px on older models. The §4 crop-footprint
+  cap in `pipeline/schematic_extract.py` now derives from `vp.max_side`
+  instead of a hardcoded 1568. Part of the perceived 'Claude ceiling' was an
+  old-model resolution cap.
+- **`tests/vision_bench.py` + `tests/vision_bench_manifest.json`** — the
+  full-protocol benchmark: per (category × sheet × provider) runs the ENTIRE
+  existing loop (hydraulic discover_structure / electrical extract_sheet /
+  describe for classes without extractors), kill-safe ledger, per-run JSON
+  outputs, side-by-side engineer-grading report with agreement/unique-read
+  highlighting. 10 categories skeleton; engineer fills 2 sheets each.
+- **`tests/test_vision_providers.py`** — 8 offline tests (max_side by model,
+  prepare respects instance cap, ABC contract enforced, routing default/per-class/
+  unknown-vendor, Gemini schema cleaning, manifest sanity). Suite now 52/52.
+- `pipeline/schematic_extract.py` routes as `hydraulic_schematic`,
+  `pipeline/electrical_extract.py` as `electrical`.
+- `requirements.txt`: + `google-genai`, `openai`.
+
+### Notes / honest caveats
+
+- Gemini/OpenAI default model ids (`gemini-3-pro`, `gpt-5.2`) are env-tunable
+  and FAIL LOUD if renamed by the vendor — verify on the first cheap plumbing
+  run before the full benchmark.
+- Benchmark cost ≈ $40–100 full, ~$3 single-sheet plumbing check (engineer GO).
+- Deferred by design: deterministic word-box OCR provider (the locate-recall
+  fix), consensus/dual-read mode (built after routing results show which pairs
+  disagree usefully).
+
+
 ## 2026-07-12 — Sanity-pass hardening (full-code review fixes)
 
 Full codebase sanity review (all ~13.6K lines) ran on 2026-07-12; these are the
