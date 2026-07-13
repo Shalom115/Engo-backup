@@ -686,7 +686,7 @@ def _make_provider(vendor: str) -> VisionProvider:
         api_key = os.getenv("OPENAI_API_KEY")
         if not api_key:
             raise RuntimeError("OPENAI_API_KEY not set in .env")
-        model = os.getenv("OPENAI_VISION_MODEL", "gpt-5.2")
+        model = os.getenv("OPENAI_VISION_MODEL", "gpt-5.6-sol")
         p = OpenAIVisionProvider(api_key=api_key, model=model)
     else:
         raise NotImplementedError(f"vision vendor '{vendor}' not implemented "
