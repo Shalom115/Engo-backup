@@ -131,4 +131,4 @@ def test_bench_manifest_parses_and_covers_categories():
     assert len(cats) == 10
     for c in cats:
         assert c["protocol"].split(":")[0] in ("hydraulic", "electrical", "describe")
-        assert len(c["sheets"]) == 2
+        assert len(c["sheets"]) >= 2

@@ -1,0 +1,341 @@
+{
+  "header": {
+    "make_model": "DANFOSS PVG 32",
+    "title": "MAST BLOCK",
+    "revision": "10",
+    "sheet": "5 of 12"
+  },
+  "rails": [
+    "M",
+    "LS",
+    "T",
+    "P"
+  ],
+  "block_capacity_printed": false,
+  "notes": "Small print on components (valve and spool part numbers, compensator numbers), line labels (A, B, LSA, LSB) are visible but illegible at this resolution. A pressure setting is indicated on EV-6.1 (300) but unit isn't readable.",
+  "slices": [
+    {
+      "label": "LIFTING KEEL UP/DOWN",
+      "identifier": "EV-6.1",
+      "rating": "spool 40 lt/min",
+      "actuation": "PVEU - 0-10 V",
+      "neutral": "open neutral position",
+      "x_left": 0.175,
+      "x_right": 0.285,
+      "detail": {
+        "function": "EV-6.1 LIFTING KEEL UP/DOWN",
+        "rating": "40 lt/min",
+        "actuation": "PVEU - 0-10 V",
+        "neutral": "open neutral position",
+        "cartridges": [
+          {
+            "id": "11166832",
+            "role": "rectifier bridge / logic"
+          },
+          {
+            "id": "157B6203",
+            "role": "port module"
+          },
+          {
+            "id": "157B7122",
+            "role": "main directional spool"
+          }
+        ],
+        "settings": [
+          "220",
+          "60"
+        ],
+        "ports": [
+          "A",
+          "B",
+          "P",
+          "LS_B",
+          "LS_A"
+        ],
+        "illegible": [],
+        "_model": "gemini-3.1-pro-preview"
+      }
+    },
+    {
+      "label": "LIFTING KEEL LOCKS",
+      "identifier": "EV-6.2",
+      "rating": "spool 5 lt/min",
+      "actuation": "PVEO - ON/OFF",
+      "neutral": "closed neutral position",
+      "x_left": 0.288,
+      "x_right": 0.398,
+      "detail": {
+        "function": "EV-6.2 KEEL LIFTING KEEL LOCKS",
+        "rating": "spool 5 lt/min",
+        "actuation": "PVEO - ON/OFF",
+        "neutral": "closed neutral position",
+        "cartridges": [
+          {
+            "id": "11166838",
+            "role": "pilot actuation module (PVEO)"
+          },
+          {
+            "id": "157B7125",
+            "role": "main directional spool valve"
+          },
+          {
+            "id": "11130982",
+            "role": "shock/relief valve block",
+            "setting": "100"
+          }
+        ],
+        "settings": [
+          "100"
+        ],
+        "ports": [
+          "A (off-sheet)",
+          "B (off-sheet)",
+          "IN=A",
+          "OUT=B"
+        ],
+        "illegible": [],
+        "_model": "gemini-3.1-pro-preview"
+      }
+    },
+    {
+      "label": "MAST WINCH AFT PORT",
+      "identifier": "EV-6.3",
+      "rating": "spool 65 lt/min",
+      "actuation": "PVEO - ON/OFF",
+      "neutral": "open neutral position",
+      "x_left": 0.401,
+      "x_right": 0.512,
+      "detail": {
+        "function": "KEEL MAST WINCH AFT PORT / EV-6.3",
+        "rating": "spool 65 lt/min",
+        "actuation": "PVEO - ON/OFF (1\u00b0&3\u00b0 =A/2\u00b0 =B)",
+        "neutral": "open neutral position",
+        "cartridges": [
+          {
+            "id": "11166838",
+            "role": "pilot valve module"
+          },
+          {
+            "id": "157B7123",
+            "role": "main directional spool"
+          }
+        ],
+        "settings": [
+          "100",
+          "250"
+        ],
+        "ports": [
+          "A (work port, connects off-sheet)",
+          "B (work port, connects off-sheet)",
+          "LSA",
+          "LSB"
+        ],
+        "illegible": [],
+        "_model": "gemini-3.1-pro-preview"
+      }
+    },
+    {
+      "label": "MAST WINCH FWD PORT",
+      "identifier": "EV-6.4",
+      "rating": "spool 65 lt/min",
+      "actuation": "PVEO - ON/OFF",
+      "neutral": "open neutral position",
+      "x_left": 0.515,
+      "x_right": 0.625,
+      "detail": {
+        "function": "MAST WINCH FWD PORT (EV-6.4)",
+        "rating": "spool 65 lt/min",
+        "actuation": "PVEO - ON/OFF (1\u00b0&3\u00b0 =A/2\u00b0 =B)",
+        "neutral": "open neutral position",
+        "cartridges": [
+          {
+            "id": "11166838",
+            "role": "pilot / actuator module"
+          },
+          {
+            "id": "157B6203",
+            "role": "module block / shock valve identifier"
+          },
+          {
+            "id": "157B7123",
+            "role": "main directional spool"
+          }
+        ],
+        "settings": [
+          "250"
+        ],
+        "ports": [
+          "A (work port, runs off-sheet)",
+          "B (work port, runs off-sheet)",
+          "LS_A (load sense line)",
+          "LS_B (load sense line)"
+        ],
+        "illegible": [],
+        "_model": "gemini-3.1-pro-preview"
+      }
+    },
+    {
+      "label": "MAST WINCH AFT STBD",
+      "identifier": "EV-6.5",
+      "rating": "spool 65 lt/min",
+      "actuation": "PVEO - ON/OFF",
+      "neutral": "open neutral position",
+      "x_left": 0.628,
+      "x_right": 0.738,
+      "detail": {
+        "function": "MAST WINCH AFT STBD",
+        "rating": "65 lt/min",
+        "actuation": "PVEO - ON/OFF",
+        "neutral": "open neutral position",
+        "cartridges": [
+          {
+            "id": "11166838",
+            "role": "pilot valve"
+          },
+          {
+            "id": "157B6203",
+            "role": "work port block"
+          },
+          {
+            "id": "157B7123",
+            "role": "main directional valve spool"
+          },
+          {
+            "id": "EV-6.5",
+            "role": "module identifier"
+          }
+        ],
+        "settings": [
+          "250",
+          "225",
+          "1\u00b0&3\u00b0 =A/2\u00b0 =B"
+        ],
+        "ports": [
+          "A",
+          "B",
+          "LSA",
+          "LSB"
+        ],
+        "illegible": [],
+        "_model": "gemini-3.1-pro-preview"
+      }
+    },
+    {
+      "label": "MAST WINCH FWD STBD",
+      "identifier": "EV-6.6",
+      "rating": "spool 65 lt/min",
+      "actuation": "PVEO - ON/OFF",
+      "neutral": "open neutral position",
+      "x_left": 0.741,
+      "x_right": 0.852,
+      "detail": {
+        "function": "MAST WINCH FWD STBD (EV-6.6)",
+        "rating": "65 lt/min",
+        "actuation": "PVEO - ON/OFF",
+        "neutral": "open",
+        "cartridges": [
+          {
+            "id": "11166838",
+            "role": "PVEO Actuator / pilot"
+          },
+          {
+            "id": "157B6203",
+            "role": "valve block module"
+          },
+          {
+            "id": "157B7123",
+            "role": "main directional spool"
+          }
+        ],
+        "settings": [
+          "230",
+          "225"
+        ],
+        "ports": [
+          "A",
+          "B"
+        ],
+        "illegible": [],
+        "_model": "gemini-3.1-pro-preview"
+      }
+    }
+  ],
+  "legends": [
+    {
+      "kind": "other_table",
+      "bbox": [
+        657,
+        719,
+        856,
+        982
+      ],
+      "content": {
+        "error": "Coordinate 'right' is less than 'left'"
+      }
+    }
+  ],
+  "legend_context": "THIS SHEET'S OWN LEGENDS AND TABLES (read first; these definitions are AUTHORITATIVE for this sheet and override any generic symbol/line convention):\n- [other_table] other_table: (present on sheet; not read)",
+  "passes": {
+    "skeleton_dpi": 200,
+    "detail_dpi": 600,
+    "slices_found": 6,
+    "detail_calls": 6
+  },
+  "model": "gemini-3.1-pro-preview",
+  "_node_routing": [
+    {
+      "block": "DANFOSS PVG 32",
+      "action": "attach",
+      "target": "570-danfoss-pvg-32-mast-block",
+      "confidence": 1.0
+    },
+    {
+      "slice": "LIFTING KEEL UP/DOWN",
+      "action": "attach",
+      "target": "130-apm-lifting-keel",
+      "via": "control_map",
+      "mechanism": "exact",
+      "confidence": "high"
+    },
+    {
+      "slice": "LIFTING KEEL LOCKS",
+      "action": "attach",
+      "target": "130-apm-lifting-keel",
+      "via": "control_map",
+      "mechanism": "exact",
+      "confidence": "high"
+    },
+    {
+      "slice": "MAST WINCH AFT PORT",
+      "action": "attach",
+      "target": "220-mast-winch-aft-port",
+      "via": "control_map",
+      "mechanism": "exact",
+      "confidence": "high"
+    },
+    {
+      "slice": "MAST WINCH FWD PORT",
+      "action": "attach",
+      "target": "220-mast-winch-fwd-port",
+      "via": "control_map",
+      "mechanism": "exact",
+      "confidence": "high"
+    },
+    {
+      "slice": "MAST WINCH AFT STBD",
+      "action": "attach",
+      "target": "220-mast-winch-aft-stbd",
+      "via": "control_map",
+      "mechanism": "exact",
+      "confidence": "high"
+    },
+    {
+      "slice": "MAST WINCH FWD STBD",
+      "action": "attach",
+      "target": "220-mast-winch-fwd-stbd",
+      "via": "control_map",
+      "mechanism": "exact",
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,84 +1,85 @@
 {
-  "comment": "ENGINEER FILLS: 2 sheets per category — set 'path' (local file) OR 'drive_file_id' (+ 'page', 0-based). 'suggested' names are candidates from the corpus; replace freely. Categories with protocol 'describe:*' have no dedicated extractor yet — the bench compares a like-for-like whole-sheet read.",
+  "comment": "Engineer-confirmed picks 2026-07-12. Pages are 0-based indexes (engineer's 'page 21' = index 20). Categories 7-10 are BLIND picks (never previously extracted or graded). Sheets resolve from local cache data/state/vision_bench/sheets/<name>.pdf first, then drive_file_id via the SA connector.",
   "categories": [
     {
       "category": "1-hydraulic-manifold",
       "protocol": "hydraulic",
       "sheets": [
-        {"name": "mast_block", "suggested": "SWS108-Hydraulic_System-rev10-mast_block.pdf (gold #1 — fixture diff available)", "drive_file_id": "153_Mfp7VqdV-12SgQKtj-i70PAN1cVZp", "page": 0},
-        {"name": "TBD-second-block", "suggested": "a rev10 block NOT yet used in any validation (e.g. AFT_blockA)", "path": null, "page": 0}
+        {"name": "mast_block", "drive_file_id": "153_Mfp7VqdV-12SgQKtj-i70PAN1cVZp", "page": 0},
+        {"name": "AFT_blockC", "drive_file_id": "1ICYzvr81sHDIVpxZRnlY8c0qda7XVbze", "page": 0},
+        {"name": "rev0_reference", "note": "engineer: extra reference sheet", "drive_file_id": "1zXvHdxFTcEMJnIqXZvQVqHCr69C6ZZVY", "page": 0}
       ]
     },
     {
       "category": "2-electrical-distribution-schedule",
       "protocol": "electrical",
       "sheets": [
-        {"name": "TBD-gm-111", "suggested": "GM book p. with 108'-111 +24V DC Distribution (gold-adjacent)", "path": null, "page": 0},
-        {"name": "TBD-second-schedule", "suggested": "another schedule page from the GM Oct-2023 book", "path": null, "page": 0}
+        {"name": "GM-111_24V-DC-distribution", "drive_file_id": "1YAmYWTTes5AD7NGLCGXRG86OENBH22Pl", "page": 14},
+        {"name": "GM-111a_emergency-supply", "drive_file_id": "1YAmYWTTes5AD7NGLCGXRG86OENBH22Pl", "page": 13}
       ]
     },
     {
       "category": "3-electrical-one-line",
       "protocol": "electrical",
       "sheets": [
-        {"name": "TBD-gm-110b", "suggested": "GM 110b power one-line", "path": null, "page": 0},
-        {"name": "TBD-second-oneline", "suggested": "GM 110d or 110e", "path": null, "page": 0}
+        {"name": "GM-102_230V-distribution", "drive_file_id": "1YAmYWTTes5AD7NGLCGXRG86OENBH22Pl", "page": 4},
+        {"name": "GM-110a_24V-service-supply", "drive_file_id": "1YAmYWTTes5AD7NGLCGXRG86OENBH22Pl", "page": 8}
       ]
     },
     {
       "category": "4-electrical-relay-terminal-wiring",
       "protocol": "electrical",
       "sheets": [
-        {"name": "TBD-gm-114a", "suggested": "GM 114a bilge (gold #2 — fixture diff available)", "path": null, "page": 0},
-        {"name": "TBD-second-wiring", "suggested": "GM 116 fuel/fans or 119 lighting", "path": null, "page": 0}
+        {"name": "GM-114a_bilge-system", "drive_file_id": "1YAmYWTTes5AD7NGLCGXRG86OENBH22Pl", "page": 19},
+        {"name": "GM-112_main-panel-A", "drive_file_id": "1YAmYWTTes5AD7NGLCGXRG86OENBH22Pl", "page": 16}
       ]
     },
     {
       "category": "5-pid-plumbed",
       "protocol": "describe:plumbed_diagram",
       "sheets": [
-        {"name": "TBD-bilge-fire", "suggested": "Bilge and Fire System Schematic.pdf (BOM ground truth known)", "path": null, "page": 0},
-        {"name": "TBD-fuel-pid", "suggested": "108-01-550-001 Fuel P&ID", "path": null, "page": 0}
+        {"name": "bilge-and-fire-schematic", "drive_file_id": "1tVx08nD5vo0mvUlWKASsH631TJKHQpWp", "page": 0},
+        {"name": "raw-water-schematic-515", "drive_file_id": "1Wz27h7_pLhrOO-JREKM8jiKwJGJdN8Cw", "page": 0}
       ]
     },
     {
       "category": "6-plc-io",
       "protocol": "describe:electrical_diagram",
       "sheets": [
-        {"name": "TBD-mast-plc", "suggested": "MYT MAST PLC — one I/O wiring page (not the cover)", "path": null, "page": 3},
-        {"name": "TBD-er-plc", "suggested": "ENGINE ROOM PLC — one I/O page", "path": null, "page": 2}
+        {"name": "AFT-PLC-rev4-p21", "drive_file_id": "12xqKtAiGm9AxCmkUlecsL9Bm-M0mZoVJ", "page": 20},
+        {"name": "AFT-PLC-rev4-p27", "drive_file_id": "12xqKtAiGm9AxCmkUlecsL9Bm-M0mZoVJ", "page": 26}
       ]
     },
     {
       "category": "7-building-ga",
       "protocol": "describe:general_arrangement",
       "sheets": [
-        {"name": "TBD-mast-layout", "suggested": "Hall Spars Mast Layout P03818-01", "path": null, "page": 0},
-        {"name": "TBD-electrical-ga", "suggested": "108-01-600-001b Electrical System GA (Rev B)", "path": null, "page": 0}
+        {"name": "steering-system-ga", "note": "blind", "drive_file_id": "1nMMFBsFmLFnYMzorhbKOzCjBfATdrjzK", "page": 0},
+        {"name": "systems-ga-500-001b", "note": "blind", "drive_file_id": "1J93S36J-4ucdlMWGyA8iIotm2lF6lH2I", "page": 0}
       ]
     },
     {
       "category": "8-bae-interconnect-pinout",
       "protocol": "describe:electrical_diagram",
       "sheets": [
-        {"name": "TBD-bae-block", "suggested": "BAE Wiring Diagrams (landscape md5 2f36b5d8...) — one block-interconnect page (rotated!)", "path": null, "page": 8},
-        {"name": "TBD-bae-pinout", "suggested": "same doc — one connector-pinout page", "path": null, "page": 20}
+        {"name": "bae-block-interconnect-p12", "note": "blind (landscape copy; p9 excluded — previously validated)", "drive_file_id": "1VcOrbEtWJMlsfk5oR94yRZkPy6IewiFl", "page": 11},
+        {"name": "bae-pinout-p31", "note": "blind", "drive_file_id": "1VcOrbEtWJMlsfk5oR94yRZkPy6IewiFl", "page": 30}
       ]
     },
     {
       "category": "9-class-c-garbled-font",
       "protocol": "describe:general_arrangement",
       "sheets": [
-        {"name": "TBD-er-trunking", "suggested": "ER-TR 004 trunking (C2 — render garbled; tests vision floor vs decode)", "path": null, "page": 0},
-        {"name": "TBD-termodinamica", "suggested": "Termodinamica schematic (C1 — clean render)", "path": null, "page": 0}
+        {"name": "er-trunking-680-004", "note": "blind, C2 — render garbled, vision floor test", "drive_file_id": "1RVQdTachTBi0gRxRfekV6gvuLa5tNoYy", "page": 0},
+        {"name": "termodinamica-wiring-rev0", "note": "blind, C1 — clean render", "drive_file_id": "1k9kj4bj71GoKeakBnmj5mGmkZmLuuwcK", "page": 0}
       ]
     },
     {
       "category": "10-photos-figures",
-      "protocol": "describe:figure",
+      "protocol": "describe:photo",
       "sheets": [
-        {"name": "TBD-investigation-figure", "suggested": "CM-24-1732 — a scope-trace/wiring figure", "path": null, "page": 0},
-        {"name": "TBD-nameplate-photo", "suggested": "an equipment nameplate photo from the corpus", "path": null, "page": 0}
+        {"name": "harken-spares-photo-3325", "note": "blind", "drive_file_id": "1ocBwsRot3-cvPKJ6uGi_GE3tSNQ_w2iv", "page": 0},
+        {"name": "harken-spares-photo-3330", "note": "blind", "drive_file_id": "1-7fqZHZMLlpJdSECYjap7VXDMm9O4xm6", "page": 0}
       ]
     }
   ]

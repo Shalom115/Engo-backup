@@ -55,10 +55,18 @@ PROVIDERS_DEFAULT = ["anthropic", "gemini", "openai"]
 
 # ---------------------------------------------------------------- sheet loading
 
+SHEET_CACHE = BENCH_DIR / "sheets"
+
+
 def _load_sheet_bytes(sheet: Dict[str, Any]) -> bytes:
-    """Local path preferred; drive_file_id via the read-only connector."""
+    """Resolution order: explicit path -> local cache (pre-downloaded) ->
+    drive_file_id via the read-only SA connector."""
     if sheet.get("path"):
         return Path(sheet["path"]).expanduser().read_bytes()
+    for ext in (".pdf", ".PDF", ".jpg", ".jpeg", ".png"):
+        cached = SHEET_CACHE / f"{sheet['name']}{ext}"
+        if cached.exists():
+            return cached.read_bytes()
     if sheet.get("drive_file_id"):
         from providers.structure import GoogleDriveStructureProvider
         prov = GoogleDriveStructureProvider(root_id="bench", root_name="bench")
@@ -113,6 +121,30 @@ def _run_protocol(protocol: str, pdf: bytes, page: int) -> Dict[str, Any]:
     raise ValueError(f"Unknown protocol '{protocol}'.")
 
 
+def _route_hydraulic(result: Dict[str, Any], sheet: Dict[str, Any]) -> Optional[List[Dict[str, Any]]]:
+    """
+    FAIRNESS BY CONSTRUCTION (engineer requirement 2026-07-12): every provider's
+    extraction goes through the IDENTICAL backbone — the same Register, control
+    map, and §9d node-writer rules (dry-run) — and we record which node each
+    provider's read routes to. No model sees the repo/Register during
+    EXTRACTION (including Claude — the gold-blind prompts are identical);
+    node-location happens downstream in this shared step, so the comparison is
+    provider-vs-provider on reads, with routing as the common yardstick.
+    """
+    try:
+        from pipeline.node_write import NodeWriter
+        w = NodeWriter(dry_run=True)
+        src = {"source_doc": sheet["name"], "sheet": sheet["name"],
+               "source_type": "hydraulic_schematic",
+               "drive_file_id": sheet.get("drive_file_id")}
+        w.write_structure(result, src)
+        return [{k: d.get(k) for k in ("slice", "block", "action", "target",
+                                       "via", "mechanism", "confidence")
+                 if d.get(k) is not None} for d in w.decisions]
+    except Exception as e:  # routing is a bonus layer — never kills a bench run
+        return [{"routing_error": f"{type(e).__name__}: {e}"}]
+
+
 # ---------------------------------------------------------------- ledger
 
 def _ledger_done() -> set:
@@ -137,13 +169,16 @@ def _ledger_append(rec: Dict[str, Any]) -> None:
 
 # ---------------------------------------------------------------- run
 
-def run_bench(providers: List[str], only: Optional[str] = None) -> None:
+def run_bench(providers: List[str], only: Optional[str] = None,
+              sheet_filter: Optional[str] = None) -> None:
     manifest = json.loads(MANIFEST.read_text())
     done = _ledger_done()
     for cat in manifest["categories"]:
         if only and only not in cat["category"]:
             continue
         for sheet in cat["sheets"]:
+            if sheet_filter and sheet_filter not in sheet.get("name", ""):
+                continue
             if not (sheet.get("path") or sheet.get("drive_file_id")):
                 print(f"SKIP {cat['category']}/{sheet.get('name')}: no source set "
                       f"(engineer fills the manifest)", file=sys.stderr)
@@ -165,6 +200,8 @@ def run_bench(providers: List[str], only: Optional[str] = None) -> None:
                        "provider": vendor, "protocol": cat["protocol"]}
                 try:
                     result = _run_protocol(cat["protocol"], pdf, int(sheet.get("page", 0)))
+                    if cat["protocol"] == "hydraulic":
+                        result["_node_routing"] = _route_hydraulic(result, sheet)
                     rec.update(status="ok", seconds=round(time.time() - t0, 1))
                     (out_dir / f"{vendor}.json").write_text(
                         json.dumps(result, indent=2, default=str))
@@ -231,6 +268,17 @@ def build_report() -> None:
                 if uniq:
                     lines.append(f"- unique reads (VERIFY THESE — disagreement or "
                                  f"fabrication): {', '.join(uniq[:40])}")
+                routing = result.get("_node_routing")
+                if routing:
+                    lines.append("- node routing (same backbone for every provider):")
+                    for d in routing:
+                        if "routing_error" in d:
+                            lines.append(f"    - ROUTING ERROR: {d['routing_error']}")
+                            continue
+                        what = d.get("slice") or d.get("block") or "?"
+                        tgt = d.get("target") or "—"
+                        lines.append(f"    - {what} → {d.get('action')} "
+                                     f"[{tgt}] via {d.get('via') or d.get('mechanism') or '-'}")
             lines.append("")
     REPORT.write_text("\n".join(lines))
     print(f"report -> {REPORT}", file=sys.stderr)
@@ -240,13 +288,14 @@ def main(argv: List[str]) -> int:
     ap = argparse.ArgumentParser(prog="tests.vision_bench")
     ap.add_argument("--providers", default=",".join(PROVIDERS_DEFAULT))
     ap.add_argument("--only", default=None, help="substring filter on category")
+    ap.add_argument("--sheet", default=None, help="substring filter on sheet name")
     ap.add_argument("--report", action="store_true", help="rebuild report only")
     args = ap.parse_args(argv)
     if args.report:
         build_report()
         return 0
     run_bench([p.strip() for p in args.providers.split(",") if p.strip()],
-              only=args.only)
+              only=args.only, sheet_filter=args.sheet)
     build_report()
     return 0
 

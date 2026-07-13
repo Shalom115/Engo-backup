@@ -492,10 +492,13 @@ class GeminiVisionProvider(VisionProvider):
 
     def _generate(self, parts: list, schema: Dict[str, Any], max_tokens: int) -> Dict[str, Any]:
         from google.genai import types
+        # Gemini 3.x thinks by default and thinking tokens draw from the SAME
+        # output budget — a 4096 cap truncates structured JSON mid-stream
+        # (observed live on the mast_block plumbing check). Give it headroom.
         cfg = types.GenerateContentConfig(
             response_mime_type="application/json",
             response_schema=self._clean_schema(schema),
-            max_output_tokens=max_tokens,
+            max_output_tokens=max(max_tokens, 32768),
         )
         resp = _retry_generic(
             lambda: self._client.models.generate_content(
@@ -505,7 +508,18 @@ class GeminiVisionProvider(VisionProvider):
         text = resp.text
         if not text:
             raise ValueError(f"Gemini returned no text (model={self._model}).")
-        out = json.loads(text)
+        try:
+            out = json.loads(text)
+        except json.JSONDecodeError as e:
+            finish = None
+            try:
+                finish = resp.candidates[0].finish_reason
+            except Exception:
+                pass
+            raise ValueError(
+                f"Gemini returned unparseable JSON (model={self._model}, "
+                f"finish_reason={finish}, {len(text)} chars; tail: "
+                f"...{text[-120:]!r})") from e
         if not isinstance(out, dict):
             raise ValueError(f"Gemini returned non-object JSON: {type(out).__name__}")
         return out
@@ -680,7 +694,7 @@ def _make_provider(vendor: str) -> VisionProvider:
         api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
         if not api_key:
             raise RuntimeError("GEMINI_API_KEY (or GOOGLE_API_KEY) not set in .env")
-        model = os.getenv("GEMINI_VISION_MODEL", "gemini-3-pro")
+        model = os.getenv("GEMINI_VISION_MODEL", "gemini-3.1-pro-preview")
         p = GeminiVisionProvider(api_key=api_key, model=model)
     elif vendor == "openai":
         api_key = os.getenv("OPENAI_API_KEY")
