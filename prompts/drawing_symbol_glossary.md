@@ -89,5 +89,18 @@
 - [STD] Numbered junction/tap blocks whose wires collect per-circuit taps and route
   to a central monitoring/alarm system are STATUS SIGNALS, even when drawn as
   terminal blocks.
+- [ENG] MULTI-CORE CABLE: a THICK line with multiple thinner NUMBERED legs
+  branching on BOTH sides (equal leg count each side) is a multi-core cable
+  connecting two Terminal Strips — NOT equipment, NOT a load. The top-middle
+  label "MUx-N": MUx = cable id, N = wire count; each leg 1..N lands on a
+  terminal; the T/S each side belongs to is named at the TOP of that side's
+  terminal column. Variant: a 4-wire cable with no top label where one side
+  lands on GAUGES (voltage/current meter) instead of a second T/S. A bare
+  wire+terminal reference ("12/69", "119") is a wire number + terminal, not
+  equipment; "not used" = spare → skip. (Cable itself = wiring_detail: record
+  cable id + the two T/S endpoints, never a node.)
+- [ENG] FUSED TERMINAL: a terminal drawn as a rectangle containing an inner
+  rectangle with a line across it = a terminal with a BUILT-IN FUSE. Type =
+  terminal, but note the inline protection.
 - [STD] breaker ≠ fuse ≠ relay ≠ contactor ≠ terminal ≠ switch; signal ≠ power;
   mark ambiguous rather than guess.
