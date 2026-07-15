@@ -1,0 +1,547 @@
+{
+  "header": {
+    "make_model": "Danfoss PVG 32",
+    "title": "MAST BLOCK: DANFOSS PVG 32 - 6 FUNCTIONS",
+    "revision": "10",
+    "sheet": "5 of 12"
+  },
+  "rails": [
+    "P",
+    "T",
+    "LS",
+    "M",
+    "A",
+    "B",
+    "LS_B",
+    "LS_A"
+  ],
+  "block_capacity_printed": false,
+  "notes": "Six repeated PVG 32 function slices are visible. Shared bottom/header labels visible include P, T, LS and M; each slice also shows work ports A/B and sectional LS_A/LS_B labels, though these may be local sectional connections rather than whole-sheet rails. Fine-print component/cartridge part numbers, warning-triangle annotations, and internal pressure/setting values are mostly illegible at this resolution and should be re-read from high-resolution crops. A small '300' setting is visible in the inlet section, but its unit/context is not safely readable. Several tiny numeric line/component references along the upper gallery are also illegible.",
+  "slices": [
+    {
+      "label": "LIFTING KEEL UP/DOWN",
+      "identifier": "EV-6.1",
+      "rating": "spool 40 lt/min",
+      "actuation": "PVEO - 0-10 V; DOWN <5V = A / UP>5V = B",
+      "neutral": "open neutral position",
+      "x_left": 0.18,
+      "x_right": 0.3,
+      "detail": {
+        "function": "LIFTING KEEL L\u2026 \u2014 EV-6.1 (function text is cropped after \u201cL\u201d)",
+        "rating": "PVG 32 MODULE; SPOOL 40 lt/min",
+        "actuation": "PVEU - 0-10 V; DOWN <5V =A / UP>5V =B; open neutral position",
+        "neutral": "open neutral position",
+        "cartridges": [
+          {
+            "id": "11166832",
+            "role": "upper work-port valve/block associated with A and B; four valve symbols shown",
+            "setting": "none legible"
+          },
+          {
+            "id": "157B6203",
+            "role": "identifier printed between the A and B work-port connections; exact component/assembly role ambiguous",
+            "setting": "none"
+          },
+          {
+            "id": "15783712",
+            "role": "main directional spool/valve assembly",
+            "setting": "none"
+          },
+          {
+            "id": "[no legible part identifier]",
+            "role": "small side-mounted pilot/limiter valve at lower left of main directional valve",
+            "setting": "none legible"
+          },
+          {
+            "id": "[no legible part identifier]",
+            "role": "right-side work-port limiter/cartridge marked \u201c220\u201d",
+            "setting": "220 (unit not printed/legible in crop)"
+          },
+          {
+            "id": "[no legible part identifier]",
+            "role": "right-side work-port limiter/cartridge marked \u201c60\u201d",
+            "setting": "60 (unit not printed/legible in crop)"
+          }
+        ],
+        "settings": [
+          "PVEU 0-10 V",
+          "DOWN <5V =A",
+          "UP>5V =B",
+          "220 on one right-side limiter; unit not printed/legible",
+          "60 on one right-side limiter; unit not printed/legible"
+        ],
+        "ports": [
+          "A \u2014 DOWN per printed control legend; work line enters the upper work-port block; external load connection is not identified within this crop",
+          "B \u2014 UP per printed control legend; work line enters the upper work-port block; external load connection is not identified within this crop",
+          "P \u2014 bottom manifold port/header, readable",
+          "LSB \u2014 bottom load-sense connection, readable",
+          "LSA \u2014 bottom load-sense connection, readable",
+          "Additional bottom connection(s) are drawn, but their labels are not clearly readable"
+        ],
+        "illegible": [
+          "Remainder of function name after \u201cLIFTING KEEL L\u201d is outside/cropped.",
+          "Tiny marking above the main valve actuator/spool is not reliably readable.",
+          "Part identifiers for the small lower-left valve and the two right-side limiter cartridges are not shown or not legible.",
+          "Units for the printed limiter values 220 and 60 are not visible.",
+          "One or more bottom port labels beside P/LSB/LSA are too faint or ambiguous to transcribe."
+        ],
+        "_model": "gpt-5.6-sol"
+      }
+    },
+    {
+      "label": "LIFTING KEEL LOCKS",
+      "identifier": "EV-6.2",
+      "rating": "spool 5 lt/min",
+      "actuation": "PVEO - ON/OFF; IN=A / OUT=B",
+      "neutral": "closed neutral position",
+      "x_left": 0.3,
+      "x_right": 0.42,
+      "detail": {
+        "function": "KEEL LIFTING KEEL LOCKS \u2014 EV-6.2",
+        "rating": "PVG 32 MODULE; spool 5 lt/min",
+        "actuation": "PVEO - ON/OFF; IN=A / OUT=B; closed neutral position",
+        "neutral": "closed neutral position",
+        "cartridges": [
+          {
+            "id": "11166838",
+            "role": "PVG 32 module / upper valve assembly",
+            "setting": ""
+          },
+          {
+            "id": "157B7125",
+            "role": "main directional valve/spool section",
+            "setting": ""
+          },
+          {
+            "id": "11130982",
+            "role": "identifier printed on the upper work-line area; component role not discernible from this crop",
+            "setting": ""
+          }
+        ],
+        "settings": [],
+        "ports": [
+          "A \u2014 printed work port; stated as IN; line continues into adjacent circuitry/off crop edge",
+          "B \u2014 printed work port; stated as OUT; line continues into adjacent circuitry/off crop edge",
+          "LS_A and LS_B \u2014 printed lower load-sense connections"
+        ],
+        "illegible": [
+          "Fine-print identifiers beside the small lower work-port cartridges are not readable.",
+          "A small value/marking above the left lower cartridge appears present but is not reliably legible.",
+          "Any printed settings on the lower cartridges are not readable.",
+          "Tiny annotations around the main directional-valve symbol are not fully legible."
+        ],
+        "_model": "gpt-5.6-sol"
+      }
+    },
+    {
+      "label": "MAST WINCH AFT PORT",
+      "identifier": "EV-6.3",
+      "rating": "spool 65 lt/min",
+      "actuation": "PVEO - ON/OFF; 1*&3* = A / 2* = B",
+      "neutral": "open neutral position",
+      "x_left": 0.42,
+      "x_right": 0.53,
+      "detail": {
+        "function": "EL MAST WINCH AFT PORT \u2014 EV-6.3",
+        "rating": "PVG 32 MODULE; spool 65 lt/min",
+        "actuation": "PVEO - ON/OFF; open neutral position; printed spool-position note: \u201c1\u00b0&3\u00b0 =A/2\u00b0 =B\u201d",
+        "neutral": "open neutral position",
+        "cartridges": [
+          {
+            "id": "11166838",
+            "role": "PVEO electrical actuator/module at top of the PVG section",
+            "setting": ""
+          },
+          {
+            "id": "15781723",
+            "role": "main directional spool/valve section",
+            "setting": ""
+          },
+          {
+            "id": "[illegible]",
+            "role": "left-side work-port/pressure-control cartridge",
+            "setting": "[no readable value]"
+          },
+          {
+            "id": "[identifier illegible]",
+            "role": "right-side pressure limiter/relief cartridge",
+            "setting": "250"
+          },
+          {
+            "id": "[identifier illegible]",
+            "role": "right-side pressure limiter/relief cartridge",
+            "setting": "225"
+          }
+        ],
+        "settings": [
+          "250 [unit not printed/legible in crop]",
+          "225 [unit not printed/legible in crop]"
+        ],
+        "ports": [
+          "A \u2014 work port at top; connected down into the main directional section; horizontal line continues off both crop sides",
+          "B \u2014 work port at top; connected down into the main directional section; horizontal line continues off both crop sides",
+          "LS_B \u2014 bottom load-sense connection",
+          "LS_A \u2014 bottom load-sense connection",
+          "S_A \u2014 partially visible at lower-left crop edge; connection continues off crop"
+        ],
+        "illegible": [
+          "Faint identifier above the A/B line reads approximately \u201c157?6203\u201d; one digit is unclear and its component association is ambiguous.",
+          "Part identifier for the left-side cartridge is not readable.",
+          "Part identifiers for the two right-side limiter/relief cartridges are not readable.",
+          "No pressure unit is legible beside the printed values 250 and 225."
+        ],
+        "_model": "gpt-5.6-sol"
+      }
+    },
+    {
+      "label": "MAST WINCH FWD PORT",
+      "identifier": "EV-6.4",
+      "rating": "spool 65 lt/min",
+      "actuation": "PVEO - ON/OFF; 1*&3* = A / 2* = B",
+      "neutral": "open neutral position",
+      "x_left": 0.53,
+      "x_right": 0.65,
+      "detail": {
+        "function": "MAST WINCH FWD PORT \u2014 EV-6.4",
+        "rating": "PVG 32 MODULE; spool 65 lt/min",
+        "actuation": "PVED - ON/OFF; open neutral position; printed command mapping: 1\u00b0&3\u00b0 =A/2\u00b0 =B",
+        "neutral": "open neutral position",
+        "cartridges": [
+          {
+            "id": "11166838",
+            "role": "upper electrohydraulic actuator/control element associated with the PVG module",
+            "setting": ""
+          },
+          {
+            "id": "15761723",
+            "role": "main directional/spool valve",
+            "setting": ""
+          },
+          {
+            "id": "[identifier illegible]",
+            "role": "left-side work-port cartridge/limiter adjacent to main directional valve",
+            "setting": "[setting illegible]"
+          },
+          {
+            "id": "[identifier illegible]",
+            "role": "work-port pressure-limiter/relief cartridge",
+            "setting": "250 [unit not printed/legible in crop]"
+          },
+          {
+            "id": "[identifier illegible]",
+            "role": "work-port pressure-limiter/relief cartridge",
+            "setting": "225 [unit not printed/legible in crop]"
+          }
+        ],
+        "settings": [
+          "250 [unit not printed/legible]",
+          "225 [unit not printed/legible]"
+        ],
+        "ports": [
+          "A \u2014 work port marked A; line continues horizontally beyond the crop edge; destination not printed in this crop",
+          "B \u2014 work port marked B; line continues horizontally beyond the crop edge; destination not printed in this crop",
+          "LSA \u2014 bottom load-sense connection marked LSA",
+          "LSB \u2014 bottom load-sense connection marked LSB"
+        ],
+        "illegible": [
+          "Small print/symbol annotation above the main directional valve is not readable.",
+          "Identifier and setting on the small left-side cartridge are not readable.",
+          "Part identifiers for the cartridges marked 250 and 225 are obscured/not legible.",
+          "Units for 250 and 225 are not printed or not legible.",
+          "Faint line/reference text 157B6203 is visible above the circuit, but its exact role is not discernible."
+        ],
+        "_model": "gpt-5.6-sol"
+      }
+    },
+    {
+      "label": "MAST WINCH AFT STBD",
+      "identifier": "EV-6.5",
+      "rating": "spool 65 lt/min",
+      "actuation": "PVEO - ON/OFF; 1*&3* = A / 2* = B",
+      "neutral": "open neutral position",
+      "x_left": 0.65,
+      "x_right": 0.77,
+      "detail": {
+        "function": "MAST WINCH AFT STBD \u2014 EV-6.5",
+        "rating": "PVG 32 MODULE; spool 65 lt/min",
+        "actuation": "PVEO - ON/OFF; open neutral position; printed sequence: 1\u00b0&3\u00b0 =A/2\u00b0 =B",
+        "neutral": "open neutral position",
+        "cartridges": [
+          {
+            "id": "11166838",
+            "role": "upper pilot/control valve assembly",
+            "setting": "none printed"
+          },
+          {
+            "id": "157B6203",
+            "role": "PVG 32 work-section/module identifier at A/B gallery",
+            "setting": "none printed"
+          },
+          {
+            "id": "157B7123",
+            "role": "main directional/spool valve",
+            "setting": "none printed"
+          },
+          {
+            "id": "C50",
+            "role": "left work-port valve/cartridge marking; exact role not explicitly printed",
+            "setting": "no unit/value explicitly printed"
+          },
+          {
+            "id": "C25",
+            "role": "right work-port valve/cartridge marking; exact role not explicitly printed",
+            "setting": "no unit/value explicitly printed"
+          }
+        ],
+        "settings": [],
+        "ports": [
+          "A \u2014 work port shown at upper gallery; destination not identified in crop; gallery continues off both crop edges",
+          "B \u2014 work port shown at upper gallery; destination not identified in crop; gallery continues off both crop edges",
+          "LsB \u2014 lower load-sense port/gallery shown",
+          "LsA \u2014 lower load-sense port/gallery shown"
+        ],
+        "illegible": [
+          "Small markings adjacent to/inside several hydraulic symbols are too small or unclear to transcribe reliably.",
+          "The exact functional designation of cartridges marked C50 and C25 is not printed/clearly discernible in this crop.",
+          "Unlabelled lower supply/return connections are present, but their port letters are not readable in this crop."
+        ],
+        "_model": "gpt-5.6-sol"
+      }
+    },
+    {
+      "label": "MAST WINCH FWD STBD",
+      "identifier": "EV-6.6",
+      "rating": "spool 65 lt/min",
+      "actuation": "PVEO - ON/OFF; 1*&3* = A / 2* = B",
+      "neutral": "open neutral position",
+      "x_left": 0.77,
+      "x_right": 0.89,
+      "detail": {
+        "function": "MAST WINCH FWD STBD \u2014 EV-6.6",
+        "rating": "PVG 32 MODULE; spool 65 lt/min",
+        "actuation": "PVEO - ON/OFF; open neutral position; 1\u00b0&3\u00b0 =A/2\u00b0 =B",
+        "neutral": "open neutral position",
+        "cartridges": [
+          {
+            "id": "11166838",
+            "role": "upper pilot/inlet control assembly; exact role not explicitly printed",
+            "setting": ""
+          },
+          {
+            "id": "157817123",
+            "role": "main directional spool/cartridge",
+            "setting": ""
+          },
+          {
+            "id": "230",
+            "role": "work-port pressure limiter/relief at B-side branch; identifier not separately legible",
+            "setting": "230 (unit not printed/legible)"
+          },
+          {
+            "id": "225",
+            "role": "work-port pressure limiter/relief at A-side branch; identifier not separately legible",
+            "setting": "225 (unit not printed/legible)"
+          }
+        ],
+        "settings": [
+          "230 (unit not printed/legible)",
+          "225 (unit not printed/legible)"
+        ],
+        "ports": [
+          "A \u2014 work port; line reference 157B6203; continues off crop at left edge",
+          "B \u2014 work port; line reference 157B2014; continues off crop at right edge",
+          "LSB \u2014 load-sense port at bottom; continues beyond the shown sub-circuit",
+          "LSA \u2014 load-sense port at bottom; continues beyond the shown sub-circuit"
+        ],
+        "illegible": [
+          "Small fine-print/symbol annotations around the upper assembly 11166838 are not readable.",
+          "Any separate part identifiers for the two work-port limiter cartridges are not readable.",
+          "No pressure unit is legible beside settings 230 and 225."
+        ],
+        "_model": "gpt-5.6-sol"
+      }
+    }
+  ],
+  "legends": [
+    {
+      "title_as_printed": "MODIFICATIONS",
+      "kind": "other_table",
+      "bbox": [
+        0.718,
+        0.656,
+        0.989,
+        0.858
+      ],
+      "content": {
+        "title": "REV | DATE | DRAWN | CHECKED | MODIFICATIONS",
+        "entries": [
+          {
+            "label": "10 | 16/04/2026 | PT | PC | PROPORTIONAL AFT WINCHES",
+            "symbol_description": ""
+          },
+          {
+            "label": "9 | 25/09/2023 | PT | PC | PRESSURE ADJUSTEMENT",
+            "symbol_description": ""
+          },
+          {
+            "label": "8 | 29/08/2023 | PT | PC | PRESSURE AFTER COMMISSIONING",
+            "symbol_description": ""
+          },
+          {
+            "label": "7 | 25/07/2023 | PT | -- | TENDER WINCH SPOOL",
+            "symbol_description": ""
+          },
+          {
+            "label": "6 | 12/06/2023 | PT | -- | CAPTIVE WINCH AND TENSIONER BLOCKS HARKEN",
+            "symbol_description": ""
+          },
+          {
+            "label": "5 | 29/05/2023 | PT | -- | DOORS OVERCENTER PRES., FORESTAY MAN. VALVE",
+            "symbol_description": ""
+          },
+          {
+            "label": "4 | 28/04/2023 | PT | -- | PITCH PROPELLER SYS. SUCTION AND RETURN LINE",
+            "symbol_description": ""
+          },
+          {
+            "label": "3 | 13/12/2022 | PT | -- | ADD. TAFT MAST SAILING, DECK DOOR 2nd LINE",
+            "symbol_description": ""
+          },
+          {
+            "label": "2 | 11/11/2022 | PT | PR | SAILING MAN., PRESSURE SENSORS, PVG UPDATE",
+            "symbol_description": ""
+          },
+          {
+            "label": "1 | 07/10/2022 | PR | PT | BACKUP P.PACK, CAPTIVE & EV NUM., WINDLASS",
+            "symbol_description": ""
+          },
+          {
+            "label": "0 | 27/07/2022 | PT | PR | FIRST ISSUE",
+            "symbol_description": ""
+          }
+        ],
+        "_model": "gpt-5.6-sol"
+      }
+    },
+    {
+      "title_as_printed": "HYDRAULIC SYSTEM",
+      "kind": "other_table",
+      "bbox": [
+        0.718,
+        0.856,
+        0.989,
+        0.956
+      ],
+      "content": {
+        "title": "HYDRAULIC SYSTEM",
+        "entries": [
+          {
+            "label": "REV | DATE | DRAWN | CHECKED | MODIFICATIONS",
+            "symbol_description": ""
+          },
+          {
+            "label": "MYT SYSTEMS | JOB N\u00b0: | 22-53 | CLIENT: | Southern Wind Shipyard | PROJECT: | SWS 108",
+            "symbol_description": ""
+          },
+          {
+            "label": "TITLE: | HYDRAULIC SYSTEM | REV: | 10",
+            "symbol_description": ""
+          },
+          {
+            "label": "MYT-Systems S.r.l. | SECTION: | DIAGRAM | DATE: | 16/04/2026",
+            "symbol_description": ""
+          },
+          {
+            "label": "Via Borzoli 39,130P,16153 Genova (GE) | DRAWN: | PT | CHECKED: | PC | SCALE: | not to scale @ A3 | SHEET: | 5 of 12",
+            "symbol_description": ""
+          },
+          {
+            "label": "ITALY | FILE NAME: | SWS108-Hydraulic_System-rev10-Mast_block",
+            "symbol_description": ""
+          },
+          {
+            "label": "Tel: +390185380903",
+            "symbol_description": ""
+          },
+          {
+            "label": "email: info@myt-systems.com",
+            "symbol_description": ""
+          },
+          {
+            "label": "This drawing and the contained informations are property of MYT-Systems S.r.l. and protected by law. Copying, disclosure",
+            "symbol_description": ""
+          },
+          {
+            "label": "and any other use are prohibited except with written permission of MYT-Systems S.r.l..",
+            "symbol_description": ""
+          }
+        ],
+        "_model": "gpt-5.6-sol"
+      }
+    }
+  ],
+  "legend_context": "THIS SHEET'S OWN LEGENDS AND TABLES (read first; these definitions are AUTHORITATIVE for this sheet and override any generic symbol/line convention):\n- [other_table] MODIFICATIONS:\n    * 10 | 16/04/2026 | PT | PC | PROPORTIONAL AFT WINCHES\n    * 9 | 25/09/2023 | PT | PC | PRESSURE ADJUSTEMENT\n    * 8 | 29/08/2023 | PT | PC | PRESSURE AFTER COMMISSIONING\n    * 7 | 25/07/2023 | PT | -- | TENDER WINCH SPOOL\n    * 6 | 12/06/2023 | PT | -- | CAPTIVE WINCH AND TENSIONER BLOCKS HARKEN\n    * 5 | 29/05/2023 | PT | -- | DOORS OVERCENTER PRES., FORESTAY MAN. VALVE\n    * 4 | 28/04/2023 | PT | -- | PITCH PROPELLER SYS. SUCTION AND RETURN LINE\n    * 3 | 13/12/2022 | PT | -- | ADD. TAFT MAST SAILING, DECK DOOR 2nd LINE\n    * 2 | 11/11/2022 | PT | PR | SAILING MAN., PRESSURE SENSORS, PVG UPDATE\n    * 1 | 07/10/2022 | PR | PT | BACKUP P.PACK, CAPTIVE & EV NUM., WINDLASS\n    * 0 | 27/07/2022 | PT | PR | FIRST ISSUE\n- [other_table] HYDRAULIC SYSTEM:\n    * REV | DATE | DRAWN | CHECKED | MODIFICATIONS\n    * MYT SYSTEMS | JOB N\u00b0: | 22-53 | CLIENT: | Southern Wind Shipyard | PROJECT: | SWS 108\n    * TITLE: | HYDRAULIC SYSTEM | REV: | 10\n    * MYT-Systems S.r.l. | SECTION: | DIAGRAM | DATE: | 16/04/2026\n    * Via Borzoli 39,130P,16153 Genova (GE) | DRAWN: | PT | CHECKED: | PC | SCALE: | not to scale @ A3 | SHEET: | 5 of 12\n    * ITALY | FILE NAME: | SWS108-Hydraulic_System-rev10-Mast_block\n    * Tel: +390185380903\n    * email: info@myt-systems.com\n    * This drawing and the contained informations are property of MYT-Systems S.r.l. and protected by law. Copying, disclosure\n    * and any other use are prohibited except with written permission of MYT-Systems S.r.l..",
+  "passes": {
+    "skeleton_dpi": 200,
+    "detail_dpi": 600,
+    "slices_found": 6,
+    "detail_calls": 6
+  },
+  "model": "gpt-5.6-sol",
+  "_node_routing": [
+    {
+      "block": "Danfoss PVG 32",
+      "action": "attach",
+      "target": "570-danfoss-pvg-32-mast-block",
+      "confidence": 1.0
+    },
+    {
+      "slice": "LIFTING KEEL UP/DOWN",
+      "action": "attach",
+      "target": "130-apm-lifting-keel",
+      "via": "control_map",
+      "mechanism": "exact",
+      "confidence": "high"
+    },
+    {
+      "slice": "LIFTING KEEL LOCKS",
+      "action": "attach",
+      "target": "130-apm-lifting-keel",
+      "via": "control_map",
+      "mechanism": "exact",
+      "confidence": "high"
+    },
+    {
+      "slice": "MAST WINCH AFT PORT",
+      "action": "attach",
+      "target": "220-mast-winch-aft-port",
+      "via": "control_map",
+      "mechanism": "exact",
+      "confidence": "high"
+    },
+    {
+      "slice": "MAST WINCH FWD PORT",
+      "action": "attach",
+      "target": "220-mast-winch-fwd-port",
+      "via": "control_map",
+      "mechanism": "exact",
+      "confidence": "high"
+    },
+    {
+      "slice": "MAST WINCH AFT STBD",
+      "action": "attach",
+      "target": "220-mast-winch-aft-stbd",
+      "via": "control_map",
+      "mechanism": "exact",
+      "confidence": "high"
+    },
+    {
+      "slice": "MAST WINCH FWD STBD",
+      "action": "attach",
+      "target": "220-mast-winch-fwd-stbd",
+      "via": "control_map",
+      "mechanism": "exact",
+      "confidence": "high"
+    }
+  ]
+}

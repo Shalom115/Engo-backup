@@ -1,0 +1,658 @@
+{
+  "header": {
+    "make_model": "Danfoss PVG 32",
+    "title": "MAST BLOCK: DANFOSS PVG 32 - 6 FUNCTIONS",
+    "revision": "10",
+    "sheet": "5 of 12"
+  },
+  "rails": [
+    "P (pressure supply)",
+    "T (tank return)",
+    "LS (load sense)",
+    "LS_A",
+    "LS_B"
+  ],
+  "block_capacity_printed": false,
+  "notes": "Small part/reference numbers along rails (e.g. 157B5111, 157B6203, 11130982, 157B2014) and on valve bodies (11166832, 11166838, 15787122, 15787123, 15787125) not legible enough to confirm at this resolution. Pressure setting values on relief/adjustable elements (e.g. 300, 100, 250/225, 60/40 near valves) appear as small numbers but not confidently readable. Red warning triangle icons appear near several valves/components - meaning not clear at this resolution. Some text in MAST WINCH FWD PORT / AFT STBD / FWD STBD notes blocks is partially illegible per provided transcription.",
+  "slices": [
+    {
+      "label": "LIFTING KEEL UP/DOWN",
+      "identifier": "EV-6.1",
+      "rating": "40 lt/min",
+      "actuation": "PVEU - 0-10V (proportional)",
+      "neutral": "open neutral position; DOWN <5V =A / UP>5V =B",
+      "x_left": 0.03,
+      "x_right": 0.19,
+      "detail": {
+        "function": "LIFTING KEEL UP/DOWN (identifiers printed on crop: 111668, 157B5111)",
+        "rating": "spool 40 lt/min",
+        "actuation": "PVEU - 0-10V proportional; DOWN <5V = A / UP >5V = B; open neutral position",
+        "cartridges": [
+          {
+            "id": "111668",
+            "role": "main directional/PVG32 module (upper section, off top edge)",
+            "setting": "PVEU proportional actuator"
+          },
+          {
+            "id": "157B5111",
+            "role": "pilot/relief cartridge (upper left)",
+            "setting": "unlabeled setting value"
+          },
+          {
+            "id": "300",
+            "role": "pressure limiter/relief cartridge (lower left, adjustable)",
+            "setting": "300 (units not printed, likely bar)"
+          },
+          {
+            "id": "unlabeled work-port relief",
+            "role": "work-port relief valve (with red warning triangle)",
+            "setting": "unlabeled"
+          },
+          {
+            "id": "unlabeled check valve",
+            "role": "pilot-operated check valve (diamond symbol, in-line with 300 relief)"
+          }
+        ],
+        "settings": [
+          "300 (relief/limiter setting, unit not legible in crop)"
+        ],
+        "ports": [
+          "M - work port, left side, connects to main line running up to top of crop (off-sheet upward)",
+          "LS - load sense port, bottom left, runs horizontally off right edge of crop (off-sheet)",
+          "T - tank port, bottom, connects to return line off-sheet",
+          "P - pressure/supply port, bottom center, runs off-sheet to the right"
+        ],
+        "illegible": [
+          "Exact unit on '300' setting (bar/psi not shown)",
+          "Full identifier at very top of crop above 111668 (cut off)",
+          "Label/value on 157B5111 cartridge function",
+          "Red triangle warning text (only symbol visible, no text)",
+          "Full connection path of LS beyond crop edge",
+          "Any component labels hidden by dashed cyan/blue overlay lines"
+        ],
+        "_model": "claude-sonnet-5"
+      }
+    },
+    {
+      "label": "LIFTING KEEL LOCKS",
+      "identifier": "EV-6.2",
+      "rating": "5 lt/min",
+      "actuation": "PVEO - ON/OFF",
+      "neutral": "closed neutral position; IN=A / OUT=B",
+      "x_left": 0.19,
+      "x_right": 0.35,
+      "detail": {
+        "function": "LIFTING KEEL UP/DOWN (EV-6.1)",
+        "rating": "spool 40 lt/min",
+        "actuation": "PVEU - 0-10 V; DOWN <5V =A / UP>5V =B; open neutral position",
+        "cartridges": [
+          {
+            "id": "11166832",
+            "role": "pilot/PVEU actuator block",
+            "setting": ""
+          },
+          {
+            "id": "157B7122",
+            "role": "main directional spool (PVG32 module)",
+            "setting": "40 lt/min"
+          },
+          {
+            "id": "220",
+            "role": "pressure limiter cartridge (work port branch)",
+            "setting": "220 (unit not printed, likely bar)"
+          },
+          {
+            "id": "60",
+            "role": "pressure limiter cartridge (work port branch)",
+            "setting": "60 (unit not printed, likely bar)"
+          }
+        ],
+        "settings": "220 (unlabeled unit, assumed bar); 60 (unlabeled unit, assumed bar)",
+        "ports": [
+          "P - supply inlet, connects to common rail off-sheet left",
+          "A - work port, connects to internal manifold line 157B6203, routes down to spool body",
+          "B - work port, connects to internal manifold line 157B6203, routes down to spool body",
+          "LS_B - load sense line, runs to bottom edge, off-sheet",
+          "LS_A - load sense line, runs to bottom edge, off-sheet"
+        ],
+        "illegible": [
+          "small numeric text near top cartridge block 11166832 (possible sub-part codes)",
+          "exact units on 220 and 60 limiter settings not printed/legible",
+          "small red triangle callout label near valve (warning/adjustment marker, no text visible)"
+        ],
+        "_model": "claude-sonnet-5"
+      }
+    },
+    {
+      "label": "MAST WINCH AFT PORT",
+      "identifier": "EV-6.3",
+      "rating": "65 lt/min",
+      "actuation": "PVEO - ON/OFF",
+      "neutral": "open neutral position; 1\u00b0&3\u00b0=A/2\u00b0=B",
+      "x_left": 0.35,
+      "x_right": 0.51,
+      "detail": {
+        "function": "MAST WINCH AFT PORT (EV-6.3)",
+        "rating": "spool 65 lt/min",
+        "actuation": "PVEO - ON/OFF; 1\u00b0&3\u00b0 =A/2\u00b0 =B; open neutral position",
+        "cartridges": [
+          {
+            "id": "11166838",
+            "role": "pilot/solenoid valve (top, marked with red warning triangle)",
+            "setting": ""
+          },
+          {
+            "id": "157B6203",
+            "role": "main directional spool/module",
+            "setting": ""
+          },
+          {
+            "id": "157B7123",
+            "role": "valve stack element (below main spool, vertical cartridge)",
+            "setting": ""
+          },
+          {
+            "id": "250",
+            "role": "pressure limiter/relief cartridge (LS_B side)",
+            "setting": "250"
+          },
+          {
+            "id": "225",
+            "role": "pressure limiter/relief cartridge (LS_A side, marked with red warning triangle)",
+            "setting": "225"
+          }
+        ],
+        "settings": "250 (unit not printed, likely bar); 225 (unit not printed, likely bar)",
+        "ports": [
+          "A - work port, connects downward to hydraulic cylinder/actuator circuit, line continues off-sheet bottom",
+          "B - work port, connects downward to hydraulic cylinder/actuator circuit, line continues off-sheet bottom",
+          "LS_B - load sense line, bottom edge, off-sheet",
+          "LS_A - load sense line, bottom edge, off-sheet, near 225 cartridge"
+        ],
+        "illegible": [
+          "Exact unit (bar/psi) for 250 and 225 settings not printed/legible",
+          "Fine internal cartridge markings on 157B6203 and 157B7123 valve bodies",
+          "Small symbol details near 11166838 top block"
+        ],
+        "_model": "claude-sonnet-5"
+      }
+    },
+    {
+      "label": "MAST WINCH FWD PORT",
+      "identifier": "EV-6.4",
+      "rating": "65 lt/min",
+      "actuation": "PVEO - ON/OFF",
+      "neutral": "open neutral position; 1\u00b0&3\u00b0=A/2\u00b0=B",
+      "x_left": 0.51,
+      "x_right": 0.67,
+      "detail": {
+        "function": "MAST WINCH FWD PORT / MAST WINCH AFT PORT (EV-6.4 / EV-6.5)",
+        "rating": "spool 65 lt/min",
+        "actuation": "PVEO - ON/OFF; 1\u00b0&3\u00b0 =A/2\u00b0 =B; open neutral position",
+        "cartridges": [
+          {
+            "id": "11166838",
+            "role": "pilot/directional solenoid valve (top of module)",
+            "setting": ""
+          },
+          {
+            "id": "157B7123",
+            "role": "main directional spool/module body",
+            "setting": ""
+          },
+          {
+            "id": "225",
+            "role": "pressure setting cartridge (work-port limiter)",
+            "setting": "225"
+          },
+          {
+            "id": "250",
+            "role": "pressure setting cartridge (work-port limiter)",
+            "setting": "250"
+          },
+          {
+            "id": "225",
+            "role": "pressure setting cartridge (work-port limiter, second circuit)",
+            "setting": "225"
+          }
+        ],
+        "neutral": "open neutral position",
+        "ports": [
+          "B (top left, connects off-sheet left)",
+          "A (center top, connects to 157B6203 line)",
+          "B (top right, second circuit, connects off-sheet right)",
+          "LS_A (bottom left)",
+          "LS_B (bottom center)",
+          "LS_A (bottom right, second circuit)"
+        ],
+        "settings": [
+          "225 (pressure setting, left cartridge)",
+          "250 (pressure setting, center cartridge)",
+          "225 (pressure setting, right cartridge)"
+        ],
+        "illegible": [
+          "Full identifier/label continuation for MAST WINCH AFT (STBD side) cut off at right edge",
+          "157B6203 line labels partially cropped at left/right edges",
+          "Small symbol markings above 11166838 valves (gauge/pressure symbol) not fully legible",
+          "<o> and X symbols near LS ports - function unclear"
+        ],
+        "_model": "claude-sonnet-5"
+      }
+    },
+    {
+      "label": "MAST WINCH AFT STBD",
+      "identifier": "EV-6.5",
+      "rating": "65 lt/min",
+      "actuation": "PVEO - ON/OFF",
+      "neutral": "open neutral position; 1\u00b0&3\u00b0=A/2\u00b0=B",
+      "x_left": 0.67,
+      "x_right": 0.83,
+      "detail": {
+        "function": "MAST WINCH AFT STBD - EV-6.5",
+        "rating": "spool 65 lt/min",
+        "actuation": "PVEO - ON/OFF; 1\u00b0&3\u00b0=A/2\u00b0=B; open neutral position",
+        "cartridges": [
+          {
+            "id": "11166838",
+            "role": "pilot/solenoid valve (top)",
+            "setting": ""
+          },
+          {
+            "id": "157B6203",
+            "role": "main directional/manifold body",
+            "setting": ""
+          },
+          {
+            "id": "157B7123",
+            "role": "work-port valve/PVG module section",
+            "setting": ""
+          },
+          {
+            "id": "250",
+            "role": "pressure limiter/relief setting cartridge",
+            "setting": "250"
+          },
+          {
+            "id": "225",
+            "role": "pressure limiter/relief setting cartridge",
+            "setting": "225"
+          }
+        ],
+        "settings": "250 (units not printed - likely bar); 225 (units not printed - likely bar)",
+        "ports": [
+          "A - runs down to work-port valve stack, connects to LS_A line at bottom",
+          "B - runs down to work-port valve stack, connects to LS_B line at bottom",
+          "LS_B and LS_A ports at bottom edge, load-sense lines running off-sheet horizontally (157B6203 labeled line)"
+        ],
+        "illegible": [
+          "Exact units on 250 and 225 pressure settings (bar/psi not shown)",
+          "Small icon symbols near top of valve stack (gauge/drain icons) not fully legible",
+          "Detailed cartridge part numbers on the small valve symbols beyond 157B7123 and 157B6203"
+        ],
+        "_model": "claude-sonnet-5"
+      }
+    },
+    {
+      "label": "MAST WINCH FWD STBD",
+      "identifier": "EV-6.6",
+      "rating": "65 lt/min",
+      "actuation": "PVEO - ON/OFF",
+      "neutral": "open neutral position; 1\u00b0&3\u00b0=A/2\u00b0=B",
+      "x_left": 0.83,
+      "x_right": 1.0,
+      "detail": {
+        "function": "MAST WINCH AFT STBD",
+        "rating": "65 lt/min (spool)",
+        "actuation": "PVEO - ON/OFF; 1\u00b0&3\u00b0 = A / 2\u00b0 = B; open neutral position",
+        "cartridges": [
+          {
+            "id": "157B7123",
+            "role": "work-port/directional cartridge (labeled on left branch)",
+            "setting": ""
+          },
+          {
+            "id": "230",
+            "role": "pressure limiter/relief setting cartridge (left)",
+            "setting": "230"
+          },
+          {
+            "id": "225",
+            "role": "pressure limiter/relief setting cartridge (right)",
+            "setting": "225"
+          }
+        ],
+        "settings": [
+          "230 (unit not printed - likely bar)",
+          "225 (unit not printed - likely bar)"
+        ],
+        "ports": [
+          "A - top left port, connects to line 157B6203 (goes off-sheet upward)",
+          "B - top right port, connects to line 157B2014 (goes off-sheet upward)",
+          "LS_A - bottom right load sense port",
+          "LS_B - bottom left load sense port"
+        ],
+        "neutral": "open neutral position",
+        "illegible": [
+          "Exact units on 230 and 225 settings (bar assumed but not printed/legible)",
+          "Full identifier context for 157B7123 role",
+          "Warning triangle symbol content/text (red triangle icon, no legible text)"
+        ],
+        "_model": "claude-sonnet-5"
+      }
+    }
+  ],
+  "legends": [
+    {
+      "kind": "notes_block",
+      "title_as_printed": "LIFTING KEEL UP/DOWN",
+      "bbox": [
+        0.19,
+        0.1,
+        0.3,
+        0.19
+      ],
+      "content": {
+        "title": "LIFTING KEEL UP/DOWN",
+        "entries": [
+          {
+            "label": "PVG 32 MODULE"
+          },
+          {
+            "label": "spool 40 lt/min"
+          },
+          {
+            "label": "PVEU - 0-10 V"
+          },
+          {
+            "label": "DOWN <5V =A / UP>5V =B"
+          },
+          {
+            "label": "open neutral position"
+          }
+        ],
+        "_model": "claude-sonnet-5"
+      }
+    },
+    {
+      "kind": "notes_block",
+      "title_as_printed": "LIFTING KEEL LOCKS",
+      "bbox": [
+        0.3,
+        0.1,
+        0.42,
+        0.19
+      ],
+      "content": {
+        "title": "EL LIFTING KEEL LOCKS",
+        "entries": [
+          {
+            "label": "PVG 32 MODULE"
+          },
+          {
+            "label": "spool 5 lt/min"
+          },
+          {
+            "label": "PVEO - ON/OFF"
+          },
+          {
+            "label": "IN=A / OUT=B"
+          },
+          {
+            "label": "closed neutral position"
+          }
+        ],
+        "_model": "claude-sonnet-5"
+      }
+    },
+    {
+      "kind": "notes_block",
+      "title_as_printed": "MAST WINCH AFT PORT",
+      "bbox": [
+        0.42,
+        0.1,
+        0.54,
+        0.19
+      ],
+      "content": {
+        "title": "MAST WINCH AFT PORT",
+        "entries": [
+          {
+            "label": "PVG 32 MODULE"
+          },
+          {
+            "label": "spool 65 lt/min"
+          },
+          {
+            "label": "PVEO - ON/OFF"
+          },
+          {
+            "label": "1\u00b0&3\u00b0 =A/2\u00b0 =B"
+          },
+          {
+            "label": "open neutral position"
+          }
+        ],
+        "_model": "claude-sonnet-5"
+      }
+    },
+    {
+      "kind": "notes_block",
+      "title_as_printed": "MAST WINCH FWD PORT",
+      "bbox": [
+        0.54,
+        0.1,
+        0.67,
+        0.19
+      ],
+      "content": {
+        "entries": [
+          {
+            "label": "MAST WINCH FWD PORT",
+            "symbol_description": "PVG 32 MODULE | spool 65 lt/min | PVE\u25a1 - ON/OFF | 1\u00b0&3\u00b0 =A/2\u00b0 =B | open neutral position"
+          },
+          {
+            "label": "MAST<illegible> AFT<illegible>",
+            "symbol_description": "PVG 32 M<illegible> | spool 65 <illegible> | PVE\u25a1 - <illegible> | 1\u00b0&3\u00b0 =A/<illegible> | open neu<illegible>"
+          }
+        ],
+        "_model": "claude-sonnet-5"
+      }
+    },
+    {
+      "kind": "notes_block",
+      "title_as_printed": "MAST WINCH AFT STBD",
+      "bbox": [
+        0.67,
+        0.1,
+        0.8,
+        0.19
+      ],
+      "content": {
+        "entries": [
+          {
+            "label": "MAST WINCH AFT STBD",
+            "symbol_description": "PVG 32 MODULE | spool 65 lt/min | PVEO - ON/OFF | 1\u00b0&3\u00b0 =A/2\u00b0 =B | open neutral position"
+          },
+          {
+            "label": "MAST FWD S<illegible>",
+            "symbol_description": "PVG 32 MODUL<illegible> | spool 65 lt/m<illegible> | PVEO - ON/OF<illegible> | 1\u00b0&3\u00b0 =A/2\u00b0 =B<illegible> | open neutral <illegible>"
+          }
+        ],
+        "title": "<UNKNOWN>",
+        "_model": "claude-sonnet-5"
+      }
+    },
+    {
+      "kind": "notes_block",
+      "title_as_printed": "MAST WINCH FWD STBD",
+      "bbox": [
+        0.8,
+        0.1,
+        0.92,
+        0.19
+      ],
+      "content": {
+        "title": "ST WINCH D STBD",
+        "entries": [
+          {
+            "label": "2 MODULE"
+          },
+          {
+            "label": "65 lt/min"
+          },
+          {
+            "label": "- ON/OFF"
+          },
+          {
+            "label": "=A/2\u00b0 =B"
+          },
+          {
+            "label": "neutral position"
+          }
+        ],
+        "_model": "claude-sonnet-5"
+      }
+    },
+    {
+      "kind": "other_table",
+      "title_as_printed": "MODIFICATIONS",
+      "bbox": [
+        0.71,
+        0.685,
+        1.0,
+        0.895
+      ],
+      "content": {
+        "title": "Revision Table - Hydraulic System (Job N\u00b0: 22-53, Client: Southern Wind Shipyard, Project: SWS 108, Section: Diagram, Rev: 10, Date: 16/04/2026)",
+        "entries": [
+          {
+            "label": "9 | 25/09/2023 | PT | PC | PRESSURE ADJUSTEMENT"
+          },
+          {
+            "label": "8 | 29/08/2023 | PT | PC | PRESSURE AFTER COMMISSIONING"
+          },
+          {
+            "label": "7 | 25/07/2023 | PT | -- | TENDER WINCH SPOOL"
+          },
+          {
+            "label": "6 | 12/06/2023 | PT | -- | CAPTIVE WINCH AND TENSIONER BLOCKS HARKEN"
+          },
+          {
+            "label": "5 | 29/05/2023 | PT | -- | DOORS OVERCENTER PRES., FORESTAY MAN. VALVE"
+          },
+          {
+            "label": "4 | 28/04/2023 | PT | -- | PITCH PROPELLER SYS. SUCTION AND RETURN LINE"
+          },
+          {
+            "label": "3 | 13/12/2022 | PT | -- | ADD. T AFT MAST SAILING, DECK DOOR 2nd LINE"
+          },
+          {
+            "label": "2 | 11/11/2022 | PT | PR | SAILING MAN., PRESSURE SENSORS, PVG UPDATE"
+          },
+          {
+            "label": "1 | 07/10/2022 | PR | PT | BACKUP P.PACK, CAPTIVE & EV NUM., WINDLASS"
+          },
+          {
+            "label": "0 | 27/07/2022 | PT | PR | FIRST ISSUE"
+          },
+          {
+            "label": "REV | DATE | DRAWN | CHECKED | MODIFICATIONS"
+          }
+        ],
+        "_model": "claude-sonnet-5"
+      }
+    },
+    {
+      "kind": "other_table",
+      "title_as_printed": "MYT SYSTEMS Title Block",
+      "bbox": [
+        0.71,
+        0.895,
+        1.0,
+        0.99
+      ],
+      "content": {
+        "entries": [
+          {
+            "label": "SECTION: | DIAGRAM | DATE: | 16/04/2026"
+          },
+          {
+            "label": "DRAWN: | PT | CHECKED: | PC | SCALE: | not to scale @ A3 | SHEET: | 5 of 12"
+          },
+          {
+            "label": "FILE NAME: | SWS108-Hydraulic_System-rev10-Mast_block"
+          },
+          {
+            "label": "This drawing and the contained informations are property of MYT-Systems S.r.l. and protected by law. Copying, disclosure and any other use are prohibited except with written permission of MYT-Systems S.r.l.."
+          }
+        ],
+        "title": "HYDRAULIC SYSTEM",
+        "_model": "claude-sonnet-5"
+      }
+    }
+  ],
+  "legend_context": "THIS SHEET'S OWN LEGENDS AND TABLES (read first; these definitions are AUTHORITATIVE for this sheet and override any generic symbol/line convention):\n- [notes_block] LIFTING KEEL UP/DOWN:\n    * PVG 32 MODULE\n    * spool 40 lt/min\n    * PVEU - 0-10 V\n    * DOWN <5V =A / UP>5V =B\n    * open neutral position\n- [notes_block] LIFTING KEEL LOCKS:\n    * PVG 32 MODULE\n    * spool 5 lt/min\n    * PVEO - ON/OFF\n    * IN=A / OUT=B\n    * closed neutral position\n- [notes_block] MAST WINCH AFT PORT:\n    * PVG 32 MODULE\n    * spool 65 lt/min\n    * PVEO - ON/OFF\n    * 1\u00b0&3\u00b0 =A/2\u00b0 =B\n    * open neutral position\n- [notes_block] MAST WINCH FWD PORT:\n    * MAST WINCH FWD PORT -> PVG 32 MODULE | spool 65 lt/min | PVE\u25a1 - ON/OFF | 1\u00b0&3\u00b0 =A/2\u00b0 =B | open neutral position\n    * MAST<illegible> AFT<illegible> -> PVG 32 M<illegible> | spool 65 <illegible> | PVE\u25a1 - <illegible> | 1\u00b0&3\u00b0 =A/<illegible> | open neu<illegible>\n- [notes_block] MAST WINCH AFT STBD:\n    * MAST WINCH AFT STBD -> PVG 32 MODULE | spool 65 lt/min | PVEO - ON/OFF | 1\u00b0&3\u00b0 =A/2\u00b0 =B | open neutral position\n    * MAST FWD S<illegible> -> PVG 32 MODUL<illegible> | spool 65 lt/m<illegible> | PVEO - ON/OF<illegible> | 1\u00b0&3\u00b0 =A/2\u00b0 =B<illegible> | open neutral <illegible>\n- [notes_block] MAST WINCH FWD STBD:\n    * 2 MODULE\n    * 65 lt/min\n    * - ON/OFF\n    * =A/2\u00b0 =B\n    * neutral position\n- [other_table] MODIFICATIONS:\n    * 9 | 25/09/2023 | PT | PC | PRESSURE ADJUSTEMENT\n    * 8 | 29/08/2023 | PT | PC | PRESSURE AFTER COMMISSIONING\n    * 7 | 25/07/2023 | PT | -- | TENDER WINCH SPOOL\n    * 6 | 12/06/2023 | PT | -- | CAPTIVE WINCH AND TENSIONER BLOCKS HARKEN\n    * 5 | 29/05/2023 | PT | -- | DOORS OVERCENTER PRES., FORESTAY MAN. VALVE\n    * 4 | 28/04/2023 | PT | -- | PITCH PROPELLER SYS. SUCTION AND RETURN LINE\n    * 3 | 13/12/2022 | PT | -- | ADD. T AFT MAST SAILING, DECK DOOR 2nd LINE\n    * 2 | 11/11/2022 | PT | PR | SAILING MAN., PRESSURE SENSORS, PVG UPDATE\n    * 1 | 07/10/2022 | PR | PT | BACKUP P.PACK, CAPTIVE & EV NUM., WINDLASS\n    * 0 | 27/07/2022 | PT | PR | FIRST ISSUE\n    * REV | DATE | DRAWN | CHECKED | MODIFICATIONS\n- [other_table] MYT SYSTEMS Title Block:\n    * SECTION: | DIAGRAM | DATE: | 16/04/2026\n    * DRAWN: | PT | CHECKED: | PC | SCALE: | not to scale @ A3 | SHEET: | 5 of 12\n    * FILE NAME: | SWS108-Hydraulic_System-rev10-Mast_block\n    * This drawing and the contained informations are property of MYT-Systems S.r.l. and protected by law. Copying, disclosure and any other use are prohibited except with written permission of MYT-Systems S.r.l..",
+  "passes": {
+    "skeleton_dpi": 200,
+    "detail_dpi": 600,
+    "slices_found": 6,
+    "detail_calls": 6
+  },
+  "model": "claude-sonnet-5",
+  "_node_routing": [
+    {
+      "block": "Danfoss PVG 32",
+      "action": "attach",
+      "target": "570-danfoss-pvg-32-mast-block",
+      "confidence": 1.0
+    },
+    {
+      "slice": "LIFTING KEEL UP/DOWN",
+      "action": "attach",
+      "target": "130-apm-lifting-keel",
+      "via": "control_map",
+      "mechanism": "exact",
+      "confidence": "high"
+    },
+    {
+      "slice": "LIFTING KEEL LOCKS",
+      "action": "attach",
+      "target": "130-apm-lifting-keel",
+      "via": "control_map",
+      "mechanism": "exact",
+      "confidence": "high"
+    },
+    {
+      "slice": "MAST WINCH AFT PORT",
+      "action": "attach",
+      "target": "220-mast-winch-aft-port",
+      "via": "control_map",
+      "mechanism": "exact",
+      "confidence": "high"
+    },
+    {
+      "slice": "MAST WINCH FWD PORT",
+      "action": "attach",
+      "target": "220-mast-winch-fwd-port",
+      "via": "control_map",
+      "mechanism": "exact",
+      "confidence": "high"
+    },
+    {
+      "slice": "MAST WINCH AFT STBD",
+      "action": "attach",
+      "target": "220-mast-winch-aft-stbd",
+      "via": "control_map",
+      "mechanism": "exact",
+      "confidence": "high"
+    },
+    {
+      "slice": "MAST WINCH FWD STBD",
+      "action": "attach",
+      "target": "220-mast-winch-fwd-stbd",
+      "via": "control_map",
+      "mechanism": "exact",
+      "confidence": "high"
+    }
+  ]
+}

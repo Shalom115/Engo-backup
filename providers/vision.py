@@ -598,31 +598,38 @@ class OpenAIVisionProvider(VisionProvider):
     def _image_block(self, image_bytes: bytes, media_type: str) -> Dict[str, Any]:
         data, _mt = _downscale(image_bytes, self.max_side)
         b64 = base64.b64encode(data).decode()
-        return {"type": "image_url",
-                "image_url": {"url": f"data:image/png;base64,{b64}", "detail": "high"}}
+        # Responses-API content part (input_image/input_text, not image_url blocks)
+        return {"type": "input_image",
+                "image_url": f"data:image/png;base64,{b64}", "detail": "high"}
 
     def _call(self, content: list, tool_schema: Dict[str, Any], max_tokens: int) -> Dict[str, Any]:
+        # RESPONSES API, not chat/completions: gpt-5.6 rejects function tools
+        # with reasoning on the legacy endpoint (live 400, plumbing check
+        # 2026-07-12: "use /v1/responses or set reasoning_effort to 'none'").
+        # Reasoning tokens share max_output_tokens, so floor it like the Gemini
+        # provider does — a 4096 cap would truncate structured JSON mid-stream.
         tool = {"type": "function",
-                "function": {"name": tool_schema["name"],
-                             "description": tool_schema.get("description", ""),
-                             "parameters": tool_schema["input_schema"]}}
+                "name": tool_schema["name"],
+                "description": tool_schema.get("description", ""),
+                "parameters": tool_schema["input_schema"]}
         resp = _retry_generic(
-            lambda: self._client.chat.completions.create(
+            lambda: self._client.responses.create(
                 model=self._model,
-                max_completion_tokens=max_tokens,
+                max_output_tokens=max(max_tokens, 32768),
                 tools=[tool],
-                tool_choice={"type": "function",
-                             "function": {"name": tool_schema["name"]}},
-                messages=[{"role": "user", "content": content}],
+                tool_choice={"type": "function", "name": tool_schema["name"]},
+                input=[{"role": "user", "content": content}],
             ),
             self._is_transient,
         )
-        calls = resp.choices[0].message.tool_calls or []
-        if not calls:
+        call = next((item for item in (resp.output or [])
+                     if getattr(item, "type", "") == "function_call"), None)
+        if call is None:
+            kinds = [getattr(i, "type", "?") for i in (resp.output or [])]
             raise ValueError(
-                f"OpenAI returned no tool call (model={self._model}, "
-                f"finish={resp.choices[0].finish_reason}).")
-        out = json.loads(calls[0].function.arguments)
+                f"OpenAI returned no function call (model={self._model}, "
+                f"status={getattr(resp, 'status', '?')}, output={kinds}).")
+        out = json.loads(call.arguments)
         if not isinstance(out, dict):
             raise ValueError(f"OpenAI returned non-object arguments: {type(out).__name__}")
         return out
@@ -638,14 +645,14 @@ class OpenAIVisionProvider(VisionProvider):
         prompt = (f"{instructions}{ctx_lines}\n\n{_COMPONENT_RULES}\n\n"
                   f"Call {_FIGURE_TOOL['name']} with the structured result.")
         content = [self._image_block(image_bytes, media_type),
-                   {"type": "text", "text": prompt}]
+                   {"type": "input_text", "text": prompt}]
         parsed = _normalize_figure(self._call(content, _FIGURE_TOOL, 4096))
         parsed["model"] = self._model
         return parsed
 
     def extract(self, image_bytes, media_type, prompt, tool_schema, max_tokens=4096):
         content = [self._image_block(image_bytes, media_type),
-                   {"type": "text", "text": prompt}]
+                   {"type": "input_text", "text": prompt}]
         out = self._call(content, tool_schema, max_tokens)
         out["_model"] = self._model
         return out
@@ -653,9 +660,9 @@ class OpenAIVisionProvider(VisionProvider):
     def extract_multi(self, images, prompt, tool_schema, max_tokens=4096):
         content = []
         for i, (img_bytes, mt_in) in enumerate(images, 1):
-            content.append({"type": "text", "text": f"IMAGE {i}:"})
+            content.append({"type": "input_text", "text": f"IMAGE {i}:"})
             content.append(self._image_block(img_bytes, mt_in))
-        content.append({"type": "text", "text": prompt})
+        content.append({"type": "input_text", "text": prompt})
         out = self._call(content, tool_schema, max_tokens)
         out["_model"] = self._model
         return out
