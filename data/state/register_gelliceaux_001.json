@@ -35913,6 +35913,54 @@
       "authority": "engineer",
       "as_of": "2026-07-11"
      }
+    },
+    {
+     "kind": "operating_mode",
+     "value": "S5 QUIET MODE switch (GMMS 113) \u2014 VCP hub control",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 4 (GMMS 112/113 main panel)",
+      "file": "data/state/redpen_load_map_batch4_raw_20260712.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-12"
+     }
+    },
+    {
+     "kind": "instrument",
+     "value": "S6 VOLTAGE \u2014 voltmeter view selector on the main panel; selects which of the 3 battery banks to display. LOAD CURRENT gauge shows the current of the selected bank. GMMS 113",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 4 (GMMS 112/113 main panel)",
+      "file": "data/state/redpen_load_map_batch4_raw_20260712.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-12"
+     }
+    },
+    {
+     "kind": "wiring_note",
+     "value": "Main-panel multi-core cables MU5-12/MU4-12 (GMMS 112) connect terminal strips T/S E <-> T/S F (12 wires each); MU14-12 + the 4-wire gauge cables from T/S AA feed the voltage/current meters (GMMS 113). 12/69 and 119 = spare wire+terminal, not in use. Some T/S AA terminals are FUSED TERMINALS (built-in fuse).",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 4 (GMMS 112/113 main panel)",
+      "file": "data/state/redpen_load_map_batch4_raw_20260712.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-12"
+     }
+    },
+    {
+     "kind": "connector_pins",
+     "value": "PLUG C (port pedestal) pins: [8]/[9] = ALARM MOD 2, [11]/[12] = ALARM MUTE SW (GMMS 112). Owner = port pedestal alarm module \u2014 NO pedestal node yet, flagged for creation when the pedestal sheets (p37-40) are routed.",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 4 (GMMS 112/113 main panel)",
+      "file": "data/state/redpen_load_map_batch4_raw_20260712.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-12"
+     }
     }
    ],
    "note": "HUB: connects to many boards. ELEMENT SEMANTICS MANDATORY (engineer 2026-07-04): each panel element is CONTROL (switch feeding/commanding) OR INDICATOR (status lamp/display) OR SUPPLY \u2014 BEL and MAPS elements are INDICATORS (cross-link indicates_status_of), NOT controls. Mode switches S3/S4/S5 = operating-mode facts. Validate element-by-element from the wiring, never from the label."
@@ -37701,6 +37749,42 @@
       "authority": "engineer",
       "as_of": "2026-07-11"
      }
+    },
+    {
+     "kind": "operating_mode",
+     "value": "S3 MASTER SW \u2014 turns on the BAE hybrid system (ignition-like), 3 positions: 1=ON, 2=OFF, 3=SERVICE (in SERVICE the SCU and MC43 can receive software updates/changes). GMMS 113",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 4 (GMMS 112/113 main panel)",
+      "file": "data/state/redpen_load_map_batch4_raw_20260712.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-12"
+     }
+    },
+    {
+     "kind": "operating_mode",
+     "value": "S4 MODE SW \u2014 BAE has 4 operating modes: EV (electric \u2014 runs on ESS until 20%, then charges to 45%); HEV (hybrid \u2014 motor unused/<15kW runs off ESS keeping it 40-65%; motor >15kW starts a generator or both to hold ESS to 65% while covering motor+aux); CHEV (acronym unconfirmed \u2014 generators run constantly, charge ESS to 75-80% then cover motor and/or aux); SHORE (on shore power the EDNs charge the battery to full + top-balance cells + cover aux). GMMS 113",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 4 (GMMS 112/113 main panel)",
+      "file": "data/state/redpen_load_map_batch4_raw_20260712.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-12"
+     }
+    },
+    {
+     "kind": "note_locked_fact_candidate",
+     "value": "The S3/S4 mode descriptions above are operational knowledge that lives in no manual \u2014 candidate for the system-prompt LOCKED VESSEL FACTS (engineer to confirm before promoting).",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 4 (GMMS 112/113 main panel)",
+      "file": "data/state/redpen_load_map_batch4_raw_20260712.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-12"
+     }
     }
    ],
    "note": "Yard section 625. Hub card for system-level BAE facts (HVIL, displays, MC43, conductivity processor, chart-table HMI); cross-links to the BAE component nodes."
@@ -37771,6 +37855,18 @@
       "source_type": "engineer_redpen",
       "authority": "engineer",
       "as_of": "2026-07-11"
+     }
+    },
+    {
+     "kind": "instrument",
+     "value": "Ph1/Ph2/Ph3 phase power measurements + 60Hz frequency measurement from shore power (main-panel indicators, no node). GMMS 113",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen batch 4 (GMMS 112/113 main panel)",
+      "file": "data/state/redpen_load_map_batch4_raw_20260712.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-12"
      }
     }
    ],
