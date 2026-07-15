@@ -103,19 +103,36 @@ _SKELETON_TOOL = {
     },
 }
 
+# FUNCTION-OVER-PART-NUMBER (engineer protocol correction 2026-07-12): the
+# diagnostic knowledge is each cartridge's ROLE in the circuit and the OIL PATH
+# per operating scenario — NOT its part-number string. Part numbers caused the
+# whole confabulation/locate-recall saga and the engineer can read one himself
+# the moment Engo highlights the region (bbox provenance). So: role + flow are
+# REQUIRED; the printed id is recorded only when clearly legible, never chased,
+# and its absence is not a failure.
 _DETAIL_PROMPT = """\
 You are reading ONE vertical sub-circuit (one function) of a hydraulic manifold
-schematic, cropped at HIGH resolution. Read the fine print that is now legible.
-Report ONLY what is actually printed in this crop; mark anything ambiguous or
+schematic, cropped at HIGH resolution. Your job is to UNDERSTAND THE CIRCUIT:
+what each valve/cartridge DOES and how oil flows in each operating scenario.
+Report ONLY what the drawing actually shows; mark anything ambiguous or
 illegible rather than guessing.
 
 Report:
 - function: the function label/name and its identifier as printed.
 - rating: flow/spool rating with units.
 - actuation: actuation type; neutral/rest position.
-- cartridges: one entry per valve/cartridge in this sub-circuit, each with its
-  printed part identifier (verbatim) and its role if discernible (e.g. main
-  directional, work-port, inlet, pilot, limiter) and any setting printed on it.
+- cartridges: one entry per valve/cartridge in this sub-circuit. For each, the
+  ROLE is what matters: what it does in the circuit (main directional spool,
+  work-port relief, load-holding/counterbalance, pilot-operated check, LS
+  pressure limiter, inlet relief, shuttle, orifice...) and WHERE it sits in the
+  flow (pressure line, A/B work port, tank return, LS line). Record the printed
+  part identifier ONLY if clearly legible — do not strain for it; an omitted id
+  with a correct role is a GOOD read.
+- flow_scenarios: the oil path through this sub-circuit per scenario, as the
+  symbols show it: e.g. "energized A: P->spool->A port, B->tank; load held by
+  counterbalance on B" / "neutral: spool open-center, flow to tank" / "relief:
+  A-port relief opens to tank above its setting". One entry per distinct
+  scenario the drawing supports.
 - settings: any pressure-limiter / relief / threshold values with units.
 - ports: work ports and what each connects to; note if a connection runs off
   the crop edge (off-sheet).
@@ -137,17 +154,20 @@ _DETAIL_TOOL = {
                 "items": {
                     "type": "object",
                     "properties": {
-                        "id": {"type": "string"}, "role": {"type": "string"},
+                        "role": {"type": "string"},
+                        "position_in_flow": {"type": "string"},
+                        "id": {"type": "string"},
                         "setting": {"type": "string"},
                     },
-                    "required": ["id"],
+                    "required": ["role"],
                 },
             },
+            "flow_scenarios": {"type": "array", "items": {"type": "string"}},
             "settings": {"type": "array", "items": {"type": "string"}},
             "ports": {"type": "array", "items": {"type": "string"}},
             "illegible": {"type": "array", "items": {"type": "string"}},
         },
-        "required": ["function", "cartridges"],
+        "required": ["function", "cartridges", "flow_scenarios"],
     },
 }
 
@@ -430,7 +450,8 @@ def discovery_report(r: Dict[str, Any]) -> str:
     ]
     for i, s in enumerate(r.get("slices") or [], 1):
         d = s.get("detail") or {}
-        carts = ", ".join(c.get("id", "?") for c in (d.get("cartridges") or [])) or "—"
+        carts = ", ".join(
+            (c.get("role") or c.get("id") or "?") for c in (d.get("cartridges") or [])) or "—"
         setts = ", ".join(d.get("settings") or []) or "—"
         lines.append(
             f"  slice {i}: {s.get('label','?')} [{s.get('identifier','')}] "
