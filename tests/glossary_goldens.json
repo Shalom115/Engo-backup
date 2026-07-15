@@ -1,0 +1,29 @@
+{
+  "_purpose": "Ground-truth regression fixtures distilled from engineer red-pen (Fable gap #2). Each case = a label the extractor MUST type/classify a specific way, per an engineer ruling. Run tests/test_glossary_goldens.py after ANY glossary/extractor-prompt change; a break here means a change silently regressed an approved rule (the XA-tap scar). These are GLOSSARY-LEVEL goldens (label -> expected element_type / disposition), cheap and deterministic — not the vision gold fixtures (gold_fixtures_gelliceaux.json).",
+  "_sources": [
+    "data/state/redpen_electrical_batch1_raw_20260710.txt",
+    "data/state/redpen_electrical_batch2_raw_20260710.txt",
+    "data/state/redpen_load_map_batch*_20260711/12.txt",
+    "prompts/drawing_symbol_glossary.md"
+  ],
+  "cases": [
+    {"id": "wire_gauge_diamond", "label": "Junction/tap block pin 4 (upper group)", "hint": "diamond with a number on a wire", "expected_type": "annotation", "reason": "wire-gauge callout mm2, not a status signal", "ruling": "batch1"},
+    {"id": "wire_gauge_bare_num", "label": "Junction/tap 10 — to 230V AC GROUND", "hint": "diamond with number", "expected_type": "annotation", "reason": "same wire-gauge diamond however labelled", "ruling": "batch2"},
+    {"id": "can_bus_hi", "label": "G3-K337 Position Sensor A HI", "hint": "HI + LO + shield twisted", "expected_type": "status_signal", "reason": "CAN-bus conductor, a signal not power", "ruling": "batch2"},
+    {"id": "can_shield", "label": "G3-K336 Shield (Position Sensor A circuit shield)", "hint": "twisted shielded pair shield", "expected_type": "status_signal", "reason": "CAN shield tap", "ruling": "batch2"},
+    {"id": "hvil", "label": "G3-K321 HVIL OUT", "hint": "high-voltage interlock", "expected_type": "status_signal", "reason": "interlock safety signal, not power/switch", "ruling": "batch2"},
+    {"id": "harness_connector", "label": "SWITCH PORT — with HVIL", "hint": "multi-pin block on HV/motor feed labelled SWITCH", "expected_type": "plug_pin_or_connector", "reason": "harness connector/plug, NOT a mechanical switch (the plug-mistaken-for-switch trap)", "ruling": "batch2"},
+    {"id": "isolator_breaker", "label": "S1 25A ISOLATOR", "hint": "ISOLATOR + ampere rating", "expected_type": "breaker", "reason": "isolator breaker even with S prefix", "ruling": "batch1"},
+    {"id": "fuse_prefix", "label": "F3 60A", "hint": "rectangle with a line inline, F prefix", "expected_type": "fuse", "reason": "fuse, not a status signal near a tap", "ruling": "batch2"},
+    {"id": "cross_drawing_pointer_no_wire", "label": "see DWG 117", "hint": "explicit drawing reference, no wire", "expected_type": "annotation", "reason": "cross-drawing pointer with no wire = annotation", "ruling": "batch2"},
+    {"id": "cross_drawing_wired_stays_element", "label": "CP-SW (see DWG110d)", "hint": "wired element carrying a DWG reference", "expected_type": "element_not_annotation", "reason": "THE WIRE IS THE TEST — a wired cross-drawing ref stays an element (the CP-SW scar; it was a real pump feed)", "ruling": "batch2_cpsw"},
+    {"id": "cbx_sheet_scoped_fuse", "label": "CBx.4 BEL CAN BUS ISOLATORS", "hint": "CBx prefix on GMMS 110b/d/e", "expected_type": "fuse", "reason": "SHEET-SCOPED VOCAB: CBx on these sheets = retractable fuse, not breaker", "ruling": "loadmap_batch2", "sheet_scope": "GMMS-110b/d/e"},
+    {"id": "gauge_selector", "label": "S1 selector for voltmeter L1-L2/L2-L3/L3-L1", "hint": "selector switch feeding an instrument", "expected_type": "control_selector", "reason": "gauge/display-selection control, not a power switch", "ruling": "batch1"},
+    {"id": "pin_attaches_to_owner", "label": "PLUG C [8] ALARM MOD 2 PORT PEDESTAL", "hint": "connector pin / wire tag", "expected_disposition": "attach_to_plug_owner", "reason": "PIN RULE: a pin is not a load; attaches to the equipment its plug serves (follow the line to the header)", "ruling": "loadmap_batch2"},
+    {"id": "multicore_cable_spare", "label": "12 / 69 not used", "hint": "wire number + terminal on a multi-core cable, spare", "expected_disposition": "not_equipment_skip", "reason": "MULTI-CORE CABLE rule (pending approval): wire+terminal, not equipment; 'not used' = spare", "ruling": "loadmap_batch4_pending"},
+    {"id": "nav_lights_own_node", "label": "PORT NAV. LT.", "hint": "navigation/steaming light", "expected_node": "690-navigation-lights", "reason": "NAV-LIGHTS RULE: nav/steaming lights are ALWAYS their own node, separate from general lighting (safety-critical)", "ruling": "loadmap_batch3"},
+    {"id": "feeder_not_load", "label": "#1 SERVICES", "hint": "sub-distribution box", "expected_disposition": "feeder_not_a_node", "reason": "FEEDER != LOAD: a distribution box is not equipment", "ruling": "loadmap_batch1"},
+    {"id": "ct_to_onyx", "label": "CT11 FWD WATER HEATER", "hint": "CT prefix", "expected_node": "652-onyx-monitoring", "reason": "CT = current transmitter -> monitoring node, cross-linked to measured equipment", "ruling": "loadmap_batch1"},
+    {"id": "earth_leak_to_protectee", "label": "EARTH LEAKAGE 8 PORT SEAWATER COOLING", "hint": "earth-leak breaker naming an equipment", "expected_disposition": "protective_device_on_protectee", "reason": "earth-leak breaker attaches to the equipment it protects", "ruling": "loadmap_batch1"}
+  ]
+}
