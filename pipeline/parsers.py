@@ -40,7 +40,6 @@ import re
 from pathlib import Path
 from typing import Any, Dict, List
 
-import tiktoken
 from openpyxl import load_workbook
 from pypdf import PdfReader
 from pypdf.errors import PdfReadError
@@ -48,6 +47,13 @@ from docx import Document
 from docx.oxml.ns import qn
 from docx.text.paragraph import Paragraph
 from docx.table import Table
+
+from pipeline.tokens import get_encoder
+
+
+def count_tokens_raw(text):
+    """Encode via the shared lazy cl100k_base encoder (offline-safe load)."""
+    return get_encoder().encode(text)
 
 logger = logging.getLogger(__name__)
 
@@ -120,9 +126,6 @@ def parse_pdf(path: Path) -> Dict[str, Any]:
 
 
 # ----- XLSX parsing -----
-
-_XLSX_ENCODER = tiktoken.get_encoding("cl100k_base")
-
 
 def _format_cell(value: Any) -> str:
     """Coerce a cell value to a string suitable for inline text.
@@ -231,7 +234,7 @@ def parse_xlsx(path: Path) -> Dict[str, Any]:
                     "row_number": row_idx,
                     "sheet_name": sheet_name,
                     "text": text,
-                    "token_count": len(_XLSX_ENCODER.encode(text)),
+                    "token_count": len(count_tokens_raw(text)),
                 })
     finally:
         wb.close()
@@ -508,7 +511,7 @@ def parse_csv(path: Path) -> Dict[str, Any]:
             "row_number": idx,
             "sheet_name": "csv",
             "text": body,
-            "token_count": len(_XLSX_ENCODER.encode(body)),
+            "token_count": len(count_tokens_raw(body)),
         })
     if not headers:
         logger.warning("CSV %s: no header row (>=2 cells) found in first %d rows.",

@@ -24,10 +24,53 @@ from __future__ import annotations
 import base64
 import io
 import json
+import logging
 import os
 import re
+import time
 from abc import ABC, abstractmethod
 from typing import Any, Dict, Optional
+
+logger = logging.getLogger("providers.vision")
+
+# Bounded retry for TRANSIENT API failures (rate limit, overloaded, connection
+# drop, 5xx). One transient error must never kill a long paid extraction run —
+# the Gold #2 lesson (a one-shot network call crashed the whole run), fixed at
+# the PROVIDER so every caller is covered. Permanent errors (4xx bad request)
+# are NOT retried — they fail loud immediately.
+_RETRY_ATTEMPTS = 4
+_RETRY_BACKOFF = (2.0, 5.0, 15.0)  # seconds between attempts
+
+
+def _is_transient_api_error(exc: Exception) -> bool:
+    """True for rate-limit / overloaded / connection / server-side errors."""
+    import anthropic
+    if isinstance(exc, (anthropic.APIConnectionError, anthropic.APITimeoutError,
+                        anthropic.RateLimitError)):
+        return True
+    if isinstance(exc, anthropic.APIStatusError):
+        # 429 rate limit, 5xx server errors, 529 overloaded
+        return exc.status_code == 429 or exc.status_code >= 500
+    return False
+
+
+def _call_with_retry(fn, *args, **kwargs):
+    """Run an API call with bounded retry on transient errors only."""
+    last_exc: Exception | None = None
+    for attempt in range(_RETRY_ATTEMPTS):
+        try:
+            return fn(*args, **kwargs)
+        except Exception as e:
+            if not _is_transient_api_error(e):
+                raise
+            last_exc = e
+            if attempt < _RETRY_ATTEMPTS - 1:
+                backoff = _RETRY_BACKOFF[min(attempt, len(_RETRY_BACKOFF) - 1)]
+                logger.warning("Transient vision-API error (attempt %d/%d): %s — "
+                               "retrying in %.0fs", attempt + 1, _RETRY_ATTEMPTS, e, backoff)
+                time.sleep(backoff)
+    assert last_exc is not None
+    raise last_exc
 
 
 # Prompt per content kind. Schematics get topology; photos get identification;
@@ -151,7 +194,18 @@ _FIGURE_TOOL = {
 
 
 class VisionProvider(ABC):
-    """Abstract vision interface."""
+    """Abstract vision interface.
+
+    All three read methods are part of the CONTRACT (formalized 2026-07-12 —
+    pipeline extractors were already calling extract/extract_multi on the
+    concrete class; a provider swap must fail at the interface, not deep in a
+    paid run). Prompts and tool schemas are ALWAYS caller-owned: domain logic
+    and the gold-blind discovery prompts live in pipeline/, never here.
+    """
+
+    #: Longest image edge (px) this provider accepts before downscaling.
+    #: Pipeline tiling math derives crop footprints from this — never hardcode.
+    max_side: int = 1568
 
     @abstractmethod
     def describe(
@@ -170,30 +224,53 @@ class VisionProvider(ABC):
         """
         ...
 
+    @abstractmethod
+    def extract(self, image_bytes: bytes, media_type: str, prompt: str,
+                tool_schema: Dict[str, Any], max_tokens: int = 4096) -> Dict[str, Any]:
+        """Generic structured vision call: run caller-owned `prompt` against the
+        image and return a dict matching the caller-owned `tool_schema`."""
+        ...
+
+    @abstractmethod
+    def extract_multi(self, images, prompt: str, tool_schema: Dict[str, Any],
+                      max_tokens: int = 4096) -> Dict[str, Any]:
+        """Like extract() but with MULTIPLE ordered (image_bytes, media_type)
+        pairs in one call, so the model can cross-reference them (tight crop +
+        downsampled full sheet)."""
+        ...
+
     @property
     @abstractmethod
     def model_name(self) -> str:
         ...
 
 
+# Claude models with high-resolution vision (2576px long edge, pixel-accurate
+# coordinates — Opus 4.7+ / Sonnet 5 / Fable 5). Older models cap at 1568px,
+# which is the constraint the §4 crop-footprint tiling was designed around.
+_CLAUDE_HIGHRES_PREFIXES = ("claude-opus-4-7", "claude-opus-4-8",
+                            "claude-sonnet-5", "claude-fable-5", "claude-mythos-5")
+
+
 class AnthropicVisionProvider(VisionProvider):
     """Claude vision implementation."""
 
-    MAX_SIDE = 1568  # API tiling sweet spot; larger costs more and adds nothing.
+    MAX_SIDE = 1568  # legacy alias; instance max_side (model-dependent) is authoritative.
 
     def __init__(self, api_key: str, model: str):
         from anthropic import Anthropic
         self._client = Anthropic(api_key=api_key)
         self._model = model
+        self.max_side = (2576 if model.startswith(_CLAUDE_HIGHRES_PREFIXES) else 1568)
 
     def _prepare(self, image_bytes: bytes, media_type: str):
-        """Downscale to MAX_SIDE and re-encode (JPEG for photos-like content)."""
+        """Downscale to max_side and re-encode (JPEG for photos-like content)."""
         from PIL import Image
         img = Image.open(io.BytesIO(image_bytes))
         if img.mode not in ("RGB", "L"):
             img = img.convert("RGB")
         w, h = img.size
-        scale = self.MAX_SIDE / max(w, h)
+        scale = self.max_side / max(w, h)
         if scale < 1.0:
             img = img.resize((int(w * scale), int(h * scale)))
         buf = io.BytesIO()
@@ -212,7 +289,8 @@ class AnthropicVisionProvider(VisionProvider):
         prompt = (f"{instructions}{ctx_lines}\n\n{_COMPONENT_RULES}\n\n"
                   "Call record_figure with the structured result.")
 
-        resp = self._client.messages.create(
+        resp = _call_with_retry(
+            self._client.messages.create,
             model=self._model,
             max_tokens=4096,
             tools=[_FIGURE_TOOL],
@@ -243,7 +321,8 @@ class AnthropicVisionProvider(VisionProvider):
         SDK stays inside providers/ per architecture rule #1.
         """
         data, mt = self._prepare(image_bytes, media_type)
-        resp = self._client.messages.create(
+        resp = _call_with_retry(
+            self._client.messages.create,
             model=self._model,
             max_tokens=max_tokens,
             tools=[tool_schema],
@@ -283,7 +362,8 @@ class AnthropicVisionProvider(VisionProvider):
                             "source": {"type": "base64", "media_type": mt,
                                        "data": base64.b64encode(data).decode()}})
         content.append({"type": "text", "text": prompt})
-        resp = self._client.messages.create(
+        resp = _call_with_retry(
+            self._client.messages.create,
             model=self._model,
             max_tokens=max_tokens,
             tools=[tool_schema],
@@ -299,43 +379,357 @@ class AnthropicVisionProvider(VisionProvider):
 
     @staticmethod
     def _normalize(obj: Dict[str, Any]) -> Dict[str, Any]:
-        """Validate/clamp the structured tool input (already valid JSON via the SDK)."""
-        obj.setdefault("content_type", "figure")
-        obj.setdefault("description", "")
-        obj.setdefault("transcription", "")
-        comps = []
-        for c in obj.get("components") or []:
-            if not c.get("label"):
-                continue
-            bbox = c.get("bbox")
-            if bbox is not None:
-                try:
-                    bbox = [max(0.0, min(1.0, float(v))) for v in bbox][:4]
-                    if len(bbox) != 4 or bbox[0] >= bbox[2] or bbox[1] >= bbox[3]:
-                        bbox = None
-                except (TypeError, ValueError):
-                    bbox = None
-            comps.append({
-                "label": str(c["label"]),
-                "bbox": bbox,
-                "confidence": c.get("confidence", "low"),
-                "note": c.get("note", ""),
-            })
-        obj["components"] = comps
-        return obj
+        return _normalize_figure(obj)
 
     @property
     def model_name(self) -> str:
         return self._model
 
 
-def get_vision_provider() -> VisionProvider:
-    """Factory: read env, return configured provider."""
-    provider = os.getenv("VISION_PROVIDER", "anthropic").lower()
-    if provider == "anthropic":
+def _normalize_figure(obj: Dict[str, Any]) -> Dict[str, Any]:
+    """Validate/clamp a record_figure-shaped dict (shared across providers)."""
+    obj.setdefault("content_type", "figure")
+    obj.setdefault("description", "")
+    obj.setdefault("transcription", "")
+    comps = []
+    for c in obj.get("components") or []:
+        if not c.get("label"):
+            continue
+        bbox = c.get("bbox")
+        if bbox is not None:
+            try:
+                bbox = [max(0.0, min(1.0, float(v))) for v in bbox][:4]
+                if len(bbox) != 4 or bbox[0] >= bbox[2] or bbox[1] >= bbox[3]:
+                    bbox = None
+            except (TypeError, ValueError):
+                bbox = None
+        comps.append({
+            "label": str(c["label"]),
+            "bbox": bbox,
+            "confidence": c.get("confidence", "low"),
+            "note": c.get("note", ""),
+        })
+    obj["components"] = comps
+    return obj
+
+
+def _downscale(image_bytes: bytes, max_side: int):
+    """Downscale to max_side and re-encode PNG (shared across providers)."""
+    from PIL import Image
+    img = Image.open(io.BytesIO(image_bytes))
+    if img.mode not in ("RGB", "L"):
+        img = img.convert("RGB")
+    w, h = img.size
+    scale = max_side / max(w, h)
+    if scale < 1.0:
+        img = img.resize((int(w * scale), int(h * scale)))
+    buf = io.BytesIO()
+    img.save(buf, format="PNG", optimize=True)
+    return buf.getvalue(), "image/png"
+
+
+def _retry_generic(fn, is_transient):
+    """Bounded retry on transient errors, vendor-agnostic (same policy as
+    _call_with_retry; the predicate is per-vendor)."""
+    last_exc: Exception | None = None
+    for attempt in range(_RETRY_ATTEMPTS):
+        try:
+            return fn()
+        except Exception as e:
+            if not is_transient(e):
+                raise
+            last_exc = e
+            if attempt < _RETRY_ATTEMPTS - 1:
+                backoff = _RETRY_BACKOFF[min(attempt, len(_RETRY_BACKOFF) - 1)]
+                logger.warning("Transient vision-API error (attempt %d/%d): %s — "
+                               "retrying in %.0fs", attempt + 1, _RETRY_ATTEMPTS, e, backoff)
+                time.sleep(backoff)
+    assert last_exc is not None
+    raise last_exc
+
+
+class GeminiVisionProvider(VisionProvider):
+    """
+    Google Gemini vision implementation (google-genai SDK). Same contract as
+    the Anthropic provider: caller-owned prompts + tool schemas, structured
+    JSON back. Structured output rides Gemini's response_schema (the caller's
+    input_schema, with JSON-Schema keys Gemini doesn't support stripped).
+
+    Env: GEMINI_API_KEY (or GOOGLE_API_KEY); GEMINI_VISION_MODEL overrides the
+    default model id — if Google renames models, fix it there, not in code.
+    """
+
+    max_side = 3072  # Gemini tiles internally; larger effective resolution.
+
+    def __init__(self, api_key: str, model: str):
+        try:
+            from google import genai
+        except ImportError as e:
+            raise RuntimeError(
+                "google-genai not installed. pip install google-genai") from e
+        self._genai = genai
+        self._client = genai.Client(api_key=api_key)
+        self._model = model
+
+    @staticmethod
+    def _is_transient(exc: Exception) -> bool:
+        code = getattr(exc, "code", None) or getattr(exc, "status_code", None)
+        if isinstance(code, int):
+            return code == 429 or code >= 500
+        return isinstance(exc, (TimeoutError, ConnectionError, OSError))
+
+    @staticmethod
+    def _clean_schema(schema: Dict[str, Any]) -> Dict[str, Any]:
+        """Strip JSON-Schema keys Gemini's response_schema rejects, recursively."""
+        drop = {"additionalProperties", "$schema", "default"}
+        def walk(node):
+            if isinstance(node, dict):
+                return {k: walk(v) for k, v in node.items() if k not in drop}
+            if isinstance(node, list):
+                return [walk(v) for v in node]
+            return node
+        return walk(schema)
+
+    def _generate(self, parts: list, schema: Dict[str, Any], max_tokens: int) -> Dict[str, Any]:
+        from google.genai import types
+        # Gemini 3.x thinks by default and thinking tokens draw from the SAME
+        # output budget — a 4096 cap truncates structured JSON mid-stream
+        # (observed live on the mast_block plumbing check). Give it headroom.
+        cfg = types.GenerateContentConfig(
+            response_mime_type="application/json",
+            response_schema=self._clean_schema(schema),
+            max_output_tokens=max(max_tokens, 32768),
+        )
+        resp = _retry_generic(
+            lambda: self._client.models.generate_content(
+                model=self._model, contents=parts, config=cfg),
+            self._is_transient,
+        )
+        text = resp.text
+        if not text:
+            raise ValueError(f"Gemini returned no text (model={self._model}).")
+        try:
+            out = json.loads(text)
+        except json.JSONDecodeError as e:
+            finish = None
+            try:
+                finish = resp.candidates[0].finish_reason
+            except Exception:
+                pass
+            raise ValueError(
+                f"Gemini returned unparseable JSON (model={self._model}, "
+                f"finish_reason={finish}, {len(text)} chars; tail: "
+                f"...{text[-120:]!r})") from e
+        if not isinstance(out, dict):
+            raise ValueError(f"Gemini returned non-object JSON: {type(out).__name__}")
+        return out
+
+    def _image_part(self, image_bytes: bytes, media_type: str):
+        from google.genai import types
+        data, mt = _downscale(image_bytes, self.max_side)
+        return types.Part.from_bytes(data=data, mime_type=mt)
+
+    def describe(self, image_bytes, media_type, kind, context=None):
+        ctx_lines = ""
+        if context:
+            bits = [f"{k}: {v}" for k, v in context.items() if v]
+            if bits:
+                ctx_lines = ("\nKnown context (for grounding only — do not invent "
+                             "beyond the image): " + "; ".join(bits))
+        instructions = _KIND_INSTRUCTIONS.get(kind, _KIND_INSTRUCTIONS["figure"])
+        prompt = (f"{instructions}{ctx_lines}\n\n{_COMPONENT_RULES}\n\n"
+                  "Respond with the structured JSON result.")
+        out = self._generate([self._image_part(image_bytes, media_type), prompt],
+                             _FIGURE_TOOL["input_schema"], 4096)
+        parsed = _normalize_figure(out)
+        parsed["model"] = self._model
+        return parsed
+
+    def extract(self, image_bytes, media_type, prompt, tool_schema, max_tokens=4096):
+        out = self._generate([self._image_part(image_bytes, media_type), prompt],
+                             tool_schema["input_schema"], max_tokens)
+        out["_model"] = self._model
+        return out
+
+    def extract_multi(self, images, prompt, tool_schema, max_tokens=4096):
+        parts = []
+        for i, (img_bytes, mt_in) in enumerate(images, 1):
+            parts.append(f"IMAGE {i}:")
+            parts.append(self._image_part(img_bytes, mt_in))
+        parts.append(prompt)
+        out = self._generate(parts, tool_schema["input_schema"], max_tokens)
+        out["_model"] = self._model
+        return out
+
+    @property
+    def model_name(self) -> str:
+        return self._model
+
+
+class OpenAIVisionProvider(VisionProvider):
+    """
+    OpenAI GPT vision implementation (openai SDK). Same contract. Structured
+    output rides forced function-calling (the caller's tool schema becomes the
+    function's parameters — the closest mirror of the Anthropic tool_choice
+    mechanism, so no schema rewriting for strict mode is needed).
+
+    Env: OPENAI_API_KEY; OPENAI_VISION_MODEL overrides the default model id.
+    """
+
+    max_side = 2048  # OpenAI high-detail input cap.
+
+    def __init__(self, api_key: str, model: str):
+        try:
+            from openai import OpenAI
+        except ImportError as e:
+            raise RuntimeError("openai not installed. pip install openai") from e
+        self._client = OpenAI(api_key=api_key)
+        self._model = model
+
+    @staticmethod
+    def _is_transient(exc: Exception) -> bool:
+        import openai
+        if isinstance(exc, (openai.APIConnectionError, openai.APITimeoutError,
+                            openai.RateLimitError)):
+            return True
+        status = getattr(exc, "status_code", None)
+        return isinstance(status, int) and (status == 429 or status >= 500)
+
+    def _image_block(self, image_bytes: bytes, media_type: str) -> Dict[str, Any]:
+        data, _mt = _downscale(image_bytes, self.max_side)
+        b64 = base64.b64encode(data).decode()
+        return {"type": "image_url",
+                "image_url": {"url": f"data:image/png;base64,{b64}", "detail": "high"}}
+
+    def _call(self, content: list, tool_schema: Dict[str, Any], max_tokens: int) -> Dict[str, Any]:
+        tool = {"type": "function",
+                "function": {"name": tool_schema["name"],
+                             "description": tool_schema.get("description", ""),
+                             "parameters": tool_schema["input_schema"]}}
+        resp = _retry_generic(
+            lambda: self._client.chat.completions.create(
+                model=self._model,
+                max_completion_tokens=max_tokens,
+                tools=[tool],
+                tool_choice={"type": "function",
+                             "function": {"name": tool_schema["name"]}},
+                messages=[{"role": "user", "content": content}],
+            ),
+            self._is_transient,
+        )
+        calls = resp.choices[0].message.tool_calls or []
+        if not calls:
+            raise ValueError(
+                f"OpenAI returned no tool call (model={self._model}, "
+                f"finish={resp.choices[0].finish_reason}).")
+        out = json.loads(calls[0].function.arguments)
+        if not isinstance(out, dict):
+            raise ValueError(f"OpenAI returned non-object arguments: {type(out).__name__}")
+        return out
+
+    def describe(self, image_bytes, media_type, kind, context=None):
+        ctx_lines = ""
+        if context:
+            bits = [f"{k}: {v}" for k, v in context.items() if v]
+            if bits:
+                ctx_lines = ("\nKnown context (for grounding only — do not invent "
+                             "beyond the image): " + "; ".join(bits))
+        instructions = _KIND_INSTRUCTIONS.get(kind, _KIND_INSTRUCTIONS["figure"])
+        prompt = (f"{instructions}{ctx_lines}\n\n{_COMPONENT_RULES}\n\n"
+                  f"Call {_FIGURE_TOOL['name']} with the structured result.")
+        content = [self._image_block(image_bytes, media_type),
+                   {"type": "text", "text": prompt}]
+        parsed = _normalize_figure(self._call(content, _FIGURE_TOOL, 4096))
+        parsed["model"] = self._model
+        return parsed
+
+    def extract(self, image_bytes, media_type, prompt, tool_schema, max_tokens=4096):
+        content = [self._image_block(image_bytes, media_type),
+                   {"type": "text", "text": prompt}]
+        out = self._call(content, tool_schema, max_tokens)
+        out["_model"] = self._model
+        return out
+
+    def extract_multi(self, images, prompt, tool_schema, max_tokens=4096):
+        content = []
+        for i, (img_bytes, mt_in) in enumerate(images, 1):
+            content.append({"type": "text", "text": f"IMAGE {i}:"})
+            content.append(self._image_block(img_bytes, mt_in))
+        content.append({"type": "text", "text": prompt})
+        out = self._call(content, tool_schema, max_tokens)
+        out["_model"] = self._model
+        return out
+
+    @property
+    def model_name(self) -> str:
+        return self._model
+
+
+# ---------------------------------------------------------------------------
+# Factory + per-drawing-class routing
+#
+# VISION_ROUTES maps a task class to a vendor, e.g. in .env:
+#   VISION_ROUTES=electrical:gemini,hydraulic_schematic:anthropic,pid:openai
+# Unrouted classes (and no task_class at all) use VISION_PROVIDER (default
+# anthropic). Vendor model ids come from VISION_MODEL / GEMINI_VISION_MODEL /
+# OPENAI_VISION_MODEL — model renames are an env edit, never a code edit.
+# Routing is set from the engineer-graded benchmark (tests/vision_bench.py),
+# never from vibes.
+# ---------------------------------------------------------------------------
+
+_PROVIDER_CACHE: Dict[str, VisionProvider] = {}
+
+
+def _make_provider(vendor: str) -> VisionProvider:
+    vendor = vendor.lower().strip()
+    if vendor in _PROVIDER_CACHE:
+        return _PROVIDER_CACHE[vendor]
+    if vendor == "anthropic":
         api_key = os.getenv("ANTHROPIC_API_KEY")
         if not api_key:
             raise RuntimeError("ANTHROPIC_API_KEY not set in .env")
-        model = os.getenv("VISION_MODEL", "claude-sonnet-4-6")
-        return AnthropicVisionProvider(api_key=api_key, model=model)
-    raise NotImplementedError(f"VISION_PROVIDER='{provider}' not implemented.")
+        model = os.getenv("VISION_MODEL", "claude-sonnet-5")
+        p: VisionProvider = AnthropicVisionProvider(api_key=api_key, model=model)
+    elif vendor == "gemini":
+        api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
+        if not api_key:
+            raise RuntimeError("GEMINI_API_KEY (or GOOGLE_API_KEY) not set in .env")
+        model = os.getenv("GEMINI_VISION_MODEL", "gemini-3.1-pro-preview")
+        p = GeminiVisionProvider(api_key=api_key, model=model)
+    elif vendor == "openai":
+        api_key = os.getenv("OPENAI_API_KEY")
+        if not api_key:
+            raise RuntimeError("OPENAI_API_KEY not set in .env")
+        model = os.getenv("OPENAI_VISION_MODEL", "gpt-5.6-sol")
+        p = OpenAIVisionProvider(api_key=api_key, model=model)
+    else:
+        raise NotImplementedError(f"vision vendor '{vendor}' not implemented "
+                                  f"(anthropic | gemini | openai).")
+    _PROVIDER_CACHE[vendor] = p
+    return p
+
+
+def _routes() -> Dict[str, str]:
+    raw = os.getenv("VISION_ROUTES", "")
+    routes: Dict[str, str] = {}
+    for pair in raw.split(","):
+        if ":" in pair:
+            k, v = pair.split(":", 1)
+            routes[k.strip().lower()] = v.strip().lower()
+    return routes
+
+
+def get_vision_provider(task_class: Optional[str] = None) -> VisionProvider:
+    """
+    Factory: return the vision provider for a drawing/task class.
+
+    task_class (optional): e.g. "hydraulic_schematic", "electrical", "pid",
+    "ga", "plc", "photo". Looked up in VISION_ROUTES; unrouted classes fall
+    back to the VISION_PROVIDER default. Callers that don't know their class
+    call with no argument and get the default — fully backward compatible.
+    """
+    default_vendor = os.getenv("VISION_PROVIDER", "anthropic")
+    vendor = default_vendor
+    if task_class:
+        vendor = _routes().get(task_class.lower(), default_vendor)
+    return _make_provider(vendor)

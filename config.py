@@ -23,6 +23,14 @@ LOGS_DIR = PROJECT_ROOT / "logs"
 for d in (DATA_DIR, DOCUMENTS_DIR, CHROMA_DIR, STATE_DIR, LOGS_DIR):
     d.mkdir(parents=True, exist_ok=True)
 
+# --- Tokenizer cache (offline-first) ---
+# tiktoken downloads its encoding file on first use; pin its cache inside the
+# repo so a seeded cache travels with the project and ingestion works offline.
+# Must be set BEFORE tiktoken loads — config is imported first everywhere.
+# Seed once while online: python3 -m tools.seed_tiktoken_cache
+TIKTOKEN_CACHE_DIR = DATA_DIR / "tiktoken_cache"
+os.environ.setdefault("TIKTOKEN_CACHE_DIR", str(TIKTOKEN_CACHE_DIR))
+
 # --- Ingestion pipeline ---
 CHUNK_SIZE_TOKENS = int(os.getenv("CHUNK_SIZE_TOKENS", "500"))
 CHUNK_OVERLAP_TOKENS = int(os.getenv("CHUNK_OVERLAP_TOKENS", "50"))

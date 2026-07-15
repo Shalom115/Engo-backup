@@ -1,5 +1,111 @@
 # Changelog
 
+## 2026-07-12 (2) — Multi-LLM vision routing + benchmark harness
+
+Engineer decision: use the best model per task — Claude for backbone/orchestration,
+the best vision model per DRAWING CLASS for reading, decided empirically by an
+engineer-graded benchmark (2 sheets per category × 3 providers through the full
+existing protocols). Plan: /root plan 'Multi-LLM Vision Routing'.
+
+### Added
+
+- **`providers/vision.py`** — (a) `extract`/`extract_multi` formalized on the
+  `VisionProvider` ABC (provider swap now fails at the interface, closing part
+  of deferred finding #6); (b) **`GeminiVisionProvider`** (google-genai SDK,
+  response_schema structured output, schema-cleaning for unsupported JSON-Schema
+  keys, max_side 3072) and **`OpenAIVisionProvider`** (openai SDK, forced
+  function-calling mirroring the Anthropic tool mechanism, max_side 2048), both
+  with the same transient-retry policy and the caller-owned gold-blind prompts
+  untouched; (c) **per-class routing**: `get_vision_provider(task_class)` reads
+  `VISION_ROUTES` (e.g. `electrical:gemini,hydraulic_schematic:anthropic`),
+  default vendor `VISION_PROVIDER`; model ids env-tunable
+  (`VISION_MODEL`/`GEMINI_VISION_MODEL`/`OPENAI_VISION_MODEL`).
+- **Claude vision upgrade**: default `VISION_MODEL` → `claude-sonnet-5`;
+  `max_side` is now model-dependent — **2576px** on Opus 4.7/4.8, Sonnet 5,
+  Fable 5 (high-res vision) vs 1568px on older models. The §4 crop-footprint
+  cap in `pipeline/schematic_extract.py` now derives from `vp.max_side`
+  instead of a hardcoded 1568. Part of the perceived 'Claude ceiling' was an
+  old-model resolution cap.
+- **`tests/vision_bench.py` + `tests/vision_bench_manifest.json`** — the
+  full-protocol benchmark: per (category × sheet × provider) runs the ENTIRE
+  existing loop (hydraulic discover_structure / electrical extract_sheet /
+  describe for classes without extractors), kill-safe ledger, per-run JSON
+  outputs, side-by-side engineer-grading report with agreement/unique-read
+  highlighting. 10 categories skeleton; engineer fills 2 sheets each.
+- **`tests/test_vision_providers.py`** — 8 offline tests (max_side by model,
+  prepare respects instance cap, ABC contract enforced, routing default/per-class/
+  unknown-vendor, Gemini schema cleaning, manifest sanity). Suite now 52/52.
+- `pipeline/schematic_extract.py` routes as `hydraulic_schematic`,
+  `pipeline/electrical_extract.py` as `electrical`.
+- `requirements.txt`: + `google-genai`, `openai`.
+
+### Notes / honest caveats
+
+- Gemini/OpenAI default model ids (`gemini-3-pro`, `gpt-5.2`) are env-tunable
+  and FAIL LOUD if renamed by the vendor — verify on the first cheap plumbing
+  run before the full benchmark.
+- Benchmark cost ≈ $40–100 full, ~$3 single-sheet plumbing check (engineer GO).
+- Deferred by design: deterministic word-box OCR provider (the locate-recall
+  fix), consensus/dual-read mode (built after routing results show which pairs
+  disagree usefully).
+
+
+## 2026-07-12 — Sanity-pass hardening (full-code review fixes)
+
+Full codebase sanity review (all ~13.6K lines) ran on 2026-07-12; these are the
+approved fixes for findings #1-5 + #8a/#10/#11. 12 new regression tests in
+`tests/test_sanity_fixes.py`; full suite 44/44 green.
+
+### Fixed
+
+- **`providers/vision.py`** — bounded retry/backoff (4 attempts, 2/5/15s) on
+  TRANSIENT Anthropic API errors (429/5xx/529/connection) in `describe()`,
+  `extract()`, `extract_multi()`. Permanent 4xx still fails loud immediately.
+  Closes the Gold-#2 crash class at the provider so every caller is covered.
+- **`providers/structure.py`** — same retry treatment for every Drive API call
+  (walk pagination, `file_meta`, `download_bytes`). 403/404 not retried.
+- **`pipeline/node_write.py`** — (a) Register + confirmation-list saves are now
+  ATOMIC (tmp + `os.replace`); a mid-write kill can no longer corrupt
+  `register_<vessel>.json`. (b) `_attach_fact` is idempotent on exact re-run
+  duplicates (same kind+value+source doc/sheet/page; bbox excluded from the key
+  since discovery re-runs drift coordinates) — re-processing a hydraulic sheet
+  no longer duplicates rating/actuation/cartridges/settings facts.
+- **`pipeline/node_match.py`** — retired nodes are never match targets
+  (`resolve()` + `_exact_make_boost`); 18 retired debris nodes could previously
+  win a match and silently receive facts. Also: empty-register guard.
+- **`pipeline/tokens.py` (new) + `pipeline/chunk.py` + `pipeline/parsers.py`** —
+  tiktoken encoder now loads LAZILY via a shared `get_encoder()`; module import
+  no longer downloads from the internet (verified live: `import pipeline.chunk`
+  failed offline pre-fix). Cache dir pinned repo-local
+  (`data/tiktoken_cache`, set in config.py). One-time online seeding:
+  `python3 -m tools.seed_tiktoken_cache` (new script; cache is committable).
+- **`providers/llm.py`** — `complete_messages` joins ALL text blocks instead of
+  trusting `content[0]`; raises a clear error if the response carries no text.
+- **`sensors/poller.py`** — (a) daily JSONL logs pruned after
+  `EXOCET_LOG_RETENTION_DAYS` (default 90; 0 disables) at startup + daily
+  rollover. (b) a CORRUPT rolling-state file is quarantined
+  (`.corrupt-<timestamp>`, loud error) and the monitor starts fresh instead of
+  staying down until a human deletes the file.
+- **`pipeline/ingest.py`** — directory ingest now recurses every
+  `PARSER_REGISTRY` type (was pdf/xlsx/docx only; missed .pptx/.csv).
+- **`pipeline/retrieve.py`** — HyDE dedup over-fetch 3x → 6x (full HyDE coverage
+  = up to 5 questions + self per chunk; 3x could under-fill top-k).
+- **`pipeline/ingest_suppliers.py` / `pipeline/visual_extract.py`** — two
+  genuinely silent `except` blocks now log.
+- **`requirements.txt`** — completed with everything the code actually imports
+  (Pillow, google-api-python-client, google-auth, python-pptx, requests,
+  matplotlib, pytest; supabase noted optional).
+
+### Deferred by engineer decision
+
+- #6 (abstract-interface drift: extract/extract_multi/delete_where/
+  set_metadata_where not on the ABCs) and #7 (vessel tokens hardcoded in
+  revision_gate/node_write defaults) → before vessel #2.
+- #9 (CLAUDE.md 153KB slimming) → needs engineer editorial call.
+- #8b/8c (Voyage silent dims default; LocalFsStorage key sanitization) → minor,
+  not done this pass.
+
+
 ## 2026-06-09 → 2026-06-10 — Full-corpus ingest + Suppliers fold-in
 
 Everything changed since the previous CLAUDE.md save (which ended at "Equipment

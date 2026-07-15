@@ -23,8 +23,10 @@ same kind) set the node's identity_status='conflict' with BOTH values+sources in
 from __future__ import annotations
 
 import json
+import os
 import re
 from datetime import datetime, timezone
+from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 import config
@@ -45,6 +47,16 @@ _CONTROL_MAP_SOURCE_TYPES = ("schematic", "hydraulic_schematic")
 
 def _norm(s: Optional[str]) -> str:
     return re.sub(r"[^a-z0-9]+", " ", (s or "").lower()).strip()
+
+
+def _atomic_write_json(path: Path, obj: Any) -> None:
+    """Write JSON via tmp file + os.replace so a mid-write kill never corrupts
+    the target. The Register is the single most valuable state artifact — it
+    gets at least the same write safety as the conversation store and the
+    poller state (which already used this pattern)."""
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    tmp.write_text(json.dumps(obj, indent=2))
+    os.replace(tmp, path)
 
 
 class NodeWriter:
@@ -139,11 +151,33 @@ class NodeWriter:
         return None, None, round(bscore, 2)
 
     # ---- fact attachment with provenance + conflict handling ----
+    @staticmethod
+    def _fact_dedupe_key(kind: str, value: Any, provenance: Dict[str, Any]) -> tuple:
+        """Identity of a fact for re-run idempotency: kind + exact value + the
+        SOURCE it was read from (doc/sheet/page). bbox is deliberately excluded —
+        discovery re-runs produce slightly different coordinates for the same
+        printed fact, and that must not defeat the dedupe. A DIFFERENT value from
+        the same source is NOT a duplicate (that's enrichment/conflict territory
+        and flows through normally)."""
+        vkey = json.dumps(value, sort_keys=True, default=str)
+        return (kind, vkey, provenance.get("drive_file_id") or provenance.get("source_doc"),
+                provenance.get("sheet"), provenance.get("page"))
+
     def _attach_fact(self, node_id: str, kind: str, value: Any,
                      provenance: Dict[str, Any], confidence: str) -> Dict[str, Any]:
         node = self.by_id[node_id]
         node.setdefault("facts", [])
         node.setdefault("identity_status", "pending")
+        # RE-RUN IDEMPOTENCY (2026-07-12): re-processing the same sheet must not
+        # duplicate its facts. The electrical row path already deduped upstream;
+        # this closes the gap for the hydraulic slice path (rating/actuation/
+        # cartridges/settings) and every other caller, at the single choke point.
+        new_key = self._fact_dedupe_key(kind, value, provenance)
+        for f in node["facts"]:
+            if self._fact_dedupe_key(f.get("kind", ""), f.get("value"),
+                                     f.get("provenance") or {}) == new_key:
+                return {"attached_to": node_id, "kind": kind, "conflict": False,
+                        "duplicate": True}
         fact = {"kind": kind, "value": value, "confidence": confidence,
                 "as_of": datetime.now(timezone.utc).date().isoformat(),
                 "provenance": provenance}
@@ -726,11 +760,11 @@ class NodeWriter:
             n += 1
             doc["entries"].append({"id": f"cf-{n:03d}", **fl, "engineer_comment": "", "status": "open"})
             added += 1
-        path.write_text(json.dumps(doc, indent=2))
+        _atomic_write_json(path, doc)
         return added
 
     def save(self) -> None:
         if self.dry_run:
             raise RuntimeError("dry_run=True: refusing to persist. Set dry_run=False for a real write.")
         self.reg["stats"]["entries"] = len(self.entries)
-        self.reg_path.write_text(json.dumps(self.reg, indent=2))
+        _atomic_write_json(self.reg_path, self.reg)

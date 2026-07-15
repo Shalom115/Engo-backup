@@ -1,0 +1,86 @@
+{
+  "comment": "Engineer-confirmed picks 2026-07-12. Pages are 0-based indexes (engineer's 'page 21' = index 20). Categories 7-10 are BLIND picks (never previously extracted or graded). Sheets resolve from local cache data/state/vision_bench/sheets/<name>.pdf first, then drive_file_id via the SA connector.",
+  "categories": [
+    {
+      "category": "1-hydraulic-manifold",
+      "protocol": "hydraulic",
+      "sheets": [
+        {"name": "mast_block", "drive_file_id": "153_Mfp7VqdV-12SgQKtj-i70PAN1cVZp", "page": 0},
+        {"name": "AFT_blockC", "drive_file_id": "1ICYzvr81sHDIVpxZRnlY8c0qda7XVbze", "page": 0},
+        {"name": "rev0_reference", "note": "engineer: extra reference sheet", "drive_file_id": "1zXvHdxFTcEMJnIqXZvQVqHCr69C6ZZVY", "page": 0}
+      ]
+    },
+    {
+      "category": "2-electrical-distribution-schedule",
+      "protocol": "electrical",
+      "sheets": [
+        {"name": "GM-111_24V-DC-distribution", "drive_file_id": "1YAmYWTTes5AD7NGLCGXRG86OENBH22Pl", "page": 14},
+        {"name": "GM-111a_emergency-supply", "drive_file_id": "1YAmYWTTes5AD7NGLCGXRG86OENBH22Pl", "page": 13}
+      ]
+    },
+    {
+      "category": "3-electrical-one-line",
+      "protocol": "electrical",
+      "sheets": [
+        {"name": "GM-102_230V-distribution", "drive_file_id": "1YAmYWTTes5AD7NGLCGXRG86OENBH22Pl", "page": 4},
+        {"name": "GM-110a_24V-service-supply", "drive_file_id": "1YAmYWTTes5AD7NGLCGXRG86OENBH22Pl", "page": 8}
+      ]
+    },
+    {
+      "category": "4-electrical-relay-terminal-wiring",
+      "protocol": "electrical",
+      "sheets": [
+        {"name": "GM-114a_bilge-system", "drive_file_id": "1YAmYWTTes5AD7NGLCGXRG86OENBH22Pl", "page": 19},
+        {"name": "GM-112_main-panel-A", "drive_file_id": "1YAmYWTTes5AD7NGLCGXRG86OENBH22Pl", "page": 16}
+      ]
+    },
+    {
+      "category": "5-pid-plumbed",
+      "protocol": "describe:plumbed_diagram",
+      "sheets": [
+        {"name": "bilge-and-fire-schematic", "drive_file_id": "1tVx08nD5vo0mvUlWKASsH631TJKHQpWp", "page": 0},
+        {"name": "raw-water-schematic-515", "drive_file_id": "1Wz27h7_pLhrOO-JREKM8jiKwJGJdN8Cw", "page": 0}
+      ]
+    },
+    {
+      "category": "6-plc-io",
+      "protocol": "describe:electrical_diagram",
+      "sheets": [
+        {"name": "AFT-PLC-rev4-p21", "drive_file_id": "12xqKtAiGm9AxCmkUlecsL9Bm-M0mZoVJ", "page": 20},
+        {"name": "AFT-PLC-rev4-p27", "drive_file_id": "12xqKtAiGm9AxCmkUlecsL9Bm-M0mZoVJ", "page": 26}
+      ]
+    },
+    {
+      "category": "7-building-ga",
+      "protocol": "describe:general_arrangement",
+      "sheets": [
+        {"name": "steering-system-ga", "note": "blind", "drive_file_id": "1nMMFBsFmLFnYMzorhbKOzCjBfATdrjzK", "page": 0},
+        {"name": "systems-ga-500-001b", "note": "blind", "drive_file_id": "1J93S36J-4ucdlMWGyA8iIotm2lF6lH2I", "page": 0}
+      ]
+    },
+    {
+      "category": "8-bae-interconnect-pinout",
+      "protocol": "describe:electrical_diagram",
+      "sheets": [
+        {"name": "bae-block-interconnect-p12", "note": "blind (landscape copy; p9 excluded — previously validated)", "drive_file_id": "1VcOrbEtWJMlsfk5oR94yRZkPy6IewiFl", "page": 11},
+        {"name": "bae-pinout-p31", "note": "blind", "drive_file_id": "1VcOrbEtWJMlsfk5oR94yRZkPy6IewiFl", "page": 30}
+      ]
+    },
+    {
+      "category": "9-class-c-garbled-font",
+      "protocol": "describe:general_arrangement",
+      "sheets": [
+        {"name": "er-trunking-680-004", "note": "blind, C2 — render garbled, vision floor test", "drive_file_id": "1RVQdTachTBi0gRxRfekV6gvuLa5tNoYy", "page": 0},
+        {"name": "termodinamica-wiring-rev0", "note": "blind, C1 — clean render", "drive_file_id": "1k9kj4bj71GoKeakBnmj5mGmkZmLuuwcK", "page": 0}
+      ]
+    },
+    {
+      "category": "10-photos-figures",
+      "protocol": "describe:photo",
+      "sheets": [
+        {"name": "harken-spares-photo-3325", "note": "blind", "drive_file_id": "1ocBwsRot3-cvPKJ6uGi_GE3tSNQ_w2iv", "page": 0},
+        {"name": "harken-spares-photo-3330", "note": "blind", "drive_file_id": "1-7fqZHZMLlpJdSECYjap7VXDMm9O4xm6", "page": 0}
+      ]
+    }
+  ]
+}

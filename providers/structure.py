@@ -27,14 +27,58 @@ shape without re-architecting.
 from __future__ import annotations
 
 import json
+import logging
 import os
+import time
 from abc import ABC, abstractmethod
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 import config
 
+logger = logging.getLogger("providers.structure")
+
 FOLDER_MIME = "application/vnd.google-apps.folder"
+
+# Bounded retry for TRANSIENT Drive-API failures (network timeout, 429 rate
+# limit, 5xx). The Gold #2 run died on a one-shot download timeout and the fix
+# went into a single script — this puts it at the PROVIDER so every caller
+# (walks, downloads, metadata reads) is covered. Permanent errors (403/404 —
+# no access / no such file) are NOT retried.
+_RETRY_ATTEMPTS = 4
+_RETRY_BACKOFF = (2.0, 5.0, 15.0)  # seconds between attempts
+
+
+def _is_transient_drive_error(exc: Exception) -> bool:
+    """True for rate-limit / server-side / network errors worth retrying."""
+    try:
+        from googleapiclient.errors import HttpError  # type: ignore
+    except ImportError:
+        HttpError = ()  # type: ignore[assignment]
+    if isinstance(exc, HttpError):
+        status = exc.resp.status if exc.resp is not None else 0
+        return status == 429 or status >= 500
+    # socket timeouts, connection resets, DNS blips
+    return isinstance(exc, (TimeoutError, ConnectionError, OSError))
+
+
+def _execute_with_retry(request):
+    """request.execute() with bounded retry on transient errors only."""
+    last_exc: Exception | None = None
+    for attempt in range(_RETRY_ATTEMPTS):
+        try:
+            return request.execute()
+        except Exception as e:
+            if not _is_transient_drive_error(e):
+                raise
+            last_exc = e
+            if attempt < _RETRY_ATTEMPTS - 1:
+                backoff = _RETRY_BACKOFF[min(attempt, len(_RETRY_BACKOFF) - 1)]
+                logger.warning("Transient Drive-API error (attempt %d/%d): %s — "
+                               "retrying in %.0fs", attempt + 1, _RETRY_ATTEMPTS, e, backoff)
+                time.sleep(backoff)
+    assert last_exc is not None
+    raise last_exc
 
 
 class StructureProvider(ABC):
@@ -146,7 +190,7 @@ class GoogleDriveStructureProvider(StructureProvider):
             parent = frontier.pop()
             page_token = None
             while True:
-                resp = self._service.files().list(
+                resp = _execute_with_retry(self._service.files().list(
                     q=f"'{parent}' in parents and trashed=false",
                     fields=("nextPageToken, files(id, name, mimeType, "
                             "size, fileExtension, modifiedTime)"),
@@ -154,7 +198,7 @@ class GoogleDriveStructureProvider(StructureProvider):
                     pageToken=page_token,
                     supportsAllDrives=True,
                     includeItemsFromAllDrives=True,
-                ).execute()
+                ))
                 for f in resp.get("files", []):
                     is_folder = f["mimeType"] == FOLDER_MIME
                     nodes[f["id"]] = {
@@ -206,11 +250,11 @@ class GoogleDriveStructureProvider(StructureProvider):
         by id that were never part of a tree walk (e.g. handover docs outside
         SWS 108-01), so the caller can route the parser without guessing.
         """
-        return self._service.files().get(
+        return _execute_with_retry(self._service.files().get(
             fileId=file_id,
             fields="id, name, mimeType, size, fileExtension, modifiedTime",
             supportsAllDrives=True,
-        ).execute()
+        ))
 
     def download_bytes(self, file_id: str, mime: str):
         """
@@ -220,11 +264,11 @@ class GoogleDriveStructureProvider(StructureProvider):
         """
         if mime in self._EXPORT:
             target, suffix = self._EXPORT[mime]
-            data = self._service.files().export_media(
-                fileId=file_id, mimeType=target).execute()
+            data = _execute_with_retry(self._service.files().export_media(
+                fileId=file_id, mimeType=target))
             return data, suffix
-        data = self._service.files().get_media(
-            fileId=file_id, supportsAllDrives=True).execute()
+        data = _execute_with_retry(self._service.files().get_media(
+            fileId=file_id, supportsAllDrives=True))
         return data, None
 
 

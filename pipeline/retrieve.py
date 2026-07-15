@@ -82,9 +82,11 @@ def search(
     store = get_vectorstore_provider()
 
     vec = embedder.embed([query], input_type="query")[0]
-    # Over-fetch by 3× so deduplication (HyDE entries per source chunk) still
-    # yields k distinct source chunks after filtering.
-    results = store.search(vector=vec, k=k * 3, filters=filters)
+    # Over-fetch by 6× so deduplication (HyDE entries per source chunk) still
+    # yields k distinct source chunks after filtering. With full HyDE coverage
+    # a chunk carries up to 5 question entries + itself, so a 3× over-fetch
+    # could collapse to fewer than k distinct chunks in the worst case.
+    results = store.search(vector=vec, k=k * 6, filters=filters)
     results = _dedup_hyde(results, k)
 
     # Cosine distance in ChromaDB is in [0, 2]: 0 = identical, 1 = orthogonal, 2 = opposite.

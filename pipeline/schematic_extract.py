@@ -273,7 +273,7 @@ def locate_and_read(
     callouts aren't clipped. De-duplicated by location. Returns
     [{sheet_bbox, read, deg, locate_text}]. Fully automated.
     """
-    vp = get_vision_provider()
+    vp = get_vision_provider("hydraulic_schematic")
     page = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=dpi)
     px0, px1 = max(0.0, x0 - x_pad), min(1.0, x1 + x_pad)
     out: List[Dict[str, Any]] = []
@@ -328,17 +328,18 @@ def detail_subtile(
     Read ONE tight sub-tile (normalized box) from a high-DPI page render.
 
     CROP FOOTPRINT, not render DPI, is the binding constraint: the provider caps
-    the long edge to MAX_SIDE (~1568px), so a full-height slice crushes the
+    the long edge to its max_side (1568px on pre-4.7 Claude, 2576px on Sonnet 5 /
+    Opus 4.8, 3072px Gemini, 2048px OpenAI), so an oversized crop crushes the
     cartridge text to noise. Keep the box's long edge at/under the cap (and ideally
     make WIDTH the long edge by limiting height) so the small labels survive.
     Returns {detail, crop_px, phys_mm, eff_dpi_after_cap}.
     """
-    vp = get_vision_provider()
+    vp = get_vision_provider("hydraulic_schematic")
     page = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=dpi)
     tile, (cw, ch) = _crop_box(page, x0, y0, x1, y1)
     res = vp.extract(tile, "image/png", _DETAIL_PROMPT, _DETAIL_TOOL)
     long_edge = max(cw, ch)
-    cap = min(1.0, 1568 / long_edge)  # provider downscale factor
+    cap = min(1.0, vp.max_side / long_edge)  # provider downscale factor (model-dependent)
     return {
         "detail": res,
         "crop_px": [cw, ch],
@@ -368,7 +369,7 @@ def discover_structure(
     legends, notes, passes}. Detail pass is per DISCOVERED slice (count is
     never assumed).
     """
-    vp = get_vision_provider()
+    vp = get_vision_provider("hydraulic_schematic")
 
     # PASS 0 — legends first (steps 0-2 of the sheet-reading sequence)
     legends: Dict[str, Any] = {"tables": [], "context_block": legend_context}

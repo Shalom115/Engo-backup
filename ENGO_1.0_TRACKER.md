@@ -339,3 +339,38 @@ All frontmatter-valid, tight (500-725 words), every referenced module/function v
 2. **Ground-truth regression suite** (`tests/glossary_goldens.json` + `test_glossary_goldens.py`, gap #2): 18 red-pen rulings as label→type/disposition/node goldens; runner asserts the glossary still states each confirmed rule + node-rulings survive in the live Register/load-map. The net that catches an XA-tap-class regression in seconds. Append new rulings as they land. 4 tests.
 3. **Deterministic symbol CV** (`pipeline/symbol_detect.py`, gap #3): OpenCV diamond detection (the biggest misread class) — 20 candidates on GMMS-101, circularity filter rejects gauges; `confirm_wire_gauge_diamonds` combines Tool1+Tool3 (diamond=NUMBER vs gauge=LETTER) so vector sheets self-validate free, image sheets get exact WHERE (no locate lottery) + the same content filter at the vision read. Honest: residual gauge FPs filtered at the read step. 3 tests.
 Deps added: pymupdf, opencv-python-headless. **Two NEW rules drafted for engineer approval (batch 4): MULTI-CORE CABLE (thick line + numbered legs = cable between 2 T/S, MUx-N label; wire/terminal not equipment) + FUSED TERMINAL symbol. BAE 4-mode operating knowledge (S3/S4 EV/HEV/CHEV/shore) applied to the BAE-system node — locked-fact candidate flagged.**
+
+## N. SANITY-PASS HARDENING (2026-07-12, engineer-approved after full-code review)
+| Item | Status |
+|---|---|
+| #1 Retry/backoff in vision + Drive PROVIDERS (transient 429/5xx/529/network; permanent 4xx still fail-loud) | ✅ |
+| #2 Atomic Register + confirmation-list saves (tmp + os.replace) | ✅ |
+| #3 Retired nodes excluded from §9e matching (resolve + exact-make boost) | ✅ |
+| #4 Fact idempotency on exact re-runs (single choke point in _attach_fact; bbox excluded from key) | ✅ |
+| #5 tiktoken lazy-load + repo-local cache + seeder script; requirements.txt completed | ✅ |
+| #8a LLM multi-text-block join (content[0] fragility) | ✅ |
+| #10 Poller daily-log retention (EXOCET_LOG_RETENTION_DAYS=90) + corrupt-state quarantine | ✅ |
+| #11 Directory ingest covers all PARSER_REGISTRY types; HyDE over-fetch 3x→6x; 2 silent excepts now log | ✅ |
+| 12 regression tests in tests/test_sanity_fixes.py; full suite 44/44 | ✅ |
+| #6 Abstract-interface drift (extract/extract_multi/delete_where/set_metadata_where → ABCs) | ⬜ before vessel #2 |
+| #7 Vessel tokens hardcoded in general pipeline (revision_gate 108-01 regex/_OVERRIDES; node_write 652 default) | ⬜ before vessel #2 |
+| #9 CLAUDE.md slimming (153KB auto-loads every session) | 🔴 engineer editorial call |
+| #8b Voyage silent dims default · #8c LocalFsStorage key sanitization | ⬜ minor, unscheduled |
+| ONE-TIME ACTION for the boat laptop: run `python3 -m tools.seed_tiktoken_cache` once online (then commit data/tiktoken_cache) | 🔴 engineer |
+
+
+## O. MULTI-LLM VISION ROUTING + BENCHMARK (2026-07-12, engineer-approved plan)
+| Item | Status |
+|---|---|
+| Claude vision upgrade: VISION_MODEL default claude-sonnet-5, model-dependent max_side (2576px high-res on 4.7+/Sonnet 5), §4 crop cap parameterized | ✅ |
+| VisionProvider ABC formalized (extract/extract_multi on the interface) | ✅ |
+| GeminiVisionProvider + OpenAIVisionProvider (same contract, gold-blind prompts unchanged, retry policy shared) | ✅ built, ⬜ live-verified (needs GEMINI_API_KEY / OPENAI_API_KEY) |
+| Per-class routing: get_vision_provider(task_class) + VISION_ROUTES env map | ✅ |
+| Benchmark harness tests/vision_bench.py (full protocol per provider, ledger, grading report) | ✅ built |
+| Benchmark manifest — 10 categories × 2 sheets | 🔴 engineer picks the sheets (tests/vision_bench_manifest.json) |
+| API keys GEMINI_API_KEY + OPENAI_API_KEY in .env | 🔴 engineer |
+| $3 single-sheet plumbing check (mast_block × 3 providers) | 🔴 cost gate — engineer GO |
+| Full benchmark run (~$40-100) + engineer grading → VISION_ROUTES set from results | 🔴 after plumbing check |
+| Consensus/dual-read mode (the 2000-item list shrinker) | ⬜ design ready, build after routing results |
+| Deterministic word-box OCR provider (locate-recall fix) | ⬜ propose after benchmark |
+| 8 new offline tests; suite 52/52 | ✅ |

@@ -356,9 +356,10 @@ def _expand_paths(args: List[str]) -> List[Path]:
             # User passed an unexpanded glob (quoted on CLI) — expand here.
             out.extend(sorted(Path().glob(a)))
         elif p.is_dir():
-            out.extend(sorted(p.rglob("*.pdf")))
-            out.extend(sorted(p.rglob("*.xlsx")))
-            out.extend(sorted(p.rglob("*.docx")))
+            # Recurse every type the registry supports (kept in sync with
+            # PARSER_REGISTRY so a newly supported type isn't silently skipped).
+            for suffix in sorted(PARSER_REGISTRY):
+                out.extend(sorted(p.rglob(f"*{suffix}")))
         else:
             out.append(p)
     return out
