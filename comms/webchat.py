@@ -47,6 +47,29 @@ def _history(conversation_id: str) -> List[Dict[str, Any]]:
     ]
 
 
+def _conversations() -> List[Dict[str, Any]]:
+    """All saved conversations, newest first: id, updated_at, first question."""
+    conv_dir = conversation_path("x").parent
+    out: List[Dict[str, Any]] = []
+    if not conv_dir.exists():
+        return out
+    for p in conv_dir.glob("*.json"):
+        try:
+            data = json.loads(p.read_text(encoding="utf-8"))
+            turns = data.get("turns", [])
+            title = turns[0]["question"] if turns else "(empty)"
+            out.append({
+                "id": data.get("conversation_id", p.stem),
+                "updated_at": data.get("updated_at", ""),
+                "title": title[:80],
+                "n_turns": data.get("turns_compressed", 0) + len(turns),
+            })
+        except (ValueError, KeyError, json.JSONDecodeError):
+            continue  # corrupt file: skip in the list, fail loud on open
+    out.sort(key=lambda c: c["updated_at"], reverse=True)
+    return out
+
+
 class _Handler(BaseHTTPRequestHandler):
     """One request handler; the LLM call is synchronous per request."""
 
@@ -67,6 +90,8 @@ class _Handler(BaseHTTPRequestHandler):
             self.send_header("Content-Length", str(len(body)))
             self.end_headers()
             self.wfile.write(body)
+        elif parsed.path == "/api/conversations":
+            self._send_json({"conversations": _conversations()})
         elif parsed.path == "/api/history":
             cid = parse_qs(parsed.query).get("cid", [""])[0].strip()
             if not cid:
