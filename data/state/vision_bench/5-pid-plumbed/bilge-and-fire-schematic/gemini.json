@@ -1,0 +1,380 @@
+{
+  "content_type": "plumbed_diagram",
+  "description": "This is a detailed plumbed system diagram showing the bilge and fire system schematic for a marine vessel. It includes a general arrangement view at the top, showing the physical layout of the vessel with various compartments and equipment locations. The bottom half contains the schematic diagram with specific components like pumps, valves, strainers, and piping. Key areas include the lazarette, tender garage, midship sump, engine room sump, mast area sump, ESS enclosure, and sail locker sump. A symbols legend and various tables provide additional details such as pipe details, bill of materials, pump data, pipe legend, drawing specific notes, standard notes, and an approval block.",
+  "transcription": "PIPING DETAILS\nPIPE SWS CODE OEM/SUPPLIER MODEL DETAILS RATING MATERIAL DESCRIPTION WEIGHT (kg/m)\nff38 U026 VETUS MAXWELL SA FFHOSE38 38mm 1-1/2\", 50mm OD ISO 7840 MARINE FUEL A2 NBR RUBBER, STEEL SPIRAL FUEL 7840 A2 38MM VETUS 1.1\nff51 U0212 VETUS MAXWELL SA FFHOSE51 51mm 2\", 63mm OD ISO 7840 MARINE FUEL A2 NBR RUBBER, STEEL SPIRAL FUEL 7840 A2 51MM VETUS 1.5\nmw25 U052 VETUS MAXWELL SA MWHOSE25 25mm 1\", 34mm OD EPDM RUBBER, STEEL SPIRAL MARINE WATER 25MM VETUS 0.51\npvc25 PVC005D G I TRADE OPTIONS 25mm 1\", 21.4mm ID PVC 25MM PVC PIPE/MTR 0.15\nsea42 WO090 W&O Supply Inc 876000.042x001.5 DN40 42x1.5mm CuNiFe 90/10 PIPE 42MM SEAPRESS 1.68\nsea54 WO099 W&O Supply Inc 876000.054 B6019 DN50 54x1.5mm CuNiFe 90/10 PIPE 54MM SEAPRESS 2.17\nsf15 SF002 G I TRADE OPTIONS 15BPEX-20x3L 15 x 3 mm PEX 15MM S/F PIPE\nth51 - IBERICA DE MANGUERAS THOR 20Mt 50mm 2\" ISO 15540 FIRE RESISTANT RUBBER, FIBRE-REINFORCED EASYFLEX 51MM HOSE 2.2\n\nBILL OF MATERIALS\nITEM QTY CLASS MAKE/SUPPLIER SWS CODE DESCRIPTION WEIGHT (kg)\nNo. UNIT/DESCRIPTION TYPE DRY WET/m\n001 01 MAIN BILGE PUMP FEIT PUMPS Centrifugal pump, 24VDC, 200 lpm 22 22\n002 01 DIESEL FIRE PUMP AUSTRALIAN PUMP YANMAR L48 Diesel YAN002 22 22\n003 01 AUXILARY BILGE PUMP CENTRAL BOATING WHALE 2054 GULPER 320 24V Pump SPA290 1.6 1.6\n004 01 OIL REMOVAL CARTRIDGE FILTER WAVESTREAM #N/A 1/2\n005 01 SEAWATER/BILGE STRAINER GUIDI SRL ART 1162 STRAINER 1\"1/2 GDX1162 7.8 23.4\n006 01 BILGE PICKUP STRUMBOX CENTRAL BOATING AMAZONE STRUMBOX INT002 0.16 1.28\n007 01 HIGH LEVEL BILGE ALARM SWITCH VEGA Capacitive level switch Transistor with IO-Link VEGAPOINT 21 0.25 1.25\n008 01 PRESSURE RELIEF VALVE G I TRADE OPTIONS 3bar SET PRESSURE 1.5 1.5\n009 01 NON RETURN VALVE 2\u00bd\" GUIDI SRL ART 1532 2\u00bd\" NON RETURN VALVE GDX1500 1.5 7.5\n010 01 BALL VALVE 1\u00bd\" GUIDI SRL ART 2070 BALLVALVE 1 1/2 GDX1112 1.32 2.64\n011 01 BALL VALVE 2\" GUIDI SRL ART 2070 BALLVALVE 2\" GDX1122 1.98 9.9\n012 01 ANTI-SIPHON MANIFOLD SWS CUSTOM 316L S/STEEL 2.5 2.5\n013 01 SIPHONBREAK VALVE GUIDI SRL ART 1250 SIPHON BREAK VALVE GDX095 0.18 0.18\n014 01 BALL VALVE 3-WAY 'L PORT 1\" G I TRADE OPTIONS 1\" 3 WAY S/S BALLVALVES BAL023 1 1\n015 01 BALL VALVE 3-WAY 'L PORT 2\" G I TRADE OPTIONS 2\" L Port 3 way ball valve GIT136 3.5 3.5\n016 01 ELECTRIC ROTARY ACTUATOR BURKERT FLUID CONTROL SYS Motorized rotary actuator BURK005 5.6 28\n017 01 BALL VALVE, 2 WAY, 316 SS, 2\" BURKERT FLUID CONTROL SYS 2658 - Ball Valve ON/OFF BURK002 3.5 17.5\n018 01 FIRE HYDRANT VALVE #N/A #N/A 2.2 4.4\n019 01 FIRE HOSE #N/A #N/A 7 14\n020 01 FIRE HOSE NOZZLE #N/A #N/A 4 8\n021 04 GARDENA-TYPE TAP CONNECTOR AFRICAN PRESSING EXPERTS 1/2\" GARDENA S/S FITTINGS U00771 0.2 0.8\n022 01 WATER MIST SPRAY HEAD #N/A #N/A 0.3 0.3\n023 03 BALL VALVE - MINI 1/2\" G I TRADE OPTIONS 1/2\" CAD MINI BALLVALVES BAL004 0.25 0.75\n024 01 ELECTRIC FIRE PUMP GIANNESCHI SRL ACB 431 B 24V CC 1.5KW 1500rpm GIA-010ACC9431 50 50\n025 04 AUXILIARY BILGE ALARM SWITCH GEMS SENSORS Float switch, S/Steel 316, N.O. 0.25 1\n026 03 BALL VALVE, 2 WAY, 1\" GUIDI SRL ART 2070 BALLVALVE 1\" GDX101 1.2 3.6\n\nSYMBOLS LEGEND\nELECTRICAL MOTOR DRIVEN PUMP\nI.C.E. DRIVEN PUMP\nELECTRICAL MOTOR ACTUATED BALL VALVE\nBALL VALVE 2-WAY\nBALL VALVE 3-WAY\nFIRE HYDRANT\nFILTER/STRAINER\nBILGE SUMP STRUM BOX (with integrated non-return valve)\nFIRE SUPPRESSION SPRAY HEAD\nCONTROL PANEL\nLOCAL SWITCH\n\nTEXT LEGEND\nUnique Number (0X - not applicable)\nBOM Number (see BOM table)\nPipe Code (see PIPING DETAILS table)\nFlow Direction in Pipe\nNormally Open\nNormally Closed\nLevel Transducer\nLevel Indicator\nMotor\nSolenoid\nPressure Indicator\nEnergy Storage System (Li-Ion Main Service Batteries)\n\nPUMP DATA\nPUMP TYPE DETAILS FLOW RATE (l/min) (m\u00b3/h) POWER (kW) MAX HEAD (m)\nMAIN BILGE PUMP Feit VA 40B (24V DC) 300 18 0.75 17\nELECTRIC FIRE PUMP Gianneschi ACB431 (24V DC) 230 13.8 1.5 30\nDIESEL FIRE PUMP Aussie Pumps UF48 (Yanmar YDH50) 715 42.9 3.6 37\nMAIN ENGINE RAW WATER PUMP Cummins QSB4.5 Engine Pump 195 11.7 -\nAUXILARY BILGE PUMP Whale Gulper 320 (24V DC) 19 1.1 0.1 3\n\nPIPE LEGEND\nMAIN BILGE LINE - METALLIC\nFIRELINE - METALLIC\nAUX. BILGE LINE - PVC/FLEX\nFRESHWATER SUPPLY - FLEX\n\nDRAWING-SPECIFIC NOTES:\n1. TO BE READ IN CONJUNCTION WITH SEPARATE DWG:\n'108-01-520-002 BILGE & FIRE SYSTEM OPERATING MODES'\n2. ALL THRU-HULL VALVE SIZES ARE DETAILED IN DRG:\n'108-01-504-002 THRU-HULL BELOW DWL'\n\nSTANDARD NOTES\nDO NOT SCALE.\nDIMENSIONS TO BE \u00b10.5mm UNLESS OTHERWISE INDICATED.\nBREAK ALL SHARP EDGES OF METAL PARTS.\nALL PARTS WEIGHTS TO BE NOTED AFTER MANUFACTURING.\nDO NOT MEASURE OFF DRAWING. ASK DRAWING OFFICE\nFOR ANY MISSING INFORMATION.\n\nADDED ESS ENCLOSURE BILGE PICKUP\nFIRST ISSUE\nMODIFICATION\nSOUTHERN WIND\nBILGE & FIRE SYSTEM SCHEMATIC\nAPPROVED\nREVIEWED\nBy Hilton van Ginkel at 12:21 pm, Oct 03, 2022\nBy Michael Mclver at 12:09 pm, Oct 03, 2022\nDWG NO: 108-01-520-001\nSHEET: 1/1\nDRAWN: GE\nCape Town, South Africa\nTel: +27(0)21 637 8043\nwww.sws-yachts.com",
+  "components": [
+    {
+      "label": "018-01",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "015-01",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "019-01",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "020-01",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "002-01",
+      "bbox": null,
+      "confidence": "high",
+      "note": "pump"
+    },
+    {
+      "label": "011-01",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "022-01",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "011-03",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "009-05",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "016-01",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "017-01",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "010-01",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "006-01",
+      "bbox": null,
+      "confidence": "high",
+      "note": "pump"
+    },
+    {
+      "label": "007-01",
+      "bbox": null,
+      "confidence": "high",
+      "note": "pump"
+    },
+    {
+      "label": "006-02",
+      "bbox": null,
+      "confidence": "high",
+      "note": "pump"
+    },
+    {
+      "label": "006-03",
+      "bbox": null,
+      "confidence": "high",
+      "note": "pump"
+    },
+    {
+      "label": "007-02",
+      "bbox": null,
+      "confidence": "high",
+      "note": "pump"
+    },
+    {
+      "label": "025-01",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "011-04",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "006-04",
+      "bbox": null,
+      "confidence": "high",
+      "note": "pump"
+    },
+    {
+      "label": "006-05",
+      "bbox": null,
+      "confidence": "high",
+      "note": "pump"
+    },
+    {
+      "label": "014-02",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "003-02",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "014-03",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "004-01",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "021-01",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "025-02",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "007-03",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "025-03",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "016-03",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "017-03",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "016-04",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "017-04",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "007-04",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "025-04",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "006-06",
+      "bbox": null,
+      "confidence": "high",
+      "note": "pump"
+    },
+    {
+      "label": "006-07",
+      "bbox": null,
+      "confidence": "high",
+      "note": "pump"
+    },
+    {
+      "label": "021-03",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "014-01",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "003-01",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "021-04",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "026-03",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "026-01",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "026-02",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "006-0X",
+      "bbox": null,
+      "confidence": "high",
+      "note": "pump"
+    },
+    {
+      "label": "007-0X",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "024-01",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "023-01",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "005-02",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "009-04",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "005-03",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "023-02",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "001-01",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "012-01",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "013-01",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "006-08",
+      "bbox": null,
+      "confidence": "high",
+      "note": "pump"
+    },
+    {
+      "label": "007-05",
+      "bbox": null,
+      "confidence": "high",
+      "note": "pump"
+    },
+    {
+      "label": "016-05",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "017-05",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "010-01",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "008-01",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    },
+    {
+      "label": "018-02",
+      "bbox": null,
+      "confidence": "high",
+      "note": "valve"
+    }
+  ],
+  "model": "gemini-3.1-pro-preview"
+}

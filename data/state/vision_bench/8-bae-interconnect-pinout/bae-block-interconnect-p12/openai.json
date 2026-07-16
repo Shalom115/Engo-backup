@@ -1,0 +1,151 @@
+{
+  "content_type": "electrical_diagram",
+  "description": "Electrical interconnection/wiring sheet for two labelled connector/device groups, BEL1-S and BEL2-S. No breaker, fuse, switch, contactor, relay, PLC output, protective-device identifier, or protective-device rating is shown on this sheet; therefore no upstream overcurrent-protective device can be assigned without guessing. The only lines explicitly named as supplies are G3-S3S3 CHAIN_SUPPLY for BEL1-S and G3-S4S3 CHAIN_SUPPLY for BEL2-S; their upstream source/protection is not identified here. Likewise, VBATTERY RTN and CANA_Shield are returns/shields, and SYNC/CHAIN_OUTPUT lines are signal/interconnect conductors rather than separately identified power feeds.\n\nBEL1-S connector/device group (left half): printed pin/function mapping is I/O pin 2 = G3-S3S1 FREQ_SELECT; pin 7 = G3-S3R1 VBATTERY RTN; pin 11 = G3-S321 CHAIN_OUTPUT; pin 3 = G3-S3S2 SYNC; pin 1 = G3-S329 ENABLE, with the far end marked N/C; pin 8 = G3-S300a ADR_0, far end N/C; pin 9 = G3-S300b ADR_1, far end N/C; pin 5 = G3-S3AH CANA_HI; pin 6 = G3-S3AL CANA_LO; connector position N/C = G3-S3AS CANA_Shield; the remaining printed connector positions are 10 and 4, with G3-S3S3 CHAIN_SUPPLY printed adjacent to this portion of the connector. The upper interconnects are a BEL/RTN1 connector, a SYNC connector with terminals 10 and 3, and a CAN-A connector with Shield, HI, and LO. The drawing shows the SYNC conductors as a twisted pair and CANA_HI/CANA_LO as a twisted pair within a shield; CANA_Shield is distinct from the two data conductors. G3-S3R1 SYNC RTN is explicitly named on the return/synchronization run. FREQ_SELECT and ENABLE are the only explicitly named control/configuration points in this group; ADR_0 and ADR_1 are address/configuration signals, while CHAIN_OUTPUT, SYNC, CANA_HI, and CANA_LO are signal/interconnect lines. No local switch, panel switch, relay, PLC output, or alarm/monitoring tap is identified by readable label on this sheet.\n\nBEL2-S connector/device group (right half): printed pin/function mapping is I/O pin 2 = G3-S4S1 FREQ_SELECT; pin 7 = G3-S4R1 VBATTERY RTN; pin 11 = G3-S421 CHAIN_OUTPUT; pin 3 = G3-S4S2 SYNC; pin 1 = G3-S429 ENABLE, with the far end marked N/C; pin 8 = G3-S400a ADR_0, far end N/C; pin 9 = G3-S400b ADR_1, far end N/C; pin 5 = G3-S4AH CANA_HI; pin 6 = G3-S4AL CANA_LO; connector position N/C = G3-S4AS CANA_Shield; the remaining printed connector positions are 10 and 4, with G3-S4S3 CHAIN_SUPPLY printed adjacent to this portion of the connector. The upper interconnects are a BEL/RTN1 connector, a SYNC connector with terminals 9 and 4, and a CAN-A connector with Shield, HI, and LO. The drawing shows the SYNC conductors as a twisted pair and CANA_HI/CANA_LO as a twisted pair within a shield; CANA_Shield is distinct from the data conductors. G3-S4R1 SYNC_RTN is explicitly named on the return/synchronization run. FREQ_SELECT and ENABLE are explicitly named control/configuration points; ADR_0 and ADR_1 are address/configuration signals, while CHAIN_OUTPUT, SYNC, CANA_HI, and CANA_LO are signal/interconnect lines. No local switch, panel switch, relay, PLC output, or alarm/monitoring tap is identified by readable label on this sheet.\n\nTopology stated conservatively from the sheet: each BELx-S connector exposes CHAIN_SUPPLY and VBATTERY RTN together with frequency-select, enable, address, synchronization, chain-output, and CAN-A interconnects. The upper BEL/RTN1, SYNC, and CAN-A blocks are connector continuations; the sheet does not identify the ultimate powered load type (pump, valve, light, etc.) or the upstream protective device. N/C markings are preserved and must not be treated as connected controls. Cross-reference visible in the title block: WARNING: EXPORT CONTROLLED - SEE TITLE PAGE. The border/title information identifies 1905D023 and sheet 2; no readable 'see DWG' or other circuit continuation reference is present.",
+  "transcription": "BEL1-S\nI/O\n2\n7\n11\n3\n1\n8\n9\n5\n6\nN/C\n10\n4\nG3-S3S1 FREQ_SELECT\nG3-S3R1 VBATTERY RTN\nG3-S321 CHAIN_OUTPUT\nG3-S3S2 SYNC\nG3-S329 ENABLE\nG3-S300a ADR_0\nG3-S300b ADR_1\nG3-S3AH CANA_HI\nG3-S3AL CANA_LO\nG3-S3AS CANA_Shield\nG3-S3S3 CHAIN_SUPPLY\nN/C\nN/C\nN/C\nBEL\nRTN1\nSYNC\n10\n3\nCAN-A\nShield\nHI\nLO\nG3-S3R1 SYNC RTN\n\nBEL2-S\nI/O\n2\n7\n11\n3\n1\n8\n9\n5\n6\nN/C\n10\n4\nG3-S4S1 FREQ_SELECT\nG3-S4R1 VBATTERY RTN\nG3-S421 CHAIN_OUTPUT\nG3-S4S2 SYNC\nG3-S429 ENABLE\nG3-S400a ADR_0\nG3-S400b ADR_1\nG3-S4AH CANA_HI\nG3-S4AL CANA_LO\nG3-S4AS CANA_Shield\nG3-S4S3 CHAIN_SUPPLY\nN/C\nN/C\nN/C\nBEL\nRTN1\nSYNC\n9\n4\nCAN-A\nShield\nHI\nLO\nG3-S4R1 SYNC_RTN\n\nREVISIONS\nREV\nDESCRIPTION\nDATE\nAPPROVED\nD\n1905D023\n12\nBAE SYSTEMS PROPRIETARY INFORMATION\nUSE OR DISCLOSURE OF THIS INFORMATION IS SUBJECT TO THE\nRESTRICTIONS ON THE FIRST PAGE OF THIS DOCUMENT.\nBAE SYSTEMS\nCONTRACT No.\nCAGE CODE\nDWG No.\nREV\nSHEET 2\n89954\n1905D023\nD\nCOUNTR No. - NOT APPLICABLE\nWARNING: EXPORT CONTROLLED - SEE TITLE PAGE",
+  "components": [
+    {
+      "label": "BEL1-S",
+      "bbox": [
+        0.119,
+        0.794,
+        0.385,
+        0.85
+      ],
+      "confidence": "high",
+      "note": "Left connector/device group; readable pin designations include I/O, 2, 7, 11, 3, 1, 8, 9, 5, 6, N/C, 10, and 4."
+    },
+    {
+      "label": "BEL / RTN1",
+      "bbox": [
+        0.146,
+        0.294,
+        0.182,
+        0.382
+      ],
+      "confidence": "high",
+      "note": "Upper-left return connector associated with BEL1-S wiring."
+    },
+    {
+      "label": "SYNC / 10 / 3",
+      "bbox": [
+        0.184,
+        0.311,
+        0.233,
+        0.374
+      ],
+      "confidence": "high",
+      "note": "Upper-left synchronization connector; terminals 10 and 3 are readable."
+    },
+    {
+      "label": "CAN-A / Shield / HI / LO",
+      "bbox": [
+        0.249,
+        0.294,
+        0.314,
+        0.382
+      ],
+      "confidence": "high",
+      "note": "Upper-left CAN-A connector; shield and differential data conductors are separately labelled."
+    },
+    {
+      "label": "BEL2-S",
+      "bbox": [
+        0.414,
+        0.795,
+        0.626,
+        0.85
+      ],
+      "confidence": "high",
+      "note": "Right connector/device group; readable pin designations include I/O, 2, 7, 11, 3, 1, 8, 9, 5, 6, N/C, 10, and 4."
+    },
+    {
+      "label": "BEL / RTN1",
+      "bbox": [
+        0.411,
+        0.29,
+        0.448,
+        0.382
+      ],
+      "confidence": "high",
+      "note": "Upper-right return connector associated with BEL2-S wiring."
+    },
+    {
+      "label": "SYNC / 9 / 4",
+      "bbox": [
+        0.452,
+        0.315,
+        0.493,
+        0.375
+      ],
+      "confidence": "high",
+      "note": "Upper-right synchronization connector; terminals 9 and 4 are readable."
+    },
+    {
+      "label": "CAN-A / Shield / HI / LO",
+      "bbox": [
+        0.506,
+        0.293,
+        0.573,
+        0.382
+      ],
+      "confidence": "high",
+      "note": "Upper-right CAN-A connector; shield and differential data conductors are separately labelled."
+    },
+    {
+      "label": "G3-S3R1 SYNC RTN",
+      "bbox": [
+        0.171,
+        0.465,
+        0.22,
+        0.563
+      ],
+      "confidence": "medium",
+      "note": "Readable vertical wire-run label in left circuit."
+    },
+    {
+      "label": "G3-S4R1 SYNC_RTN",
+      "bbox": [
+        0.432,
+        0.463,
+        0.48,
+        0.563
+      ],
+      "confidence": "medium",
+      "note": "Readable vertical wire-run label in right circuit."
+    },
+    {
+      "label": "G3-S3S3 CHAIN_SUPPLY",
+      "bbox": [
+        0.327,
+        0.643,
+        0.355,
+        0.767
+      ],
+      "confidence": "medium",
+      "note": "Supply-net label beside the lower-left connector wiring; upstream protective device is not shown."
+    },
+    {
+      "label": "G3-S4S3 CHAIN_SUPPLY",
+      "bbox": [
+        0.589,
+        0.642,
+        0.615,
+        0.766
+      ],
+      "confidence": "medium",
+      "note": "Supply-net label beside the lower-right connector wiring; upstream protective device is not shown."
+    },
+    {
+      "label": "1905D023",
+      "bbox": [
+        0.058,
+        0.014,
+        0.111,
+        0.25
+      ],
+      "confidence": "medium",
+      "note": "Drawing identifier visible in the left-side revision/title area."
+    }
+  ],
+  "model": "gpt-5.6-sol"
+}

@@ -1,0 +1,63 @@
+{
+  "content_type": "photo",
+  "description": "Packaged Harken spare part on a dark surface. Equipment is Needle Roller Bearing, qty 2. New condition.",
+  "transcription": "HARKEN Code A72931800 Part Number A72931800 Customer Reference *0000000000* QTY 2 Description Needle Roller Bearing i20xi26x19 PO Number SWS108#1 ID13398 www.harken.com",
+  "components": [
+    {
+      "label": "HARKEN",
+      "bbox": [
+        0.31,
+        0.58,
+        0.35,
+        0.85
+      ],
+      "confidence": "medium",
+      "note": "Brand"
+    },
+    {
+      "label": "A72931800",
+      "bbox": [
+        0.35,
+        0.39,
+        0.38,
+        0.53
+      ],
+      "confidence": "medium",
+      "note": "Code"
+    },
+    {
+      "label": "A72931800",
+      "bbox": [
+        0.39,
+        0.39,
+        0.43,
+        0.53
+      ],
+      "confidence": "medium",
+      "note": "Part Number"
+    },
+    {
+      "label": "Needle Roller Bearing i20xi26x19",
+      "bbox": [
+        0.66,
+        0.36,
+        0.72,
+        0.54
+      ],
+      "confidence": "medium",
+      "note": "Description"
+    },
+    {
+      "label": "SWS108#1 ID13398",
+      "bbox": [
+        0.75,
+        0.36,
+        0.78,
+        0.54
+      ],
+      "confidence": "medium",
+      "note": "PO Number"
+    }
+  ],
+  "model": "gemini-3.1-pro-preview"
+}

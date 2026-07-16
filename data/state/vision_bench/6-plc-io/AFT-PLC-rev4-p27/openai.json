@@ -1,0 +1,129 @@
+{
+  "content_type": "electrical_diagram",
+  "description": "Electrical schematic sheet 27 of 27 for PLC analog-output module \u201c5 AO\u201d, WAGO type 750-559, CPU 750-8213, position 28. The module provides four analog control outputs to four winch valve/control devices through Connector Type H interfaces. No fuse, circuit breaker, switch, contactor, relay, or other protective device is drawn or identified on this sheet; therefore a protective-device identifier/rating and board/row cannot be extracted here. The only field supply shown is the +24 Vdc (field) bus entering from cross-reference 16.8A and continuing off-sheet to the right. The 0 V bus enters from cross-reference 20.7B and continues off-sheet to the right. Each remote Connector Type H circuit has Udc, Us, and GND: Udc is the +24 Vdc field supply, Us is the analog command/control signal from the applicable PLC AO channel, and GND is the common/return tied to the module M/0 V circuit. These analog signal lines are control commands, not protective power feeds. The module lower 0 V/common is bonded to the sheet 0 V bus by a wire marked \u201c04.6 BK 1,5\u201d (black, 1.5 mm\u00b2 as printed).\n\nCircuit 1 \u2014 Primary winch port, EV 10.5: valve/electrohydraulic control device (exact valve subtype is not explicitly printed). Supply path: incoming +24 Vdc (field), source cross-reference 16.8A \u2192 left vertical field-supply branch \u2192 Connector Type H terminal Udc \u2192 device interface. No protective device identifier or rating is shown on this sheet. Control path: PLC module 5 AO, AO-01 CH 01, terminal A1 \u2192 Us at Connector Type H \u2192 EV 10.5. Return/status reference: device GND \u2192 module M/0 V common. No separate status, feedback, monitoring, or alarm-system tap is shown. Connector cross-reference: \u201cCONNECTOR TYPE H (see sheet 4)\u201d.\n\nCircuit 2 \u2014 Secondary winch port, EV 10.4: valve/electrohydraulic control device (exact valve subtype is not explicitly printed). Supply path: incoming +24 Vdc (field), source cross-reference 16.8A \u2192 right vertical field-supply branch \u2192 Connector Type H terminal Udc \u2192 device interface. No protective device identifier or rating is shown. Control path: PLC 5 AO, AO-01 CH 02, terminal A2 \u2192 Us at Connector Type H \u2192 EV 10.4. Return/status reference: GND \u2192 module M/0 V. No separate status, feedback, monitoring, or alarm tap is drawn. Cross-reference: Connector Type H, see sheet 4.\n\nCircuit 3 \u2014 Primary winch stbd, EV 8.4: valve/electrohydraulic control device (exact valve subtype is not explicitly printed). Supply path: +24 Vdc (field), cross-reference 16.8A \u2192 left vertical branch \u2192 Connector Type H Udc \u2192 device interface. No protective-device identifier/rating is shown. Control path: PLC 5 AO, AO-01 CH 03, terminal A3 \u2192 Us at Connector Type H \u2192 EV 8.4. Return/status reference: GND \u2192 module M/0 V. No separate monitoring/alarm tap is shown. Cross-reference: Connector Type H, see sheet 4.\n\nCircuit 4 \u2014 Secondary winch stbd, EV 8.3: valve/electrohydraulic control device (exact valve subtype is not explicitly printed). Supply path: +24 Vdc (field), cross-reference 16.8A \u2192 right vertical branch \u2192 Connector Type H Udc \u2192 device interface. No protective-device identifier/rating is shown. Control path: PLC 5 AO, AO-01 CH 04, terminal A4 \u2192 Us at Connector Type H \u2192 EV 8.3. Return/status reference: GND \u2192 module M/0 V. No separate monitoring/alarm tap is shown. Cross-reference: Connector Type H, see sheet 4.\n\nPLC module topology: channels A1/A2 have corresponding M common terminals below; channels A3/A4 have corresponding M common terminals below. The four field circuits share the shown 24 Vdc field and 0 V distribution. The +24 Vdc and 0 V buses continue beyond this sheet as indicated by right-pointing arrows; their destination sheet/reference is printed only as \u201c--\u201d. Document title block identifies project SWS_108-1, title HYDRAULIC SYSTEM AUTOMATION, section AFT, revision 4, date 05/05/2026, client S.W. SHIPYARD, file SWS_108-1_AFT PLC.dwg.",
+  "transcription": "5 AO MODULE (POS.27) 750\u2013559 AO\u201302\n\n16.8A\n+24Vdc (field)\n+24Vdc (field)\n--\n\n5 AO\nTYPE: 750\u2013559\nCPU: 750\u20138213\nPOS.: 28\nA1 A2\nAO-01\nCH 01\nAO-01\nCH 02\nM M\n0V\n0V\nA3 A4\nAO-01\nCH 03\nAO-01\nCH 04\nM M\n0V\n0V\n750\u2013559\n\nUdc\nUs\nGND\nCONNECTOR TYPE H\n(see sheet 4)\nPrimary winch\nport\n(EV 10.5)\n\nUs\nUdc\nGND\nsecondary winch\nport\n(EV 10.4)\nCONNECTOR TYPE H\n(see sheet 4)\n\nUdc\nUs\nGND\nCONNECTOR TYPE H\n(see sheet 4)\nPrimary winch\nstbd\n(EV 8.4)\n\nUs\nUdc\nGND\nsecondary winch\nstbd\n(EV 8.3)\nCONNECTOR TYPE H\n(see sheet 4)\n\n04.6\nBK\n1,5\n\n20.7B\n0V\n0V\n--\n\nDiritti riservati in osservanza della norma DIN 34\n\n4  05/05/2026  SUBSTITUTE WINCHES MODULES FROM DIGITAL TO ANALOG\n0  21/03/2023  FIRST ISSUE\nREV\nDATE\nDRAWN\nCHECKED\nMODIFICATIONS\nMYT-Systems S.r.l.\nVia Borzoli, 39/130P\n16153 Genova (GE)\nITALY\nTel: +390185380903\nemail: info@myt-systems.com\nDRAWN:\nCHECKED:\nSCALE:\nFILE NAME:\nSWS_108-1_AFT PLC.dwg\nSHEET: 27 of 27\nMYT SYSTEMS\nJOB N\u00b0: --\nCLIENT: S.W. SHIPYARD\nPROJECT: SWS_108-1\nTITLE: HYDRAULIC SYSTEM AUTOMATION\nREV: 4\nSECTION: AFT\nDATE: 05/05/2026",
+  "components": [
+    {
+      "label": "5 AO / TYPE: 750-559 / CPU: 750-8213 / POS.: 28",
+      "bbox": [
+        0.484,
+        0.207,
+        0.602,
+        0.758
+      ],
+      "confidence": "high",
+      "note": "Central four-channel PLC analog-output module. Printed channel terminals A1, A2, A3, A4 and M/0V commons are visible."
+    },
+    {
+      "label": "Primary winch port (EV 10.5)",
+      "bbox": [
+        0.306,
+        0.406,
+        0.506,
+        0.509
+      ],
+      "confidence": "high",
+      "note": "Upper-left field valve/control circuit. Udc supply, Us analog command from AO-01 CH 01/A1, and GND return are shown through Connector Type H."
+    },
+    {
+      "label": "secondary winch port (EV 10.4)",
+      "bbox": [
+        0.522,
+        0.406,
+        0.738,
+        0.509
+      ],
+      "confidence": "high",
+      "note": "Upper-right field valve/control circuit. Udc supply, Us analog command from AO-01 CH 02/A2, and GND return are shown through Connector Type H."
+    },
+    {
+      "label": "Primary winch stbd (EV 8.4)",
+      "bbox": [
+        0.306,
+        0.574,
+        0.506,
+        0.675
+      ],
+      "confidence": "high",
+      "note": "Lower-left field valve/control circuit. Udc supply, Us analog command from AO-01 CH 03/A3, and GND return are shown through Connector Type H."
+    },
+    {
+      "label": "secondary winch stbd (EV 8.3)",
+      "bbox": [
+        0.522,
+        0.574,
+        0.738,
+        0.675
+      ],
+      "confidence": "high",
+      "note": "Lower-right field valve/control circuit. Udc supply, Us analog command from AO-01 CH 04/A4, and GND return are shown through Connector Type H."
+    },
+    {
+      "label": "+24Vdc (field)",
+      "bbox": [
+        0.108,
+        0.145,
+        0.916,
+        0.171
+      ],
+      "confidence": "high",
+      "note": "Top field-supply bus, incoming cross-reference 16.8A at left and continuing off-sheet at right."
+    },
+    {
+      "label": "0V",
+      "bbox": [
+        0.109,
+        0.849,
+        0.917,
+        0.873
+      ],
+      "confidence": "high",
+      "note": "Bottom common bus, incoming cross-reference 20.7B at left and continuing off-sheet at right."
+    },
+    {
+      "label": "CONNECTOR TYPE H (see sheet 4)",
+      "bbox": [
+        0.187,
+        0.405,
+        0.3,
+        0.454
+      ],
+      "confidence": "high",
+      "note": "Cross-reference for the upper-left EV 10.5 circuit."
+    },
+    {
+      "label": "CONNECTOR TYPE H (see sheet 4)",
+      "bbox": [
+        0.748,
+        0.405,
+        0.86,
+        0.454
+      ],
+      "confidence": "high",
+      "note": "Cross-reference for the upper-right EV 10.4 circuit."
+    },
+    {
+      "label": "CONNECTOR TYPE H (see sheet 4)",
+      "bbox": [
+        0.187,
+        0.572,
+        0.3,
+        0.622
+      ],
+      "confidence": "high",
+      "note": "Cross-reference for the lower-left EV 8.4 circuit."
+    },
+    {
+      "label": "CONNECTOR TYPE H (see sheet 4)",
+      "bbox": [
+        0.748,
+        0.572,
+        0.86,
+        0.622
+      ],
+      "confidence": "high",
+      "note": "Cross-reference for the lower-right EV 8.3 circuit."
+    }
+  ],
+  "model": "gpt-5.6-sol"
+}

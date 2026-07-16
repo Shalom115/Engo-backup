@@ -1,0 +1,224 @@
+{
+  "content_type": "electrical_diagram",
+  "description": "This diagram shows a CAN D STBD network topology. It details the connection sequence of various CAN devices on the network. \n\nStarting from the top left:\n- A **CAN Terminator 120 Ohm** connects to a **CAN Y CONNECTOR**.\n- This CAN Y CONNECTOR branches down to **24V RTN to CAN shield**. A NOTE here states: 'CAN Shield Ground should be located as close as possible to the 24V ground terminal without extending the CAN backbone.'\n- The main CAN line continues to the right, passing through a series of **CAN Y CONNECTOR**s. Each branches off to a different load device:\n    - **SCU**\n    - **DISPLAY NAV**\n    - **ESS**\n    - **EDN STBD**\n    - **HCP**\n    - **ECP3**\n    - **ECP4**\n    - **BCP**\n\nReturning to the beginning (top left), the first CAN Y CONNECTOR also branches down to another network segment:\n- It connects to a **CAN Y CONNECTOR**, which feeds an **ALARM NAV** device.\n\nFrom the branch going to ECP3/ECP4/BCP, the main line drops down and then runs left through the following components:\n- A **CAN Y CONNECTOR** that branches to a **CAN ISOLATOR**.\n- The CAN ISOLATOR feeds a **CAN Y CONNECTOR**, which in turn feeds a **BEL4** device.\n- The line from that CAN Y CONNECTOR continues left to a **CAN Terminator 120 Ohm**.\n\nFrom the CAN ISOLATOR on the line just described (feeding BEL4), the network branches back to the right, passing through:\n- Another **CAN ISOLATOR**.\n- Then a **CAN Y CONNECTOR**, which branches down to feed a **BEL3** device.\n- The line from that CAN Y CONNECTOR continues left to a **CAN Terminator 120 Ohm**.\n\nGoing back to the right from the CAN ISOLATOR (the one before the connection to BEL3), the line connects to:\n- A **CAN Y CONNECTOR**, which branches down to an **MC43** device.\n- The main line continues right to a **CIB STBD** device.\n- It also branches to an **ENG STBD with 120 Ohm** (terminator).",
+  "transcription": "G H D E F A B C 3 4 5 6 7 8 9 10 11 12 13 14 15 16 CAN D STBD CAN Terminator 120 Ohm CAN Y CONNECTOR CAN Y CONNECTOR CAN Y CONNECTOR CAN Y CONNECTOR CAN Y CONNECTOR CAN Y CONNECTOR CAN Y CONNECTOR CAN Y CONNECTOR CAN Y CONNECTOR NOTE: CAN Shield Ground should be located as close as possible to the 24V ground terminal without extending the CAN backbone. 24V RTN to CAN shield SCU DISPLAY NAV ESS EDN STBD HCP ECP3 ECP4 BCP CAN Y CONNECTOR ALARM NAV CAN Terminator 120 Ohm CAN Y CONNECTOR ISOLATOR CAN Y CONNECTOR BEL4 CAN Terminator 120 Ohm CAN Y CONNECTOR ISOLATOR CAN Y CONNECTOR BEL3 CAN Y CONNECTOR MC43 CIB STBD ENG STBD with 120 Ohm 31 196D5023 REV DESCRIPTION DATE APPROVED BAE SYSTEMS PROPRIETARY INFORMATION USE OR DISCLOSURE OF THIS INFORMATION IS SUBJECT TO THE RESTRICTIONS ON THE FIRST PAGE OF THIS DOCUMENT. BAE SYSTEMS ENDICOTT, NY C. Zanoski 500 SET1 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 CONTR NO: NOT APPLICABLE WARNING: EXPORT CONTROLLED -- SEE TITLE PAGE 89954 196D5023 31 of 47",
+  "components": [
+    {
+      "label": "CAN D STBD",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Title of the diagram"
+    },
+    {
+      "label": "CAN Terminator 120 Ohm",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "CAN Y CONNECTOR",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "24V RTN to CAN shield",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "CAN Y CONNECTOR",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "SCU",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "CAN Y CONNECTOR",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "DISPLAY NAV",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "CAN Y CONNECTOR",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "ESS",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "CAN Y CONNECTOR",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "EDN STBD",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "CAN Y CONNECTOR",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "HCP",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "CAN Y CONNECTOR",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "ECP3",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "CAN Y CONNECTOR",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "ECP4",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "CAN Y CONNECTOR",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "BCP",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "CAN Y CONNECTOR",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "ALARM NAV",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "CAN Terminator 120 Ohm",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "CAN Y CONNECTOR",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "ISOLATOR",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "CAN Y CONNECTOR",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "BEL4",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "CAN Terminator 120 Ohm",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "CAN Y CONNECTOR",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "ISOLATOR",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "CAN Y CONNECTOR",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "BEL3",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "CAN Y CONNECTOR",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "MC43",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "CIB STBD",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    },
+    {
+      "label": "ENG STBD with 120 Ohm",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Component"
+    }
+  ],
+  "model": "gemini-3.1-pro-preview"
+}

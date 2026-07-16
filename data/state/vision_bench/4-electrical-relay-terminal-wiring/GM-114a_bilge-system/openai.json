@@ -1,0 +1,1431 @@
+{
+  "legends": [],
+  "legend_context": "",
+  "survey": {
+    "title_block": {
+      "drawing_no": "GMMS 108\u2019-114a",
+      "title": "BILGE SYSTEM",
+      "drafter": "GM"
+    },
+    "sub_type": "relay_terminal_wiring",
+    "sub_type_reason": "The sheet is dominated by numbered terminal strip T/S C, a repeated relay bank, bilge-valve and bilge-switch field endpoints, and plug/controller interfaces joined by detailed control/status wiring. A small pump power feed is present, but the dominant structure is relay/terminal wiring rather than a distribution schedule or one-line topology.",
+    "regions": [
+      {
+        "type": "topology_network",
+        "label": "Main bilge pump fused feed and local pump-switch control",
+        "bbox": [
+          0.055,
+          0.055,
+          0.89,
+          0.15
+        ],
+        "approx_unit_count": 1
+      },
+      {
+        "type": "breaker_bank",
+        "label": "Left-side +24 V service-battery protection and bilge-valve branch protection",
+        "bbox": [
+          0.055,
+          0.18,
+          0.19,
+          0.86
+        ],
+        "approx_unit_count": 2
+      },
+      {
+        "type": "relay_bank",
+        "label": "Repeated bilge-valve control relays Re1\u2013Re6",
+        "bbox": [
+          0.17,
+          0.18,
+          0.36,
+          0.66
+        ],
+        "approx_unit_count": 6
+      },
+      {
+        "type": "terminal_strip",
+        "label": "Central numbered terminal strip T/S C",
+        "bbox": [
+          0.37,
+          0.165,
+          0.445,
+          0.61
+        ],
+        "approx_unit_count": 50
+      },
+      {
+        "type": "other",
+        "label": "Five repeated field groups: open/close contacts, bilge-valve actuators, and bilge switches",
+        "bbox": [
+          0.55,
+          0.17,
+          0.88,
+          0.56
+        ],
+        "approx_unit_count": 5
+      },
+      {
+        "type": "controller_module",
+        "label": "Main-panel Plug C, manual bilge switches, pump switch, and pedestal alarm/mute interface",
+        "bbox": [
+          0.43,
+          0.575,
+          0.89,
+          0.75
+        ],
+        "approx_unit_count": 12
+      },
+      {
+        "type": "controller_module",
+        "label": "Plug D and dotted Main Panel PC Card status-indicator interface",
+        "bbox": [
+          0.43,
+          0.75,
+          0.9,
+          0.91
+        ],
+        "approx_unit_count": 12
+      }
+    ],
+    "cross_refs": [
+      "to ONYX",
+      "XA40 references 14, 12, and 16",
+      "XA10 references 06, 04, and 02",
+      "XA11 reference 32",
+      "AUX PLUG ON PC BOARD",
+      "Plug C",
+      "Plug D"
+    ],
+    "notes": "No on-sheet legend is visible. The repeated field circuits appear to cover five bilge locations, with open/closed status returned to the main-panel PC card. F3 60A and F2 200A are visible as fuses; Q13 10A is visible as a breaker. Cross-reference tags XA40/XA10/XA11 are retained as signal/connector references rather than interpreted as drawing numbers. Small terminal and conductor annotations are partly difficult to verify at this resolution.",
+    "_model": "gpt-5.6-sol",
+    "_pass1_dpi": 200
+  },
+  "sub_type": "relay_terminal_wiring",
+  "regions_read": [
+    {
+      "region": "Main bilge pump fused feed and local pump-switch control",
+      "region_type": "topology_network",
+      "bbox": [
+        0.055,
+        0.055,
+        0.89,
+        0.15
+      ],
+      "reader": "oneline",
+      "nodes": [
+        {
+          "node_type": "source",
+          "id": "<UNKNOWN>",
+          "label": "<UNKNOWN> incoming supply",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "fuse",
+          "id": "F3",
+          "label": "Fuse",
+          "rating": "60A"
+        },
+        {
+          "node_type": "switch",
+          "id": "SW8",
+          "label": "SW8",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "switch",
+          "id": "SO 6",
+          "label": "Solenoid-operated contact",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "load",
+          "id": "M",
+          "label": "MAIN BILGE PUMP",
+          "rating": "<UNKNOWN>"
+        }
+      ],
+      "edges": [
+        "<UNKNOWN> incoming supply -> F3 -> SW8 -> SO 6 -> MAIN BILGE PUMP"
+      ]
+    },
+    {
+      "region": "Left-side +24 V service-battery protection and bilge-valve branch protection",
+      "region_type": "breaker_bank",
+      "bbox": [
+        0.055,
+        0.18,
+        0.19,
+        0.86
+      ],
+      "reader": "schedule",
+      "panel_label": "<UNKNOWN>",
+      "rows": [
+        {
+          "device_type": "breaker",
+          "device_id": "Q13",
+          "rating": "10A",
+          "load_name": "BILGE VALVES",
+          "cross_ref": "",
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "Repeated bilge-valve control relays Re1\u2013Re6",
+      "region_type": "relay_bank",
+      "bbox": [
+        0.17,
+        0.18,
+        0.36,
+        0.66
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "terminal_strip",
+          "id": "T/S B",
+          "label": "Terminal strip B",
+          "connections": [
+            "terminals 8, 9, 10, 11, 12, 13"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S B:8",
+          "label": "Fused terminal 8 (built-in inline protection symbol)",
+          "connections": [
+            "Re1 contact/coil wiring"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "relay",
+          "id": "Re1",
+          "label": "Relay Re1",
+          "connections": [
+            "T/S B terminal 8",
+            "linked contact group",
+            "right-side conductors",
+            "XA40 14 / XA40 12 monitoring-loom tags nearby"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "XA40:14",
+          "label": "XA40 pin 14 wired tag",
+          "connections": [
+            "Re1 circuit conductor"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "XA40:12",
+          "label": "XA40 pin 12 wired tag",
+          "connections": [
+            "Re1 circuit conductor"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S B:9",
+          "label": "Fused terminal 9 (built-in inline protection symbol)",
+          "connections": [
+            "Re2 contact/coil wiring"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "relay",
+          "id": "Re2",
+          "label": "Relay Re2",
+          "connections": [
+            "T/S B terminal 9",
+            "linked contact group",
+            "right-side conductors",
+            "XA40 16 monitoring-loom tag nearby"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "XA40:16",
+          "label": "XA40 pin 16 wired tag",
+          "connections": [
+            "Re2 circuit conductor"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S B:10",
+          "label": "Fused terminal 10 (built-in inline protection symbol)",
+          "connections": [
+            "Re3 contact/coil wiring"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "relay",
+          "id": "Re3",
+          "label": "Relay Re3",
+          "connections": [
+            "T/S B terminal 10",
+            "linked contact group",
+            "right-side conductors",
+            "XA10 06 monitoring-loom tag nearby"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "XA10:06",
+          "label": "XA10 pin 06 wired tag",
+          "connections": [
+            "Re3 circuit conductor"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S B:11",
+          "label": "Fused terminal 11 (built-in inline protection symbol)",
+          "connections": [
+            "Re4 contact/coil wiring"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "relay",
+          "id": "Re4",
+          "label": "Relay Re4",
+          "connections": [
+            "T/S B terminal 11",
+            "linked contact group",
+            "right-side conductors",
+            "XA10 04 monitoring-loom tag nearby"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "XA10:04",
+          "label": "XA10 pin 04 wired tag",
+          "connections": [
+            "Re4 circuit conductor"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S B:12",
+          "label": "Fused terminal 12 (built-in inline protection symbol)",
+          "connections": [
+            "Re5 contact/coil wiring"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "relay",
+          "id": "Re5",
+          "label": "Relay Re5",
+          "connections": [
+            "T/S B terminal 12",
+            "linked contact group",
+            "right-side conductors",
+            "XA10 02 monitoring-loom tag nearby"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "XA10:02",
+          "label": "XA10 pin 02 wired tag",
+          "connections": [
+            "Re5 circuit conductor"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S B:13",
+          "label": "Fused terminal 13 (built-in inline protection symbol)",
+          "connections": [
+            "Re6 wiring"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "relay",
+          "id": "Re6",
+          "label": "Relay Re6; symbol includes indicator marking",
+          "connections": [
+            "T/S B terminal 13",
+            "linked contact group",
+            "right-side conductors numbered 11 and 12",
+            "XA11 32 monitoring-loom tag nearby"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "annotation",
+          "id": "not used",
+          "label": "not used",
+          "connections": [
+            "conductor/position 12 near Re6"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "XA11:32",
+          "label": "XA11 pin 32 wired tag",
+          "connections": [
+            "Re6 circuit conductor"
+          ],
+          "ambiguous": true
+        }
+      ]
+    },
+    {
+      "region": "Central numbered terminal strip T/S C",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.37,
+        0.165,
+        0.445,
+        0.61
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "terminal_strip",
+          "id": "T/S C",
+          "label": "Terminal strip C",
+          "connections": [
+            "contains terminals 7\u201350"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "7",
+          "label": "T/S C terminal 7",
+          "connections": [
+            "left: 1",
+            "right: 1"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "8",
+          "label": "T/S C terminal 8",
+          "connections": [
+            "left: 2",
+            "right: 2"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "9",
+          "label": "T/S C terminal 9",
+          "connections": [
+            "left: unlabeled conductor",
+            "right: 3"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "10",
+          "label": "T/S C terminal 10",
+          "connections": [
+            "left: unlabeled conductor",
+            "right: 4"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "11",
+          "label": "T/S C terminal 11",
+          "connections": [
+            "left: unlabeled conductor",
+            "right: 1",
+            "right-side grouped vertical wiring"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "12",
+          "label": "T/S C terminal 12",
+          "connections": [
+            "right: 5",
+            "junction on internal vertical common with terminals 21, 29, 37, 45"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "13",
+          "label": "T/S C terminal 13",
+          "connections": [
+            "left: unlabeled conductor",
+            "right: 6"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "14",
+          "label": "T/S C terminal 14",
+          "connections": [
+            "left: 1",
+            "right: 7"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "15",
+          "label": "T/S C terminal 15",
+          "connections": [
+            "left: 2",
+            "right: 8"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "16",
+          "label": "T/S C terminal 16",
+          "connections": [
+            "left: 3",
+            "right: 1"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "17",
+          "label": "T/S C terminal 17",
+          "connections": [
+            "left: 4",
+            "right: 2"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "18",
+          "label": "T/S C terminal 18",
+          "connections": [
+            "left: unlabeled conductor",
+            "right: 3"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "19",
+          "label": "T/S C terminal 19",
+          "connections": [
+            "left: unlabeled conductor",
+            "right: 4"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "20",
+          "label": "T/S C terminal 20",
+          "connections": [
+            "left: unlabeled conductor",
+            "right: 2",
+            "right-side grouped vertical wiring"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "21",
+          "label": "T/S C terminal 21",
+          "connections": [
+            "right: 5",
+            "junction on internal vertical common with terminals 12, 29, 37, 45"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "22",
+          "label": "T/S C terminal 22",
+          "connections": [
+            "left: unlabeled conductor",
+            "right: 6"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "23",
+          "label": "T/S C terminal 23",
+          "connections": [
+            "left: 3",
+            "right: 7"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "24",
+          "label": "T/S C terminal 24",
+          "connections": [
+            "left: 5",
+            "right: 1"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "25",
+          "label": "T/S C terminal 25",
+          "connections": [
+            "left: 6",
+            "right: 2"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "26",
+          "label": "T/S C terminal 26",
+          "connections": [
+            "left: unlabeled conductor",
+            "right: 3"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "27",
+          "label": "T/S C terminal 27",
+          "connections": [
+            "left: unlabeled conductor",
+            "right: 4"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "28",
+          "label": "T/S C terminal 28",
+          "connections": [
+            "left: unlabeled conductor",
+            "right: 3",
+            "right-side grouped vertical wiring"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "29",
+          "label": "T/S C terminal 29",
+          "connections": [
+            "right: 5",
+            "junction on internal vertical common with terminals 12, 21, 37, 45"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "30",
+          "label": "T/S C terminal 30",
+          "connections": [
+            "left: unlabeled conductor",
+            "right: 6"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "31",
+          "label": "T/S C terminal 31",
+          "connections": [
+            "left: 4",
+            "right: 7"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "32",
+          "label": "T/S C terminal 32",
+          "connections": [
+            "left: 7",
+            "right: 1"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "33",
+          "label": "T/S C terminal 33",
+          "connections": [
+            "left: 8",
+            "right: 2"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "34",
+          "label": "T/S C terminal 34",
+          "connections": [
+            "left: unlabeled conductor",
+            "right: 3"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "35",
+          "label": "T/S C terminal 35",
+          "connections": [
+            "left: unlabeled conductor",
+            "right: 4"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "36",
+          "label": "T/S C terminal 36",
+          "connections": [
+            "left: unlabeled conductor",
+            "right: 4",
+            "right-side grouped vertical wiring"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "37",
+          "label": "T/S C terminal 37",
+          "connections": [
+            "right: 5",
+            "junction on internal vertical common with terminals 12, 21, 29, 45"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "38",
+          "label": "T/S C terminal 38",
+          "connections": [
+            "left: unlabeled conductor",
+            "right: 6"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "39",
+          "label": "T/S C terminal 39",
+          "connections": [
+            "left: 5",
+            "right: 7"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "40",
+          "label": "T/S C terminal 40",
+          "connections": [
+            "left: 9",
+            "right: 1"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "41",
+          "label": "T/S C terminal 41",
+          "connections": [
+            "left: 10",
+            "right: 2"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "42",
+          "label": "T/S C terminal 42",
+          "connections": [
+            "left: unlabeled conductor",
+            "right: 3"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "43",
+          "label": "T/S C terminal 43",
+          "connections": [
+            "left: unlabeled conductor",
+            "right: 4"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "44",
+          "label": "T/S C terminal 44",
+          "connections": [
+            "left: unlabeled conductor",
+            "right: 5",
+            "right-side grouped vertical wiring"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "45",
+          "label": "T/S C terminal 45",
+          "connections": [
+            "right: 5",
+            "junction on internal vertical common with terminals 12, 21, 29, 37",
+            "unlabeled symbol/conductor shown at left"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "46",
+          "label": "T/S C terminal 46",
+          "connections": [
+            "left: unlabeled conductor",
+            "right: 6"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "47",
+          "label": "T/S C terminal 47",
+          "connections": [
+            "left: 6",
+            "right: 7"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "48",
+          "label": "T/S C terminal 48",
+          "connections": [
+            "left: 1",
+            "right: 6",
+            "right-side grouped vertical wiring"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "49",
+          "label": "T/S C terminal 49",
+          "connections": [
+            "left: 2",
+            "right: unlabeled conductor routed downward"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "50",
+          "label": "T/S C terminal 50",
+          "connections": [
+            "left: conductor associated with printed 11 and 12 at lower-left crop",
+            "right: 7",
+            "right-side grouped vertical wiring"
+          ],
+          "ambiguous": true
+        }
+      ]
+    },
+    {
+      "region": "Main-panel Plug C, manual bilge switches, pump switch, and pedestal alarm/mute interface",
+      "region_type": "controller_module",
+      "bbox": [
+        0.43,
+        0.575,
+        0.89,
+        0.75
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "terminal_strip",
+          "id": "PLUG C",
+          "label": "PLUG C, 12-pin connector",
+          "connections": [
+            "pins [1]-[12]",
+            "pins [1]-[7] also shown continuing left as conductors 1-7",
+            "pins [8]-[11] connect to AUX PLUG ON PC BOARD pins [1]-[4] respectively"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG C [1]",
+          "label": "Plug C pin 1",
+          "connections": [
+            "left conductor 1",
+            "S20"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG C [2]",
+          "label": "Plug C pin 2",
+          "connections": [
+            "left conductor 2",
+            "S21"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG C [3]",
+          "label": "Plug C pin 3",
+          "connections": [
+            "left conductor 3",
+            "S22"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG C [4]",
+          "label": "Plug C pin 4",
+          "connections": [
+            "left conductor 4",
+            "S23"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG C [5]",
+          "label": "Plug C pin 5",
+          "connections": [
+            "left conductor 5",
+            "S24"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG C [6]",
+          "label": "Plug C pin 6",
+          "connections": [
+            "left conductor 6",
+            "indicator lamp at S13 circuit"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG C [7]",
+          "label": "Plug C pin 7",
+          "connections": [
+            "left conductor 7",
+            "S13"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG C [8]",
+          "label": "Plug C pin 8",
+          "connections": [
+            "PEDESTAL ALARM + MUTE / ALARM MOD",
+            "AUX PLUG ON PC BOARD [1]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG C [9]",
+          "label": "Plug C pin 9",
+          "connections": [
+            "PEDESTAL ALARM + MUTE / ALARM MOD",
+            "AUX PLUG ON PC BOARD [2]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG C [10]",
+          "label": "Plug C pin 10",
+          "connections": [
+            "PEDESTAL ALARM + MUTE indicator lamp",
+            "AUX PLUG ON PC BOARD [3]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG C [11]",
+          "label": "Plug C pin 11",
+          "connections": [
+            "PEDESTAL ALARM + MUTE switch/contact",
+            "AUX PLUG ON PC BOARD [4]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG C [12]",
+          "label": "Plug C pin 12",
+          "connections": [
+            "common vertical bus for S20, S21, S22, S23, S24 and S13",
+            "PEDESTAL ALARM + MUTE lower/common conductor"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "switch",
+          "id": "S20",
+          "label": "S20; adjacent function text partially visible as LAZ",
+          "connections": [
+            "PLUG C [1]",
+            "common bus to PLUG C [12]"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "switch",
+          "id": "S21",
+          "label": "S21; adjacent function text AFT",
+          "connections": [
+            "PLUG C [2]",
+            "common bus to PLUG C [12]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "switch",
+          "id": "S22",
+          "label": "S22; adjacent function text EN",
+          "connections": [
+            "PLUG C [3]",
+            "common bus to PLUG C [12]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "switch",
+          "id": "S23",
+          "label": "S23; adjacent function text FW",
+          "connections": [
+            "PLUG C [4]",
+            "common bus to PLUG C [12]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "switch",
+          "id": "S24",
+          "label": "S24; adjacent function text SAI",
+          "connections": [
+            "PLUG C [5]",
+            "common bus to PLUG C [12]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "switch",
+          "id": "S13",
+          "label": "S13; adjacent function text BIL",
+          "connections": [
+            "PLUG C [7]",
+            "common bus to PLUG C [12]",
+            "mechanically/contact-associated branch from indicator lamp connected to PLUG C [6]"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "Indicator lamp in S13 circuit",
+          "connections": [
+            "PLUG C [6]",
+            "branch at S13 contact circuit"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal_strip",
+          "id": "AUX PLUG ON PC BOARD",
+          "label": "AUX PLUG ON PC BOARD, 4-pin connector",
+          "connections": [
+            "pin [1] to PLUG C [8]",
+            "pin [2] to PLUG C [9]",
+            "pin [3] to PLUG C [10]",
+            "pin [4] to PLUG C [11]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "AUX PLUG ON PC BOARD [1]",
+          "label": "Aux plug pin 1",
+          "connections": [
+            "PLUG C [8]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "AUX PLUG ON PC BOARD [2]",
+          "label": "Aux plug pin 2",
+          "connections": [
+            "PLUG C [9]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "AUX PLUG ON PC BOARD [3]",
+          "label": "Aux plug pin 3",
+          "connections": [
+            "PLUG C [10]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "AUX PLUG ON PC BOARD [4]",
+          "label": "Aux plug pin 4",
+          "connections": [
+            "PLUG C [11]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "device",
+          "id": "ALARM MOD",
+          "label": "PEDESTAL ALARM + MUTE; ALARM MOD; module marked +",
+          "connections": [
+            "PLUG C [8]",
+            "PLUG C [9]",
+            "pedestal alarm sounder/symbol above module"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "PEDESTAL ALARM + MUTE indicator lamp",
+          "connections": [
+            "ALARM MOD branch",
+            "PLUG C [10]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "switch",
+          "id": "<UNKNOWN>",
+          "label": "PEDESTAL ALARM + MUTE mute switch/contact",
+          "connections": [
+            "PLUG C [11]",
+            "lower/common conductor continuing to PLUG C [12]"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "annotation",
+          "id": "MAIN PANEL",
+          "label": "MAIN PANEL enclosure/region caption",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "annotation",
+          "id": "PEDESTAL ALARM + MUTE",
+          "label": "Function caption for alarm module, indicator and mute contact",
+          "connections": [],
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "Plug D and dotted Main Panel PC Card status-indicator interface",
+      "region_type": "controller_module",
+      "bbox": [
+        0.43,
+        0.75,
+        0.9,
+        0.91
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "controller_module",
+          "id": "<UNKNOWN>",
+          "label": "MAIN PANEL PC CARD",
+          "connections": [
+            "Plug D pins 1-12",
+            "+24V common for open/closed indication lamps",
+            "protective earth/chassis symbol shown at enclosure boundary"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG D pin 1",
+          "label": "1 [1] 1; LAZ\u2026 open",
+          "connections": [
+            "Main Panel PC Card line 1",
+            "LAZ\u2026 open indicator lamp",
+            "diode/tap network to line 11"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG D pin 2",
+          "label": "2 [2] 2; LAZ\u2026 closed",
+          "connections": [
+            "Main Panel PC Card line 2",
+            "LAZ\u2026 closed indicator lamp"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG D pin 3",
+          "label": "3 [3] 3; AFT\u2026 open",
+          "connections": [
+            "Main Panel PC Card line 3",
+            "AFT\u2026 open indicator lamp",
+            "diode/tap network to line 11"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG D pin 4",
+          "label": "4 [4] 4; AFT\u2026 closed",
+          "connections": [
+            "Main Panel PC Card line 4",
+            "AFT\u2026 closed indicator lamp"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG D pin 5",
+          "label": "5 [5] 5; EN\u2026 open",
+          "connections": [
+            "Main Panel PC Card line 5",
+            "EN\u2026 open indicator lamp",
+            "diode/tap network to line 11"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG D pin 6",
+          "label": "6 [6] 6; EN\u2026 closed",
+          "connections": [
+            "Main Panel PC Card line 6",
+            "EN\u2026 closed indicator lamp"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG D pin 7",
+          "label": "7 [7] 7; FW\u2026 open",
+          "connections": [
+            "Main Panel PC Card line 7",
+            "FW\u2026 open indicator lamp",
+            "diode/tap network to line 11"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG D pin 8",
+          "label": "8 [8] 8; FW\u2026 closed",
+          "connections": [
+            "Main Panel PC Card line 8",
+            "FW\u2026 closed indicator lamp"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG D pin 9",
+          "label": "9 [9] 9; SAI\u2026 open",
+          "connections": [
+            "Main Panel PC Card line 9",
+            "SAI\u2026 open indicator lamp",
+            "diode/tap network to line 11"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG D pin 10",
+          "label": "10 [10] 10; SAI\u2026 closed",
+          "connections": [
+            "Main Panel PC Card line 10",
+            "SAI\u2026 closed indicator lamp"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG D pin 11",
+          "label": "11 [11] 11",
+          "connections": [
+            "Main Panel PC Card line 11",
+            "common node of five diodes from open-status lines 1, 3, 5, 7, and 9"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG D pin 12",
+          "label": "12 [12] 12",
+          "connections": [
+            "Main Panel PC Card line 12; no further internal connection shown in crop"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "LAZ\u2026 open indicator lamp",
+          "connections": [
+            "Plug D pin 1 / PC card line 1",
+            "+24V lamp common"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "LAZ\u2026 closed indicator lamp",
+          "connections": [
+            "Plug D pin 2 / PC card line 2",
+            "+24V lamp common"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "AFT\u2026 open indicator lamp",
+          "connections": [
+            "Plug D pin 3 / PC card line 3",
+            "+24V lamp common"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "AFT\u2026 closed indicator lamp",
+          "connections": [
+            "Plug D pin 4 / PC card line 4",
+            "+24V lamp common"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "EN\u2026 open indicator lamp",
+          "connections": [
+            "Plug D pin 5 / PC card line 5",
+            "+24V lamp common"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "EN\u2026 closed indicator lamp",
+          "connections": [
+            "Plug D pin 6 / PC card line 6",
+            "+24V lamp common"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "FW\u2026 open indicator lamp",
+          "connections": [
+            "Plug D pin 7 / PC card line 7",
+            "+24V lamp common"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "FW\u2026 closed indicator lamp",
+          "connections": [
+            "Plug D pin 8 / PC card line 8",
+            "+24V lamp common"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "SAI\u2026 open indicator lamp",
+          "connections": [
+            "Plug D pin 9 / PC card line 9",
+            "+24V lamp common"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "SAI\u2026 closed indicator lamp",
+          "connections": [
+            "Plug D pin 10 / PC card line 10",
+            "+24V lamp common"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "annotation",
+          "id": "+24V",
+          "label": "+24V",
+          "connections": [
+            "Common right-hand supply rail for all ten open/closed indicator lamps"
+          ],
+          "ambiguous": false
+        }
+      ]
+    }
+  ],
+  "scoped_next": []
+}

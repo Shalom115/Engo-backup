@@ -1,0 +1,973 @@
+{
+  "legends": [
+    {
+      "title_as_printed": "G.M. MARINE SERVICES",
+      "kind": "other_table",
+      "bbox": [
+        0.5187,
+        0.8841,
+        0.9856,
+        0.9824
+      ],
+      "content": {
+        "entries": [
+          {
+            "label": "DWG No. | GMMS 108'-111a | G.M. MARINE SERVICES"
+          },
+          {
+            "label": "TITLE | EMERGENCY SUPPLY RADIO/NAV./LTS | Tel. (027) 021-671 8001 Cell 083 298 3305 goetz@telkomsa.net"
+          },
+          {
+            "label": "DATE | 4/ 10/2023 | PROJECT | SWS 108'-01 \" Gelliceaux \""
+          },
+          {
+            "label": "DRAWN | GM | CUSTOMER | SOUTHERN WIND SHIPYARD (PTY) LTD"
+          },
+          {
+            "label": "THE COPYRIGHT OF THIS DRAWING IS EXPRESSLY RESERVED AND NO PART OF IT MAY BE COPIED WITHOUT PRIOR PERMISSION."
+          }
+        ],
+        "_model": "gemini-3.1-pro-preview"
+      }
+    }
+  ],
+  "legend_context": "THIS SHEET'S OWN LEGENDS AND TABLES (read first; these definitions are AUTHORITATIVE for this sheet and override any generic symbol/line convention):\n- [other_table] G.M. MARINE SERVICES:\n    * DWG No. | GMMS 108'-111a | G.M. MARINE SERVICES\n    * TITLE | EMERGENCY SUPPLY RADIO/NAV./LTS | Tel. (027) 021-671 8001 Cell 083 298 3305 goetz@telkomsa.net\n    * DATE | 4/ 10/2023 | PROJECT | SWS 108'-01 \" Gelliceaux \"\n    * DRAWN | GM | CUSTOMER | SOUTHERN WIND SHIPYARD (PTY) LTD\n    * THE COPYRIGHT OF THIS DRAWING IS EXPRESSLY RESERVED AND NO PART OF IT MAY BE COPIED WITHOUT PRIOR PERMISSION.",
+  "survey": {
+    "title_block": {
+      "drawing_no": "GMMS 108'-111a",
+      "title": "EMERGENCY SUPPLY RADIO/NAV./LTS",
+      "drafter": "GM"
+    },
+    "sub_type": "mixed",
+    "sub_type_reason": "The drawing combines power distribution topology (batteries, chargers, main breakers) on the left with detailed relay logic and terminal strip wiring (navigation/emergency lights) on the right.",
+    "regions": [
+      {
+        "type": "topology_network",
+        "label": "Power Sources (Batteries, Chargers, DC/DC)",
+        "bbox": [
+          0.02,
+          0.2,
+          0.16,
+          0.78
+        ],
+        "approx_unit_count": 5
+      },
+      {
+        "type": "breaker_bank",
+        "label": "Breakers Q36-Q38",
+        "bbox": [
+          0.17,
+          0.05,
+          0.25,
+          0.15
+        ],
+        "approx_unit_count": 3
+      },
+      {
+        "type": "breaker_bank",
+        "label": "Breakers QE1-QE8",
+        "bbox": [
+          0.17,
+          0.58,
+          0.25,
+          0.76
+        ],
+        "approx_unit_count": 8
+      },
+      {
+        "type": "controller_module",
+        "label": "MASTERVOLT GMDSS PANEL",
+        "bbox": [
+          0.25,
+          0.33,
+          0.36,
+          0.53
+        ],
+        "approx_unit_count": 1
+      },
+      {
+        "type": "terminal_strip",
+        "label": "T/S E (1-4)",
+        "bbox": [
+          0.39,
+          0.39,
+          0.42,
+          0.48
+        ],
+        "approx_unit_count": 4
+      },
+      {
+        "type": "terminal_strip",
+        "label": "T/S E (9-13)",
+        "bbox": [
+          0.52,
+          0.04,
+          0.57,
+          0.15
+        ],
+        "approx_unit_count": 5
+      },
+      {
+        "type": "relay_bank",
+        "label": "Relay Re1",
+        "bbox": [
+          0.59,
+          0.03,
+          0.66,
+          0.15
+        ],
+        "approx_unit_count": 1
+      },
+      {
+        "type": "terminal_strip",
+        "label": "T/S E (19-41, Nav Lights)",
+        "bbox": [
+          0.68,
+          0.03,
+          0.79,
+          0.44
+        ],
+        "approx_unit_count": 22
+      },
+      {
+        "type": "relay_bank",
+        "label": "Relays Re2-Re6",
+        "bbox": [
+          0.51,
+          0.7,
+          0.66,
+          0.87
+        ],
+        "approx_unit_count": 5
+      },
+      {
+        "type": "terminal_strip",
+        "label": "Terminals 42-58 (Emergency Lts)",
+        "bbox": [
+          0.68,
+          0.61,
+          0.79,
+          0.87
+        ],
+        "approx_unit_count": 17
+      },
+      {
+        "type": "legend",
+        "label": "Title Block",
+        "bbox": [
+          0.51,
+          0.88,
+          0.98,
+          0.98
+        ],
+        "approx_unit_count": 1
+      }
+    ],
+    "cross_refs": [
+      "DWG 111b",
+      "DWG 511b",
+      "DWG 119a",
+      "DWG 112"
+    ],
+    "notes": "Drawing details the emergency and GMDSS battery supplies routing through local breakers to a Mastervolt panel, and relay-controlled terminal outputs for navigation and emergency lighting.",
+    "_model": "gemini-3.1-pro-preview",
+    "_pass1_dpi": 200
+  },
+  "sub_type": "mixed",
+  "regions_read": [
+    {
+      "region": "Power Sources (Batteries, Chargers, DC/DC)",
+      "region_type": "topology_network",
+      "bbox": [
+        0.02,
+        0.2,
+        0.16,
+        0.78
+      ],
+      "reader": "oneline",
+      "nodes": [
+        {
+          "node_type": "bus",
+          "id": "NEGATIVE_BUS",
+          "label": "NEGATIVE BUS"
+        },
+        {
+          "node_type": "source",
+          "id": "GMDSS_BATTERY",
+          "label": "GMDSS BATTERY",
+          "rating": "24V 90Ah"
+        },
+        {
+          "node_type": "shunt",
+          "id": "SHUNT_2",
+          "label": "SHUNT #2"
+        },
+        {
+          "node_type": "fuse",
+          "id": "F11",
+          "label": "F11",
+          "rating": "35A"
+        },
+        {
+          "node_type": "switch",
+          "id": "SW13",
+          "label": "SW13"
+        },
+        {
+          "node_type": "converter",
+          "id": "MASTERVOLT_MASS_CHARGER",
+          "label": "MASTERVOLT MASS CHARGER",
+          "rating": "24V 25A"
+        },
+        {
+          "node_type": "source",
+          "id": "SHIPS_230V_GEN_INVERTER",
+          "label": "SHIPS 230V GEN INVERTER"
+        },
+        {
+          "node_type": "fuse",
+          "id": "F10",
+          "label": "F10",
+          "rating": "35A"
+        },
+        {
+          "node_type": "breaker",
+          "id": "QE",
+          "label": "to reset GMDSS",
+          "rating": "32A"
+        },
+        {
+          "node_type": "source",
+          "id": "EMERGENCY_BATTERY",
+          "label": "EMERGENCY BATTERY",
+          "rating": "24V 200Ah"
+        },
+        {
+          "node_type": "shunt",
+          "id": "SHUNT_3",
+          "label": "SHUNT #3",
+          "rating": "500A/50mV"
+        },
+        {
+          "node_type": "fuse",
+          "id": "F13",
+          "label": "F13",
+          "rating": "250A"
+        },
+        {
+          "node_type": "switch",
+          "id": "SW12",
+          "label": "SW12"
+        },
+        {
+          "node_type": "fuse",
+          "id": "F12",
+          "label": "F12",
+          "rating": "50A"
+        },
+        {
+          "node_type": "converter",
+          "id": "CHARGER_24V_50A",
+          "label": "24V 50A",
+          "rating": "24V 50A"
+        },
+        {
+          "node_type": "current_transformer",
+          "id": "CT",
+          "label": "CT"
+        }
+      ],
+      "edges": [
+        "SHIPS_230V_GEN_INVERTER -> MASTERVOLT_MASS_CHARGER",
+        "MASTERVOLT_MASS_CHARGER -> NEGATIVE_BUS",
+        "MASTERVOLT_MASS_CHARGER -> F10",
+        "GMDSS_BATTERY -> SHUNT_2",
+        "SHUNT_2 -> NEGATIVE_BUS",
+        "GMDSS_BATTERY -> F11",
+        "F11 -> SW13",
+        "CHARGER_24V_50A -> NEGATIVE_BUS",
+        "CHARGER_24V_50A -> F12",
+        "F12 -> EMERGENCY_BATTERY",
+        "EMERGENCY_BATTERY -> SHUNT_3",
+        "SHUNT_3 -> NEGATIVE_BUS",
+        "EMERGENCY_BATTERY -> F13",
+        "F13 -> SW12",
+        "SW12 -> CT"
+      ]
+    },
+    {
+      "region": "Breakers Q36-Q38",
+      "region_type": "breaker_bank",
+      "bbox": [
+        0.17,
+        0.05,
+        0.25,
+        0.15
+      ],
+      "reader": "schedule",
+      "panel_label": null,
+      "rows": [
+        {
+          "device_type": "breaker",
+          "device_id": "Q36",
+          "rating": "6A",
+          "load_name": "NA",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q37",
+          "rating": "6A",
+          "load_name": "CO",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q38",
+          "rating": "10A",
+          "load_name": "EN",
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "Breakers QE1-QE8",
+      "region_type": "breaker_bank",
+      "bbox": [
+        0.17,
+        0.58,
+        0.25,
+        0.76
+      ],
+      "reader": "schedule",
+      "panel_label": null,
+      "rows": [
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE1",
+          "rating": "32A",
+          "load_name": "<UNKNOWN>"
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE2",
+          "rating": "6A",
+          "load_name": "ENG.ROOM GAS RELEASE ALARM"
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE3",
+          "rating": "10A",
+          "load_name": "GAS/CO2/PETROL VAPOUR ALARM"
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE4",
+          "rating": "10A",
+          "load_name": "SERVICE BAT. VENTILATION"
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE5",
+          "rating": "20A",
+          "load_name": "MYT HYDRAULICS"
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE6",
+          "rating": "16A",
+          "load_name": "FWD PANEL EM SUPPLY"
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE7",
+          "rating": "16A",
+          "load_name": "MAIN PANEL"
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE8",
+          "rating": "16A",
+          "load_name": "AUX1"
+        }
+      ]
+    },
+    {
+      "region": "MASTERVOLT GMDSS PANEL",
+      "region_type": "controller_module",
+      "bbox": [
+        0.25,
+        0.33,
+        0.36,
+        0.53
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "controller_module",
+          "id": "MASTERVOLT GMDSS PANEL",
+          "label": "ALARM INTERFACE",
+          "connections": [
+            "CB1",
+            "CB2",
+            "CB3",
+            "CB4"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "breaker",
+          "id": "CB1",
+          "label": "10A",
+          "connections": [
+            "MASTERVOLT GMDSS PANEL",
+            "1"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "breaker",
+          "id": "CB2",
+          "label": "10A",
+          "connections": [
+            "MASTERVOLT GMDSS PANEL",
+            "2"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "breaker",
+          "id": "CB3",
+          "label": "10A",
+          "connections": [
+            "MASTERVOLT GMDSS PANEL",
+            "4"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "breaker",
+          "id": "CB4",
+          "label": "10A",
+          "connections": [
+            "MASTERVOLT GMDSS PANEL",
+            "1"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "1",
+          "label": "",
+          "connections": [
+            "CB4",
+            "2"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "2",
+          "label": "",
+          "connections": [
+            "CB3",
+            "4"
+          ],
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "T/S E (1-4)",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.39,
+        0.39,
+        0.42,
+        0.48
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "terminal_strip",
+          "id": "T/S E",
+          "label": "T/S E",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "1",
+          "label": "Terminal 1",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "2",
+          "label": "Terminal 2",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "3",
+          "label": "Terminal 3",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "4",
+          "label": "Terminal 4",
+          "connections": [],
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "T/S E (9-13)",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.52,
+        0.04,
+        0.57,
+        0.15
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "terminal_strip",
+          "id": "T/S E",
+          "label": "T/S E",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "9",
+          "label": "T/S E",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "10",
+          "label": "T/S E",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "11",
+          "label": "fused terminal",
+          "connections": [
+            "wire 1"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "12",
+          "label": "fused terminal",
+          "connections": [
+            "wire 2"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "13",
+          "label": "T/S E",
+          "connections": [],
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "Relay Re1",
+      "region_type": "relay_bank",
+      "bbox": [
+        0.59,
+        0.03,
+        0.66,
+        0.15
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "relay",
+          "id": "Re1",
+          "label": "",
+          "connections": [],
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "T/S E (19-41, Nav Lights)",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.68,
+        0.03,
+        0.79,
+        0.44
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "terminal_strip",
+          "id": "T/S E",
+          "label": "T/S E"
+        },
+        {
+          "element_type": "terminal",
+          "id": "19",
+          "label": "MAIN PANEL IND. ( BACKUP EM POWER )",
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "20",
+          "label": "MAIN PANEL IND. ( GMDSS BACKUP )",
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "21",
+          "label": "NAV.LIGHTS ALARM SYSTEM",
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "22",
+          "label": "F 0.1A",
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "23",
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "24",
+          "label": "F 0.1A",
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "25",
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "26",
+          "label": "F 0.1A",
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "27",
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "28",
+          "label": "F 0.1A",
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "29",
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "30",
+          "label": "F 0.1A",
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "31",
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "32",
+          "label": "F 0.1A",
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "33",
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "34",
+          "label": "F 0.1A",
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "35",
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "36",
+          "label": "F 0.1A",
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "37",
+          "ambiguous": false
+        },
+        {
+          "element_type": "annotation",
+          "id": "<UNKNOWN>",
+          "label": "( see DWG 111b )",
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "<UNKNOWN>",
+          "label": "PLUG A",
+          "connections": [
+            "38"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "<UNKNOWN>",
+          "label": "PLUG A",
+          "connections": [
+            "39"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "<UNKNOWN>",
+          "label": "PLUG A",
+          "connections": [
+            "40"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "<UNKNOWN>",
+          "label": "PLUG A",
+          "connections": [
+            "41"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "38",
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "39",
+          "ambiguous": false
+        },
+        {
+          "element_type": "annotation",
+          "id": "<UNKNOWN>",
+          "label": "( see DWG 111 )",
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "40",
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "41",
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "Relays Re2-Re6",
+      "region_type": "relay_bank",
+      "bbox": [
+        0.51,
+        0.7,
+        0.66,
+        0.87
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "terminal",
+          "id": "14",
+          "label": "<UNKNOWN>",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "15",
+          "label": "3",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "16",
+          "label": "4",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "17",
+          "label": "5",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "18",
+          "label": "D",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "relay",
+          "id": "Re2",
+          "label": "<UNKNOWN>",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "relay",
+          "id": "Re3",
+          "label": "<UNKNOWN>",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "relay",
+          "id": "Re4",
+          "label": "<UNKNOWN>",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "relay",
+          "id": "Re5",
+          "label": "<UNKNOWN>",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "relay",
+          "id": "Re6",
+          "label": "<UNKNOWN>",
+          "connections": [],
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "Terminals 42-58 (Emergency Lts)",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.68,
+        0.61,
+        0.79,
+        0.87
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "terminal",
+          "id": "42"
+        },
+        {
+          "element_type": "terminal",
+          "id": "43"
+        },
+        {
+          "element_type": "terminal",
+          "id": "44"
+        },
+        {
+          "element_type": "switch",
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "45"
+        },
+        {
+          "element_type": "terminal",
+          "id": "46"
+        },
+        {
+          "element_type": "terminal",
+          "id": "47"
+        },
+        {
+          "element_type": "terminal",
+          "id": "48"
+        },
+        {
+          "element_type": "terminal",
+          "id": "49"
+        },
+        {
+          "element_type": "terminal",
+          "id": "50",
+          "label": "AFT COURTESY LTS ( COM. AREA )"
+        },
+        {
+          "element_type": "terminal",
+          "id": "51"
+        },
+        {
+          "element_type": "terminal",
+          "id": "52",
+          "label": "EMERGENCY SUPPLY/CONTROL"
+        },
+        {
+          "element_type": "terminal",
+          "id": "53",
+          "label": "EMERGENCY SUPPLY/CONTROL"
+        },
+        {
+          "element_type": "terminal",
+          "id": "54"
+        },
+        {
+          "element_type": "terminal",
+          "id": "55"
+        },
+        {
+          "element_type": "terminal",
+          "id": "56"
+        },
+        {
+          "element_type": "terminal",
+          "id": "57",
+          "label": "EMERGENCY MAST LTS ( MU4-1"
+        },
+        {
+          "element_type": "terminal",
+          "id": "58"
+        }
+      ]
+    }
+  ],
+  "scoped_next": []
+}

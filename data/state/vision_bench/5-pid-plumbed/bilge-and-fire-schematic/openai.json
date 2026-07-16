@@ -1,0 +1,327 @@
+{
+  "content_type": "plumbed_diagram",
+  "description": "Bilge & Fire System Schematic for a Southern Wind yacht, drawing no. 108-01-520-001, sheets 1/1, dated 15 Jun 2022, revision B dated 30 Sep 2022 (\u201cADDED ESS ENCLOSURE BILGE PICKUP\u201d). The upper half is a general arrangement showing hull zones, fire hydrants, pumps, maximum fire-hose reach, and bilge/fire pipe routing. The lower half is the flow schematic.\n\nFLOW PATHS AND CONNECTIONS\n1) Main bilge line (cyan, metallic pipe): longitudinal line between aft and forward stowage. At each end it terminates at a fire hose/nozzle assembly in stowage. Branches connect bilge pickups/sumps, engine-room bilge system, mast area sump, ESS enclosure, main bilge pump, and anti-siphon discharge. Arrowheads show longitudinal flow generally toward the main bilge pumping/discharge arrangement on the starboard/right side, with local suction branches rising from sumps into the main line.\n2) Fire line (red/pink, metallic pipe): longitudinal fire main supplied through labeled FIRE LINE SEAWATER SUPPLY branches. Fire hydrants/nozzles are shown at aft and forward stowage. Main/auxiliary fire pumps draw from seawater arrangements and discharge into the fire main; local branches and isolating valves divide sections.\n3) Lazarette/tender-garage branch: tender-garage pickup passes through seater strainer 005-01 and valves to diesel fire pump 002-01. A fresh-water priming line is cross-referenced to drawing 108-01-510-001. Diesel fire pump discharge ties into the fire main; bilge-overboard branch is shown. Lazarette sump pickup 005-01 feeds through valve 010-01 to the cyan main bilge line. Bilge alarm 007-01 is shown at the lazarette sump.\n4) Midship sump: pickups 006-02 and 006-03 feed the cyan main bilge line through branch isolation/check-valve arrangements; bilge alarm 007-02 is shown.\n5) Engine room: cyan main bilge line traverses engine room. Engine-room sump pickups 006-04 and 006-05 connect through valves to the suction arrangement; bilge alarms 007-03 and 025-02/025-03 are shown. A dedicated engine-room auxiliary bilge pump 003-02 is associated with oily bilge filter 004-01 and portable-oil-storage-tank connections 021-01 and 021-03. A FLEX SUCTION HOSE CONNECTION 021-01 is shown. Raw-water pump/sea-chest supply and overboard wet-exhaust water-separation references are shown to other drawings.\n6) Mast area: mast area sump pickup 006-06 connects to main bilge line through valve 007-04. Two deck-drain/locker drain paths are shown, each noted \u201cMIN. 800mm ABOVE DWL,\u201d joining below DWL. Mast area bilge pump 003-01 draws via mast aux bilge pump suction manifold and valves 026-01/026-02, with portable-oil-storage-tank connection 021-03 and flex suction hose connection 021-01. Bilge alarm 025-04 and auxiliary-pump alarm 025-05 are shown.\n7) ESS enclosure: pickup 006-08 and bilge alarm 007-06 are shown. A coolant-leak alarm is also marked. The ESS pickup joins the mast-area auxiliary suction manifold through a branch controlled by valve 026-02.\n8) Main bilge pump and overboard: main bilge pump 003-01 draws through seawater strainer 005-02 and associated valves. Its discharge is routed to an anti-siphon manifold identified as 700mm ABOVE DWL, then to a bilge overboard outlet. A branch includes electric fire pump 002-02 and fire-main connection. Breaker to run into starboard engine-room vent box is cross-referenced to drawing 108-01-508-001.\n9) Sail locker sump: pickup 006-08 with bilge alarm 007-05 connects to the main bilge line via local branch; forward-stowage hose/nozzle assembly is at the far right.\n\nISOLATION / CROSSOVERS\n- Numerous labeled 2-way ball valves (010 series and others) isolate sump pickup branches, pump suctions/discharges, fire-main sections, seawater supply branches, and overboard branches. Valve status text NO/NC is printed beside many valves.\n- Longitudinal fire main and main bilge main are sectioned at hull/fire boundaries identified by letters L, G, F, E, C, B, A.\n- Fire-line seawater-supply tie-ins provide cross-connections into the red fire main near both ends.\n- The mast auxiliary bilge suction manifold is a crossover selector joining mast-area/ESS and portable/flex suction branches to the mast auxiliary bilge pump.\n- The anti-siphon manifold prevents siphoning on the main bilge discharge and is explicitly located 700 mm above design waterline.\n- The diesel fire pump tender-garage suction arrangement includes a manual pull-start note and fresh-water priming crossover.\n\nPRINTED DATA / RATINGS\nPump data table:\n- MAIN BILGE PUMP: Feit VA 408 (24V DC), flow rate 300 l/min (18 m\u00b3/h), power 0.75 kW, max head 17 m.\n- ELECTRIC FIRE PUMP: Gianneschi ACB431 (24V DC), flow rate 230 l/min (13.8 m\u00b3/h), power 1.5 kW, max head 30 m.\n- DIESEL FIRE PUMP: Aussen Pumps LF48 (Yanmar YD510), flow rate 715 l/min (42.9 m\u00b3/h), power 5.6 kW, max head 37 m.\n- MAIN ENGINE RAW WATER PUMP: Cummins QSB4.5 Engine Pump, flow rate 195 l/min (11.7 m\u00b3/h); power/head not stated.\n- AUXILIARY BILGE PUMP: Whale Gulper 320 (24V DC), flow rate 19 l/min (1.1 m\u00b3/h), power 0.1 kW, max head 3 m.\nOther printed ratings/details:\n- Fire hose: ISO 15540 fire resistant.\n- Fire hose nominal length: 15 m + 3 m.\n- Maximum reach annotations: 15 m fire hose from forward hydrant and 18 m fire hose aft hydrant.\n- Engine-room vent/locker drains: minimum 800 mm above DWL.\n- Anti-siphon manifold: 700 mm above DWL.\n- Lazarette shaded area marked AREA: 12.8 m\u00b2.\n\nCROSS-REFERENCES\n- Fire line in port sheet: REF: DWG 108-01-515-003.\n- Fresh-water supply/priming line: REF: DWG 108-01-510-001.\n- From sea chest supply: REF: DWG 108-01-515-003.\n- Overboard wet exhaust water separation: REF: DWG 108-01-515-001.\n- Breaker to run into STBD E-R vent box: REF: DWG 108-01-508-001.\n\nSTANDARD/DRAWING NOTES\n- To be read in conjunction with separate drawing 108-01-520-002 BILGE & FIRE SYSTEM OPERATING MODES.\n- All thru-hull valve sizes are detailed in drawing 108-01-504-002 THRU-HULL BELOW DWL.\n- Do not scale; dimensions in millimeters unless otherwise indicated; break all sharp edges of metal parts; all parts weights to be noted after manufacturing; do not measure off drawing; ask drawing office for missing information.",
+  "transcription": "SOUTHERN WIND\nBILGE & FIRE SYSTEM SCHEMATIC\nSCALE: NTS\nDATE: 15 JUN 2022\nDWG No: 108-01-520-001\nSHEETS: 1/1\nREV B \u2014 ADDED ESS ENCLOSURE BILGE PICKUP \u2014 GE \u2014 30 SEP 2022\nREV A \u2014 FIRST ISSUE \u2014 GE \u2014 15 JUN 2022\n\nPUMP DATA\nPUMP TYPE | DETAILS | FLOW RATE (l/min) (m\u00b3/h) | POWER (kW) | MAX HEAD (m)\nMAIN BILGE PUMP | Feit VA 408 (24V DC) | 300 | 18 | 0.75 | 17\nELECTRIC FIRE PUMP | Gianneschi ACB431 (24V DC) | 230 | 13.8 | 1.5 | 30\nDIESEL FIRE PUMP | Aussen Pumps LF48 (Yanmar YD510) | 715 | 42.9 | 5.6 | 37\nMAIN ENGINE RAW WATER PUMP | Cummins QSB4.5 Engine Pump | 195 | 11.7 | - | -\nAUXILIARY BILGE PUMP | Whale Gulper 320 (24V DC) | 19 | 1.1 | 0.1 | 3\n\nPIPE LEGEND\nMAIN BILGE LINE - METALLIC\nFIRELINE - METALLIC\nAUX. BILGE LINE - PVC/FLEX\nFRESHWATER SUPPLY - FLEX\n\nDRAWING-SPECIFIC NOTES:\n1. TO BE READ IN CONJUNCTION WITH SEPARATE DWG: 108-01-520-002 BILGE & FIRE SYSTEM OPERATING MODES\n2. ALL THRU-HULL VALVE SIZES ARE DETAILED IN DRG: 108-01-504-002 THRU-HULL BELOW DWL\n\nSTANDARD NOTES:\n- DO NOT SCALE\n- DIMENSIONS IN mm & 45mm UNLESS OTHERWISE INDICATED\n- BREAK ALL SHARP EDGES OF METAL PARTS\n- ALL PARTS WEIGHTS TO BE NOTED AFTER MANUFACTURING\n- DO NOT MEASURE OFF DRAWING; ASK DRAWING OFFICE FOR ANY MISSING INFORMATION\n\nSelected visible labels:\nPROP PUMP REMOTE START\nDIESEL BACKUP BILGE PUMP\nDIESEL FIRE PUMP\nMAIN BILGE PUMP REMOTE START\nENGINE ROOM AUX BILGE PUMP\nMAST AREA AUX BILGE PUMP\nELECTRIC FIRE PUMP\nMAIN BILGE PUMP LOCAL START\nMAIN BILGE PUMP\nFIRE PUMP REMOTE START\nFIRE HYDRANT\nLAZARETTE BILGE AREA\nAFT GUEST AREA\nENGINE ROOM BILGE AREA\nFWD GUEST AREA\nSAIL LOCKER BILGE AREA\nMAX REACH OF 15M FIRE HOSE FROM FWD HYDRANT\nMAX REACH OF 18M FIRE HOSE AT HYDRANT\nIN AFT STOWAGE (LOCATION TBC)\nIN FWD STOWAGE (LOCATION TBC)\nTENDER GARAGE\nMANUAL PULL-START\nDIESEL FIRE PUMP\nPRIMING LINE FROM FRESH WATER SUPPLY REF: DWG 108-01-510-001\nLAZARETTE PICKUP\nLAZARETTE SUMP\nMIDSHIP SUMP\nENGINE ROOM\nFROM SEACHEST SUPPLY REF: DWG 108-01-515-003\nTO PORTABLE OIL STORAGE TANK\nOILY BILGE FILTER\nE-R AUX BILGE PUMP\nFLEX SUCTION HOSE CONNECTION\nENGINE ROOM SUMP\nMIN. 800mm ABOVE DWL\nFWD DECK LOCKER DRAIN\nMAST AREA SUMP\nMAST AUX BILGE PUMP\nMAST AUX BILGE PUMP SUCTION MANIFOLD\nESS ENCLOSURE\nCOOLANT LEAK ALARM\nSEAWATER STRAINER\nELECTRIC FIRE PUMP\nMAIN BILGE PUMP\nANTI-SIPHON MANIFOLD 700mm ABOVE DWL\nBREAKER TO RUN INTO STBD E-R VENT BOX REF: DWG 108-01-508-001\nSAIL LOCKER SUMP\nFIRE LINE SEAWATER SUPPLY\nFIRE LINE IN PORT SHEET\nMAIN BILGE LINE\nBILGE OVERBOARD",
+  "components": [
+    {
+      "label": "002-01 DIESEL FIRE PUMP",
+      "bbox": [
+        0.119,
+        0.584,
+        0.153,
+        0.638
+      ],
+      "confidence": "high",
+      "note": "Lower-left tender-garage pump branch; manual pull-start noted."
+    },
+    {
+      "label": "005-01 SEAWATER STRAINER",
+      "bbox": [
+        0.128,
+        0.553,
+        0.153,
+        0.586
+      ],
+      "confidence": "high",
+      "note": "Tender-garage suction strainer immediately upstream of diesel fire pump."
+    },
+    {
+      "label": "005-01 LAZARETTE PICKUP",
+      "bbox": [
+        0.185,
+        0.756,
+        0.197,
+        0.802
+      ],
+      "confidence": "medium",
+      "note": "Bottom of lazarette sump."
+    },
+    {
+      "label": "007-01 BILGE ALARM",
+      "bbox": [
+        0.169,
+        0.741,
+        0.181,
+        0.773
+      ],
+      "confidence": "medium",
+      "note": "Inside lazarette sump box."
+    },
+    {
+      "label": "006-02 MIDSHIP SUMP PICKUP",
+      "bbox": [
+        0.258,
+        0.756,
+        0.271,
+        0.802
+      ],
+      "confidence": "medium",
+      "note": "Left pickup in midship sump."
+    },
+    {
+      "label": "006-03 MIDSHIP SUMP PICKUP",
+      "bbox": [
+        0.285,
+        0.756,
+        0.298,
+        0.802
+      ],
+      "confidence": "medium",
+      "note": "Right pickup in midship sump."
+    },
+    {
+      "label": "007-02 BILGE ALARM",
+      "bbox": [
+        0.269,
+        0.741,
+        0.282,
+        0.773
+      ],
+      "confidence": "medium",
+      "note": "Inside midship sump box."
+    },
+    {
+      "label": "003-02 E-R AUX BILGE PUMP",
+      "bbox": [
+        0.441,
+        0.637,
+        0.462,
+        0.675
+      ],
+      "confidence": "high",
+      "note": "Engine-room auxiliary bilge pump below oily bilge filter."
+    },
+    {
+      "label": "004-01 OILY BILGE FILTER",
+      "bbox": [
+        0.467,
+        0.597,
+        0.497,
+        0.637
+      ],
+      "confidence": "high",
+      "note": "Engine-room oily-bilge branch."
+    },
+    {
+      "label": "021-01 FLEX SUCTION HOSE CONNECTION",
+      "bbox": [
+        0.458,
+        0.675,
+        0.508,
+        0.699
+      ],
+      "confidence": "high",
+      "note": "Engine-room auxiliary suction branch."
+    },
+    {
+      "label": "006-04 ENGINE ROOM SUMP PICKUP",
+      "bbox": [
+        0.369,
+        0.756,
+        0.382,
+        0.802
+      ],
+      "confidence": "medium",
+      "note": "Left engine-room sump pickup."
+    },
+    {
+      "label": "006-05 ENGINE ROOM SUMP PICKUP",
+      "bbox": [
+        0.396,
+        0.756,
+        0.409,
+        0.802
+      ],
+      "confidence": "medium",
+      "note": "Right engine-room sump pickup."
+    },
+    {
+      "label": "007-03 BILGE ALARM",
+      "bbox": [
+        0.458,
+        0.741,
+        0.472,
+        0.773
+      ],
+      "confidence": "medium",
+      "note": "Engine-room sump alarm."
+    },
+    {
+      "label": "003-01 MAST AREA BILGE PUMP",
+      "bbox": [
+        0.671,
+        0.637,
+        0.694,
+        0.679
+      ],
+      "confidence": "high",
+      "note": "Mast-area auxiliary bilge pump."
+    },
+    {
+      "label": "MAST AUX BILGE PUMP SUCTION MANIFOLD",
+      "bbox": [
+        0.631,
+        0.69,
+        0.703,
+        0.718
+      ],
+      "confidence": "high",
+      "note": "Selector/crossover manifold below mast-area pump."
+    },
+    {
+      "label": "006-06 MAST AREA SUMP PICKUP",
+      "bbox": [
+        0.541,
+        0.756,
+        0.555,
+        0.802
+      ],
+      "confidence": "medium",
+      "note": "Mast area sump pickup."
+    },
+    {
+      "label": "007-04 BILGE ALARM",
+      "bbox": [
+        0.56,
+        0.741,
+        0.574,
+        0.773
+      ],
+      "confidence": "medium",
+      "note": "Mast area sump alarm."
+    },
+    {
+      "label": "006-08 ESS ENCLOSURE PICKUP",
+      "bbox": [
+        0.675,
+        0.756,
+        0.687,
+        0.802
+      ],
+      "confidence": "medium",
+      "note": "Inside ESS enclosure sump box."
+    },
+    {
+      "label": "007-06 BILGE ALARM",
+      "bbox": [
+        0.7,
+        0.741,
+        0.714,
+        0.773
+      ],
+      "confidence": "medium",
+      "note": "ESS enclosure bilge alarm."
+    },
+    {
+      "label": "005-02 SEAWATER STRAINER",
+      "bbox": [
+        0.754,
+        0.65,
+        0.782,
+        0.69
+      ],
+      "confidence": "high",
+      "note": "Upstream of main bilge pump on right-side pumping arrangement."
+    },
+    {
+      "label": "002-02 ELECTRIC FIRE PUMP",
+      "bbox": [
+        0.811,
+        0.614,
+        0.835,
+        0.662
+      ],
+      "confidence": "high",
+      "note": "Right-center fire-main branch."
+    },
+    {
+      "label": "003-01 MAIN BILGE PUMP",
+      "bbox": [
+        0.846,
+        0.65,
+        0.866,
+        0.692
+      ],
+      "confidence": "high",
+      "note": "Right-center main bilge pump."
+    },
+    {
+      "label": "ANTI-SIPHON MANIFOLD 700mm ABOVE DWL",
+      "bbox": [
+        0.866,
+        0.65,
+        0.927,
+        0.692
+      ],
+      "confidence": "high",
+      "note": "Main bilge discharge anti-siphon loop."
+    },
+    {
+      "label": "006-08 SAIL LOCKER SUMP PICKUP",
+      "bbox": [
+        0.939,
+        0.756,
+        0.952,
+        0.802
+      ],
+      "confidence": "medium",
+      "note": "Bottom of sail locker sump."
+    },
+    {
+      "label": "007-05 BILGE ALARM",
+      "bbox": [
+        0.952,
+        0.741,
+        0.966,
+        0.773
+      ],
+      "confidence": "medium",
+      "note": "Sail locker sump alarm."
+    },
+    {
+      "label": "FIRE LINE SEAWATER SUPPLY",
+      "bbox": [
+        0.081,
+        0.466,
+        0.126,
+        0.494
+      ],
+      "confidence": "high",
+      "note": "Aft fire-main seawater supply tie-in."
+    },
+    {
+      "label": "FIRE LINE SEAWATER SUPPLY",
+      "bbox": [
+        0.742,
+        0.466,
+        0.791,
+        0.494
+      ],
+      "confidence": "high",
+      "note": "Forward fire-main seawater supply tie-in."
+    },
+    {
+      "label": "FIRE HYDRANT aft",
+      "bbox": [
+        0.055,
+        0.522,
+        0.089,
+        0.618
+      ],
+      "confidence": "medium",
+      "note": "Aft-stowage hose/nozzle assembly."
+    },
+    {
+      "label": "FIRE HYDRANT forward",
+      "bbox": [
+        0.939,
+        0.522,
+        0.975,
+        0.618
+      ],
+      "confidence": "medium",
+      "note": "Forward-stowage hose/nozzle assembly."
+    }
+  ],
+  "model": "gpt-5.6-sol"
+}

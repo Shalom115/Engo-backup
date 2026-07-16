@@ -1,0 +1,393 @@
+{
+  "content_type": "plumbed_diagram",
+  "description": "RAW WATER SYSTEM SCHEMATIC, drawing 108-01-S15-001, sheet 1/1. Fluid-path reading: Both sea-water cooling circuits draw from SEACHEST 001-01 through separate normally-open 2-inch inlet valves and sea-water strainers, then through the port or starboard main cooling seawater pump. Each pump discharge passes its local normally-open discharge valve and flow sensor, then feeds the corresponding MAIN SYSTEM HEAT EXCHANGER 010-01 (port) or 010-02 (starboard). Downstream of each main heat exchanger, raw water discharges through a normally-open 1.5-inch overboard valve to a below-DWL seawater outlet. Each heat-exchanger section has readable isolation/bypass valves: port 017-01 and 017-02 around 010-01, with 019-01 and 019-02 on the heat-exchanger connections; starboard 017-03 and 017-04 around 010-02, with 019-03 and 019-04 on the heat-exchanger connections. HYDRAULIC PUMPS HEAT EXCHANGER 011-01 is a parallel branch between the port circuit headers, isolated by 005-03 and 005-04. PITCH CONTROL HEAT EXCHANGER 012-01 and CPP SEAWATER PUMP 005-05 form the pitch-control branch; 005-01 is shown at the stern-tube-bearing/hundested supply connection and 005-06 isolates the CPP pump outlet. Port and starboard main cooling circuits are linked by a central green cross-over/header fitted with two normally-closed cross-over valves; this allows one side/header to support the other when intentionally opened. A separate flush/fresh-water priming arrangement enters each main-pump suction through normally-closed valve 018-02 (port) and 018-01 (starboard); labels cross-reference the fresh-water supply and dedicated water pump on DWG 108-01-S10-01. SEACHEST 001-01 contains two sea-water strainers with normally-open 3-inch valves at strainer entries, normally-closed top backflush/vent connections, and below-DWL sea-water inlets; branch valves on the sea-chest manifold isolate the port pump suction, flush connection, starboard pump suction, and the lower auxiliary branch. Cathodic galvanic protection unit 009-01 is associated with the sea chest. Port and starboard generator raw-water pumps are package-mounted in the generator coolant circuits. Each receives sea water from the green raw-water header and discharges through an exhaust outlet to the exhaust silencer; each generator branch includes an ANTI-SIPHON MANIFOLD, 015-01 port and 015-02 starboard, with breather routed to the engine-room vent box. The generator coolant-package cross-reference is DWG 108-01-S15-002; exhaust outlet cross-reference is DWG 108-01-440-001; vent-box cross-reference is DWG 108-01-S08-001. Boiler internal heat exchangers are joined by pink coolant/flexible-pipe runs: 80L FWD BOILER at upper right and 80L AFT BOILER at left-middle. Lower auxiliary raw-water branches: AIRCON SYSTEM REF. DWG 108-01-S90-001 is supplied through SEAWATER STRAINER 003-02, with normally-closed top service/breather valve and below-DWL inlet/outlet isolation valves; WATERMAKER UNITS REF. DWG 108-01-S10-001 is similarly supplied through SEAWATER STRAINER 003-03. Flow arrows show sea chest/inlet or fresh-water priming source toward pumps, then heat exchangers/consumers, and finally overboard/outlet. Printed performance data: STBD/PORT GENERATOR RAW WATER PUMP\u2014Sherwood P2709-01, 193 l/min at 2500 rpm. MAIN COOLING CIRCUIT SEAWATER PUMPS\u2014Grundfos CME 10-1 A-R-G-V, 200 l/min, 1.1 kW. CONTROLLABLE PITCH SEAWATER PUMP\u2014Calpeda BCM 20/A, 80 l/min, 0.37 kW. Pitch-control note: minimum flow 22.5 l/min; max pressure 1.2 bars (0.6\u20130.7 bar is sufficient); suitable pressure/flow regulators plus gauges may be required. Drawing-specific notes state that thru-hull valves are detailed separately in DWG 108-01-S40-002, Thru-Hull Fittings Below & Near DWL; refer to DWG 108-01-S15-002 Cooling Water System Schematic; quick couplings on main heat exchangers allow flushing of seawater circuit to remove fouling.",
+  "transcription": "SYMBOLS LEGEND\nI.C.E. DRIVEN PUMP\nMOTOR DRIVEN PUMP\nGLOBE VALVE\nBALL VALVE 2-WAY\nBALL VALVE 3-WAY\nNON-RETURN VALVE\nSEAWATER STRAINER\nFLUID RESERVOIR\nSWS CONTROL PANEL\nTHRU-HULL FITTING (PLAIN VIEW)\nHEAT EXCHANGER\nLOCAL SWITCH\nSWS CONTROL PANEL\nBAT SYSTEMS CONTROL UNIT (SCU)\n\nTEXT LEGEND\nUnique Number (XX = not applicable)\nBOM Number (see BOM table)\nPipe Code (see PIPING DETAILS table)\nFlow Direction in Pipe\nFS Flow Switch\nLS Level Switch\nSS Salinity Sensor\nTS Temperature Sensor\nNC Normally Closed\nNO Normally Open\nM Motor\nPI Pressure Indicator\nS Solenoid\nWEG Water Ethylene Glycol\n\nPIPE LEGEND\nSEA WATER, METALLIC PIPE\nSEA WATER, FLEX PIPE\nCOOLANT, METALLIC PIPE\nCOOLANT, FLEX PIPE\nVENT/BREATHER, FLEX PIPE\nHYDRAULIC OIL, FLEX PIPE\nFRESH WATER (COLD)\n\nENGINE ROOM\n80L FWD BOILER\nINTERNAL HEAT EXCHANGER\nBREATHER TO RUN INTO E-R VENT BOX REF: DWG 108-01-S08-001\nANTI-SIPHON MANIFOLD 015-01\nTO GEN EXHAUST SILENCER REF DWG 108-01-440-001\nPORT GENERATOR CUMMINS QSB 4.5 112kW @ 2500RPM\nCOOLANT CIRCUIT\nPORT COOLING CIRCUIT REF: DWG 108-01-S15-002\nMAIN SYSTEM HEAT EXCHANGER 010-01\nHYDRAULIC PUMPS HEAT EXCHANGER 011-01\nHYDRAULIC MOTORS COOLING CIRCUIT REF: DWG 108-01-S15-002\nSTBD COOLING CIRCUIT REF: DWG 108-01-S15-002\nMAIN COOLING SEAWATER PUMP (PORT)\nPRIMING LINE FROM FRESH WATER SUPPLY REF: DWG 108-01-S10-01\nTO DEDICATED WATER PUMP REF: DWG 108-01-S10-01\nFLUSH CONNECTION POINT\nSEACHEST 001-01\nMAIN BRANCH MANIFOLD\nSEAWATER STRAINER\nCATHODIC GALVANIC PROTECTION CONTROL UNIT 009-01\nBELOW DWL SEAWATER INLET\nMAIN SYSTEM HEAT EXCHANGER 010-02\nMAIN COOLING SEAWATER PUMP (STBD)\nSTERN TUBE BEARING HUNDESTED\nSHAFT SEAL WARTSILA TYPE PSE\nHUNDESTED VP 4 70 FIXED PITCH CONTROL HYDRAULICS\nPITCH CONTROL HEAT EXCHANGER 012-01\nCPP SEAWATER PUMP 005-05\nMinimum flow is 22.5 l/min\nMax pressure is 1.2bars (0.6\u20130.7bar is sufficient)\nSuitable pressure/flow regulators + gauges may be required\n80L AFT BOILER\nINTERNAL HEAT EXCHANGER\nBREATHER TO RUN INTO E-R VENT BOX REF: DWG 108-01-S08-001\nANTI-SIPHON MANIFOLD 015-02\nTO GEN EXHAUST SILENCER REF DWG 108-01-440-001\nSTBD GENERATOR CUMMINS QSB 4.5 112kW @ 2500RPM\nCOOLANT CIRCUIT\nBREATHER TO RUN INTO E-R VENT BOX REF: DWG 108-01-S08-001\nAIRCON SYSTEM REF: DWG 108-01-S90-001\n003-02 SEAWATER STRAINER\nWATERMAKER UNITS REF: DWG 108-01-S10-001\n003-03 SEAWATER STRAINER\nBELOW DWL SEAWATER OUTLET\nBELOW DWL SEAWATER INLET\n\nRAW WATER SYSTEM PUMP DATA\nPUMP TYPE / DETAILS / FLOW RATE (l/min) / POWER (kW)\nSTBD/PORT GENERATOR RAW WATER PUMP / Sherwood P2709-01 / 193 @ 2500rpm / -\nMAIN COOLING CIRCUIT SEAWATER PUMPS / Grundfos CME 10-1 A-R-G-V / 200 / 1.1\nCONTROLLABLE PITCH SEAWATER PUMP / Calpeda BCM 20/A / 80 / 0.37\n\nDRAWING-SPECIFIC NOTES:\n1. THRU-HULL VALVES ARE DETAILED SEPARATELY IN DWG: 108-01-S40-002 \u201cThru-Hull Fittings Below & Near DWL\u201d.\n2. TO BE READ IN CONJUNCTION WITH DWG: 108-01-S15-002 \u201cCooling Water System Schematic\u201d.\n3. QUICK COUPLINGS LOCATED ON MAIN HEAT EXCHANGERS ALLOW FLUSHING OF SEAWATER CIRCUIT TO REMOVE FOULING.\n\nSTANDARD NOTES:\nDO NOT SCALE.\nDIMENSIONS TO BE \u00b10.5mm UNLESS OTHERWISE INDICATED.\nBREAK ALL SHARP EDGES OF METAL PARTS.\nALL PARTS SHOULD TO BE IN CRAFT AFTER MANUFACTURING.\nDO NOT MEASURE OFF DRAWING. ASK DRAWING OFFICE FOR ANY MISSING INFORMATION.\n\nRAW WATER SYSTEM SCHEMATIC\nDRAWING No: 108-01-S15-001\nSHEETS: 1/1\nSCALE: NTS\nFIRST ISSUE\n24 OCT 2022",
+  "components": [
+    {
+      "label": "SEACHEST 001-01",
+      "bbox": [
+        0.677,
+        0.101,
+        0.845,
+        0.427
+      ],
+      "confidence": "high",
+      "note": "Large dashed sea-chest assembly at upper-right of schematic."
+    },
+    {
+      "label": "ANTI-SIPHON MANIFOLD 015-01",
+      "bbox": [
+        0.311,
+        0.074,
+        0.34,
+        0.103
+      ],
+      "confidence": "high",
+      "note": "Port generator branch, upper-left of schematic."
+    },
+    {
+      "label": "ANTI-SIPHON MANIFOLD 015-02",
+      "bbox": [
+        0.311,
+        0.464,
+        0.34,
+        0.491
+      ],
+      "confidence": "high",
+      "note": "Starboard generator branch, lower-left of main schematic."
+    },
+    {
+      "label": "MAIN SYSTEM HEAT EXCHANGER 010-01",
+      "bbox": [
+        0.338,
+        0.154,
+        0.382,
+        0.196
+      ],
+      "confidence": "high",
+      "note": "Port main-system exchanger."
+    },
+    {
+      "label": "MAIN SYSTEM HEAT EXCHANGER 010-02",
+      "bbox": [
+        0.338,
+        0.301,
+        0.382,
+        0.343
+      ],
+      "confidence": "high",
+      "note": "Starboard main-system exchanger."
+    },
+    {
+      "label": "HYDRAULIC PUMPS HEAT EXCHANGER 011-01",
+      "bbox": [
+        0.337,
+        0.208,
+        0.382,
+        0.247
+      ],
+      "confidence": "high",
+      "note": "Parallel lower branch under port main heat exchanger."
+    },
+    {
+      "label": "PITCH CONTROL HEAT EXCHANGER 012-01",
+      "bbox": [
+        0.337,
+        0.384,
+        0.382,
+        0.426
+      ],
+      "confidence": "high",
+      "note": "Pitch-control branch in center-lower schematic."
+    },
+    {
+      "label": "CPP SEAWATER PUMP 005-05",
+      "bbox": [
+        0.531,
+        0.386,
+        0.569,
+        0.427
+      ],
+      "confidence": "high",
+      "note": "Motor-driven CPP pump right of pitch-control exchanger."
+    },
+    {
+      "label": "MAIN COOLING SEAWATER PUMP (PORT)",
+      "bbox": [
+        0.521,
+        0.155,
+        0.566,
+        0.203
+      ],
+      "confidence": "high",
+      "note": "Port main seawater pump."
+    },
+    {
+      "label": "MAIN COOLING SEAWATER PUMP (STBD)",
+      "bbox": [
+        0.521,
+        0.301,
+        0.566,
+        0.35
+      ],
+      "confidence": "high",
+      "note": "Starboard main seawater pump."
+    },
+    {
+      "label": "FLOW SENSOR 016-01",
+      "bbox": [
+        0.407,
+        0.169,
+        0.437,
+        0.196
+      ],
+      "confidence": "high",
+      "note": "Port main-cooling discharge flow sensor."
+    },
+    {
+      "label": "FLOW SENSOR 016-02",
+      "bbox": [
+        0.407,
+        0.315,
+        0.437,
+        0.343
+      ],
+      "confidence": "high",
+      "note": "Starboard main-cooling discharge flow sensor."
+    },
+    {
+      "label": "017-01",
+      "bbox": [
+        0.311,
+        0.143,
+        0.329,
+        0.166
+      ],
+      "confidence": "high",
+      "note": "Port heat-exchanger upper bypass/isolation valve."
+    },
+    {
+      "label": "017-02",
+      "bbox": [
+        0.311,
+        0.171,
+        0.329,
+        0.194
+      ],
+      "confidence": "high",
+      "note": "Port heat-exchanger lower bypass/isolation valve."
+    },
+    {
+      "label": "019-01",
+      "bbox": [
+        0.328,
+        0.156,
+        0.344,
+        0.176
+      ],
+      "confidence": "high",
+      "note": "Port exchanger left connection valve."
+    },
+    {
+      "label": "019-02",
+      "bbox": [
+        0.379,
+        0.156,
+        0.395,
+        0.176
+      ],
+      "confidence": "high",
+      "note": "Port exchanger right connection valve."
+    },
+    {
+      "label": "017-03",
+      "bbox": [
+        0.311,
+        0.29,
+        0.329,
+        0.313
+      ],
+      "confidence": "high",
+      "note": "Starboard heat-exchanger upper bypass/isolation valve."
+    },
+    {
+      "label": "017-04",
+      "bbox": [
+        0.311,
+        0.318,
+        0.329,
+        0.341
+      ],
+      "confidence": "high",
+      "note": "Starboard heat-exchanger lower bypass/isolation valve."
+    },
+    {
+      "label": "019-03",
+      "bbox": [
+        0.328,
+        0.303,
+        0.344,
+        0.323
+      ],
+      "confidence": "high",
+      "note": "Starboard exchanger left connection valve."
+    },
+    {
+      "label": "019-04",
+      "bbox": [
+        0.379,
+        0.303,
+        0.395,
+        0.323
+      ],
+      "confidence": "high",
+      "note": "Starboard exchanger right connection valve."
+    },
+    {
+      "label": "005-03",
+      "bbox": [
+        0.306,
+        0.212,
+        0.328,
+        0.229
+      ],
+      "confidence": "high",
+      "note": "Left isolation valve for hydraulic-pumps heat-exchanger branch."
+    },
+    {
+      "label": "005-04",
+      "bbox": [
+        0.378,
+        0.212,
+        0.4,
+        0.229
+      ],
+      "confidence": "high",
+      "note": "Right isolation valve for hydraulic-pumps heat-exchanger branch."
+    },
+    {
+      "label": "005-01",
+      "bbox": [
+        0.318,
+        0.372,
+        0.338,
+        0.394
+      ],
+      "confidence": "high",
+      "note": "Valve at stern-tube-bearing/hundested connection into pitch-control branch."
+    },
+    {
+      "label": "005-06",
+      "bbox": [
+        0.498,
+        0.393,
+        0.521,
+        0.412
+      ],
+      "confidence": "high",
+      "note": "CPP seawater-pump outlet isolation valve."
+    },
+    {
+      "label": "018-02",
+      "bbox": [
+        0.51,
+        0.143,
+        0.532,
+        0.166
+      ],
+      "confidence": "high",
+      "note": "Normally-closed port fresh-water priming valve."
+    },
+    {
+      "label": "018-01",
+      "bbox": [
+        0.51,
+        0.289,
+        0.532,
+        0.312
+      ],
+      "confidence": "high",
+      "note": "Normally-closed starboard fresh-water priming valve."
+    },
+    {
+      "label": "CATHODIC GALVANIC PROTECTION CONTROL UNIT 009-01",
+      "bbox": [
+        0.754,
+        0.251,
+        0.811,
+        0.277
+      ],
+      "confidence": "high",
+      "note": "Inside sea-chest assembly."
+    },
+    {
+      "label": "80L FWD BOILER",
+      "bbox": [
+        0.899,
+        0.026,
+        0.974,
+        0.059
+      ],
+      "confidence": "high",
+      "note": "Upper-right edge."
+    },
+    {
+      "label": "80L AFT BOILER",
+      "bbox": [
+        0.06,
+        0.428,
+        0.139,
+        0.467
+      ],
+      "confidence": "high",
+      "note": "Left-middle of schematic."
+    },
+    {
+      "label": "PORT GENERATOR CUMMINS QSB 4.5 112kW @ 2500RPM",
+      "bbox": [
+        0.358,
+        0.054,
+        0.476,
+        0.127
+      ],
+      "confidence": "high",
+      "note": "Upper generator coolant/raw-water package."
+    },
+    {
+      "label": "STBD GENERATOR CUMMINS QSB 4.5 112kW @ 2500RPM",
+      "bbox": [
+        0.358,
+        0.446,
+        0.476,
+        0.52
+      ],
+      "confidence": "high",
+      "note": "Lower generator coolant/raw-water package."
+    },
+    {
+      "label": "003-02 SEAWATER STRAINER",
+      "bbox": [
+        0.397,
+        0.559,
+        0.435,
+        0.597
+      ],
+      "confidence": "high",
+      "note": "Air-conditioning raw-water branch at bottom-center-left."
+    },
+    {
+      "label": "003-03 SEAWATER STRAINER",
+      "bbox": [
+        0.586,
+        0.559,
+        0.624,
+        0.597
+      ],
+      "confidence": "high",
+      "note": "Watermaker raw-water branch at bottom-center-right."
+    },
+    {
+      "label": "AIRCON SYSTEM REF. DWG 108-01-S90-001",
+      "bbox": [
+        0.335,
+        0.548,
+        0.391,
+        0.575
+      ],
+      "confidence": "high",
+      "note": "Lower auxiliary raw-water branch."
+    },
+    {
+      "label": "WATERMAKER UNITS REF. DWG 108-01-S10-001",
+      "bbox": [
+        0.524,
+        0.548,
+        0.582,
+        0.575
+      ],
+      "confidence": "high",
+      "note": "Lower auxiliary raw-water branch."
+    }
+  ],
+  "model": "gpt-5.6-sol"
+}

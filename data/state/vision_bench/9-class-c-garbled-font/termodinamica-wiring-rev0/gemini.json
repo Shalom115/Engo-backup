@@ -1,0 +1,258 @@
+{
+  "content_type": "electrical_diagram",
+  "description": "This is a wiring schematic for an electrical system, detailing the connections between various components. The schematic includes a main switchboard, breakers, touch screen interfaces, thermostats, MRMAX units for different cabins, and a TMD bridge. A legend is provided for the different cables and buses used in the system, and several detailed connection diagrams for specific components are shown on the right side of the main schematic.",
+  "transcription": "KEY LINE\nMAIN SWITCHBOARD COMPRESSOR POWER\nSUPPLY230VAC\nL + N + PE - 3x6 mm\u00b2\nBUS MASTER LINE 1\n2x2x0,75 mm\u00b2 - Max lenght 10m/ <3PCB\n2x1x0,75 mm\u00b2 + 2x1,5mm\u00b2 - Max lenght 20m/ <4PCB\n2x1x0,75 mm\u00b2 + 2x2,5mm\u00b2 - Max lenght 20-40m/ >5<PCB\nSEA WATER PUMP\nL + N + PE - 3x1,5 mm\u00b2\nBUS MASTER LINE 2\n2x2x0,75 mm\u00b2 - Max lenght 10m/ <3PCB\n2x1x0,75 mm\u00b2 + 2x1,5mm\u00b2 - Max lenght 20m/ <4PCB\n2x1x0,75 mm\u00b2 + 2x2,5mm\u00b2 - Max lenght 20-40m/ >5<PCB\nPOWER SUPPLY 230VAC\nL + N + PE - 3x1,5 mm\u00b2\nBUS SLAVE LINE\n2x2x0,75 mm\u00b2 - Max lenght 10m/ <3PCB\n2x1x0,75 mm\u00b2 + 2x1,5mm\u00b2 - Max lenght 20m/ <4PCB\n2x1x0,75 mm\u00b2 + 2x2,5mm\u00b2 - Max lenght 20-40m/ >5<PCB\nCompressor ground wire\nconnected to an independent anode / zinc.\nGround wire must not be connected to any other device.\nWarning: failure to comply with this condition will invalidate\nthe system warranty\nETHERNET CABLE\nUTP CAT. 5\nBUS CABLE SPECIFICATIONS / NOTES\nSECTION - Min. 0.5 mm\u00b2 / Max 1.0 mm\u00b2\nIMPEDANCE - 100 / 120 ohm\nCAPACITANCE CONDUCTOR / CONDUCTOR - 50-60 pF / m or less\nBUS PAIR - Twisted pair about 10 twist / meter\nSHIELD/SCREEN - Connected to GND only to the compressor box side;\nScreen must be connected everywhere, beetween one cable and another one, but not to the\nAir handler electronic panel.\nROUTING - Separate from other AC and DC wires, with minimum 10 cm of distance.\nUse a sheath, to route the cables its higly preferred\nTERMODINAMICA DC POWER SUPPLY CABLE (24VDC, GND) - Run together as a single\nline. This lines must come from the compressor unit or from a single point. The power\nsupply from different sources, is not allowed.\nTO ENTER THE PCB (AIR HANDLER ELECTRONIC PANEL)\nUSE ANYTIME THE WIRE 2x2x0,75mm\u00b2.\nFANCOIL NOTES\nSW 108-01 - Wiring Schematic\nMain Switchboard\nEthernet lan\nINTERNET\nROUTER\nEthernet lan\nBreaker\n40 amp\nC or D curve\nB1\nTMD\nInternet\nInterface\n80 W @ 24 VDC\nTouch Screen 7\nTouch\nScreen\nInterface\nAddr.1\n10 W @ 24VDC\nTherm\nMRMAXI18i\nFwd\nGuest\ncabin\nAddr.2\n90 W @ 230 VAC\nTherm\nMRMAXI30i\nSalon\nport\nAddr.3\n170 W @ 230 VAC\nTherm\nMRMAXI18i\nAft\nGuest\ncabin\nport\nAddr.4\n90 W @ 230 VAC\nTherm\nMRMAXI30i\nFwd\nGalley\nAddr.5.0\n170 W @ 230 VAC\nMRMAXI30i\nAft\nGalley\nAddr.5.1\n170 W @ 230 VAC\nTherm\nMRMAXI18i\nAft\nCrew\ncabin\nport\nAddr.6\n90 W @ 230 VAC\nmod. QI-50-V-485\nAC/DC\nCurrent\nSensor\nTRMS\nAddr.31\n5 W @ 24 VDC\nRS485\nModbus RTU\nTMD\nBridge\nAddr.32\n5 W @ 24 VDC\nVRV18E1\nENGINE\nROOM\nPORT\nSEA\nWATER\nPUMP\nTMD100\nSwitch BUS\nBox Connection\nMain Switchboard\nBreaker\n40 amp\nC or D curve\nB1\nTouch\nScreen\nInterface\nAddr.1\n10 W @ 24VDC\nTherm\nMRMAXI18i\nAft\nCrew\ncabin\nstbd\nAddr.7\n90 W @ 230 VAC\nTherm\nMRMAXI18i\nFwd\nCrew\ncabin\nstbd\nAddr.8\n90 W @ 230 VAC\nTherm\nMRMAXI18i\nAft\nGuest\ncabin\nstbd\nAddr.9\n90 W @ 230 VAC\nMRMAXI30i\nSalon\nstbd\nAddr.10\n170 W @ 230 VAC\nTherm\nMRMAXI30i\nOwner's\ncabin\nAddr.11\n170 W @ 230 VAC\nmod. QI-50-V-485\nAC/DC\nCurrent\nSensor\nTRMS\nAddr.31\n5 W @ 24 VDC\nRS485\nModbus RTU\nTMD\nBridge\nAddr.32\n5 W @ 24 VDC\nVRV18E1\nENGINE\nROOM\nSTBD\nSEA\nWATER\nPUMP\nTMD100\n230VAC\n230VAC\n230VAC\n230VAC\n230VAC\n230VAC\n230VAC\n230VAC\n230VAC\n230VAC\n230VAC\nSyxthSense Touch Screen Connection\nVRV18E1 Terminal Block Connection\nREAR VIEW\nSLAVE BUS\nMASTER BUS\nSYXTHSENSE TOUCH SCREEN\nSRI-70-MOD-24\nAir Handler\nSyxthsense Touch Screen & SubSlave Air Handler Connection\nAir Handler Wiring\nSLAVE BUS\nREAR VIEW\nTHERMOSTAT BUS\nMASTER BUS\nSUBSLAVE\nSYXTHSENSE TOUCH\nSRI-70-MOD-24\nMaster\nAir\nHandler\nAir Handler Port and Stbd Connection\nAir Handler Master and Slave Air Handler Connection\nSLAVE BUS\nREAR VIEW\nSYXTHSENSE TOUCH\nSRI-70-MOD-24\nTHERMOSTAT BUS\nMASTER BUS\nMaster\nAir\nHandler\nSaloon\nPort\nMaster\nAir\nHandler\nStbd\nSLAVE BUS\nMASTER BUS\nSLAVE BUS\nMASTER BUS\nSUBSLAVE\nMaster\nAir\nHandler\nTS7E 7\" Exor Touch Screen & Dual Touch Screen Interfaces Connection\nSLAVE BUS\nTOUCH SCREEN\nINTERFACE\nCOMPRESSOR\nBOX N. 1\nPORT\nINTERNET\nROUTER\nTMD\nINTERNET\nINTERFACE\nTOUCH SCREEN\nINTERFACE\nCOMPRESSOR\nBOX N. 1\nSTBD\nAC/DC Current Sensor TRMS mod. QI-50-V-485\nMASTER BUS\nLOAD PHASE\nMAX 50 A\nAC/DC Current Sensor\nTRMS mod. QI-50-V-485\nSwitch BUS Box Connection\nREV N\u00b0\nDRAWN BY\nVERIFIED BY\nISSUE\nDATE\nREV.0\nN.M.\nS.P.\nFIRST REVISION\n28/05/2022\nTERMODINAMICA\nMARINE INVERTER AIR CONDITIONING\nTITLE\nTermodinamica_SW 108-01_Wiring schematic\nSHEET\n1/1\nREV\n0",
+  "components": [
+    {
+      "label": "Breaker B1 (Port)",
+      "bbox": [
+        0.264,
+        0.071,
+        0.283,
+        0.111
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "TMD Internet Interface",
+      "bbox": [
+        0.301,
+        0.169,
+        0.366,
+        0.203
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "Touch Screen Interface (Addr.1, Port)",
+      "bbox": [
+        0.297,
+        0.214,
+        0.38,
+        0.245
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "MRMAXI18i (Addr.2)",
+      "bbox": [
+        0.279,
+        0.259,
+        0.38,
+        0.291
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "MRMAXI30i (Addr.3)",
+      "bbox": [
+        0.279,
+        0.306,
+        0.38,
+        0.339
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "MRMAXI18i (Addr.4)",
+      "bbox": [
+        0.279,
+        0.352,
+        0.38,
+        0.385
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "MRMAXI30i (Addr.5.0)",
+      "bbox": [
+        0.279,
+        0.398,
+        0.38,
+        0.431
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "MRMAXI30i (Addr.5.1)",
+      "bbox": [
+        0.279,
+        0.444,
+        0.367,
+        0.476
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "MRMAXI18i (Addr.6)",
+      "bbox": [
+        0.279,
+        0.483,
+        0.38,
+        0.515
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "AC/DC Current Sensor TRMS (Addr.31, Port)",
+      "bbox": [
+        0.279,
+        0.528,
+        0.38,
+        0.559
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "TMD Bridge (Addr.32, Port)",
+      "bbox": [
+        0.279,
+        0.573,
+        0.38,
+        0.603
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "VRV18E1 ENGINE ROOM PORT",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "SEA WATER PUMP TMD100 (Port)",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "Switch BUS Box Connection",
+      "bbox": [
+        0.558,
+        0.149,
+        0.617,
+        0.179
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "Breaker B1 (Stbd)",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "Touch Screen Interface (Addr.1, Stbd)",
+      "bbox": [
+        0.692,
+        0.214,
+        0.793,
+        0.245
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "MRMAXI18i (Addr.7)",
+      "bbox": [
+        0.692,
+        0.259,
+        0.793,
+        0.291
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "MRMAXI18i (Addr.8)",
+      "bbox": [
+        0.692,
+        0.306,
+        0.793,
+        0.339
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "MRMAXI18i (Addr.9)",
+      "bbox": [
+        0.692,
+        0.352,
+        0.793,
+        0.385
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "MRMAXI30i (Addr.10)",
+      "bbox": [
+        0.692,
+        0.398,
+        0.793,
+        0.431
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "MRMAXI30i (Addr.11)",
+      "bbox": [
+        0.692,
+        0.448,
+        0.793,
+        0.48
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "AC/DC Current Sensor TRMS (Addr.31, Stbd)",
+      "bbox": [
+        0.692,
+        0.493,
+        0.793,
+        0.524
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "TMD Bridge (Addr.32, Stbd)",
+      "bbox": [
+        0.692,
+        0.538,
+        0.793,
+        0.569
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "VRV18E1 ENGINE ROOM STBD",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "SEA WATER PUMP TMD100 (Stbd)",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    }
+  ],
+  "model": "gemini-3.1-pro-preview"
+}

@@ -1,0 +1,426 @@
+{
+  "content_type": "electrical_diagram",
+  "description": "Electrical/network general-arrangement sheet titled \u201cCAN D STBD.\u201d This is a CAN-bus topology drawing, not a conventional load-power wiring schematic. It shows no branch-circuit protective devices, breaker/fuse identifiers or ratings, distribution board/row designations, local/panel switches, relay/contactor coils, PLC outputs, terminal strips, connector pin numbers, or individual wire numbers. Accordingly, no printed supply breaker/fuse, power-feed path, or control point can be assigned to any device from this sheet; the CAN lines are communications/status/control-network connections and must not be treated as power feeds. No explicit drawing/sheet continuation cross-reference is visible; title-page references concern document restrictions/export control, not circuit continuation.\n\nCAN topology, traced from the left end when the sheet is viewed upright (image rotated 90\u00b0 counterclockwise): a \u201cCAN Terminator 120 Ohm\u201d is at the left end of the main CAN D starboard backbone, beside a branch labelled \u201c24V RTN to CAN shield.\u201d The backbone passes serially through CAN Y CONNECTOR drops to SCU, DISPLAY AFT, ESS, EDN STBD, HEP, ECP3, ECP4, and BCP. DISPLAY AFT also connects by a separate CAN Y CONNECTOR branch to ALARM NAV. After BCP, the backbone loops to a central CAN Y CONNECTOR, then continues through another central CAN Y CONNECTOR toward the right-hand section. One central branch runs through an ISOLATOR to a remote CAN Y CONNECTOR with a \u201cCAN Terminator 120 Ohm\u201d and a BL4 drop. The other central branch runs through an ISOLATOR to a remote CAN Y CONNECTOR with a \u201cCAN Terminator 120 Ohm\u201d and a BEL3 drop. The right-hand continuation reaches a CAN Y CONNECTOR with an MC43 drop, then CBS STBD, and ends at \u201cEMS STBD with 120 Ohm\u201d (integral/end termination as printed).\n\nDevice characterization is limited to what is printed: SCU, DISPLAY AFT, ALARM NAV, ESS, EDN STBD, HEP, ECP3, ECP4, BCP, BL4, BEL3, MC43, CBS STBD, and EMS STBD are device identifiers/names, but their equipment types (pump, valve, light, controller, sensor, etc.) are not defined on this sheet and are therefore ambiguous. CAN Y CONNECTOR items are network junction/connectors; ISOLATOR items are CAN network isolators; \u201cCAN Terminator 120 Ohm\u201d items are 120-ohm bus terminations. The line topology documents CAN network interconnection only. No separate monitoring/alarm tap is identified except that ALARM NAV is shown as a CAN-connected device branching from DISPLAY AFT\u2019s area of the network; its detailed signal function is not given.\n\nPrinted installation note: \u201cNOTE: CAN Shield ground should be kept as short as possible to reduce voltage transients, without extending the CAN backbone.\u201d",
+  "transcription": "CAN D\nSTBD\n\nCAN Terminator\n120 Ohm\nCAN\nY CONNECTOR\n24V RTN to CAN\nshield\n\nNOTE:\nCAN Shield ground should be\nkept as short as possible to\nreduce voltage transients,\nwithout extending the CAN\nbackbone.\n\nCAN\nY CONNECTOR\nSCU\n\nCAN\nY CONNECTOR\nDISPLAY\nAFT\nCAN\nY CONNECTOR\nALARM\nNAV\n\nCAN\nY CONNECTOR\nESS\n\nCAN\nY CONNECTOR\nEDN STBD\n\nCAN\nY CONNECTOR\nHEP\n\nCAN\nY CONNECTOR\nECP3\n\nCAN\nY CONNECTOR\nECP4\n\nCAN\nY CONNECTOR\nBCP\n\nCAN\nY CONNECTOR\nISOLATOR\nCAN\nTerminator\n120 Ohm\nCAN\nY CONNECTOR\nBL4\n\nCAN\nY CONNECTOR\nISOLATOR\nCAN\nTerminator\n120 Ohm\nCAN\nY CONNECTOR\nBEL3\n\nCAN\nY CONNECTOR\nMC43\nCBS STBD\nEMS STBD with\n120 Ohm\n\nBAE SYSTEMS PROPRIETARY INFORMATION\nUSE OR DISCLOSURE OF THIS INFORMATION IS SUBJECT TO THE\nRESTRICTIONS ON THE FIRST PAGE OF THIS DOCUMENT.\n\nBAE SYSTEMS\nCONT NO.: NOT APPLICABLE\nWARNING: EXPORT CONTROLLED - SEE TITLE PAGE\n19D5D023\n89954\nSHEET 1 OF 1\n\nREVISIONS\nREV\nDESCRIPTION\nDATE\nAPPROVED\nD\n19D5D023\n31",
+  "components": [
+    {
+      "label": "CAN D STBD",
+      "bbox": [
+        0.117,
+        0.464,
+        0.169,
+        0.55
+      ],
+      "confidence": "high",
+      "note": "Sheet/network title."
+    },
+    {
+      "label": "CAN Terminator 120 Ohm",
+      "bbox": [
+        0.203,
+        0.854,
+        0.235,
+        0.953
+      ],
+      "confidence": "high",
+      "note": "Left-end 120-ohm CAN backbone terminator when viewed upright."
+    },
+    {
+      "label": "CAN Y CONNECTOR",
+      "bbox": [
+        0.203,
+        0.855,
+        0.254,
+        0.923
+      ],
+      "confidence": "high",
+      "note": "Leftmost CAN junction beside the terminator and shield-return branch."
+    },
+    {
+      "label": "24V RTN to CAN shield",
+      "bbox": [
+        0.269,
+        0.856,
+        0.299,
+        0.903
+      ],
+      "confidence": "high",
+      "note": "CAN shield return/ground branch; not identified as a load supply."
+    },
+    {
+      "label": "SCU",
+      "bbox": [
+        0.269,
+        0.773,
+        0.301,
+        0.831
+      ],
+      "confidence": "high",
+      "note": "Device identifier; equipment type is not stated. Connected as a CAN drop."
+    },
+    {
+      "label": "CAN Y CONNECTOR",
+      "bbox": [
+        0.203,
+        0.764,
+        0.254,
+        0.838
+      ],
+      "confidence": "high",
+      "note": "CAN junction serving SCU."
+    },
+    {
+      "label": "DISPLAY AFT",
+      "bbox": [
+        0.269,
+        0.692,
+        0.301,
+        0.755
+      ],
+      "confidence": "high",
+      "note": "Aft display; connected as a CAN drop."
+    },
+    {
+      "label": "CAN Y CONNECTOR",
+      "bbox": [
+        0.203,
+        0.681,
+        0.254,
+        0.761
+      ],
+      "confidence": "high",
+      "note": "CAN junction serving DISPLAY AFT."
+    },
+    {
+      "label": "CAN Y CONNECTOR",
+      "bbox": [
+        0.314,
+        0.761,
+        0.365,
+        0.832
+      ],
+      "confidence": "high",
+      "note": "Separate branch junction between the DISPLAY AFT area and ALARM NAV."
+    },
+    {
+      "label": "ALARM NAV",
+      "bbox": [
+        0.381,
+        0.785,
+        0.414,
+        0.832
+      ],
+      "confidence": "high",
+      "note": "Navigation alarm device identifier; detailed type/function is not defined. CAN-connected branch."
+    },
+    {
+      "label": "ESS",
+      "bbox": [
+        0.269,
+        0.601,
+        0.301,
+        0.654
+      ],
+      "confidence": "high",
+      "note": "Device identifier; equipment type is not stated. Connected as a CAN drop."
+    },
+    {
+      "label": "CAN Y CONNECTOR",
+      "bbox": [
+        0.203,
+        0.592,
+        0.254,
+        0.662
+      ],
+      "confidence": "high",
+      "note": "CAN junction serving ESS."
+    },
+    {
+      "label": "EDN STBD",
+      "bbox": [
+        0.269,
+        0.511,
+        0.301,
+        0.568
+      ],
+      "confidence": "high",
+      "note": "Starboard EDN device identifier; equipment type is not stated. Connected as a CAN drop."
+    },
+    {
+      "label": "CAN Y CONNECTOR",
+      "bbox": [
+        0.203,
+        0.503,
+        0.254,
+        0.575
+      ],
+      "confidence": "high",
+      "note": "CAN junction serving EDN STBD."
+    },
+    {
+      "label": "HEP",
+      "bbox": [
+        0.269,
+        0.419,
+        0.301,
+        0.477
+      ],
+      "confidence": "high",
+      "note": "Device identifier; equipment type is not stated. Connected as a CAN drop."
+    },
+    {
+      "label": "CAN Y CONNECTOR",
+      "bbox": [
+        0.203,
+        0.409,
+        0.254,
+        0.486
+      ],
+      "confidence": "high",
+      "note": "CAN junction serving HEP."
+    },
+    {
+      "label": "ECP3",
+      "bbox": [
+        0.269,
+        0.327,
+        0.301,
+        0.385
+      ],
+      "confidence": "high",
+      "note": "Device identifier; equipment type is not stated. Connected as a CAN drop."
+    },
+    {
+      "label": "CAN Y CONNECTOR",
+      "bbox": [
+        0.203,
+        0.317,
+        0.254,
+        0.392
+      ],
+      "confidence": "high",
+      "note": "CAN junction serving ECP3."
+    },
+    {
+      "label": "ECP4",
+      "bbox": [
+        0.269,
+        0.234,
+        0.301,
+        0.294
+      ],
+      "confidence": "high",
+      "note": "Device identifier; equipment type is not stated. Connected as a CAN drop."
+    },
+    {
+      "label": "CAN Y CONNECTOR",
+      "bbox": [
+        0.203,
+        0.223,
+        0.254,
+        0.31
+      ],
+      "confidence": "high",
+      "note": "CAN junction serving ECP4."
+    },
+    {
+      "label": "BCP",
+      "bbox": [
+        0.269,
+        0.144,
+        0.301,
+        0.203
+      ],
+      "confidence": "high",
+      "note": "Device identifier; equipment type is not stated. Connected as a CAN drop."
+    },
+    {
+      "label": "CAN Y CONNECTOR",
+      "bbox": [
+        0.203,
+        0.132,
+        0.254,
+        0.221
+      ],
+      "confidence": "high",
+      "note": "CAN junction serving BCP and the looped continuation of the backbone."
+    },
+    {
+      "label": "CAN Y CONNECTOR",
+      "bbox": [
+        0.349,
+        0.292,
+        0.419,
+        0.35
+      ],
+      "confidence": "high",
+      "note": "Central CAN junction; connected to backbone continuation and one isolator branch."
+    },
+    {
+      "label": "ISOLATOR",
+      "bbox": [
+        0.368,
+        0.395,
+        0.401,
+        0.442
+      ],
+      "confidence": "high",
+      "note": "CAN network isolator in the BL4/terminated branch."
+    },
+    {
+      "label": "CAN Terminator 120 Ohm",
+      "bbox": [
+        0.368,
+        0.465,
+        0.418,
+        0.529
+      ],
+      "confidence": "high",
+      "note": "120-ohm termination at the remote BL4 branch junction."
+    },
+    {
+      "label": "CAN Y CONNECTOR",
+      "bbox": [
+        0.368,
+        0.464,
+        0.418,
+        0.536
+      ],
+      "confidence": "high",
+      "note": "Remote CAN junction serving BL4 and a 120-ohm terminator."
+    },
+    {
+      "label": "BL4",
+      "bbox": [
+        0.436,
+        0.479,
+        0.467,
+        0.53
+      ],
+      "confidence": "high",
+      "note": "Device identifier; equipment type is not stated. Connected as a CAN drop beyond an isolator."
+    },
+    {
+      "label": "CAN Y CONNECTOR",
+      "bbox": [
+        0.462,
+        0.292,
+        0.532,
+        0.35
+      ],
+      "confidence": "high",
+      "note": "Central CAN junction; connected to right-hand backbone continuation and one isolator branch."
+    },
+    {
+      "label": "ISOLATOR",
+      "bbox": [
+        0.48,
+        0.395,
+        0.513,
+        0.442
+      ],
+      "confidence": "high",
+      "note": "CAN network isolator in the BEL3/terminated branch."
+    },
+    {
+      "label": "CAN Terminator 120 Ohm",
+      "bbox": [
+        0.48,
+        0.465,
+        0.531,
+        0.529
+      ],
+      "confidence": "high",
+      "note": "120-ohm termination at the remote BEL3 branch junction."
+    },
+    {
+      "label": "CAN Y CONNECTOR",
+      "bbox": [
+        0.48,
+        0.464,
+        0.531,
+        0.536
+      ],
+      "confidence": "high",
+      "note": "Remote CAN junction serving BEL3 and a 120-ohm terminator."
+    },
+    {
+      "label": "BEL3",
+      "bbox": [
+        0.547,
+        0.486,
+        0.579,
+        0.536
+      ],
+      "confidence": "high",
+      "note": "Device identifier; equipment type is not stated. Connected as a CAN drop beyond an isolator."
+    },
+    {
+      "label": "CAN Y CONNECTOR",
+      "bbox": [
+        0.541,
+        0.185,
+        0.612,
+        0.27
+      ],
+      "confidence": "high",
+      "note": "Right-hand CAN junction serving MC43 and connecting between the central network and CBS STBD."
+    },
+    {
+      "label": "MC43",
+      "bbox": [
+        0.609,
+        0.21,
+        0.641,
+        0.265
+      ],
+      "confidence": "high",
+      "note": "Device identifier; equipment type is not stated. Connected as a CAN drop."
+    },
+    {
+      "label": "CBS STBD",
+      "bbox": [
+        0.541,
+        0.122,
+        0.574,
+        0.171
+      ],
+      "confidence": "high",
+      "note": "Starboard CBS device identifier; equipment type is not stated. In the right-hand CAN backbone path."
+    },
+    {
+      "label": "EMS STBD with 120 Ohm",
+      "bbox": [
+        0.608,
+        0.122,
+        0.642,
+        0.171
+      ],
+      "confidence": "high",
+      "note": "Starboard EMS device with printed 120-ohm termination; detailed equipment type is not stated. Right-end CAN termination."
+    },
+    {
+      "label": "19D5D023",
+      "bbox": [
+        0.065,
+        0.12,
+        0.083,
+        0.224
+      ],
+      "confidence": "medium",
+      "note": "Drawing/document identifier in revision area; text orientation and small size reduce certainty."
+    },
+    {
+      "label": "19D5D023",
+      "bbox": [
+        0.678,
+        0.049,
+        0.696,
+        0.111
+      ],
+      "confidence": "high",
+      "note": "Drawing/document identifier in title block."
+    }
+  ],
+  "model": "gpt-5.6-sol"
+}

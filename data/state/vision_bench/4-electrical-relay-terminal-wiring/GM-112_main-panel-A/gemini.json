@@ -1,0 +1,1697 @@
+{
+  "legends": [],
+  "legend_context": "",
+  "survey": {
+    "title_block": {
+      "drawing_no": "GMMS 108'-112",
+      "title": "MAIN PANEL SCHEMATIC \"A\"",
+      "drafter": "GM"
+    },
+    "sub_type": "relay_terminal_wiring",
+    "sub_type_reason": "The sheet displays multiple multi-core cables and signal buses landing on multi-terminal strips, feeding status signals, indicator lights, and pump controls. It features terminal block wiring details and alarm/status interfaces rather than power distribution rows.",
+    "regions": [
+      {
+        "type": "terminal_strip",
+        "label": "T/S F MU5-12 / T/S E MU4a-12/1",
+        "bbox": [
+          0.048,
+          0.089,
+          0.392,
+          0.301
+        ],
+        "approx_unit_count": 22
+      },
+      {
+        "type": "terminal_strip",
+        "label": "T/S F MU4-12 / T/S E",
+        "bbox": [
+          0.068,
+          0.369,
+          0.383,
+          0.528
+        ],
+        "approx_unit_count": 13
+      },
+      {
+        "type": "terminal_strip",
+        "label": "T/S C (PLUG A / PLUG C)",
+        "bbox": [
+          0.397,
+          0.161,
+          0.505,
+          0.307
+        ],
+        "approx_unit_count": 16
+      },
+      {
+        "type": "terminal_strip",
+        "label": "T/S C (XA41 / XA61 block)",
+        "bbox": [
+          0.312,
+          0.314,
+          0.441,
+          0.367
+        ],
+        "approx_unit_count": 6
+      },
+      {
+        "type": "terminal_strip",
+        "label": "T/S C (XA61 block)",
+        "bbox": [
+          0.332,
+          0.373,
+          0.441,
+          0.522
+        ],
+        "approx_unit_count": 15
+      },
+      {
+        "type": "relay_bank",
+        "label": "Alarm / Pump Status Outputs",
+        "bbox": [
+          0.706,
+          0.187,
+          0.729,
+          0.523
+        ],
+        "approx_unit_count": 21
+      },
+      {
+        "type": "terminal_strip",
+        "label": "PLUG B",
+        "bbox": [
+          0.395,
+          0.547,
+          0.506,
+          0.638
+        ],
+        "approx_unit_count": 8
+      },
+      {
+        "type": "controller_module",
+        "label": "Mute / Test Control Block",
+        "bbox": [
+          0.575,
+          0.644,
+          0.796,
+          0.704
+        ],
+        "approx_unit_count": 1
+      },
+      {
+        "type": "terminal_strip",
+        "label": "ALARM MOD 2 / PLUG C",
+        "bbox": [
+          0.33,
+          0.701,
+          0.655,
+          0.757
+        ],
+        "approx_unit_count": 5
+      },
+      {
+        "type": "terminal_strip",
+        "label": "T/S C / T/S E / PLUG B (Emergency Stop/Lts)",
+        "bbox": [
+          0.342,
+          0.757,
+          0.771,
+          0.86
+        ],
+        "approx_unit_count": 10
+      }
+    ],
+    "cross_refs": [
+      "DWG 120",
+      "DWG 114"
+    ],
+    "notes": "Sheet traces multiple terminal-strip-to-terminal-strip cables (MU series) into plug interfaces and an alarm module. Heavy focus on indication (LEDs, navigation lights) and pump status signals.",
+    "_model": "gemini-3.1-pro-preview",
+    "_pass1_dpi": 200
+  },
+  "sub_type": "relay_terminal_wiring",
+  "regions_read": [
+    {
+      "region": "T/S F MU5-12 / T/S E MU4a-12/1",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.048,
+        0.089,
+        0.392,
+        0.301
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "terminal_strip",
+          "id": "T/S F",
+          "label": "T/S F",
+          "connections": []
+        },
+        {
+          "element_type": "terminal",
+          "id": "8",
+          "label": "+24V EMERGENCY SUPPLY",
+          "connections": [
+            "59"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "36",
+          "connections": [
+            "60"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "61",
+          "connections": [
+            "61"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "65",
+          "connections": [
+            "62"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "40",
+          "connections": [
+            "63"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "43",
+          "connections": [
+            "64"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "46",
+          "connections": [
+            "65"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "58",
+          "connections": [
+            "66"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "60",
+          "connections": [
+            "67"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "64",
+          "connections": [
+            "68"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "54",
+          "connections": [
+            "34"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "55",
+          "connections": [
+            "36"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "73",
+          "connections": [
+            "69"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "59",
+          "connections": [
+            "8"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "60",
+          "connections": [
+            "36"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "61",
+          "connections": [
+            "61"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "62",
+          "connections": [
+            "65"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "38",
+          "connections": []
+        },
+        {
+          "element_type": "terminal",
+          "id": "39",
+          "connections": []
+        },
+        {
+          "element_type": "terminal",
+          "id": "40",
+          "connections": []
+        },
+        {
+          "element_type": "terminal",
+          "id": "41",
+          "connections": []
+        },
+        {
+          "element_type": "terminal",
+          "id": "63",
+          "connections": [
+            "40"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "64",
+          "connections": [
+            "43"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "65",
+          "connections": [
+            "46"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "66",
+          "connections": [
+            "58"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "67",
+          "connections": [
+            "60"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "68",
+          "connections": [
+            "64"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "34",
+          "label": "STEAMING",
+          "connections": [
+            "54"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "36",
+          "label": "STEAMING",
+          "connections": [
+            "55"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "69",
+          "label": "not used",
+          "connections": [
+            "73"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "T/S F MU4-12 / T/S E",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.068,
+        0.369,
+        0.383,
+        0.528
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "terminal_strip",
+          "id": "T/S F",
+          "label": "T/S F",
+          "connections": [
+            "MU4-12"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "7",
+          "label": "T/S F - 7",
+          "connections": [
+            "MU4-12 leg 1"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "8",
+          "label": "T/S F - 8",
+          "connections": [
+            "MU4-12 leg 2"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "9",
+          "label": "T/S F - 9",
+          "connections": [
+            "MU4-12 leg 3"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "10",
+          "label": "T/S F - 10",
+          "connections": [
+            "MU4-12 leg 4"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "12",
+          "label": "T/S F - 12",
+          "connections": [
+            "MU4-12 leg 5"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "15",
+          "label": "T/S F - 15",
+          "connections": [
+            "MU4-12 leg 6"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "19",
+          "label": "T/S F - 19",
+          "connections": [
+            "MU4-12 leg 7"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "20",
+          "label": "T/S F - 20",
+          "connections": [
+            "MU4-12 leg 8"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "21",
+          "label": "T/S F - 21",
+          "connections": [
+            "MU4-12 leg 9"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "22",
+          "label": "T/S F - 22",
+          "connections": [
+            "MU4-12 leg 10"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "23",
+          "label": "T/S F - 23",
+          "connections": [
+            "MU4-12 leg 11"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "24",
+          "label": "T/S F - 24",
+          "connections": [
+            "MU4-12 leg 12"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "XA61 04",
+          "label": "XA61 04",
+          "connections": [
+            "MU4-12 leg 3"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "XA61 06",
+          "label": "XA61 06",
+          "connections": [
+            "MU4-12 leg 4"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "XA61 10",
+          "label": "XA61 10",
+          "connections": [
+            "MU4-12 leg 7"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "XA61 12",
+          "label": "XA61 12",
+          "connections": [
+            "MU4-12 leg 8"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal_strip",
+          "id": "T/S E",
+          "label": "T/S E",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "19",
+          "label": "T/S E - 19",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "20",
+          "label": "T/S E - 20",
+          "connections": [],
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "T/S C (PLUG A / PLUG C)",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.397,
+        0.161,
+        0.505,
+        0.307
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "plug_pin",
+          "id": "5",
+          "label": "PLUG A",
+          "connections": [
+            "1"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "6",
+          "label": "PLUG A",
+          "connections": [
+            "2"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "7",
+          "label": "PLUG A",
+          "connections": [
+            "3"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "8",
+          "label": "PLUG A",
+          "connections": [
+            "4"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "1",
+          "label": "PL",
+          "connections": [
+            "5"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "2",
+          "label": "PL",
+          "connections": [
+            "6"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "3",
+          "label": "PL",
+          "connections": [
+            "7"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "4",
+          "label": "PL",
+          "connections": [
+            "8"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "<UNKNOWN>",
+          "label": "EAMING LTs",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "annotation",
+          "id": "<UNKNOWN>",
+          "label": "not used",
+          "connections": [],
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "T/S C (XA41 / XA61 block)",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.312,
+        0.314,
+        0.441,
+        0.367
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "terminal_strip",
+          "id": "T/S C",
+          "label": "T/S C",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "1",
+          "label": "T/S C",
+          "connections": [
+            "PORT XA41 04"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "2",
+          "label": "T/S C",
+          "connections": [
+            "STBD XA41 02"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "3",
+          "label": "T/S C",
+          "connections": [
+            "XA41 06"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "4",
+          "label": "T/S C",
+          "connections": [
+            "XA61 30"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "5",
+          "label": "T/S C",
+          "connections": [
+            "XA61 28"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "6",
+          "label": "T/S C",
+          "connections": [
+            "XA61 26"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "04",
+          "label": "PORT XA41",
+          "connections": [
+            "1"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "02",
+          "label": "STBD XA41",
+          "connections": [
+            "2"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "06",
+          "label": "XA41",
+          "connections": [
+            "3"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "30",
+          "label": "XA61",
+          "connections": [
+            "4"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "28",
+          "label": "XA61",
+          "connections": [
+            "5"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "26",
+          "label": "XA61",
+          "connections": [
+            "6"
+          ],
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "T/S C (XA61 block)",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.332,
+        0.373,
+        0.441,
+        0.522
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "terminal",
+          "id": "1",
+          "label": "97",
+          "connections": [
+            "XA61 04",
+            "98"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "2",
+          "label": "98",
+          "connections": [
+            "1",
+            "3",
+            "97"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "3",
+          "label": "99",
+          "connections": [
+            "XA61 04",
+            "2",
+            "100",
+            "98"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "4",
+          "label": "100",
+          "connections": [
+            "XA61 06",
+            "3",
+            "101",
+            "99"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "5",
+          "label": "92",
+          "connections": [
+            "6"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "6",
+          "label": "93",
+          "connections": [
+            "5",
+            "8",
+            "92"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "8",
+          "label": "94",
+          "connections": [
+            "6",
+            "9",
+            "93"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "9",
+          "label": "95",
+          "connections": [
+            "8",
+            "94"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "XA61 04",
+          "label": "XA61 04",
+          "connections": [
+            "1",
+            "3"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "XA61 06",
+          "label": "XA61 06",
+          "connections": [
+            "4"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "XA61 10",
+          "label": "XA61 10",
+          "connections": [
+            "79"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "XA61 12",
+          "label": "XA61 12",
+          "connections": [
+            "80"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "77",
+          "label": "77",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "78",
+          "label": "78",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "79",
+          "label": "79",
+          "connections": [
+            "XA61 10"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "80",
+          "label": "80",
+          "connections": [
+            "XA61 12"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "81",
+          "label": "81",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "83",
+          "label": "83",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "85",
+          "label": "85",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "87",
+          "label": "87",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "90",
+          "label": "90",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "96",
+          "label": "96",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "19",
+          "label": "19",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "annotation",
+          "id": "T/S E",
+          "label": "T/S E",
+          "connections": [],
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "Alarm / Pump Status Outputs",
+      "region_type": "relay_bank",
+      "bbox": [
+        0.706,
+        0.187,
+        0.729,
+        0.523
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "status_signal",
+          "id": "ANC",
+          "label": "ANC...",
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "MAST",
+          "label": "MAST",
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "FW_1",
+          "label": "FW...",
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "STE_1",
+          "label": "STE...",
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "STE_2",
+          "label": "STE...",
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "SPR",
+          "label": "SPR...",
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "FOR",
+          "label": "FOR...",
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "UPP",
+          "label": "UPP...",
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "LOW",
+          "label": "LOW...",
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "GR",
+          "label": "GR...",
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "LAZ",
+          "label": "LAZ...",
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "AFT_1",
+          "label": "AFT...",
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "ENG",
+          "label": "ENG...",
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "FWD",
+          "label": "FWD...",
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "SAI",
+          "label": "SAI...",
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "RU_1",
+          "label": "RU...",
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "ALA_1",
+          "label": "ALA...",
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "RU_2",
+          "label": "RU...",
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "ALA_2",
+          "label": "ALA...",
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "MA",
+          "label": "MA...",
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "ENGI",
+          "label": "ENGI...",
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "OWN",
+          "label": "OWN...",
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "FW_2",
+          "label": "FW...",
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "PO",
+          "label": "PO...",
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "ST",
+          "label": "ST...",
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "FW_3",
+          "label": "FW...",
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "AF",
+          "label": "AF...",
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "AR",
+          "label": "AR...",
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "EM",
+          "label": "EM...",
+          "ambiguous": true
+        }
+      ]
+    },
+    {
+      "region": "PLUG B",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.395,
+        0.547,
+        0.506,
+        0.638
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "terminal",
+          "id": "110",
+          "connections": [
+            "[1]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "111",
+          "connections": [
+            "7"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "112",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "113",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "115",
+          "connections": [
+            "[2]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "116",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "117",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "118",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "119",
+          "label": "not used (see DWG",
+          "connections": [
+            "11"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "120",
+          "label": "not used",
+          "connections": [
+            "12"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "[1]",
+          "label": "PLUG B",
+          "connections": [
+            "110"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "[2]",
+          "label": "PLUG B",
+          "connections": [
+            "115"
+          ],
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "Mute / Test Control Block",
+      "region_type": "controller_module",
+      "bbox": [
+        0.575,
+        0.644,
+        0.796,
+        0.704
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "switch",
+          "id": "S15",
+          "label": "MUTE",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "switch",
+          "id": "S14",
+          "label": "TEST",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "relay",
+          "id": "<UNKNOWN>",
+          "label": "<UNKNOWN>",
+          "connections": [],
+          "ambiguous": true
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "<UNKNOWN>",
+          "connections": [],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal_strip",
+          "id": "<UNKNOWN>",
+          "label": "<UNKNOWN>",
+          "connections": [],
+          "ambiguous": true
+        }
+      ]
+    },
+    {
+      "region": "ALARM MOD 2 / PLUG C",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.33,
+        0.701,
+        0.655,
+        0.757
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "device",
+          "id": "ALARM MOD 2",
+          "label": "ALARM MOD 2 PORT PEDESTAL",
+          "connections": [
+            "PLUG C [8]",
+            "PLUG C [9]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "switch",
+          "id": "ALARM MUTE SW",
+          "label": "ALARM MUTE SW",
+          "connections": [
+            "chassis_ground",
+            "PLUG C [11]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "device",
+          "id": "indicator_lamp",
+          "label": "\u2297 indicator lamp",
+          "connections": [
+            "PLUG C [10]",
+            "PLUG C [11]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "8",
+          "label": "PLUG C",
+          "connections": [
+            "ALARM MOD 2",
+            "AUX PLUG [1]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "9",
+          "label": "PLUG C",
+          "connections": [
+            "ALARM MOD 2",
+            "AUX PLUG [2]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "10",
+          "label": "PLUG C",
+          "connections": [
+            "indicator_lamp",
+            "AUX PLUG [3]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "11",
+          "label": "PLUG C",
+          "connections": [
+            "ALARM MUTE SW",
+            "indicator_lamp",
+            "AUX PLUG [4]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "12",
+          "label": "PLUG C",
+          "connections": [
+            "chassis_ground"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "1",
+          "label": "AUX PLUG",
+          "connections": [
+            "PLUG C [8]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "2",
+          "label": "AUX PLUG",
+          "connections": [
+            "PLUG C [9]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "3",
+          "label": "AUX PLUG",
+          "connections": [
+            "PLUG C [10]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "4",
+          "label": "AUX PLUG",
+          "connections": [
+            "PLUG C [11]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "annotation",
+          "id": "AUX_PLUG_ANNOTATION",
+          "label": "AUX PLUG ON PC ( see DWG 11...",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "annotation",
+          "id": "TS_C",
+          "label": "T/S C",
+          "connections": [],
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "T/S C / T/S E / PLUG B (Emergency Stop/Lts)",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.342,
+        0.757,
+        0.771,
+        0.86
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "annotation",
+          "id": "<UNKNOWN>",
+          "label": "AUX PLUG ON PC BOARD ( see DWG 114 )",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "139",
+          "label": "T/S C",
+          "connections": [
+            "indicator lamp"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "140",
+          "label": "T/S C",
+          "connections": [
+            "push-button switch"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "55",
+          "label": "T/S E",
+          "connections": [
+            "PLUG B [5]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "56",
+          "label": "T/S E",
+          "connections": [
+            "PLUG B [6]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "51",
+          "label": "T/S E",
+          "connections": [
+            "PLUG B [7]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "58",
+          "label": "T/S E",
+          "connections": [
+            "PLUG B [8]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "12",
+          "label": "PLUG B",
+          "connections": [],
+          "ambiguous": true
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "3",
+          "label": "PLUG B",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "4",
+          "label": "PLUG B",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "5",
+          "label": "PLUG B",
+          "connections": [
+            "T/S E 55",
+            "indicator lamp"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "6",
+          "label": "PLUG B",
+          "connections": [
+            "T/S E 56",
+            "push-button switch"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "7",
+          "label": "PLUG B",
+          "connections": [
+            "T/S E 51",
+            "indicator lamp"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "8",
+          "label": "PLUG B",
+          "connections": [
+            "T/S E 58",
+            "push-button switch"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "9",
+          "label": "PLUG B",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "10",
+          "label": "PLUG B",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "11",
+          "label": "PLUG B",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "12",
+          "label": "PLUG B",
+          "connections": [],
+          "ambiguous": true
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "indicator lamp",
+          "connections": [
+            "T/S C 139"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "switch",
+          "id": "<UNKNOWN>",
+          "label": "push-button switch",
+          "connections": [
+            "T/S C 140"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "indicator lamp",
+          "connections": [
+            "PLUG B [5]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "switch",
+          "id": "<UNKNOWN>",
+          "label": "push-button switch",
+          "connections": [
+            "PLUG B [6]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "indicator lamp",
+          "connections": [
+            "PLUG B [7]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "switch",
+          "id": "<UNKNOWN>",
+          "label": "push-button switch",
+          "connections": [
+            "PLUG B [8]"
+          ],
+          "ambiguous": false
+        }
+      ]
+    }
+  ],
+  "scoped_next": []
+}

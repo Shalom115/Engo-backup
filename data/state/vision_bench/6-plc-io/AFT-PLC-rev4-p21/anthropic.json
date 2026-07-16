@@ -1,0 +1,140 @@
+{
+  "description": "Electrical schematic sheet 21 of 27 from project SWS_108-1 \"Hydraulic System Automation\", section AFT, drawing file SWS_108-1_AFT PLC.dwg, MYT-Systems S.r.l., rev 4, dated 05/05/2026. The sheet shows three WAGO 750-508 2-channel digital output (2DO) PLC modules (CPU 750-8213), each feeding two solenoid valve coils via a \"Connector Type I\" (cross-referenced as \"see sheet 4\"). \n\nModule 1 (POS.13, labeled DO-03): CH01 and CH02 outputs, each terminal pair marked \"+\" and \"\u2212\" over a symbol resembling a solenoid coil, wired down to a 4-pin circular \"Connector Type I\" (pins 1,2,3,4). CH01 drives \"transom door CLOSE (EV 10.1A)\"; CH02 drives \"transom door OPEN (EV 10.1B)\".\n\nModule 2 (POS.14, labeled DO-04): same structure, feeding \"deck door OPEN (EV 10.2A)\" on CH01 and \"deck door CLOSE (EV 10.2B)\" on CH02, via its own Connector Type I.\n\nModule 3 (POS.15, labeled DO-05): feeding \"mainsheet traveler TO PORT (EV 10.3A)\" on CH01 and \"mainsheet traveler TO STBD (EV 10.3B)\" on CH02, via its own Connector Type I.\n\nEach 2DO module block shows TYPE: 750-508, CPU: 750-8213, POS.: 13/14/15 respectively, with terminal markers A1/A2 (module supply/bus terminals), two round contact terminals per channel, then the DO channel output terminals (+/\u2212 polarity pairs) leading to ground/earth symbol terminals before reaching the circular 4-pin connector to the field solenoid valve coil (EV = electrovalve solenoid). No local switches, panel switches, or separate protective fuses/breakers are shown on this sheet for the individual valve circuits \u2014 control originates purely from the PLC digital outputs (DO-03/DO-04/DO-05, channels 1 and 2). No alarm/monitoring taps are indicated on this sheet. Title block gives drawing info: Job N\u00b0: --, Client: S.W. SHIPYARD, Project: SWS_108-1, Title: HYDRAULIC SYSTEM AUTOMATION, Section: AFT, Sheet 21 of 27, Rev 4, Date 05/05/2026. Revision history shows Rev 0 (21/03/2023, first issue) and Rev 4 (05/05/2026, \"SUBSTITUTE WINCHES MODULES FROM DIGITAL TO ANALOG\"). Left margin note: \"Diritti riservati in osservanza della norma DIN 34\" (rights reserved per DIN 34 standard).</description>\n<parameter name=\"transcription\">2 DO MODULE (POS.13) 750-508 DO-03\n2 DO MODULE (POS.14) 750-508 DO-04\n2 DO MODULE (POS.15) 750-508 DO-05\n\n2DO\nTYPE: 750-508\nCPU: 750-8213\nPOS.: 13\nA1 A2\nDO-03 CH 01     DO-03 CH 02\ntransom door CLOSE (EV 10.1A)     transom door OPEN (EV 10.1B)\nCONNECTOR TYPE I (see sheet 4)\n\n2DO\nTYPE: 750-508\nCPU: 750-8213\nPOS.: 14\nA1 A2\nDO-04 CH 01     DO-04 CH 02\ndeck door OPEN (EV 10.2A)     deck door CLOSE (EV 10.2B)\nCONNECTOR TYPE I (see sheet 4)\n\n2DO\nTYPE: 750-508\nCPU: 750-8213\nPOS.: 15\nA1 A2\nDO-05 CH 01     DO-05 CH 02\nmainsheet traveler TO PORT (EV 10.3A)     mainsheet traveler TO STBD (EV 10.3B)\nCONNECTOR TYPE I (see sheet 4)\n\nDiritti riservati in osservanza della norma DIN 34\n\nMYT-Systems S.r.l.\nVia Borzoli, 39/130P\n16153 Genova (GE) ITALY\nTel: +390185380903\nemail: info@myt-systems.com\n\nFILE NAME: SWS_108-1_AFT PLC.dwg\nDRAWN: CHECKED: SCALE:\nSHEET: 21 of 27\nJOB N\u00b0: --  CLIENT: S.W. SHIPYARD  PROJECT: SWS_108-1\nTITLE: HYDRAULIC SYSTEM AUTOMATION\nSECTION: AFT\nREV: 4  DATE: 05/05/2026\n\nREV 4  05/05/2026  SUBSTITUTE WINCHES MODULES FROM DIGITAL TO ANALOG\nREV 0  21/03/2023  FIRST ISSUE\n\nThis drawing and the contained informations are property of MYT-System S.r.l. and protected by law. Copying, disclosure and any other use are prohibited except with written permission of MYT-System S.r.l..",
+  "content_type": "electrical_diagram",
+  "components": [
+    {
+      "label": "2DO Module POS.13 - TYPE 750-508, CPU 750-8213 (DO-03)",
+      "bbox": [
+        0.19,
+        0.14,
+        0.29,
+        0.55
+      ],
+      "confidence": "high",
+      "note": "PLC digital output module, left column"
+    },
+    {
+      "label": "DO-03 CH 01 - EV 10.1A (transom door CLOSE)",
+      "bbox": [
+        0.2,
+        0.24,
+        0.26,
+        0.34
+      ],
+      "confidence": "high",
+      "note": "solenoid valve coil output terminal"
+    },
+    {
+      "label": "DO-03 CH 02 - EV 10.1B (transom door OPEN)",
+      "bbox": [
+        0.24,
+        0.24,
+        0.3,
+        0.34
+      ],
+      "confidence": "high",
+      "note": "solenoid valve coil output terminal"
+    },
+    {
+      "label": "Connector Type I (DO-03)",
+      "bbox": [
+        0.19,
+        0.48,
+        0.27,
+        0.56
+      ],
+      "confidence": "high",
+      "note": "4-pin circular connector, ref sheet 4"
+    },
+    {
+      "label": "2DO Module POS.14 - TYPE 750-508, CPU 750-8213 (DO-04)",
+      "bbox": [
+        0.48,
+        0.14,
+        0.58,
+        0.55
+      ],
+      "confidence": "high",
+      "note": "PLC digital output module, middle column"
+    },
+    {
+      "label": "DO-04 CH 01 - EV 10.2A (deck door OPEN)",
+      "bbox": [
+        0.49,
+        0.24,
+        0.55,
+        0.34
+      ],
+      "confidence": "high",
+      "note": "solenoid valve coil output terminal"
+    },
+    {
+      "label": "DO-04 CH 02 - EV 10.2B (deck door CLOSE)",
+      "bbox": [
+        0.53,
+        0.24,
+        0.59,
+        0.34
+      ],
+      "confidence": "high",
+      "note": "solenoid valve coil output terminal"
+    },
+    {
+      "label": "Connector Type I (DO-04)",
+      "bbox": [
+        0.48,
+        0.48,
+        0.56,
+        0.56
+      ],
+      "confidence": "high",
+      "note": "4-pin circular connector, ref sheet 4"
+    },
+    {
+      "label": "2DO Module POS.15 - TYPE 750-508, CPU 750-8213 (DO-05)",
+      "bbox": [
+        0.76,
+        0.14,
+        0.86,
+        0.55
+      ],
+      "confidence": "high",
+      "note": "PLC digital output module, right column"
+    },
+    {
+      "label": "DO-05 CH 01 - EV 10.3A (mainsheet traveler TO PORT)",
+      "bbox": [
+        0.77,
+        0.24,
+        0.83,
+        0.34
+      ],
+      "confidence": "high",
+      "note": "solenoid valve coil output terminal"
+    },
+    {
+      "label": "DO-05 CH 02 - EV 10.3B (mainsheet traveler TO STBD)",
+      "bbox": [
+        0.81,
+        0.24,
+        0.87,
+        0.34
+      ],
+      "confidence": "high",
+      "note": "solenoid valve coil output terminal"
+    },
+    {
+      "label": "Connector Type I (DO-05)",
+      "bbox": [
+        0.76,
+        0.48,
+        0.84,
+        0.56
+      ],
+      "confidence": "high",
+      "note": "4-pin circular connector, ref sheet 4"
+    }
+  ],
+  "transcription": "",
+  "model": "claude-sonnet-5"
+}

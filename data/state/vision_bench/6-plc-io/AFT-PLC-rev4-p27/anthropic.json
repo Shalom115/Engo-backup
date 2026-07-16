@@ -1,0 +1,67 @@
+{
+  "content_type": "electrical_diagram",
+  "description": "Sheet 27 of 27 from job SWS_108-1 (S.W. Shipyard, \"Hydraulic System Automation\", section AFT), MYT-Systems S.r.l. Drawing shows a WAGO PLC Analog Output module: \"5 AO MODULE (POS.27) 750-559 AO-02\" (module type 750-559, CPU 750-8213, POS.28). This is a 4-channel analog output card feeding four proportional/solenoid valve coils (drawn as square coil symbols) associated with winch hydraulic valves.\n\nPower topology:\n- Incoming supply rail at top left labeled \"16.8A \u2192 +24Vdc (field)\" runs across the top of the sheet to a junction dot, then continues to the module's power terminals (A1/A2 top pair, A3/A4 lower pair) and continues right to another \"+24Vdc (field)\" arrow marked \"--\" (continues off-sheet, likely to next module in the same rail, sheet reference implied by rail numbering 16.8A).\n- Return/common 0V rail at bottom labeled \"20.7B \u2192 0V\" runs from left, through the module's M/0V terminals, to a junction dot near channel 4, then a wire drops down and is labeled \"04.6 BK 1.5\" (wire reference/cross-section, black wire 1.5mm\u00b2, going to sheet/reference 04.6), then rail continues right to \"0V \u2192 --\" (continues off-sheet).\n\nModule channels (AO-01, four channels), each channel has an Udc, Us (signal), M (common), and 0V terminal pair wired out to a field connector \"CONNECTOR TYPE H (see sheet 4)\":\n1. CH01 (terminals A1 pair) \u2192 \"Primary winch port (EV 10.5)\" \u2014 proportional valve coil, connects via Connector Type H (ref sheet 4) on left side. Wires labeled Udc/Us at top, M/0V at bottom, GND terminal shown at connector.\n2. CH02 (terminals A2 pair) \u2192 \"secondary winch port (EV 10.4)\" \u2014 proportional valve coil, connects via Connector Type H (ref sheet 4) on right side, wires Us/Udc top, 0V/GND bottom.\n3. CH03 (terminals A3 pair) \u2192 \"Primary winch stbd (EV 8.4)\" \u2014 proportional valve coil, left side, Connector Type H (ref sheet 4), Udc/Us top, GND/0V bottom.\n4. CH04 (terminals A4 pair) \u2192 \"secondary winch stbd (EV 8.3)\" \u2014 proportional valve coil, right side, Connector Type H (ref sheet 4), Us/Udc top, 0V/GND bottom.\n\nEach valve coil (EV 10.5, EV 10.4, EV 8.4, EV 8.3) is driven directly by its dedicated PLC analog output channel (no separate local switch or relay shown on this sheet); the PLC AO module is the sole control point depicted. Field wiring to each valve leaves the module through terminal blocks and is routed to \"CONNECTOR TYPE H\" connectors (four instances, two per side) which are cross-referenced to \"see sheet 4\" for their physical pinout/connector detail.\n\nCross-references noted on sheet: \"see sheet 4\" (x4, for Connector Type H details), wire tag \"04.6\" (BK, 1.5mm\u00b2) linking to another sheet/rail for the 0V drop, and rail tags \"16.8A\" and \"20.7B\" indicating incoming/outgoing feed continuation points (other sheets in the same drawing set, not individually numbered beyond these codes). Title block: DRAWN/CHECKED blank, SCALE blank, SHEET 27 of 27, JOB N\u00b0 --, CLIENT S.W. SHIPYARD, PROJECT SWS_108-1, TITLE HYDRAULIC SYSTEM AUTOMATION, REV 4, SECTION AFT, DATE 05/05/2026. File name SWS_108-1_AFT PLC.dwg. Revision history: Rev 0 21/03/2023 FIRST ISSUE; Rev 4 05/05/2026 \"SUBSTITUTE WINCHES MODULES FROM DIGITAL TO ANALOG\".",
+  "transcription": "5 AO MODULE (POS.27) 750-559 AO-02\n16.8A +24Vdc (field)\n+24Vdc (field) --\n5 AO\nTYPE: 750-559\nCPU: 750-8213\nPOS.: 28\nA1 A2\nAO-01 CH 01    AO-01 CH 02\nUdc  Us                    Us  Udc\nCONNECTOR TYPE H (see sheet 4)   CONNECTOR TYPE H (see sheet 4)\nPrimary winch port (EV 10.5)     secondary winch port (EV 10.4)\nM M\nGND  0V                    0V  GND\nA3 A4\nAO-01 CH 03    AO-01 CH 04\nUdc  Us                    Us  Udc\nCONNECTOR TYPE H (see sheet 4)   CONNECTOR TYPE H (see sheet 4)\nPrimary winch stbd (EV 8.4)      secondary winch stbd (EV 8.3)\nM M\nGND  0V                    0V  GND\n750-559\n04.6\nBK\n1,5\n20.7B  0V\n0V --\nMYT SYSTEMS\nMYT-Systems S.r.l.\nVia Borzoli, 39/130P\n16153 Genova (GE)\nITALY\nTel: +390185380903\nemail: info@myt-systems.com\nDRAWN:  CHECKED:  SCALE:  SHEET: 27 of 27\nFILE NAME: SWS_108-1_AFT PLC.dwg\nJOB N\u00b0: --  CLIENT: S.W. SHIPYARD  PROJECT: SWS_108-1\nTITLE: HYDRAULIC SYSTEM AUTOMATION  REV: 4\nSECTION: AFT  DATE: 05/05/2026\n4 05/05/2026    SUBSTITUTE WINCHES MODULES FROM DIGITAL TO ANALOG\n0 21/03/2023    FIRST ISSUE\nREV DATE DRAWN CHECKED MODIFICATIONS\nDiritti riservati in osservanza della norma DIN 34",
+  "components": [
+    {
+      "label": "750-559 (5 AO module, POS.27/28)",
+      "bbox": [
+        0.44,
+        0.27,
+        0.53,
+        0.83
+      ],
+      "confidence": "high",
+      "note": "WAGO analog output module, CPU 750-8213, top-center of sheet"
+    },
+    {
+      "label": "AO-01 CH01 (A1) - EV 10.5 Primary winch port",
+      "bbox": null,
+      "confidence": "high",
+      "note": "left-upper channel, valve coil symbol left of module"
+    },
+    {
+      "label": "AO-01 CH02 (A2) - EV 10.4 secondary winch port",
+      "bbox": null,
+      "confidence": "high",
+      "note": "right-upper channel, valve coil symbol right of module"
+    },
+    {
+      "label": "AO-01 CH03 (A3) - EV 8.4 Primary winch stbd",
+      "bbox": null,
+      "confidence": "high",
+      "note": "left-lower channel, valve coil symbol left of module"
+    },
+    {
+      "label": "AO-01 CH04 (A4) - EV 8.3 secondary winch stbd",
+      "bbox": null,
+      "confidence": "high",
+      "note": "right-lower channel, valve coil symbol right of module"
+    },
+    {
+      "label": "CONNECTOR TYPE H (see sheet 4)",
+      "bbox": null,
+      "confidence": "high",
+      "note": "field connector, appears 4 times (2 left, 2 right of drawing)"
+    },
+    {
+      "label": "16.8A +24Vdc (field)",
+      "bbox": null,
+      "confidence": "high",
+      "note": "incoming supply rail label, top left"
+    },
+    {
+      "label": "20.7B 0V",
+      "bbox": null,
+      "confidence": "high",
+      "note": "return rail label, bottom left"
+    },
+    {
+      "label": "04.6 BK 1,5",
+      "bbox": null,
+      "confidence": "medium",
+      "note": "wire tag/reference near bottom center, black 1.5mm2 wire drop to another sheet reference"
+    }
+  ],
+  "model": "claude-sonnet-5"
+}

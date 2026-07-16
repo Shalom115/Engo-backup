@@ -1,0 +1,52 @@
+{
+  "content_type": "photo",
+  "description": "Harken parts bag label for needle roller bearings.",
+  "transcription": "HARKEN Code A74506900 Part Number A74506900 Customer Reference *0000000000* QTY 4 Description Needle roller bearing 25x35x15 PO Number SWS108#1 ID13398 www.harken.com",
+  "components": [
+    {
+      "label": "HARKEN",
+      "bbox": [
+        0.19,
+        0.61,
+        0.25,
+        0.94
+      ],
+      "confidence": "medium",
+      "note": "Brand logo"
+    },
+    {
+      "label": "Part Number A74506900",
+      "bbox": [
+        0.29,
+        0.29,
+        0.35,
+        0.89
+      ],
+      "confidence": "medium",
+      "note": "Part number"
+    },
+    {
+      "label": "Description Needle roller bearing 25x35x15",
+      "bbox": [
+        0.63,
+        0.24,
+        0.71,
+        0.89
+      ],
+      "confidence": "medium",
+      "note": "Part description"
+    },
+    {
+      "label": "PO Number SWS108#1 ID13398",
+      "bbox": [
+        0.73,
+        0.24,
+        0.8,
+        0.89
+      ],
+      "confidence": "medium",
+      "note": "Purchase order"
+    }
+  ],
+  "model": "gemini-3.1-pro-preview"
+}

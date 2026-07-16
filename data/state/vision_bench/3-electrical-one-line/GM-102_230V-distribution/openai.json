@@ -1,0 +1,1335 @@
+{
+  "legends": [
+    {
+      "title_as_printed": "",
+      "kind": "text_tag_legend",
+      "bbox": [
+        0.024,
+        0.657,
+        0.139,
+        0.789
+      ],
+      "content": {
+        "title": "",
+        "entries": [
+          {
+            "label": "- CTA 1 = QI-POWER-485",
+            "symbol_description": ""
+          },
+          {
+            "label": "- CTA 2 = QI-POWER-485",
+            "symbol_description": ""
+          },
+          {
+            "label": "- CTA 3 = QI-POWER-485",
+            "symbol_description": ""
+          },
+          {
+            "label": "- CTA 4 = QI-POWER-485",
+            "symbol_description": ""
+          },
+          {
+            "label": "- CTA 5 = QI-POWER-485",
+            "symbol_description": ""
+          },
+          {
+            "label": "- CTA 6 = QI-POWER-485",
+            "symbol_description": ""
+          },
+          {
+            "label": "- CTA 7 = QI-POWER-485",
+            "symbol_description": ""
+          },
+          {
+            "label": "- CTA 8 = QI-POWER-485",
+            "symbol_description": ""
+          },
+          {
+            "label": "- CTA 9 = QI-POWER-485",
+            "symbol_description": ""
+          },
+          {
+            "label": "- CTA 10 = QI-POWER-485",
+            "symbol_description": ""
+          },
+          {
+            "label": "- CTA 11 = QI-POWER-485",
+            "symbol_description": ""
+          },
+          {
+            "label": "- CTA 12 = QI-POWER-485",
+            "symbol_description": ""
+          },
+          {
+            "label": "- CTA 13 = QI-POWER-485",
+            "symbol_description": ""
+          }
+        ],
+        "_model": "gpt-5.6-sol"
+      }
+    },
+    {
+      "title_as_printed": "G.M. MARINE SERVICES",
+      "kind": "other_table",
+      "bbox": [
+        0.516,
+        0.881,
+        0.991,
+        0.995
+      ],
+      "content": {
+        "title": "G.M. MARINE SERVICES",
+        "entries": [
+          {
+            "label": "DWG No. | GMMS 108\u2019\u2013102",
+            "symbol_description": ""
+          },
+          {
+            "label": "TITLE | 230V AC POWER DISTRIBUTION",
+            "symbol_description": ""
+          },
+          {
+            "label": "Tel. (027) 021-671 8001 | Cell 083 298 3305 | goetz@telkomsa.net",
+            "symbol_description": ""
+          },
+          {
+            "label": "DATE | 4/ 10/2023 | PROJECT | SWS 108\u2019\u201301 \u201d Gelliceaux \u201d",
+            "symbol_description": ""
+          },
+          {
+            "label": "DRAWN | GM | CUSTOMER | SOUTHERN WIND SHIPYARD (PTY) LTD",
+            "symbol_description": ""
+          },
+          {
+            "label": "THE COPYRIGHT OF THIS DRAWING IS EXPRESSLY RESERVED AND NO PART OF IT MAY BE COPIED WITHOUT PRIOR PERMISSION.",
+            "symbol_description": ""
+          }
+        ],
+        "_model": "gpt-5.6-sol"
+      }
+    }
+  ],
+  "legend_context": "THIS SHEET'S OWN LEGENDS AND TABLES (read first; these definitions are AUTHORITATIVE for this sheet and override any generic symbol/line convention):\n- [text_tag_legend] text_tag_legend:\n    * - CTA 1 = QI-POWER-485\n    * - CTA 2 = QI-POWER-485\n    * - CTA 3 = QI-POWER-485\n    * - CTA 4 = QI-POWER-485\n    * - CTA 5 = QI-POWER-485\n    * - CTA 6 = QI-POWER-485\n    * - CTA 7 = QI-POWER-485\n    * - CTA 8 = QI-POWER-485\n    * - CTA 9 = QI-POWER-485\n    * - CTA 10 = QI-POWER-485\n    * - CTA 11 = QI-POWER-485\n    * - CTA 12 = QI-POWER-485\n    * - CTA 13 = QI-POWER-485\n- [other_table] G.M. MARINE SERVICES:\n    * DWG No. | GMMS 108\u2019\u2013102\n    * TITLE | 230V AC POWER DISTRIBUTION\n    * Tel. (027) 021-671 8001 | Cell 083 298 3305 | goetz@telkomsa.net\n    * DATE | 4/ 10/2023 | PROJECT | SWS 108\u2019\u201301 \u201d Gelliceaux \u201d\n    * DRAWN | GM | CUSTOMER | SOUTHERN WIND SHIPYARD (PTY) LTD\n    * THE COPYRIGHT OF THIS DRAWING IS EXPRESSLY RESERVED AND NO PART OF IT MAY BE COPIED WITHOUT PRIOR PERMISSION.",
+  "survey": {
+    "title_block": {
+      "drawing_no": "GMMS 108\u2019-102",
+      "title": "230V AC POWER DISTRIBUTION",
+      "drafter": "GM"
+    },
+    "sub_type": "distribution_schedule",
+    "sub_type_reason": "The dominant structure is a 230 V AC distribution panel shown as repeated breaker/protective-device rows with ratings feeding named loads, arranged in several vertical panel/breaker columns. Pump and ventilation relay/control details are secondary subcircuits on the same sheet.",
+    "regions": [
+      {
+        "type": "panel_column",
+        "label": "Incoming 230 V AC bus, main service feeders #1\u2013#9, auxiliary supply, CT bank, and earth-leakage protection",
+        "bbox": [
+          0.015,
+          0.035,
+          0.315,
+          0.72
+        ],
+        "approx_unit_count": 9
+      },
+      {
+        "type": "breaker_bank",
+        "label": "Left-center outgoing branch bank including entertainment/electronics, battery chargers, seawater cooling, and CPP auxiliaries",
+        "bbox": [
+          0.265,
+          0.155,
+          0.39,
+          0.72
+        ],
+        "approx_unit_count": 16
+      },
+      {
+        "type": "breaker_bank",
+        "label": "Center outgoing branch bank including accommodation loads, water heating, blowers/extractors, and air-conditioning",
+        "bbox": [
+          0.445,
+          0.105,
+          0.59,
+          0.67
+        ],
+        "approx_unit_count": 15
+      },
+      {
+        "type": "breaker_bank",
+        "label": "Right outgoing branch bank including pumps, refrigeration, ventilation, communications, and spare ways",
+        "bbox": [
+          0.605,
+          0.085,
+          0.69,
+          0.85
+        ],
+        "approx_unit_count": 17
+      },
+      {
+        "type": "controller_module",
+        "label": "Fresh-water and salt-water pump control/pressure-switch circuits with relay/overcurrent modules and terminals",
+        "bbox": [
+          0.735,
+          0.07,
+          0.97,
+          0.33
+        ],
+        "approx_unit_count": 3
+      },
+      {
+        "type": "relay_bank",
+        "label": "Primary ventilation fan control, relay logic, terminal group, and passage-panel indication interface",
+        "bbox": [
+          0.61,
+          0.55,
+          0.975,
+          0.72
+        ],
+        "approx_unit_count": 2
+      },
+      {
+        "type": "topology_network",
+        "label": "24 V DC to 230 V AC inverter auxiliary supply feeding an earth-leakage-protected AC branch",
+        "bbox": [
+          0.43,
+          0.76,
+          0.61,
+          0.86
+        ],
+        "approx_unit_count": 1
+      },
+      {
+        "type": "legend",
+        "label": "CTA 1\u2013CTA 13 current-transformer text-tag legend",
+        "bbox": [
+          0.02,
+          0.66,
+          0.19,
+          0.81
+        ],
+        "approx_unit_count": 13
+      },
+      {
+        "type": "other",
+        "label": "Title block and project/customer information",
+        "bbox": [
+          0.51,
+          0.89,
+          0.985,
+          0.995
+        ],
+        "approx_unit_count": 1
+      }
+    ],
+    "cross_refs": [
+      "see DWG 110e (battery-charger area; suffix is slightly unclear at this resolution)",
+      "see DWG 110c (inverter area; suffix is slightly unclear at this resolution)",
+      "see DWG 117 (ventilation/passage-panel area)",
+      "Outgoing continuation to AFT DB PANEL",
+      "XA40 interface in pump-control area",
+      "MU-XX interface to PASSAGE PANEL"
+    ],
+    "notes": "Sheet legend authoritatively maps CTA 1 through CTA 13 to QI-POWER-485. Major repeated protection rows are legible enough for structural grouping, but some small terminal numbers, relay-module markings, and the letter suffixes on the DWG 110 references are not fully certain at this resolution. CTs and earth-leakage devices are treated as monitoring/protective elements rather than loads.",
+    "_model": "gpt-5.6-sol",
+    "_pass1_dpi": 200
+  },
+  "sub_type": "distribution_schedule",
+  "regions_read": [
+    {
+      "region": "Incoming 230 V AC bus, main service feeders #1\u2013#9, auxiliary supply, CT bank, and earth-leakage protection",
+      "region_type": "panel_column",
+      "bbox": [
+        0.015,
+        0.035,
+        0.315,
+        0.72
+      ],
+      "reader": "schedule",
+      "panel_label": "AC DB PANEL / 230V AC BUS",
+      "rows": [
+        {
+          "device_type": "breaker",
+          "device_id": "#1",
+          "rating": "63A",
+          "load_name": "#1 SERVICES",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "#2",
+          "rating": "63A",
+          "load_name": "#2 SERVICES",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "#3",
+          "rating": "63A",
+          "load_name": "AIR-CON",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "#4",
+          "rating": "63A",
+          "load_name": "ENTERTAINMENT",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "#5",
+          "rating": "63A",
+          "load_name": "CHARGERS",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "#6",
+          "rating": "63A",
+          "load_name": "BAE COOLING",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "#7",
+          "rating": "63A",
+          "load_name": "AFT OUTLETS",
+          "cross_ref": "to AFT DB PANEL",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "#8",
+          "rating": "63A",
+          "load_name": "GALLEY 1",
+          "cross_ref": "to AFT DB PANEL",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "#9",
+          "rating": "63A",
+          "load_name": "GALLEY 2",
+          "cross_ref": "to AFT DB PANEL",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "<UNKNOWN>",
+          "rating": "100A",
+          "load_name": "AUX POWER SUPPLY",
+          "cross_ref": "",
+          "ambiguous": true
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "EARTH LEAKAGE 1",
+          "rating": "<UNKNOWN>",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "EARTH LEAKAGE 2",
+          "rating": "<UNKNOWN>",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "EARTH LEAKAGE 3",
+          "rating": "<UNKNOWN>",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "EARTH LEAKAGE 4",
+          "rating": "<UNKNOWN>",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "EARTH LEAKAGE 5",
+          "rating": "16A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "EARTH LEAKAGE 6",
+          "rating": "16A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "EARTH LEAKAGE 7",
+          "rating": "16A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "see DWG 110e",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "EARTH LEAKAGE 8",
+          "rating": "16A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "EARTH LEAKAGE 9",
+          "rating": "16A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "EARTH LEAKAGE 10",
+          "rating": "16A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "EARTH LEAKAGE 11",
+          "rating": "16A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "EARTH LEAKAGE 12",
+          "rating": "16A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "Left-center outgoing branch bank including entertainment/electronics, battery chargers, seawater cooling, and CPP auxiliaries",
+      "region_type": "breaker_bank",
+      "bbox": [
+        0.265,
+        0.155,
+        0.39,
+        0.72
+      ],
+      "reader": "schedule",
+      "panel_label": "GMMS 108\u2019\u2013102 (cropped distribution-schedule region)",
+      "rows": [
+        {
+          "device_type": "breaker",
+          "device_id": "Q1",
+          "rating": "16A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q2",
+          "rating": "16A",
+          "load_name": "/",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q3",
+          "rating": "16A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q4",
+          "rating": "16A",
+          "load_name": "/",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q5",
+          "rating": "16A",
+          "load_name": "/",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q6",
+          "rating": "16A",
+          "load_name": "/",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "EARTH LEAKAGE 5",
+          "rating": "16A",
+          "load_name": "START BAT. CHARGER",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "EARTH LEAKAGE 6",
+          "rating": "16A",
+          "load_name": "EMERGENCY BAT. CHARGER",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "EARTH LEAKAGE 7",
+          "rating": "16A",
+          "load_name": "GMDSS BAT. CHARGER",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "EARTH LEAKAGE 8",
+          "rating": "16A",
+          "load_name": "PORT SEAWATER COOLING",
+          "cross_ref": "DWG 110e",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "EARTH LEAKAGE 9",
+          "rating": "16A",
+          "load_name": "STBD SEAWATER COOLING",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "EARTH LEAKAGE 10",
+          "rating": "16A",
+          "load_name": "CPP SEAWATER COOLING",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "EARTH LEAKAGE 11",
+          "rating": "16A",
+          "load_name": "CPP OIL",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "EARTH LEAKAGE 12",
+          "rating": "16A",
+          "load_name": "CPP OIL BOOST",
+          "cross_ref": "",
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "Center outgoing branch bank including accommodation loads, water heating, blowers/extractors, and air-conditioning",
+      "region_type": "breaker_bank",
+      "bbox": [
+        0.445,
+        0.105,
+        0.59,
+        0.67
+      ],
+      "reader": "schedule",
+      "panel_label": "<UNKNOWN>",
+      "rows": [
+        {
+          "device_type": "breaker",
+          "device_id": "Q7",
+          "rating": "16A",
+          "load_name": "PORT AFT GUEST CAB.",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q8",
+          "rating": "16A",
+          "load_name": "STBD AFT GUEST CAB.",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q9",
+          "rating": "16A",
+          "load_name": "SALOON",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q10",
+          "rating": "16A",
+          "load_name": "PORT FWD GUEST CAB.",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q11",
+          "rating": "16A",
+          "load_name": "STUDIO",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q12",
+          "rating": "16A",
+          "load_name": "OWNERS CAB.",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q13",
+          "rating": "16A",
+          "load_name": "YACHTICA LIGHTS",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q14",
+          "rating": "16A",
+          "load_name": "AIR-CON FAN COILS",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q15",
+          "rating": "16A",
+          "load_name": "WATER MAKER 1 (ENG.ROOM)",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q16",
+          "rating": "16A",
+          "load_name": "FWD WATER HEATER (OWNERS CAB.)",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q17",
+          "rating": "16A",
+          "load_name": "AFT WATER HEATER (PORT GUEST CAB.)",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q18",
+          "rating": "16A",
+          "load_name": "ENG.ROOM BLOWER",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q19",
+          "rating": "16A",
+          "load_name": "ENG.ROOM EXTRACTOR",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q20",
+          "rating": "25A",
+          "load_name": "AIRCON 1",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q21",
+          "rating": "25A",
+          "load_name": "AIRCON 2",
+          "cross_ref": "",
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "Right outgoing branch bank including pumps, refrigeration, ventilation, communications, and spare ways",
+      "region_type": "breaker_bank",
+      "bbox": [
+        0.605,
+        0.085,
+        0.69,
+        0.85
+      ],
+      "reader": "schedule",
+      "panel_label": "230V AC POWER DISTRIBUTION (cropped schedule region)",
+      "rows": [
+        {
+          "device_type": "breaker",
+          "device_id": "Q22",
+          "rating": "10A",
+          "load_name": "FRES\u2026 / PL\u2026",
+          "cross_ref": "",
+          "ambiguous": true
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q23",
+          "rating": "10A",
+          "load_name": "FRES\u2026 / PL\u2026",
+          "cross_ref": "",
+          "ambiguous": true
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q24",
+          "rating": "10A",
+          "load_name": "REFRIGERAT\u2026",
+          "cross_ref": "",
+          "ambiguous": true
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q25",
+          "rating": "16A",
+          "load_name": "SALT WATE\u2026",
+          "cross_ref": "",
+          "ambiguous": true
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q26",
+          "rating": "16A",
+          "load_name": "WINE COUL\u2026",
+          "cross_ref": "",
+          "ambiguous": true
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q27",
+          "rating": "16A",
+          "load_name": "/",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q28",
+          "rating": "16A",
+          "load_name": "AIR COMPR\u2026",
+          "cross_ref": "",
+          "ambiguous": true
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q29",
+          "rating": "16A",
+          "load_name": "SALOON UV\u2026",
+          "cross_ref": "",
+          "ambiguous": true
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q30",
+          "rating": "16A",
+          "load_name": "LAZ / TEC\u2026",
+          "cross_ref": "",
+          "ambiguous": true
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q31",
+          "rating": "16A",
+          "load_name": "ENGINE RO\u2026",
+          "cross_ref": "",
+          "ambiguous": true
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q32",
+          "rating": "16A",
+          "load_name": "DECK FRID\u2026",
+          "cross_ref": "",
+          "ambiguous": true
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q33",
+          "rating": "10A",
+          "load_name": "/",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q34",
+          "rating": "6A",
+          "load_name": "ESS VENTILAT\u2026 / TENDERGAR\u2026",
+          "cross_ref": "",
+          "ambiguous": true
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q35",
+          "rating": "10A",
+          "load_name": "WiFi",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q36",
+          "rating": "10A",
+          "load_name": "STARLINK",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q37",
+          "rating": "10A",
+          "load_name": "/",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q38",
+          "rating": "10A",
+          "load_name": "/",
+          "cross_ref": "",
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "Fresh-water and salt-water pump control/pressure-switch circuits with relay/overcurrent modules and terminals",
+      "region_type": "controller_module",
+      "bbox": [
+        0.735,
+        0.07,
+        0.97,
+        0.33
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "controller_module",
+          "id": "RM35JA32MW",
+          "label": "RM35JA32MW; current-monitoring/control module marked I>< with mechanically linked contacts",
+          "connections": [
+            "monitoring conductors at left",
+            "linked contact outputs into pump-control/terminal wiring"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "14",
+          "label": "Terminal 14",
+          "connections": [
+            "RM35JA32MW-associated upper circuit",
+            "upper PUMP CONTROL input"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "15",
+          "label": "Terminal 15",
+          "connections": [
+            "RM35JA32MW-associated upper circuit",
+            "upper PUMP CONTROL input"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "controller_module",
+          "id": "<UNKNOWN>",
+          "label": "Second current-monitoring/control module marked I>< with mechanically linked contacts",
+          "connections": [
+            "conductors at left",
+            "terminals 16 and 17 / middle pump-control circuit"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "16",
+          "label": "Terminal 16",
+          "connections": [
+            "second I>< module-associated circuit",
+            "middle PUMP CONTROL input"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "17",
+          "label": "Terminal 17",
+          "connections": [
+            "second I>< module-associated circuit",
+            "middle PUMP CONTROL input"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "PUMP CONTROL (upper)",
+          "connections": [
+            "terminals 14 and 15",
+            "upper PUMP 0.37KW"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "PUMP, 0.37KW (upper)",
+          "connections": [
+            "upper PUMP CONTROL",
+            "protective earth"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "PUMP CONTROL (middle)",
+          "connections": [
+            "terminals 16 and 17",
+            "middle PUMP 0.37KW"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "PUMP, 0.37KW (middle)",
+          "connections": [
+            "middle PUMP CONTROL",
+            "protective earth"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "18",
+          "label": "Terminal 18",
+          "connections": [
+            "left-side relay/contact wiring",
+            "PRESSURE SW upper contact",
+            "lower PUMP 0.37KW circuit"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "19",
+          "label": "Terminal 19",
+          "connections": [
+            "left-side relay/timer wiring",
+            "PRESSURE SW lower contact",
+            "lower PUMP 0.37KW circuit"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "20",
+          "label": "Terminal 20",
+          "connections": [
+            "Re1-associated wiring",
+            "PRESSURE SW common/right-side return"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "switch",
+          "id": "<UNKNOWN>",
+          "label": "PRESSURE SW; automatic pressure-controlled two-pole contact device",
+          "connections": [
+            "terminal 18 through upper contact to lower pump conductor",
+            "terminal 19 through lower contact to lower pump conductor",
+            "terminal 20 to common/right-side pressure-switch wiring"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "PUMP, 0.37KW (lower)",
+          "connections": [
+            "PRESSURE SW switched conductors",
+            "protective earth"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "relay",
+          "id": "Re1",
+          "label": "Relay Re1",
+          "connections": [
+            "left-side control wiring",
+            "terminals 19 and 20 associated wiring",
+            "mechanically linked contacts shown above/below"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "unknown",
+          "id": "T1",
+          "label": "T1, device linked to lower contact beneath Re1",
+          "connections": [
+            "Re1-associated wiring",
+            "mechanically linked lower contact"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "21",
+          "label": "Terminal 21",
+          "connections": [
+            "vertical internal wiring",
+            "status tag XA40 pin O2"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "22",
+          "label": "Terminal 22",
+          "connections": [
+            "internal wiring from left",
+            "status tag XA40 pin O4"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "23",
+          "label": "Terminal 23",
+          "connections": [
+            "internal wiring from left",
+            "right-hand stub"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "24",
+          "label": "Terminal 24",
+          "connections": [
+            "left-side common/vertical wiring",
+            "right-hand terminated stub"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "XA40/O2",
+          "label": "XA40 tag O2",
+          "connections": [
+            "terminal 21",
+            "monitoring/alarm loom XA40"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "XA40/O4",
+          "label": "XA40 tag O4",
+          "connections": [
+            "terminal 22",
+            "monitoring/alarm loom XA40"
+          ],
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "Primary ventilation fan control, relay logic, terminal group, and passage-panel indication interface",
+      "region_type": "relay_bank",
+      "bbox": [
+        0.61,
+        0.55,
+        0.975,
+        0.72
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "breaker",
+          "id": "Q34",
+          "label": "6A; ESS VENTILATION TENDERGARAGE",
+          "connections": [
+            "two-pole incoming supply at left",
+            "outgoing ventilation control/fan circuit including Re1/Re2"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "breaker",
+          "id": "Q35",
+          "label": "10A; WiFi",
+          "connections": [
+            "two-pole incoming supply at left",
+            "outgoing WiFi circuit cropped at right"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "relay",
+          "id": "Re1",
+          "label": "Re1 relay coil and mechanically linked contact",
+          "connections": [
+            "coil connected between Q34-fed control lines",
+            "linked contact connects control path toward Re2 circuit"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "relay",
+          "id": "Re2",
+          "label": "Re2; current-monitoring relay, model 3UG4621-1AW30; I><",
+          "connections": [
+            "monitors/controls FAN 120W circuit through terminals 25 and 26",
+            "mechanically linked contact routes indication/control wiring toward terminals 27-30",
+            "relay supply/coil wiring extends to terminals 31 and 32"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal_strip",
+          "id": "<UNKNOWN>",
+          "label": "terminal group 25-32",
+          "connections": [
+            "terminals 25-26 between Re2 circuit and FAN 120W",
+            "terminals 27-32 between Re2/control circuit and MU-XX to PASSAGE PANEL cores 1-6"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "25",
+          "label": "terminal 25",
+          "connections": [
+            "Re2 current-monitoring circuit",
+            "FAN 120W upper conductor"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "26",
+          "label": "terminal 26",
+          "connections": [
+            "Re2/current-monitoring return circuit",
+            "FAN 120W lower conductor"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "27",
+          "label": "terminal 27",
+          "connections": [
+            "Re2 contact/control wiring",
+            "MU-XX to PASSAGE PANEL core 1"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "28",
+          "label": "terminal 28",
+          "connections": [
+            "Re2 contact/control wiring",
+            "MU-XX to PASSAGE PANEL core 2"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "29",
+          "label": "terminal 29",
+          "connections": [
+            "Re2/control wiring",
+            "MU-XX to PASSAGE PANEL core 3"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "30",
+          "label": "terminal 30",
+          "connections": [
+            "Re2 relay wiring",
+            "MU-XX to PASSAGE PANEL core 4"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "31",
+          "label": "terminal 31; +",
+          "connections": [
+            "positive control supply",
+            "MU-XX to PASSAGE PANEL core 5"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "32",
+          "label": "terminal 32",
+          "connections": [
+            "Re2/control return",
+            "MU-XX to PASSAGE PANEL core 6",
+            "ground/common symbol shown on passage-panel side"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "FAN 120W",
+          "connections": [
+            "terminal 25",
+            "terminal 26"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "MU-XX/1",
+          "label": "MU-XX to PASSAGE PANEL; core/pin 1; NO POWER IND. ON/OFF",
+          "connections": [
+            "terminal 27",
+            "PASSAGE PANEL"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "MU-XX/2",
+          "label": "MU-XX to PASSAGE PANEL; core/pin 2; NO POWER IND. ON/OFF",
+          "connections": [
+            "terminal 28",
+            "PASSAGE PANEL"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "MU-XX/3",
+          "label": "MU-XX to PASSAGE PANEL; core/pin 3; NO POWER IND. ON/OFF",
+          "connections": [
+            "terminal 29",
+            "PASSAGE PANEL"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "MU-XX/4",
+          "label": "MU-XX to PASSAGE PANEL; core/pin 4; NO POWER IND. ON/OFF",
+          "connections": [
+            "terminal 30",
+            "PASSAGE PANEL"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "MU-XX/5",
+          "label": "MU-XX to PASSAGE PANEL; core/pin 5; +",
+          "connections": [
+            "terminal 31",
+            "PASSAGE PANEL"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "MU-XX/6",
+          "label": "MU-XX to PASSAGE PANEL; core/pin 6; ground/common",
+          "connections": [
+            "terminal 32",
+            "PASSAGE PANEL"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "annotation",
+          "id": "<UNKNOWN>",
+          "label": "( see DWG 117 )",
+          "connections": [],
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "24 V DC to 230 V AC inverter auxiliary supply feeding an earth-leakage-protected AC branch",
+      "region_type": "topology_network",
+      "bbox": [
+        0.43,
+        0.76,
+        0.61,
+        0.86
+      ],
+      "reader": "oneline",
+      "nodes": [
+        {
+          "node_type": "converter",
+          "id": "<UNKNOWN>",
+          "label": "INVERTER; 24V DC / 230V AC; see DWG 110c",
+          "rating": "205KW"
+        },
+        {
+          "node_type": "breaker",
+          "id": "13",
+          "label": "EARTH LEAKAGE 13; 2-pole residual-current breaker",
+          "rating": "10A"
+        }
+      ],
+      "edges": [
+        "INVERTER 205KW (230V AC L,N) -> EARTH LEAKAGE 13 10A -> <UNKNOWN>"
+      ]
+    }
+  ],
+  "scoped_next": []
+}

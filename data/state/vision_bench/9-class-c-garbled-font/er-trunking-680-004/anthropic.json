@@ -1,0 +1,59 @@
+{
+  "description": "This drawing set is a General Arrangement / installation drawing for cable trunking routing aboard a Southern Wind yacht, showing multiple sectional/plan views of trunking runs through a deck/superstructure compartment (appears to be a lazarette or similar aft compartment with a hatch/door, ceiling void, and deck penetrations). The drawing shows aluminium cable trunking (120W x 120H custom profile, shown in yellow) and perforated metal cable tray (200W x 50H, bought item, shown in teal/green) routed along the deckhead, down bulkheads, and across the deck, with sealing/penetration details at deck and bulkhead crossings. Multiple orthographic views (plan, sections, isometric) illustrate how the trunking bends and interconnects between different zones of the vessel. An isometric 3D view at bottom right shows the trunking assembly's bend geometry (corner brackets, straight runs, and a flexible/curved section shown as a grey ribbon, likely a cable or flexible conduit link between trunking segments). A separate detail box shows a trunking joint/cross-section profile. A Bill of Materials (BOM) table lists: Item 1 - 18.0m of 120W x 120H custom aluminium trunking (3mm thick), fitted by SYS, individual weight 1.4kg, total 25.2kg; Item 2 - 4.0m of 200W x 50H perforated metal cable tray, bought item, individual weight 3.7kg, total 14.8kg; Total weight 40.0kg. Title block shows Southern Wind shipyard, approved by Glenn Edwards (Hilton) and reviewed by Michael McIvor, dated Dec 2022. Many text labels throughout are rendered in an unreadable/encoded font (garbled characters), so most specific callout labels cannot be transcribed reliably. The drawing depicts connectivity of trunking through a hatch/door area, along the overhead, down through a stepped deck section, and connecting to what appears to be an electrical panel or box (labeled with obscured text) in the upper right plan view, with cable tray shown in teal running parallel to the yellow aluminium trunking in the same overhead space.",
+  "content_type": "general_arrangement",
+  "transcription": "BOM: ITEM NO. | QTY UNIT | TRUNKING PROFILE MAKE/SUPPLIER TYPE | FITTED BY | SWS CODE | DESCRIPTION | WEIGHT (kg) IND. TOTAL\n1 | 18,0 m | 120W x 120H CUSTOM | SYS | - | 3mm THK CUSTOM ALU. TRUNKING | 1,4 | 25,2\n2 | 4,0 m | 200W x 50H BOUGHT ITEM | SYS | - | PERFORATED METAL CABLE TRAY | 3,7 | 14,8\nTOTAL 40,0\nAPPROVED ON BEHALF OF HILTON By Glenn Edwards at 9:03 am, Dec 07, 2022\nREVIEWED By Michael McIvor at 7:58 am, Dec 01, 2022\nSOUTHERN WIND (title block logo)",
+  "components": [
+    {
+      "label": "120W x 120H custom aluminium trunking (yellow)",
+      "bbox": null,
+      "confidence": "high",
+      "note": "shown in multiple plan/section views and isometric drawing, running along overhead and down bulkheads"
+    },
+    {
+      "label": "200W x 50H perforated metal cable tray (teal)",
+      "bbox": null,
+      "confidence": "high",
+      "note": "runs parallel to trunking in upper right plan view overhead space"
+    },
+    {
+      "label": "BOM table",
+      "bbox": [
+        0.71,
+        0.83,
+        0.995,
+        0.9
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "Isometric trunking assembly view",
+      "bbox": [
+        0.71,
+        0.9,
+        1.0,
+        1.0
+      ],
+      "confidence": "high",
+      "note": "shows bend geometry, corner joints, and a flexible grey connector section"
+    },
+    {
+      "label": "Title block - Southern Wind",
+      "bbox": [
+        0.71,
+        0.95,
+        1.0,
+        1.0
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "Hatch/door",
+      "bbox": null,
+      "confidence": "medium",
+      "note": "upper left plan view, circular hinged door/access hatch in compartment"
+    }
+  ],
+  "model": "claude-sonnet-5"
+}

@@ -1,0 +1,320 @@
+{
+  "content_type": "electrical_diagram",
+  "description": "This is an electrical wiring/schematic sheet showing the connections for BEL1-S and BEL2-S modules. \n\n**Device: BEL1-S**\n- An I/O module with several connections including FREQ_SELECT, VBATTERY RTN, CHAIN_OUTPUT, SYNC, ENABLE, ADR_0, ADR_1, CANA_HI, CANA_LO, CANA_Shield, and CHAIN_SUPPLY. \n- **Connections:**\n    - FREQ_SELECT (Pin 2)\n    - VBATTERY RTN (Pin 7) connects to BEL RTN1.\n    - CHAIN_OUTPUT (Pin 11) connects to BEL SYNC (Pin 10).\n    - SYNC (Pin 3) connects to BEL SYNC (Pin 3).\n    - ENABLE (Pin 1) is Not Connected (N/C).\n    - ADR_0 (Pin 8) is Not Connected (N/C).\n    - ADR_1 (Pin 9) is Not Connected (N/C).\n    - CANA_HI (Pin 5) connects to CAN-A HI.\n    - CANA_LO (Pin 6) connects to CAN-A LO.\n    - CANA_Shield (Pin N/C) connects to CAN-A Shield.\n    - CHAIN_SUPPLY (Pin 10)\n    - Pin 4\n- **Control/Monitoring:** The module interfaces with a CAN bus (CAN-A) and has synchronization (SYNC) and chain connections. \n\n**Device: BEL2-S**\n- An I/O module with similar connections to BEL1-S, including FREQ_SELECT, VBATTERY RTN, CHAIN_OUTPUT, SYNC, ENABLE, ADR_0, ADR_1, CANA_HI, CANA_LO, CANA_Shield, and CHAIN_SUPPLY. \n- **Connections:**\n    - FREQ_SELECT (Pin 2)\n    - VBATTERY RTN (Pin 7) connects to BEL RTN1.\n    - CHAIN_OUTPUT (Pin 11) connects to BEL SYNC (Pin 9).\n    - SYNC (Pin 3) connects to BEL SYNC (Pin 4).\n    - ENABLE (Pin 1) is Not Connected (N/C).\n    - ADR_0 (Pin 8) is Not Connected (N/C).\n    - ADR_1 (Pin 9) is Not Connected (N/C).\n    - CANA_HI (Pin 5) connects to CAN-A HI.\n    - CANA_LO (Pin 6) connects to CAN-A LO.\n    - CANA_Shield (Pin N/C) connects to CAN-A Shield.\n    - CHAIN_SUPPLY (Pin 10)\n    - Pin 4\n- **Control/Monitoring:** Similar to BEL1-S, it interfaces with a CAN bus (CAN-A) and has synchronization (SYNC) and chain connections. \n\n**Cross-References:**\n- There are no explicit cross-references to other sheets in the visible area, except for generic statements in the title block.",
+  "transcription": "8\n7\n6\n5\n4\n3\nSIZE DRAWING NO. REV\n196D5023\n12\n1\nREVISIONS\nREV\nDESCRIPTION\nDATE APPROVED\nH\nBEL1-S\n1/0\n2\nG3-S3S1 FREQ_SELECT\nBEL\n7\nG3-S3R1 VBATTERY RTN\nRTN1\nG3-S321 CHAIN_OUTPUT\nSYNC\n11\nG3-S3R1 SYNC_RTN\n10\nG\nG3-S3S2 SYNC\n3\n3\n1\nG3-S329 ENABLE\nN/C\nCAN-A\nG3-S300a ADR_0\n8\nN/C\nShield\nF\nG3-S300b ADR_1\n9\nN/C\nHI\nG3-S3AH CANA_HI\n5\nLO\nG3-S3AL CANA_LO\n6\nG3-S3AS CANA_Shield\nN/C\nE\n10\nG3-S3S3 CHAIN_SUPPLY\n4\nBEL2-S\n1/0\nG3-S4S1 FREQ_SELECT\nBEL\n2\nD\nG3-S4R1 VBATTERY RTN\nRTN1\n7\nG3-S421 CHAIN_OUTPUT\nSYNC\n11\nG3-S4R1 SYNC_RTN\n9\nC\nG3-S4S2 SYNC\n3\n4\n1\nG3-S429 ENABLE\nN/C\nCAN-A\nG3-S400a ADR_0\n8\nN/C\nShield\nG3-S400b ADR_1\n9\nN/C\nHI\nG3-S4AH CANA_HI\n5\nLO\nB\nG3-S4AL CANA_LO\n6\nG3-S4AS CANA_Shield\nN/C\n10\nG3-S4S3 CHAIN_SUPPLY\n4\nCONTR NO: NOT APPLICABLE\nA\nBAE SYSTEMS PROPRIETARY INFORMATION\nBAE SYSTEMS\nWARNING: EXPORT CONTROLLED - SEE TITLE PAGE\nCONTROLS\nENDICOTT, NY\nUSE OR DISCLOSURE OF THIS INFORMATION IS SUBJECT TO THE\nDRAWN\nC. Zaleski\nSIZE DWG NO.\nREV\nRESTRICTIONS ON THE FIRST PAGE OF THIS DOCUMENT.\nD\n89954\n196D5023\n-\nISSUED\nSEE SHEET 1\nSCALE\nNONE\nSHEET\n12 OF 47\n8\n7\n6\n5\n4\n3\n2\n1",
+  "components": [
+    {
+      "label": "BEL1-S",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "G3-S3S1 FREQ_SELECT",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "BEL",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "G3-S3R1 VBATTERY RTN",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "RTN1",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "G3-S321 CHAIN_OUTPUT",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "SYNC",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "G3-S3R1 SYNC_RTN",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "10",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "G3-S3S2 SYNC",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "3",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "G3-S329 ENABLE",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "N/C",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "CAN-A",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "G3-S300a ADR_0",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "N/C",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "Shield",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "G3-S300b ADR_1",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "N/C",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "HI",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "G3-S3AH CANA_HI",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "LO",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "G3-S3AL CANA_LO",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "G3-S3AS CANA_Shield",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "N/C",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "G3-S3S3 CHAIN_SUPPLY",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "BEL2-S",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "G3-S4S1 FREQ_SELECT",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "BEL",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "G3-S4R1 VBATTERY RTN",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "RTN1",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "G3-S421 CHAIN_OUTPUT",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "SYNC",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "G3-S4R1 SYNC_RTN",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "9",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "G3-S4S2 SYNC",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "4",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "G3-S429 ENABLE",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "N/C",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "CAN-A",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "G3-S400a ADR_0",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "N/C",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "Shield",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "G3-S400b ADR_1",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "N/C",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "HI",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "G3-S4AH CANA_HI",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "LO",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "G3-S4AL CANA_LO",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "G3-S4AS CANA_Shield",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "N/C",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "G3-S4S3 CHAIN_SUPPLY",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    }
+  ],
+  "model": "gemini-3.1-pro-preview"
+}

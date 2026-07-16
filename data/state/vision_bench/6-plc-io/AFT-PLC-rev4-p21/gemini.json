@@ -1,0 +1,338 @@
+{
+  "content_type": "electrical_diagram",
+  "description": "This electrical schematic details three 2-channel digital output (DO) modules (Type: 750-508) connected to a PLC CPU (750-8213) in an automation system.\n\n*   **Module 1 (POS. 13):** DO-03 and DO-04 output to 'transom door CLOSE' (EV 10.1A) and 'transom door OPEN' (EV 10.1B) respectively.\n*   **Module 2 (POS. 14):** DO-04 and DO-04 output to 'deck door OPEN' (EV 10.2A) and 'deck door CLOSE' (EV 10.2B) respectively.\n*   **Module 3 (POS. 15):** DO-05 and DO-05 output to 'mainsheet traveler TO PORT' (EV 10.3A) and 'mainsheet traveler TO STBD' (EV 10.3B) respectively.\n\nEach module connects to a 'CONNECTOR TYPE I (see sheet 4)' via pins 1, 2, 3, and 4.\n\nProject: SWS_108-1, Title: HYDRAULIC SYSTEM AUTOMATION, System: AFT, Client: S.W. SHIPYARD, Rev 4 (05/05/2026), Sheet: 21 of 27.",
+  "transcription": "1\n2\n3\n4\n5\n6\n7\n8\n2 DO MODULE (POS.13) 750-508 DO-03\n2 DO MODULE (POS.14) 750-508 DO-04\nA\nA\n2 DO MODULE (POS.15) 750-508 DO-05\n2DO\n2DO\n2DO\nTYPE: 750-508\nTYPE: 750-508\nTYPE: 750-508\nCPU: 750-8213\nCPU: 750-8213\nCPU: 750-8213\nPOS.: 13\nPOS.: 14\nPOS.: 15\nB\nB\nA1 A2\nA1 A2\nA1 A2\nDO-03\nDO-03\nDO-04\nDO-04\nDO-05\nDO-05\nCH 01\nCH 02\nCH 01\nCH 02\nCH 01\nCH 02\n+\n+\n+\n+\n+\n+\nC\nC\nmainsheet\nmainsheet\ntransom door\ntransom door\ndeck door\ndeck door\ntraveler\ntraveler\nCLOSE\nOPEN\nOPEN\nCLOSE\nTO PORT\nTO STBD\n(EV 10.1A)\n(EV 10.1B)\n(EV 10.2A)\n(EV 10.2B)\n(EV 10.3A)\n(EV 10.3B)\n-\n-\n-\n-\n-\n-\nDiritti riservati in osservanza della norma DIN 34\n-\n-\nD\nD\n2\n3\n2\n3\n2\n3\nE\nE\n1\n4\n1\n4\n1\n4\nCONNECTOR TYPE I\nCONNECTOR TYPE I\nCONNECTOR TYPE I\n(see sheet 4)\n(see sheet 4)\n(see sheet 4)\nSUBSTITUTE WINCHES\nMYT-Systems S.r.l.\nJOB N':\nCLIENT:\nF\n4\n05/05/2026\nMODULES FROM\nDRAWN:\nCHECKED:\nSCALE:\nSHEET:\n21 of 27\nS.W. SHIPYARD\nPROJECT:\nSWS_108-1\nMYT\nF\nDIGITAL TO ANALOG\nVia Borzoli, 39/130P\n16153 Genova (GE)\n0\n21/03/2023\nFIRST ISSUE\nFILE NAME:\nSWS_108-1_AFT PLC.dwg\nTITLE:\nHYDRAULIC SYSTEM AUTOMATION\nREV:\n4\nITALY\nTel: +390185380903\nThis drawing and the contained informations are property of MYT-System S.r.l. and protected by law. Copying, disclosure\nSYSTEMS\nREV\nDATE\nDRAWN\nCHECKED\nMODIFICATIONS\nSECTION:\nAFT\nDATE:\nemail: info@myt-systems.com\nand any other use are prohibited except with written permission of MYT-System S.r.l..\n05/05/2026\n1\n2\n3\n4\n5\n6\n7\n8",
+  "components": [
+    {
+      "label": "2 DO MODULE (POS.13) 750-508 DO-03",
+      "bbox": [
+        0.081,
+        0.054,
+        0.373,
+        0.076
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "2 DO MODULE (POS.14) 750-508 DO-04",
+      "bbox": [
+        0.081,
+        0.082,
+        0.373,
+        0.104
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "2 DO MODULE (POS.15) 750-508 DO-05",
+      "bbox": [
+        0.081,
+        0.111,
+        0.373,
+        0.133
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "2DO",
+      "bbox": [
+        0.221,
+        0.17,
+        0.247,
+        0.187
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "TYPE: 750-508",
+      "bbox": [
+        0.26,
+        0.213,
+        0.314,
+        0.226
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "CPU: 750-8213",
+      "bbox": [
+        0.26,
+        0.227,
+        0.317,
+        0.24
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "POS.: 13",
+      "bbox": [
+        0.26,
+        0.242,
+        0.29,
+        0.254
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "DO-03\nCH 01",
+      "bbox": [
+        0.187,
+        0.342,
+        0.213,
+        0.37
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "DO-03\nCH 02",
+      "bbox": [
+        0.26,
+        0.342,
+        0.286,
+        0.37
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "transom door\nCLOSE\n(EV 10.1A)",
+      "bbox": [
+        0.139,
+        0.428,
+        0.196,
+        0.477
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "transom door\nOPEN\n(EV 10.1B)",
+      "bbox": [
+        0.274,
+        0.428,
+        0.33,
+        0.477
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "CONNECTOR TYPE I\n(see sheet 4)",
+      "bbox": [
+        0.186,
+        0.817,
+        0.287,
+        0.852
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "2DO",
+      "bbox": [
+        0.5,
+        0.17,
+        0.526,
+        0.187
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "TYPE: 750-508",
+      "bbox": [
+        0.539,
+        0.213,
+        0.593,
+        0.226
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "CPU: 750-8213",
+      "bbox": [
+        0.539,
+        0.227,
+        0.596,
+        0.24
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "POS.: 14",
+      "bbox": [
+        0.539,
+        0.242,
+        0.569,
+        0.254
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "DO-04\nCH 01",
+      "bbox": [
+        0.466,
+        0.342,
+        0.492,
+        0.37
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "DO-04\nCH 02",
+      "bbox": [
+        0.539,
+        0.342,
+        0.565,
+        0.37
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "deck door\nOPEN\n(EV 10.2A)",
+      "bbox": [
+        0.423,
+        0.428,
+        0.47,
+        0.477
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "deck door\nCLOSE\n(EV 10.2B)",
+      "bbox": [
+        0.558,
+        0.428,
+        0.605,
+        0.477
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "CONNECTOR TYPE I\n(see sheet 4)",
+      "bbox": [
+        0.465,
+        0.817,
+        0.566,
+        0.852
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "2DO",
+      "bbox": [
+        0.779,
+        0.17,
+        0.805,
+        0.187
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "TYPE: 750-508",
+      "bbox": [
+        0.818,
+        0.213,
+        0.872,
+        0.226
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "CPU: 750-8213",
+      "bbox": [
+        0.818,
+        0.227,
+        0.875,
+        0.24
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "POS.: 15",
+      "bbox": [
+        0.818,
+        0.242,
+        0.848,
+        0.254
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "DO-05\nCH 01",
+      "bbox": [
+        0.745,
+        0.342,
+        0.771,
+        0.37
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "DO-05\nCH 02",
+      "bbox": [
+        0.818,
+        0.342,
+        0.844,
+        0.37
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "mainsheet\ntraveler\nTO PORT\n(EV 10.3A)",
+      "bbox": [
+        0.702,
+        0.42,
+        0.749,
+        0.485
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "mainsheet\ntraveler\nTO STBD\n(EV 10.3B)",
+      "bbox": [
+        0.838,
+        0.42,
+        0.885,
+        0.485
+      ],
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "CONNECTOR TYPE I\n(see sheet 4)",
+      "bbox": [
+        0.744,
+        0.817,
+        0.845,
+        0.852
+      ],
+      "confidence": "high",
+      "note": ""
+    }
+  ],
+  "model": "gemini-3.1-pro-preview"
+}

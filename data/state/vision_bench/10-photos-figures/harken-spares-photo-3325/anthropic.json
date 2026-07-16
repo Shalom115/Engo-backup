@@ -1,0 +1,31 @@
+{
+  "content_type": "photo",
+  "description": "A photograph of a Harken spare parts package - a clear plastic bag containing replacement components, sealed with a stapled paper label/packing slip attached. The label indicates the contents are Needle Roller Bearings (Qty 2) with part number A72931800. This appears to be a spare parts bag for a Harken winch or furling system, likely stored aboard a yacht as maintenance/spare stock. The bag is photographed lying on a dark countertop or table surface. The bearings themselves are not visible/distinguishable within the crinkled plastic packaging - only the label is legible.",
+  "transcription": "HARKEN\nCode\nPart Number    A72931800\nCustomer Reference    A72931800\n*000000000000*\nQTY 2\nDescription    Needle Roller Bearing\n120x126x19\nPO Number    SWS108#1 ID13398\nwww.harken.com",
+  "components": [
+    {
+      "label": "Harken parts bag label - Part Number A72931800",
+      "bbox": [
+        0.2,
+        0.05,
+        0.95,
+        0.95
+      ],
+      "confidence": "high",
+      "note": "Paper packing slip stapled to clear plastic bag, occupies center of frame"
+    },
+    {
+      "label": "Description: Needle Roller Bearing 120x126x19, QTY 2",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Printed on the same label, lower-center portion of the label"
+    },
+    {
+      "label": "PO Number SWS108#1 ID13398",
+      "bbox": null,
+      "confidence": "high",
+      "note": "Printed near bottom of the label"
+    }
+  ],
+  "model": "claude-sonnet-5"
+}

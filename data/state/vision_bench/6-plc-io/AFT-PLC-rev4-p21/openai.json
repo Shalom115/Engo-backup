@@ -1,0 +1,140 @@
+{
+  "content_type": "electrical_diagram",
+  "description": "Electrical wiring/schematic sheet for the aft hydraulic system automation, sheet 21 of 27. It shows three WAGO 2-channel digital-output modules, each TYPE 750-508 and associated with CPU 750-8213, at PLC positions 13, 14, and 15. Each output channel operates one named hydraulic directional-valve solenoid (six loads total) through a four-pin \u201cCONNECTOR TYPE I\u201d; each connector explicitly cross-references \u201csee sheet 4.\u201d No upstream branch protective device (breaker, fuse, switch, identifier, rating, or board/row) is drawn or named on this sheet, so the protective supply cannot be identified here. The module\u2019s +/\u2212 field-power terminals are depicted, but no incoming power source identifier or rating is shown. No local switch, panel switch, interposing relay, contactor, or monitoring/alarm-system tap is shown; the only shown control points are PLC digital outputs. Signal/status wiring must not be inferred: none is drawn.\n\nCircuit tracing by load:\n1) Transom door CLOSE solenoid valve coil EV 10.1A: controlled by PLC digital output DO-03 CH 01 on 2DO module TYPE 750-508, CPU 750-8213, POS. 13. The CH01 switched conductor runs to CONNECTOR TYPE I pin 1. Its paired return conductor runs from the module\u2019s lower field terminal to connector pin 2. The external continuation/load connection is via CONNECTOR TYPE I and continues on \u201csee sheet 4.\u201d No protective device or supply rating is identified.\n2) Transom door OPEN solenoid valve coil EV 10.1B: controlled by DO-03 CH 02 on the same POS. 13 module. The CH02 switched conductor runs to CONNECTOR TYPE I pin 4; its paired return runs to pin 3. Continuation is on sheet 4. No protective device or additional control/monitoring point is shown.\n3) Deck door OPEN solenoid valve coil EV 10.2A: controlled by PLC output DO-04 CH 01 on 2DO module TYPE 750-508, CPU 750-8213, POS. 14. CH01 runs to CONNECTOR TYPE I pin 1; paired return runs to pin 2. Continuation: \u201csee sheet 4.\u201d No protective device/supply rating is shown.\n4) Deck door CLOSE solenoid valve coil EV 10.2B: controlled by DO-04 CH 02 on POS. 14. CH02 runs to connector pin 4; paired return runs to pin 3. Continuation: sheet 4. No protective device or other control/monitoring point is shown.\n5) Mainsheet traveler TO PORT solenoid valve coil EV 10.3A: controlled by PLC output DO-05 CH 01 on 2DO module TYPE 750-508, CPU 750-8213, POS. 15. CH01 runs to CONNECTOR TYPE I pin 1; paired return runs to pin 2. Continuation: \u201csee sheet 4.\u201d No protective device/supply rating is shown.\n6) Mainsheet traveler TO STBD solenoid valve coil EV 10.3B: controlled by DO-05 CH 02 on POS. 15. CH02 runs to connector pin 4; paired return runs to pin 3. Continuation: sheet 4. No protective device or additional control/monitoring point is shown.\n\nTopology shown is PLC DO channel \u2192 connector switched pin, with the associated return terminal \u2192 paired connector pin; the actual valve coils and any upstream power protection are not drawn beyond these labelled circuit destinations. Sheet title block: SWS_108-1_AFT PLC.dwg; HYDRAULIC SYSTEM AUTOMATION; section AFT; project SWS_108-1; client S.W. SHIPYARD; revision 4; date 05/05/2026.",
+  "transcription": "2 DO MODULE (POS.13) 750-508 DO-03\n2 DO MODULE (POS.14) 750-508 DO-04\n2 DO MODULE (POS.15) 750-508 DO-05\n\n2DO\nTYPE: 750-508\nCPU: 750-8213\nPOS.: 13\nA1 A2\nDO-03\nCH 01\nDO-03\nCH 02\n+\n+\n\u2212\n\u2212\ntransom door\nCLOSE\n(EV 10.1A)\ntransom door\nOPEN\n(EV 10.1B)\n2 3\n1 4\nCONNECTOR TYPE I\n(see sheet 4)\n\n2DO\nTYPE: 750-508\nCPU: 750-8213\nPOS.: 14\nA1 A2\nDO-04\nCH 01\nDO-04\nCH 02\n+\n+\n\u2212\n\u2212\ndeck door\nOPEN\n(EV 10.2A)\ndeck door\nCLOSE\n(EV 10.2B)\n2 3\n1 4\nCONNECTOR TYPE I\n(see sheet 4)\n\n2DO\nTYPE: 750-508\nCPU: 750-8213\nPOS.: 15\nA1 A2\nDO-05\nCH 01\nDO-05\nCH 02\n+\n+\n\u2212\n\u2212\nmainsheet\ntraveler\nTO PORT\n(EV 10.3A)\nmainsheet\ntraveler\nTO STBD\n(EV 10.3B)\n2 3\n1 4\nCONNECTOR TYPE I\n(see sheet 4)\n\nDiritti riservati in osservanza della norma DIN 34\n\n4 05/05/2026 SUBSTITUTE WINCHES MODULES FROM DIGITAL TO ANALOG\n0 21/03/2023 FIRST ISSUE\nREV DATE DRAWN CHECKED MODIFICATIONS\nMYT-Systems S.r.l.\nVia Borzoli, 39/130P\n16153 Genova (GE)\nITALY\nTel: +390185380903\nemail: info@myt-systems.com\nDRAWN:\nCHECKED:\nSCALE:\nSHEET: 21 of 27\nFILE NAME: SWS_108-1_AFT PLC.dwg\nThis drawing and the contained informations are property of MYT-Systems S.r.l. and protected by law. Copying, disclosure\nand any other use are prohibited except with written permission of MYT-System S.r.l..\nMYT\nSYSTEMS\nJOB N\u00b0: --\nCLIENT: S.W. SHIPYARD\nPROJECT: SWS_108-1\nTITLE: HYDRAULIC SYSTEM AUTOMATION\nREV: 4\nSECTION: AFT\nDATE: 05/05/2026",
+  "components": [
+    {
+      "label": "EV 10.1A \u2014 transom door CLOSE",
+      "bbox": [
+        0.135,
+        0.422,
+        0.221,
+        0.491
+      ],
+      "confidence": "high",
+      "note": "Hydraulic valve solenoid load label. Operated by DO-03 CH 01, module 750-508 at POS. 13; connector Type I pins 1 and 2; continuation on sheet 4."
+    },
+    {
+      "label": "EV 10.1B \u2014 transom door OPEN",
+      "bbox": [
+        0.262,
+        0.422,
+        0.347,
+        0.491
+      ],
+      "confidence": "high",
+      "note": "Hydraulic valve solenoid load label. Operated by DO-03 CH 02, module 750-508 at POS. 13; connector Type I pins 4 and 3; continuation on sheet 4."
+    },
+    {
+      "label": "EV 10.2A \u2014 deck door OPEN",
+      "bbox": [
+        0.409,
+        0.422,
+        0.488,
+        0.491
+      ],
+      "confidence": "high",
+      "note": "Hydraulic valve solenoid load label. Operated by DO-04 CH 01, module 750-508 at POS. 14; connector Type I pins 1 and 2; continuation on sheet 4."
+    },
+    {
+      "label": "EV 10.2B \u2014 deck door CLOSE",
+      "bbox": [
+        0.535,
+        0.422,
+        0.613,
+        0.491
+      ],
+      "confidence": "high",
+      "note": "Hydraulic valve solenoid load label. Operated by DO-04 CH 02, module 750-508 at POS. 14; connector Type I pins 4 and 3; continuation on sheet 4."
+    },
+    {
+      "label": "EV 10.3A \u2014 mainsheet traveler TO PORT",
+      "bbox": [
+        0.679,
+        0.415,
+        0.762,
+        0.492
+      ],
+      "confidence": "high",
+      "note": "Hydraulic valve solenoid load label. Operated by DO-05 CH 01, module 750-508 at POS. 15; connector Type I pins 1 and 2; continuation on sheet 4."
+    },
+    {
+      "label": "EV 10.3B \u2014 mainsheet traveler TO STBD",
+      "bbox": [
+        0.802,
+        0.415,
+        0.89,
+        0.492
+      ],
+      "confidence": "high",
+      "note": "Hydraulic valve solenoid load label. Operated by DO-05 CH 02, module 750-508 at POS. 15; connector Type I pins 4 and 3; continuation on sheet 4."
+    },
+    {
+      "label": "DO-03 \u2014 2DO module TYPE 750-508, CPU 750-8213, POS. 13",
+      "bbox": [
+        0.198,
+        0.207,
+        0.299,
+        0.692
+      ],
+      "confidence": "high",
+      "note": "Two-channel PLC digital-output module controlling EV 10.1A and EV 10.1B."
+    },
+    {
+      "label": "DO-04 \u2014 2DO module TYPE 750-508, CPU 750-8213, POS. 14",
+      "bbox": [
+        0.471,
+        0.207,
+        0.572,
+        0.692
+      ],
+      "confidence": "high",
+      "note": "Two-channel PLC digital-output module controlling EV 10.2A and EV 10.2B."
+    },
+    {
+      "label": "DO-05 \u2014 2DO module TYPE 750-508, CPU 750-8213, POS. 15",
+      "bbox": [
+        0.745,
+        0.207,
+        0.846,
+        0.692
+      ],
+      "confidence": "high",
+      "note": "Two-channel PLC digital-output module controlling EV 10.3A and EV 10.3B."
+    },
+    {
+      "label": "CONNECTOR TYPE I (see sheet 4) \u2014 EV 10.1A/EV 10.1B",
+      "bbox": [
+        0.167,
+        0.724,
+        0.292,
+        0.862
+      ],
+      "confidence": "high",
+      "note": "Four-pin connector: CH01 circuit uses pins 1/2; CH02 circuit uses pins 4/3."
+    },
+    {
+      "label": "CONNECTOR TYPE I (see sheet 4) \u2014 EV 10.2A/EV 10.2B",
+      "bbox": [
+        0.441,
+        0.724,
+        0.566,
+        0.862
+      ],
+      "confidence": "high",
+      "note": "Four-pin connector: CH01 circuit uses pins 1/2; CH02 circuit uses pins 4/3."
+    },
+    {
+      "label": "CONNECTOR TYPE I (see sheet 4) \u2014 EV 10.3A/EV 10.3B",
+      "bbox": [
+        0.716,
+        0.724,
+        0.84,
+        0.862
+      ],
+      "confidence": "high",
+      "note": "Four-pin connector: CH01 circuit uses pins 1/2; CH02 circuit uses pins 4/3."
+    }
+  ],
+  "model": "gpt-5.6-sol"
+}

@@ -1,0 +1,96 @@
+{
+  "content_type": "electrical_diagram",
+  "description": "This is sheet 12 of 47 (dwg 196D5023, CAGE 89954, BAE Systems Controls, Endicott NY) showing two nearly identical harness/connector wiring blocks labeled BEL1-S (upper) and BEL2-S (lower), each terminating a multi-conductor cable to a device group consisting of a \"BEL\" connector (with pin RTN1), a \"SYNC\" twisted-pair connector, and a \"CAN-A\" connector (Shield/HI/LO). These appear to be sensor/actuator chain segments (BEL = possibly \"Bell\" or beacon/sensor chain unit) with CAN bus daisy-chain wiring and a sync signal, likely part of a sensor chain (S3 and S4 chain segments) rather than a powered load with breakers/fuses \u2014 no protective devices (breakers/fuses) are shown on this sheet; wiring originates from terminal strip BEL1-S / BEL2-S with numbered pin call-outs.\n\nTop block (BEL1-S, associated with chain segment \"S3\"):\n- Terminal strip \"BEL1-S\" (I/O row) with pins 2,7,11,3,1,8,9,5,6,N/C,10,4 each labeled with a net name:\n  - Pin 2: G3-S3S1 FREQ_SELECT\n  - Pin 7: G3-S3R1 VBATTERY RTN\n  - Pin 11: G3-S321 CHAIN_OUTPUT\n  - Pin 3: G3-S3S2 SYNC\n  - Pin 1: G3-S329 ENABLE (N/C)\n  - Pin 8: G3-S300a ADR_0 (N/C)\n  - Pin 9: G3-S300b ADR_1 (N/C)\n  - Pin 5: G3-S3AH CANA_HI\n  - Pin 6: G3-S3AL CANA_LO\n  - N/C pin: G3-S3AS CANA_Shield\n  - Pin 10: G3-S3S3 CHAIN_SUPPLY\n  - Pin 4: (feeds SYNC connector pin 3)\n- Wires cross (twisted-pair crossing shown by X symbols) and route up to:\n  - \"BEL\" connector block, pin RTN1 (fed by G3-S3R1 VBATTERY RTN, net also labeled G3-S3R1 SYNC_RTN near SYNC connector)\n  - \"SYNC\" connector block with pins 10 and 3\n  - \"CAN-A\" connector block with Shield, HI, LO pins (fed by G3-S3AH/G3-S3AL/G3-S3AS nets); a dashed oval indicates a splice/twist point or shield drain termination on the CANA_Shield line and on the CAN-A LO line run.\n\nBottom block (BEL2-S, associated with chain segment \"S4\"), mirrors the top block:\n- Terminal strip \"BEL2-S\" (I/O row) with pins 2,7,11,3,1,8,9,5,6,N/C,10,4 each labeled:\n  - Pin 2: G3-S4S1 FREQ_SELECT\n  - Pin 7: G3-S4R1 VBATTERY RTN\n  - Pin 11: G3-S421 CHAIN_OUTPUT\n  - Pin 3: G3-S4S2 SYNC\n  - Pin 1: G3-S429 ENABLE (N/C)\n  - Pin 8: G3-S400a ADR_0 (N/C)\n  - Pin 9: G3-S400b ADR_1 (N/C)\n  - Pin 5: G3-S4AH CANA_HI\n  - Pin 6: G3-S4AL CANA_LO\n  - N/C pin: G3-S4AS CANA_Shield\n  - Pin 10: G3-S4S3 CHAIN_SUPPLY\n  - Pin 4: SYNC pin 4\n- Routes to a second \"BEL\" connector (RTN1, fed by G3-S4R1 VBATTERY RTN / G3-S4R1 SYNC_RTN), a second \"SYNC\" connector (pins 9 and 4), and a second \"CAN-A\" connector (Shield/HI/LO) with a similar dashed-oval splice indicator on shield/LO lines.\n\nNo protective devices (fuses/breakers) or control switches/relays/PLC outputs are depicted on this sheet; it is purely a point-to-point wiring/pinout diagram for two chain segments (S3, S4) of what is likely a CAN-bus sensor daisy-chain assembly with battery return, sync, address, enable and chain-supply/chain-output signals. No cross-reference call-outs to other drawings/sheets are printed on this sheet body (title block references \"SEE TITLE PAGE\" for export-control warning and revision block shows no entries). Title block: SIZE D, CAGE CODE 89954, DWG NO 196D5023, SHEET 12 OF 47, SCALE NONE, CONTR NO: NOT APPLICABLE, WARNING: EXPORT CONTROLLED - SEE TITLE PAGE, BAE SYSTEMS PROPRIETARY INFORMATION notice, drawn by G. Zaleski, Controls dept, Endicott NY.",
+  "transcription": "196D5023 REV - SHEET 12\nREVISIONS: REV / DESCRIPTION / DATE / APPROVED (blank)\nSIZE D\nBEL1-S\nI/O\n2 - G3-S3S1 FREQ_SELECT\n7 - G3-S3R1 VBATTERY RTN\n11 - G3-S321 CHAIN_OUTPUT\n3 - G3-S3S2 SYNC\n1 - G3-S329 ENABLE (N/C)\n8 - G3-S300a ADR_0 (N/C)\n9 - G3-S300b ADR_1 (N/C)\n5 - G3-S3AH CANA_HI\n6 - G3-S3AL CANA_LO\nN/C - G3-S3AS CANA_Shield\n10 - G3-S3S3 CHAIN_SUPPLY\n4\nBEL\nRTN1\nSYNC 10 3\nCAN-A Shield HI LO\nG3-S3R1 SYNC_RTN\n\nBEL2-S\nI/O\n2 - G3-S4S1 FREQ_SELECT\n7 - G3-S4R1 VBATTERY RTN\n11 - G3-S421 CHAIN_OUTPUT\n3 - G3-S4S2 SYNC\n1 - G3-S429 ENABLE (N/C)\n8 - G3-S400a ADR_0 (N/C)\n9 - G3-S400b ADR_1 (N/C)\n5 - G3-S4AH CANA_HI\n6 - G3-S4AL CANA_LO\nN/C - G3-S4AS CANA_Shield\n10 - G3-S4S3 CHAIN_SUPPLY\n4\nBEL\nRTN1\nSYNC 9 4\nCAN-A Shield HI LO\nG3-S4R1 SYNC_RTN\n\nCONTR NO: NOT APPLICABLE\nWARNING: EXPORT CONTROLLED - SEE TITLE PAGE\nBAE SYSTEMS PROPRIETARY INFORMATION\nUSE OR DISCLOSURE OF THIS INFORMATION IS SUBJECT TO THE RESTRICTIONS ON THE FIRST PAGE OF THIS DOCUMENT.\nBAE SYSTEMS CONTROLS ENDICOTT, NY\nDRAWN BY G. Zaleski\nCHKD\nFILED SEE SHEET 1\nCAGE CODE 89954\nSIZE D\nDWG NO 196D5023\nSCALE NONE\nSHEET 12 OF 47",
+  "components": [
+    {
+      "label": "BEL1-S",
+      "bbox": [
+        0.16,
+        0.83,
+        0.52,
+        0.93
+      ],
+      "confidence": "high",
+      "note": "terminal/I-O strip for chain segment S3, lower-left quadrant"
+    },
+    {
+      "label": "BEL2-S",
+      "bbox": [
+        0.16,
+        0.83,
+        0.52,
+        0.93
+      ],
+      "confidence": "high",
+      "note": "terminal/I-O strip for chain segment S4, lower area below BEL1-S"
+    },
+    {
+      "label": "BEL (RTN1)",
+      "bbox": [
+        0.19,
+        0.32,
+        0.24,
+        0.42
+      ],
+      "confidence": "high",
+      "note": "upper connector block fed by G3-S3R1 VBATTERY RTN, upper-left area"
+    },
+    {
+      "label": "BEL (RTN1) #2",
+      "bbox": [
+        0.19,
+        0.5,
+        0.24,
+        0.6
+      ],
+      "confidence": "high",
+      "note": "second BEL connector for S4 chain, mid-left area"
+    },
+    {
+      "label": "SYNC (pins 10,3)",
+      "bbox": [
+        0.24,
+        0.32,
+        0.29,
+        0.42
+      ],
+      "confidence": "high",
+      "note": "sync twisted pair connector for S3 chain"
+    },
+    {
+      "label": "SYNC (pins 9,4)",
+      "bbox": [
+        0.24,
+        0.5,
+        0.29,
+        0.6
+      ],
+      "confidence": "high",
+      "note": "sync twisted pair connector for S4 chain"
+    },
+    {
+      "label": "CAN-A (Shield/HI/LO)",
+      "bbox": [
+        0.32,
+        0.32,
+        0.42,
+        0.42
+      ],
+      "confidence": "high",
+      "note": "CAN bus connector for S3 chain, upper-right area of block"
+    },
+    {
+      "label": "CAN-A (Shield/HI/LO) #2",
+      "bbox": [
+        0.32,
+        0.5,
+        0.42,
+        0.6
+      ],
+      "confidence": "high",
+      "note": "CAN bus connector for S4 chain, mid-right area"
+    }
+  ],
+  "model": "claude-sonnet-5"
+}

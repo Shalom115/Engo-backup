@@ -1,0 +1,2184 @@
+{
+  "legends": [],
+  "legend_context": "",
+  "survey": {
+    "title_block": {
+      "drawing_no": "GMMS 108\u2019-112",
+      "title": "MAIN PANEL SCHEMATIC \u201cA\u201d",
+      "drafter": "GM"
+    },
+    "sub_type": "relay_terminal_wiring",
+    "sub_type_reason": "The sheet is dominated by numbered terminal strips, multi-core cable terminations, plug interfaces, a PC/alarm controller card, switch endpoints, indicator/alarm wiring, and interconnected signal/control conductors rather than protective-device schedules or a source-to-bus power one-line.",
+    "regions": [
+      {
+        "type": "terminal_strip",
+        "label": "Upper-left terminal strips and MU4/MU5 multicore cable terminations",
+        "bbox": [
+          0.045,
+          0.07,
+          0.38,
+          0.33
+        ],
+        "approx_unit_count": 31
+      },
+      {
+        "type": "controller_module",
+        "label": "Central alarm module / PC card with indicator and diode logic",
+        "bbox": [
+          0.53,
+          0.16,
+          0.73,
+          0.76
+        ],
+        "approx_unit_count": 1
+      },
+      {
+        "type": "terminal_strip",
+        "label": "Mid-left T/S C and plug/terminal interface groups",
+        "bbox": [
+          0.25,
+          0.31,
+          0.55,
+          0.58
+        ],
+        "approx_unit_count": 37
+      },
+      {
+        "type": "terminal_strip",
+        "label": "Lower-left T/S F, T/S E, and associated multicore terminations",
+        "bbox": [
+          0.045,
+          0.37,
+          0.47,
+          0.68
+        ],
+        "approx_unit_count": 32
+      },
+      {
+        "type": "topology_network",
+        "label": "Right-side external switch, lamp, pump, bilge, alarm, and run-indication endpoints",
+        "bbox": [
+          0.69,
+          0.07,
+          0.92,
+          0.88
+        ],
+        "approx_unit_count": 29
+      },
+      {
+        "type": "relay_bank",
+        "label": "Lower-center alarm output relay/contact and mute/test circuit",
+        "bbox": [
+          0.57,
+          0.64,
+          0.78,
+          0.76
+        ],
+        "approx_unit_count": 2
+      },
+      {
+        "type": "terminal_strip",
+        "label": "Bottom plug B/C and emergency/control terminal wiring",
+        "bbox": [
+          0.32,
+          0.74,
+          0.82,
+          0.9
+        ],
+        "approx_unit_count": 20
+      }
+    ],
+    "cross_refs": [
+      "see DWG 120",
+      "see DWG 114"
+    ],
+    "notes": "Single-sheet main-panel control/alarm wiring schematic. Major repeated structures are terminal columns and plug pin banks around one large PC-card/alarm-module enclosure. Explicit multicore cable IDs include MU4-12 and MU5-12. No separate legend is visible. Small terminal numbers and some local annotations are difficult to verify at this image resolution; approximate unit counts are intended only for tiling.",
+    "_model": "gpt-5.6-sol",
+    "_pass1_dpi": 200
+  },
+  "sub_type": "relay_terminal_wiring",
+  "regions_read": [
+    {
+      "region": "Upper-left terminal strips and MU4/MU5 multicore cable terminations",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.045,
+        0.07,
+        0.38,
+        0.33
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "terminal_strip",
+          "id": "T/S F",
+          "label": "Terminal strip F",
+          "connections": [
+            "MU5-12 cores 1-12"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S F/36",
+          "label": "Terminal 36; built-in fuse",
+          "connections": [
+            "MU5-12 core 1"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S F/61",
+          "label": "Terminal 61",
+          "connections": [
+            "MU5-12 core 2"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S F/65",
+          "label": "Terminal 65",
+          "connections": [
+            "MU5-12 core 3"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S F/40",
+          "label": "Terminal 40; built-in fuse",
+          "connections": [
+            "MU5-12 core 4"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S F/43",
+          "label": "Terminal 43; built-in fuse",
+          "connections": [
+            "MU5-12 core 5"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S F/46",
+          "label": "Terminal 46; built-in fuse",
+          "connections": [
+            "MU5-12 core 6"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S F/58",
+          "label": "Terminal 58; built-in fuse",
+          "connections": [
+            "MU5-12 core 7"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S F/60",
+          "label": "Terminal 60; built-in fuse",
+          "connections": [
+            "MU5-12 core 8"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S F/64",
+          "label": "Terminal 64; built-in fuse",
+          "connections": [
+            "MU5-12 core 9"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S F/54",
+          "label": "Terminal 54",
+          "connections": [
+            "MU5-12 core 10"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S F/55",
+          "label": "Terminal 55",
+          "connections": [
+            "MU5-12 core 11"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S F/73",
+          "label": "Terminal 73",
+          "connections": [
+            "MU5-12 core 12"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "annotation",
+          "id": "MU5-12",
+          "label": "12-core multi-core cable MU5-12",
+          "connections": [
+            "T/S F cores 1-12 -> T/S E cores 1-12"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal_strip",
+          "id": "T/S E",
+          "label": "Terminal strip E",
+          "connections": [
+            "MU5-12 cores 1-12",
+            "MU4a-12/1",
+            "+24V EMERGENCY SUPPLY"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E/60",
+          "label": "Terminal 60",
+          "connections": [
+            "MU5-12 core 1"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E/61",
+          "label": "Terminal 61",
+          "connections": [
+            "MU5-12 core 2"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E/62",
+          "label": "Terminal 62",
+          "connections": [
+            "MU5-12 core 3"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E/63",
+          "label": "Terminal 63",
+          "connections": [
+            "MU5-12 core 4"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E/64",
+          "label": "Terminal 64",
+          "connections": [
+            "MU5-12 core 5"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E/65",
+          "label": "Terminal 65",
+          "connections": [
+            "MU5-12 core 6"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E/66",
+          "label": "Terminal 66",
+          "connections": [
+            "MU5-12 core 7"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E/67",
+          "label": "Terminal 67",
+          "connections": [
+            "MU5-12 core 8"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E/68",
+          "label": "Terminal 68",
+          "connections": [
+            "MU5-12 core 9"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E/34",
+          "label": "Terminal 34; built-in fuse",
+          "connections": [
+            "MU5-12 core 10"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E/36",
+          "label": "Terminal 36; built-in fuse",
+          "connections": [
+            "MU5-12 core 11"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E/69",
+          "label": "Terminal 69; not used/spare",
+          "connections": [
+            "MU5-12 core 12"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E/8",
+          "label": "Terminal 8; built-in fuse; +24V EMERGENCY SUPPLY",
+          "connections": [
+            "+24V EMERGENCY SUPPLY -> T/S E/8",
+            "T/S E/8 -> MU4a-12/1"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "annotation",
+          "id": "MU4a-12/1",
+          "label": "Printed cable/wire reference MU4a-12/1",
+          "connections": [
+            "T/S E/8 -> T/S E/59"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E/59",
+          "label": "Terminal 59",
+          "connections": [
+            "MU4a-12/1"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E/38",
+          "label": "Terminal 38",
+          "connections": [
+            "wire continues right; destination cropped"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E/39",
+          "label": "Terminal 39",
+          "connections": [
+            "wire continues right; destination cropped"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E/40",
+          "label": "Terminal 40",
+          "connections": [
+            "wire continues right; destination cropped"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E/41",
+          "label": "Terminal 41",
+          "connections": [
+            "wire continues right; destination cropped"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "XA41/04",
+          "label": "PORT XA41 pin 04",
+          "connections": [
+            "wire continues right; destination cropped"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "XA41/02",
+          "label": "STBD XA41 pin 02",
+          "connections": [
+            "wire continues right; destination cropped"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "XA41/06",
+          "label": "XA41 pin 06; associated caption cropped",
+          "connections": [
+            "wire continues right; destination cropped"
+          ],
+          "ambiguous": true
+        }
+      ]
+    },
+    {
+      "region": "Central alarm module / PC card with indicator and diode logic",
+      "region_type": "controller_module",
+      "bbox": [
+        0.53,
+        0.16,
+        0.73,
+        0.76
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "controller_module",
+          "id": "PC CARD",
+          "label": "PC CARD on ALARM MODULE",
+          "connections": [
+            "multiple left-hand alarm-module inputs",
+            "multiple right-hand labelled alarm/status circuits",
+            "AUX PLUG ON PC BOARD"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "<UNKNOWN>",
+          "label": "Right-side alarm/status outputs; labels cropped/partly illegible: ANC\u2026, MAS\u2026, FWI\u2026, STE\u2026, STE\u2026, SPR\u2026, FOR\u2026, UPI\u2026, LOW\u2026, GRI\u2026, LAZ\u2026, AFT\u2026, ENG\u2026, FWI\u2026, SAI\u2026, RUI\u2026, ALA\u2026, RU\u2026, ALA\u2026, MAS\u2026, ENGI\u2026, OWN\u2026, FWI\u2026, PO\u2026, STI\u2026, FW\u2026, AFT\u2026, AF\u2026, EM\u2026, GM\u2026",
+          "connections": [
+            "PC CARD internal lamp/diode matrix",
+            "right edge continuation"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "Multiple indicator lamps (circle with cross) on PC CARD",
+          "connections": [
+            "individual alarm/status lines",
+            "common right-hand vertical buses"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "A",
+          "label": "A indicator/output, upper A/F/E group",
+          "connections": [
+            "PC CARD matrix line",
+            "right-hand common vertical bus"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "F",
+          "label": "F indicator/output, upper A/F/E group",
+          "connections": [
+            "PC CARD matrix line",
+            "right-hand common vertical bus"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "E",
+          "label": "E indicator/output, upper A/F/E group",
+          "connections": [
+            "PC CARD matrix line",
+            "right-hand common vertical bus"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "A",
+          "label": "A indicator/output, lower A/F/E group",
+          "connections": [
+            "PC CARD matrix line",
+            "right-hand common vertical bus"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "F",
+          "label": "F indicator/output, lower A/F/E group",
+          "connections": [
+            "PC CARD matrix line",
+            "right-hand common vertical bus"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "E",
+          "label": "E indicator/output, lower A/F/E group",
+          "connections": [
+            "PC CARD matrix line",
+            "right-hand common vertical bus"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "relay",
+          "id": "<UNKNOWN>",
+          "label": "PC-card relay coil and linked changeover contact assembly",
+          "connections": [
+            "internal diode matrix/common bus",
+            "AUX plug/internal board wiring"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "[1]",
+          "label": "AUX PLUG ON PC BOARD pin [1]",
+          "connections": [
+            "PC CARD internal wiring",
+            "external continuation"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "[2]",
+          "label": "AUX PLUG ON PC BOARD pin [2]",
+          "connections": [
+            "PC CARD internal wiring",
+            "external continuation"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "[3]",
+          "label": "AUX PLUG ON PC BOARD pin [3]",
+          "connections": [
+            "PC CARD internal wiring",
+            "external continuation"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "[4]",
+          "label": "AUX PLUG ON PC BOARD pin [4]",
+          "connections": [
+            "PC CARD internal wiring",
+            "external continuation"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "annotation",
+          "id": "<UNKNOWN>",
+          "label": "AUX PLUG ON PC BOARD (see DWG 114)",
+          "connections": [
+            "cross-reference to DWG 114"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "unknown",
+          "id": "T",
+          "label": "T-marked polarized rectangular component, + indicated",
+          "connections": [
+            "PC CARD common bus",
+            "AUX plug/internal contact circuit"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "annotation",
+          "id": "120)",
+          "label": "Partial cropped reference text: 120)",
+          "connections": [],
+          "ambiguous": true
+        }
+      ]
+    },
+    {
+      "region": "Mid-left T/S C and plug/terminal interface groups",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.25,
+        0.31,
+        0.55,
+        0.58
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "terminal_strip",
+          "id": "T/S C",
+          "label": "Terminal strip C",
+          "connections": [
+            "terminals 1-6"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S C-1",
+          "label": "terminal 1",
+          "connections": [
+            "XA41/04 (PORT)",
+            "unlabelled diode to common right-hand continuation with T/S C-2"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S C-2",
+          "label": "terminal 2",
+          "connections": [
+            "XA41/02 (STBD)",
+            "unlabelled diode to common right-hand continuation with T/S C-1"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S C-3",
+          "label": "terminal 3",
+          "connections": [
+            "XA41/06",
+            "right-hand continuation"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S C-4",
+          "label": "terminal 4",
+          "connections": [
+            "XA61/30",
+            "right-hand continuation"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S C-5",
+          "label": "terminal 5",
+          "connections": [
+            "XA61/28",
+            "right-hand continuation"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S C-6",
+          "label": "terminal 6",
+          "connections": [
+            "XA61/26",
+            "right-hand continuation"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "XA41/04",
+          "label": "PORT XA41 04",
+          "connections": [
+            "T/S C terminal 1"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "XA41/02",
+          "label": "STBD XA41 02",
+          "connections": [
+            "T/S C terminal 2"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "XA41/06",
+          "label": "XA41 06",
+          "connections": [
+            "T/S C terminal 3"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "XA61/30",
+          "label": "XA61 30",
+          "connections": [
+            "T/S C terminal 4"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "XA61/28",
+          "label": "XA61 28",
+          "connections": [
+            "T/S C terminal 5"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "XA61/26",
+          "label": "XA61 26",
+          "connections": [
+            "T/S C terminal 6"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG A/97",
+          "label": "Plug A pin 97; fused pin/terminal symbol",
+          "connections": [
+            "multi-core cable leg 1 / wire reference 4-12",
+            "right-hand continuation"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG A/98",
+          "label": "Plug A pin 98",
+          "connections": [
+            "multi-core cable leg 2",
+            "right-hand continuation [9]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG A/99",
+          "label": "Plug A pin 99",
+          "connections": [
+            "multi-core cable leg 3",
+            "XA61/04",
+            "right-hand continuation [10]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG A/100",
+          "label": "Plug A pin 100",
+          "connections": [
+            "XA61/06",
+            "right-hand continuation"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG A/101",
+          "label": "Plug A pin 101",
+          "connections": [
+            "multi-core cable leg 4",
+            "XA61/02"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "XA61/04",
+          "label": "XA61 04",
+          "connections": [
+            "Plug A pin 99 / cable leg 3"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "XA61/06",
+          "label": "XA61 06",
+          "connections": [
+            "Plug A pin 100"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "XA61/02",
+          "label": "XA61 02",
+          "connections": [
+            "Plug A pin 101"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG A/77",
+          "label": "Plug A pin 77; fused pin/terminal symbol",
+          "connections": [
+            "right-hand continuation"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG A/78",
+          "label": "Plug A pin 78",
+          "connections": [
+            "right-hand continuation [11]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG A/79",
+          "label": "Plug A pin 79",
+          "connections": [
+            "XA61/10",
+            "right-hand continuation [12]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG A/80",
+          "label": "Plug A pin 80",
+          "connections": [
+            "XA61/12",
+            "right-hand continuation"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG A/81",
+          "label": "Plug A pin 81",
+          "connections": [
+            "XA61/08"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "XA61/10",
+          "label": "XA61 10",
+          "connections": [
+            "Plug A pin 79"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "XA61/12",
+          "label": "XA61 12",
+          "connections": [
+            "Plug A pin 80"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "XA61/08",
+          "label": "XA61 08",
+          "connections": [
+            "Plug A pin 81"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG A/92",
+          "label": "Plug A pin 92",
+          "connections": [
+            "multi-core cable leg 5",
+            "right-hand continuation"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG A/93",
+          "label": "Plug A pin 93",
+          "connections": [
+            "multi-core cable leg 6",
+            "right-hand continuation"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG A/94",
+          "label": "Plug A pin 94",
+          "connections": [
+            "multi-core cable leg 8",
+            "right-hand continuation"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG A/95",
+          "label": "Plug A pin 95",
+          "connections": [
+            "multi-core cable leg 9",
+            "right-hand continuation"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG A/83",
+          "label": "Plug A pin 83; fused pin/terminal symbol",
+          "connections": [
+            "right-hand continuation"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG A/85",
+          "label": "Plug A pin 85; fused pin/terminal symbol",
+          "connections": [
+            "right-hand continuation"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG A/87",
+          "label": "Plug A pin 87; fused pin/terminal symbol",
+          "connections": [
+            "right-hand continuation"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG A/90",
+          "label": "Plug A pin 90; fused pin/terminal symbol",
+          "connections": [
+            "right-hand continuation"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG A/96",
+          "label": "Plug A pin 96",
+          "connections": [
+            "right-hand continuation"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal_strip",
+          "id": "T/S E",
+          "label": "Terminal strip E",
+          "connections": [
+            "terminals 19 and 20"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E-19",
+          "label": "terminal 19; fused terminal symbol",
+          "connections": [
+            "right-hand continuation"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E-20",
+          "label": "terminal 20; fused terminal symbol",
+          "connections": [
+            "right-hand continuation"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "device",
+          "id": "57",
+          "label": "EMERGENCY MAST LTS",
+          "connections": [
+            "multi-core cable leg 10"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG B/110",
+          "label": "Plug B pin 110",
+          "connections": [
+            "right-hand continuation [1]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG B/111",
+          "label": "Plug B pin 111",
+          "connections": [
+            "multi-core cable leg 7",
+            "right-hand continuation"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG B/112",
+          "label": "Plug B pin 112",
+          "connections": [
+            "right-hand continuation"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG B/113",
+          "label": "Plug B pin 113",
+          "connections": [
+            "right-hand continuation"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "annotation",
+          "id": "4-12",
+          "label": "Printed wire/terminal reference 4-12",
+          "connections": [
+            "line entering multi-core cable leg 1 and Plug A pin 97"
+          ],
+          "ambiguous": true
+        }
+      ]
+    },
+    {
+      "region": "Lower-left T/S F, T/S E, and associated multicore terminations",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.045,
+        0.37,
+        0.47,
+        0.68
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "terminal_strip",
+          "id": "T/S F",
+          "label": "Terminal strip F",
+          "connections": [
+            "MU4-12 cores 1-12 via terminals 7, 8, 9, 10, 12, 15, 19, 20, 21, 22, 23, 24"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S F:7",
+          "label": "fused terminal 7 (built-in fuse)",
+          "connections": [
+            "MU4-12 core 1"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S F:8",
+          "label": "terminal 8",
+          "connections": [
+            "MU4-12 core 2"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S F:9",
+          "label": "terminal 9",
+          "connections": [
+            "MU4-12 core 3"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S F:10",
+          "label": "terminal 10",
+          "connections": [
+            "MU4-12 core 4"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S F:12",
+          "label": "fused terminal 12 (built-in fuse)",
+          "connections": [
+            "MU4-12 core 5"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S F:15",
+          "label": "fused terminal 15 (built-in fuse)",
+          "connections": [
+            "MU4-12 core 6"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S F:19",
+          "label": "terminal 19",
+          "connections": [
+            "MU4-12 core 7"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S F:20",
+          "label": "terminal 20",
+          "connections": [
+            "MU4-12 core 8"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S F:21",
+          "label": "terminal 21",
+          "connections": [
+            "MU4-12 core 9"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S F:22",
+          "label": "terminal 22",
+          "connections": [
+            "MU4-12 core 10"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S F:23",
+          "label": "terminal 23",
+          "connections": [
+            "MU4-12 core 11"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S F:24",
+          "label": "terminal 24",
+          "connections": [
+            "MU4-12 core 12"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "annotation",
+          "id": "MU4-12",
+          "label": "12-core multicore cable MU4",
+          "connections": [
+            "T/S F",
+            "right-side terminal groups"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "XA61/04",
+          "label": "XA61 pin 04 monitoring/signal tag",
+          "connections": [
+            "wired tap into right-side terminal/cable region"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "XA61/06",
+          "label": "XA61 pin 06 monitoring/signal tag",
+          "connections": [
+            "wired tap into right-side terminal/cable region"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "XA61/10",
+          "label": "XA61 pin 10 monitoring/signal tag",
+          "connections": [
+            "wired tap into right-side terminal/cable region"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "XA61/12",
+          "label": "XA61 pin 12 monitoring/signal tag",
+          "connections": [
+            "wired tap into right-side terminal/cable region"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal_strip",
+          "id": "<UNKNOWN>:97-101",
+          "label": "right-side terminal group 97-101",
+          "connections": [
+            "MU4-12 cores 1-4",
+            "XA61/04",
+            "XA61/06",
+            "outgoing wiring at terminals 98, 99 and 101"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "97",
+          "label": "fused terminal 97 (built-in fuse)",
+          "connections": [
+            "MU4-12 core 1"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "98",
+          "label": "terminal 98",
+          "connections": [
+            "MU4-12 core 2",
+            "outgoing wire right"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "99",
+          "label": "terminal 99",
+          "connections": [
+            "MU4-12 core 3",
+            "outgoing wire right"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "100",
+          "label": "terminal 100",
+          "connections": [
+            "XA61/04 or XA61/06 wiring"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "101",
+          "label": "terminal 101",
+          "connections": [
+            "MU4-12 core 4",
+            "wired tag 02 on outgoing stub"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "02",
+          "label": "wired monitoring/signal tag 02",
+          "connections": [
+            "terminal 101"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal_strip",
+          "id": "<UNKNOWN>:77-81",
+          "label": "right-side terminal group 77-81",
+          "connections": [
+            "XA61/10",
+            "XA61/12",
+            "outgoing wiring at terminals 78 and 79",
+            "wired tag 08 from terminal 81"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "77",
+          "label": "fused terminal 77 (built-in fuse)",
+          "connections": [
+            "right-side terminal group"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "78",
+          "label": "terminal 78",
+          "connections": [
+            "outgoing wire right"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "79",
+          "label": "terminal 79",
+          "connections": [
+            "XA61/10 or XA61/12 wiring",
+            "outgoing wire right"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "80",
+          "label": "terminal 80",
+          "connections": [
+            "XA61/10 or XA61/12 wiring"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "81",
+          "label": "terminal 81",
+          "connections": [
+            "wired tag 08"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "08",
+          "label": "wired monitoring/signal tag 08",
+          "connections": [
+            "terminal 81"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal_strip",
+          "id": "<UNKNOWN>:92-96",
+          "label": "right-side terminal group 92-96 including fused terminals 83, 85, 87, 90",
+          "connections": [
+            "MU4-12 cores 5, 6, 8 and 9",
+            "outgoing wires from terminals 92-95"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "92",
+          "label": "terminal 92",
+          "connections": [
+            "MU4-12 core 5",
+            "outgoing wire right"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "93",
+          "label": "terminal 93",
+          "connections": [
+            "MU4-12 core 6",
+            "outgoing wire right"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "94",
+          "label": "terminal 94",
+          "connections": [
+            "MU4-12 core 8",
+            "outgoing wire right"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "95",
+          "label": "terminal 95",
+          "connections": [
+            "MU4-12 core 9",
+            "outgoing wire right"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "83",
+          "label": "fused terminal 83 (built-in fuse)",
+          "connections": [
+            "right-side outgoing wire"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "85",
+          "label": "fused terminal 85 (built-in fuse)",
+          "connections": [
+            "right-side outgoing wire"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "87",
+          "label": "fused terminal 87 (built-in fuse)",
+          "connections": [
+            "right-side outgoing wire"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "90",
+          "label": "fused terminal 90 (built-in fuse)",
+          "connections": [
+            "right-side outgoing wire"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "96",
+          "label": "terminal 96",
+          "connections": [
+            "right-side terminal group"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal_strip",
+          "id": "T/S E",
+          "label": "Terminal strip E",
+          "connections": [
+            "terminals 19 and 20 wired across MU4-12 cable trunk region"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E:19",
+          "label": "fused terminal 19 (built-in fuse)",
+          "connections": [
+            "wire right across cable trunk"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E:20",
+          "label": "fused terminal 20 (built-in fuse)",
+          "connections": [
+            "wire right across cable trunk"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "device",
+          "id": "57",
+          "label": "EMERGENCY MAST LTS",
+          "connections": [
+            "MU4-12 core 10"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal_strip",
+          "id": "<UNKNOWN>:110-113",
+          "label": "right-side terminal group 110-113",
+          "connections": [
+            "MU4-12 core 7 at terminal 111",
+            "outgoing wire from terminal 110"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "110",
+          "label": "terminal 110",
+          "connections": [
+            "outgoing wire right"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "111",
+          "label": "terminal 111",
+          "connections": [
+            "MU4-12 core 7"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "112",
+          "label": "terminal 112",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "113",
+          "label": "terminal 113",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal_strip",
+          "id": "<UNKNOWN>:115-118",
+          "label": "right-side terminal group 115-118",
+          "connections": [
+            "outgoing wire from terminal 115"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "115",
+          "label": "terminal 115",
+          "connections": [
+            "outgoing wire right"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "116",
+          "label": "terminal 116",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "117",
+          "label": "terminal 117",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "118",
+          "label": "terminal 118",
+          "connections": [],
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "Right-side external switch, lamp, pump, bilge, alarm, and run-indication endpoints",
+      "region_type": "topology_network",
+      "bbox": [
+        0.69,
+        0.07,
+        0.92,
+        0.88
+      ],
+      "reader": "oneline",
+      "nodes": [
+        {
+          "node_type": "bus",
+          "id": "<UNKNOWN>",
+          "label": "Common vertical bus / return",
+          "rating": ""
+        },
+        {
+          "node_type": "switch",
+          "id": "S8",
+          "label": "ANCHOR LT",
+          "rating": ""
+        },
+        {
+          "node_type": "switch",
+          "id": "S9",
+          "label": "NUC MAST NAV. LIGHTS / SAILING",
+          "rating": ""
+        },
+        {
+          "node_type": "switch",
+          "id": "S11",
+          "label": "NAV. LIGHTS",
+          "rating": ""
+        },
+        {
+          "node_type": "switch",
+          "id": "S10",
+          "label": "STEAMING LIGHTS",
+          "rating": ""
+        },
+        {
+          "node_type": "switch",
+          "id": "S16",
+          "label": "FWD GREY WATER selector ON/OFF/AUTO",
+          "rating": ""
+        },
+        {
+          "node_type": "switch",
+          "id": "S17",
+          "label": "AFT GREY WATER selector ON/OFF/AUTO",
+          "rating": ""
+        },
+        {
+          "node_type": "switch",
+          "id": "S18",
+          "label": "FWD BLACKWATER PUMP",
+          "rating": ""
+        },
+        {
+          "node_type": "switch",
+          "id": "S19",
+          "label": "AFT BLACKWATER PUMP",
+          "rating": ""
+        },
+        {
+          "node_type": "switch",
+          "id": "S15",
+          "label": "MUTE",
+          "rating": ""
+        },
+        {
+          "node_type": "switch",
+          "id": "S14",
+          "label": "TEST",
+          "rating": ""
+        },
+        {
+          "node_type": "switch",
+          "id": "S1",
+          "label": "EMERGENCY STOP",
+          "rating": ""
+        },
+        {
+          "node_type": "switch",
+          "id": "S12",
+          "label": "EMERGENCY LTS",
+          "rating": ""
+        },
+        {
+          "node_type": "switch",
+          "id": "<UNKNOWN>",
+          "label": "COURTESY LTS",
+          "rating": ""
+        }
+      ],
+      "edges": [
+        "<UNKNOWN> -> S8 -> Common vertical bus / return",
+        "<UNKNOWN> -> S9 -> Common vertical bus / return",
+        "<UNKNOWN> -> S11 -> Common vertical bus / return",
+        "<UNKNOWN> -> S10 -> Common vertical bus / return",
+        "<UNKNOWN> -> S16 -> Common vertical bus / return",
+        "<UNKNOWN> -> S17 -> Common vertical bus / return",
+        "<UNKNOWN> -> S18 -> Common vertical bus / return",
+        "<UNKNOWN> -> S19 -> Common vertical bus / return",
+        "<UNKNOWN> -> S15 -> Common vertical bus / return",
+        "<UNKNOWN> -> S14 -> Common vertical bus / return",
+        "<UNKNOWN> -> S1 -> Common vertical bus / return",
+        "<UNKNOWN> -> S12 -> Common vertical bus / return",
+        "<UNKNOWN> -> COURTESY LTS switch -> Common vertical bus / return"
+      ]
+    },
+    {
+      "region": "Lower-center alarm output relay/contact and mute/test circuit",
+      "region_type": "relay_bank",
+      "bbox": [
+        0.57,
+        0.64,
+        0.78,
+        0.76
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "plug_pin",
+          "id": "[1]",
+          "label": "AUX PLUG ON PC BOARD",
+          "connections": [
+            "wired right/up to the upper continuation conductor at the dotted enclosure boundary"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "[2]",
+          "label": "AUX PLUG ON PC BOARD",
+          "connections": [
+            "wired right/up to the second continuation conductor at the dotted enclosure boundary"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "[3]",
+          "label": "AUX PLUG ON PC BOARD",
+          "connections": [
+            "wired right/up into the internal relay/coil wiring"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "[4]",
+          "label": "AUX PLUG ON PC BOARD",
+          "connections": [
+            "wired right/up to the MUTE/TEST-side internal wiring and continuation conductor"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "switch",
+          "id": "<UNKNOWN>",
+          "label": "MUTE",
+          "connections": [
+            "left contact to continuation conductor",
+            "right contact to common return shared with TEST"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "switch",
+          "id": "<UNKNOWN>",
+          "label": "TEST",
+          "connections": [
+            "left contact to continuation conductor",
+            "right contact to common return shared with MUTE"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "unknown",
+          "id": "T",
+          "label": "T; +",
+          "connections": [
+            "left side to internal upper bus/conductor",
+            "right/lower side to continuation wiring"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "relay",
+          "id": "<UNKNOWN>",
+          "label": "unlabelled relay/contact assembly",
+          "connections": [
+            "two mechanically linked changeover contacts",
+            "coil connected into AUX plug/internal wiring"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "annotation",
+          "id": "<UNKNOWN>",
+          "label": "see DWG 114",
+          "connections": [
+            "cross-drawing reference associated with AUX PLUG ON PC BOARD"
+          ],
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "Bottom plug B/C and emergency/control terminal wiring",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.32,
+        0.74,
+        0.82,
+        0.9
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "switch",
+          "id": "<UNKNOWN>",
+          "label": "ALARM MUTE SW",
+          "connections": [
+            "switch contact wired to AUX PLUG ON PC BOARD pin [4]",
+            "associated lamp circuit visible above/at switch; opposite endpoint outside crop"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "ALARM MUTE SW indicator lamp",
+          "connections": [
+            "lamp symbol on alarm-mute circuit",
+            "one side routes toward AUX plug region; exact pin endpoint partly outside crop"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "AUX PLUG [2]",
+          "label": "AUX PLUG ON PC BOARD (see DWG 114), pin [2]",
+          "connections": [
+            "wire continues left outside crop",
+            "wired into PC-board auxiliary plug"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "AUX PLUG [3]",
+          "label": "AUX PLUG ON PC BOARD (see DWG 114), pin [3]",
+          "connections": [
+            "wire continues left outside crop",
+            "wired into PC-board auxiliary plug"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "AUX PLUG [4]",
+          "label": "AUX PLUG ON PC BOARD (see DWG 114), pin [4]",
+          "connections": [
+            "ALARM MUTE SW circuit",
+            "wired into PC-board auxiliary plug"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "<UNKNOWN> [9]",
+          "label": "plug pin [9], left-side mating plug designation cropped",
+          "connections": [
+            "AUX PLUG ON PC BOARD pin [2]"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "<UNKNOWN> [10]",
+          "label": "plug pin [10], left-side mating plug designation cropped",
+          "connections": [
+            "AUX PLUG ON PC BOARD pin [3]"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "<UNKNOWN> [11]",
+          "label": "plug pin [11], left-side mating plug designation cropped",
+          "connections": [
+            "ALARM MUTE SW",
+            "AUX PLUG ON PC BOARD pin [4]"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "<UNKNOWN> [12]",
+          "label": "plug pin [12], left-side mating plug designation cropped",
+          "connections": [
+            "short unconnected/stub line shown"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "annotation",
+          "id": "DWG 114",
+          "label": "AUX PLUG ON PC BOARD (see DWG 114)",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal_strip",
+          "id": "T/S C",
+          "label": "T/S C",
+          "connections": [
+            "terminal 139",
+            "terminal 140"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S C 139",
+          "label": "terminal 139 with built-in fuse",
+          "connections": [
+            "upper lamp/contact circuit at right",
+            "PLUG B pin [3]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S C 140",
+          "label": "terminal 140",
+          "connections": [
+            "lower switch/contact circuit at right",
+            "PLUG B pin [4]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG B [3]",
+          "label": "PLUG B pin [3]",
+          "connections": [
+            "T/S C terminal 139",
+            "right-side lamp circuit"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG B [4]",
+          "label": "PLUG B pin [4]",
+          "connections": [
+            "T/S C terminal 140",
+            "right-side switch contact"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "indicator lamp, upper right circuit",
+          "connections": [
+            "PLUG B pin [3] / T/S C terminal 139",
+            "vertical return to right-side common bus"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "switch",
+          "id": "<UNKNOWN>",
+          "label": "upper right switch; adjacent cropped text reads 'S' / 'EMERG\u2026'",
+          "connections": [
+            "PLUG B pin [4] / T/S C terminal 140",
+            "right-side common bus"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal_strip",
+          "id": "T/S E",
+          "label": "T/S E",
+          "connections": [
+            "terminal 55",
+            "terminal 56",
+            "terminal 51",
+            "terminal 58"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E 55",
+          "label": "terminal 55 with built-in fuse",
+          "connections": [
+            "PLUG B pin [5]",
+            "upper lamp circuit at right"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E 56",
+          "label": "terminal 56",
+          "connections": [
+            "PLUG B pin [6]",
+            "upper switch contact at right"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E 51",
+          "label": "terminal 51 with built-in fuse",
+          "connections": [
+            "PLUG B pin [7]",
+            "lower lamp circuit at right"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E 58",
+          "label": "terminal 58",
+          "connections": [
+            "PLUG B pin [8]",
+            "lower switch contact at right"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG B [5]",
+          "label": "PLUG B pin [5]",
+          "connections": [
+            "T/S E terminal 55",
+            "upper lamp circuit at right"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG B [6]",
+          "label": "PLUG B pin [6]",
+          "connections": [
+            "T/S E terminal 56",
+            "upper switch contact at right"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG B [7]",
+          "label": "PLUG B pin [7]",
+          "connections": [
+            "T/S E terminal 51",
+            "lower lamp circuit at right"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG B [8]",
+          "label": "PLUG B pin [8]",
+          "connections": [
+            "T/S E terminal 58",
+            "lower switch contact at right"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG B [9]",
+          "label": "PLUG B pin [9]",
+          "connections": [
+            "no conductor connection shown in crop"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG B [10]",
+          "label": "PLUG B pin [10]",
+          "connections": [
+            "no conductor connection shown in crop"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG B [11]",
+          "label": "PLUG B pin [11]",
+          "connections": [
+            "no conductor connection shown in crop"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG B [12]",
+          "label": "PLUG B pin [12]",
+          "connections": [
+            "short unconnected/stub line shown"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "indicator lamp, middle upper circuit",
+          "connections": [
+            "PLUG B pin [5] / T/S E terminal 55",
+            "vertical return to right-side common bus"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "switch",
+          "id": "<UNKNOWN>",
+          "label": "middle upper switch; adjacent cropped text reads 'S' / 'EMERG\u2026'",
+          "connections": [
+            "PLUG B pin [6] / T/S E terminal 56",
+            "right-side common bus"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "indicator lamp, middle lower circuit",
+          "connections": [
+            "PLUG B pin [7] / T/S E terminal 51",
+            "vertical return to right-side common bus"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "switch",
+          "id": "<UNKNOWN>",
+          "label": "middle lower switch; adjacent cropped text reads 'COUR\u2026'",
+          "connections": [
+            "PLUG B pin [8] / T/S E terminal 58",
+            "right-side common bus"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "unknown",
+          "id": "<UNKNOWN>",
+          "label": "right-side vertical common bus/return; label cropped",
+          "connections": [
+            "upper right lamp and switch circuits",
+            "middle upper lamp and switch circuits",
+            "middle lower lamp and switch circuits"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "annotation",
+          "id": "DWG No.",
+          "label": "GMMS 108\u2019-112",
+          "connections": [],
+          "ambiguous": false
+        }
+      ]
+    }
+  ],
+  "scoped_next": []
+}

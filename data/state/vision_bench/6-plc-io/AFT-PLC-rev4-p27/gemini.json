@@ -1,0 +1,107 @@
+{
+  "content_type": "electrical_diagram",
+  "description": "Electrical wiring schematic (sheet 27 of 27) for the HYDRAULIC SYSTEM AUTOMATION (AFT section) of the S.W. SHIPYARD project SWS_108-1 by MYT SYSTEMS. The sheet details the wiring of a 4-channel Analog Output module.\n\nPower Supply:\n- '+24Vdc (field)' is supplied from sheet 16.8A, distributed to the PLC module, and continues to the right (next sheet).\n- '0V' common return is supplied from sheet 20.7B and continues to the right.\n\nMain Device:\n- 5 AO MODULE (TYPE: 750-559, CPU: 750-8213, POS.: 28). This WAGO-style 4-channel analog output module controls four proportional valves/interfaces for the ship's winches.\n\nLoads and Control Traces:\n1. Primary winch port (EV 10.5): Controlled by PLC output AO-01 CH 01 (terminal A1). Routed through 'CONNECTOR TYPE H', with cross-reference to 'see sheet 4'. Terminals Udc, Us, and GND are present at the device interface. Returns to the 0V rail.\n2. secondary winch port (EV 10.4): Controlled by PLC output AO-01 CH 02 (terminal A2). Routed through 'CONNECTOR TYPE H', with cross-reference to 'see sheet 4'. Terminals Udc, Us, and GND are present. Returns to the 0V rail.\n3. Primary winch stbd (EV 8.4): Controlled by PLC output AO-01 CH 03 (terminal A3). Routed through 'CONNECTOR TYPE H', cross-referenced to 'see sheet 4'. Returns to the 0V rail.\n4. secondary winch stbd (EV 8.3): Controlled by PLC output AO-01 CH 04 (terminal A4). Routed through 'CONNECTOR TYPE H', cross-referenced to 'see sheet 4'. Returns to the 0V rail.",
+  "transcription": "1 2 3 4 5 6 7 8 5 AO MODULE (POS.27) 750-559 AO-02 16.8A +24Vdc (field) +24Vdc (field) 5 AO TYPE: 750-559 CPU: 750-8213 POS.: 28 A1 A2 AO-01 CH 01 AO-01 CH 02 CONNECTOR TYPE H (see sheet 4) Udc Us Primary winch port (EV 10.5) M M secondary winch port (EV 10.4) Us Udc CONNECTOR TYPE H (see sheet 4) GND 0V 0V GND A3 A4 AO-01 CH 03 AO-01 CH 04 CONNECTOR TYPE H (see sheet 4) Udc Us Primary winch stbd (EV 8.4) M M secondary winch stbd (EV 8.3) Us Udc CONNECTOR TYPE H (see sheet 4) GND 0V 0V GND 04.6 BK 1,5 750-559 20.7B 0V 0V SUBSTITUTE WINCHES MODULES FROM DIGITAL TO ANALOG FIRST ISSUE MYT-Systems S.r.l. Via Borzoli, 39/130P 16153 Genova (GE) ITALY Tel: +390185380903 email: info@myt-systems.com DRAWN: CHECKED: SCALE: SHEET: 27 of 27 FILE NAME: SWS_108-1_AFT PLC.dwg MYT SYSTEMS JOB N\u00b0: -- CLIENT: S.W. SHIPYARD PROJECT: SWS_108-1 TITLE: HYDRAULIC SYSTEM AUTOMATION REV: 4 SECTION: AFT DATE: 05/05/2026 Diritti riservati in osservanza della norma DIN 34",
+  "components": [
+    {
+      "label": "5 AO MODULE 750-559",
+      "bbox": [
+        0.485,
+        0.235,
+        0.54,
+        0.725
+      ],
+      "confidence": "high",
+      "note": "WAGO-style 4-channel analog output module."
+    },
+    {
+      "label": "Primary winch port (EV 10.5)",
+      "bbox": [
+        0.395,
+        0.418,
+        0.465,
+        0.465
+      ],
+      "confidence": "high",
+      "note": "Proportional valve interface"
+    },
+    {
+      "label": "secondary winch port (EV 10.4)",
+      "bbox": [
+        0.562,
+        0.418,
+        0.645,
+        0.465
+      ],
+      "confidence": "high",
+      "note": "Proportional valve interface"
+    },
+    {
+      "label": "Primary winch stbd (EV 8.4)",
+      "bbox": [
+        0.395,
+        0.578,
+        0.465,
+        0.625
+      ],
+      "confidence": "high",
+      "note": "Proportional valve interface"
+    },
+    {
+      "label": "secondary winch stbd (EV 8.3)",
+      "bbox": [
+        0.562,
+        0.578,
+        0.645,
+        0.625
+      ],
+      "confidence": "high",
+      "note": "Proportional valve interface"
+    },
+    {
+      "label": "CONNECTOR TYPE H (see sheet 4)",
+      "bbox": [
+        0.185,
+        0.405,
+        0.298,
+        0.44
+      ],
+      "confidence": "high",
+      "note": "Top left connector reference"
+    },
+    {
+      "label": "CONNECTOR TYPE H (see sheet 4)",
+      "bbox": [
+        0.745,
+        0.405,
+        0.855,
+        0.44
+      ],
+      "confidence": "high",
+      "note": "Top right connector reference"
+    },
+    {
+      "label": "CONNECTOR TYPE H (see sheet 4)",
+      "bbox": [
+        0.185,
+        0.565,
+        0.298,
+        0.6
+      ],
+      "confidence": "high",
+      "note": "Bottom left connector reference"
+    },
+    {
+      "label": "CONNECTOR TYPE H (see sheet 4)",
+      "bbox": [
+        0.745,
+        0.565,
+        0.855,
+        0.6
+      ],
+      "confidence": "high",
+      "note": "Bottom right connector reference"
+    }
+  ],
+  "model": "gemini-3.1-pro-preview"
+}

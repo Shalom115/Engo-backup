@@ -1,0 +1,110 @@
+{
+  "content_type": "plumbed_diagram",
+  "description": "This diagram details the Raw Water System, showing components like pumps, valves, strainers, tanks, heat exchangers, and associated piping for various subsystems, including engine room, generators, air conditioning, and watermaker. The primary flow shows raw water taken from seachests, passing through strainers and pumps, routed to heat exchangers and other consumers, and ultimately discharged overboard. Various valves are shown to isolate different branches and equipment. Detailed schedules for pipe details, bill of materials, and pump data are included.",
+  "transcription": "SYMBOLS LEGEND \n I.C.E. DRIVEN PUMP\n MOTOR DRIVEN PUMP\n GLOBE VALVE\n BALL VALVE 2-WAY\n BALL VALVE 3-WAY\n NON-RETURN VALVE\n SEAWATER STRAINER\n FLUID RESERVOIR\n SWS CONTROL PANEL\n THRU-HULL FITTING\n (PLAN VIEW)\n HEAT EXCHANGER\n LOCAL SWITCH\n SWS CONTROL PANEL\n BAE SYSTEMS CONTROL UNIT (SCU) \n TEXT LEGEND \n Unique Number (0X - not applicable)\n BOM Number (see BOM table)\n Pipe Code (see PIPING DETAILS table)\n Flow Direction in Pipe\n Flow Switch\n Level Switch\n Salinity Sensor\n Temperature Sensor\n Normally Closed\n Normally Open\n Motor\n Pressure Indicator\n Solenoid\n Water Ethylene Glycol \n PIPE LEGEND \n SEA WATER, METALLIC PIPE\n SEA WATER, FLEX PIPE\n COOLANT, METALLIC PIPE\n COOLANT, FLEX PIPE\n VENT/BREATHER, FLEX PIPE\n HYDRAULIC OIL, FLEX PIPE\n FRESH WATER (COLD) \n BREATHER TO RUN INTO E-R VENT BOX REF: DWG 108-01-508-001 \n PORT GENERATOR CUMMINS QSB 4.5 112kW @ 1500RPM\n ANTI-SIPHON MANIFOLD 015-01 \n COOLANT CIRCUIT\n EXHAUST OUTLET\n TO GEN EXHAUST SILENCER REF: DWG 108-01-440-001\n MAIN SYSTEM HEAT EXCHANGER - PORT 010-01 \n SEAWATER OUTLET\n HYDRAULIC PUMPS HEAT EXCHANGER\n MAIN COOLING SEAWATER PUMP (PORT) (MCSWP-P)\n STBD COOLING CIRCUIT REF: DWG 108-01-515-002\n PRIMING LINE FROM FRESH WATER SUPPLY REF: DWG 108-01-510-01 \n SEACHEST 001-01\n BREATHER TO RUN INTO E-R VENT BOX REF: DWG 108-01-508-001\n MAIN BRANCH MANIFOLD\n SEAWATER STRAINER\n SEAWATER INLET\n FLUSH CONNECTION POINT \n CATHEDIC GALVANIC PROTECTION CONTROL UNIT\n MAIN COOLING SEAWATER PUMP (STBD) (MCSWP-S)\n STBD GENERATOR CUMMINS QSB 4.5 112kW @ 1500RPM\n CPP SEAWATER PUMP (CPSW) \n BREATHER TO RUN INTO E-R VENT BOX REF: DWG 108-01-508-001 \n SEACHEST 001-01\n SEAWATER STRAINER\n SEAWATER INLET\n PITCH CONTROL HYDRAULICS\n INTERNAL HEAT EXCHANGER\n 80L AFT BOILER\n ANTI-SIPHON MANIFOLD 015-02\n COOLANT CIRCUIT\n AIRCON SYSTEM REF: DWG 108-01-590-001\n WATERMAKER UNITS REF: DWG 108-01-510-001 \n ENGINE ROOM\n ENGINE ROOM FED\n ENGINE ROOM \n SEACHEST\n SEAWATER INLET\n SEAWATER OUTLET\n AIRCON RAW WATER OVERBOARD\n SALOON (ENGINE ROOM BELOW)\n PORT GENERATOR\n SEACHEST\n STBD GENERATOR\n W/MAKER RAW WATER OVERBOARD\n MAIN HEAT EXCHANGERS RAW WATER OVERBOARD \n PIPE DETAILS\n BILL OF MATERIALS\n RAW WATER SYSTEM PUMP DATA\n STANDARD NOTES\n DRAWING-SPECIFIC NOTES \n SOUTHERN WIND\n TITLE RAW WATER SYSTEM SCHEMATIC\n DWG NO 108-01-515-001",
+  "components": [
+    {
+      "label": "SEAWATER STRAINER",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "SEAWATER STRAINER",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "SEAWATER STRAINER",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "SEAWATER STRAINER",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "SEACHEST 001-01",
+      "bbox": null,
+      "confidence": "low",
+      "note": "upper-right area"
+    },
+    {
+      "label": "SEACHEST",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "MAIN COOLING SEAWATER PUMP (PORT) (MCSWP-P)",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "MAIN COOLING SEAWATER PUMP (STBD) (MCSWP-S)",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "CPP SEAWATER PUMP (CPSW)",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "PORT GENERATOR CUMMINS QSB 4.5 112kW @ 1500RPM",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "STBD GENERATOR CUMMINS QSB 4.5 112kW @ 1500RPM",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "MAIN SYSTEM HEAT EXCHANGER - PORT 010-01",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "MAIN SYSTEM HEAT EXCHANGER - STBD 010-02",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "HYDRAULIC PUMPS HEAT EXCHANGER",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "PITCH CONTROL HEAT EXCHANGER 012-01",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "ANTI-SIPHON MANIFOLD 015-01",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    },
+    {
+      "label": "ANTI-SIPHON MANIFOLD 015-02",
+      "bbox": null,
+      "confidence": "high",
+      "note": ""
+    }
+  ],
+  "model": "gemini-3.1-pro-preview"
+}

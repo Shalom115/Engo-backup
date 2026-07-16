@@ -1,0 +1,85 @@
+{
+  "content_type": "general_arrangement",
+  "description": "General-arrangement drawing of a custom cable-management installation arranged around a large central rectangular deck/opening. The right-hand plan view is the principal connectivity map: a yellow custom aluminium trunking run forms a near-continuous perimeter around the central area, with chamfered/sloping top and bottom segments and vertical port/starboard side runs. At the left side, the perimeter run turns into a recessed/local equipment zone shown enlarged in the circular detail; cyan branch tray/conduit elements connect from this local zone toward the central area. A separate black perforated metal cable tray is shown in the lower-right isometric view running longitudinally inside/along the yellow perimeter trunking assembly. Section references 5, 6, 7, 8 and 9 relate the plan to the surrounding transverse/longitudinal sectional views. The upper-left, middle-left, lower-left, and center sections show the trunking carried along deck/bulkhead edges, turning around structural boundaries and passing beside or below nearby outfitting. The BOM identifies the linked cable-management elements as custom 120W x 120H aluminium trunking and a bought-item 200W x 50H perforated metal cable tray, total listed weight 40.0 kg. Zones represented include the central deck/opening perimeter, a recessed left-side access/equipment zone, adjacent outer side-deck/outfitting bands, and structural deck/bulkhead sections. Many small drawing annotations are too blurred or OCR-corrupted to transcribe reliably; no unreadable equipment identifiers have been inferred.",
+  "transcription": "BOM\nITEM NO. | QTY UNIT | TRUNKING PROFILE | MAKE/SUPPLIER TYPE | FITTED BY | SWS CODE | DESCRIPTION | WEIGHT (kg) IND. | TOTAL\n1 | 18,0 m | 120W x 120H | CUSTOM | SYS | - | 3mm THK CUSTOM ALU. TRUNKING | 1,4 | 25,2\n2 | 4,0 m | 200W x 50H | BOUGHT ITEM | SYS | - | PERFORATED METAL CABLE TRAY | 3,7 | 14,8\nTOTAL | 40,0\n\nSection/reference numerals visible in plan: 5, 6, 7, 8, 9\n\nAPPROVED ON BEHALF OF HILTON\nBy Glenn Edwards at 9:03 am, Dec 07, 2022\nREVIEWED\nBy Michael Howser at 7:58 am, Dec 08, 2022\nSouthern Wind\n\nOther repeated legible fragments: G68; DC FH; K:8; FCCA.",
+  "components": [
+    {
+      "label": "120W x 120H custom aluminium trunking",
+      "bbox": [
+        0.744,
+        0.475,
+        0.985,
+        0.839
+      ],
+      "confidence": "high",
+      "note": "Yellow perimeter trunking in the principal plan and yellow assembly in the lower-right isometric view; BOM item 1 describes it as 3 mm thick custom aluminium trunking."
+    },
+    {
+      "label": "200W x 50H perforated metal cable tray",
+      "bbox": [
+        0.815,
+        0.573,
+        0.955,
+        0.717
+      ],
+      "confidence": "high",
+      "note": "Black longitudinal tray in the lower-right isometric view; BOM item 2 identifies it as a bought-item perforated metal cable tray."
+    },
+    {
+      "label": "G68",
+      "bbox": [
+        0.348,
+        0.29,
+        0.367,
+        0.303
+      ],
+      "confidence": "medium",
+      "note": "Readable route/reference label near the lower part of the upper-left plan; repeated elsewhere, but small."
+    },
+    {
+      "label": "DC FH",
+      "bbox": [
+        0.249,
+        0.304,
+        0.273,
+        0.315
+      ],
+      "confidence": "medium",
+      "note": "Readable directional/reference text beneath the upper-left plan, adjacent to an arrow."
+    },
+    {
+      "label": "K:8",
+      "bbox": [
+        0.744,
+        0.281,
+        0.758,
+        0.294
+      ],
+      "confidence": "medium",
+      "note": "Readable arrow/reference text in the main right-hand plan; repeated in sections."
+    },
+    {
+      "label": "FCCA",
+      "bbox": [
+        0.535,
+        0.114,
+        0.568,
+        0.129
+      ],
+      "confidence": "medium",
+      "note": "Readable fragment inside an annotation bubble in the enlarged circular detail; full identifier is not reliably legible."
+    },
+    {
+      "label": "Southern Wind",
+      "bbox": [
+        0.831,
+        0.923,
+        0.884,
+        0.963
+      ],
+      "confidence": "high",
+      "note": "Company logo in the lower-right title block."
+    }
+  ],
+  "model": "gpt-5.6-sol"
+}

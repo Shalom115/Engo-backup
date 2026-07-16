@@ -1,0 +1,1577 @@
+{
+  "legends": [
+    {
+      "kind": "title_block",
+      "title_as_printed": "DWG No. GMMS 108'-112 / TITLE MAIN PANEL SCHEMATIC \"A\"",
+      "bbox": [
+        0.32,
+        0.92,
+        1.0,
+        1.0
+      ],
+      "content": {
+        "title": "Title Block",
+        "entries": [
+          {
+            "label": "TITLE | MAIN PANEL SCHEMATIC \"A\""
+          },
+          {
+            "label": "DATE | 4/ 10/2023 | PROJECT | SWS 108'-01 \" Gelliceaux \""
+          },
+          {
+            "label": "DRAWN | GM | CUSTOMER | SOUTHERN WIND SHIPYARD (PTY) LTD"
+          },
+          {
+            "label": "THE COPYRIGHT OF THIS DRAWING IS EXPRESSLY RESERVED AND NO PART OF IT MAY BE COPIED WITHOUT PRIOR PERMISSION."
+          },
+          {
+            "label": "Tel. (027) 021-671 8001    Cell 083 298 3305    goetz@telkomsa.net"
+          }
+        ],
+        "_model": "claude-sonnet-5"
+      }
+    }
+  ],
+  "legend_context": "THIS SHEET'S OWN LEGENDS AND TABLES (read first; these definitions are AUTHORITATIVE for this sheet and override any generic symbol/line convention):\n- [title_block] DWG No. GMMS 108'-112 / TITLE MAIN PANEL SCHEMATIC \"A\":\n    * TITLE | MAIN PANEL SCHEMATIC \"A\"\n    * DATE | 4/ 10/2023 | PROJECT | SWS 108'-01 \" Gelliceaux \"\n    * DRAWN | GM | CUSTOMER | SOUTHERN WIND SHIPYARD (PTY) LTD\n    * THE COPYRIGHT OF THIS DRAWING IS EXPRESSLY RESERVED AND NO PART OF IT MAY BE COPIED WITHOUT PRIOR PERMISSION.\n    * Tel. (027) 021-671 8001    Cell 083 298 3305    goetz@telkomsa.net",
+  "survey": {
+    "regions": [
+      {
+        "type": "terminal_strip",
+        "label": "T/S E and T/S F left side terminal strips (top)",
+        "bbox": [
+          0.03,
+          0.09,
+          0.11,
+          0.36
+        ],
+        "approx_unit_count": 16
+      },
+      {
+        "type": "terminal_strip",
+        "label": "T/S F left side terminal strips (mid)",
+        "bbox": [
+          0.03,
+          0.42,
+          0.11,
+          0.55
+        ],
+        "approx_unit_count": 12
+      },
+      {
+        "type": "terminal_strip",
+        "label": "Plug A / T/S C terminal block (upper, near PLUG A pins 1-4, 38-41)",
+        "bbox": [
+          0.33,
+          0.09,
+          0.46,
+          0.36
+        ],
+        "approx_unit_count": 16
+      },
+      {
+        "type": "terminal_strip",
+        "label": "T/S C small terminal block (PORT/STBD XA41/XA61 taps)",
+        "bbox": [
+          0.33,
+          0.46,
+          0.46,
+          0.53
+        ],
+        "approx_unit_count": 6
+      },
+      {
+        "type": "terminal_strip",
+        "label": "Plug A large terminal block (97-101,77-81,92-96) with alarm points",
+        "bbox": [
+          0.33,
+          0.55,
+          0.47,
+          0.78
+        ],
+        "approx_unit_count": 24
+      },
+      {
+        "type": "terminal_strip",
+        "label": "T/S E block (19,20) and Plug B block (110-120)",
+        "bbox": [
+          0.33,
+          0.78,
+          0.47,
+          0.93
+        ],
+        "approx_unit_count": 14
+      },
+      {
+        "type": "controller_module",
+        "label": "PC CARD / Alarm Module dotted enclosure with diode arrays and output taps",
+        "bbox": [
+          0.47,
+          0.24,
+          0.75,
+          0.95
+        ],
+        "approx_unit_count": 30
+      },
+      {
+        "type": "relay_bank",
+        "label": "Relay/buzzer/mute-test assembly bottom of PC card enclosure",
+        "bbox": [
+          0.58,
+          0.83,
+          0.75,
+          0.93
+        ],
+        "approx_unit_count": 4
+      },
+      {
+        "type": "terminal_strip",
+        "label": "Plug C / T/S C / T/S E lower blocks (Alarm Mod2, Emergency Stop, Emergency Lts)",
+        "bbox": [
+          0.33,
+          0.95,
+          0.47,
+          1.0
+        ],
+        "approx_unit_count": 12
+      },
+      {
+        "type": "other",
+        "label": "Switch/indicator column S8-S19 and lamp/output labels (ANCHOR LT, NAV LIGHTS, STEAMING LIGHTS, bilge/grey water/blackwater pump run indicators)",
+        "bbox": [
+          0.75,
+          0.09,
+          1.0,
+          0.85
+        ],
+        "approx_unit_count": 14
+      },
+      {
+        "type": "other",
+        "label": "Emergency Stop / Emergency Lts / Courtesy Lts output row bottom right",
+        "bbox": [
+          0.75,
+          0.9,
+          1.0,
+          1.0
+        ],
+        "approx_unit_count": 3
+      },
+      {
+        "type": "legend",
+        "label": "Title block",
+        "bbox": [
+          0.29,
+          0.93,
+          1.0,
+          1.0
+        ]
+      }
+    ],
+    "sub_type": "relay_terminal_wiring",
+    "sub_type_reason": "See above.",
+    "title_block": {
+      "title": "MAIN PANEL SCHEMATIC \"A\"",
+      "drawing_no": "GMMS 108'-112",
+      "drafter": "GM"
+    },
+    "cross_refs": [
+      "see DWG 120 (T/S F terminals 119/120 not used, see DWG 120)",
+      "see DWG 114 (AUX PLUG on PC BOARD)",
+      "MU4-12 and MU5-12 multi-core cables linking T/S F to Main Panel PLUG A terminal blocks",
+      "MU4a-12/1 cable from +24V EMERGENCY SUPPLY terminal to T/S E",
+      "XA41 and XA61 external tap references (bilge/pump wiring) feeding into T/S C blocks"
+    ],
+    "notes": "Sheet shows MAIN PANEL schematic with two multi-core cables (MU5-12, MU4-12, MU4a-12/1) connecting left-side terminal strips (T/S E, T/S F) to PLUG A/B/C terminal blocks feeding a central dotted-outline PC CARD / ALARM MODULE enclosure. This enclosure contains multiple diode arrays (small diode symbols in rows) feeding output taps labelled with load names (ANCHOR LIGHT, MAST UP LIGHTS, FWD/STERN NAV LIGHTS, STEAMING LT, SPREADER/FORE DECK/RED/GREEN LTs, various BILGE/SUMP pumps, GREY/BLACKWATER pump run indicators and alarms). To the right, a column of manual switches/selectors (S8-S19) drives lamp and pump outputs; some (S16,S17) have ON/OFF/AUTO positions for pump control, S18/S19 for blackwater pumps. Bottom of PC card enclosure holds a small relay/buzzer/horn assembly with MUTE(S15)/TEST(S14) pushbuttons feeding an external buzzer/horn icon at far right. Lower section of sheet has additional terminal blocks (T/S C, T/S E) and Plug B/C blocks routing to Emergency Stop (S1), Emergency Lts (S12), Courtesy Lts outputs, and an ALARM MOD 2 PORT PEDESTAL block with its own Plug C interconnect and mute switch. Several wire-gauge/junction diamond callouts appear on cable runs (not enumerated individually here per instructions). Some terminal numbers on far upper-left column (7,8,9,10,12,15,19-24) are small and partly compressed; legibility fair. Cross-reference pointers to DWG 120 and DWG 114 are explicit drawing continuations and are recorded as such.",
+    "_model": "claude-sonnet-5",
+    "_pass1_dpi": 200
+  },
+  "sub_type": "relay_terminal_wiring",
+  "regions_read": [
+    {
+      "region": "T/S E and T/S F left side terminal strips (top)",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.03,
+        0.09,
+        0.11,
+        0.36
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "terminal_strip",
+          "id": "T/S F",
+          "label": "T/S F",
+          "connections": []
+        },
+        {
+          "element_type": "terminal",
+          "id": "36",
+          "label": "T/S F pin 1 - fused terminal",
+          "connections": [
+            "36 -> 1"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "61",
+          "label": "T/S F pin 2",
+          "connections": [
+            "61 -> 2"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "65",
+          "label": "T/S F pin 3",
+          "connections": [
+            "65 -> 3"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "40",
+          "label": "T/S F pin 4 - fused terminal",
+          "connections": [
+            "40 -> 4"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "43",
+          "label": "T/S F pin 5 - fused terminal",
+          "connections": [
+            "43 -> 5"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "46",
+          "label": "T/S F pin 6 - fused terminal",
+          "connections": [
+            "46 -> 6"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "58",
+          "label": "T/S F pin 7 - fused terminal",
+          "connections": [
+            "58 -> 7"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "60",
+          "label": "T/S F pin 8 - fused terminal",
+          "connections": [
+            "60 -> 8"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "64",
+          "label": "T/S F pin 9 - fused terminal",
+          "connections": [
+            "64 -> 9"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "54",
+          "label": "T/S F pin 10",
+          "connections": [
+            "54 -> 10"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "55",
+          "label": "T/S F pin 11",
+          "connections": [
+            "55 -> 11"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "73",
+          "label": "T/S F pin 12",
+          "connections": [
+            "73 -> 12"
+          ]
+        },
+        {
+          "element_type": "annotation",
+          "id": "T/S F (bottom)",
+          "label": "T/S F label continuing below (cropped, second terminal strip header)",
+          "connections": []
+        }
+      ]
+    },
+    {
+      "region": "T/S F left side terminal strips (mid)",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.03,
+        0.42,
+        0.11,
+        0.55
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "terminal",
+          "id": "15",
+          "label": "15",
+          "connections": [
+            "6"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal_strip",
+          "id": "19-24",
+          "label": "terminal strip",
+          "connections": []
+        },
+        {
+          "element_type": "terminal",
+          "id": "19",
+          "label": "19",
+          "connections": [
+            "7"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "20",
+          "label": "20",
+          "connections": [
+            "8"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "21",
+          "label": "21",
+          "connections": [
+            "9"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "22",
+          "label": "22",
+          "connections": [
+            "10"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "23",
+          "label": "23",
+          "connections": [
+            "11"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "24",
+          "label": "24",
+          "connections": [
+            "12"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "Plug A / T/S C terminal block (upper, near PLUG A pins 1-4, 38-41)",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.33,
+        0.09,
+        0.46,
+        0.36
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "terminal",
+          "id": "59",
+          "label": "terminal 59, tapped from /1",
+          "connections": [
+            "/1",
+            "1"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "60",
+          "label": "terminal 60",
+          "connections": [
+            "1",
+            "out"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "61",
+          "label": "terminal 61",
+          "connections": [
+            "2",
+            "out"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "62",
+          "label": "terminal 62",
+          "connections": [
+            "3",
+            "out"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG A - 38",
+          "label": "PLUG A pin 38 -> [5]",
+          "connections": [
+            "38",
+            "[5]"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG A - 39",
+          "label": "PLUG A pin 39 -> [6]",
+          "connections": [
+            "39",
+            "[6]"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG A - 40",
+          "label": "PLUG A pin 40 -> [7]",
+          "connections": [
+            "40",
+            "[7]"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG A - 41",
+          "label": "PLUG A pin 41 -> [8]",
+          "connections": [
+            "41",
+            "[8]"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "63",
+          "label": "terminal 63",
+          "connections": [
+            "4",
+            "out"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "64",
+          "label": "terminal 64",
+          "connections": [
+            "5",
+            "out"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "65",
+          "label": "terminal 65",
+          "connections": [
+            "6",
+            "out"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "66",
+          "label": "terminal 66",
+          "connections": [
+            "7",
+            "out"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "67",
+          "label": "terminal 67",
+          "connections": [
+            "8",
+            "out"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "68",
+          "label": "terminal 68",
+          "connections": [
+            "9",
+            "out"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "34",
+          "label": "STEAMING LTs (caption applies to 34 & 36)",
+          "connections": [
+            "10"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "36",
+          "label": "STEAMING LTs (caption applies to 34 & 36)",
+          "connections": [
+            "11"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "69",
+          "label": "not used - spare terminal",
+          "connections": [
+            "12"
+          ]
+        },
+        {
+          "element_type": "terminal_strip",
+          "id": "T/S C",
+          "label": "T/S C terminal strip, PORT/STBD harness feed",
+          "connections": [
+            "XA41-04",
+            "XA41-02",
+            "XA41-06",
+            "XA61-30",
+            "XA61-28",
+            "XA61-26"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "XA41-04",
+          "label": "PORT feed to T/S C pin 1",
+          "connections": [
+            "XA41-04",
+            "T/S C-1"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "XA41-02",
+          "label": "STBD feed to T/S C pin 2",
+          "connections": [
+            "XA41-02",
+            "T/S C-2"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "XA41-06",
+          "label": "feed to T/S C pin 3",
+          "connections": [
+            "XA41-06",
+            "T/S C-3"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "XA61-30",
+          "label": "feed to T/S C pin 4",
+          "connections": [
+            "XA61-30",
+            "T/S C-4"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "XA61-28",
+          "label": "feed to T/S C pin 5",
+          "connections": [
+            "XA61-28",
+            "T/S C-5"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "XA61-26",
+          "label": "feed to T/S C pin 6",
+          "connections": [
+            "XA61-26",
+            "T/S C-6"
+          ]
+        },
+        {
+          "element_type": "device",
+          "id": "diode-1",
+          "label": "diode on T/S C pin 1 line",
+          "connections": [
+            "T/S C-1"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "device",
+          "id": "diode-2",
+          "label": "diode on T/S C pin 2 line, joined to diode-1 with dot",
+          "connections": [
+            "T/S C-2"
+          ],
+          "ambiguous": true
+        }
+      ]
+    },
+    {
+      "region": "T/S C small terminal block (PORT/STBD XA41/XA61 taps)",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.33,
+        0.46,
+        0.46,
+        0.53
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "terminal_strip",
+          "id": "T/S E",
+          "label": "T/S E",
+          "connections": []
+        },
+        {
+          "element_type": "terminal",
+          "id": "5",
+          "label": "5",
+          "connections": [
+            "5 -> 92"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "6",
+          "label": "6",
+          "connections": [
+            "6 -> 93"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "8",
+          "label": "8",
+          "connections": [
+            "8 -> 94"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "9",
+          "label": "9",
+          "connections": [
+            "9 -> 95"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "92",
+          "label": "92",
+          "connections": [
+            "5 -> 92",
+            "92 -> right"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "93",
+          "label": "93",
+          "connections": [
+            "6 -> 93",
+            "93 -> right"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "94",
+          "label": "94",
+          "connections": [
+            "8 -> 94",
+            "94 -> right"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "95",
+          "label": "95",
+          "connections": [
+            "9 -> 95",
+            "95 -> right"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "83",
+          "label": "83",
+          "connections": [
+            "83 -> right"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "85",
+          "label": "85",
+          "connections": [
+            "85 -> right"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "87",
+          "label": "87",
+          "connections": [
+            "87 -> right"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "90",
+          "label": "90",
+          "connections": [
+            "90 -> right"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "96",
+          "label": "96",
+          "connections": [
+            "96 -> right"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "19",
+          "label": "19",
+          "connections": [
+            "T/S E -> 19",
+            "19 -> right"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "20",
+          "label": "20",
+          "connections": [
+            "T/S E -> 20",
+            "20 -> right"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "Plug A large terminal block (97-101,77-81,92-96) with alarm points",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.33,
+        0.55,
+        0.47,
+        0.78
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "terminal",
+          "id": "57",
+          "label": "LTS",
+          "connections": [
+            "LTS",
+            "10"
+          ]
+        },
+        {
+          "element_type": "annotation",
+          "id": "10",
+          "label": "wire number 10 / junction tap",
+          "connections": [
+            "57",
+            "7"
+          ]
+        },
+        {
+          "element_type": "annotation",
+          "id": "7",
+          "label": "wire number/tap 7",
+          "connections": [
+            "10",
+            "110"
+          ]
+        },
+        {
+          "element_type": "status_signal",
+          "id": "110",
+          "label": "tap block pin 110",
+          "connections": [
+            "7",
+            "external"
+          ]
+        },
+        {
+          "element_type": "status_signal",
+          "id": "111",
+          "label": "tap block pin 111",
+          "connections": [
+            "7",
+            "external"
+          ]
+        },
+        {
+          "element_type": "status_signal",
+          "id": "112",
+          "label": "tap block pin 112",
+          "connections": [
+            "7",
+            "external"
+          ]
+        },
+        {
+          "element_type": "status_signal",
+          "id": "113",
+          "label": "tap block pin 113",
+          "connections": [
+            "7",
+            "external"
+          ]
+        },
+        {
+          "element_type": "status_signal",
+          "id": "115",
+          "label": "tap block pin 115",
+          "connections": [
+            "7",
+            "external"
+          ]
+        },
+        {
+          "element_type": "status_signal",
+          "id": "116",
+          "label": "tap block pin 116",
+          "connections": [
+            "7",
+            "external"
+          ]
+        },
+        {
+          "element_type": "status_signal",
+          "id": "117",
+          "label": "tap block pin 117",
+          "connections": [
+            "7",
+            "external"
+          ]
+        },
+        {
+          "element_type": "status_signal",
+          "id": "118",
+          "label": "tap block pin 118",
+          "connections": [
+            "7",
+            "external"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "119",
+          "label": "not used",
+          "connections": [
+            "11"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "120",
+          "label": "not used",
+          "connections": [
+            "12"
+          ]
+        },
+        {
+          "element_type": "annotation",
+          "id": "11",
+          "label": "wire number/tap 11",
+          "connections": [
+            "119"
+          ]
+        },
+        {
+          "element_type": "annotation",
+          "id": "12",
+          "label": "wire number/tap 12",
+          "connections": [
+            "120"
+          ]
+        },
+        {
+          "element_type": "device",
+          "id": "ALARM MOD 2",
+          "label": "ALARM MOD 2 PORT PEDESTAL",
+          "connections": [
+            "external",
+            "external",
+            "lamp/bulb node",
+            "ALARM MUTE SW"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "lamp_indicator",
+          "label": "lamp/bulb symbol on alarm circuit",
+          "connections": [
+            "ALARM MOD 2",
+            "ALARM MUTE SW"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "switch",
+          "id": "ALARM MUTE SW",
+          "label": "ALARM MUTE SW",
+          "connections": [
+            "lamp_indicator",
+            "external"
+          ]
+        },
+        {
+          "element_type": "terminal_strip",
+          "id": "T/S C",
+          "label": "T/S C",
+          "connections": [
+            "139",
+            "140"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "139",
+          "label": "T/S C terminal 139",
+          "connections": [
+            "T/S C",
+            "external"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "140",
+          "label": "T/S C terminal 140",
+          "connections": [
+            "T/S C",
+            "external"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "T/S E block (19,20) and Plug B block (110-120)",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.33,
+        0.78,
+        0.47,
+        0.93
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "id": "T/S E",
+          "element_type": "terminal_strip",
+          "label": "T/S E",
+          "connections": []
+        },
+        {
+          "id": "T/S E-55",
+          "element_type": "terminal",
+          "label": "55",
+          "connections": [
+            "T/S E -> right (wire out)"
+          ]
+        },
+        {
+          "id": "T/S E-56",
+          "element_type": "terminal",
+          "label": "56",
+          "connections": [
+            "T/S E -> right (wire out)"
+          ]
+        },
+        {
+          "id": "T/S E-51",
+          "element_type": "terminal",
+          "label": "51",
+          "connections": [
+            "T/S E -> right (wire out)"
+          ]
+        },
+        {
+          "id": "T/S E-58",
+          "element_type": "terminal",
+          "label": "58",
+          "connections": [
+            "T/S E -> right (wire out)"
+          ]
+        },
+        {
+          "id": "139",
+          "element_type": "terminal",
+          "label": "139",
+          "connections": [
+            "-> right (wire out)"
+          ],
+          "ambiguous": true
+        },
+        {
+          "id": "140",
+          "element_type": "terminal",
+          "label": "140",
+          "connections": [
+            "-> right (wire out)"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "PC CARD / Alarm Module dotted enclosure with diode arrays and output taps",
+      "region_type": "controller_module",
+      "bbox": [
+        0.47,
+        0.24,
+        0.75,
+        0.95
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "device",
+          "label": "STEAMING",
+          "connections": [
+            "circuit -> lamp"
+          ]
+        },
+        {
+          "element_type": "device",
+          "label": "SPREADER",
+          "connections": [
+            "circuit -> lamp"
+          ]
+        },
+        {
+          "element_type": "device",
+          "label": "FORE DE(CK)",
+          "connections": [
+            "circuit -> lamp"
+          ]
+        },
+        {
+          "element_type": "device",
+          "label": "UPPER R(UNNING)",
+          "connections": [
+            "circuit -> lamp"
+          ]
+        },
+        {
+          "element_type": "device",
+          "label": "LOWER R(UNNING)",
+          "connections": [
+            "circuit -> lamp"
+          ]
+        },
+        {
+          "element_type": "device",
+          "label": "GREEN L(IGHT)",
+          "connections": [
+            "circuit -> lamp"
+          ]
+        },
+        {
+          "element_type": "device",
+          "label": "LAZARETT(E)",
+          "connections": [
+            "circuit -> bilge pump/light"
+          ]
+        },
+        {
+          "element_type": "device",
+          "label": "AFT BILG(E)",
+          "connections": [
+            "circuit -> bilge pump"
+          ]
+        },
+        {
+          "element_type": "device",
+          "label": "ENG. RO(OM)",
+          "connections": [
+            "circuit -> bilge pump"
+          ]
+        },
+        {
+          "element_type": "device",
+          "label": "FWD BILG(E)",
+          "connections": [
+            "circuit -> bilge pump"
+          ]
+        },
+        {
+          "element_type": "device",
+          "label": "SAIL LOC(KER)",
+          "connections": [
+            "circuit -> bilge pump"
+          ]
+        },
+        {
+          "element_type": "status_signal",
+          "label": "RUN IND(ICATOR)",
+          "connections": [
+            "circuit tap -> monitoring loom"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "label": "ALARM",
+          "connections": [
+            "circuit tap -> monitoring loom"
+          ]
+        },
+        {
+          "element_type": "status_signal",
+          "label": "RUN IND(ICATOR)",
+          "connections": [
+            "circuit tap -> monitoring loom"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "label": "ALARM",
+          "connections": [
+            "circuit tap -> monitoring loom"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "XA61",
+          "label": "02 XA61",
+          "connections": [
+            "[9] -> Plug A",
+            "[10] -> Plug A"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "XA61",
+          "label": "08 XA61",
+          "connections": [
+            "[11] -> Plug A",
+            "[12] -> Plug A"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Plug A [9]",
+          "label": "PLUG A",
+          "connections": [
+            "[9] -> 02 XA61"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Plug A [10]",
+          "label": "PLUG A",
+          "connections": [
+            "[10] -> 02 XA61"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Plug A [11]",
+          "label": "PLUG A",
+          "connections": [
+            "[11] -> 08 XA61"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Plug A [12]",
+          "label": "PLUG A",
+          "connections": [
+            "[12] -> 08 XA61"
+          ]
+        },
+        {
+          "element_type": "device",
+          "label": "MAST AU(X)",
+          "connections": [
+            "circuit -> load"
+          ]
+        },
+        {
+          "element_type": "device",
+          "label": "ENGINE R(OOM)",
+          "connections": [
+            "circuit -> load"
+          ]
+        },
+        {
+          "element_type": "device",
+          "label": "OWNERS C(ABIN)",
+          "connections": [
+            "circuit -> load"
+          ]
+        },
+        {
+          "element_type": "device",
+          "label": "FWD GUE(ST)",
+          "connections": [
+            "circuit -> load"
+          ]
+        },
+        {
+          "element_type": "device",
+          "label": "PORT AF(T)",
+          "connections": [
+            "circuit -> load"
+          ]
+        },
+        {
+          "element_type": "device",
+          "label": "STBD AF(T)",
+          "connections": [
+            "circuit -> load"
+          ]
+        },
+        {
+          "element_type": "device",
+          "label": "FWD CR(EW)",
+          "connections": [
+            "circuit -> load"
+          ]
+        },
+        {
+          "element_type": "device",
+          "label": "AFT CRE(W)",
+          "connections": [
+            "circuit -> load"
+          ]
+        },
+        {
+          "element_type": "device",
+          "label": "AFT A/C",
+          "connections": [
+            "circuit -> load"
+          ]
+        },
+        {
+          "element_type": "device",
+          "label": "EM BAT(TERY)",
+          "connections": [
+            "circuit -> load"
+          ]
+        },
+        {
+          "element_type": "device",
+          "label": "GMDSS B(ATTERY)",
+          "connections": [
+            "circuit -> load"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Plug B [1]",
+          "label": "PLUG B",
+          "connections": [
+            "[1] -> circuit A/F/E group"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Plug B [2]",
+          "label": "PLUG B",
+          "connections": [
+            "[2] -> circuit A/F/E group"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "A/F/E group 1",
+          "label": "A F E",
+          "connections": [
+            "Plug B [1] -> A/F/E terminals"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "A/F/E group 2",
+          "label": "A F E",
+          "connections": [
+            "Plug B [2] -> A/F/E terminals"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "annotation",
+          "label": "used (see DWG 120)"
+        },
+        {
+          "element_type": "annotation",
+          "label": "used"
+        },
+        {
+          "element_type": "relay",
+          "id": "Re(unlabeled)",
+          "label": "relay with contacts",
+          "connections": [
+            "coil -> contacts",
+            "contacts -> plug pins"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "device",
+          "id": "T1",
+          "label": "T1 diode/transformer symbol",
+          "connections": [
+            "+ -> circuit"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Plug C [8]",
+          "label": "PLUG C",
+          "connections": [
+            "[8] -> AUX PLUG [1]"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Plug C [9]",
+          "label": "PLUG C",
+          "connections": [
+            "[9] -> AUX PLUG [2]"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Plug C [10]",
+          "label": "PLUG C",
+          "connections": [
+            "[10] -> AUX PLUG [3]"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Plug C [11]",
+          "label": "PLUG C",
+          "connections": [
+            "[11] -> AUX PLUG [4]"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Plug C [12]",
+          "label": "PLUG C",
+          "connections": [
+            "[12] -> open (no connection shown)"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "AUX PLUG [1]",
+          "label": "AUX PLUG ON PC BOARD (see DWG 114)",
+          "connections": [
+            "[1] -> Plug C [8]"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "AUX PLUG [2]",
+          "label": "AUX PLUG ON PC BOARD (see DWG 114)",
+          "connections": [
+            "[2] -> Plug C [9]"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "AUX PLUG [3]",
+          "label": "AUX PLUG ON PC BOARD (see DWG 114)",
+          "connections": [
+            "[3] -> Plug C [10]"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "AUX PLUG [4]",
+          "label": "AUX PLUG ON PC BOARD (see DWG 114)",
+          "connections": [
+            "[4] -> Plug C [11]"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Plug B [3]",
+          "label": "PLUG B",
+          "connections": [
+            "[3] -> bus line"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Plug B [4]",
+          "label": "PLUG B",
+          "connections": [
+            "[4] -> bus line"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Plug B [5]",
+          "label": "PLUG B",
+          "connections": [
+            "[5] -> bus line"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Plug B [6]",
+          "label": "PLUG B",
+          "connections": [
+            "[6] -> bus line"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Plug B [7]",
+          "label": "PLUG B",
+          "connections": [
+            "[7] -> bus line"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Plug B [8]",
+          "label": "PLUG B",
+          "connections": [
+            "[8] -> bus line"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Plug B [9]",
+          "label": "PLUG B",
+          "connections": [
+            "[9] -> bus line"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Plug B [10]",
+          "label": "PLUG B",
+          "connections": [
+            "[10] -> bus line"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Plug B [11]",
+          "label": "PLUG B",
+          "connections": [
+            "[11] -> bus line"
+          ]
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Plug B [12]",
+          "label": "PLUG B",
+          "connections": [
+            "[12] -> bus line (switch symbol)"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "annotation",
+          "label": "AUX PLUG ON PC BOARD (see DWG 114)"
+        },
+        {
+          "element_type": "annotation",
+          "label": "DWG No. 108'-112 / TITLE MAIN PANEL SCHEMATIC \"A\" title block info"
+        }
+      ]
+    },
+    {
+      "region": "Relay/buzzer/mute-test assembly bottom of PC card enclosure",
+      "region_type": "relay_bank",
+      "bbox": [
+        0.58,
+        0.83,
+        0.75,
+        0.93
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "annotation",
+          "id": "<UNKNOWN>",
+          "label": "Title block border/frame (no circuit elements visible in this cropped region)",
+          "connections": [],
+          "ambiguous": true
+        },
+        {
+          "element_type": "annotation",
+          "id": "title_block",
+          "label": "TITLE MAIN PANEL SCHEMATIC \"A\" / DWG No. GMMS 108'-112 / DATE 4/10/2023 / PROJECT SWS 108'-01 \"Gelliceaux\" / DRAWN GM / CUSTOMER SOUTHERN WIND SHIPYARD (PTY) LTD / G.M. MARINE Tel. (027) 021-671 8001 Cell 083 298 3305 goetz@telkomsa.net",
+          "connections": []
+        }
+      ]
+    },
+    {
+      "region": "Plug C / T/S C / T/S E lower blocks (Alarm Mod2, Emergency Stop, Emergency Lts)",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.33,
+        0.95,
+        0.47,
+        1.0
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "annotation",
+          "id": "<UNKNOWN>",
+          "label": "DRAWN | GM",
+          "connections": []
+        },
+        {
+          "element_type": "annotation",
+          "id": "<UNKNOWN>",
+          "label": "THE COPYRIGHT OF T[HIS DRAWING IS EXPRESSLY RESERVED...]",
+          "connections": []
+        }
+      ]
+    }
+  ],
+  "scoped_next": []
+}

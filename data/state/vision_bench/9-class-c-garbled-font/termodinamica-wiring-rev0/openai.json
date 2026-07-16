@@ -1,0 +1,393 @@
+{
+  "content_type": "general_arrangement",
+  "description": "System-level wiring/interconnection GA titled \u201cSW 108-01 - Wiring Schematic\u201d for a Termodinamica marine inverter air-conditioning installation. Two engine-room VRV18E1 units (PORT and STBD) are each supplied from a Main Switchboard via a 40 amp C or D curve breaker (B1), grounded to the compressor ground, and each feeds a SEA WATER PUMP TMD100. The PORT VRV18E1 connects by BUS MASTER LINE 1 to a Switch BUS Box Connection; the STBD VRV18E1 connects by BUS MASTER LINE 2 to the same switch bus box, forming the main control bus between the two engine-room units and the distributed equipment. An INTERNET ROUTER provides Ethernet LAN to the TMD Internet Interface and to Touch Screen 7. The TMD Internet Interface is powered at 80 W @ 24 VDC. Touch Screen Interface Addr.1 is powered at 10 W @ 24 VDC and links into the bus/touchscreen network.\n\nPORT-side/top equipment chain, with local 230 VAC supply drops and thermostat/control links shown: MRM\u00adAXI18i Fwd Guest cabin Addr.2; MRM\u00adAXI30i Salon port Addr.3; MRM\u00adAXI18i Aft Guest cabin port Addr.4; MRM\u00adAXI30i Fwd Galley Addr.5.0; MRM\u00adAXI30i Aft Galley Addr.5.1; MRM\u00adAXI18i Aft Crew cabin port Addr.6; AC/DC Current Sensor TRMS Addr.31, model QI-50-V-485; and TMD Bridge Addr.32 with RS485 Modbus RTU. Thermostat boxes marked \u201cTherm\u201d connect to the associated fan-coil units. The top fan-coil/control group is linked by the pink BUS SLAVE LINE and blue 230 VAC supply line, with orange bus/power interconnects shown along the bottoms of units.\n\nSTBD-side/bottom equipment chain: Touch Screen Interface Addr.1; MRM\u00adAXI18i Aft Crew cabin stbd Addr.7; MRM\u00adAXI18i Fwd Crew cabin stbd Addr.8; MRM\u00adAXI18i Aft Guest cabin stbd Addr.9; MRM\u00adAXI30i Salon stbd Addr.10; MRM\u00adAXI30i Owner\u2019s cabin Addr.11; AC/DC Current Sensor TRMS Addr.31, model QI-50-V-485; and TMD Bridge Addr.32 with RS485 Modbus RTU. Each fan-coil has a \u201cTherm\u201d control where drawn and a 230 VAC drop. Pink bus-slave wiring loops around and interconnects the upper and lower distributed groups.\n\nInset detail drawings at right show: SxythSense Touch Screen Connection; VRV18E1 Terminal Block Connection; Sxythsense Touch Screen & SubSlave Air Handler Connection; Air Handler Wiring; Air Handler Port and Stbd Connection; Air Handler Master and Slave Air Handler Connection; TSTE 7\u201d Exor Touch Screen & Dual Touch Screen Interfaces Connection; AC/DC Current Sensor TRMS mod. QI-50-V-485; and Switch BUS Box Connection. Key line indicates green main-switchboard compressor power supply 230 VAC, red sea-water-pump supply, blue 230 VAC power supply, orange BUS MASTER LINE 1, brown BUS MASTER LINE 2, magenta BUS SLAVE LINE, pale green Ethernet cable UTP CAT.5, and compressor ground wire. Zones/locations explicitly represented include Engine Room PORT/STBD, Fwd/Aft Guest cabins port/stbd, Salon port/stbd, Fwd/Aft Galley, Aft Crew cabin port/stbd, Fwd Crew cabin stbd, and Owner\u2019s cabin.",
+  "transcription": "KEY LINE\nMAIN SWITCHBOARD COMPRESSOR POWER SUPPLY230VAC\nL + N + PE - 3 x 6 mm\u00b2\nSEA WATER PUMP\nL + N + PE - 3 x 1,5 mm\u00b2\nPOWER SUPPLY 230VAC\nL + N + PE - 3 x 1,5 mm\u00b2\nCompressor ground wire connected to an independent anode / zinc. Ground wire must not be connected to any other device.\nWarning: failure to comply with this condition will invalidate the system warranty\nBUS MASTER LINE 1\n2x2x0,75 mm\u00b2 - Max. lenght 10m/ <4PCB\n2x1x0,75 mm\u00b2 + 2x1,5mm\u00b2 - Max. lenght 20m/ <4PCB\n2x1x0,75 mm\u00b2 + 2x2,5mm\u00b2 - Lenght 20-40m/ >5<PCB\nBUS MASTER LINE 2\n2x2x0,75 mm\u00b2 - Max. lenght 10m/ <4PCB\n2x1x0,75 mm\u00b2 + 2x1,5mm\u00b2 - Max. lenght 20m/ <4PCB\n2x1x0,75 mm\u00b2 + 2x2,5mm\u00b2 - Lenght 20-40m/ >5<PCB\nBUS SLAVE LINE\n2x2x0,75 mm\u00b2 - Max. lenght 10m/ <4PCB\n2x1x0,75 mm\u00b2 + 2x1,5mm\u00b2 - Max. lenght 20m/ <4PCB\n2x1x0,75 mm\u00b2 + 2x2,5mm\u00b2 - Lenght 20-40m/ >5<PCB\nETHERNET CABLE\nUTP CAT. 5\nBUS CABLE SPECIFICATIONS / NOTES\nFANCOIL NOTES\nSW 108-01 - Wiring Schematic\nINTERNET ROUTER\nEthernet lan\nEthernet lan\nMain Switchboard\nBreaker\n40 amp\nC or D curve\nB1\nVRV18E1\nENGINE\nROOM\nPORT\nSEA\nWATER\nPUMP\nTMD100\nTMD\nInternet\nInterface\n80 W @ 24 VDC\nTouch Screen 7\nTouch\nScreen\nInterface\nAddr.1\n10 W @ 24VDC\nTherm\nMRMAXI18i\nFwd\nGuest\ncabin\nAddr.2\n90 W @ 230 VAC\nTherm\nMRMAXI30i\nSalon\nport\nAddr.3\n170 W @ 230 VAC\nTherm\nMRMAXI18i\nAft\nGuest\ncabin\nport\nAddr.4\n90 W @ 230 VAC\nTherm\nMRMAXI30i\nFwd\nGalley\nAddr.5.0\n170 W @ 230 VAC\nTherm\nMRMAXI30i\nAft\nGalley\nAddr.5.1\n170 W @ 230 VAC\nTherm\nMRMAXI18i\nAft\nCrew\ncabin\nport\nAddr.6\n90 W @ 230 VAC\nmod. QI-50-V-485\nAC/DC\nCurrent\nSensor\nTRMS\nAddr.31\n5 W @ 24 VDC\nRS485\nModbus RTU\nTMD\nBridge\nAddr.32\n5 W @ 24 VDC\n230VAC\n230VAC\n230VAC\n230VAC\n230VAC\n230VAC\nSwitch BUS\nBox Connection\nMain Switchboard\nBreaker\n40 amp\nC or D curve\nB1\nVRV18E1\nENGINE\nROOM\nSTBD\nSEA\nWATER\nPUMP\nTMD100\nTouch\nScreen\nInterface\nAddr.1\n10 W @ 24VDC\nTherm\nMRMAXI18i\nAft\nCrew\ncabin\nstbd\nAddr.7\n90 W @ 230 VAC\nTherm\nMRMAXI18i\nFwd\nCrew\ncabin\nstbd\nAddr.8\n90 W @ 230 VAC\nTherm\nMRMAXI18i\nAft\nGuest\ncabin\nstbd\nAddr.9\n90 W @ 230 VAC\nTherm\nMRMAXI30i\nSalon\nstbd\nAddr.10\n170 W @ 230 VAC\nTherm\nMRMAXI30i\nOwner's\ncabin\nAddr.11\n170 W @ 230 VAC\nmod. QI-50-V-485\nAC/DC\nCurrent\nSensor\nTRMS\nAddr.31\n5 W @ 24 VDC\nRS485\nModbus RTU\nTMD\nBridge\nAddr.32\n5 W @ 24 VDC\n230VAC\n230VAC\n230VAC\n230VAC\n230VAC\nSxythSense Touch Screen Connection\nVRV18E1 Terminal Block Connection\nSxythsense Touch Screen & SubSlave Air Handler Connection\nAir Handler Wiring\nAir Handler Port and Stbd Connection\nAir Handler Master and Slave Air Handler Connection\nTSTE 7\u201d Exor Touch Screen & Dual Touch Screen Interfaces Connection\nAC/DC Current Sensor TRMS mod. QI-50-V-485\nSwitch BUS Box Connection\nREV.N\u00b0\nDRAWN BY\nVERIFIED BY\nISSUE\nDATE\nREV.0\nN.M.\nS.P.\nFIRST REVISION\n28/09/2022\nTERMODINAMICA\nMARINE INVERTER AIR CONDITIONING\nTITLE\nTermodinamica_SW 108-01_Wiring schematic\nSHEET\n1/1\nREV\n0",
+  "components": [
+    {
+      "label": "Main Switchboard / Breaker 40 amp C or D curve / B1 (PORT)",
+      "bbox": [
+        0.068,
+        0.243,
+        0.123,
+        0.29
+      ],
+      "confidence": "high",
+      "note": "Upper-left compressor supply branch."
+    },
+    {
+      "label": "VRV18E1 ENGINE ROOM PORT",
+      "bbox": [
+        0.078,
+        0.343,
+        0.139,
+        0.458
+      ],
+      "confidence": "high",
+      "note": "Upper-left engine-room unit."
+    },
+    {
+      "label": "SEA WATER PUMP TMD100 (PORT)",
+      "bbox": [
+        0.083,
+        0.468,
+        0.132,
+        0.548
+      ],
+      "confidence": "high",
+      "note": "Directly below the PORT VRV18E1."
+    },
+    {
+      "label": "INTERNET ROUTER",
+      "bbox": [
+        0.199,
+        0.222,
+        0.222,
+        0.242
+      ],
+      "confidence": "high",
+      "note": "Above the internet-interface branch."
+    },
+    {
+      "label": "TMD Internet Interface",
+      "bbox": [
+        0.169,
+        0.3,
+        0.202,
+        0.377
+      ],
+      "confidence": "high",
+      "note": "Connected to router Ethernet LAN and control network."
+    },
+    {
+      "label": "Touch Screen Interface Addr.1 (upper)",
+      "bbox": [
+        0.215,
+        0.281,
+        0.248,
+        0.379
+      ],
+      "confidence": "high",
+      "note": "Upper distributed group."
+    },
+    {
+      "label": "MRMAXI18i Fwd Guest cabin Addr.2",
+      "bbox": [
+        0.261,
+        0.281,
+        0.295,
+        0.381
+      ],
+      "confidence": "high",
+      "note": "Upper fan-coil group."
+    },
+    {
+      "label": "MRMAXI30i Salon port Addr.3",
+      "bbox": [
+        0.308,
+        0.281,
+        0.342,
+        0.381
+      ],
+      "confidence": "high",
+      "note": "Upper fan-coil group."
+    },
+    {
+      "label": "MRMAXI18i Aft Guest cabin port Addr.4",
+      "bbox": [
+        0.354,
+        0.281,
+        0.389,
+        0.381
+      ],
+      "confidence": "high",
+      "note": "Upper fan-coil group."
+    },
+    {
+      "label": "MRMAXI30i Fwd Galley Addr.5.0",
+      "bbox": [
+        0.401,
+        0.281,
+        0.435,
+        0.381
+      ],
+      "confidence": "high",
+      "note": "Upper fan-coil group."
+    },
+    {
+      "label": "MRMAXI30i Aft Galley Addr.5.1",
+      "bbox": [
+        0.446,
+        0.271,
+        0.48,
+        0.381
+      ],
+      "confidence": "high",
+      "note": "Upper fan-coil group."
+    },
+    {
+      "label": "MRMAXI18i Aft Crew cabin port Addr.6",
+      "bbox": [
+        0.493,
+        0.281,
+        0.527,
+        0.381
+      ],
+      "confidence": "high",
+      "note": "Upper fan-coil group."
+    },
+    {
+      "label": "AC/DC Current Sensor TRMS Addr.31",
+      "bbox": [
+        0.531,
+        0.281,
+        0.568,
+        0.381
+      ],
+      "confidence": "high",
+      "note": "Upper group; model QI-50-V-485 shown above."
+    },
+    {
+      "label": "TMD Bridge Addr.32",
+      "bbox": [
+        0.575,
+        0.281,
+        0.61,
+        0.381
+      ],
+      "confidence": "high",
+      "note": "Upper group; RS485 Modbus RTU shown above."
+    },
+    {
+      "label": "Switch BUS Box Connection",
+      "bbox": [
+        0.149,
+        0.563,
+        0.18,
+        0.618
+      ],
+      "confidence": "high",
+      "note": "Central-left junction between PORT and STBD bus master lines."
+    },
+    {
+      "label": "Main Switchboard / Breaker 40 amp C or D curve / B1 (STBD)",
+      "bbox": [
+        0.069,
+        0.663,
+        0.123,
+        0.708
+      ],
+      "confidence": "high",
+      "note": "Lower-left compressor supply branch."
+    },
+    {
+      "label": "VRV18E1 ENGINE ROOM STBD",
+      "bbox": [
+        0.078,
+        0.755,
+        0.139,
+        0.871
+      ],
+      "confidence": "high",
+      "note": "Lower-left engine-room unit."
+    },
+    {
+      "label": "SEA WATER PUMP TMD100 (STBD)",
+      "bbox": [
+        0.083,
+        0.882,
+        0.132,
+        0.958
+      ],
+      "confidence": "high",
+      "note": "Directly below the STBD VRV18E1."
+    },
+    {
+      "label": "Touch Screen Interface Addr.1 (lower)",
+      "bbox": [
+        0.215,
+        0.694,
+        0.248,
+        0.791
+      ],
+      "confidence": "high",
+      "note": "Lower distributed group."
+    },
+    {
+      "label": "MRMAXI18i Aft Crew cabin stbd Addr.7",
+      "bbox": [
+        0.261,
+        0.694,
+        0.295,
+        0.793
+      ],
+      "confidence": "high",
+      "note": "Lower fan-coil group."
+    },
+    {
+      "label": "MRMAXI18i Fwd Crew cabin stbd Addr.8",
+      "bbox": [
+        0.308,
+        0.694,
+        0.342,
+        0.793
+      ],
+      "confidence": "high",
+      "note": "Lower fan-coil group."
+    },
+    {
+      "label": "MRMAXI18i Aft Guest cabin stbd Addr.9",
+      "bbox": [
+        0.354,
+        0.694,
+        0.389,
+        0.793
+      ],
+      "confidence": "high",
+      "note": "Lower fan-coil group."
+    },
+    {
+      "label": "MRMAXI30i Salon stbd Addr.10",
+      "bbox": [
+        0.401,
+        0.694,
+        0.435,
+        0.793
+      ],
+      "confidence": "high",
+      "note": "Lower fan-coil group."
+    },
+    {
+      "label": "MRMAXI30i Owner's cabin Addr.11",
+      "bbox": [
+        0.446,
+        0.694,
+        0.48,
+        0.793
+      ],
+      "confidence": "high",
+      "note": "Lower fan-coil group."
+    },
+    {
+      "label": "AC/DC Current Sensor TRMS Addr.31 (lower)",
+      "bbox": [
+        0.493,
+        0.694,
+        0.535,
+        0.793
+      ],
+      "confidence": "high",
+      "note": "Lower group; model QI-50-V-485 shown above."
+    },
+    {
+      "label": "TMD Bridge Addr.32 (lower)",
+      "bbox": [
+        0.54,
+        0.694,
+        0.575,
+        0.793
+      ],
+      "confidence": "high",
+      "note": "Lower group; RS485 Modbus RTU shown above."
+    },
+    {
+      "label": "SxythSense Touch Screen Connection",
+      "bbox": [
+        0.713,
+        0.026,
+        0.845,
+        0.152
+      ],
+      "confidence": "medium",
+      "note": "Right-side top-left inset detail."
+    },
+    {
+      "label": "VRV18E1 Terminal Block Connection",
+      "bbox": [
+        0.848,
+        0.026,
+        0.98,
+        0.152
+      ],
+      "confidence": "high",
+      "note": "Right-side top-right inset detail."
+    },
+    {
+      "label": "Sxythsense Touch Screen & SubSlave Air Handler Connection",
+      "bbox": [
+        0.713,
+        0.157,
+        0.845,
+        0.289
+      ],
+      "confidence": "medium",
+      "note": "Right-side second-row left inset."
+    },
+    {
+      "label": "Air Handler Wiring",
+      "bbox": [
+        0.848,
+        0.157,
+        0.98,
+        0.289
+      ],
+      "confidence": "high",
+      "note": "Right-side second-row right inset."
+    },
+    {
+      "label": "Air Handler Port and Stbd Connection",
+      "bbox": [
+        0.713,
+        0.294,
+        0.845,
+        0.425
+      ],
+      "confidence": "high",
+      "note": "Right-side third-row left inset."
+    },
+    {
+      "label": "Air Handler Master and Slave Air Handler Connection",
+      "bbox": [
+        0.848,
+        0.294,
+        0.98,
+        0.425
+      ],
+      "confidence": "high",
+      "note": "Right-side third-row right inset."
+    },
+    {
+      "label": "TSTE 7\u201d Exor Touch Screen & Dual Touch Screen Interfaces Connection",
+      "bbox": [
+        0.848,
+        0.429,
+        0.98,
+        0.557
+      ],
+      "confidence": "medium",
+      "note": "Right-side fourth-row right inset."
+    },
+    {
+      "label": "AC/DC Current Sensor TRMS mod. QI-50-V-485",
+      "bbox": [
+        0.713,
+        0.561,
+        0.845,
+        0.696
+      ],
+      "confidence": "high",
+      "note": "Right-side bottom-left inset."
+    },
+    {
+      "label": "Switch BUS Box Connection (detail)",
+      "bbox": [
+        0.848,
+        0.561,
+        0.98,
+        0.696
+      ],
+      "confidence": "high",
+      "note": "Right-side bottom-right inset."
+    }
+  ],
+  "model": "gpt-5.6-sol"
+}

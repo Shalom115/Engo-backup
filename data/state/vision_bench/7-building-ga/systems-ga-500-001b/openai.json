@@ -1,0 +1,327 @@
+{
+  "content_type": "general_arrangement",
+  "description": "Vessel electrical-systems general arrangement comprising three coordinated plan views: an upper interior/equipment layout from stern at left to bow at right, a lower systems/accommodation layout, and an enlarged engine-room plan at right. Structural stations/frames are marked longitudinally A through M and numerically 2 through 11. The drawing maps distributed equipment by location rather than showing detailed circuit wiring. Major system relationships visible are: the aft lazarette/transom and steering area interfaces with the aft technical/accommodation spaces; the amidships engine room contains two main propulsion engines with adjacent auxiliaries, pumps, filters, electrical equipment and port/starboard fuel tanks; this machinery zone interfaces fore-and-aft with tanks and service equipment and laterally with hull-side systems. Forward of the engine room are port and starboard fuel tanks, grey/black/waste-water tanks and freshwater/service equipment, continuing into guest/owner accommodation and the bow. The lower systems plan locates accommodation services and HVAC/water/waste appliances across port and starboard guest cabins, crew areas, galley, saloon, studio, owner\u2019s cabin and head. Readable schedule headings identify cross-system groups including Main Steer Hardware, Steering, Appliances, Main Propulsion, Generator, Exhausts, Grey Water, Stern Thruster, Fresh Water, Raw Water & Cooling, Bilge & Fire, Grey Water, Black Water, Fuel, Air Suspension, Fresh Water Hydraulics, Pneumatics, Refrigeration, Aircon, Ventilation, Power Generation, Power Conversion and Energy Storage. Connectivity is primarily spatial/functional: twin propulsion engines and engine-room auxiliaries connect to the port and starboard fuel-tank/service zones; cooling, exhaust, bilge/fire, hydraulic, pneumatic, ventilation and electrical-generation/conversion/storage systems converge in or route through the engine room; freshwater, grey-water, black-water and HVAC services distribute from machinery/tank spaces to the labeled cabins, heads, galley, crew mess, saloon, studio and owner spaces; steering hardware is concentrated aft near the transom/lazarette and linked forward through the vessel systems layout. Exact individual line-to-line circuit endpoints are not legible at this image resolution.",
+  "transcription": "PLAN VIEW - INTERIOR\nSCALE 1:30\nPLAN VIEW - SYSTEMS\nSCALE 1:30\nPLAN VIEW - ENGINE ROOM\nSCALE 1:20\nPORT FUEL TANK\nFILL POINT\nSTBD FUEL TANK\nFILL POINT\nPORT FUEL TANK\nPORT FRESH WATER TANK\nSTBD FUEL TANK\nA/T GREY TANK\nA/T BLACK TANK\nPORT GREY TANK\nSTBD GREY TANK\nSTBD BLACK WATER TANK\nPORT LAZARETTE\nSTBD LAZARETTE\nTRANSOM\nPORT CREW CABIN\nSTBD CREW CABIN\nMAIN FRIDGE & FREEZER UNIT\nGALLEY\nCREW MESS\nAFT GUEST CABIN PORT\nAFT GUEST CABIN STBD\nPORT AFT GUEST HEAD\nSTBD AFT GUEST HEAD\nAFT CREW HEAD\nA/T CREW SHOWER\nFWD CREW CABIN\nFWD GUEST HEAD\nFWD GUEST CABIN\nSALOON\n(ENGINE ROOM BELOW)\nSTUDIO\nOWNERS CABIN\nOWNERS HEAD\nSystem\nRef.\nItem\nOEM\nModel\nHigh Voltage (HV)\nLow Voltage (LV)\nQty\nNotes\nMain Steer Hardware\nSteering\nAppliances\nMain Propulsion\nGenerator\nExhausts\nGrey Water\nStern Thruster\nFresh Water\nRaw Water & Cooling\nBilge & Fire\nGrey Water\nBlack Water\nFuel\nAir Suspension\nFresh Water Hydraulics\nPneumatics\nRefrigeration\nAircon\nVentilation\nPower Generation\nPower Conversion\nEnergy Storage\nNOTES:\n1 REFER TO DWG: 108-01-600-001 \u2018Electrical System GA\u2019 FOR DETAILS ON ELECTRICAL COMPONENTS LAYOUT\n2 REFER TO DWG: 108-01-200-001 \u2018Deck Hardware\u2019 FOR DETAILS OF ALL COMPONENTS ON DECK\nSYSTEMS GA\nSCALE 1:30\nDATE 15 JUL 2022",
+  "components": [
+    {
+      "label": "PORT LAZARETTE",
+      "bbox": [
+        0.064,
+        0.445,
+        0.096,
+        0.467
+      ],
+      "confidence": "high",
+      "note": "Aft port compartment in lower systems plan."
+    },
+    {
+      "label": "STBD LAZARETTE",
+      "bbox": [
+        0.063,
+        0.625,
+        0.096,
+        0.647
+      ],
+      "confidence": "high",
+      "note": "Aft starboard compartment in lower systems plan."
+    },
+    {
+      "label": "TRANSOM",
+      "bbox": [
+        0.031,
+        0.477,
+        0.058,
+        0.494
+      ],
+      "confidence": "high",
+      "note": "At extreme aft/left of lower systems plan."
+    },
+    {
+      "label": "PORT CREW CABIN",
+      "bbox": [
+        0.15,
+        0.444,
+        0.181,
+        0.47
+      ],
+      "confidence": "high",
+      "note": "Aft port accommodation, forward of port lazarette."
+    },
+    {
+      "label": "STBD CREW CABIN",
+      "bbox": [
+        0.149,
+        0.625,
+        0.182,
+        0.65
+      ],
+      "confidence": "high",
+      "note": "Aft starboard accommodation, forward of starboard lazarette."
+    },
+    {
+      "label": "MAIN FRIDGE & FREEZER UNIT",
+      "bbox": [
+        0.215,
+        0.441,
+        0.244,
+        0.479
+      ],
+      "confidence": "high",
+      "note": "Central-aft service unit beside galley."
+    },
+    {
+      "label": "GALLEY",
+      "bbox": [
+        0.264,
+        0.475,
+        0.287,
+        0.491
+      ],
+      "confidence": "high",
+      "note": "Central port-side galley in lower plan."
+    },
+    {
+      "label": "CREW MESS",
+      "bbox": [
+        0.254,
+        0.539,
+        0.285,
+        0.568
+      ],
+      "confidence": "high",
+      "note": "Central aft mess area."
+    },
+    {
+      "label": "AFT GUEST CABIN PORT",
+      "bbox": [
+        0.325,
+        0.449,
+        0.369,
+        0.473
+      ],
+      "confidence": "high",
+      "note": "Port aft guest cabin in lower plan."
+    },
+    {
+      "label": "AFT GUEST CABIN STBD",
+      "bbox": [
+        0.325,
+        0.574,
+        0.369,
+        0.598
+      ],
+      "confidence": "high",
+      "note": "Starboard aft guest cabin in lower plan."
+    },
+    {
+      "label": "PORT AFT GUEST HEAD",
+      "bbox": [
+        0.378,
+        0.443,
+        0.405,
+        0.477
+      ],
+      "confidence": "high",
+      "note": "Port head beside aft guest cabin."
+    },
+    {
+      "label": "STBD AFT GUEST HEAD",
+      "bbox": [
+        0.378,
+        0.612,
+        0.406,
+        0.645
+      ],
+      "confidence": "high",
+      "note": "Starboard head beside aft guest cabin."
+    },
+    {
+      "label": "AFT CREW HEAD",
+      "bbox": [
+        0.22,
+        0.601,
+        0.242,
+        0.632
+      ],
+      "confidence": "high",
+      "note": "Central-aft head adjacent to crew spaces."
+    },
+    {
+      "label": "A/T CREW SHOWER",
+      "bbox": [
+        0.247,
+        0.602,
+        0.273,
+        0.633
+      ],
+      "confidence": "high",
+      "note": "Crew shower adjacent to aft crew head."
+    },
+    {
+      "label": "FWD CREW CABIN",
+      "bbox": [
+        0.272,
+        0.636,
+        0.302,
+        0.666
+      ],
+      "confidence": "high",
+      "note": "Starboard-central forward crew cabin."
+    },
+    {
+      "label": "FWD GUEST HEAD",
+      "bbox": [
+        0.559,
+        0.449,
+        0.585,
+        0.478
+      ],
+      "confidence": "high",
+      "note": "Port-side forward guest head."
+    },
+    {
+      "label": "FWD GUEST CABIN",
+      "bbox": [
+        0.589,
+        0.511,
+        0.622,
+        0.538
+      ],
+      "confidence": "high",
+      "note": "Forward guest cabin just ahead of saloon."
+    },
+    {
+      "label": "SALOON (ENGINE ROOM BELOW)",
+      "bbox": [
+        0.437,
+        0.525,
+        0.488,
+        0.551
+      ],
+      "confidence": "high",
+      "note": "Central saloon located over engine room."
+    },
+    {
+      "label": "STUDIO",
+      "bbox": [
+        0.568,
+        0.609,
+        0.595,
+        0.625
+      ],
+      "confidence": "high",
+      "note": "Starboard-forward room aft of owner\u2019s cabin."
+    },
+    {
+      "label": "OWNERS CABIN",
+      "bbox": [
+        0.68,
+        0.513,
+        0.72,
+        0.539
+      ],
+      "confidence": "high",
+      "note": "Forward accommodation space."
+    },
+    {
+      "label": "OWNERS HEAD",
+      "bbox": [
+        0.744,
+        0.553,
+        0.777,
+        0.579
+      ],
+      "confidence": "high",
+      "note": "At forward end of owner\u2019s cabin."
+    },
+    {
+      "label": "PORT FUEL TANK",
+      "bbox": [
+        0.494,
+        0.086,
+        0.521,
+        0.132
+      ],
+      "confidence": "high",
+      "note": "Upper interior plan, port tank just forward of engine room."
+    },
+    {
+      "label": "PORT FRESH WATER TANK",
+      "bbox": [
+        0.556,
+        0.118,
+        0.587,
+        0.16
+      ],
+      "confidence": "high",
+      "note": "Upper plan, forward/port of engine-room zone."
+    },
+    {
+      "label": "STBD FUEL TANK",
+      "bbox": [
+        0.497,
+        0.239,
+        0.523,
+        0.281
+      ],
+      "confidence": "high",
+      "note": "Upper interior plan, starboard tank just forward of engine room."
+    },
+    {
+      "label": "A/T GREY TANK",
+      "bbox": [
+        0.3,
+        0.122,
+        0.326,
+        0.157
+      ],
+      "confidence": "high",
+      "note": "Upper plan, aft of engine room."
+    },
+    {
+      "label": "A/T BLACK TANK",
+      "bbox": [
+        0.3,
+        0.191,
+        0.327,
+        0.226
+      ],
+      "confidence": "high",
+      "note": "Upper plan, aft of engine room below grey tank."
+    },
+    {
+      "label": "PORT GREY TANK",
+      "bbox": [
+        0.714,
+        0.169,
+        0.744,
+        0.201
+      ],
+      "confidence": "medium",
+      "note": "Upper plan forward tank; label is small but readable."
+    },
+    {
+      "label": "STBD BLACK WATER TANK",
+      "bbox": [
+        0.585,
+        0.247,
+        0.615,
+        0.282
+      ],
+      "confidence": "medium",
+      "note": "Upper plan, forward of engine-room machinery."
+    },
+    {
+      "label": "PLAN VIEW - ENGINE ROOM",
+      "bbox": [
+        0.87,
+        0.667,
+        0.925,
+        0.678
+      ],
+      "confidence": "high",
+      "note": "Caption below enlarged engine-room inset at right."
+    }
+  ],
+  "model": "gpt-5.6-sol"
+}

@@ -1,0 +1,1447 @@
+{
+  "legends": [
+    {
+      "title_as_printed": "- CTB 1 = QI-POWER-485-300-LV",
+      "kind": "notes_block",
+      "bbox": [
+        0.385,
+        0.032,
+        0.536,
+        0.118
+      ],
+      "content": {
+        "title": "",
+        "entries": [
+          {
+            "label": "- CTB 1  = QI-POWER-485-300-LV",
+            "symbol_description": ""
+          },
+          {
+            "label": "- CTB 2  = QI-POWER-485-300-LV",
+            "symbol_description": ""
+          },
+          {
+            "label": "- CTB 3  = QI-POWER-485-300-LV",
+            "symbol_description": ""
+          },
+          {
+            "label": "- CTB 4  = QI-POWER-485-300-LV",
+            "symbol_description": ""
+          },
+          {
+            "label": "- CTB 5  = QI-POWER-485-300-LV",
+            "symbol_description": ""
+          },
+          {
+            "label": "- CTB 6  = QI-POWER-485-300-LV",
+            "symbol_description": ""
+          },
+          {
+            "label": "- CTB 7  = QI-POWER-485-300-LV ( EMERGENCY BAT.",
+            "symbol_description": ""
+          }
+        ],
+        "_model": "gpt-5.6-sol"
+      }
+    },
+    {
+      "title_as_printed": "HVPDU: HIGH VOLTAGE DC LINK",
+      "kind": "notes_block",
+      "bbox": [
+        0.692,
+        0.029,
+        0.957,
+        0.101
+      ],
+      "content": {
+        "title": "",
+        "entries": [
+          {
+            "label": "HVPDU:    HIGH VOLTAGE DC LINK",
+            "symbol_description": ""
+          },
+          {
+            "label": "MAPS:     MODULAR AUXILARY POWER SYSTEM  600V DC/24V DC\n          THESE CONVERTERS ARE PROTECTED FOR OVER-CURRENT\n          AND ELECTRONICALLY FUSED.",
+            "symbol_description": ""
+          }
+        ],
+        "_model": "gpt-5.6-sol"
+      }
+    }
+  ],
+  "legend_context": "THIS SHEET'S OWN LEGENDS AND TABLES (read first; these definitions are AUTHORITATIVE for this sheet and override any generic symbol/line convention):\n- [notes_block] - CTB 1 = QI-POWER-485-300-LV:\n    * - CTB 1  = QI-POWER-485-300-LV\n    * - CTB 2  = QI-POWER-485-300-LV\n    * - CTB 3  = QI-POWER-485-300-LV\n    * - CTB 4  = QI-POWER-485-300-LV\n    * - CTB 5  = QI-POWER-485-300-LV\n    * - CTB 6  = QI-POWER-485-300-LV\n    * - CTB 7  = QI-POWER-485-300-LV ( EMERGENCY BAT.\n- [notes_block] HVPDU: HIGH VOLTAGE DC LINK:\n    * HVPDU:    HIGH VOLTAGE DC LINK\n    * MAPS:     MODULAR AUXILARY POWER SYSTEM  600V DC/24V DC\n          THESE CONVERTERS ARE PROTECTED FOR OVER-CURRENT\n          AND ELECTRONICALLY FUSED.",
+  "survey": {
+    "title_block": {
+      "drawing_no": "GMMS 108\u2019-110a",
+      "title": "24V DC SERVICE SUPPLY",
+      "drafter": "GM"
+    },
+    "sub_type": "power_one_line",
+    "sub_type_reason": "The sheet is dominated by a connected 600 VDC-to-24 VDC power topology: port/starboard HVPDU sources feed MAPS converters, CT-monitored conductors, isolators/solenoids, a service bus, battery connection, protective devices, and named outgoing loads. Relay/terminal control wiring is present but secondary to the one-line power flow.",
+    "regions": [
+      {
+        "type": "legend",
+        "label": "CTB definitions and HVPDU/MAPS notes",
+        "bbox": [
+          0.39,
+          0.03,
+          0.87,
+          0.12
+        ],
+        "approx_unit_count": 2
+      },
+      {
+        "type": "breaker_bank",
+        "label": "Port and starboard HVPDU 600 VDC bus breaker banks",
+        "bbox": [
+          0.04,
+          0.07,
+          0.28,
+          0.59
+        ],
+        "approx_unit_count": 8
+      },
+      {
+        "type": "topology_network",
+        "label": "MAPS converter and fused/CT-monitored 24 VDC feeds",
+        "bbox": [
+          0.26,
+          0.16,
+          0.58,
+          0.63
+        ],
+        "approx_unit_count": 9
+      },
+      {
+        "type": "relay_bank",
+        "label": "Isolators, solenoids, transfer/selector contacts, relays, and associated terminal strips",
+        "bbox": [
+          0.57,
+          0.18,
+          0.78,
+          0.71
+        ],
+        "approx_unit_count": 12
+      },
+      {
+        "type": "topology_network",
+        "label": "+24 V service bus, shunt, auxiliary service battery, outgoing fused branches, and loads",
+        "bbox": [
+          0.73,
+          0.25,
+          0.95,
+          0.74
+        ],
+        "approx_unit_count": 9
+      },
+      {
+        "type": "controller_module",
+        "label": "PC card and BAE/AUX selector interface",
+        "bbox": [
+          0.04,
+          0.73,
+          0.23,
+          0.97
+        ],
+        "approx_unit_count": 1
+      },
+      {
+        "type": "terminal_strip",
+        "label": "Control terminal strips associated with isolator/relay wiring",
+        "bbox": [
+          0.52,
+          0.43,
+          0.66,
+          0.72
+        ],
+        "approx_unit_count": 3
+      },
+      {
+        "type": "topology_network",
+        "label": "Negative bus and return distribution",
+        "bbox": [
+          0.28,
+          0.75,
+          0.7,
+          0.89
+        ],
+        "approx_unit_count": 8
+      },
+      {
+        "type": "other",
+        "label": "230 VAC to 24 VDC auxiliary converter branch",
+        "bbox": [
+          0.41,
+          0.52,
+          0.52,
+          0.64
+        ],
+        "approx_unit_count": 1
+      }
+    ],
+    "cross_refs": [
+      "DWG 413",
+      "DWG 110b",
+      "DWG 114",
+      "DWG 401a",
+      "DWG 113",
+      "ONYX signal/monitoring endpoint",
+      "BEL-1/4 230V AC CONTROL",
+      "BAE VOLTAGE SENCE"
+    ],
+    "notes": "Drawing is legible overall. It combines the principal power one-line with localized relay and terminal wiring. Diamond '70' marks on conductors are wire-gauge callouts, not devices. Major repeated structures include two four-breaker HVPDU banks, four MAPS converter sections, five CTs, five isolator/solenoid channels, and five fused service-bus outgoing branches. Some small terminal numbers and minor annotations are difficult to resolve at this scale; 'BAE VOLTAGE SENCE' appears spelled as shown.",
+    "_model": "gpt-5.6-sol",
+    "_pass1_dpi": 200
+  },
+  "sub_type": "power_one_line",
+  "regions_read": [
+    {
+      "region": "Port and starboard HVPDU 600 VDC bus breaker banks",
+      "region_type": "breaker_bank",
+      "bbox": [
+        0.04,
+        0.07,
+        0.28,
+        0.59
+      ],
+      "reader": "schedule",
+      "panel_label": "PORT HVPDU",
+      "rows": [
+        {
+          "device_type": "breaker",
+          "device_id": "Q1",
+          "rating": "32A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q2",
+          "rating": "32A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q3",
+          "rating": "32A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q4",
+          "rating": "32A",
+          "load_name": "MAPS-1",
+          "cross_ref": "",
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "MAPS converter and fused/CT-monitored 24 VDC feeds",
+      "region_type": "topology_network",
+      "bbox": [
+        0.26,
+        0.16,
+        0.58,
+        0.63
+      ],
+      "reader": "oneline",
+      "nodes": [
+        {
+          "node_type": "source",
+          "id": "PORT_600V_SOURCE",
+          "label": "<UNKNOWN> \u2014 PORT 600V DC input",
+          "rating": "600V DC"
+        },
+        {
+          "node_type": "converter",
+          "id": "PORT MAPS-1",
+          "label": "PORT MAPS-1/2",
+          "rating": "600V DC/24V DC, 5kW"
+        },
+        {
+          "node_type": "converter",
+          "id": "PORT MAPS-2",
+          "label": "PORT MAPS-1/2",
+          "rating": "600V DC/24V DC, 5kW"
+        },
+        {
+          "node_type": "fuse",
+          "id": "F1",
+          "label": "F1",
+          "rating": "250A"
+        },
+        {
+          "node_type": "fuse",
+          "id": "F2",
+          "label": "F2",
+          "rating": "250A"
+        },
+        {
+          "node_type": "current_transformer",
+          "id": "CT1",
+          "label": "CT1",
+          "rating": ""
+        },
+        {
+          "node_type": "current_transformer",
+          "id": "CT2",
+          "label": "CT2",
+          "rating": ""
+        },
+        {
+          "node_type": "source",
+          "id": "STBD_600V_SOURCE",
+          "label": "<UNKNOWN> \u2014 STBD 600V DC input",
+          "rating": "600V DC"
+        },
+        {
+          "node_type": "converter",
+          "id": "STBD MAPS-1",
+          "label": "STBD MAPS-1/2",
+          "rating": "600V DC/24V DC, 5kW"
+        },
+        {
+          "node_type": "converter",
+          "id": "STBD MAPS-2",
+          "label": "STBD MAPS-1/2",
+          "rating": "600V DC/24V DC, 5kW"
+        },
+        {
+          "node_type": "fuse",
+          "id": "F3",
+          "label": "F3",
+          "rating": "250A"
+        },
+        {
+          "node_type": "fuse",
+          "id": "F4",
+          "label": "F4",
+          "rating": "250A"
+        },
+        {
+          "node_type": "current_transformer",
+          "id": "CT3",
+          "label": "CT3",
+          "rating": ""
+        },
+        {
+          "node_type": "current_transformer",
+          "id": "CT4",
+          "label": "CT4",
+          "rating": ""
+        },
+        {
+          "node_type": "unknown",
+          "id": "24V_DEST_CT1",
+          "label": "<UNKNOWN> \u2014 24V DC destination beyond CT1",
+          "rating": "24V DC"
+        },
+        {
+          "node_type": "unknown",
+          "id": "24V_DEST_CT2",
+          "label": "<UNKNOWN> \u2014 24V DC destination beyond CT2",
+          "rating": "24V DC"
+        },
+        {
+          "node_type": "unknown",
+          "id": "24V_DEST_CT3",
+          "label": "<UNKNOWN> \u2014 24V DC destination beyond CT3",
+          "rating": "24V DC"
+        },
+        {
+          "node_type": "unknown",
+          "id": "24V_DEST_CT4",
+          "label": "<UNKNOWN> \u2014 24V DC destination beyond CT4",
+          "rating": "24V DC"
+        },
+        {
+          "node_type": "source",
+          "id": "AC_SOURCE_LN",
+          "label": "<UNKNOWN> \u2014 L/N AC input",
+          "rating": "230V AC"
+        },
+        {
+          "node_type": "converter",
+          "id": "ACDC_24V_110A",
+          "label": "230V AC / 24V DC converter",
+          "rating": "24V 110A"
+        },
+        {
+          "node_type": "fuse",
+          "id": "F18",
+          "label": "F18",
+          "rating": "125A"
+        },
+        {
+          "node_type": "current_transformer",
+          "id": "CT5",
+          "label": "CT5",
+          "rating": ""
+        },
+        {
+          "node_type": "unknown",
+          "id": "24V_DEST_CT5",
+          "label": "<UNKNOWN> \u2014 24V DC destination beyond CT5",
+          "rating": "24V DC"
+        }
+      ],
+      "edges": [
+        "PORT_600V_SOURCE -> PORT MAPS-1 -> F1 -> CT1 -> 24V_DEST_CT1",
+        "PORT_600V_SOURCE -> PORT MAPS-2 -> F2 -> CT2 -> 24V_DEST_CT2",
+        "STBD_600V_SOURCE -> STBD MAPS-1 -> F3 -> CT3 -> 24V_DEST_CT3",
+        "STBD_600V_SOURCE -> STBD MAPS-2 -> F4 -> CT4 -> 24V_DEST_CT4",
+        "AC_SOURCE_LN -> ACDC_24V_110A -> F18 -> CT5 -> 24V_DEST_CT5"
+      ]
+    },
+    {
+      "region": "Isolators, solenoids, transfer/selector contacts, relays, and associated terminal strips",
+      "region_type": "relay_bank",
+      "bbox": [
+        0.57,
+        0.18,
+        0.78,
+        0.71
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "switch",
+          "id": "SW1",
+          "label": "ISOLATORS switch SW1",
+          "connections": [
+            "left-edge conductor -> SW1 -> SO 1 contact/input"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "switch",
+          "id": "SW2",
+          "label": "ISOLATORS switch SW2",
+          "connections": [
+            "left-edge conductor -> SW2 -> SO 2 contact/input"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "switch",
+          "id": "SW3",
+          "label": "ISOLATORS switch SW3",
+          "connections": [
+            "left-edge conductor -> SW3 -> SO 3 contact/input"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "switch",
+          "id": "SW4",
+          "label": "ISOLATORS switch SW4",
+          "connections": [
+            "left-edge conductor -> SW4 -> SO 4 contact/input"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "switch",
+          "id": "SW5",
+          "label": "ISOLATORS switch SW5",
+          "connections": [
+            "left-edge conductor -> SW5 -> SO 5 contact/input"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "switch",
+          "id": "SO 1",
+          "label": "SO 1; coil-operated isolator/contact assembly",
+          "connections": [
+            "SW1 conductor -> SO 1 contact -> SHUNT 500A tap block",
+            "SO 1 coil/control wiring -> lower-left contact/indicator network"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "switch",
+          "id": "SO 2",
+          "label": "SO 2; coil-operated isolator/contact assembly",
+          "connections": [
+            "SW2 conductor -> SO 2 contact -> SHUNT 500A tap block",
+            "SO 2 coil/control wiring -> lower-left contact/indicator network"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "switch",
+          "id": "SO 3",
+          "label": "SO 3; coil-operated isolator/contact assembly",
+          "connections": [
+            "SW3 conductor -> SO 3 contact -> SHUNT 500A tap block",
+            "SO 3 coil/control wiring -> lower-left contact/indicator network"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "switch",
+          "id": "SO 4",
+          "label": "SO 4; coil-operated isolator/contact assembly",
+          "connections": [
+            "SW4 conductor -> SO 4 contact -> SHUNT 500A tap block",
+            "SO 4 coil/control wiring -> lower-left contact/indicator network"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "switch",
+          "id": "SO 5",
+          "label": "SO 5; coil-operated isolator/contact assembly",
+          "connections": [
+            "SW5 conductor -> SO 5 contact -> SHUNT 500A tap block",
+            "SO 5 coil/control wiring -> Re1/Re2 contact network and lower-left contact/indicator network"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal_strip",
+          "id": "T/S S (left, partial)",
+          "label": "Partial terminal strip marked T/S S",
+          "connections": [
+            "terminals 4, 5, 6, 7 -> four linked contact/indicator devices"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S S:4",
+          "label": "terminal 4",
+          "connections": [
+            "terminal 4 -> upper contact/indicator device"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S S:5",
+          "label": "terminal 5",
+          "connections": [
+            "terminal 5 -> second contact/indicator device"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S S:6",
+          "label": "terminal 6",
+          "connections": [
+            "terminal 6 -> third contact/indicator device"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S S:7",
+          "label": "terminal 7",
+          "connections": [
+            "terminal 7 -> fourth contact/indicator device"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "unknown",
+          "id": "<UNKNOWN-1>",
+          "label": "upper linked contact and rectangular indicator/coil symbol; no printed id visible",
+          "connections": [
+            "T/S S:4 -> device",
+            "device contact/coil wiring -> SO 1 control wiring",
+            "common return -> earth/ground"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "unknown",
+          "id": "<UNKNOWN-2>",
+          "label": "second linked contact and rectangular indicator/coil symbol; no printed id visible",
+          "connections": [
+            "T/S S:5 -> device",
+            "device contact/coil wiring -> SO 2 control wiring",
+            "common return -> earth/ground"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "unknown",
+          "id": "<UNKNOWN-3>",
+          "label": "third linked contact and rectangular indicator/coil symbol; no printed id visible",
+          "connections": [
+            "T/S S:6 -> device",
+            "device contact/coil wiring -> SO 3 control wiring",
+            "common return -> earth/ground"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "unknown",
+          "id": "<UNKNOWN-4>",
+          "label": "lower linked contact and rectangular indicator/coil symbol; no printed id visible",
+          "connections": [
+            "T/S S:7 -> device",
+            "device contact/coil wiring -> SO 4 control wiring",
+            "common return -> earth/ground"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "device",
+          "id": "SHUNT 500A",
+          "label": "SHUNT 500A (label partially cropped)",
+          "connections": [
+            "SO 1, SO 2, SO 3, SO 4, SO 5 conductors -> shunt/tap block",
+            "shunt main connection -> right-edge continuation",
+            "shunt sensing connections -> T/S S terminals 1, 1, 2, 3"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal_strip",
+          "id": "T/S S (right)",
+          "label": "Terminal strip marked T/S S",
+          "connections": [
+            "SHUNT 500A sensing circuit -> terminals 1, 1, 2, 3",
+            "terminal-strip wiring -> see DWG 413 continuation"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S S:1 (upper)",
+          "label": "terminal 1, upper row",
+          "connections": [
+            "SHUNT 500A sensing circuit -> terminal 1"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S S:1 (lower)",
+          "label": "terminal 1, second row",
+          "connections": [
+            "SHUNT 500A sensing circuit -> terminal 1"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S S:2",
+          "label": "terminal 2",
+          "connections": [
+            "SHUNT 500A sensing circuit -> terminal 2"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S S:3",
+          "label": "terminal 3",
+          "connections": [
+            "SHUNT 500A sensing circuit -> terminal 3"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "annotation",
+          "id": "see DWG 413",
+          "label": "cross-drawing pointer: see DWG 413",
+          "connections": [
+            "T/S S (right) continuation"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "BAE VOLTAGE SENCE",
+          "label": "BAE VOLTAGE SENCE (spelling as printed; text cropped at right)",
+          "connections": [
+            "local relay/contact wiring -> right-pointing continuation arrow"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "relay",
+          "id": "Re1",
+          "label": "relay Re1",
+          "connections": [
+            "Re1 coil -> associated multi-pole contacts above via dotted linkage",
+            "Re1 coil/control wiring -> T/S S lower strip and SO 5-related wiring"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "relay",
+          "id": "Re2",
+          "label": "relay Re2",
+          "connections": [
+            "Re2 coil -> associated changeover contact above via dotted linkage",
+            "Re2 coil/control wiring -> T/S S lower strip and SO 5-related wiring"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal_strip",
+          "id": "T/S S (lower)",
+          "label": "Terminal strip marked T/S S",
+          "connections": [
+            "external numbered conductors 5, 6, 7, 8, 9 -> terminals 8, 9, 10, 11, 12",
+            "terminals 8-12 -> Re1/Re2 relay circuit and ground/return"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S S:8",
+          "label": "terminal 8",
+          "connections": [
+            "external conductor 5 -> terminal 8 -> Re1/Re2 contact circuit"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S S:9",
+          "label": "terminal 9",
+          "connections": [
+            "external conductor 6 -> terminal 9 -> Re1 coil/control circuit"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S S:10",
+          "label": "terminal 10",
+          "connections": [
+            "external conductor 7 -> terminal 10 -> Re2 coil/control circuit"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S S:11",
+          "label": "terminal 11",
+          "connections": [
+            "external conductor 8 -> terminal 11 -> relay/contact wiring"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S S:12",
+          "label": "terminal 12; + polarity marked",
+          "connections": [
+            "external conductor 9 -> terminal 12 (+) -> relay circuit/ground-return branch"
+          ],
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "+24 V service bus, shunt, auxiliary service battery, outgoing fused branches, and loads",
+      "region_type": "topology_network",
+      "bbox": [
+        0.73,
+        0.25,
+        0.95,
+        0.74
+      ],
+      "reader": "oneline",
+      "nodes": [
+        {
+          "node_type": "source",
+          "id": "AUX SERVICE BAT.",
+          "label": "Aux service battery",
+          "rating": "24V, 200Ah"
+        },
+        {
+          "node_type": "fuse",
+          "id": "F16",
+          "label": "Battery main fuse",
+          "rating": "250A"
+        },
+        {
+          "node_type": "switch",
+          "id": "SW11",
+          "label": "Battery/service switch",
+          "rating": ""
+        },
+        {
+          "node_type": "shunt",
+          "id": "SHUNT #1",
+          "label": "Service-bus current shunt",
+          "rating": "500A/50mV"
+        },
+        {
+          "node_type": "bus",
+          "id": "+24V SERVICE BUS",
+          "label": "+24V service bus",
+          "rating": "24V DC"
+        },
+        {
+          "node_type": "unknown",
+          "id": "SO9",
+          "label": "Coil-operated contact/relay to GEN. START",
+          "rating": ""
+        },
+        {
+          "node_type": "load",
+          "id": "GEN. START",
+          "label": "to GEN. START",
+          "rating": ""
+        },
+        {
+          "node_type": "fuse",
+          "id": "F5",
+          "label": "Forward DC panel feeder fuse",
+          "rating": "100A"
+        },
+        {
+          "node_type": "switch",
+          "id": "SW6",
+          "label": "Forward DC panel feeder switch",
+          "rating": ""
+        },
+        {
+          "node_type": "board",
+          "id": "FWD DC PANEL",
+          "label": "Forward DC panel",
+          "rating": ""
+        },
+        {
+          "node_type": "fuse",
+          "id": "F6",
+          "label": "Aft DC panel feeder fuse",
+          "rating": "200A"
+        },
+        {
+          "node_type": "switch",
+          "id": "SW7",
+          "label": "Aft DC panel feeder switch",
+          "rating": ""
+        },
+        {
+          "node_type": "board",
+          "id": "AFT DC PANEL",
+          "label": "Aft DC panel",
+          "rating": ""
+        },
+        {
+          "node_type": "fuse",
+          "id": "F7",
+          "label": "Bilge pump feeder fuse",
+          "rating": "60A"
+        },
+        {
+          "node_type": "switch",
+          "id": "SW8",
+          "label": "Bilge pump feeder switch",
+          "rating": ""
+        },
+        {
+          "node_type": "unknown",
+          "id": "SO6",
+          "label": "Coil-operated bilge-pump contact/relay",
+          "rating": ""
+        },
+        {
+          "node_type": "load",
+          "id": "BILGE PUMP",
+          "label": "Bilge pump",
+          "rating": ""
+        },
+        {
+          "node_type": "fuse",
+          "id": "F8",
+          "label": "Fire pump feeder fuse",
+          "rating": "60A"
+        },
+        {
+          "node_type": "switch",
+          "id": "SW9",
+          "label": "Fire pump feeder switch",
+          "rating": ""
+        },
+        {
+          "node_type": "unknown",
+          "id": "SO7",
+          "label": "Coil-operated fire-pump contact/relay",
+          "rating": ""
+        },
+        {
+          "node_type": "load",
+          "id": "FIRE PUMP",
+          "label": "Fire pump",
+          "rating": ""
+        },
+        {
+          "node_type": "fuse",
+          "id": "F9",
+          "label": "LV BAE feeder fuse",
+          "rating": "125A"
+        },
+        {
+          "node_type": "switch",
+          "id": "SW10",
+          "label": "LV BAE feeder switch",
+          "rating": ""
+        },
+        {
+          "node_type": "unknown",
+          "id": "SO8",
+          "label": "Coil-operated LV BAE feeder contact/relay",
+          "rating": ""
+        },
+        {
+          "node_type": "current_transformer",
+          "id": "CT6",
+          "label": "Current transformer on LV BAE feeder",
+          "rating": ""
+        },
+        {
+          "node_type": "load",
+          "id": "LV. BAE P<UNKNOWN>",
+          "label": "LV. BAE P<UNKNOWN>",
+          "rating": ""
+        }
+      ],
+      "edges": [
+        "AUX SERVICE BAT. -> F16 -> SW11 -> SHUNT #1 -> +24V SERVICE BUS",
+        "AUX SERVICE BAT. -> F16 -> SW11 -> SO9 -> GEN. START",
+        "+24V SERVICE BUS -> F5 -> SW6 -> FWD DC PANEL",
+        "+24V SERVICE BUS -> F6 -> SW7 -> AFT DC PANEL",
+        "+24V SERVICE BUS -> F7 -> SW8 -> SO6 -> BILGE PUMP",
+        "+24V SERVICE BUS -> F8 -> SW9 -> SO7 -> FIRE PUMP",
+        "+24V SERVICE BUS -> F9 -> SW10 -> SO8 -> CT6 -> LV. BAE P<UNKNOWN>"
+      ]
+    },
+    {
+      "region": "PC card and BAE/AUX selector interface",
+      "region_type": "controller_module",
+      "bbox": [
+        0.04,
+        0.73,
+        0.23,
+        0.97
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "controller_module",
+          "id": "PC CARD",
+          "label": "PC CARD enclosure/module",
+          "connections": [
+            "left plug pins 1-10",
+            "right plug pins 1-10",
+            "internal indicator-lamp network",
+            "BAE/AUX selector wiring"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Left 1",
+          "label": "PC CARD left interface pin 1",
+          "connections": [
+            "external left conductor",
+            "internal PC CARD wiring"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Left 2",
+          "label": "PC CARD left interface pin 2",
+          "connections": [
+            "external left conductor",
+            "internal PC CARD wiring"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Left 3",
+          "label": "PC CARD left interface pin 3",
+          "connections": [
+            "external left conductor",
+            "internal PC CARD wiring"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Left 4",
+          "label": "PC CARD left interface pin 4",
+          "connections": [
+            "external left conductor",
+            "internal PC CARD wiring"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Left 5",
+          "label": "PC CARD left interface pin 5",
+          "connections": [
+            "external left conductor",
+            "internal PC CARD wiring"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Left 6",
+          "label": "AUX; series diode shown on external conductor",
+          "connections": [
+            "external left AUX conductor through diode",
+            "internal PC CARD wiring"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Left 7",
+          "label": "BAE",
+          "connections": [
+            "external left BAE conductor",
+            "internal PC CARD wiring",
+            "BAE selector contact wiring via junction"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Left 8",
+          "label": "NEG",
+          "connections": [
+            "external left NEG conductor",
+            "internal PC CARD wiring",
+            "selector common/return wiring via junction"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Left 9",
+          "label": "+EM",
+          "connections": [
+            "external left +EM conductor",
+            "internal PC CARD wiring"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Left 10",
+          "label": "PC CARD left interface pin 10",
+          "connections": [
+            "external left conductor",
+            "internal lower indicator common bus"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Right 1",
+          "label": "PC CARD right interface pin 1",
+          "connections": [
+            "internal top indicator channel",
+            "external right conductor/loom"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Right 2",
+          "label": "PC CARD right interface pin 2",
+          "connections": [
+            "internal top indicator channel",
+            "external right conductor/loom"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Right 3",
+          "label": "PC CARD right interface pin 3",
+          "connections": [
+            "internal top indicator channel",
+            "external right conductor/loom"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Right 4",
+          "label": "PC CARD right interface pin 4",
+          "connections": [
+            "internal top indicator channel",
+            "external right conductor/loom"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Right 5",
+          "label": "PC CARD right interface pin 5",
+          "connections": [
+            "internal top indicator channel",
+            "external right conductor/loom"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Right 6",
+          "label": "NEG",
+          "connections": [
+            "internal PC CARD wiring",
+            "external right NEG conductor/loom"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Right 7",
+          "label": "BAE",
+          "connections": [
+            "internal PC CARD wiring",
+            "external right BAE conductor/loom"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Right 8",
+          "label": "AUX",
+          "connections": [
+            "internal PC CARD wiring",
+            "external right AUX conductor/loom"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Right 9",
+          "label": "+EM",
+          "connections": [
+            "internal indicator common bus/junction",
+            "external right +EM conductor/loom"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "Right 10",
+          "label": "PC CARD right interface pin 10",
+          "connections": [
+            "internal PC CARD wiring",
+            "external right conductor"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "Top row indicator lamps, 5 unlabeled channels",
+          "connections": [
+            "common top bus",
+            "individual channels to right pins 1-5"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "Bottom row indicator lamps, 5 unlabeled channels",
+          "connections": [
+            "common lower bus from left pin 10 / right pin 9 junction",
+            "individual channels from left-side channel wiring"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "switch",
+          "id": "<UNKNOWN>",
+          "label": "BAE / AUX selector switch",
+          "connections": [
+            "BAE contact to left pin 7 junction",
+            "AUX contact to left pin 6 internal channel junction",
+            "common contact/return to left pin 8 junction"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "annotation",
+          "id": "CTB 1-7",
+          "label": "CTB 1 through CTB 7 = QI-POWER-485-300-LV; CTB 7 noted EMERGENCY BAT.",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "annotation",
+          "id": "HVPDU / MAPS",
+          "label": "HVPDU: HIGH VOLTAGE DC LINK; MAPS: MODULAR AUXILARY POWER SYSTEM 600V DC/24V DC; converters protected for over-current and electronically fused",
+          "connections": [],
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "Control terminal strips associated with isolator/relay wiring",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.52,
+        0.43,
+        0.66,
+        0.72
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "terminal_strip",
+          "id": "T/S S",
+          "label": "Terminal strip S, upper section",
+          "connections": [
+            "terminals 4, 5, 6, 7",
+            "left-side conductors/cores 1, 2, 3, 4 respectively",
+            "right side connects to four SW5 channels"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S S-4",
+          "label": "Terminal 4",
+          "connections": [
+            "left conductor/core 1",
+            "SW5 upper channel"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S S-5",
+          "label": "Terminal 5",
+          "connections": [
+            "left conductor/core 2",
+            "SW5 second channel"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S S-6",
+          "label": "Terminal 6",
+          "connections": [
+            "left conductor/core 3",
+            "SW5 third channel"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S S-7",
+          "label": "Terminal 7",
+          "connections": [
+            "left conductor/core 4",
+            "SW5 lower channel"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "switch",
+          "id": "SW5",
+          "label": "Four-channel mechanically linked switch/indicator assembly",
+          "connections": [
+            "channel 1 input from T/S S-4",
+            "channel 2 input from T/S S-5",
+            "channel 3 input from T/S S-6",
+            "channel 4 input from T/S S-7",
+            "four contact right sides connect to common grounded vertical conductor",
+            "four rectangular indicator branches continue on four separate right-side conductors"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal_strip",
+          "id": "T/S S",
+          "label": "Terminal strip S, lower section",
+          "connections": [
+            "terminals 8, 9, 10, 11, 12",
+            "left-side conductors/cores 5, 6, 7, 8, 9 respectively",
+            "right-side conductors continue beyond cropped region"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S S-8",
+          "label": "Terminal 8",
+          "connections": [
+            "left conductor/core 5",
+            "right-side conductor continues upward/right beyond crop"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S S-9",
+          "label": "Terminal 9",
+          "connections": [
+            "left conductor/core 6",
+            "right-side conductor continues beyond crop"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S S-10",
+          "label": "Terminal 10",
+          "connections": [
+            "left conductor/core 7",
+            "right-side conductor continues beyond crop"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S S-11",
+          "label": "Terminal 11",
+          "connections": [
+            "left conductor/core 8",
+            "right-side conductor branches to a vertical conductor and continues right beyond crop"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S S-12",
+          "label": "Terminal 12, marked +",
+          "connections": [
+            "left conductor/core 9",
+            "right-side conductor continues beyond crop",
+            "adjacent branch shown to grounded vertical conductor; exact junction relationship is unclear in crop"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "annotation",
+          "id": "<UNKNOWN>",
+          "label": "Ground/common symbols shown at SW5 common conductor and lower-right vertical conductor",
+          "connections": [
+            "SW5 contact common",
+            "lower-right branch near T/S S-11/12"
+          ],
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "Negative bus and return distribution",
+      "region_type": "topology_network",
+      "bbox": [
+        0.28,
+        0.75,
+        0.7,
+        0.89
+      ],
+      "reader": "oneline",
+      "nodes": [
+        {
+          "node_type": "bus",
+          "id": "<UNKNOWN>",
+          "label": "NEGATIVE BUS",
+          "rating": "230V AC"
+        },
+        {
+          "node_type": "source",
+          "id": "<UNKNOWN>",
+          "label": "230V (=SHIP\u2026; text cropped)",
+          "rating": "230V"
+        },
+        {
+          "node_type": "load",
+          "id": "<UNKNOWN>",
+          "label": "FWD DC PANEL",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "load",
+          "id": "<UNKNOWN>",
+          "label": "AFT DC PANEL",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "load",
+          "id": "<UNKNOWN>",
+          "label": "BILGE PUMP",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "load",
+          "id": "<UNKNOWN>",
+          "label": "FIRE PUMP",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "load",
+          "id": "<UNKNOWN>",
+          "label": "GEN START BAT.",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "load",
+          "id": "<UNKNOWN>",
+          "label": "EMERGENCY BAT.",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "load",
+          "id": "<UNKNOWN>",
+          "label": "AUX SERVICE BAT.",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "source",
+          "id": "<UNKNOWN>",
+          "label": "+24V EMERGENCY POWER",
+          "rating": "24V DC"
+        },
+        {
+          "node_type": "breaker",
+          "id": "QE7",
+          "label": "EMERGENCY BREAKER",
+          "rating": "6A"
+        },
+        {
+          "node_type": "unknown",
+          "id": "T/S E-8",
+          "label": "T/S E terminal 8",
+          "rating": "<UNKNOWN>"
+        }
+      ],
+      "edges": [
+        "230V (=SHIP\u2026; text cropped) -> NEGATIVE BUS",
+        "NEGATIVE BUS -> FWD DC PANEL",
+        "NEGATIVE BUS -> AFT DC PANEL",
+        "NEGATIVE BUS -> BILGE PUMP",
+        "NEGATIVE BUS -> FIRE PUMP",
+        "NEGATIVE BUS -> GEN START BAT.",
+        "NEGATIVE BUS -> EMERGENCY BAT.",
+        "NEGATIVE BUS -> AUX SERVICE BAT.",
+        "+24V EMERGENCY POWER -> QE7 -> T/S E terminal 8"
+      ]
+    }
+  ],
+  "scoped_next": []
+}
