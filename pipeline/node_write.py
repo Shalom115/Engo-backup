@@ -280,16 +280,43 @@ class NodeWriter:
                 node.setdefault("cross_links", []).append({**cl, "source": source})
 
     # ---- PATH 2: a hydraulic function slice ----
-    def write_function_slice(self, slice_obj: Dict[str, Any], source_ref: Dict[str, Any]) -> Dict[str, Any]:
+    # Location hints in parentheses ("UNLABELED VALVE (left of Transom Door)")
+    # are LANDMARKS, not identity — matching on them mis-attached a block-level
+    # relief to the transom-door node (engineer-caught, 2026-07-13).
+    _PAREN_HINT = re.compile(r"\s*\([^)]*\)")
+
+    def write_function_slice(self, slice_obj: Dict[str, Any], source_ref: Dict[str, Any],
+                             *, block_node_id: Optional[str] = None) -> Dict[str, Any]:
         refused = self._revision_refused(source_ref)
         if refused:
             return refused
         label = slice_obj.get("label") or slice_obj.get("function") or ""
         prov = {**source_ref, "authority": source_ref.get("authority", "schematic")}
+        # BLOCK-LEVEL elements (whole-block relief, inlet sections, standalone
+        # aux valves) belong to the MANIFOLD node, never to a function's
+        # equipment. Route them there as flagged block_level_component facts.
+        looks_block_level = bool(slice_obj.get("is_block_level")) or bool(
+            re.match(r"^\s*(UNLABELED|GENERAL|INLET|END)\b", label, re.I))
+        if looks_block_level:
+            if block_node_id and block_node_id in self.by_id:
+                self._attach_fact(block_node_id, "block_level_component",
+                                  {"label": label, "identifier": slice_obj.get("identifier"),
+                                   "detail": slice_obj.get("detail")},
+                                  {**prov, "mapped_via": "block_level"}, "caveat")
+                dec = {"slice": label, "action": "attach", "target": block_node_id,
+                       "via": "block_level", "confidence": "caveat"}
+            else:
+                dec = {"slice": label, "action": "create_flagged", "role": "block_level",
+                       "reason": "block-level element, no block node resolved this run"}
+            self.decisions.append(dec)
+            return dec
+        # match on the label with location hints stripped — landmarks must not
+        # drive identity
+        match_label = self._PAREN_HINT.sub("", label).strip() or label
         # SOURCE-TYPE GATE: the control map is hydraulic-function vocabulary only
         st = source_ref.get("source_type", "schematic")
         if st in _CONTROL_MAP_SOURCE_TYPES:
-            m, mech, score = self._resolve_control(label)
+            m, mech, score = self._resolve_control(match_label)
         else:
             m, mech, score = None, None, 0.0
         if m:
@@ -732,10 +759,12 @@ class NodeWriter:
     # ---- process a whole discovered structure (Path 1 block + Path 2 slices) ----
     def write_structure(self, discovered: Dict[str, Any], source_ref: Dict[str, Any]) -> List[Dict[str, Any]]:
         header = discovered.get("header") or {}
+        block_node_id = None
         if header.get("make_model") or header.get("model"):
-            self.write_block(header, source_ref)
+            bdec = self.write_block(header, source_ref)
+            block_node_id = (bdec or {}).get("target")
         for sl in discovered.get("slices", []):
-            self.write_function_slice(sl, source_ref)
+            self.write_function_slice(sl, source_ref, block_node_id=block_node_id)
         return self.decisions
 
     def flush_confirmation_flags(self) -> int:

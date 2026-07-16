@@ -14358,7 +14358,19 @@
    "confidence": "Confirmed",
    "parent_id": "220-primary-winch-harken-b1235",
    "children": [],
-   "cross_links": [],
+   "cross_links": [
+    {
+     "relation": "third_gear_ls_relief_on",
+     "target": "570-danfoss-pvg-32-aft-blockc",
+     "source": {
+      "source_doc": "engineer red-pen on AFT_blockC bench run",
+      "file": "data/state/redpen_hydraulic_aftblockc_20260713.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-13"
+     }
+    }
+   ],
    "expected_fact_classes": [
     "inventory",
     "manual",
@@ -14752,7 +14764,19 @@
    "confidence": "Confirmed",
    "parent_id": "220-secondary-winch-harken-b1235",
    "children": [],
-   "cross_links": [],
+   "cross_links": [
+    {
+     "relation": "third_gear_ls_relief_on",
+     "target": "570-danfoss-pvg-32-aft-blockc",
+     "source": {
+      "source_doc": "engineer red-pen on AFT_blockC bench run",
+      "file": "data/state/redpen_hydraulic_aftblockc_20260713.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-13"
+     }
+    }
+   ],
    "expected_fact_classes": [
     "inventory",
     "manual",
@@ -15291,6 +15315,30 @@
       "match_score": 1.0,
       "control_map_function": "18",
       "function_no": "18"
+     }
+    },
+    {
+     "kind": "hydraulic_actuation",
+     "value": "EV-10.1 actuation = PVEO (ON/OFF) \u2014 engineer-confirmed 2026-07-13 (Gemini read PVED, wrong; engineer will upload an update on this actuator later).",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen on AFT_blockC bench run",
+      "file": "data/state/redpen_hydraulic_aftblockc_20260713.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-13"
+     }
+    },
+    {
+     "kind": "hydraulic_relief_settings",
+     "value": "125 / 195 bar = the PRESSURE RELIEF VALVES on the A and B work ports, dumping back to tank through the return line (engineer role-confirmation; the 'LS limiter' reading by two vendors was wrong).",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen on AFT_blockC bench run",
+      "file": "data/state/redpen_hydraulic_aftblockc_20260713.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-13"
      }
     }
    ],
@@ -15855,7 +15903,30 @@
    "confidence": "Flagged",
    "parent_id": null,
    "children": [],
-   "cross_links": [],
+   "cross_links": [
+    {
+     "relation": "ls_relief_for_3rd_gear",
+     "target": "220-primary-winch-port",
+     "source": {
+      "source_doc": "engineer red-pen on AFT_blockC bench run",
+      "file": "data/state/redpen_hydraulic_aftblockc_20260713.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-13"
+     }
+    },
+    {
+     "relation": "ls_relief_for_3rd_gear",
+     "target": "220-secondary-winch-port",
+     "source": {
+      "source_doc": "engineer red-pen on AFT_blockC bench run",
+      "file": "data/state/redpen_hydraulic_aftblockc_20260713.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-13"
+     }
+    }
+   ],
    "expected_fact_classes": [
     "manual",
     "schematic",
@@ -15895,6 +15966,30 @@
       "region_code": "500",
       "subsystem_code": "570",
       "authority": "schematic"
+     }
+    },
+    {
+     "kind": "block_level_component",
+     "value": "General pressure relief for the ENTIRE block \u2014 the valve immediately left of the transom-door section (engineer). Protects the whole AFT block C manifold.",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen on AFT_blockC bench run",
+      "file": "data/state/redpen_hydraulic_aftblockc_20260713.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-13"
+     }
+    },
+    {
+     "kind": "block_level_component",
+     "value": "EV-10.6 + EV-10.7 = two pressure relief valves on the LsA of the two winches (primary + secondary port), limiting the 3RD GEAR pressure only (engineer).",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen on AFT_blockC bench run",
+      "file": "data/state/redpen_hydraulic_aftblockc_20260713.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-13"
      }
     }
    ]

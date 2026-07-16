@@ -59,6 +59,12 @@ Report:
     (e.g. proportional vs on/off if printed), neutral (rest position if printed),
     x_left and x_right = approximate horizontal extent normalized 0..1 across the
     sheet width, so the region can be cropped for a high-resolution read.
+  ALSO report elements that are NOT one of the repeated function slices — inlet/
+  end sections, a whole-block pressure relief, standalone auxiliary valves with
+  their own EV/identifier — as entries with is_block_level=true (same fields;
+  label = what is printed, or a plain description if unlabeled). These belong to
+  the BLOCK as a whole, not to any one function; do not skip them and do not
+  force them into a function-slice interpretation.
 - block_capacity_printed: true ONLY if this sheet prints the MANIFOLD's OWN
   overall flow/pressure capacity (a property of the whole block) — as opposed to
   the per-function ratings. If only per-function ratings are shown, set false.
@@ -92,6 +98,7 @@ _SKELETON_TOOL = {
                         "neutral": {"type": "string"},
                         "x_left": {"type": "number"},
                         "x_right": {"type": "number"},
+                        "is_block_level": {"type": "boolean"},
                     },
                     "required": ["label"],
                 },
@@ -125,9 +132,17 @@ Report:
   ROLE is what matters: what it does in the circuit (main directional spool,
   work-port relief, load-holding/counterbalance, pilot-operated check, LS
   pressure limiter, inlet relief, shuttle, orifice...) and WHERE it sits in the
-  flow (pressure line, A/B work port, tank return, LS line). Record the printed
-  part identifier ONLY if clearly legible — do not strain for it; an omitted id
-  with a correct role is a GOOD read.
+  flow (pressure line, A/B work port, tank return, LS line).
+  DERIVE THE ROLE FROM THE DRAWN CONNECTIONS ONLY: trace where the cartridge's
+  inlet comes from and where its outlet line actually goes in THIS crop — an
+  outlet drawn to the tank/return rail makes it a port RELIEF dumping to tank;
+  an element sitting in the load-sense line makes it an LS limiter. Never assign
+  a role from typical manifold architecture or from what similar sections
+  usually contain. State the traced connection in position_in_flow (e.g.
+  "outlet runs to T return rail"). If the connections are not traceable in this
+  crop, say role="unconfirmed — connections not traceable" rather than guessing.
+  Record the printed part identifier ONLY if clearly legible — do not strain
+  for it; an omitted id with a correct role is a GOOD read.
 - flow_scenarios: the oil path through this sub-circuit per scenario, as the
   symbols show it: e.g. "energized A: P->spool->A port, B->tank; load held by
   counterbalance on B" / "neutral: spool open-center, flow to tank" / "relief:
@@ -428,7 +443,21 @@ def discover_structure(
             s["detail"] = {"skipped": "no x-extent from skeleton"}
             continue
         tile = _crop_x(page_hi, float(xl), float(xr))
-        s["detail"] = vp.extract(tile, "image/png", detail_prompt, _DETAIL_TOOL)
+        det = vp.extract(tile, "image/png", detail_prompt, _DETAIL_TOOL)
+        # settings may come back as a single string — normalize to list so
+        # consumers never iterate characters (observed live: exploded chars)
+        if isinstance(det.get("settings"), str):
+            det["settings"] = [det["settings"]]
+        s["detail"] = det
+        # 600-DPI detail beats 200-DPI skeleton: promote fine-print fields the
+        # skeleton can only squint at (a PVEO/PVED one-letter misread lived at
+        # skeleton resolution — engineer-confirmed PVEO, 2026-07-13)
+        for fld in ("actuation", "rating", "neutral"):
+            v = det.get(fld)
+            if v and str(v).strip() and "UNKNOWN" not in str(v).upper():
+                if s.get(fld) != v:
+                    s[f"{fld}_skeleton"] = s.get(fld)
+                    s[fld] = v
         detail_calls += 1
     result["passes"]["detail_dpi"] = detail_dpi
     result["passes"]["detail_calls"] = detail_calls

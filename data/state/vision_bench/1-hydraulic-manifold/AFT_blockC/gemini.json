@@ -1,0 +1,416 @@
+{
+  "header": {
+    "make_model": "DANFOSS PVG 32",
+    "title": "AFT BLOCK C: DANFOSS PVG 32 - 5 FUNCTIONS / HYDRAULIC SYSTEM",
+    "revision": "10",
+    "sheet": "8 of 12"
+  },
+  "rails": [
+    "M",
+    "LS",
+    "T",
+    "P"
+  ],
+  "block_capacity_printed": false,
+  "notes": "Small cartridge part numbers (e.g., 157B... and 1116...) inside the schematic blocks are mostly illegible at this resolution. Handwritten red text noting specific pressure checks (e.g., 45 bar in opening, 170 in closing) near EV-10.1 and EV-10.2, as well as red adjustment instructions on the right side, require high-resolution review.",
+  "slices": [
+    {
+      "label": "TRANSOM DOOR",
+      "identifier": "EV-10.1",
+      "rating": "spool 25 lt/min",
+      "actuation": "PVED - ON/OFF",
+      "neutral": "open neutral position",
+      "x_left": 0.24,
+      "x_right": 0.35,
+      "detail": {
+        "function": "TRANSOM DOOR",
+        "rating": "25 lt/min",
+        "actuation": "PVEO - ON/OFF solenoid",
+        "neutral": "open neutral position",
+        "cartridges": [
+          {
+            "role": "main directional spool",
+            "position_in_flow": "between P/T lines and A/B ports",
+            "id": "157B7121"
+          },
+          {
+            "role": "shock and anti-cavitation valve",
+            "position_in_flow": "port A to T",
+            "setting": "125"
+          },
+          {
+            "role": "shock and anti-cavitation valve",
+            "position_in_flow": "port B to T",
+            "setting": "195"
+          },
+          {
+            "role": "load drop check valve",
+            "position_in_flow": "P line before main spool"
+          },
+          {
+            "role": "2-way solenoid valve",
+            "position_in_flow": "between pilot line and tank",
+            "id": "11166838"
+          }
+        ],
+        "flow_scenarios": [
+          "neutral: P is blocked, A and B are connected to T",
+          "CLOSE=A: P connects to A, B connects to T",
+          "OPEN=B: P connects to B, A connects to T",
+          "overpressure on A: shock valve opens to T at 125",
+          "overpressure on B: shock valve opens to T at 195"
+        ],
+        "settings": [
+          "Shock A: 125",
+          "Shock B: 195",
+          "Commissioning check: 45 bar in opening, 170 bar in closing"
+        ],
+        "ports": [
+          "A: CLOSE, connects to block 157B6203",
+          "B: OPEN, connects to block 157B6203",
+          "P: Pressure",
+          "T: Tank",
+          "LSA, LSB: Load Sense"
+        ],
+        "illegible": [],
+        "_model": "gemini-3.1-pro-preview"
+      }
+    },
+    {
+      "label": "DECK DOOR",
+      "identifier": "EV-10.2",
+      "rating": "spool 5 lt/min",
+      "actuation": "PVED - ON/OFF",
+      "neutral": "open neutral position",
+      "x_left": 0.35,
+      "x_right": 0.46,
+      "detail": {
+        "function": "DECK DOOR (EV-10.2)",
+        "rating": "5 lt/min",
+        "actuation": "Electro-hydraulic ON/OFF (PVEO)",
+        "neutral": "Open neutral position (A and B connected to Tank)",
+        "cartridges": [
+          {
+            "role": "Pilot solenoid valve block",
+            "position_in_flow": "Between pilot supply and main spool actuation chambers",
+            "id": "11166838"
+          },
+          {
+            "role": "Main directional spool",
+            "position_in_flow": "Between P/T lines and A/B work ports",
+            "id": "157B7125"
+          },
+          {
+            "role": "Pressure compensator",
+            "position_in_flow": "P line upstream of main spool"
+          },
+          {
+            "role": "Work port top module",
+            "position_in_flow": "Work ports A and B",
+            "id": "157B6203"
+          }
+        ],
+        "flow_scenarios": [
+          "Neutral: Main spool in center position; ports A and B are open to the tank return line.",
+          "OPEN (Energize B): Pilot valve shifts main spool, directing pump flow from P to port B, while port A returns flow to tank.",
+          "CLOSE (Energize A): Pilot valve shifts main spool, directing pump flow from P to port A, while port B returns flow to tank."
+        ],
+        "settings": [
+          "175 bar in opening",
+          "175 bar in closing"
+        ],
+        "ports": [
+          "A (CLOSE)",
+          "B (OPEN)"
+        ],
+        "illegible": [
+          "Small text labels directly adjacent to the pilot solenoid symbols"
+        ],
+        "_model": "gemini-3.1-pro-preview"
+      }
+    },
+    {
+      "label": "MAINSHEET TRAVELER",
+      "identifier": "EV-10.3",
+      "rating": "spool 25 lt/min",
+      "actuation": "PVED - ON/OFF",
+      "neutral": "closed neutral position",
+      "x_left": 0.46,
+      "x_right": 0.57,
+      "detail": {
+        "function": "MAINSHEET TRAVELER EV-10.3",
+        "rating": "25 lt/min",
+        "actuation": "ON/OFF (PVEO)",
+        "neutral": "closed",
+        "cartridges": [
+          {
+            "role": "Pilot actuation module",
+            "position_in_flow": "Pilot section controlling main spool",
+            "id": "11166838"
+          },
+          {
+            "role": "Main directional control spool",
+            "position_in_flow": "Between pressure/tank galleries and A/B work ports",
+            "id": "157B7121"
+          },
+          {
+            "role": "Pressure compensator",
+            "position_in_flow": "Between pressure gallery and main spool inlet"
+          }
+        ],
+        "flow_scenarios": [
+          "neutral: Main spool is closed, blocking pressure (P) and work ports (A, B).",
+          "actuated to A: Solenoid shifts main spool, directing flow from P through the compensator to port A (TO PORT), and return flow from port B (TO STBD) to T.",
+          "actuated to B: Solenoid shifts main spool, directing flow from P through the compensator to port B (TO STBD), and return flow from port A (TO PORT) to T."
+        ],
+        "settings": [
+          "260 bar (LSA adjustment annotation)",
+          "225 bar (adjustment annotation, increased from 150 bar)"
+        ],
+        "ports": [
+          "A (TO PORT)",
+          "B (TO STBD)"
+        ],
+        "illegible": [
+          "Red text at the bottom is partially cut off at the right edge."
+        ],
+        "_model": "gemini-3.1-pro-preview"
+      }
+    },
+    {
+      "label": "SECONDARY WINCH PORT",
+      "identifier": "EV-10.4",
+      "rating": "spool 40 lt/min",
+      "actuation": "PVED - ON/OFF",
+      "neutral": "open neutral position",
+      "x_left": 0.57,
+      "x_right": 0.68,
+      "detail": {
+        "function": "SECONDARY WINCH PORT (EV-10.4)",
+        "rating": "40 lt/min",
+        "actuation": "ON/OFF (PVEO)",
+        "neutral": "open neutral position",
+        "cartridges": [
+          {
+            "role": "main directional spool",
+            "position_in_flow": "between P/T and A/B ports",
+            "id": "157B7126"
+          },
+          {
+            "role": "solenoid actuator module",
+            "position_in_flow": "pilot control for main spool",
+            "id": "11166832"
+          },
+          {
+            "role": "port relief and anti-cavitation valve",
+            "position_in_flow": "port A",
+            "id": "LSA",
+            "setting": "260 bar"
+          },
+          {
+            "role": "port relief and anti-cavitation valve",
+            "position_in_flow": "port B",
+            "id": "LSB",
+            "setting": "240 bar"
+          },
+          {
+            "role": "pressure compensator",
+            "position_in_flow": "P line upstream of main spool"
+          }
+        ],
+        "flow_scenarios": [
+          "neutral: spool in center position, A and B ports are connected to tank (open neutral)",
+          "energized A: spool shifts, P connects to A, B connects to tank",
+          "energized B: spool shifts, P connects to B, A connects to tank",
+          "port A overload: relief valve opens A to tank if pressure exceeds 260 bar",
+          "port B overload: relief valve opens B to tank if pressure exceeds 240 bar"
+        ],
+        "settings": [
+          "Spool rating: 40 lt/min",
+          "LSA (port A relief): 260 bar",
+          "LSB (port B relief): 240 bar"
+        ],
+        "ports": [
+          "A (top right, runs off-sheet to secondary winch)",
+          "B (top left, runs off-sheet to secondary winch)"
+        ],
+        "illegible": [
+          "Complete text of the red notes describing pressure setting adjustments"
+        ],
+        "_model": "gemini-3.1-pro-preview"
+      }
+    },
+    {
+      "label": "PRIMARY WINCH PORT",
+      "identifier": "EV-10.5",
+      "rating": "spool 65 lt/min",
+      "actuation": "PVED - ON/OFF",
+      "neutral": "open neutral position",
+      "x_left": 0.68,
+      "x_right": 0.8,
+      "detail": {
+        "function": "PRIMARY WINCH PORT",
+        "rating": "spool 65 lt/min",
+        "actuation": "PVEO - ON/OFF (Electrohydraulic)",
+        "neutral": "open neutral position",
+        "cartridges": [
+          {
+            "role": "Electrohydraulic pilot actuator module",
+            "position_in_flow": "Top of main spool / Pilot lines",
+            "id": "11166832 (EV-10.5)"
+          },
+          {
+            "role": "Main directional spool (3-position, 4-way) with integral pressure compensator",
+            "position_in_flow": "Between main P/T lines and A/B work lines",
+            "id": "157B7126"
+          },
+          {
+            "role": "Shock and anti-cavitation valve",
+            "position_in_flow": "Right work line (Port B) to Tank line",
+            "setting": "260 bar"
+          },
+          {
+            "role": "Normally closed solenoid shut-off/holding valve",
+            "position_in_flow": "Bottom left work line (A 1/4\"G)",
+            "id": "EV-10.6"
+          },
+          {
+            "role": "Port relief valve",
+            "position_in_flow": "Bottom left work line (A 1/4\"G) - relieves port side to spool side",
+            "setting": "225 bar"
+          }
+        ],
+        "flow_scenarios": [
+          "Neutral: Main spool in center position; P, A, and B ports are connected to Tank (open neutral).",
+          "Actuation A: Spool shifts to parallel envelope; flow travels from main P line to Port A (top and bottom), return flow from Port B goes to Tank.",
+          "Actuation B: Spool shifts to crossed envelope; flow travels from main P line to Port B (top and bottom), return flow from Port A goes to Tank.",
+          "Shock/Suction B: If pressure on Port B line exceeds 260 bar, the shock valve opens to vent excess pressure to the Tank line.",
+          "Bottom Port A Holding: When EV-10.6 solenoid is de-energized, the 2-way valve blocks flow to/from bottom Port A 1/4\"G.",
+          "Bottom Port A Relief: If pressure at the blocked bottom Port A 1/4\"G exceeds 225 bar, the relief valve opens to vent pressure back to the spool line."
+        ],
+        "settings": [
+          "260 bar",
+          "225 bar"
+        ],
+        "ports": [
+          "Top Port A",
+          "Top Port B",
+          "Bottom Port A 1/4\"G",
+          "Bottom Port B 1/4\"G"
+        ],
+        "illegible": [
+          "Small part number on the compensator section immediately left of the main spool"
+        ],
+        "_model": "gemini-3.1-pro-preview"
+      }
+    }
+  ],
+  "legends": [
+    {
+      "kind": "other_table",
+      "bbox": [
+        0.0094,
+        0.6865,
+        0.2721,
+        0.8878
+      ],
+      "content": {
+        "entries": [
+          {
+            "label": "10 | 16/04/2026 | PT | PC | PROPORTIONAL AFT WINCHES"
+          },
+          {
+            "label": "9 | 25/09/2023 | PT | PC | PRESSURE ADJUSTEMENT"
+          },
+          {
+            "label": "8 | 29/08/2023 | PT | PC | PRESSURE AFTER COMMISSIONING"
+          },
+          {
+            "label": "7 | 25/07/2023 | PT | -- | TENDER WINCH SPOOL"
+          },
+          {
+            "label": "6 | 12/06/2023 | PT | -- | CAPTIVE WINCH AND TENSIONER BLOCKS HARKEN"
+          },
+          {
+            "label": "5 | 29/05/2023 | PT | -- | DOORS OVERCENTER PRES., FORESTAY MAN. VALVE"
+          },
+          {
+            "label": "4 | 28/04/2023 | PT | -- | PITCH PROPELLER SYS. SUCTION AND RETURN LINE"
+          },
+          {
+            "label": "3 | 13/12/2022 | PT | -- | ADD. T AFT MAST SAILING, DECK DOOR 2nd LINE"
+          },
+          {
+            "label": "2 | 11/11/2022 | PT | PR | SAILING MAN., PRESSURE SENSORS, PVG UPDATE"
+          },
+          {
+            "label": "1 | 07/10/2022 | PR | PT | BACKUP P.PACK, CAPTIVE & EV NUM., WINDLASS"
+          },
+          {
+            "label": "0 | 27/07/2022 | PT | PR | FIRST ISSUE"
+          },
+          {
+            "label": "REV | DATE | DRAWN | CHECKED | MODIFICATIONS"
+          }
+        ],
+        "_model": "gemini-3.1-pro-preview"
+      }
+    }
+  ],
+  "legend_context": "THIS SHEET'S OWN LEGENDS AND TABLES (read first; these definitions are AUTHORITATIVE for this sheet and override any generic symbol/line convention):\n- [other_table] other_table:\n    * 10 | 16/04/2026 | PT | PC | PROPORTIONAL AFT WINCHES\n    * 9 | 25/09/2023 | PT | PC | PRESSURE ADJUSTEMENT\n    * 8 | 29/08/2023 | PT | PC | PRESSURE AFTER COMMISSIONING\n    * 7 | 25/07/2023 | PT | -- | TENDER WINCH SPOOL\n    * 6 | 12/06/2023 | PT | -- | CAPTIVE WINCH AND TENSIONER BLOCKS HARKEN\n    * 5 | 29/05/2023 | PT | -- | DOORS OVERCENTER PRES., FORESTAY MAN. VALVE\n    * 4 | 28/04/2023 | PT | -- | PITCH PROPELLER SYS. SUCTION AND RETURN LINE\n    * 3 | 13/12/2022 | PT | -- | ADD. T AFT MAST SAILING, DECK DOOR 2nd LINE\n    * 2 | 11/11/2022 | PT | PR | SAILING MAN., PRESSURE SENSORS, PVG UPDATE\n    * 1 | 07/10/2022 | PR | PT | BACKUP P.PACK, CAPTIVE & EV NUM., WINDLASS\n    * 0 | 27/07/2022 | PT | PR | FIRST ISSUE\n    * REV | DATE | DRAWN | CHECKED | MODIFICATIONS",
+  "passes": {
+    "skeleton_dpi": 200,
+    "detail_dpi": 600,
+    "slices_found": 5,
+    "detail_calls": 5
+  },
+  "model": "gemini-3.1-pro-preview",
+  "_node_routing": [
+    {
+      "block": "DANFOSS PVG 32",
+      "action": "attach",
+      "target": "570-danfoss-pvg-32-aft-blockc",
+      "confidence": 1.0
+    },
+    {
+      "slice": "TRANSOM DOOR",
+      "action": "attach",
+      "target": "260-transom-door",
+      "via": "control_map",
+      "mechanism": "exact",
+      "confidence": "high"
+    },
+    {
+      "slice": "DECK DOOR",
+      "action": "attach",
+      "target": "260-deck-door",
+      "via": "control_map",
+      "mechanism": "exact",
+      "confidence": "high"
+    },
+    {
+      "slice": "MAINSHEET TRAVELER",
+      "action": "attach",
+      "target": "840-cariboni-hydraulic-cylinders",
+      "via": "control_map",
+      "mechanism": "exact_containment",
+      "confidence": "high"
+    },
+    {
+      "slice": "SECONDARY WINCH PORT",
+      "action": "attach",
+      "target": "220-secondary-winch-port",
+      "via": "control_map",
+      "mechanism": "exact",
+      "confidence": "high"
+    },
+    {
+      "slice": "PRIMARY WINCH PORT",
+      "action": "attach",
+      "target": "220-primary-winch-port",
+      "via": "control_map",
+      "mechanism": "exact",
+      "confidence": "high"
+    }
+  ]
+}
