@@ -1,7 +1,7 @@
 {
   "header": {
     "make_model": "DANFOSS PVG 32",
-    "title": "AFT BLOCK C: DANFOSS PVG 32 - 5 FUNCTIONS / HYDRAULIC SYSTEM",
+    "title": "HYDRAULIC SYSTEM",
     "revision": "10",
     "sheet": "8 of 12"
   },
@@ -12,307 +12,524 @@
     "P"
   ],
   "block_capacity_printed": false,
-  "notes": "Small cartridge part numbers (e.g., 157B... and 1116...) inside the schematic blocks are mostly illegible at this resolution. Handwritten red text noting specific pressure checks (e.g., 45 bar in opening, 170 in closing) near EV-10.1 and EV-10.2, as well as red adjustment instructions on the right side, require high-resolution review.",
+  "notes": "There are several red handwritten notes modifying pressure settings and providing instructions (e.g. 'pressure to be checked', 'Increase the pressure setting on LSAs...'). Small print part numbers on the cartridge symbols are mostly illegible at this resolution.",
   "slices": [
+    {
+      "label": "Inlet Section",
+      "is_block_level": true,
+      "detail": {
+        "skipped": "no x-extent from skeleton"
+      }
+    },
     {
       "label": "TRANSOM DOOR",
       "identifier": "EV-10.1",
       "rating": "spool 25 lt/min",
-      "actuation": "PVED - ON/OFF",
-      "neutral": "open neutral position",
+      "actuation": "PVEO - ON/OFF (electro-hydraulic with manual override)",
+      "neutral": "open neutral position (A and B connected to T, P blocked)",
       "x_left": 0.24,
-      "x_right": 0.35,
+      "x_right": 0.36,
+      "is_block_level": false,
       "detail": {
-        "function": "TRANSOM DOOR",
-        "rating": "25 lt/min",
-        "actuation": "PVEO - ON/OFF solenoid",
-        "neutral": "open neutral position",
+        "function": "TRANSOM DOOR (PVG 32 MODULE, EV-10.1)",
+        "rating": "spool 25 lt/min",
+        "actuation": "PVEO - ON/OFF (electro-hydraulic with manual override)",
+        "neutral": "open neutral position (A and B connected to T, P blocked)",
         "cartridges": [
           {
-            "role": "main directional spool",
-            "position_in_flow": "between P/T lines and A/B ports",
-            "id": "157B7121"
+            "role": "Main directional spool (4-way, 3-position)",
+            "position_in_flow": "Between pressure (P), tank (T) rails and work ports A, B",
+            "id": "157B7121",
+            "setting": "25 lt/min"
           },
           {
-            "role": "shock and anti-cavitation valve",
-            "position_in_flow": "port A to T",
+            "role": "Local pressure compensator (hydrostat)",
+            "position_in_flow": "In the P line, upstream of the main directional spool",
+            "id": "unlabeled"
+          },
+          {
+            "role": "Dual pilot-operated check valve (load holding)",
+            "position_in_flow": "In series on A and B lines between the directional valve and the physical work ports",
+            "id": "11166838"
+          },
+          {
+            "role": "Shock and anti-cavitation valve (Port A)",
+            "position_in_flow": "Connected between Port A line and T (tank return) line",
+            "id": "unlabeled",
             "setting": "125"
           },
           {
-            "role": "shock and anti-cavitation valve",
-            "position_in_flow": "port B to T",
+            "role": "Shock and anti-cavitation valve (Port B)",
+            "position_in_flow": "Connected between Port B line and T (tank return) line",
+            "id": "unlabeled",
             "setting": "195"
           },
           {
-            "role": "load drop check valve",
-            "position_in_flow": "P line before main spool"
-          },
-          {
-            "role": "2-way solenoid valve",
-            "position_in_flow": "between pilot line and tank",
-            "id": "11166838"
+            "role": "LS shuttle valve",
+            "position_in_flow": "Taps pressure from A or B line (whichever is higher) and sends it to the load-sense (LS) rail",
+            "id": "unlabeled"
           }
         ],
         "flow_scenarios": [
-          "neutral: P is blocked, A and B are connected to T",
-          "CLOSE=A: P connects to A, B connects to T",
-          "OPEN=B: P connects to B, A connects to T",
-          "overpressure on A: shock valve opens to T at 125",
-          "overpressure on B: shock valve opens to T at 195"
+          "Neutral: Main spool centers; P is blocked by the compensator; A and B lines are vented to T; load is held by the dual pilot-operated check valves.",
+          "Actuation CLOSE (Port A): Main spool shifts; flow travels P -> compensator -> spool -> Port A line -> PO check valve -> Port A out. Pressure on A line pilots open the Port B check valve, allowing return flow from Port B -> spool -> T rail.",
+          "Actuation OPEN (Port B): Main spool shifts; flow travels P -> compensator -> spool -> Port B line -> PO check valve -> Port B out. Pressure on B line pilots open the Port A check valve, allowing return flow from Port A -> spool -> T rail.",
+          "Shock/Relief: If external forces cause pressure to spike above 125 bar on A or 195 bar on B while neutral, the respective shock valve opens to vent excess pressure to the T line, while parallel check valves open from T to prevent cavitation."
         ],
         "settings": [
-          "Shock A: 125",
-          "Shock B: 195",
-          "Commissioning check: 45 bar in opening, 170 bar in closing"
+          "125 (bar, Port A shock valve)",
+          "195 (bar, Port B shock valve)",
+          "45 bar in opening (measured pressure note)",
+          "170 bar in closing (measured pressure note)"
         ],
         "ports": [
-          "A: CLOSE, connects to block 157B6203",
-          "B: OPEN, connects to block 157B6203",
-          "P: Pressure",
-          "T: Tank",
-          "LSA, LSB: Load Sense"
+          "A (CLOSE, connects off-sheet to transom door actuator)",
+          "B (OPEN, connects off-sheet to transom door actuator)",
+          "P (Pressure rail)",
+          "T (Tank/Return rail)",
+          "LS_A / LS_B (Load sense rails)"
         ],
         "illegible": [],
         "_model": "gemini-3.1-pro-preview"
-      }
+      },
+      "actuation_skeleton": "ON/OFF",
+      "rating_skeleton": "25 lt/min",
+      "neutral_skeleton": "open neutral position"
     },
     {
       "label": "DECK DOOR",
       "identifier": "EV-10.2",
-      "rating": "spool 5 lt/min",
-      "actuation": "PVED - ON/OFF",
+      "rating": "5 lt/min",
+      "actuation": "PVEO - ON/OFF",
       "neutral": "open neutral position",
-      "x_left": 0.35,
-      "x_right": 0.46,
+      "x_left": 0.36,
+      "x_right": 0.47,
+      "is_block_level": false,
       "detail": {
         "function": "DECK DOOR (EV-10.2)",
         "rating": "5 lt/min",
-        "actuation": "Electro-hydraulic ON/OFF (PVEO)",
-        "neutral": "Open neutral position (A and B connected to Tank)",
+        "actuation": "PVEO - ON/OFF",
+        "neutral": "open neutral position",
         "cartridges": [
           {
-            "role": "Pilot solenoid valve block",
-            "position_in_flow": "Between pilot supply and main spool actuation chambers",
+            "role": "Dual pilot-operated check valve",
+            "position_in_flow": "Inline between main spool and A/B work ports",
             "id": "11166838"
           },
           {
             "role": "Main directional spool",
-            "position_in_flow": "Between P/T lines and A/B work ports",
+            "position_in_flow": "Between main pressure/return rails and A/B work ports",
             "id": "157B7125"
           },
           {
-            "role": "Pressure compensator",
-            "position_in_flow": "P line upstream of main spool"
+            "role": "Work-port relief and anti-cavitation valve",
+            "position_in_flow": "Between B work port line and tank return rail",
+            "setting": "135"
           },
           {
-            "role": "Work port top module",
-            "position_in_flow": "Work ports A and B",
-            "id": "157B6203"
+            "role": "Work-port relief and anti-cavitation valve",
+            "position_in_flow": "Between A work port line and tank return rail",
+            "setting": "135"
+          },
+          {
+            "role": "Pressure compensator",
+            "position_in_flow": "In pressure line upstream of the main directional spool"
           }
         ],
         "flow_scenarios": [
-          "Neutral: Main spool in center position; ports A and B are open to the tank return line.",
-          "OPEN (Energize B): Pilot valve shifts main spool, directing pump flow from P to port B, while port A returns flow to tank.",
-          "CLOSE (Energize A): Pilot valve shifts main spool, directing pump flow from P to port A, while port B returns flow to tank."
+          "Neutral: Main spool in open center position connects A and B lines to tank; load is held securely by the dual pilot-operated check valves.",
+          "Actuation A (CLOSE): Flow travels from P rail through compensator and spool to A port; pressure lifts the PO check on A and pilots open the PO check on B; return flow from B routes through the spool to the T rail.",
+          "Actuation B (OPEN): Flow travels from P rail through compensator and spool to B port; pressure lifts the PO check on B and pilots open the PO check on A; return flow from A routes through the spool to the T rail.",
+          "Relief: Excessive pressure on A or B work port lines overcomes the respective port relief valve spring (set to 135), dumping fluid directly to the tank rail."
         ],
         "settings": [
-          "175 bar in opening",
-          "175 bar in closing"
+          "135 (Port relief valves base setting)",
+          "175 bar (Red note: 'pressure to be checked: 175 bar in opening and 175 bar in closing')"
         ],
         "ports": [
-          "A (CLOSE)",
-          "B (OPEN)"
+          "A (CLOSE) - runs off-sheet upward",
+          "B (OPEN) - runs off-sheet upward"
         ],
-        "illegible": [
-          "Small text labels directly adjacent to the pilot solenoid symbols"
-        ],
+        "illegible": [],
         "_model": "gemini-3.1-pro-preview"
-      }
+      },
+      "actuation_skeleton": "ON/OFF"
     },
     {
       "label": "MAINSHEET TRAVELER",
       "identifier": "EV-10.3",
-      "rating": "spool 25 lt/min",
-      "actuation": "PVED - ON/OFF",
+      "rating": "25 lt/min",
+      "actuation": "PVEO - ON/OFF (solenoid operated pilot with manual override and spring return)",
       "neutral": "closed neutral position",
-      "x_left": 0.46,
-      "x_right": 0.57,
+      "x_left": 0.47,
+      "x_right": 0.58,
+      "is_block_level": false,
       "detail": {
-        "function": "MAINSHEET TRAVELER EV-10.3",
+        "function": "MAINSHEET TRAVELER (EV-10.3)",
         "rating": "25 lt/min",
-        "actuation": "ON/OFF (PVEO)",
-        "neutral": "closed",
+        "actuation": "PVEO - ON/OFF (solenoid operated pilot with manual override and spring return)",
+        "neutral": "closed neutral position",
         "cartridges": [
           {
-            "role": "Pilot actuation module",
-            "position_in_flow": "Pilot section controlling main spool",
-            "id": "11166838"
+            "role": "solenoid pilot actuation module",
+            "position_in_flow": "controls pilot pressure from internal galleries to shift the main spool",
+            "id": "11166838",
+            "setting": "ON/OFF"
           },
           {
-            "role": "Main directional control spool",
-            "position_in_flow": "Between pressure/tank galleries and A/B work ports",
-            "id": "157B7121"
+            "role": "main directional spool (4/3 closed center)",
+            "position_in_flow": "directs flow between P, T, and work ports A, B based on pilot signal",
+            "id": "157B7121",
+            "setting": "25 lt/min"
           },
           {
-            "role": "Pressure compensator",
-            "position_in_flow": "Between pressure gallery and main spool inlet"
+            "role": "pressure compensator / load drop check valve",
+            "position_in_flow": "P line upstream of the main directional spool"
+          },
+          {
+            "role": "shock and anti-cavitation valve (port A)",
+            "position_in_flow": "between work port A and T return rail",
+            "setting": "135"
+          },
+          {
+            "role": "shock and anti-cavitation valve (port B)",
+            "position_in_flow": "between work port B and T return rail",
+            "setting": "240"
           }
         ],
         "flow_scenarios": [
-          "neutral: Main spool is closed, blocking pressure (P) and work ports (A, B).",
-          "actuated to A: Solenoid shifts main spool, directing flow from P through the compensator to port A (TO PORT), and return flow from port B (TO STBD) to T.",
-          "actuated to B: Solenoid shifts main spool, directing flow from P through the compensator to port B (TO STBD), and return flow from port A (TO PORT) to T."
+          "neutral: main spool is spring-centered, blocking P, T, A, and B ports; LS line is drained to T",
+          "energized A: pilot shifts spool, P flows through compensator to port A; return flow from port B goes to T rail",
+          "energized B: pilot shifts spool, P flows through compensator to port B; return flow from port A goes to T rail",
+          "shock A: overpressure on port A opens the port relief valve to dump fluid directly to the T rail at 135 bar; anti-cavitation check valve draws from T if port A goes negative",
+          "shock B: overpressure on port B opens the port relief valve to dump fluid directly to the T rail at 240 bar; anti-cavitation check valve draws from T if port B goes negative"
         ],
         "settings": [
-          "260 bar (LSA adjustment annotation)",
-          "225 bar (adjustment annotation, increased from 150 bar)"
+          "Spool flow rating: 25 lt/min",
+          "Port A shock valve: 135",
+          "Port B shock valve: 240",
+          "LSA adjustment instructions: Increase pressure setting from 150 bar to 260 bar by turning allen key clockwise quarter turn",
+          "ON/OFF pressure adjustment instructions: Increase pressure setting from 150 bar to 225 bar by turning clockwise by one turn"
         ],
         "ports": [
-          "A (TO PORT)",
-          "B (TO STBD)"
+          "A: off-sheet TO PORT side",
+          "B: off-sheet TO STBD side"
         ],
         "illegible": [
-          "Red text at the bottom is partially cut off at the right edge."
+          "Left edge of the red instructional text at the very bottom is cut off, partially obscuring the first few letters of each line."
         ],
         "_model": "gemini-3.1-pro-preview"
-      }
+      },
+      "actuation_skeleton": "ON/OFF"
     },
     {
       "label": "SECONDARY WINCH PORT",
       "identifier": "EV-10.4",
-      "rating": "spool 40 lt/min",
-      "actuation": "PVED - ON/OFF",
-      "neutral": "open neutral position",
-      "x_left": 0.57,
-      "x_right": 0.68,
+      "rating": "40 lt/min",
+      "actuation": "PVED - ON/OFF, open neutral position",
+      "neutral": "Main spool centered, A and B ports open to tank (open neutral position)",
+      "x_left": 0.58,
+      "x_right": 0.69,
+      "is_block_level": false,
       "detail": {
         "function": "SECONDARY WINCH PORT (EV-10.4)",
         "rating": "40 lt/min",
-        "actuation": "ON/OFF (PVEO)",
-        "neutral": "open neutral position",
+        "actuation": "PVED - ON/OFF, open neutral position",
+        "neutral": "Main spool centered, A and B ports open to tank (open neutral position)",
         "cartridges": [
           {
-            "role": "main directional spool",
-            "position_in_flow": "between P/T and A/B ports",
-            "id": "157B7126"
-          },
-          {
-            "role": "solenoid actuator module",
-            "position_in_flow": "pilot control for main spool",
+            "role": "Electrical actuator module (PVED)",
+            "position_in_flow": "Mounted on main directional spool",
             "id": "11166832"
           },
           {
-            "role": "port relief and anti-cavitation valve",
-            "position_in_flow": "port A",
-            "id": "LSA",
+            "role": "Main directional spool valve, 4-way, 3-position",
+            "position_in_flow": "Between main P/T rails and work ports A (red line) / B (blue line)",
+            "id": "157B7126"
+          },
+          {
+            "role": "Work port relief and anti-cavitation valve",
+            "position_in_flow": "Between work port B (blue line) and Tank rail (cyan line)",
             "setting": "260 bar"
           },
           {
-            "role": "port relief and anti-cavitation valve",
-            "position_in_flow": "port B",
-            "id": "LSB",
-            "setting": "240 bar"
+            "role": "Work port relief and anti-cavitation valve",
+            "position_in_flow": "Between work port A (red line) and Tank rail (cyan line)",
+            "setting": "260 bar (or 225 bar per red note)"
           },
           {
-            "role": "pressure compensator",
-            "position_in_flow": "P line upstream of main spool"
+            "role": "Normally closed 2/2 solenoid valve",
+            "position_in_flow": "Between port A 1/4\"G and the inline 225 bar relief valve"
+          },
+          {
+            "role": "Relief valve",
+            "position_in_flow": "Receives flow from the external 2/2 solenoid valve and discharges to port B 1/4\"G",
+            "setting": "225 bar"
           }
         ],
         "flow_scenarios": [
-          "neutral: spool in center position, A and B ports are connected to tank (open neutral)",
-          "energized A: spool shifts, P connects to A, B connects to tank",
-          "energized B: spool shifts, P connects to B, A connects to tank",
-          "port A overload: relief valve opens A to tank if pressure exceeds 260 bar",
-          "port B overload: relief valve opens B to tank if pressure exceeds 240 bar"
+          "Neutral: Main spool is centered, blocking P (or routing per LS logic) and opening work ports A and B to Tank (open neutral).",
+          "Actuation A: Spool shifts connecting P to work port A (red line); work port B (blue line) returns to Tank.",
+          "Actuation B: Spool shifts connecting P to work port B (blue line); work port A (red line) returns to Tank.",
+          "Work port A overpressure: If pressure in port A exceeds its setting, the corresponding port relief valve opens, dumping fluid to the Tank rail (cyan).",
+          "Work port B overpressure: If pressure in port B exceeds 260 bar, its port relief valve opens, dumping fluid to the Tank rail (cyan).",
+          "External bypass / cross-port relief: When the external 2/2 solenoid valve is energized, fluid from port A 1/4\"G can relieve to port B 1/4\"G if pressure exceeds 225 bar."
         ],
         "settings": [
-          "Spool rating: 40 lt/min",
-          "LSA (port A relief): 260 bar",
-          "LSB (port B relief): 240 bar"
+          "40 lt/min (spool nominal flow)",
+          "260 bar (Port B relief setting)",
+          "260 bar / 225 bar (Port A relief setting depending on note interpretation)",
+          "225 bar (External ON/OFF relief valve setting)"
         ],
         "ports": [
-          "A (top right, runs off-sheet to secondary winch)",
-          "B (top left, runs off-sheet to secondary winch)"
+          "A (Main work port, red line)",
+          "B (Main work port, blue line)",
+          "A 1/4\"G (External connection)",
+          "B 1/4\"G (External connection)"
         ],
         "illegible": [
-          "Complete text of the red notes describing pressure setting adjustments"
+          "The exact end phrasing of the red note starting 'Setting on LSAs from 225 bar... e allen key clockwise by a'",
+          "The exact starting word in the red note 'tting on ON/OFF relief valve...'"
         ],
         "_model": "gemini-3.1-pro-preview"
-      }
+      },
+      "actuation_skeleton": "ON/OFF",
+      "neutral_skeleton": "open neutral position"
     },
     {
       "label": "PRIMARY WINCH PORT",
       "identifier": "EV-10.5",
       "rating": "spool 65 lt/min",
-      "actuation": "PVED - ON/OFF",
+      "actuation": "PVEO - ON/OFF",
       "neutral": "open neutral position",
-      "x_left": 0.68,
-      "x_right": 0.8,
+      "x_left": 0.69,
+      "x_right": 0.84,
+      "is_block_level": false,
       "detail": {
         "function": "PRIMARY WINCH PORT",
         "rating": "spool 65 lt/min",
-        "actuation": "PVEO - ON/OFF (Electrohydraulic)",
+        "actuation": "PVEO - ON/OFF",
         "neutral": "open neutral position",
         "cartridges": [
           {
-            "role": "Electrohydraulic pilot actuator module",
-            "position_in_flow": "Top of main spool / Pilot lines",
-            "id": "11166832 (EV-10.5)"
+            "role": "electrohydraulic actuator module (PVE) / pilot head",
+            "position_in_flow": "mounted on top of main spool, piloting it",
+            "id": "11166832"
           },
           {
-            "role": "Main directional spool (3-position, 4-way) with integral pressure compensator",
-            "position_in_flow": "Between main P/T lines and A/B work lines",
+            "role": "main directional spool, 3-position, 4-way",
+            "position_in_flow": "between pressure/tank rails and work ports A/B",
             "id": "157B7126"
           },
           {
-            "role": "Shock and anti-cavitation valve",
-            "position_in_flow": "Right work line (Port B) to Tank line",
-            "setting": "260 bar"
+            "role": "shock / anti-cavitation relief valve",
+            "position_in_flow": "on work port A line, discharging to T (tank) return rail",
+            "setting": "260"
           },
           {
-            "role": "Normally closed solenoid shut-off/holding valve",
-            "position_in_flow": "Bottom left work line (A 1/4\"G)",
-            "id": "EV-10.6"
+            "role": "shock / anti-cavitation relief valve",
+            "position_in_flow": "on work port B line, discharging to T (tank) return rail",
+            "setting": "260"
           },
           {
-            "role": "Port relief valve",
-            "position_in_flow": "Bottom left work line (A 1/4\"G) - relieves port side to spool side",
-            "setting": "225 bar"
+            "role": "pressure compensator",
+            "position_in_flow": "upstream of the main spool on the pressure (P) line"
+          },
+          {
+            "role": "solenoid-controlled relief valve block (EV-10.6)",
+            "position_in_flow": "inlet at independent port A (1/4\"G), outlet connects to independent port B (1/4\"G) via relief valve",
+            "setting": "225"
+          },
+          {
+            "role": "solenoid-controlled relief valve block (EV-10.X, right side)",
+            "position_in_flow": "inlet at independent port A (1/4\"G), outlet connects to independent port B (1/4\"G) via relief valve",
+            "setting": "225"
           }
         ],
         "flow_scenarios": [
-          "Neutral: Main spool in center position; P, A, and B ports are connected to Tank (open neutral).",
-          "Actuation A: Spool shifts to parallel envelope; flow travels from main P line to Port A (top and bottom), return flow from Port B goes to Tank.",
-          "Actuation B: Spool shifts to crossed envelope; flow travels from main P line to Port B (top and bottom), return flow from Port A goes to Tank.",
-          "Shock/Suction B: If pressure on Port B line exceeds 260 bar, the shock valve opens to vent excess pressure to the Tank line.",
-          "Bottom Port A Holding: When EV-10.6 solenoid is de-energized, the 2-way valve blocks flow to/from bottom Port A 1/4\"G.",
-          "Bottom Port A Relief: If pressure at the blocked bottom Port A 1/4\"G exceeds 225 bar, the relief valve opens to vent pressure back to the spool line."
+          "neutral: spool in center position, flow configuration follows 'open neutral position'",
+          "energized straight (top envelope): pressure P is routed to work port A, work port B is routed to tank T",
+          "energized crossed (bottom envelope): pressure P is routed to work port B, work port A is routed to tank T",
+          "work port relief: if pressure in port A or B exceeds 260 bar, the respective shock valve opens to dump fluid to the tank (T) rail",
+          "anti-cavitation: if pressure in port A or B drops below tank rail pressure, check valves open allowing fluid from T to fill the work ports",
+          "EV-10.6 / EV-10.X block operation: when solenoid is energized, normally-closed valve opens allowing fluid from port A to pass through the 225 bar relief valve to port B"
         ],
         "settings": [
-          "260 bar",
-          "225 bar"
+          "260 bar (Port A shock valve)",
+          "260 bar (Port B shock valve)",
+          "225 bar (EV-10.6 relief)",
+          "225 bar (EV-10.X relief)"
         ],
         "ports": [
-          "Top Port A",
-          "Top Port B",
-          "Bottom Port A 1/4\"G",
-          "Bottom Port B 1/4\"G"
+          "A (main PVG work port, off-sheet)",
+          "B (main PVG work port, off-sheet)",
+          "A 1/4\"G (EV-10.6 block port)",
+          "B 1/4\"G (EV-10.6 block port)",
+          "A 1/4\"G (EV-10.X right side block port)",
+          "B 1/4\"G (EV-10.X right side block port)"
         ],
         "illegible": [
-          "Small part number on the compensator section immediately left of the main spool"
+          "Full identifier label of EV block on the bottom right (cut off, shows 'EV-10.')",
+          "Text near LS rails at the bottom (some small letters are obscured by crosses)"
         ],
         "_model": "gemini-3.1-pro-preview"
-      }
+      },
+      "actuation_skeleton": "ON/OFF",
+      "rating_skeleton": "65 lt/min"
+    },
+    {
+      "label": "Auxiliary Valve EV-10.6",
+      "identifier": "EV-10.6",
+      "x_left": 0.65,
+      "x_right": 0.72,
+      "is_block_level": true,
+      "detail": {
+        "function": "SECONDARY WINCH PORT (partially visible as NDARY CH PORT)",
+        "rating": "65 l/min",
+        "actuation": "PVEO - ON/OFF (electro-hydraulic)",
+        "neutral": "Closed center with A and B ports bleeding to Tank",
+        "cartridges": [
+          {
+            "role": "Main directional spool",
+            "position_in_flow": "Between main P/T rails and A/B work ports",
+            "id": "157B7126"
+          },
+          {
+            "role": "Shock/anti-cavitation relief valve",
+            "position_in_flow": "From A port line to T return rail",
+            "setting": "260"
+          },
+          {
+            "role": "Shock/anti-cavitation relief valve",
+            "position_in_flow": "From B port line to T return rail",
+            "setting": "260"
+          },
+          {
+            "role": "Solenoid directional valve (normally closed)",
+            "position_in_flow": "Between A 1/4\"G port and the cross-port relief valve",
+            "id": "EV-..."
+          },
+          {
+            "role": "Cross-port relief valve",
+            "position_in_flow": "Downstream of EV solenoid valve, dumping to B 1/4\"G port",
+            "setting": "225"
+          }
+        ],
+        "flow_scenarios": [
+          "Neutral: Main spool is centered; supply P is blocked, and ports A and B bleed restricted flow to T.",
+          "Actuated (Parallel): Spool shifts to connect P to A and B to T, driving the winch.",
+          "Actuated (Crossed): Spool shifts to connect P to B and A to T, reversing the winch.",
+          "Work Port Relief: If pressure at port A or B exceeds 260 bar, the respective shock valve opens, venting excess fluid to the T rail.",
+          "Anti-Cavitation: If pressure at port A or B drops below tank line pressure, the integrated check valve opens to pull fluid from the T rail.",
+          "Cross-Port Relief (Bottom circuit): When the normally-closed EV solenoid is energized, fluid from A 1/4\"G is allowed to pass; if pressure exceeds 225 bar, it relieves across to B 1/4\"G."
+        ],
+        "settings": [
+          "260 bar (A port shock valve)",
+          "260 bar (B port shock valve)",
+          "225 bar (Cross-port relief)"
+        ],
+        "ports": [
+          "A (Main work port)",
+          "B (Main work port)",
+          "A 1/4\"G",
+          "B 1/4\"G",
+          "LS_A",
+          "LS_B"
+        ],
+        "illegible": [
+          "Exact solenoid designation for the bottom cross-port circuit (partially reads EV-1...)",
+          "Full text of the function label at top left (cut off before 'NDARY')",
+          "Text above '\u00b0 =B' in the top-left module description"
+        ],
+        "_model": "gemini-3.1-pro-preview"
+      },
+      "actuation_skeleton": null,
+      "actuation": "PVEO - ON/OFF (electro-hydraulic)",
+      "rating_skeleton": null,
+      "rating": "65 l/min",
+      "neutral_skeleton": null,
+      "neutral": "Closed center with A and B ports bleeding to Tank"
+    },
+    {
+      "label": "Auxiliary Valve EV-10.7",
+      "identifier": "EV-10.7",
+      "x_left": 0.77,
+      "x_right": 0.84,
+      "is_block_level": true,
+      "detail": {
+        "function": "ARY / H PORT (text cut off)",
+        "rating": ".../min (text cut off)",
+        "actuation": "unconfirmed (spool mostly cut off)",
+        "neutral": "unconfirmed (spool mostly cut off)",
+        "cartridges": [
+          {
+            "role": "cross-port relief and anti-cavitation check",
+            "position_in_flow": "between cyan line (A) and red line (B), relieves A to B",
+            "id": "157B7126 (module)",
+            "setting": "260"
+          },
+          {
+            "role": "cross-port relief and anti-cavitation check",
+            "position_in_flow": "between red line (B) and cyan line (A), relieves B to A",
+            "id": "157B7126 (module)",
+            "setting": "260"
+          },
+          {
+            "role": "2/2 normally closed solenoid bypass valve",
+            "position_in_flow": "external block, between port A 1/4\"G and port B 1/4\"G",
+            "id": "EV-10...",
+            "setting": "null"
+          },
+          {
+            "role": "pressure relief",
+            "position_in_flow": "external block, parallel to EV-10 solenoid valve, relieves from A 1/4\"G to B 1/4\"G",
+            "id": "null",
+            "setting": "225"
+          }
+        ],
+        "flow_scenarios": [
+          "main spool actuation: directs flow to work ports A and B (spool internal paths cut off)",
+          "A-line overpressure: left relief in 157B7126 opens at 260 bar, dumping flow from cyan line (A) to red line (B)",
+          "B-line overpressure: right relief in 157B7126 opens at 260 bar, dumping flow from red line (B) to cyan line (A)",
+          "EV-10 solenoid energized: opens bypass flow from A 1/4\"G to B 1/4\"G",
+          "EV-10 overpressure: relief opens at 225 bar, bypassing flow from A 1/4\"G to B 1/4\"G"
+        ],
+        "settings": [
+          "260 (cross-port reliefs in 157B7126)",
+          "225 (relief in EV-10 block)"
+        ],
+        "ports": [
+          "B: top work port (red line), goes off-sheet",
+          "Unlabeled top port (cyan line, implied A), goes off-sheet",
+          "LS_B: load sense pilot port at manifold bottom boundary, connected to cyan work line",
+          "LS_A: load sense pilot port at manifold bottom boundary, connected to red work line",
+          "A 1/4\"G: external port on EV-10 block, receives cyan line from manifold",
+          "B 1/4\"G: external port on EV-10 block, connects to off-sheet blue line downwards"
+        ],
+        "illegible": [
+          "Function name and flow rating text at top left (cut off)",
+          "Main directional spool symbol (mostly off-crop)",
+          "Full designation of the EV-10... valve (cut off)",
+          "Label for the top cyan work port"
+        ],
+        "_model": "gemini-3.1-pro-preview"
+      },
+      "actuation_skeleton": null,
+      "actuation": "unconfirmed (spool mostly cut off)",
+      "rating_skeleton": null,
+      "rating": ".../min (text cut off)",
+      "neutral_skeleton": null,
+      "neutral": "unconfirmed (spool mostly cut off)"
     }
   ],
   "legends": [
     {
       "kind": "other_table",
       "bbox": [
-        0.0094,
+        0.0107,
         0.6865,
         0.2721,
-        0.8878
+        0.881
       ],
       "content": {
         "entries": [
@@ -361,8 +578,8 @@
   "passes": {
     "skeleton_dpi": 200,
     "detail_dpi": 600,
-    "slices_found": 5,
-    "detail_calls": 5
+    "slices_found": 8,
+    "detail_calls": 7
   },
   "model": "gemini-3.1-pro-preview",
   "_node_routing": [
@@ -371,6 +588,13 @@
       "action": "attach",
       "target": "570-danfoss-pvg-32-aft-blockc",
       "confidence": 1.0
+    },
+    {
+      "slice": "Inlet Section",
+      "action": "attach",
+      "target": "570-danfoss-pvg-32-aft-blockc",
+      "via": "block_level",
+      "confidence": "caveat"
     },
     {
       "slice": "TRANSOM DOOR",
@@ -411,6 +635,20 @@
       "via": "control_map",
       "mechanism": "exact",
       "confidence": "high"
+    },
+    {
+      "slice": "Auxiliary Valve EV-10.6",
+      "action": "attach",
+      "target": "570-danfoss-pvg-32-aft-blockc",
+      "via": "block_level",
+      "confidence": "caveat"
+    },
+    {
+      "slice": "Auxiliary Valve EV-10.7",
+      "action": "attach",
+      "target": "570-danfoss-pvg-32-aft-blockc",
+      "via": "block_level",
+      "confidence": "caveat"
     }
   ]
 }

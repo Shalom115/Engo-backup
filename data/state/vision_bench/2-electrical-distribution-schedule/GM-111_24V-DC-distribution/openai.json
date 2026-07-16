@@ -1,0 +1,1181 @@
+{
+  "legends": [
+    {
+      "title_as_printed": "",
+      "kind": "notes_block",
+      "bbox": [
+        0.04,
+        0.6,
+        0.2,
+        0.66
+      ],
+      "content": {
+        "title": "",
+        "entries": [
+          {
+            "label": "- CTB 7 = QI\u2013POWER\u2013485\u2013300\u2013LV",
+            "symbol_description": ""
+          },
+          {
+            "label": "- CTB 8 = QI\u2013POWER\u2013485\u2013LV",
+            "symbol_description": ""
+          },
+          {
+            "label": "- CTB 9 = QI\u2013POWER\u2013485\u2013LV",
+            "symbol_description": ""
+          },
+          {
+            "label": "- CTB 10 = QI\u2013POWER\u2013485\u2013LV",
+            "symbol_description": ""
+          }
+        ],
+        "_model": "gpt-5.6-sol"
+      }
+    }
+  ],
+  "legend_context": "THIS SHEET'S OWN LEGENDS AND TABLES (read first; these definitions are AUTHORITATIVE for this sheet and override any generic symbol/line convention):\n- [notes_block] notes_block:\n    * - CTB 7 = QI\u2013POWER\u2013485\u2013300\u2013LV\n    * - CTB 8 = QI\u2013POWER\u2013485\u2013LV\n    * - CTB 9 = QI\u2013POWER\u2013485\u2013LV\n    * - CTB 10 = QI\u2013POWER\u2013485\u2013LV",
+  "survey": {
+    "title_block": {
+      "drawing_no": "GMMS 108\u2019-111",
+      "title": "+24 V DC DISTRIBUTION",
+      "drafter": "GM"
+    },
+    "sub_type": "distribution_schedule",
+    "sub_type_reason": "The dominant structure is repeated breaker rows with device IDs and ampere ratings feeding named loads, grouped into AFT, FWD, emergency-supply, and emergency-panel banks. Supply/interconnection wiring is also shown, but it is secondary to the panel schedules.",
+    "regions": [
+      {
+        "type": "topology_network",
+        "label": "24 V service supply, fuse/switch branches, CT8 feed, and pump/winch branches",
+        "bbox": [
+          0.04,
+          0.15,
+          0.32,
+          0.44
+        ],
+        "approx_unit_count": 5
+      },
+      {
+        "type": "panel_column",
+        "label": "AFT PANEL DC BREAKERS, including upper auxiliary rows and two main breaker columns",
+        "bbox": [
+          0.31,
+          0.02,
+          0.53,
+          0.71
+        ],
+        "approx_unit_count": 54
+      },
+      {
+        "type": "panel_column",
+        "label": "FWD PANEL DC BREAKERS and emergency breaker extension",
+        "bbox": [
+          0.82,
+          0.15,
+          0.94,
+          0.76
+        ],
+        "approx_unit_count": 24
+      },
+      {
+        "type": "breaker_bank",
+        "label": "EMERGENCY POWER SUPPLY breaker bank",
+        "bbox": [
+          0.3,
+          0.73,
+          0.46,
+          0.94
+        ],
+        "approx_unit_count": 8
+      },
+      {
+        "type": "breaker_bank",
+        "label": "EMERGENCY PANEL breaker bank",
+        "bbox": [
+          0.47,
+          0.73,
+          0.57,
+          0.88
+        ],
+        "approx_unit_count": 4
+      },
+      {
+        "type": "topology_network",
+        "label": "Emergency battery and emergency distribution interconnections to AFT/FWD panels",
+        "bbox": [
+          0.22,
+          0.72,
+          0.84,
+          0.91
+        ],
+        "approx_unit_count": 6
+      },
+      {
+        "type": "legend",
+        "label": "CTB communications definitions / notes block",
+        "bbox": [
+          0.04,
+          0.6,
+          0.23,
+          0.67
+        ],
+        "approx_unit_count": 4
+      },
+      {
+        "type": "other",
+        "label": "Title block",
+        "bbox": [
+          0.52,
+          0.89,
+          0.99,
+          0.99
+        ],
+        "approx_unit_count": 1
+      }
+    ],
+    "cross_refs": [
+      "see DWG 111a (CT7)",
+      "+24V emergency battery continuation to ONYX",
+      "CT8 continuation to ONYX",
+      "CTB 7 = QI\u2013POWER\u2013485\u2013300\u2013LV",
+      "CTB 8 = QI\u2013POWER\u2013485\u2013LV",
+      "CTB 9 = QI\u2013POWER\u2013485\u2013LV",
+      "CTB 10 = QI\u2013POWER\u2013485\u2013LV"
+    ],
+    "notes": "Sheet is clearly legible overall. Dominant schedule comprises the AFT and FWD DC breaker columns; the left-side service-supply network and bottom emergency-power network provide source/interconnection context. Diamond numerals on conductors are wire-gauge callouts, not devices. T/S E is visible in the emergency-lighting path. A few placeholder/spare rows are marked with '/' and some small branch annotations are marginal at this resolution.",
+    "_model": "gpt-5.6-sol",
+    "_pass1_dpi": 200
+  },
+  "sub_type": "distribution_schedule",
+  "regions_read": [
+    {
+      "region": "24 V service supply, fuse/switch branches, CT8 feed, and pump/winch branches",
+      "region_type": "topology_network",
+      "bbox": [
+        0.04,
+        0.15,
+        0.32,
+        0.44
+      ],
+      "reader": "oneline",
+      "nodes": [
+        {
+          "node_type": "bus",
+          "id": "<UNKNOWN>",
+          "label": "SUPPLY bus",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "fuse",
+          "id": "F5",
+          "label": "Fuse F5",
+          "rating": "100A"
+        },
+        {
+          "node_type": "switch",
+          "id": "SW6",
+          "label": "Switch SW6",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "unknown",
+          "id": "<UNKNOWN-F5-DEST>",
+          "label": "Unlabelled continuation",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "fuse",
+          "id": "F6",
+          "label": "Fuse F6",
+          "rating": "200A"
+        },
+        {
+          "node_type": "switch",
+          "id": "SW7",
+          "label": "Switch SW7",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "bus",
+          "id": "<UNKNOWN-RIGHT-BUS>",
+          "label": "Unlabelled right vertical bus",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "fuse",
+          "id": "F7",
+          "label": "Fuse F7",
+          "rating": "60A"
+        },
+        {
+          "node_type": "switch",
+          "id": "SW8",
+          "label": "Switch SW8",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "switch",
+          "id": "SO 6",
+          "label": "Coil-operated contact SO 6",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "load",
+          "id": "<UNKNOWN-BILGE-PUMP>",
+          "label": "BILGE PUMP",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "fuse",
+          "id": "F8",
+          "label": "Fuse F8",
+          "rating": "60A"
+        },
+        {
+          "node_type": "switch",
+          "id": "SW9",
+          "label": "Switch SW9",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "switch",
+          "id": "SO 7",
+          "label": "Coil-operated contact SO 7",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "load",
+          "id": "<UNKNOWN-FIRE-PUMP>",
+          "label": "FIRE PUMP",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "fuse",
+          "id": "F?",
+          "label": "Fuse F?",
+          "rating": "50A"
+        },
+        {
+          "node_type": "switch",
+          "id": "SW?",
+          "label": "Switch SW?",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "load",
+          "id": "<UNKNOWN-TENDER-WINCH>",
+          "label": "TENDER WINCH",
+          "rating": "<UNKNOWN>"
+        }
+      ],
+      "edges": [
+        "SUPPLY bus -> F5 -> SW6 -> Unlabelled continuation",
+        "SUPPLY bus -> F6 -> SW7 -> Unlabelled right vertical bus",
+        "SUPPLY bus -> F7 -> SW8 -> SO 6 -> BILGE PUMP",
+        "SUPPLY bus -> F8 -> SW9 -> SO 7 -> FIRE PUMP",
+        "SUPPLY bus -> F? -> SW? -> TENDER WINCH"
+      ]
+    },
+    {
+      "region": "AFT PANEL DC BREAKERS, including upper auxiliary rows and two main breaker columns",
+      "region_type": "panel_column",
+      "bbox": [
+        0.31,
+        0.02,
+        0.53,
+        0.71
+      ],
+      "reader": "schedule",
+      "panel_label": "AFT PANEL DC BREAKERS",
+      "rows": [
+        {
+          "device_type": "breaker",
+          "device_id": "Q1",
+          "rating": "10A",
+          "load_name": "AFT GREY WATER PUMP",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q2",
+          "rating": "20A",
+          "load_name": "PORT AFT GREY GUEST SUMP",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q3",
+          "rating": "20A",
+          "load_name": "STBD AFT GREY GUEST SUMP",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q4",
+          "rating": "10A",
+          "load_name": "AFT CREW SUMP PUMP",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q5",
+          "rating": "10A",
+          "load_name": "FWD CREW SUMP PUMP",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q6",
+          "rating": "20A",
+          "load_name": "AFT AIRCON SUMP PUMP",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q7",
+          "rating": "20A",
+          "load_name": "PORT AFT GUEST WC",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q8",
+          "rating": "20A",
+          "load_name": "STBD AFT GUEST WC",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q9",
+          "rating": "20A",
+          "load_name": "PORT CREW HEAD WC",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q10",
+          "rating": "20A",
+          "load_name": "STBD CREW HEAD WC",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q11",
+          "rating": "32A",
+          "load_name": "FWD BLACK WATER PUMP",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q12",
+          "rating": "32A",
+          "load_name": "AFT BLACK WATER PUMP",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q13",
+          "rating": "6A",
+          "load_name": "WATER TRANSFER VALVES",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q14",
+          "rating": "10A",
+          "load_name": "BILGE VALVES",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q15",
+          "rating": "20A",
+          "load_name": "MANUAL FUEL PUMP",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q16",
+          "rating": "10A",
+          "load_name": "FUEL / ENG. VENTILATION",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q17",
+          "rating": "6A",
+          "load_name": "EMERGENCY STOP",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q18",
+          "rating": "6A",
+          "load_name": "FIRE ALARM",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q19",
+          "rating": "10A",
+          "load_name": "PETROL VAPOUR ALARM",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q20",
+          "rating": "10A",
+          "load_name": "GAS / CO ALARM",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q21",
+          "rating": "20A",
+          "load_name": "MYT HYDRAULICS",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q22",
+          "rating": "6A",
+          "load_name": "ONYX CONTROL",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q23",
+          "rating": "25A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q24",
+          "rating": "6A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q25",
+          "rating": "10A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q26",
+          "rating": "32A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q27",
+          "rating": "6A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q28",
+          "rating": "6A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q29",
+          "rating": "16A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q30",
+          "rating": "10A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q31",
+          "rating": "40A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q32",
+          "rating": "10A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q33",
+          "rating": "10A",
+          "load_name": "/",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q34",
+          "rating": "10A",
+          "load_name": "/",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q35",
+          "rating": "32A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q36",
+          "rating": "6A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q37",
+          "rating": "6A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q38",
+          "rating": "10A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q39",
+          "rating": "10A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q40",
+          "rating": "40A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q41",
+          "rating": "40A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q42",
+          "rating": "40A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q43",
+          "rating": "40A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q44",
+          "rating": "40A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q45",
+          "rating": "10A",
+          "load_name": "RADAR SYSTEM",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q46",
+          "rating": "10A",
+          "load_name": "EXT. SCREENS",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q47",
+          "rating": "10A",
+          "load_name": "B&G",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q48",
+          "rating": "10A",
+          "load_name": "NAVIGATION PC",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q49",
+          "rating": "10A",
+          "load_name": "AUTO PILOT",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q50",
+          "rating": "10A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q51",
+          "rating": "10A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q52",
+          "rating": "10A",
+          "load_name": "CCTV",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q53",
+          "rating": "10A",
+          "load_name": "/",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q54",
+          "rating": "10A",
+          "load_name": "/",
+          "cross_ref": "",
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "FWD PANEL DC BREAKERS and emergency breaker extension",
+      "region_type": "panel_column",
+      "bbox": [
+        0.82,
+        0.15,
+        0.94,
+        0.76
+      ],
+      "reader": "schedule",
+      "panel_label": "FWD PANEL DC BREAKERS",
+      "rows": [
+        {
+          "device_type": "breaker",
+          "device_id": "Q1",
+          "rating": "10A",
+          "load_name": "FWD GREY WATER PUMP",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q2",
+          "rating": "10A",
+          "load_name": "MAST BILGE PUMP",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q3",
+          "rating": "10A",
+          "load_name": "AUX BILGE PUMP ENG. ROOM",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q4",
+          "rating": "20A",
+          "load_name": "OWNERS SUMP PUMP",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q5",
+          "rating": "20A",
+          "load_name": "FWD GUEST SUMP PUMP",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q6",
+          "rating": "20A",
+          "load_name": "SALOON FRIDGE",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q7",
+          "rating": "20A",
+          "load_name": "OWNERS WC",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q8",
+          "rating": "20A",
+          "load_name": "FWD GUEST WC",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q9",
+          "rating": "10A",
+          "load_name": "SALOON LKR LT.",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q10",
+          "rating": "10A",
+          "load_name": "SAIL LKR LTS",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q11",
+          "rating": "10A",
+          "load_name": "MAST LTS",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q12",
+          "rating": "6A",
+          "load_name": "BOOM LTS",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q13",
+          "rating": "10A",
+          "load_name": "DC SOCKETS",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q14",
+          "rating": "16A",
+          "load_name": "FOG HORN",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q15",
+          "rating": "10A",
+          "load_name": "FWD MAN. SUMP PUMP",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q16",
+          "rating": "10A",
+          "load_name": "DECK LTS",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q17",
+          "rating": "40A",
+          "load_name": "SALOON LTS",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q18",
+          "rating": "40A",
+          "load_name": "SALOON/STUDIO LTS",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q19",
+          "rating": "40A",
+          "load_name": "OWNERS LTS",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q20",
+          "rating": "40A",
+          "load_name": "PORT FWD GUEST LTS",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE1",
+          "rating": "10A",
+          "load_name": "FWD EMERGENCY LTS/HATCH",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE2",
+          "rating": "10A",
+          "load_name": "/",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE3",
+          "rating": "10A",
+          "load_name": "/",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE4",
+          "rating": "10A",
+          "load_name": "/",
+          "cross_ref": "",
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "EMERGENCY POWER SUPPLY breaker bank",
+      "region_type": "breaker_bank",
+      "bbox": [
+        0.3,
+        0.73,
+        0.46,
+        0.94
+      ],
+      "reader": "schedule",
+      "panel_label": "EMERGENCY POWER SUPPLY",
+      "rows": [
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE1",
+          "rating": "32A",
+          "load_name": "EMERGENCY SUPPLY",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE2",
+          "rating": "6A",
+          "load_name": "ENG.ROOM GAS RELEASE ALARM",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE3",
+          "rating": "10A",
+          "load_name": "GAS/CO2/PETROL VAPOUR ALARM",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE4",
+          "rating": "10A",
+          "load_name": "SERVICE BAT. VENTILATION",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE5",
+          "rating": "20A",
+          "load_name": "/",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE6",
+          "rating": "20A",
+          "load_name": "FWD PANEL EM SUPPLY",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE7",
+          "rating": "10A",
+          "load_name": "MAIN PANEL",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE8",
+          "rating": "10A",
+          "load_name": "AUX 1 / B&G",
+          "cross_ref": "",
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "EMERGENCY PANEL breaker bank",
+      "region_type": "breaker_bank",
+      "bbox": [
+        0.47,
+        0.73,
+        0.57,
+        0.88
+      ],
+      "reader": "schedule",
+      "panel_label": "EMERGENCY PANEL",
+      "rows": [
+        {
+          "device_type": "circuit_breaker",
+          "device_id": "CB5",
+          "rating": "10A",
+          "load_name": "NAV. LIGHTS",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "circuit_breaker",
+          "device_id": "CB6",
+          "rating": "15A",
+          "load_name": "EMERGENCY LT",
+          "cross_ref": "",
+          "ambiguous": true
+        },
+        {
+          "device_type": "circuit_breaker",
+          "device_id": "CB7",
+          "rating": "6A",
+          "load_name": "GMDSS",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "circuit_breaker",
+          "device_id": "CB8",
+          "rating": "6A",
+          "load_name": "CHART TABLE",
+          "cross_ref": "",
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "Emergency battery and emergency distribution interconnections to AFT/FWD panels",
+      "region_type": "topology_network",
+      "bbox": [
+        0.22,
+        0.72,
+        0.84,
+        0.91
+      ],
+      "reader": "oneline",
+      "nodes": [
+        {
+          "node_type": "unknown",
+          "id": "<UNKNOWN>",
+          "label": "Incoming supply; see DWG 111a",
+          "rating": ""
+        },
+        {
+          "node_type": "current_transformer",
+          "id": "CT7",
+          "label": "Current transformer on incoming emergency supply feeder",
+          "rating": ""
+        },
+        {
+          "node_type": "board",
+          "id": "<UNKNOWN>",
+          "label": "EMERGENCY POWER SUPPLY",
+          "rating": ""
+        },
+        {
+          "node_type": "breaker",
+          "id": "QE1",
+          "label": "EMERGENCY SUPPLY",
+          "rating": "32A"
+        },
+        {
+          "node_type": "breaker",
+          "id": "QE2",
+          "label": "ENG.ROOM GAS RELEASE ALARM",
+          "rating": "6A"
+        },
+        {
+          "node_type": "breaker",
+          "id": "QE3",
+          "label": "GAS/CO2/PETROL VAPOUR ALARM",
+          "rating": "10A"
+        },
+        {
+          "node_type": "breaker",
+          "id": "QE4",
+          "label": "SERVICE BAT. VENTILATION",
+          "rating": "10A"
+        },
+        {
+          "node_type": "breaker",
+          "id": "QE5",
+          "label": "/",
+          "rating": "20A"
+        },
+        {
+          "node_type": "breaker",
+          "id": "QE6",
+          "label": "FWD PANEL EM SUPPLY",
+          "rating": "20A"
+        },
+        {
+          "node_type": "breaker",
+          "id": "QE7",
+          "label": "MAIN PANEL",
+          "rating": "10A"
+        },
+        {
+          "node_type": "breaker",
+          "id": "QE8",
+          "label": "AUX 1 / B&G",
+          "rating": "10A"
+        },
+        {
+          "node_type": "board",
+          "id": "<UNKNOWN>",
+          "label": "EMERGENCY PANEL",
+          "rating": ""
+        },
+        {
+          "node_type": "breaker",
+          "id": "CB5",
+          "label": "NAV. LIGHTS",
+          "rating": "10A"
+        },
+        {
+          "node_type": "breaker",
+          "id": "CB6",
+          "label": "EMERGENCY LTS",
+          "rating": "15A"
+        },
+        {
+          "node_type": "breaker",
+          "id": "CB7",
+          "label": "GMDSS /",
+          "rating": "6A"
+        },
+        {
+          "node_type": "breaker",
+          "id": "CB8",
+          "label": "CHART TABLE LT",
+          "rating": "6A"
+        }
+      ],
+      "edges": [
+        "<UNKNOWN> (Incoming supply; see DWG 111a) -> CT7 -> EMERGENCY POWER SUPPLY bus",
+        "EMERGENCY POWER SUPPLY bus -> QE1 -> EMERGENCY SUPPLY",
+        "EMERGENCY POWER SUPPLY bus -> QE2 -> ENG.ROOM GAS RELEASE ALARM",
+        "EMERGENCY POWER SUPPLY bus -> QE3 -> GAS/CO2/PETROL VAPOUR ALARM",
+        "EMERGENCY POWER SUPPLY bus -> QE4 -> SERVICE BAT. VENTILATION",
+        "EMERGENCY POWER SUPPLY bus -> QE5 -> /",
+        "EMERGENCY POWER SUPPLY bus -> QE6 -> FWD PANEL EM SUPPLY",
+        "EMERGENCY POWER SUPPLY bus -> QE7 -> MAIN PANEL",
+        "EMERGENCY POWER SUPPLY bus -> QE8 -> AUX 1 / B&G",
+        "QE1 -> EMERGENCY PANEL bus",
+        "EMERGENCY PANEL bus -> CB5 -> NAV. LIGHTS",
+        "EMERGENCY PANEL bus -> CB6 -> EMERGENCY LTS",
+        "EMERGENCY PANEL bus -> CB7 -> /",
+        "EMERGENCY PANEL bus -> CB8 -> CHART TABLE LT"
+      ]
+    }
+  ],
+  "scoped_next": []
+}

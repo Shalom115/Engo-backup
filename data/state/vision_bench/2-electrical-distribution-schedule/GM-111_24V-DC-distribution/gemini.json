@@ -1,0 +1,796 @@
+{
+  "legends": [
+    {
+      "title_as_printed": "",
+      "kind": "notes_block",
+      "bbox": [
+        0.601,
+        0.902,
+        0.999,
+        1.0
+      ],
+      "content": {
+        "entries": [
+          {
+            "label": "Tel. (027) 021-671 8001 | Cell 083 298 3305 | goetz@telkomsa.net"
+          },
+          {
+            "label": "PROJECT | SWS 108'-01 \" Gelliceaux \""
+          },
+          {
+            "label": "CUSTOMER | SOUTHERN WIND SHIPYARD (PTY) LTD"
+          },
+          {
+            "label": "YRIGHT OF THIS DRAWING IS EXPRESSLY RESERVED AND NO PART OF IT MAY BE COPIED WITHOUT PRIOR PERMISSION."
+          }
+        ],
+        "_model": "gemini-3.1-pro-preview"
+      }
+    }
+  ],
+  "legend_context": "THIS SHEET'S OWN LEGENDS AND TABLES (read first; these definitions are AUTHORITATIVE for this sheet and override any generic symbol/line convention):\n- [notes_block] notes_block:\n    * Tel. (027) 021-671 8001 | Cell 083 298 3305 | goetz@telkomsa.net\n    * PROJECT | SWS 108'-01 \" Gelliceaux \"\n    * CUSTOMER | SOUTHERN WIND SHIPYARD (PTY) LTD\n    * YRIGHT OF THIS DRAWING IS EXPRESSLY RESERVED AND NO PART OF IT MAY BE COPIED WITHOUT PRIOR PERMISSION.",
+  "survey": {
+    "title_block": {
+      "drawing_no": "GMMS 108'-111",
+      "title": "+24 V DC DISTRIBUTION",
+      "drafter": "GM"
+    },
+    "sub_type": "distribution_schedule",
+    "sub_type_reason": "The sheet primarily consists of vertical columns grouping horizontal rows, where each row represents a breaker (with ID and rating) feeding a named load circuit.",
+    "regions": [
+      {
+        "type": "panel_column",
+        "label": "AFT PANEL DC BREAKERS (Left Column)",
+        "bbox": [
+          0.315,
+          0.04,
+          0.4682,
+          0.7061
+        ],
+        "approx_unit_count": 27
+      },
+      {
+        "type": "panel_column",
+        "label": "AFT PANEL DC BREAKERS (Right Column)",
+        "bbox": [
+          0.4764,
+          0.04,
+          0.6277,
+          0.7061
+        ],
+        "approx_unit_count": 27
+      },
+      {
+        "type": "panel_column",
+        "label": "FWD PANEL DC BREAKERS",
+        "bbox": [
+          0.8291,
+          0.2227,
+          0.9823,
+          0.7423
+        ],
+        "approx_unit_count": 25
+      },
+      {
+        "type": "breaker_bank",
+        "label": "EMERGENCY POWER SUPPLY",
+        "bbox": [
+          0.297,
+          0.7183,
+          0.4682,
+          0.9137
+        ],
+        "approx_unit_count": 8
+      },
+      {
+        "type": "breaker_bank",
+        "label": "EMERGENCY PANEL",
+        "bbox": [
+          0.474,
+          0.7183,
+          0.5973,
+          0.8354
+        ],
+        "approx_unit_count": 4
+      },
+      {
+        "type": "other",
+        "label": "Input/Battery Supply Lines and General Fuses/Switches",
+        "bbox": [
+          0.045,
+          0.16,
+          0.315,
+          0.74
+        ],
+        "approx_unit_count": 5
+      }
+    ],
+    "cross_refs": [
+      "DWG 111a"
+    ],
+    "notes": "There is a list of CT configurations (CTB 7-10 = QI-POWER-485...) on the bottom left. Drawing references point to 'ONYX' and 'DWG 111a'. Input elements F5..F8 and their associated switches SW6..SW9 are grouped on the left main trunk line.",
+    "_model": "gemini-3.1-pro-preview",
+    "_pass1_dpi": 200
+  },
+  "sub_type": "distribution_schedule",
+  "regions_read": [
+    {
+      "region": "AFT PANEL DC BREAKERS (Left Column)",
+      "region_type": "panel_column",
+      "bbox": [
+        0.315,
+        0.04,
+        0.4682,
+        0.7061
+      ],
+      "reader": "schedule",
+      "panel_label": null,
+      "rows": [
+        {
+          "device_type": "breaker",
+          "device_id": "Q45",
+          "rating": "10A",
+          "load_name": "RADAR SYSTEM",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q46",
+          "rating": "10A",
+          "load_name": "EXT. SCREENS",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q47",
+          "rating": "10A",
+          "load_name": "B&G",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q48",
+          "rating": "10A",
+          "load_name": "NAVIGATION PC",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q49",
+          "rating": "10A",
+          "load_name": "AUTO PILOT",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q1",
+          "rating": "10A",
+          "load_name": "AFT GREY WATER PUMP",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q2",
+          "rating": "20A",
+          "load_name": "PORT AFT GREY GUEST SUMP",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q3",
+          "rating": "20A",
+          "load_name": "STBD AFT GREY GUEST SUMP",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q4",
+          "rating": "10A",
+          "load_name": "AFT CREW SUMP PUMP",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q5",
+          "rating": "10A",
+          "load_name": "FWD CREW SUMP PUMP",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q6",
+          "rating": "20A",
+          "load_name": "AFT AIRCON SUMP PUMP",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q7",
+          "rating": "20A",
+          "load_name": "PORT AFT GUEST WC",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q8",
+          "rating": "20A",
+          "load_name": "STBD AFT GUEST WC",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q9",
+          "rating": "20A",
+          "load_name": "PORT CREW HEAD WC",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q10",
+          "rating": "20A",
+          "load_name": "STBD CREW HEAD WC",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q11",
+          "rating": "32A",
+          "load_name": "FWD BLACK WATER PUMP",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q12",
+          "rating": "32A",
+          "load_name": "AFT BLACK WATER PUMP",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q13",
+          "rating": "6A",
+          "load_name": "WATER TRANSFER VALVES",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q14",
+          "rating": "10A",
+          "load_name": "BILGE VALVES",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q15",
+          "rating": "20A",
+          "load_name": "MANUAL FUEL PUMP",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q16",
+          "rating": "10A",
+          "load_name": "FUEL / ENG. VENTILATION",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q17",
+          "rating": "6A",
+          "load_name": "EMERGENCY STOP",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q18",
+          "rating": "6A",
+          "load_name": "FIRE ALARM",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q19",
+          "rating": "10A",
+          "load_name": "PETROL VAPOUR ALARM",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q20",
+          "rating": "10A",
+          "load_name": "GAS / CO ALARM",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q21",
+          "rating": "20A",
+          "load_name": "MYT HYDRAULICS",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q22",
+          "rating": "6A",
+          "load_name": "ONYX CONTROL",
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "AFT PANEL DC BREAKERS (Right Column)",
+      "region_type": "panel_column",
+      "bbox": [
+        0.4764,
+        0.04,
+        0.6277,
+        0.7061
+      ],
+      "reader": "schedule",
+      "panel_label": null,
+      "rows": [
+        {
+          "device_type": "breaker",
+          "device_id": "Q50",
+          "rating": "10A",
+          "load_name": "NETWORK"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q51",
+          "rating": "10A",
+          "load_name": "AUX VHF"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q52",
+          "rating": "10A",
+          "load_name": "CCTV"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q53",
+          "rating": "10A",
+          "load_name": ""
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q54",
+          "rating": "10A",
+          "load_name": ""
+        },
+        {
+          "device_type": "switch",
+          "load_name": "B&G"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q23",
+          "rating": "25A",
+          "load_name": "ONYX (AUTO FUEL TRANSFER PUMP)"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q24",
+          "rating": "6A",
+          "load_name": "ONYX CONTROL"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q25",
+          "rating": "10A",
+          "load_name": "PASSARELLE LIGHT"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q26",
+          "rating": "32A",
+          "load_name": "WATER MAKER"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q27",
+          "rating": "6A",
+          "load_name": "AFT COMPANION WAY"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q28",
+          "rating": "6A",
+          "load_name": "SALOON COMPANION WAY"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q29",
+          "rating": "16A",
+          "load_name": "OIL TRANSFER PUMP"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q30",
+          "rating": "10A",
+          "load_name": "AFT DC SOCKET"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q31",
+          "rating": "40A",
+          "load_name": "AUTOPILOT PUMP"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q32",
+          "rating": "10A",
+          "load_name": "GALVANIC CONTROL"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q33",
+          "rating": "10A",
+          "load_name": ""
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q34",
+          "rating": "10A",
+          "load_name": ""
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q35",
+          "rating": "32A",
+          "load_name": "TENDER REFUELING PUMP"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q36",
+          "rating": "6A",
+          "load_name": "NAVIGATION LTS"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q37",
+          "rating": "6A",
+          "load_name": "COURTESY LTS"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q38",
+          "rating": "10A",
+          "load_name": "ENG. ROOM / LAZ. / TRANSOM LTS"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q39",
+          "rating": "10A",
+          "load_name": "YACHTICA SYSTEM"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q40",
+          "rating": "40A",
+          "load_name": "GALLEY LIGHTS"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q41",
+          "rating": "40A",
+          "load_name": "PORT/STBD CREW LTS"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q42",
+          "rating": "40A",
+          "load_name": "STBD CREW LIGHTS"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q43",
+          "rating": "40A",
+          "load_name": "PORT AFT GUEST LIGHTS"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q44",
+          "rating": "40A",
+          "load_name": "STBD AFT GUEST LIGHTS"
+        }
+      ]
+    },
+    {
+      "region": "FWD PANEL DC BREAKERS",
+      "region_type": "panel_column",
+      "bbox": [
+        0.8291,
+        0.2227,
+        0.9823,
+        0.7423
+      ],
+      "reader": "schedule",
+      "panel_label": null,
+      "rows": [
+        {
+          "device_type": "breaker",
+          "device_id": "Q1",
+          "rating": "10A",
+          "load_name": "FWD GREY WATER PUMP",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q2",
+          "rating": "10A",
+          "load_name": "MAST BILGE PUMP",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q3",
+          "rating": "10A",
+          "load_name": "AUX BILGE PUMP ENG. ROOM",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q4",
+          "rating": "20A",
+          "load_name": "OWNERS SUMP PUMP",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q5",
+          "rating": "20A",
+          "load_name": "FWD GUEST SUMP PUMP",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q6",
+          "rating": "20A",
+          "load_name": "SALOON FRIDGE",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q7",
+          "rating": "20A",
+          "load_name": "OWNERS WC",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q8",
+          "rating": "20A",
+          "load_name": "FWD GUEST WC",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q9",
+          "rating": "10A",
+          "load_name": "SALOON LKR LT.",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q10",
+          "rating": "10A",
+          "load_name": "SAIL LKR LTS",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q11",
+          "rating": "10A",
+          "load_name": "MAST LTS",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q12",
+          "rating": "6A",
+          "load_name": "BOOM LTS",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q13",
+          "rating": "10A",
+          "load_name": "DC SOCKETS",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q14",
+          "rating": "16A",
+          "load_name": "FOG HORN",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q15",
+          "rating": "10A",
+          "load_name": "FWD MAN. SUMP PUMP",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q16",
+          "rating": "10A",
+          "load_name": "DECK LTS",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q17",
+          "rating": "40A",
+          "load_name": "SALOON LTS",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q18",
+          "rating": "40A",
+          "load_name": "SALOON/STUDIO LTS",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q19",
+          "rating": "40A",
+          "load_name": "OWNERS LTS",
+          "ambiguous": false
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q20",
+          "rating": "40A",
+          "load_name": "PORT FWD GUEST LTS",
+          "ambiguous": false
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE1",
+          "rating": "10A",
+          "load_name": "FWD EMERGENCY LTS/HATCH SUPPLY",
+          "ambiguous": false
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE2",
+          "rating": "10A",
+          "load_name": "//",
+          "ambiguous": false
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE3",
+          "rating": "10A",
+          "load_name": "//",
+          "ambiguous": false
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE4",
+          "rating": "10A",
+          "load_name": "//",
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "EMERGENCY POWER SUPPLY",
+      "region_type": "breaker_bank",
+      "bbox": [
+        0.297,
+        0.7183,
+        0.4682,
+        0.9137
+      ],
+      "reader": "schedule",
+      "panel_label": "EMERGENCY POWER SUPPLY",
+      "rows": [
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE1",
+          "rating": "32A",
+          "load_name": "EMERGENCY SUPPLY",
+          "ambiguous": false
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE2",
+          "rating": "6A",
+          "load_name": "ENG.ROOM GAS RELEASE ALARM",
+          "ambiguous": false
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE3",
+          "rating": "10A",
+          "load_name": "GAS/CO2/PETROL VAPOUR ALARM",
+          "ambiguous": false
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE4",
+          "rating": "10A",
+          "load_name": "SERVICE BAT. VENTILATION",
+          "ambiguous": false
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE5",
+          "rating": "20A",
+          "load_name": " ",
+          "ambiguous": false
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE6",
+          "rating": "20A",
+          "load_name": "FWD PANEL EM SUPPLY",
+          "ambiguous": false
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE7",
+          "rating": "10A",
+          "load_name": "MAIN PANEL",
+          "ambiguous": false
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE8",
+          "rating": "10A",
+          "load_name": "AUX 1 / B&G",
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "EMERGENCY PANEL",
+      "region_type": "breaker_bank",
+      "bbox": [
+        0.474,
+        0.7183,
+        0.5973,
+        0.8354
+      ],
+      "reader": "schedule",
+      "panel_label": "EMERGENCY PANEL",
+      "rows": [
+        {
+          "device_type": "circuit_breaker",
+          "device_id": "CB5",
+          "rating": "10A",
+          "load_name": "NAV. LIGHTS",
+          "ambiguous": false
+        },
+        {
+          "device_type": "circuit_breaker",
+          "device_id": "CB6",
+          "rating": "15A",
+          "load_name": "EMERGENCY LTS",
+          "ambiguous": false
+        },
+        {
+          "device_type": "circuit_breaker",
+          "device_id": "CB7",
+          "rating": "6A",
+          "load_name": "GMDSS /",
+          "ambiguous": false
+        },
+        {
+          "device_type": "circuit_breaker",
+          "device_id": "CB8",
+          "rating": "6A",
+          "load_name": "CHART TABLE LT",
+          "ambiguous": false
+        }
+      ]
+    }
+  ],
+  "scoped_next": []
+}

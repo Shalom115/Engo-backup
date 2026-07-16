@@ -1,262 +1,403 @@
 {
   "header": {
     "make_model": "DANFOSS PVG 32",
-    "title": "MAST BLOCK",
+    "title": "HYDRAULIC SYSTEM - DIAGRAM (MAST BLOCK: DANFOSS PVG 32 - 6 FUNCTIONS)",
     "revision": "10",
     "sheet": "5 of 12"
   },
   "rails": [
-    "M",
-    "LS",
     "T",
-    "P"
+    "P",
+    "LS"
   ],
   "block_capacity_printed": false,
-  "notes": "Small print on components (valve and spool part numbers, compensator numbers), line labels (A, B, LSA, LSB) are visible but illegible at this resolution. A pressure setting is indicated on EV-6.1 (300) but unit isn't readable.",
+  "notes": "Small print such as part numbers (e.g. 157B...), port markings, and specific relief valve pressure settings are not fully legible at this resolution.",
   "slices": [
+    {
+      "label": "Inlet Block",
+      "is_block_level": true,
+      "detail": {
+        "skipped": "no x-extent from skeleton"
+      }
+    },
     {
       "label": "LIFTING KEEL UP/DOWN",
       "identifier": "EV-6.1",
-      "rating": "spool 40 lt/min",
-      "actuation": "PVEU - 0-10 V",
+      "rating": "40 lt/min",
+      "actuation": "PVEU - 0-10 V (proportional electric); DOWN <5V = A / UP>5V = B",
       "neutral": "open neutral position",
-      "x_left": 0.175,
-      "x_right": 0.285,
+      "x_left": 0.2,
+      "x_right": 0.31,
+      "is_block_level": false,
       "detail": {
-        "function": "EV-6.1 LIFTING KEEL UP/DOWN",
+        "function": "LIFTING KEEL UP/DOWN (EV-6.1)",
         "rating": "40 lt/min",
-        "actuation": "PVEU - 0-10 V",
+        "actuation": "PVEU - 0-10 V (proportional electric); DOWN <5V = A / UP>5V = B",
         "neutral": "open neutral position",
         "cartridges": [
           {
-            "id": "11166832",
-            "role": "rectifier bridge / logic"
+            "role": "main directional control spool",
+            "position_in_flow": "between P, T, LSA rails and A, B work lines",
+            "id": "157B7122"
           },
           {
-            "id": "157B6203",
-            "role": "port module"
+            "role": "spacer or empty module block",
+            "position_in_flow": "in series with A and B work lines, between main spool and PO check block",
+            "id": "157B6203"
           },
           {
-            "id": "157B7122",
-            "role": "main directional spool"
+            "role": "double pilot-operated check valve",
+            "position_in_flow": "in series with A and B work lines, outputs run off-sheet to actuator",
+            "id": "11166832"
+          },
+          {
+            "role": "port relief and anti-cavitation valve",
+            "position_in_flow": "inlet connected to B work line, outlet dumps to T rail",
+            "setting": "220"
+          },
+          {
+            "role": "port relief and anti-cavitation valve",
+            "position_in_flow": "inlet connected to A work line, outlet dumps to T rail",
+            "setting": "60"
           }
+        ],
+        "flow_scenarios": [
+          "neutral: spool in center position; P rail is blocked, A and B work lines are bled to T rail via small orifices, LS line is drained to T rail",
+          "actuate UP (voltage > 5V): spool shifts to connect P to B and A to T; fluid flows from P rail to port B, upwards through PO check valve to actuator; return fluid from actuator opens A port PO check via pilot pressure from B line and returns to T rail; B port maximum pressure is limited to 220 by port relief valve",
+          "actuate DOWN (voltage < 5V): spool shifts to connect P to A and B to T; fluid flows from P rail to port A, upwards through PO check valve to actuator; return fluid from actuator opens B port PO check via pilot pressure from A line and returns to T rail; A port maximum pressure is limited to 60 by port relief valve"
         ],
         "settings": [
           "220",
-          "60"
+          "60",
+          "0-10 V"
         ],
         "ports": [
-          "A",
-          "B",
-          "P",
-          "LS_B",
-          "LS_A"
+          "A: work port (DOWN), runs off-sheet upwards",
+          "B: work port (UP), runs off-sheet upwards",
+          "P: pressure supply rail, runs horizontally across sheet",
+          "T: tank return rail, runs horizontally across sheet",
+          "LSA: load sense rail, runs horizontally across sheet",
+          "LSB: load sense rail, runs horizontally across sheet"
         ],
         "illegible": [],
         "_model": "gemini-3.1-pro-preview"
-      }
+      },
+      "actuation_skeleton": "PVEU - 0-10 V (Proportional)"
     },
     {
       "label": "LIFTING KEEL LOCKS",
       "identifier": "EV-6.2",
       "rating": "spool 5 lt/min",
-      "actuation": "PVEO - ON/OFF",
+      "actuation": "PVEO - ON/OFF (electrical pilot with manual override)",
       "neutral": "closed neutral position",
-      "x_left": 0.288,
-      "x_right": 0.398,
+      "x_left": 0.31,
+      "x_right": 0.42,
+      "is_block_level": false,
       "detail": {
-        "function": "EV-6.2 KEEL LIFTING KEEL LOCKS",
+        "function": "EL LIFTING KEEL LOCKS (EV-6.2)",
         "rating": "spool 5 lt/min",
-        "actuation": "PVEO - ON/OFF",
+        "actuation": "PVEO - ON/OFF (electrical pilot with manual override)",
         "neutral": "closed neutral position",
         "cartridges": [
           {
-            "id": "11166838",
-            "role": "pilot actuation module (PVEO)"
+            "role": "Electrical pilot actuator module (PVEO)",
+            "position_in_flow": "Mounted on top of main spool, pilots its actuation",
+            "id": "11166838"
           },
           {
-            "id": "157B7125",
-            "role": "main directional spool valve"
+            "role": "Port connection/routing block",
+            "position_in_flow": "Routes A and B lines from the spool to the external work ports",
+            "id": "11130982"
           },
           {
-            "id": "11130982",
-            "role": "shock/relief valve block",
+            "role": "Main directional spool valve (3-position, 4-way)",
+            "position_in_flow": "Between the main pressure/tank rails and the A/B work ports",
+            "id": "157B7125"
+          },
+          {
+            "role": "Pressure compensator",
+            "position_in_flow": "On the inlet pressure line (P) immediately before the main spool, piloted by the LS signal"
+          },
+          {
+            "role": "Port A relief valve",
+            "position_in_flow": "Connected to the A work line, dumping to the tank return (T) rail",
+            "setting": "100"
+          },
+          {
+            "role": "Port B relief valve",
+            "position_in_flow": "Connected to the B work line, dumping to the tank return (T) rail",
             "setting": "100"
           }
         ],
+        "flow_scenarios": [
+          "Neutral: Main spool is in the closed center position; P, A, and B ports are blocked; the load-sense (LS) signal is vented to tank.",
+          "Actuation A (IN=A): Main spool shifts to connect P to A and B to T; flow goes out port A and returns from port B; pressure on port A is limited by its relief valve to 100.",
+          "Actuation B (OUT=B): Main spool shifts to connect P to B and A to T; flow goes out port B and returns from port A; pressure on port B is limited by its relief valve to 100."
+        ],
         "settings": [
-          "100"
+          "100 (Port A relief)",
+          "100 (Port B relief)"
         ],
         "ports": [
-          "A (off-sheet)",
-          "B (off-sheet)",
-          "IN=A",
-          "OUT=B"
+          "A (Work port, IN)",
+          "B (Work port, OUT)"
         ],
         "illegible": [],
         "_model": "gemini-3.1-pro-preview"
-      }
+      },
+      "actuation_skeleton": "PVEO - ON/OFF",
+      "rating_skeleton": "5 lt/min"
     },
     {
       "label": "MAST WINCH AFT PORT",
       "identifier": "EV-6.3",
-      "rating": "spool 65 lt/min",
-      "actuation": "PVEO - ON/OFF",
-      "neutral": "open neutral position",
-      "x_left": 0.401,
-      "x_right": 0.512,
+      "rating": "65 lt/min",
+      "actuation": "Solenoid (PVEO - ON/OFF), open neutral position",
+      "neutral": "Spool centered; P is blocked, A and B ports are connected to T (tank).",
+      "x_left": 0.42,
+      "x_right": 0.54,
+      "is_block_level": false,
       "detail": {
-        "function": "KEEL MAST WINCH AFT PORT / EV-6.3",
-        "rating": "spool 65 lt/min",
-        "actuation": "PVEO - ON/OFF (1\u00b0&3\u00b0 =A/2\u00b0 =B)",
-        "neutral": "open neutral position",
+        "function": "EL MAST WINCH AFT PORT, EV-6.3",
+        "rating": "65 lt/min",
+        "actuation": "Solenoid (PVEO - ON/OFF), open neutral position",
+        "neutral": "Spool centered; P is blocked, A and B ports are connected to T (tank).",
         "cartridges": [
           {
-            "id": "11166838",
-            "role": "pilot valve module"
+            "role": "Main directional control spool, 3-position, 4-way.",
+            "position_in_flow": "Between P pressure rail, T return rail, and A/B work ports.",
+            "id": "157B7123"
           },
           {
-            "id": "157B7123",
-            "role": "main directional spool"
+            "role": "Pre-spool pressure compensator.",
+            "position_in_flow": "In the P line, upstream of the main spool; receives pilot signal from the LS line."
+          },
+          {
+            "role": "Pilot actuator module (solenoid on/off).",
+            "position_in_flow": "Actuating the main directional spool.",
+            "id": "11166838"
+          },
+          {
+            "role": "Port relief and anti-cavitation valve.",
+            "position_in_flow": "Connected between work port A and T return rail.",
+            "setting": "250"
+          },
+          {
+            "role": "Port relief and anti-cavitation valve.",
+            "position_in_flow": "Connected between work port B and T return rail.",
+            "setting": "225"
           }
         ],
+        "flow_scenarios": [
+          "Neutral: Solenoids de-energized, spool spring-centered. Supply P is blocked at the spool. Work ports A and B are open to tank T.",
+          "Energized for Port A: Spool shifts to direct flow from P through the compensator to port A. Return flow from port B is directed to tank T. Maximum pressure on port A is limited by the shock valve to 250.",
+          "Energized for Port B: Spool shifts to direct flow from P through the compensator to port B. Return flow from port A is directed to tank T. Maximum pressure on port B is limited by the shock valve to 225.",
+          "Cavitation prevention: If pressure at port A or B drops below tank pressure, the anti-cavitation check valves allow makeup fluid to flow from T into the respective work port."
+        ],
         "settings": [
-          "100",
-          "250"
+          "250 (Port A relief)",
+          "225 (Port B relief)"
         ],
         "ports": [
-          "A (work port, connects off-sheet)",
-          "B (work port, connects off-sheet)",
-          "LSA",
-          "LSB"
+          "A (work port, top)",
+          "B (work port, top)"
         ],
-        "illegible": [],
         "_model": "gemini-3.1-pro-preview"
-      }
+      },
+      "actuation_skeleton": "PVED - ON/OFF",
+      "neutral_skeleton": "open neutral position"
     },
     {
       "label": "MAST WINCH FWD PORT",
       "identifier": "EV-6.4",
       "rating": "spool 65 lt/min",
-      "actuation": "PVEO - ON/OFF",
+      "actuation": "PVEO - ON/OFF (electrical) with manual lever",
       "neutral": "open neutral position",
-      "x_left": 0.515,
-      "x_right": 0.625,
+      "x_left": 0.54,
+      "x_right": 0.65,
+      "is_block_level": false,
       "detail": {
         "function": "MAST WINCH FWD PORT (EV-6.4)",
         "rating": "spool 65 lt/min",
-        "actuation": "PVEO - ON/OFF (1\u00b0&3\u00b0 =A/2\u00b0 =B)",
+        "actuation": "PVEO - ON/OFF (electrical) with manual lever",
         "neutral": "open neutral position",
         "cartridges": [
           {
-            "id": "11166838",
-            "role": "pilot / actuator module"
+            "role": "electrical actuation module (PVEO)",
+            "position_in_flow": "pilot lines to main directional spool",
+            "id": "11166838"
           },
           {
-            "id": "157B6203",
-            "role": "module block / shock valve identifier"
+            "role": "main directional spool",
+            "position_in_flow": "between P/T rails and work ports A/B",
+            "id": "157B7123"
           },
           {
-            "id": "157B7123",
-            "role": "main directional spool"
+            "role": "port shock/relief and anti-cavitation valve",
+            "position_in_flow": "between port A line and tank return rail",
+            "setting": "250"
+          },
+          {
+            "role": "port shock/relief and anti-cavitation valve",
+            "position_in_flow": "between port B line and tank return rail",
+            "setting": "225"
           }
         ],
+        "flow_scenarios": [
+          "neutral: main spool in center open neutral position, flow directed to tank",
+          "actuated for port A: spool shifts to direct pressure flow to port A and return flow from port B to tank",
+          "actuated for port B: spool shifts to direct pressure flow to port B and return flow from port A to tank",
+          "port A overpressure: excessive pressure in port A opens relief valve to dump fluid to tank return rail at 250",
+          "port B overpressure: excessive pressure in port B opens relief valve to dump fluid to tank return rail at 225",
+          "cavitation: anti-cavitation check valves open from tank return rail to replenish work ports A or B if pressure drops below tank line pressure"
+        ],
         "settings": [
-          "250"
+          "250",
+          "225"
         ],
         "ports": [
-          "A (work port, runs off-sheet)",
-          "B (work port, runs off-sheet)",
-          "LS_A (load sense line)",
-          "LS_B (load sense line)"
+          "A (runs off-sheet top)",
+          "B (runs off-sheet top)"
         ],
         "illegible": [],
         "_model": "gemini-3.1-pro-preview"
-      }
+      },
+      "actuation_skeleton": "PVED - ON/OFF",
+      "rating_skeleton": "65 lt/min"
     },
     {
       "label": "MAST WINCH AFT STBD",
       "identifier": "EV-6.5",
-      "rating": "spool 65 lt/min",
-      "actuation": "PVEO - ON/OFF",
+      "rating": "65 lt/min",
+      "actuation": "PVEO - ON/OFF solenoid with manual lever; 1\u00b0&3\u00b0 =A/2\u00b0 =B",
       "neutral": "open neutral position",
-      "x_left": 0.628,
-      "x_right": 0.738,
+      "x_left": 0.65,
+      "x_right": 0.76,
+      "is_block_level": false,
       "detail": {
         "function": "MAST WINCH AFT STBD",
+        "rating": "65 lt/min",
+        "actuation": "PVEO - ON/OFF solenoid with manual lever; 1\u00b0&3\u00b0 =A/2\u00b0 =B",
+        "neutral": "open neutral position",
+        "cartridges": [
+          {
+            "role": "Solenoid actuator module (PVE)",
+            "position_in_flow": "Top pilot circuit, actuating the main spool",
+            "id": "11166838"
+          },
+          {
+            "role": "Basic valve housing / manifold block",
+            "position_in_flow": "Main body enclosing work ports A and B",
+            "id": "157B6203"
+          },
+          {
+            "role": "Main directional control spool (4-position)",
+            "position_in_flow": "Between main P/T/LS rails and work ports A/B",
+            "id": "157B7123"
+          },
+          {
+            "role": "Shock and anti-cavitation relief valve",
+            "position_in_flow": "On work port A line, discharging to and drawing from T return rail",
+            "setting": "250"
+          },
+          {
+            "role": "Shock and anti-cavitation relief valve",
+            "position_in_flow": "On work port B line, discharging to and drawing from T return rail",
+            "setting": "225"
+          },
+          {
+            "role": "Pressure compensator",
+            "position_in_flow": "On P line upstream of the main spool, piloted by LS line"
+          }
+        ],
+        "flow_scenarios": [
+          "Neutral: Spool in spring-centered position, P is blocked, work ports A and B are open to the T return rail (open neutral).",
+          "Actuated Envelope 2: P connects to A, B connects to T. Flow is regulated by the upstream pressure compensator.",
+          "Actuated Envelope 4 (Bottom): P connects to B, A connects to T.",
+          "Actuated Envelope 1 (Top): Float position; connects work ports A and B together and to tank.",
+          "Overpressure Port A: If pressure on A exceeds 250, the shock relief valve opens to vent fluid to the T rail.",
+          "Overpressure Port B: If pressure on B exceeds 225, the shock relief valve opens to vent fluid to the T rail.",
+          "Cavitation: If pressure at port A or B drops below tank pressure, the corresponding anti-cavitation check valve opens to draw fluid from the T rail."
+        ],
+        "settings": [
+          "250 (Port A shock relief)",
+          "225 (Port B shock relief)"
+        ],
+        "ports": [
+          "A: Work port, runs off-sheet upwards",
+          "B: Work port, runs off-sheet upwards",
+          "P (Red): Pressure supply from bottom rail",
+          "T (Blue): Tank return to bottom rail",
+          "LS_A, LS_B (Cyan): Load sense lines connecting to bottom rails"
+        ],
+        "illegible": [
+          "Exact internal connections of the uppermost spool envelope (appears to be standard float but lines are dense)"
+        ],
+        "_model": "gemini-3.1-pro-preview"
+      },
+      "actuation_skeleton": "PVED - ON/OFF"
+    },
+    {
+      "label": "MAST WINCH FWD STBD",
+      "identifier": "EV-6.6",
+      "rating": "65 lt/min",
+      "actuation": "PVEO - ON/OFF",
+      "neutral": "open neutral position",
+      "x_left": 0.76,
+      "x_right": 0.88,
+      "is_block_level": false,
+      "detail": {
+        "function": "MAST WINCH FWD STBD, EV-6.6",
         "rating": "65 lt/min",
         "actuation": "PVEO - ON/OFF",
         "neutral": "open neutral position",
         "cartridges": [
           {
-            "id": "11166838",
-            "role": "pilot valve"
+            "role": "main directional spool",
+            "position_in_flow": "pressure inlet to A/B work ports",
+            "id": "157B7123"
           },
           {
-            "id": "157B6203",
-            "role": "work port block"
+            "role": "solenoid operated relief/unloading valve",
+            "position_in_flow": "LS line",
+            "id": "11166838"
           },
           {
-            "id": "157B7123",
-            "role": "main directional valve spool"
+            "role": "work port pressure relief",
+            "position_in_flow": "A port to T rail",
+            "setting": "230"
           },
           {
-            "id": "EV-6.5",
-            "role": "module identifier"
+            "role": "work port pressure relief",
+            "position_in_flow": "B port to T rail",
+            "setting": "225"
           }
         ],
+        "flow_scenarios": [
+          "energized A: P -> main spool -> A port, B port -> main spool -> T rail",
+          "energized B: P -> main spool -> B port, A port -> main spool -> T rail",
+          "neutral: main spool open center, P and LS connected to T",
+          "relief: work port pressure reliefs open to T rail when A or B port pressure exceeds settings",
+          "LS unloading: solenoid valve on LS line opens to T when de-energized, venting LS pressure"
+        ],
         "settings": [
-          "250",
-          "225",
-          "1\u00b0&3\u00b0 =A/2\u00b0 =B"
+          "230 bar (A port relief)",
+          "225 bar (B port relief)"
         ],
         "ports": [
-          "A",
-          "B",
-          "LSA",
-          "LSB"
+          "A (work port, runs off-sheet upwards)",
+          "B (work port, runs off-sheet upwards)"
         ],
         "illegible": [],
         "_model": "gemini-3.1-pro-preview"
-      }
+      },
+      "actuation_skeleton": "PVED - ON/OFF"
     },
     {
-      "label": "MAST WINCH FWD STBD",
-      "identifier": "EV-6.6",
-      "rating": "spool 65 lt/min",
-      "actuation": "PVEO - ON/OFF",
-      "neutral": "open neutral position",
-      "x_left": 0.741,
-      "x_right": 0.852,
+      "label": "End Plate",
+      "is_block_level": true,
       "detail": {
-        "function": "MAST WINCH FWD STBD (EV-6.6)",
-        "rating": "65 lt/min",
-        "actuation": "PVEO - ON/OFF",
-        "neutral": "open",
-        "cartridges": [
-          {
-            "id": "11166838",
-            "role": "PVEO Actuator / pilot"
-          },
-          {
-            "id": "157B6203",
-            "role": "valve block module"
-          },
-          {
-            "id": "157B7123",
-            "role": "main directional spool"
-          }
-        ],
-        "settings": [
-          "230",
-          "225"
-        ],
-        "ports": [
-          "A",
-          "B"
-        ],
-        "illegible": [],
-        "_model": "gemini-3.1-pro-preview"
+        "skipped": "no x-extent from skeleton"
       }
     }
   ],
@@ -264,7 +405,7 @@
     {
       "kind": "other_table",
       "bbox": [
-        657,
+        655,
         719,
         856,
         982
@@ -278,7 +419,7 @@
   "passes": {
     "skeleton_dpi": 200,
     "detail_dpi": 600,
-    "slices_found": 6,
+    "slices_found": 8,
     "detail_calls": 6
   },
   "model": "gemini-3.1-pro-preview",
@@ -288,6 +429,13 @@
       "action": "attach",
       "target": "570-danfoss-pvg-32-mast-block",
       "confidence": 1.0
+    },
+    {
+      "slice": "Inlet Block",
+      "action": "attach",
+      "target": "570-danfoss-pvg-32-mast-block",
+      "via": "block_level",
+      "confidence": "caveat"
     },
     {
       "slice": "LIFTING KEEL UP/DOWN",
@@ -336,6 +484,13 @@
       "via": "control_map",
       "mechanism": "exact",
       "confidence": "high"
+    },
+    {
+      "slice": "End Plate",
+      "action": "attach",
+      "target": "570-danfoss-pvg-32-mast-block",
+      "via": "block_level",
+      "confidence": "caveat"
     }
   ]
 }

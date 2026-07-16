@@ -6,588 +6,633 @@
     "sheet": "8 of 12"
   },
   "rails": [
-    "P (pressure) - top rail",
-    "T (tank/return) - bottom rail",
-    "LS (load sense) - bottom rail, with LSA/LSB per function",
-    "M (gauge/measure) - left side"
+    "P (pressure, top rail)",
+    "T (tank return)",
+    "LS (load sense, bottom rail)",
+    "M (top-left auxiliary line)"
   ],
   "block_capacity_printed": false,
-  "notes": "Pressure setting call-outs (red arrows/text) referencing LSA adjustment from 225 bar to 260 bar, and ON/OFF relief valve from 150 bar to 225 bar, are legible in main text but exact cartridge/part numbers (e.g. 11166838, 11166832, 157B5111, 157B6203, 157B7121, 157B7126, 157B2014, 300, 125, 135, 240, 260) are small and should be re-read at higher resolution. Hand-written pink/magenta annotations near EV-10.1/10.2 regarding pressure checks (45 bar/175 bar in opening/closing) are partially illegible. Red triangle callout numbers (2, 10) near valves not fully confirmed. EV-10.6 and EV-10.7 appear as small separate valve blocks with A/B 1/4\"G ports below the main manifold row, function unclear at this resolution.",
+  "notes": "Small printed cartridge/part numbers (e.g. 11166838, 11166832, 157B5111, 157B6203, 157B7121, 157B7126, 157B2014, 125/135/240/260 pressure setting labels) are illegible at this resolution. Several red handwritten/annotation notes with pressure adjustment instructions (e.g. increasing LSA settings from 225 to 260 bar, ON/OFF relief valve from 150 to 225 bar) are present but details near EV-10.1/10.2/10.3 handwritten pressure check notes (43 bar opening/170 bar closing, 175 bar) are hard to fully confirm. Red warning triangle markers with numeric labels (10) appear near several components - exact association unclear at this resolution.",
   "slices": [
     {
       "label": "TRANSOM DOOR",
       "identifier": "EV-10.1",
       "rating": "spool 25 lt/min",
-      "actuation": "PVEO - ON/OFF",
+      "actuation": "PVEO (proportional valve electric operator) - ON/OFF; open neutral position (spool rests in open/flow-through neutral)",
       "neutral": "open neutral position",
-      "x_left": 0.19,
-      "x_right": 0.37,
+      "is_block_level": false,
+      "x_left": 0.24,
+      "x_right": 0.4,
       "detail": {
-        "function": "TRANSOM DOOR - PVG 32 MODULE (EV-10.1), part 11166838",
+        "function": "TRANSOM DOOR - EV-10.1 (PVG 32 Module)",
         "rating": "spool 25 lt/min",
-        "actuation": "PVE\u03a9 electro-proportional pilot, ON/OFF; \u03a9OPEN=B / CLOSE=A; open-center neutral position (spool shown centered, P-T open path in neutral)",
+        "actuation": "PVEO (proportional valve electric operator) - ON/OFF; open neutral position (spool rests in open/flow-through neutral)",
         "cartridges": [
           {
-            "role": "Main directional spool, PVE\u03a9 actuated, open-center neutral, meters P to A or B and opposite work port to T",
-            "position_in_flow": "inlet section between P/T gallery and A/B work ports",
+            "role": "PVEO on/off directional pilot solenoid stage (labeled EV-10.1, part 11166838), controls pilot pressure to shift main PVG spool",
+            "position_in_flow": "sits atop the PVG32 module, pilot supply branches from P line via small check/orifice symbols into the pilot block; pilot outputs run down to shift the main spool",
             "id": "11166838",
-            "setting": "ON/OFF electric pilot, OPEN=B, CLOSE=A"
+            "setting": "ON/OFF (2-position solenoid)"
           },
           {
-            "role": "Work-port relief/overload valve on A port branch (small poppet with spring, vents to case/tank)",
-            "position_in_flow": "A work port line, upstream of load-holding stage",
-            "setting": "not numerically marked, illegible exact bar value"
+            "role": "Main directional spool (PVG32 work section), meters flow from P to A/B work ports and returns opposite port to tank rail",
+            "position_in_flow": "P rail (bottom) feeds spool centrally; spool output ports labeled A and B lead up to the transom door actuator lines; spool return connects to T rail at bottom",
+            "setting": "OPEN=B / CLOSE=A"
           },
           {
-            "role": "Pilot-operated / check valve pair feeding the PVE\u03a9 pilot stage from P, with small shuttle-type element (diamond symbol) sensing pressure to pilot section",
-            "position_in_flow": "top of module, between main gallery and PVE pilot chamber"
+            "role": "Work-port relief (pressure limiter cartridge, setting 125 bar) protecting B-port/closing line",
+            "position_in_flow": "tapped off the vertical line between spool B-port branch and the LS_B rail; outlet directed to tank return rail alongside LS shuttle network",
+            "setting": "125 bar",
+            "id": "125"
           },
           {
-            "role": "Load-holding counterbalance/relief valve, spring-loaded, adjustable, set near work port B side of main cylinder circuit",
-            "position_in_flow": "B work-port branch, before cylinder connection",
-            "setting": "marked '300' (bar, presumed) on adjustable relief symbol"
+            "role": "Work-port relief (pressure limiter cartridge, setting 195 bar) protecting A-port/opening line",
+            "position_in_flow": "tapped off the vertical line near LS_A rail, adjacent to the 125 bar cartridge; outlet directed to tank return rail",
+            "setting": "195 bar",
+            "id": "195"
           },
           {
-            "role": "Second load-holding/relief valve mirrored on the other work line (A side), adjustable, spring symbol",
-            "position_in_flow": "A work-port branch, before cylinder connection"
+            "role": "Load-sense shuttle (LS_A / LS_B selector), passes the higher of the two work-port pressures to the common LS rail",
+            "position_in_flow": "sits between the A and B pressure taps, output feeds the horizontal LS rail running to the right toward the PVG main pump LS line"
           },
           {
-            "role": "Main cylinder-side directional/counterbalance cartridge (large valve body, part 157B7121) integrating pilot-assisted check functions for both A and B lines, connects to actual transom door actuator",
-            "position_in_flow": "downstream of PVG spool, in the A/B lines feeding the cylinder",
-            "id": "157B7121"
-          },
-          {
-            "role": "Orifice/restrictor (marked with hatch symbol, small square) on one pilot line to cylinder-side valve",
-            "position_in_flow": "pilot line to 157B7121 cartridge"
-          },
-          {
-            "role": "LS shuttle/check element combining LS_A and LS_B signals into common LS line back to pump",
-            "position_in_flow": "LS line, downstream junction of LS_A and LS_B",
-            "settings_ref": "markings '125' and '195' near LS shuttle area"
-          },
-          {
-            "role": "LS pressure limiter/relief cartridges, two adjustable elements set at different pressures, limiting max LS signal on A and B sides respectively",
-            "position_in_flow": "LS_A and LS_B branch lines just before joining common LS line",
-            "setting": "125 (bar) and 195 (bar) as printed on the two cartridges"
+            "role": "Pilot check/orifice pair feeding the PVEO pilot stage from P",
+            "position_in_flow": "small diamond (check) and orifice symbols in the pilot supply line above the main spool, between P and the solenoid pilot block"
           }
         ],
         "flow_scenarios": [
-          "Neutral: spool centered/open, P connects internally to T (open-center), no flow to A or B; LS line unloaded (or held at low tank-level pressure) since neither work port pressurized.",
-          "Energized OPEN=B: PVE\u03a9 pilot shifts spool so P flows to B port -> through B-side load-holding/relief branch -> to cylinder-side cartridge (157B7121) -> actuator opens door; opposite port A returns oil to T; LS signal taken from B line (via LS_B branch and its 195 setting limiter) reflects load pressure back to pump.",
-          "Energized CLOSE=A: spool shifts oppositely so P flows to A port -> through A-side branch and cylinder valve -> actuator closes door; B port returns to T; LS signal taken from A line (via LS_A branch and its 125 setting limiter).",
-          "Overload/relief condition: if pressure in the active work line (A or B) exceeds the work-port relief/counterbalance setting, that relief opens diverting excess flow to T, protecting the actuator/door from overpressure (numeric relief settings not clearly legible except LS limiter values 125 and 195).",
-          "Pressure check note (per drawing text): pressure to be verified at 45 bar in neutral/opening condition and at 170 bar during closing operation (handwritten annotation, approximate values as printed)."
+          "Neutral (de-energized): spool held in open-neutral position by spring/pilot default; P connects through open-center path to T, both A and B ports blocked or connected to tank depending on drawn open-center path \u2014 oil recirculates P->T, no flow to actuator",
+          "Energized OPEN (B active): PVEO solenoid 11166838 shifts pilot, main spool moves so P->B port supplies flow to open the transom door actuator, opposite port A returns to T rail; pressure to be checked ~45 bar in opening per handwritten note",
+          "Energized CLOSE (A active): spool shifts opposite direction, P->A port supplies flow to close the transom door, B returns to T; pressure to be checked ~170 bar in closing per handwritten note",
+          "Over-pressure at B (closing/opening limit): if B-line pressure exceeds 125 bar setting, relief cartridge (125) opens dumping excess flow to T rail",
+          "Over-pressure at A: if A-line pressure exceeds 195 bar setting, relief cartridge (195) opens dumping excess flow to T rail",
+          "Load sense: whichever work port is pressurized, LS shuttle passes that pressure to the LS rail feeding pump compensator (off-sheet to the right)"
         ],
         "settings": [
-          "300 (bar, presumed) on B-side adjustable load-holding relief",
-          "125 (bar) on one LS limiter cartridge",
-          "195 (bar) on second LS limiter cartridge",
-          "Handwritten note: pressure to be checked - 45 bar in opening and 170 bar in closing"
+          "125 bar (B-side work-port relief cartridge)",
+          "195 bar (A-side work-port relief cartridge)",
+          "handwritten note: pressure to be checked: 45 bar in opening and 170 bar in closing"
         ],
         "ports": [
-          "A: work port, connects downward through cyan-dashed module boundary to cylinder-side valve 157B7121 and then off-sheet to transom door actuator",
-          "B: work port, connects similarly through module to same cylinder-side valve, feeding opposite side of actuator",
-          "P: pressure inlet, connects to common gallery line labeled 157B5111 (runs left, off-sheet to pump/manifold source)",
-          "T: tank return, runs along bottom gallery line, off-sheet to tank",
-          "LS: load-sense line, bottom of module, joins LS_A and LS_B, runs off-sheet to pump LS input",
-          "M: gauge/test port shown at left side of module, connects to internal relief/gauge circuit"
+          "A: work port, line runs up and connects to actuator circuit at top of crop, then continues off-sheet upward (transom door cylinder line, close side per legend)",
+          "B: work port, line runs up and connects to actuator circuit at top of crop, then continues off-sheet upward (transom door cylinder line, open side per legend)",
+          "P: pressure inlet rail along bottom of module, continues left/right off-sheet to main pump manifold",
+          "T: tank return rail along bottom, continues off-sheet",
+          "LS_B: load-sense tap line, labeled at bottom, runs down through module to LS rail",
+          "LS_A: load-sense tap line, labeled at bottom, adjacent to LS_B, runs down through module to LS rail"
         ],
         "illegible": [
-          "Exact bar value on A-side adjustable relief (mirrors the '300' one but number not clearly printed/legible)",
-          "Full part number stamped on small pilot-check/shuttle diamond symbols near top of module",
-          "Some small numeric markings inside the M-port relief block (partially obscured)"
+          "Exact part/catalog numbers on main spool body (partially visible as 157B7121, could be stamped part ID, low confidence)",
+          "Small solenoid cartridge internal part number beyond 11166838 header box",
+          "Full text of handwritten pink annotation near EV-10.1 is partially cropped at right edge ('pressure to be checked: 45 bar in opening and 170 bar in closing' - inferred by matching partial text with EV-10.2 side)"
         ],
         "_model": "claude-sonnet-5"
-      }
+      },
+      "actuation_skeleton": "PVEO - ON/OFF"
     },
     {
       "label": "DECK DOOR",
       "identifier": "EV-10.2",
-      "rating": "spool 5 lt/min",
-      "actuation": "PVEO - ON/OFF",
+      "rating": "PVG 32 MODULE, spool 5 lt/min",
+      "actuation": "PVEO - ON/OFF electric proportional actuation; OPEN=B / CLOSE=A; neutral position = open-center (through neutral position, oil flows to tank when spool centered)",
       "neutral": "open neutral position",
-      "x_left": 0.37,
-      "x_right": 0.53,
+      "is_block_level": false,
+      "x_left": 0.4,
+      "x_right": 0.56,
       "detail": {
-        "function": "DECK DOOR - EV-10.2 (PVG 32 MODULE)",
-        "rating": "spool 5 lt/min",
-        "actuation": "PVE\u03a9 - ON/OFF electric proportional actuation; OPEN=B / CLOSE=A; open neutral position (spool centers to open/flow-through when de-energized)",
+        "function": "DECK DOOR - EV-10.2",
+        "rating": "PVG 32 MODULE, spool 5 lt/min",
+        "actuation": "PVEO - ON/OFF electric proportional actuation; OPEN=B / CLOSE=A; neutral position = open-center (through neutral position, oil flows to tank when spool centered)",
         "cartridges": [
           {
-            "role": "Main directional PVG spool section (on/off PVE\u03a9 solenoid pilot operated), controls flow to A/B work ports",
-            "position_in_flow": "inlet/pressure line into module, upstream of A and B ports",
-            "setting": "open neutral position",
+            "role": "Main directional PVG spool (on/off proportional), meters flow from P to A or B ports",
+            "position_in_flow": "sits in main pressure line at top of module, upstream of A/B ports; open-center in neutral allowing flow to tank rail",
+            "setting": "OPEN=B / CLOSE=A",
+            "id": "157B6203"
+          },
+          {
+            "role": "Pilot-operated / directional cartridge valve stack at top of module feeding the PVG spool, marked with triangle warning tag noting pressure to be checked",
+            "position_in_flow": "upstream of main spool, in pilot/pressure supply line",
             "id": "11166838"
           },
           {
-            "role": "Pilot solenoid/PVE\u03a9 actuator assembly shown with red triangle marker '2' inside dashed cyan pilot box atop the main spool symbol",
-            "position_in_flow": "pilot stage above main spool",
-            "setting": "ON/OFF"
+            "role": "Main work-section cartridge body (proportional flow control element) below main line, connected to A and B work ports via internal channels",
+            "position_in_flow": "vertical cartridge below A/B tee, outlets run down to A and B port lines",
+            "id": "157B7125"
           },
           {
-            "role": "Work-port relief / pressure limiter cartridge on cylinder block (small relief symbol with adjustable arrow) at top of actuator stack, limits pressure to cylinder",
-            "position_in_flow": "cylinder line, near top port of actuator 157B7125"
+            "role": "Work-port relief valve on B port, dumping excess pressure to tank return when exceeded",
+            "position_in_flow": "B port branch, relief symbol shown venting to LS/tank rail",
+            "setting": "135 bar"
           },
           {
-            "role": "Counterbalance / load-holding valve (pilot-operated, spring+adjustable arrow symbol) mounted on cylinder body",
-            "position_in_flow": "between main spool lines and actuator ports (A/B) of cylinder 157B7125"
+            "role": "Work-port relief valve on A port (mirrored), dumping excess pressure to tank return when exceeded",
+            "position_in_flow": "A port branch, relief symbol shown venting to LS/tank rail",
+            "setting": "135 bar"
           },
           {
-            "role": "Orifice/restrictor cartridges (two, labeled '135') in line near bottom of actuator, damping/metering flow",
-            "position_in_flow": "work line near cylinder base, between spool B/A lines and actuator ports"
-          },
-          {
-            "role": "LS (load sense) shuttle/check network feeding LS_A and LS_B lines",
-            "position_in_flow": "LS line tapped off A and B work ports, routed to LS_A/LS_B buses at bottom"
+            "role": "Shuttle / load-sense check element selecting highest of LS_A / LS_B signal",
+            "position_in_flow": "junction between LS_A and LS_B lines feeding into common LS line at bottom of module"
           }
         ],
         "flow_scenarios": [
-          "Neutral (de-energized): spool in open-neutral position, pump flow passes through center to tank/next section; A and B ports blocked or connected per open-neutral configuration, cylinder held by counterbalance valve",
-          "OPEN command (energized to B): pilot solenoid shifts spool, pressure routed P->B port->cylinder cap side (or as configured) driving door open; opposite port A returns through spool to tank; counterbalance valve on return side controls lowering/opening speed; LS line at B pressurized to LS_B bus",
-          "CLOSE command (energized to A): spool shifts opposite direction, pressure routed P->A port->cylinder, B port returns to tank through spool; counterbalance valve holds/meters flow on A side; LS line at A pressurized to LS_A bus",
-          "Pressure check scenario per note: system verified to read 175 bar during opening stroke and 175 bar during closing stroke, per handwritten note 'pressure to be checked: 175 bar in opening and 175 bar in closing'"
+          "OPEN command (spool to B): P -> main spool -> B port -> to actuator; A port return flows back through spool to tank rail; LS_B signal raised to shuttle and reported upstream",
+          "CLOSE command (spool to A): P -> main spool -> A port -> to actuator; B port return flows back through spool to tank rail; LS_A signal raised to shuttle and reported upstream",
+          "Neutral (open-center): spool centered, P connects internally to tank rail, no flow to A or B ports, LS line unloaded",
+          "Relief event: if pressure on A or B port branch exceeds 135 bar, respective work-port relief opens and dumps excess flow to tank/LS rail, protecting actuator/door from over-pressure"
         ],
         "settings": [
-          "175 bar (pressure to be checked, opening)",
-          "175 bar (pressure to be checked, closing)",
-          "135 (orifice/restrictor cartridge marking, x2, units not shown - likely size code not pressure)"
+          "Work-port relief A: 135 bar",
+          "Work-port relief B: 135 bar",
+          "Pressure to be checked: 175 bar in opening and 175 bar in closing (per handwritten note near valve 11166838)"
         ],
         "ports": [
-          "A port: connects down through cyan/red lines to cylinder 157B7125 lower/actuator port; also ties to LS_A bus at bottom",
-          "B port: connects down to cylinder 157B7125 upper actuator area; also ties to LS_B bus at bottom",
-          "Bottom horizontal bus lines (cyan/red/dark blue) run off left and right sheet edges - off-sheet continuation to other functions/manifold rail",
-          "Drawing number 157B6203 printed along main horizontal line near top, likely drawing/part reference for this manifold section"
+          "A port: connects down to cartridge 157B7125 and to work-port relief (135 bar) then to LS_A line at bottom, work line likely runs off-sheet to deck door actuator",
+          "B port: connects down to cartridge 157B7125 and to work-port relief (135 bar) then to LS_B line at bottom, work line likely runs off-sheet to deck door actuator",
+          "LS_A and LS_B lines exit at bottom of module, routed left toward shuttle/common LS rail"
         ],
         "illegible": [
-          "Exact valve/cartridge part numbers on counterbalance and relief symbols on actuator stack (157B7125 is drawing ref for cylinder, individual cartridge callouts not legible)",
-          "Full identifier under '135' markings - unclear if this is a bar rating, orifice size, or part suffix",
-          "Small circular icon symbols atop actuator (appears to be a vent/breather or gauge port) not clearly labeled",
-          "Left edge cropped line running along far left margin - function/label not visible in this crop"
+          "Exact identifier/model number on top pilot cartridge partially cut by crop edge (only 11166838 partial visible)",
+          "Small drain/vent line symbols near top-left cartridge not fully legible",
+          "Some component tags near A/B tee obscured by dashed overlay lines"
         ],
         "_model": "claude-sonnet-5"
-      }
+      },
+      "actuation_skeleton": "PVEO - ON/OFF",
+      "rating_skeleton": "spool 5 lt/min"
     },
     {
       "label": "MAINSHEET TRAVELER",
       "identifier": "EV-10.3",
-      "rating": "spool 25 lt/min",
-      "actuation": "PVEO - ON/OFF",
+      "rating": "spool 40 lt/min",
+      "actuation": "PVEO - ON/OFF electric proportional/on-off actuation; 1\u00b0&3\u00b0 positions = A / 2\u00b0 position = B; open neutral (open-centre) position",
       "neutral": "closed neutral position",
-      "x_left": 0.53,
-      "x_right": 0.69,
+      "is_block_level": false,
+      "x_left": 0.56,
+      "x_right": 0.7,
       "detail": {
-        "function": "SECONDARY WINCH PORT - PVG 32 MODULE - EV-10.4",
+        "function": "SECONDARY WINCH PORT (EV-10.4) \u2014 PVG 32 module",
         "rating": "spool 40 lt/min",
-        "actuation": "PVE\u03a9 - ON/OFF electric proportional actuation; open neutral (open-center) position at rest",
+        "actuation": "PVEO - ON/OFF electric proportional/on-off actuation; 1\u00b0&3\u00b0 positions = A / 2\u00b0 position = B; open neutral (open-centre) position",
         "cartridges": [
           {
-            "role": "Main directional PVG spool, open-center neutral. 1\u00b0 & 3\u00b0 positions route P->A, 2\u00b0 position routes P->B",
-            "position_in_flow": "inline in P/A/B gallery, mounted on top of manifold section",
+            "role": "Main directional control spool (PVG32 section), open-centre 3-position/4-way",
             "id": "11166832",
-            "setting": "1\u00b0&3\u00b0=A / 2\u00b0=B"
+            "position_in_flow": "Sits between the P/T rail (top, cyan dash-dot supply/LS lines) and the A and B work ports; A port branches down/left to off-sheet, B ports branch left and right along the 157B6203 rail to adjacent sections",
+            "setting": ""
           },
           {
-            "role": "Work-port relief / pressure limiter cartridge on A side, protecting/limiting A-port pressure to tank",
-            "position_in_flow": "A work port branch to tank line",
-            "setting": "240 (bar, per adjacent dial marking)"
+            "role": "Pilot-operated check / anti-cavitation shuttle pair at spool ends (small cross-connected check symbols at top of the PVEO block)",
+            "id": "",
+            "position_in_flow": "Located directly above the main spool body, cross-piped between the two PVEO solenoid pilot lines feeding the spool shift chambers",
+            "setting": ""
           },
           {
-            "role": "Orifice/check symbol (small diamond with arrow) paired with the 240 relief on A side, likely a check or restrictor in the relief branch",
-            "position_in_flow": "A work port branch, alongside 240 relief"
+            "role": "Work-port relief / anti-shock valve on B-side branch, set at 260 bar, vents to local T rail",
+            "id": "157B7... (partially legible, cartridge marked 260)",
+            "position_in_flow": "Inlet taps off the B work-port line downstream of spool, outlet plumbed into the return rail running along the bottom of the crop",
+            "setting": "260 bar"
           },
           {
-            "role": "LS shuttle/isolator element (the <o> and coil symbols) selecting load-sense signal from A or B spool position back to LS gallery",
-            "position_in_flow": "LS line, between spool and LS_A/LS_B rails"
+            "role": "Work-port relief / anti-shock valve on opposite (A-side/left) branch, set at 240 bar, vents to local T rail",
+            "id": "",
+            "position_in_flow": "Inlet taps off the left work-port branch line, outlet joins the same lower return rail as the 260 bar valve",
+            "setting": "240 bar"
           },
           {
-            "role": "LS pressure limiter / relief note - annotation indicates this LSA setting to be increased from 225 bar to 250 bar by turning allen key clockwise one full turn (modification note, red text with red triangle '10' callout)",
-            "position_in_flow": "LS_A line",
-            "setting": "225 bar -> increase to 250 bar (clockwise 1 turn on allen key)"
+            "role": "Counterbalance / load-holding valve block (large finned cartridge, center of crop) with integral relief and pilot line, marked 157B7126",
+            "id": "157B7126",
+            "position_in_flow": "Inserted in the A work-port line between spool outlet and the actual cylinder/winch port, with a pilot sense line teed from B side and small manual-adjust relief on top (drain to case/tank symbol at top)",
+            "setting": ""
+          },
+          {
+            "role": "LS pressure limiter (LSA) \u2014 adjustable relief in the load-sense line, factory set 225 bar, field-adjustable per handwritten note",
+            "id": "",
+            "position_in_flow": "Sits in the LS_A line branching down from the work-port/spool junction, outlet vents into the LS/return rail bundle at bottom of crop",
+            "setting": "225 bar nominal (note instructs raising by turning allen key clockwise 'a [turn]', exact increment illegible)"
+          },
+          {
+            "role": "ON/OFF relief valve (small block, bottom right, ports A/B 1/4\"G) set at 225 bar, adjustable per handwritten note to raise pressure by one turn",
+            "id": "",
+            "position_in_flow": "A port 1/4\"G at top, B port 1/4\"G at bottom feeding into vertical line running off bottom edge of crop (off-sheet)",
+            "setting": "225 bar (note: increase to 225 bar by turning allen key one full turn)"
+          },
+          {
+            "role": "Orifice/restrictor symbol (small square-in-line) in line beside the counterbalance block",
+            "id": "",
+            "position_in_flow": "In a short branch line to the left of the 157B7126 cartridge, connecting into the LS/pilot network",
+            "setting": ""
           }
         ],
         "flow_scenarios": [
-          "Neutral (open-center): spool centered, P flow passes through to tank/next section, A and B ports blocked from pressure, LS line unloaded",
-          "Position 1\u00b0 or 3\u00b0 (energized one direction): P -> spool -> A port -> to secondary winch actuator; return flow B -> tank; LS signal taken from A side reflects load pressure",
-          "Position 2\u00b0 (energized other direction): P -> spool -> B port -> to secondary winch actuator; return flow A -> tank; LS signal taken from B side",
-          "Relief scenario: if A-port pressure exceeds the 240 (bar) setting, the work-port relief on A opens, bleeding A port pressure to tank",
-          "LS modification scenario: LSA relief/limiter setting being raised per red annotation from 225 bar to 250 bar via clockwise allen-key adjustment (one turn) - modification note referencing red triangle '10'"
+          "Neutral (open-centre): spool in mid/2\u00b0 position passes pump flow straight through P-to-T open-center path across the module; A and B work ports blocked/isolated from pressure, LS line unloaded to tank.",
+          "Energized to A (1\u00b0 or 3\u00b0 per PVEO logic): P -> spool -> A work port -> through counterbalance/load-holding cartridge 157B7126 -> to winch/cylinder off-sheet; return flow from B port -> spool -> T rail; LS signal taken from A branch feeds LS_A limiter.",
+          "Energized to B (2\u00b0 position): P -> spool -> B work port -> off-sheet load; return from A port -> through counterbalance check path -> spool -> T; LS signal from B branch feeds LS_B line.",
+          "Over-pressure on A/B work ports: if pressure in either work-port branch exceeds its local relief setting (240 bar on one branch, 260 bar on the other), the respective relief cartridge opens and dumps excess flow to the local T/return rail.",
+          "LS over-pressure: LSA limiter opens at 225 bar (adjustable) to bleed the load-sense line to the return/LS rail, capping maximum LS-commanded pump pressure for this section.",
+          "ON/OFF relief block: independent small relief valve on the separate A/B 1/4\"G pilot circuit opens at its 225 bar setting, limiting pressure in that dedicated pilot/control line, dumping via its own port to the line running off the bottom of the crop."
         ],
         "settings": [
-          "A-side work-port relief: 240 (bar, unit inferred from other similar dials on sheet)",
-          "LSA limiter: 225 bar being increased to 250 bar by one clockwise turn of allen key (per red modification note)"
+          "260 bar work-port relief (right/B branch)",
+          "240 bar work-port relief (left/A branch)",
+          "225 bar LSA limiter, adjustable clockwise to raise setting (exact turn increment illegible)",
+          "225 bar ON/OFF relief valve, adjustable one full turn to raise setting"
         ],
         "ports": [
-          "A: connects downward to actuator circuit line labeled 157B7126 then to hydraulic motor/valve block; also ties to work-port relief (240) and orifice/check branch",
-          "B: connects downward through separate line into same 157B7126 block on return/opposite side",
-          "LS_A and LS_B: horizontal LS rails running along bottom, connecting to shuttle network and off-sheet to other sections (LS gallery continues left/right off crop edge)",
-          "Top P gallery (red dashed/solid lines): continues off-sheet left and right, common pressure supply shared across modules"
+          "A work port: connects downward through counterbalance cartridge 157B7126 toward winch actuator, path continues off bottom of crop",
+          "B work port: connects left and right along common 157B6203 rail shared with adjacent sections (FLEET/PRIMARY winch ports), also off-sheet",
+          "LS_A and LS_B taps: run down into the LS/pilot rail bundle at bottom of crop, continuing off-sheet",
+          "ON/OFF relief block ports A and B (1/4\"G): A at top, B at bottom feeding a line that exits off the bottom edge of the crop"
         ],
         "illegible": [
-          "Exact unit/label on the 240 relief dial (bar assumed but not explicitly printed in this crop)",
-          "Small identifying marks on the orifice/check diamond symbol next to A-port relief",
-          "Full text of red annotation note beyond what is quoted (partially cropped at left edge: '...ase the pressure setting on LSAs from 225 bar ...0 bar by turning the allen key clockwise by a ...er turn')"
+          "Full part number on the 260 bar relief cartridge (stamped 157B7... but partially cut off)",
+          "Exact numeric turn increment in the handwritten note for LSA adjustment ('by turning the allen key clockwise by a ___ turn')",
+          "Exact numeric turn increment in the handwritten note for ON/OFF relief valve adjustment",
+          "Small symbol details inside the PVEO cross-check block at top of spool (pilot check orientation)"
         ],
         "_model": "claude-sonnet-5"
-      }
+      },
+      "actuation_skeleton": "PVEO - ON/OFF",
+      "rating_skeleton": "spool 25 lt/min"
     },
     {
       "label": "SECONDARY WINCH PORT",
       "identifier": "EV-10.4",
-      "rating": "spool 40 lt/min",
-      "actuation": "PVEO - ON/OFF",
+      "rating": "Spool 65 lt/min",
+      "actuation": "PVE - ON/OFF solenoid pilot actuation (electro-proportional/on-off pilot operated spool); ports 1\u00b0 & 3\u00b0 = A, 2\u00b0 = B; open-neutral (open-center) position at rest",
       "neutral": "open neutral position",
-      "x_left": 0.69,
-      "x_right": 0.83,
+      "is_block_level": false,
+      "x_left": 0.7,
+      "x_right": 0.84,
       "detail": {
-        "function": "PRIMARY WINCH PORT - PVG 32 MODULE (EV-10.5), part 11166832",
-        "rating": "spool 65 lt/min",
-        "actuation": "PVE\u03a9 - ON/OFF solenoid proportional actuation; open neutral (open-center) position at rest; 1\u00b0&3\u00b0 positions = A port, 2\u00b0 position = B port",
+        "function": "PRIMARY WINCH PORT \u2014 PVG 32 module, EV-10.5 (main spool section, PN 157B7126)",
+        "rating": "Spool 65 lt/min",
+        "actuation": "PVE - ON/OFF solenoid pilot actuation (electro-proportional/on-off pilot operated spool); ports 1\u00b0 & 3\u00b0 = A, 2\u00b0 = B; open-neutral (open-center) position at rest",
         "cartridges": [
           {
+            "role": "Inlet manifold block with shuttle/check network (PVB-type inlet, 4 small poppet cartridges arranged in diamond pattern) feeding LS and P galleries to the module",
+            "position_in_flow": "top of section, inlet block ref 11166832; receives P and B/A supply lines from top rail (157B6203, 157B2014) and distributes to LS shuttle network and main spool inlet",
+            "id": "11166832",
+            "setting": "unconfirmed"
+          },
+          {
             "role": "Main directional control spool (PVG32 work section)",
-            "position_in_flow": "between P (bridge/inlet) and A/B work ports, tank return in open-center neutral",
-            "setting": "open neutral",
-            "id": "157B7126"
+            "position_in_flow": "center of section, body marked 157B7126; P inlet from top block, A and B work ports exit sideways to the two EV cartridge groups below, LS signal lines (LS_A, LS_B) run out the bottom to the LS rail",
+            "id": "157B7126",
+            "setting": "open-neutral center position; 65 lt/min spool"
           },
           {
-            "role": "PVE\u03a9 ON/OFF proportional solenoid pilot operator (dual coil, on top of spool)",
-            "position_in_flow": "pilot stage above main spool, controls spool shift to A or B",
-            "id": "11166832"
+            "role": "Work-port relief / anti-cavitation cartridge on spool A side (small relief+check symbol at lower left of spool body)",
+            "position_in_flow": "integrated at bottom-left of main spool, between A work line and case/return",
+            "setting": "unconfirmed \u2014 value not legible"
           },
           {
-            "role": "Work-port relief/anti-cavitation valve, A side",
-            "position_in_flow": "A work port line",
-            "setting": "260 (bar, printed value on spring symbol)"
+            "role": "Load-sense shuttle/orifice pair feeding LS_A and LS_B lines to the common LS rail",
+            "position_in_flow": "directly below main spool, two ports marked <o> connecting to LS_A and LS_B horizontal rail",
+            "setting": "orifice, size illegible"
           },
           {
-            "role": "Work-port relief/anti-cavitation valve, B side (left)",
-            "position_in_flow": "B work port line (left cartridge)",
-            "setting": "260 (bar)"
+            "role": "Work-port relief valve, set to 260 (bar, implied), on the A-side branch below the spool",
+            "position_in_flow": "left cartridge in the pair below spool, inlet from A work line, outlet to case/tank return (dashed return path)",
+            "id": "260",
+            "setting": "260 (units illegible, presumed bar)"
           },
           {
-            "role": "Work-port relief/anti-cavitation valve, B side (right)",
-            "position_in_flow": "B work port line (right cartridge)",
-            "setting": "260 (bar)"
+            "role": "Work-port relief valve, set to 260, on the B-side branch below the spool, paired with a pilot-operated check (load-holding) cartridge",
+            "position_in_flow": "right pair below spool: one relief cartridge marked 260 dumping to return, one check-type cartridge with spring/pilot symbol holding load on that port",
+            "id": "260",
+            "setting": "260 (units illegible, presumed bar)"
           },
           {
-            "role": "Small orifice/check valve inline in flow path near spool inlet",
-            "position_in_flow": "between LS shuttle network and spool body, center",
-            "id": "illegible symbol - possible flow control/check"
+            "role": "EV-10.6 pilot solenoid on/off directional valve, work ports A and B, with a relief cartridge (marked 220) on its B line",
+            "position_in_flow": "bottom-left branch, separate small valve block labeled EV-10.6, A port 1/4\"G to off-sheet, B port 1/4\"G with 220 relief to return",
+            "id": "EV-10.6",
+            "setting": "220 (units illegible, presumed bar)"
           },
           {
-            "role": "LS shuttle/load-sense selector",
-            "position_in_flow": "LS_A / LS_B lines feeding common LS gallery beneath spool"
-          },
-          {
-            "role": "Downstream directional/solenoid valve, left (EV-10.6)",
-            "position_in_flow": "A/B ports 1/4\"G, off main PVG section, separate small solenoid block",
-            "setting": "220 (bar, spring relief printed)"
-          },
-          {
-            "role": "Downstream directional/solenoid valve, right (EV-10.7, label cut off)",
-            "position_in_flow": "A/B ports 1/4\"G, off main PVG section, separate small solenoid block",
-            "setting": "220 (bar, spring relief printed)"
+            "role": "EV-10.7 (label cropped, only partially visible as 'EV-10,') pilot solenoid on/off directional valve, mirrored to EV-10.6, with its own 220-set relief on B line",
+            "position_in_flow": "bottom-right branch, small valve block partially off-crop, A port 1/4\"G, B port 1/4\"G with 220 relief to return",
+            "id": "EV-10.7 (label cut off)",
+            "setting": "220 (units illegible, presumed bar)"
           }
         ],
         "flow_scenarios": [
-          "Neutral (open-center): spool centered, pump flow passes through open-center path to tank (T), A and B ports blocked from pump but LS line unloaded (open neutral position as printed)",
-          "Energized 1\u00b0 or 3\u00b0 (A energized): PVE\u03a9 solenoid shifts spool so pump flow P->A work port; B port connects to tank return; LS line senses A-port pressure via shuttle (LS_A) to upstream pump compensator; work-port relief on A (260 bar) protects against over-pressure/cavitation",
-          "Energized 2\u00b0 (B energized): PVE\u03a9 solenoid shifts spool oppositely so pump flow P->B work port; A port connects to tank return; LS line senses B-port pressure via shuttle (LS_B); work-port reliefs on B side (260 bar, two cartridges) protect against over-pressure/cavitation",
-          "Downstream EV-10.6/EV-10.7 solenoid valves: independent small 4-way ON/OFF valves fed from A/B lines (157B6203, 157B2014 tagged lines), each with own 220 bar relief on the B port line, used for a secondary local actuator function off the main winch spool"
+          "Neutral (de-energized, open-center): main spool 157B7126 centered, P flow passes through open-center path to tank/return rail; A and B work ports blocked/isolated from load; LS_A and LS_B lines see no pressure signal from this section.",
+          "Energized to A (spool shifted one way): P -> inlet block 11166832 -> main spool -> A work port -> off-sheet load line 157B6203; return flow from B port -> spool -> tank rail; LS_A line picks up signal to LS rail; A-side 260 relief protects A port against pressure spikes, dumping to return if exceeded.",
+          "Energized to B (spool shifted other way): P -> inlet block -> main spool -> B work port -> off-sheet load line 157B2014; return from A port -> spool -> tank; LS_B line picks up signal to LS rail; B-side 260 relief plus load-holding/check cartridge protect and hold load on B port.",
+          "EV-10.6 branch operation: independent small on/off solenoid valve shifts to route pilot/supply between its A and B 1/4\"G ports; B-side pressure limited by 220-set relief to return; used as an auxiliary/pilot circuit off the LS_A rail junction.",
+          "EV-10.7 branch operation (mirrored, label cropped): same as EV-10.6 but on LS_A rail branch to the right, independent on/off shifting with 220-set relief on its B port."
         ],
         "settings": [
-          "Work-port relief A: 260 bar",
-          "Work-port relief B (left): 260 bar",
-          "Work-port relief B (right): 260 bar",
-          "EV-10.6 downstream B-line relief: 220 bar",
-          "EV-10.7 downstream B-line relief: 220 bar (label partially cropped)"
+          "Work-port reliefs at main spool: 260 (units not legible, presumed bar) on both A and B branches",
+          "EV-10.6 and EV-10.7 B-port reliefs: 220 (units not legible, presumed bar)",
+          "Spool flow rating: 65 lt/min"
         ],
         "ports": [
-          "A: work port, 1/4\"G on EV-10.6/10.7 downstream blocks; main A bridges to line labeled 157B6203 running off-sheet",
-          "B: work port, splits left and right, left B bridges to off-sheet run, right B bridges to line labeled 157B2014 running off-sheet",
-          "LS_A: load sense line, left and right occurrences, tees into common LS gallery",
-          "LS_B: load sense line, center, tees into common LS gallery",
-          "Tank/return: open-center neutral path, connection off top of diagram (off-sheet, shared with other PVG sections above crop)"
+          "A (top, main spool) -> off-sheet line labeled 157B6203, runs right to further module/off-crop",
+          "B (top, main spool) -> off-sheet line labeled 157B2014, runs right to further module/off-crop",
+          "B (top-left corner, partial) -> off-sheet to the left, label illegible",
+          "LS_A -> horizontal LS rail continuing left and right off-crop",
+          "LS_B -> horizontal LS rail continuing left and right off-crop",
+          "EV-10.6 A port: 1/4\"G, off-sheet downward",
+          "EV-10.6 B port: 1/4\"G, off-sheet downward, protected by 220 relief",
+          "EV-10.7 A port: 1/4\"G, off-sheet downward (valve block partly cropped at right edge)",
+          "EV-10.7 B port: 1/4\"G, off-sheet downward, protected by 220 relief"
         ],
         "illegible": [
-          "Exact identifier of the small inline cartridge between the shuttle network and main spool body (drawn as a small square with diagonal arrow, no legible part number)",
-          "Full label of the right-hand downstream solenoid valve, appears to read EV-10.7 but is cut off at the crop edge",
-          "Fine print inside the PVE\u03a9 solenoid coil block (11166832) - internal cartridge callouts not resolvable",
-          "Small red triangle numeric warning tags (all show '10' but the referenced note text itself is off-sheet/not included in this crop)"
+          "Exact pressure units on 260 and 220 settings (bar assumed but not printed clearly)",
+          "Orifice/shuttle sizes in LS network below main spool",
+          "Full label of right-hand EV valve, appears cut off as 'EV-10,' at crop edge",
+          "Small relief/check cartridge detail at lower-left of main spool body (symbol present but value not printed or not legible)",
+          "Top-left B port destination line, runs off left edge without visible label in this crop"
         ],
         "_model": "claude-sonnet-5"
-      }
+      },
+      "actuation_skeleton": "PVEO - ON/OFF",
+      "rating_skeleton": "spool 40 lt/min"
     },
     {
       "label": "PRIMARY WINCH PORT",
       "identifier": "EV-10.5",
-      "rating": "spool 65 lt/min",
-      "actuation": "PVEO - ON/OFF",
-      "neutral": "open neutral position",
-      "x_left": 0.83,
-      "x_right": 0.98,
+      "rating": "illegible/not shown",
+      "actuation": "illegible/not shown",
+      "neutral": "unconfirmed \u2014 connections not traceable",
+      "is_block_level": false,
+      "x_left": 0.84,
+      "x_right": 0.99,
       "detail": {
-        "function": "PRIMARY WINCH PORT -> PVG 32 MODULE (EV-10.7 label visible on this crop, though sheet table associates EV-10.5 with \"PRIMARY WINCH PORT\" spool 65 lt/min - see note in illegible)",
-        "rating": "spool flow rating per module table (not numerically legible on this crop; sheet table lists 65 lt/min for Primary Winch Port function)",
-        "actuation": "PVE\u03a9 - ON/OFF proportional pilot valve actuation (per sheet legend); neutral/rest position not shown clearly on this crop",
+        "function": "EV-10.7 (function identifier as printed; part/tag \"157B2014\" on adjacent circuit at top)",
+        "rating": "illegible/not shown",
+        "actuation": "illegible/not shown",
+        "neutral": "unconfirmed \u2014 connections not traceable",
         "cartridges": [
           {
-            "role": "Directional/metering spool cartridge, part of PVG32 module stack, sits in main flow path between P and A/B work ports",
-            "id": "157B2014",
-            "position_in_flow": "in-line, upper portion of the vertical flow schematic, just below the main pressure/return manifold connection"
-          },
-          {
-            "role": "Pressure/relief adjustment cartridge (LSA - load sense/pressure limiter) referenced by the callout instructing to increase pressure setting to 260 bar via allen key, quarter turn clockwise",
-            "id": "<UNKNOWN>",
-            "position_in_flow": "lower portion of the vertical schematic, near bottom work-port connections (dashed cyan box area)"
+            "role": "unconfirmed \u2014 connections not traceable in this crop; only a dashed cyan boundary box and a small valve symbol at bottom are visible",
+            "position_in_flow": "boundary/valve outline runs full vertical height of crop with a small square valve symbol at bottom, no legible flow lines connecting it to labeled ports",
+            "id": "",
+            "setting": ""
           }
         ],
         "flow_scenarios": [
-          "Main flow: pressure line enters at top (red horizontal line) into cartridge 157B2014, continues down through the cyan dashed module boundary to lower work-port connections",
-          "Lower connection: red line meets a small valve/junction symbol (purple/blue box) near bottom, likely work port A/B tie-in or gauge port - exact routing beyond crop edge not fully legible",
-          "Pressure setting adjustment scenario (per red annotation): LSA pressure limiter increased from unstated original value to 260 bar by turning allen key adjustment screw one quarter turn clockwise"
+          "Not determinable from this crop: no directional arrows, port labels (P/A/B/T/LS), or connecting lines are visible within the EV-10.7 boundary itself.",
+          "Callout note (adjacent, in red, referring to a neighboring LSA function, not EV-10.7): 'Increase the pressure setting on LSAs from ... to 260 bar by turning the allen key clockwise a quarter turn'"
         ],
         "settings": [
-          "Target/adjusted setting: 260 bar (LSA pressure setting, increased via quarter-turn clockwise on allen key adjuster)",
-          "Original/prior setting value not shown in this crop - illegible or off-sheet"
+          "Adjacent callout mentions target setting of 260 bar for LSAs (load-sensing pressure limiters), but this setting is not confirmed to belong to the EV-10.7 cartridge itself \u2014 it appears to reference a different, unlabeled function to the left of this crop.\""
         ],
         "ports": [
-          "Top pressure/return lines: red solid line entering from left edge (off-sheet, likely from common manifold rail) at cartridge 157B2014",
-          "Bottom work port area: red line connects to small rectangular valve/junction symbol (purple outline) - destination beyond crop not clear",
-          "Port labels '1/4\"G' printed twice near bottom left - likely gauge port or test point thread size (1/4 inch BSP gauge port), exact port identity not confirmed",
-          "EV-10.7 label (magenta/pink text) identifies this solenoid/valve station distinctly on this sheet crop"
+          "Top port with tag 157B2014 belongs to the adjacent sub-circuit at the top-left of the crop, outside the EV-10.7 dashed boundary \u2014 connection off-sheet/unclear which function it belongs to.",
+          "EV-10.7 boundary itself shows no labeled work ports (no A/B/P/T markings visible)."
         ],
         "illegible": [
-          "Numeric flow rating (lt/min) not visible in this crop - only present in the sheet-level table, not confirmed printed within this specific cropped view",
-          "Original pressure setting value before the 260 bar adjustment - not shown",
-          "Full text of red annotation is cut off at right edge ('fr...', 'cloc...' truncated) - likely reads 'from [X] bar to 260 bar by turning the allen key clockwise a quarter turn'",
-          "Identity/part number of the purple-boxed valve symbol near bottom",
-          "Discrepancy: sheet-level equipment table lists EV-10.5 for Primary Winch Port, but this crop shows label EV-10.7 - relationship/mismatch between these two identifiers is unclear from the crop alone",
-          "Neutral position symbol/arrow convention not clearly visible in this crop"
+          "Full identity and rating of the cartridge/valve at the bottom of the EV-10.7 box (small square symbol, no legible part number or setting)",
+          "Whether the red pressure-setting callout applies to EV-10.7 or to the neighboring circuit at top-left (157B2014)",
+          "Any port labels (P/A/B/T/LS) within this crop",
+          "Line connections between the top tagged port and the EV-10.7 boundary \u2014 largely blank/white space between them"
         ],
         "_model": "claude-sonnet-5"
-      }
+      },
+      "actuation_skeleton": "PVEO - ON/OFF",
+      "rating_skeleton": "spool 65 lt/min",
+      "neutral_skeleton": "open neutral position"
     },
     {
-      "label": "UNLABELED VALVE (M/LS area, left of Transom Door)",
+      "label": "Standalone auxiliary valve block (relief/pilot, top-left of manifold, near M/LS lines)",
       "identifier": "",
-      "rating": "",
-      "actuation": "",
+      "rating": "unconfirmed \u2014 no flow/spool rating figure legible in this crop",
+      "actuation": "Directional spool shown with solenoid-type actuator symbol on one side and spring return on other (standard solenoid spool symbol); neutral position appears centered/closed per drawn spool block. Actuation type label not legible (marked with red triangle \"2\" callout, meaning tied to modification note 2, likely a revision flag rather than actuation type).",
       "neutral": "",
-      "x_left": 0.19,
-      "x_right": 0.24,
+      "is_block_level": true,
+      "x_left": 0.2,
+      "x_right": 0.25,
       "detail": {
-        "function": "TRANSOM DOOR - PVG 32 MODULE (function slice, part of AFT BLOCK C: DANFOSS PVG 32 - 5 FUNCTIONS)",
-        "rating": "spool 25 lt/min",
-        "actuation": "PVE\u03a9 - ON/OFF electric proportional-type actuator (on/off operation); neutral position = open (open-center neutral)",
+        "function": "AFT WINCH / OPTIONAL AFT WINCHES hydraulic sub-circuit (block C) - identifier 157B5111 / partial ref 1116683 (top, truncated)",
+        "rating": "unconfirmed \u2014 no flow/spool rating figure legible in this crop",
+        "actuation": "Directional spool shown with solenoid-type actuator symbol on one side and spring return on other (standard solenoid spool symbol); neutral position appears centered/closed per drawn spool block. Actuation type label not legible (marked with red triangle \"2\" callout, meaning tied to modification note 2, likely a revision flag rather than actuation type).",
         "cartridges": [
           {
-            "role": "main directional spool - PVG32 module, port-to-port assignment OPEN=B / CLOSE=A, open-center neutral",
-            "id": "11166838",
-            "position_in_flow": "between P (inlet, bottom) and A/B work ports; T return to tank"
+            "id": "unconfirmed",
+            "role": "Directional control spool (main valve) controlling flow to work port M",
+            "position_in_flow": "sits between P pressure rail (top, red dashed off-crop) and work port M (left mid); B side of spool connects toward T return rail at bottom",
+            "setting": ""
           },
           {
-            "role": "work-port pilot-operated relief/pressure limiter on B (upper) port line, spring-adjustable, protects/limits pressure on open (B) side",
-            "position_in_flow": "B work port branch, upper cartridge with spring symbol"
+            "id": "unconfirmed",
+            "role": "Work-port relief valve (adjustable, spring/orifice symbol above spool)",
+            "position_in_flow": "inlet teed off the line between spool and M port; outlet routed to T return rail at bottom of sheet",
+            "setting": "unconfirmed value - not legible"
           },
           {
-            "role": "work-port pilot-operated relief/pressure limiter on A (lower) port line, spring-adjustable with fixed setting 300 (bar), protects/limits pressure on close (A) side",
-            "setting": "300",
-            "position_in_flow": "A work port branch, lower cartridge with spring symbol and '300' label"
+            "id": "unconfirmed",
+            "role": "Pilot-operated check / load-holding valve on M work-port line",
+            "position_in_flow": "in series on M line just below the relief tee, before reaching M port label",
+            "setting": ""
           },
           {
-            "role": "shuttle/check or orifice combination feeding LS signal, diamond symbol (shuttle valve) plus a small orifice/check downstream in the A-line branch",
-            "position_in_flow": "between A work port branch and LS line, near the '300' relief"
+            "id": "300",
+            "role": "Pressure limiter / relief cartridge, adjustable, set at 300 (unit not legible, likely bar)",
+            "position_in_flow": "lower block, inlet from a secondary internal line, outlet through adjacent shuttle/orifice symbol toward the LS line at bottom",
+            "setting": "300 (unit illegible)"
           },
           {
-            "role": "orifice/fixed restrictor symbol on line to LS or to tank near P/A junction (small crossed-circle symbol)",
-            "position_in_flow": "lower right of diamond shuttle, in line toward P/T rail"
+            "id": "unconfirmed",
+            "role": "Shuttle valve (diamond symbol) selecting highest pressure signal",
+            "position_in_flow": "between the 300-set relief and the LS rail at the bottom of the crop",
+            "setting": ""
           },
           {
-            "role": "orifice/fixed restrictor symbol near top, on B line above the upper relief cartridge (small crossed-circle symbol) - possibly damping orifice on pilot line to main spool actuator",
-            "position_in_flow": "top right, near junction of B-relief output and main spool pilot"
+            "id": "unconfirmed",
+            "role": "Orifice (restrictor, zig-zag symbol) damping pilot/LS signal",
+            "position_in_flow": "in line between shuttle valve output and LS port at bottom",
+            "setting": ""
           }
         ],
         "flow_scenarios": [
-          "Neutral (no energization): spool centered in OPEN neutral position; pump flow from P passes through open-center path to T (tank) with LS line unloaded/at low pressure per open-neutral configuration; A and B work ports blocked or connected per open-center bridge shown by cyan dashed LS/T rails at top and bottom of module",
-          "Energized to OPEN (B): P -> main spool -> B work port -> off-sheet actuator (transom door cylinder, open side); return flow from A port -> spool -> T; LS line picks up load-sense pressure from B branch via shuttle (diamond) for pump compensator control; B-line relief cartridge (upper) limits pressure on this port, opening to bypass excess pressure back toward T if exceeded",
-          "Energized to CLOSE (A): P -> main spool -> A work port -> off-sheet actuator (transom door cylinder, close side); return flow from B port -> spool -> T; A-line relief cartridge (lower, set 300) limits pressure on this port, opening to bypass excess pressure toward T/LS junction if exceeded; shuttle valve senses A-branch pressure for LS signal when this is the active/higher-pressure path",
-          "Relief/overpressure event on A: when A-port pressure exceeds 300 bar setting, lower relief cartridge opens, diverting flow from A branch to the return/LS junction, protecting the actuator and pump from over-pressurization",
-          "Relief/overpressure event on B: when B-port pressure exceeds its (unlabeled/illegible) spring setting, upper relief cartridge opens, diverting flow from B branch toward return, protecting the actuator and pump from over-pressurization"
+          "Neutral: spool centered, P rail blocked/closed to M and B; LS line unloaded through orifice/shuttle to LS port (no active winch demand)",
+          "Energized (winch extend/retract): P pressure rail feeds through spool to M work port; return flow from opposite spool path routed to T return rail; work-port relief stands by to dump M-line pressure to T if setting exceeded",
+          "Overpressure at M: relief cartridge above spool opens, diverting excess flow from the M line to T return rail, capping pressure at the (illegible) relief setting",
+          "Load-holding: pilot-operated check on M line holds load when spool centered, preventing back-flow from M toward spool until pilot pressure from opposite side releases it",
+          "LS signal generation: pressure at 300-set limiter passes through shuttle/orifice combination to LS port, providing load-sense feedback signal to pump/compensator, capped by the 300 setting"
         ],
         "settings": [
-          "A-port (CLOSE) relief/pressure limiter: 300 bar (printed value '300' next to lower spring-loaded cartridge)",
-          "B-port (OPEN) relief/pressure limiter: value not legible on this crop (spring symbol present, no numeric label visible)",
-          "System note (from equipment table, not this crop's cartridge): pressure to be checked at 45 bar in neutral"
+          "300 (unit not legible on this cartridge, likely bar)",
+          "Work-port relief setting: illegible",
+          "Any additional pressure limiter setting on second relief cartridge above spool: illegible"
         ],
         "ports": [
-          "M (work port, left side, labeled 'M' with an X/cross symbol) - appears to be a gauge/measurement port rather than a work port, positioned at mid-height on the left rail, off-sheet connection not shown beyond the X marker",
-          "LS (load-sense line, bottom left, labeled 'LS' with circle terminal) - connects into the cyan dashed LS rail running up the left/top of the module, continues off-sheet at top-left corner (dashed cyan line exits crop at top)",
-          "T (tank return, bottom center, labeled 'T' with circle terminal) - connects into return rail running along bottom and up the right/left sides as dashed cyan lines, some sections off-sheet at top",
-          "P (pressure inlet, bottom right, labeled 'P' with circle terminal) - connects into the red pressure rail running up the right side of the module, continuing off-sheet at top-right corner where the red solid line exits the crop"
+          "M: work port, left-mid, connects to hose/actuator off-sheet to the left (winch)",
+          "LS: load-sense port, bottom-left, connects to LS rail running off-sheet",
+          "T: tank/return port, bottom-center, ties into T return rail",
+          "P: pressure port, bottom-right of crop, ties into P supply rail running up to top red dashed line off-sheet",
+          "Top connections (P and secondary line) run off the top crop edge to upstream manifold section (ref 1116683, cut off)"
         ],
         "illegible": [
-          "Numeric pressure setting on the upper (B-port) relief/spring cartridge - spring symbol visible but no legible number",
-          "Small part/component ID codes on the shuttle (diamond) symbol and the two small orifice/crossed-circle symbols",
-          "Exact identity/function distinction between the two small crossed-circle orifice symbols (could be check valves with restrictors, not fully resolvable at this crop resolution)",
-          "Red triangle icon marked '2' near the top right of the module - meaning of numeral '2' inside triangle not explained in this crop (may reference a shared table/legend elsewhere on the full sheet)"
+          "Full identifier at top (1116683... truncated by crop/red triangle overlay)",
+          "Pressure/flow rating figure for main spool",
+          "Relief valve setting value(s) above the spool (numbers not resolvable)",
+          "Unit for the '300' setting (bar/psi not shown)",
+          "Actuation type label on spool (solenoid vs. manual override markings not clearly resolved)",
+          "Any small part-number text on the individual cartridges other than 157B5111 and 300"
         ],
         "_model": "claude-sonnet-5"
-      }
+      },
+      "actuation_skeleton": "",
+      "rating_skeleton": "300 (setting marked)"
     },
     {
-      "label": "AUXILIARY VALVE 1",
+      "label": "EV-10.6 standalone auxiliary valve (1/4\"G ports A/B)",
       "identifier": "EV-10.6",
-      "rating": "",
-      "actuation": "",
+      "rating": "PVG 32 module, spool 65 lt/min (printed \"spool 65 lt/...\")",
+      "actuation": "PVEx electro-proportional ON/OFF actuation (printed \"PVEx - xN/D...\"); spool positions 1\u00b0 & 3\u00b0 = A/2\u00b0 (partially legible), 2\u00b0 = open neutral (open-center neutral position stated in notes)",
       "neutral": "",
+      "is_block_level": true,
       "x_left": 0.68,
       "x_right": 0.73,
       "detail": {
-        "function": "PRIMARY WINCH PORT - EV-10.5 (PVG 32 MODULE, AFT BLOCK C)",
-        "rating": "spool 65 lt/min",
-        "actuation": "PVE\u03a9 - ON/OFF electric proportional actuation (solenoid pair on top of spool cartridge assembly, part 11166832); neutral position = open neutral (spool centers to open-center, allowing flow through to next section/tank)",
+        "function": "PRIMARY WINCH SUPPORT PORT (EV-10.5 / EV-10.6) - PVG 32 module",
+        "rating": "PVG 32 module, spool 65 lt/min (printed \"spool 65 lt/...\")",
+        "actuation": "PVEx electro-proportional ON/OFF actuation (printed \"PVEx - xN/D...\"); spool positions 1\u00b0 & 3\u00b0 = A/2\u00b0 (partially legible), 2\u00b0 = open neutral (open-center neutral position stated in notes)",
         "cartridges": [
           {
-            "role": "main directional 4-way spool, PVG32 section, open-neutral center",
-            "position_in_flow": "inlet P (from common pressure gallery, cyan/blue line) to A/B work ports",
-            "setting": "1\u00b0 & 3\u00b0 positions = P->A, 2\u00b0 position = P->B",
-            "id": "11166832"
+            "role": "Main PVG32 proportional directional spool (P->A/B, open-center neutral)",
+            "id": "11166832",
+            "position_in_flow": "Center of manifold; inlet from P rail (blue line) feeds spool block; A and B work ports exit left/right to the two lower work-port sub-blocks",
+            "setting": "open center in neutral, 1\u00b0 & 3\u00b0 positions route to A or B per note text"
           },
           {
-            "role": "pilot solenoid/PVE actuator pair mounted on spool (electro-hydraulic proportional pilot, ON/OFF)",
-            "position_in_flow": "top of module, pilot stage driving main spool",
-            "setting": "ON/OFF"
+            "role": "Work-port pressure relief on A/B lines (dual cartridge pair, ~260 bar setting)",
+            "id": "unconfirmed id, marked 260 on each cartridge body",
+            "position_in_flow": "Two adjustable relief cartridges (labeled 260) sit in the A and B work-port branches below the main spool, each shown venting toward the return/tank rail (cyan/dashed line) when the red EV-10 triangle marks an override port",
+            "setting": "260 (bar, unit not printed but consistent with other sheet relief settings)"
           },
           {
-            "role": "work-port relief/pressure limiter cartridge on A port branch",
-            "position_in_flow": "A work port line to tank",
-            "setting": "260 (bar, printed value on cartridge block)"
+            "role": "Pilot/vent line orifice or restrictor (coiled symbol) in LS line",
+            "position_in_flow": "Coiled tube symbols in the LS_A line beneath the relief cartridges, between the work-port block and the lower EV-10.6 directional valve; appears to be a flexible hose/orifice loop rather than an active cartridge"
           },
           {
-            "role": "work-port relief/pressure limiter cartridge on B port branch",
-            "position_in_flow": "B work port line to tank",
-            "setting": "260 (bar, printed value on cartridge block)"
+            "role": "Secondary small directional valve EV-10.6 (on/off, spring-return, manual override lever shown)",
+            "position_in_flow": "Lower block; A port (1/4\"G) and B port (1/4\"G) shown; inlet appears to come down from the LS_A / return rail above; has its own small relief cartridge (marked 220) beneath it draining to a line marked with red EV-10 triangle",
+            "setting": "220 (bar, unit not printed)"
           },
           {
-            "role": "anti-cavitation / check valve pair shown as diamond symbols in shuttle block above spool",
-            "position_in_flow": "between P gallery and A/B lines, load-sense shuttle network"
-          },
-          {
-            "role": "orifice/restrictor symbol (coil shape) in LS line",
-            "position_in_flow": "LS_A signal line feeding load-sense gallery"
-          },
-          {
-            "role": "secondary small directional valve with spring return, manual override lever, 1/4\"G ports A and B (separate lower block, possibly load-sense limiter valve)",
-            "position_in_flow": "below main module, A 1/4\"G port and B 1/4\"G port, own relief set to 225 (bar) via adjustable spring cartridge"
+            "role": "Shuttle/check symbols in LS line (the small diamond/circle-with-cross symbols along the horizontal LS_A rail)",
+            "position_in_flow": "Along the dash-dot LS_A horizontal line at mid-height, appear to be LS shuttle or isolation check elements feeding the LS_A signal line down to the EV-10.6 block"
           }
         ],
         "flow_scenarios": [
-          "Neutral (open-center): main spool centered, pump flow passes through P gallery to next section / tank via open-neutral path; A and B ports blocked from pressure but connected internally per PVG open-neutral design; LS line unloaded.",
-          "Position 1\u00b0 or 3\u00b0 (energized one solenoid): P -> spool -> A port -> off-sheet to actuator; B port -> tank; load-sense signal taken from A line raises LS pressure to shift shuttle, pump destrokes/upstrokes accordingly.",
-          "Position 2\u00b0 (energized other solenoid): P -> spool -> B port -> off-sheet to actuator; A port -> tank; LS signal taken from B line.",
-          "Relief/overload on A: if A-port pressure exceeds 260 bar setting, work-port relief cartridge opens A line to tank, protecting actuator/hose.",
-          "Relief/overload on B: if B-port pressure exceeds 260 bar setting, work-port relief cartridge opens B line to tank.",
-          "Secondary block (lower, 1/4\"G A/B): manually actuated (lever with detent) spring-centered spool; when shifted, connects A 1/4\"G port to system and B 1/4\"G port; internal relief set at 225 bar limits this secondary circuit pressure; return spring re-centers to neutral when released."
+          "Neutral (open-center): PVG32 spool centered, P flow passes through open-center path to tank rail; A and B ports blocked/isolated from main flow, LS line unloaded",
+          "Energized 1\u00b0 (A energized): P -> main spool -> A work port; B port connects to tank return; load on B held via counterbalance/relief network below; LS_A line senses A pressure and signals via shuttle to pump",
+          "Energized 3\u00b0 (B energized, labeled =A/2\u00b0 partially illegible): P -> main spool -> B work port; A port connects to tank return",
+          "Work-port over-pressure relief: if A or B pressure exceeds 260 (bar) the corresponding relief cartridge (marked 260) opens and dumps excess flow to the tank/return rail, protecting the winch motor/actuator",
+          "EV-10.6 secondary valve actuation: small directional valve at ports A (1/4\"G) and B (1/4\"G) shifts to allow LS_A signal or auxiliary flow; associated 220 relief cartridge limits pressure in this secondary branch, venting toward the EV-10 marked line when exceeded"
         ],
         "settings": [
-          "Work-port reliefs (A and B): 260 bar (printed on cartridge, unit inferred as bar per sheet convention)",
-          "Secondary lower valve relief: 225 bar",
-          "Pressure to be checked note (from table, general to block): 45 bar neutral / values per other functions not applicable directly to this one"
+          "260 (unit not printed, presumed bar) - work-port relief cartridges pair",
+          "220 (unit not printed, presumed bar) - EV-10.6 secondary relief cartridge"
         ],
         "ports": [
-          "A: work port, line runs to right side of crop, labeled 'A', continues off-sheet to primary winch actuator (port hydraulic motor)",
-          "B: work port, line runs to left side of crop, labeled 'B', continues off-sheet, also shown feeding into upper red horizontal line marked '...7B6203' partially legible tag near B line",
-          "LS_A: load-sense pilot line, routed through coil/orifice symbol down to lower secondary valve block",
-          "Lower block ports: A 1/4\"G and B 1/4\"G, separate small valve, purpose relative to primary winch not fully clear from crop"
+          "A work port (upper, off right edge of crop) - connects off-sheet to primary winch motor A line",
+          "B work port (upper left) - connects off-sheet, line labeled with part number 17B6203 near a circle junction",
+          "A 1/4\"G (lower EV-10.6 block) - local port, does not appear to leave crop",
+          "B 1/4\"G (lower EV-10.6 block) - local port, line runs down off the bottom of the crop (off-sheet)",
+          "LS_A - horizontal dash-dot line running across full width, connects off both left and right crop edges (off-sheet)"
         ],
         "illegible": [
-          "Exact numeric unit on '260' and '225' settings (bar assumed, not printed)",
-          "Tag partially visible reading '...7B6203' near B line at top - full alphanumeric code cut off at crop edge",
-          "Full part number/model of secondary lower valve block (only partial view, no id text captured)",
-          "Small red triangle '10' callouts appear multiple times - their exact cross-reference meaning (likely tied to revision note 10) not confirmed by any legend text in this crop",
-          "Coil/orifice symbol exact flow rating not printed or illegible",
-          "Top solenoid/PVE assembly identifying text beyond '11166832' block ID, if any additional markings exist, not legible"
+          "Full spool rating text 'spool 65 lt/...' cut off at right edge",
+          "PVEx actuation code partially cut off ('PVEx - xN/D...')",
+          "Text '1\u00b0&3\u00b0 =A/2\u00b0' partially illegible/ambiguous meaning",
+          "Part identifier near top cartridge block partially covered by red EV-10.5 triangle",
+          "Exact pressure units for 260 and 220 settings not printed/legible",
+          "Small text inside coiled orifice symbols not legible",
+          "Part number label near B work port line reads '...7B6203' with first character cut off at crop edge"
         ],
         "_model": "claude-sonnet-5"
-      }
+      },
+      "actuation_skeleton": "",
+      "rating_skeleton": ""
     },
     {
-      "label": "AUXILIARY VALVE 2",
+      "label": "EV-10.7 standalone auxiliary valve (1/4\"G ports A/B)",
       "identifier": "EV-10.7",
-      "rating": "",
-      "actuation": "",
+      "rating": "unconfirmed \u2014 no numeric flow/spool rating legible in this crop",
+      "actuation": "Solenoid-actuated directional spool (single solenoid, spring-return shown at right of spool symbol); neutral/rest position = spring-offset (spool shown shifted right in rest, blocking/centered per symbol; exact neutral porting not fully legible)",
       "neutral": "",
-      "x_left": 0.79,
-      "x_right": 0.84,
+      "is_block_level": true,
+      "x_left": 0.8,
+      "x_right": 0.85,
       "detail": {
-        "function": "SECONDARY WINCH PORT -> PVG 32 MODULE (EV-10.4)",
-        "rating": "spool 40 lt/min",
-        "actuation": "PVE\u03a9 - ON/OFF, open neutral position; 1\u00b0&3\u00b0 = A / 2\u00b0 = B",
+        "function": "EV-10.7",
+        "rating": "unconfirmed \u2014 no numeric flow/spool rating legible in this crop",
+        "actuation": "Solenoid-actuated directional spool (single solenoid, spring-return shown at right of spool symbol); neutral/rest position = spring-offset (spool shown shifted right in rest, blocking/centered per symbol; exact neutral porting not fully legible)",
         "cartridges": [
           {
-            "role": "main directional spool (PVE\u03a9 on/off proportional-type solenoid spool)",
-            "position_in_flow": "inlet from B-line (157B6203/157B2014 gallery) to A/B work ports",
-            "setting": "open-center neutral",
-            "id": "11166832"
+            "id": "unconfirmed",
+            "role": "main directional control spool for function EV-10.7",
+            "position_in_flow": "body ports labeled A (1/4\"G, top) and B (1/4\"G, bottom); P/T connections run upward into manifold body toward the pressure/return rails at top of crop (off-sheet upward)",
+            "setting": "single solenoid, spring return"
           },
           {
-            "role": "work-port relief / pressure limiter cartridge, dual cartridge pair (two mirrored relief symbols with orifice '260' marking) mounted across A and B legs upstream of spool, in the LS/pilot gallery",
-            "position_in_flow": "between B supply line and spool inlet, LS_A sensing line branch",
-            "setting": "260 (bar, printed on cartridge body, exact unit not confirmed)"
+            "id": "260 (partial marking)",
+            "role": "work-port relief valve, appears set inline above the main spool block near top, venting to the return/tank rail",
+            "position_in_flow": "sits between the blue P-line branch and the cyan return rail near top of sub-circuit; outlet ties into cyan dashed/return line running down the right side",
+            "setting": "marked \"260\" \u2014 likely a pressure setting in bar, value not fully confirmed"
           },
           {
-            "role": "check/orifice symbol (\u27e8o\u27e9) in LS line, appears twice - one above the relief pair, one below near LS_A takeoff",
-            "position_in_flow": "LS pilot signal line to spool"
+            "id": "unconfirmed",
+            "role": "pilot-operated check / shuttle element (drawn as the \"><\" crossed-line symbol) sandwiched between the relief cartridge and the LS line",
+            "position_in_flow": "inline in the pilot/LS branch, between the top relief cartridge and the LS_A tee point",
+            "setting": "none printed"
           },
           {
-            "role": "work-port relief on B port downstream of spool, small cartridge with spring/adjustable symbol below spool body",
-            "position_in_flow": "B work port line, between spool and B port fitting",
-            "setting": "printed value not legible ('/32' partially visible)"
+            "id": "unconfirmed",
+            "role": "secondary check/orifice pair (two small circle-slash \"<o>\" symbols stacked) in the vertical pilot line feeding the main spool block",
+            "position_in_flow": "two instances: one just below the relief/shuttle group, one lower near the LS tee \u2014 both sit in the cyan pilot/LS line running down to LS_A",
+            "setting": "none printed"
           }
         ],
         "flow_scenarios": [
-          "Neutral (open-center): spool centered, B supply line flows through spool open-center passage to tank/return; A and B work ports blocked off from pressure, LS line unloaded",
-          "1\u00b0 & 3\u00b0 position energized: pressure routed P->spool->A work port (A 1/4\"G), return from B port through spool to tank; LS_A signal taken upstream of spool senses load pressure",
-          "2\u00b0 position energized: pressure routed P->spool->B work port (B 1/4\"G), return from A port through spool to tank",
-          "Relief/overpressure: if pressure at work port exceeds relief cartridge setting (~260 bar marked units), relief cartridge pair opens diverting flow to tank/return line protecting circuit",
-          "B-port relief: secondary relief cartridge below spool on B line opens if B port pressure exceeds its (illegible) setting, dumping to return"
+          "Energized: P (from top rail, blue solid line) -> spool -> A port (1/4\"G) supplies load; return flow from B port -> spool -> T (cyan dashed return rail) -> off-sheet upward",
+          "De-energized/neutral: spring returns spool to rest position; ports A and B are blocked/centered per spool symbol, no flow shown to work ports in this crop",
+          "Relief scenario: if pressure in P line upstream of spool exceeds the '260' setting, the top relief cartridge opens and dumps to the cyan return/tank rail, protecting the circuit",
+          "LS branch: load-sense signal is picked off at LS_A tee point via the pilot line with in-line check/orifice elements, routed upward off-sheet to the LS manifold (line 157B2014 traced up the right side)"
         ],
-        "settings": "Relief cartridges marked \"260\" (units not confirmed, likely bar); secondary B-port relief cartridge value illegible",
+        "settings": [
+          "260 (units not confirmed, likely bar) \u2014 relief/limiter cartridge near top of function block"
+        ],
         "ports": [
-          "A port: 1/4\"G, labeled 'A', connects to work function (secondary winch, 1\u00b0 & 3\u00b0)",
-          "B port: 1/4\"G, labeled 'B', connects to work function (secondary winch, 2\u00b0), line continues off-sheet downward past crop edge",
-          "Supply/B line at top: labeled 'B', two parallel dashed/solid lines marked 157B6203 (red dashed) and 157B2014 (cyan dashed), running off-sheet to left/right - upstream gallery from adjacent module or manifold inlet",
-          "LS_A takeoff: branches from LS pilot gallery near bottom of cartridge block, feeds load-sense line downstream (off-sheet)"
+          "A: 1/4\"G, connects to main spool top port, load line (destination off-sheet, runs upward through crop)",
+          "B: 1/4\"G, connects to main spool bottom port, line runs downward off the bottom edge of the crop (off-sheet)"
         ],
         "illegible": [
-          "Exact relief pressure setting units for '260' cartridges (bar assumed but not printed)",
-          "Secondary B-port relief cartridge setting value ('/32' fragment only)",
-          "Full identifier text near red triangle callouts (only '10' number visible, referencing a general note)",
-          "Text at very top left area partially cropped out ('PORT', 'tion' fragments - likely continuation of section title/legend from adjacent sheet area)"
+          "Exact part/cartridge identifiers for spool and check/orifice symbols not legible",
+          "Full numeric value and units of the '260' marking not fully confirmed (could be pressure setting or size code)",
+          "Line callouts '...03' (top-left, partially cropped) and '157B2014' meaning/routing beyond crop edge not traceable",
+          "Neutral spool porting detail (center condition) not fully resolved from symbol at this resolution"
         ],
         "_model": "claude-sonnet-5"
-      }
+      },
+      "actuation_skeleton": "",
+      "rating_skeleton": ""
     }
   ],
   "legends": [
     {
-      "kind": "notes_block",
+      "kind": "other_table",
       "title_as_printed": "REV / DATE / DRAWN / CHECKED / MODIFICATIONS",
       "bbox": [
         0.0,
-        0.86,
+        0.87,
         0.28,
         1.0
       ],
       "content": {
-        "title": "Title Block - SWS108-Hydraulic_System-rev10-AFT_blockC",
+        "title": "Title Block",
         "entries": [
           {
-            "label": "REV | DATE | DRAWN | CHECKED | MODIFICATIONS"
+            "label": "0 | 27/07/2022 | PT | PR | FIRST ISSUE"
           },
           {
-            "label": "0 | 27/07/2022 | PT | PR | FIRST ISSUE"
+            "label": "REV | DATE | DRAWN | CHECKED | MODIFICATIONS"
           },
           {
             "label": "JOB N\u00b0: 22-53 | CLIENT: Southern Wind Shipyard | PROJECT: SWS 108"
@@ -606,49 +651,38 @@
           },
           {
             "label": "This drawing and the contained informations are property of MYT-Systems S.r.l. and protected by law. Copying, disclosure and any other use are prohibited except with written permission of MYT-Systems S.r.l.."
+          },
+          {
+            "label": "MYT-Systems S.r.l. | Via Borzoli 39,130P,16153 Genova (GE) | ITALY | Tel: +390185380903 | email: info@myt-systems.com"
           }
         ],
         "_model": "claude-sonnet-5"
       }
     },
     {
-      "kind": "equipment_data_table",
-      "title_as_printed": "AFT BLOCK C: DANFOSS PVG 32 - 5 FUNCTIONS",
+      "kind": "notes_block",
+      "title_as_printed": "This drawing and the contained informations are property of MYT-Systems S.r.l. and protected by law. Copying, disclosure and any other use are prohibited except with written permission of MYT-Systems S.r.l.",
       "bbox": [
-        0.25,
-        0.13,
-        0.85,
-        0.25
+        0.0,
+        0.97,
+        0.28,
+        1.0
       ],
       "content": {
-        "title": "<UNKNOWN>",
         "entries": [
           {
-            "label": "TRANSOM DOOR",
-            "symbol_description": "PVG 32 MODULE | spool 25 lt/min | PVE\u03a9 - ON/OFF | \u03a9OPEN=B / CLOSE=A | open neutral position | EV-10.1 | 11166838 [icon: valve schematic with red triangle marked '2', dashed cyan box] | pressure to be checked: 45 bar in neutral and"
+            "label": "FILE NAME: SWS108-Hydraulic_System-rev10-AFT_blockC"
           },
           {
-            "label": "DECK DOOR",
-            "symbol_description": "PVG 32 MODULE | spool 5 lt/min | PVE\u03a9 - ON/OFF | \u03a9OPEN=B / CLOSE=A | open neutral position | EV-10.2 | 11166838 [icon: valve schematic with red triangle marked '2', dashed cyan box] | pressure to be checked: 175 bar in"
-          },
-          {
-            "label": "MAINSHEET TRAVELER",
-            "symbol_description": "PVG 32 MODULE | spool 25 lt/min | PVE\u03a9 - ON/OFF | TO PORT=A / TO STBD=B | closed neutral position | EV-10.3 | 11166838 [icon: valve schematic with red triangle marked '2', dashed cyan box]"
-          },
-          {
-            "label": "SECONDARY WINCH PORT",
-            "symbol_description": "PVG 32 MODULE | spool 40 lt/min | PVE\u03a9 - ON/OFF | 1\u00b0&3\u00b0 =A/2\u00b0 =B | open neutral position | EV-10.4 | 10 [red triangle] | 11166832 [icon: valve schematic with dashed cyan box]"
-          },
-          {
-            "label": "PRIMARY WINCH PORT",
-            "symbol_description": "PVG 32 MODULE | spool 65 lt/min | PVE\u03a9 - ON/OFF | 1\u00b0&3\u00b0 =A/2\u00b0 =B | open neutral position | EV-10.5 | 10 [red triangle] | 11166832 [icon: valve schematic with dashed cyan box]"
+            "label": "This drawing and the contained informations are property of MYT-Systems S.r.l. and protected by law. Copying, disclosure and any other use are prohibited except with written permission of MYT-Systems S.r.l.."
           }
         ],
+        "title": "ITALY Tel: +390185380903 email: info@myt-systems.com",
         "_model": "claude-sonnet-5"
       }
     }
   ],
-  "legend_context": "THIS SHEET'S OWN LEGENDS AND TABLES (read first; these definitions are AUTHORITATIVE for this sheet and override any generic symbol/line convention):\n- [notes_block] REV / DATE / DRAWN / CHECKED / MODIFICATIONS:\n    * REV | DATE | DRAWN | CHECKED | MODIFICATIONS\n    * 0 | 27/07/2022 | PT | PR | FIRST ISSUE\n    * JOB N\u00b0: 22-53 | CLIENT: Southern Wind Shipyard | PROJECT: SWS 108\n    * TITLE: HYDRAULIC SYSTEM | REV: 10\n    * SECTION: DIAGRAM | DATE: 16/04/2026\n    * DRAWN: PT | CHECKED: PC | SCALE: not to scale @ A3 | SHEET: 8 of 12\n    * FILE NAME: SWS108-Hydraulic_System-rev10-AFT_blockC\n    * This drawing and the contained informations are property of MYT-Systems S.r.l. and protected by law. Copying, disclosure and any other use are prohibited except with written permission of MYT-Systems S.r.l..\n- [equipment_data_table] AFT BLOCK C: DANFOSS PVG 32 - 5 FUNCTIONS:\n    * TRANSOM DOOR -> PVG 32 MODULE | spool 25 lt/min | PVE\u03a9 - ON/OFF | \u03a9OPEN=B / CLOSE=A | open neutral position | EV-10.1 | 11166838 [icon: valve schematic with red triangle marked '2', dashed cyan box] | pressure to be checked: 45 bar in neutral and\n    * DECK DOOR -> PVG 32 MODULE | spool 5 lt/min | PVE\u03a9 - ON/OFF | \u03a9OPEN=B / CLOSE=A | open neutral position | EV-10.2 | 11166838 [icon: valve schematic with red triangle marked '2', dashed cyan box] | pressure to be checked: 175 bar in\n    * MAINSHEET TRAVELER -> PVG 32 MODULE | spool 25 lt/min | PVE\u03a9 - ON/OFF | TO PORT=A / TO STBD=B | closed neutral position | EV-10.3 | 11166838 [icon: valve schematic with red triangle marked '2', dashed cyan box]\n    * SECONDARY WINCH PORT -> PVG 32 MODULE | spool 40 lt/min | PVE\u03a9 - ON/OFF | 1\u00b0&3\u00b0 =A/2\u00b0 =B | open neutral position | EV-10.4 | 10 [red triangle] | 11166832 [icon: valve schematic with dashed cyan box]\n    * PRIMARY WINCH PORT -> PVG 32 MODULE | spool 65 lt/min | PVE\u03a9 - ON/OFF | 1\u00b0&3\u00b0 =A/2\u00b0 =B | open neutral position | EV-10.5 | 10 [red triangle] | 11166832 [icon: valve schematic with dashed cyan box]",
+  "legend_context": "THIS SHEET'S OWN LEGENDS AND TABLES (read first; these definitions are AUTHORITATIVE for this sheet and override any generic symbol/line convention):\n- [other_table] REV / DATE / DRAWN / CHECKED / MODIFICATIONS:\n    * 0 | 27/07/2022 | PT | PR | FIRST ISSUE\n    * REV | DATE | DRAWN | CHECKED | MODIFICATIONS\n    * JOB N\u00b0: 22-53 | CLIENT: Southern Wind Shipyard | PROJECT: SWS 108\n    * TITLE: HYDRAULIC SYSTEM | REV: 10\n    * SECTION: DIAGRAM | DATE: 16/04/2026\n    * DRAWN: PT | CHECKED: PC | SCALE: not to scale @ A3 | SHEET: 8 of 12\n    * FILE NAME: SWS108-Hydraulic_System-rev10-AFT_blockC\n    * This drawing and the contained informations are property of MYT-Systems S.r.l. and protected by law. Copying, disclosure and any other use are prohibited except with written permission of MYT-Systems S.r.l..\n    * MYT-Systems S.r.l. | Via Borzoli 39,130P,16153 Genova (GE) | ITALY | Tel: +390185380903 | email: info@myt-systems.com\n- [notes_block] This drawing and the contained informations are property of MYT-Systems S.r.l. and protected by law. Copying, disclosure and any other use are prohibited except with written permission of MYT-Systems S.r.l.:\n    * FILE NAME: SWS108-Hydraulic_System-rev10-AFT_blockC\n    * This drawing and the contained informations are property of MYT-Systems S.r.l. and protected by law. Copying, disclosure and any other use are prohibited except with written permission of MYT-Systems S.r.l..",
   "passes": {
     "skeleton_dpi": 200,
     "detail_dpi": 600,
@@ -704,24 +738,25 @@
       "confidence": "high"
     },
     {
-      "slice": "UNLABELED VALVE (M/LS area, left of Transom Door)",
+      "slice": "Standalone auxiliary valve block (relief/pilot, top-left of manifold, near M/LS lines)",
       "action": "attach",
-      "target": "260-transom-door",
-      "via": "control_map",
-      "mechanism": "exact_containment",
-      "confidence": "high"
+      "target": "570-danfoss-pvg-32-aft-blockc",
+      "via": "block_level",
+      "confidence": "caveat"
     },
     {
-      "slice": "AUXILIARY VALVE 1",
-      "action": "create_flagged",
-      "via": "no_match",
-      "confidence": 0.04
+      "slice": "EV-10.6 standalone auxiliary valve (1/4\"G ports A/B)",
+      "action": "attach",
+      "target": "570-danfoss-pvg-32-aft-blockc",
+      "via": "block_level",
+      "confidence": "caveat"
     },
     {
-      "slice": "AUXILIARY VALVE 2",
-      "action": "create_flagged",
-      "via": "no_match",
-      "confidence": 0.04
+      "slice": "EV-10.7 standalone auxiliary valve (1/4\"G ports A/B)",
+      "action": "attach",
+      "target": "570-danfoss-pvg-32-aft-blockc",
+      "via": "block_level",
+      "confidence": "caveat"
     }
   ]
 }

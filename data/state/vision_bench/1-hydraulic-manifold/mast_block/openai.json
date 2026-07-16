@@ -1,7 +1,7 @@
 {
   "header": {
     "make_model": "Danfoss PVG 32",
-    "title": "MAST BLOCK: DANFOSS PVG 32 - 6 FUNCTIONS",
+    "title": "MAST BLOCK: DANFOSS PVG 32 - 6 FUNCTIONS / HYDRAULIC SYSTEM \u2014 DIAGRAM",
     "revision": "10",
     "sheet": "5 of 12"
   },
@@ -12,364 +12,869 @@
     "M",
     "A",
     "B",
-    "LS_B",
-    "LS_A"
+    "LS_A",
+    "LS_B"
   ],
   "block_capacity_printed": false,
-  "notes": "Six repeated PVG 32 function slices are visible. Shared bottom/header labels visible include P, T, LS and M; each slice also shows work ports A/B and sectional LS_A/LS_B labels, though these may be local sectional connections rather than whole-sheet rails. Fine-print component/cartridge part numbers, warning-triangle annotations, and internal pressure/setting values are mostly illegible at this resolution and should be re-read from high-resolution crops. A small '300' setting is visible in the inlet section, but its unit/context is not safely readable. Several tiny numeric line/component references along the upper gallery are also illegible.",
+  "notes": "Six repeated PVG 32 function sections are visible, plus a common inlet/control section at left and an end section at right. Common labels visibly include P, T, LS and M at the inlet, work ports A/B across the top, and LS_A/LS_B along the bottom of sections. Fine-print component/cartridge part numbers, internal valve identifiers, and most pressure-setting annotations are too small to read reliably; one pressure marking near the inlet appears to be 300 bar but should be verified at higher resolution. Dashed blue block boundaries and several auxiliary/shuttle/compensator symbols are visible within the slices. No manifold-wide overall capacity is printed; shown flow values are per-function spool ratings.",
   "slices": [
+    {
+      "label": "Block inlet/end pressure and load-sense control section",
+      "identifier": "",
+      "rating": "PVG 32 module; spool 40 l/min",
+      "actuation": "PVEU electrohydraulic proportional actuation, 0\u201310 V; DOWN <5 V = A, UP >5 V = B; open neutral position",
+      "neutral": "Open neutral: the equipment table explicitly states \u201copen neutral position\u201d; the drawn main spool returns to its spring-centered/rest position.",
+      "x_left": 0.13,
+      "x_right": 0.2,
+      "is_block_level": true,
+      "detail": {
+        "function": "LIFTING KEEL UP/DOWN \u2014 identifier partially visible as \u201cEV-\u2026\u201d (remainder cropped/illegible)",
+        "rating": "PVG 32 module; spool 40 l/min",
+        "actuation": "PVEU electrohydraulic proportional actuation, 0\u201310 V; DOWN <5 V = A, UP >5 V = B; open neutral position",
+        "neutral": "Open neutral: the equipment table explicitly states \u201copen neutral position\u201d; the drawn main spool returns to its spring-centered/rest position.",
+        "cartridges": [
+          {
+            "role": "main directional spool",
+            "position_in_flow": "PVG spool between the P supply, T return, and the two work-port passages that continue upward/right and off this crop; the LS signal passage is also connected at the section.",
+            "id": "",
+            "setting": "40 l/min spool"
+          },
+          {
+            "role": "inlet relief",
+            "position_in_flow": "Pressure-limiting element marked 300 is drawn from the red pressure-side passage through the adjacent inline element to the blue T/return rail; its discharge therefore runs to T.",
+            "id": "",
+            "setting": "300 (unit not printed beside the value; hydraulic context suggests pressure, but unit is not visible)"
+          },
+          {
+            "role": "unconfirmed \u2014 connections not fully traceable",
+            "position_in_flow": "Upper spring-loaded cartridge at the left of the main spool; one side joins the blue passage feeding the spool area and the other joins a red vertical passage, but the final destinations/functions cannot be established unambiguously from this crop.",
+            "id": "",
+            "setting": ""
+          },
+          {
+            "role": "unconfirmed \u2014 connections not fully traceable",
+            "position_in_flow": "Lower spring-loaded cartridge at the left of the main spool; connected between the blue passage and a red passage leading toward the pressure-side/adjacent element, but the complete inlet/outlet routing is not unambiguous in this crop.",
+            "id": "",
+            "setting": ""
+          },
+          {
+            "role": "unconfirmed inline element",
+            "position_in_flow": "Diamond-shaped element immediately downstream/upstream of the 300-marked pressure-limiting element on the red pressure-side branch; exact symbol details and role are not readable enough to classify.",
+            "id": "",
+            "setting": ""
+          },
+          {
+            "role": "orifice/restriction (symbol only; exact role unconfirmed)",
+            "position_in_flow": "Small restriction-like symbol on the red branch beside the diamond element and below the main spool; branch endpoints are visible locally but its precise circuit purpose is not established by this crop.",
+            "id": "",
+            "setting": ""
+          }
+        ],
+        "flow_scenarios": [
+          "Neutral/rest: per the authoritative table the spool has an open neutral position, providing an open P-to-T unloading path; exact internal LS galleries are not fully distinguishable in the crop.",
+          "DOWN command (<5 V, A): the proportional spool shifts to its A position, routing pressure from P through the spool to work port A while the opposite work port returns through the spool to T; both work-port destinations continue off the crop.",
+          "UP command (>5 V, B): the proportional spool shifts to its B position, routing pressure from P through the spool to work port B while the opposite work port returns through the spool to T; both work-port destinations continue off the crop.",
+          "Overpressure: the branch marked 300 opens from the red pressure-side passage to the blue T/return rail when its threshold is reached."
+        ],
+        "settings": [
+          "Main spool rated 40 l/min.",
+          "PVEU command range 0\u201310 V.",
+          "DOWN <5 V = A; UP >5 V = B.",
+          "Pressure-limiting element marked 300; pressure unit is not legible/printed locally in this crop."
+        ],
+        "ports": [
+          "P: bottom pressure port/rail, red, feeding the PVG section.",
+          "T: bottom tank/return port/rail, blue, receiving neutral/return and relief flow.",
+          "LS: bottom load-sense port/rail, cyan; connects into the section and continues beyond the crop.",
+          "M: left-side labeled measuring/test connection on the local passage.",
+          "A and B work ports: routed upward/right from the directional section; their labels and external actuator connections are outside/cropped from this image, so the individual visible line-to-A/B assignment cannot be confirmed here."
+        ],
+        "illegible": [
+          "Function identifier after the visible magenta \u201cEV-\u201d.",
+          "Printed identifiers, if any, for the individual cartridges.",
+          "Pressure unit associated with the visible \u201c300\u201d setting.",
+          "A/B work-port labels and the actuator-side connections beyond the crop.",
+          "Small text/markings adjacent to the spool and auxiliary cartridges."
+        ],
+        "_model": "gpt-5.6-sol"
+      },
+      "actuation_skeleton": "",
+      "rating_skeleton": "",
+      "neutral_skeleton": ""
+    },
     {
       "label": "LIFTING KEEL UP/DOWN",
       "identifier": "EV-6.1",
-      "rating": "spool 40 lt/min",
-      "actuation": "PVEO - 0-10 V; DOWN <5V = A / UP>5V = B",
-      "neutral": "open neutral position",
-      "x_left": 0.18,
-      "x_right": 0.3,
+      "rating": "PVG 32 module; spool 40 lt/min",
+      "actuation": "PVEU electrohydraulic proportional actuation, 0\u201310 V; DOWN <5 V = A, UP >5 V = B; open neutral position",
+      "neutral": "Open neutral position (as stated by this sheet\u2019s equipment table).",
+      "x_left": 0.2,
+      "x_right": 0.31,
+      "is_block_level": false,
       "detail": {
-        "function": "LIFTING KEEL L\u2026 \u2014 EV-6.1 (function text is cropped after \u201cL\u201d)",
-        "rating": "PVG 32 MODULE; SPOOL 40 lt/min",
-        "actuation": "PVEU - 0-10 V; DOWN <5V =A / UP>5V =B; open neutral position",
-        "neutral": "open neutral position",
+        "function": "LIFTING KEEL UP/DOWN \u2014 EV-6.1",
+        "rating": "PVG 32 module; spool 40 lt/min",
+        "actuation": "PVEU electrohydraulic proportional actuation, 0\u201310 V; DOWN <5 V = A, UP >5 V = B; open neutral position",
+        "neutral": "Open neutral position (as stated by this sheet\u2019s equipment table).",
         "cartridges": [
           {
-            "id": "11166832",
-            "role": "upper work-port valve/block associated with A and B; four valve symbols shown",
-            "setting": "none legible"
+            "role": "main directional spool",
+            "position_in_flow": "PVG 32 section between the common pressure/return galleries and work ports A and B; shifts to feed one work port and return the other.",
+            "id": "1576712",
+            "setting": "40 lt/min spool"
           },
           {
-            "id": "157B6203",
-            "role": "identifier printed between the A and B work-port connections; exact component/assembly role ambiguous",
-            "setting": "none"
+            "role": "LS pressure limiter",
+            "position_in_flow": "Left adjustable cartridge in the cyan load-sense branch associated with the work-port sensing network; it vents/limits that LS signal rather than being drawn in the main A/B flow path.",
+            "id": "",
+            "setting": "printed value appears to be 210, but unit/value are not fully legible in this crop"
           },
           {
-            "id": "15783712",
-            "role": "main directional spool/valve assembly",
-            "setting": "none"
+            "role": "LS pressure limiter",
+            "position_in_flow": "Right adjustable cartridge in the cyan load-sense branch associated with the work-port sensing network; it vents/limits that LS signal rather than being drawn in the main A/B flow path.",
+            "id": "",
+            "setting": "printed value appears to be 160, but unit/value are not fully legible in this crop"
           },
           {
-            "id": "[no legible part identifier]",
-            "role": "small side-mounted pilot/limiter valve at lower left of main directional valve",
-            "setting": "none legible"
+            "role": "shuttle",
+            "position_in_flow": "Lower cyan LS network, selecting a work-port load signal into the section LS gallery; shown adjacent to the LSB/LSA connections.",
+            "id": "",
+            "setting": ""
           },
           {
-            "id": "[no legible part identifier]",
-            "role": "right-side work-port limiter/cartridge marked \u201c220\u201d",
-            "setting": "220 (unit not printed/legible in crop)"
+            "role": "pressure-control cartridge \u2014 exact role unconfirmed",
+            "position_in_flow": "Small spring-loaded cartridge at the left side of the main spool; one side traces to a red section passage and the other to the blue return/gallery line, but the originating pressure passage and setting are not sufficiently clear to distinguish inlet relief from a work-port relief.",
+            "id": "",
+            "setting": "illegible"
           },
           {
-            "id": "[no legible part identifier]",
-            "role": "right-side work-port limiter/cartridge marked \u201c60\u201d",
-            "setting": "60 (unit not printed/legible in crop)"
+            "role": "unconfirmed \u2014 connections not traceable",
+            "position_in_flow": "Four spring/check-like elements inside dashed assembly 11166832 at the upper left; the crop shows their internal cross-connections and four lower terminals, but their complete external destinations cannot be traced confidently here.",
+            "id": "11166832 (assembly identifier)",
+            "setting": ""
           }
         ],
+        "flow_scenarios": [
+          "Neutral: the PVG spool is in the sheet-designated open neutral position; the work ports are open/unloaded in neutral as drawn/designated, while the common gallery continues through the valve section.",
+          "DOWN command (<5 V, A): pressure is directed through the main spool to work port A; work port B is connected through the spool to return.",
+          "UP command (>5 V, B): pressure is directed through the main spool to work port B; work port A is connected through the spool to return.",
+          "A-side load pressure limiting: the corresponding work-port signal is transmitted through the cyan LS/shuttle network; when its adjustable LS limiter reaches its setting, the LS signal is relieved/limited, reducing commanded section pressure.",
+          "B-side load pressure limiting: the corresponding work-port signal is transmitted through the cyan LS/shuttle network; when its adjustable LS limiter reaches its setting, the LS signal is relieved/limited, reducing commanded section pressure."
+        ],
         "settings": [
-          "PVEU 0-10 V",
-          "DOWN <5V =A",
-          "UP>5V =B",
-          "220 on one right-side limiter; unit not printed/legible",
-          "60 on one right-side limiter; unit not printed/legible"
+          "Spool flow rating: 40 lt/min.",
+          "Electrical command: 0\u201310 V; DOWN <5 V = A; UP >5 V = B.",
+          "Two printed LS-limiter annotations appear to read 210 and 160, but the units and exact digits are not reliably legible."
         ],
         "ports": [
-          "A \u2014 DOWN per printed control legend; work line enters the upper work-port block; external load connection is not identified within this crop",
-          "B \u2014 UP per printed control legend; work line enters the upper work-port block; external load connection is not identified within this crop",
-          "P \u2014 bottom manifold port/header, readable",
-          "LSB \u2014 bottom load-sense connection, readable",
-          "LSA \u2014 bottom load-sense connection, readable",
-          "Additional bottom connection(s) are drawn, but their labels are not clearly readable"
+          "A \u2014 work port; commanded for DOWN; external continuation/actuator connection is not fully shown in this crop.",
+          "B \u2014 work port; commanded for UP; external continuation/actuator connection is not fully shown in this crop.",
+          "P \u2014 common pressure gallery at the bottom of the PVG section.",
+          "T/return \u2014 common return gallery at the bottom/blue section passages; exact rail label is partly outside or obscured.",
+          "LSB \u2014 load-sense connection/galleries labeled at the bottom.",
+          "LSA \u2014 load-sense connection/galleries labeled at the bottom."
         ],
         "illegible": [
-          "Remainder of function name after \u201cLIFTING KEEL L\u201d is outside/cropped.",
-          "Tiny marking above the main valve actuator/spool is not reliably readable.",
-          "Part identifiers for the small lower-left valve and the two right-side limiter cartridges are not shown or not legible.",
-          "Units for the printed limiter values 220 and 60 are not visible.",
-          "One or more bottom port labels beside P/LSB/LSA are too faint or ambiguous to transcribe."
+          "Exact setting text and units beside the two LS pressure-limit cartridges.",
+          "Identifier and pressure setting of the small spring-loaded pressure-control cartridge left of the main spool.",
+          "Individual identifiers/functions of the four elements inside assembly 11166832.",
+          "Some bottom common-gallery port labels are clipped or obscured.",
+          "The external destinations of work ports A and B are outside/not resolved by this crop."
         ],
         "_model": "gpt-5.6-sol"
-      }
+      },
+      "actuation_skeleton": "PVEU - 0-10 V; DOWN <5V =A / UP>5V =B",
+      "rating_skeleton": "spool 40 lt/min",
+      "neutral_skeleton": "open neutral position"
     },
     {
       "label": "LIFTING KEEL LOCKS",
       "identifier": "EV-6.2",
-      "rating": "spool 5 lt/min",
-      "actuation": "PVEO - ON/OFF; IN=A / OUT=B",
-      "neutral": "closed neutral position",
-      "x_left": 0.3,
+      "rating": "PVG 32 module; spool 5 lt/min",
+      "actuation": "PVEO electrohydraulic ON/OFF actuation; closed neutral position; IN=A / OUT=B",
+      "neutral": "Closed neutral position: main directional spool blocks the section work paths; no P-to-A/B or A/B-to-T path is shown through the centered spool.",
+      "x_left": 0.31,
       "x_right": 0.42,
+      "is_block_level": false,
       "detail": {
-        "function": "KEEL LIFTING KEEL LOCKS \u2014 EV-6.2",
-        "rating": "PVG 32 MODULE; spool 5 lt/min",
-        "actuation": "PVEO - ON/OFF; IN=A / OUT=B; closed neutral position",
-        "neutral": "closed neutral position",
+        "function": "LIFTING KEEL LOCKS \u2014 EV-6.2",
+        "rating": "PVG 32 module; spool 5 lt/min",
+        "actuation": "PVEO electrohydraulic ON/OFF actuation; closed neutral position; IN=A / OUT=B",
+        "neutral": "Closed neutral position: main directional spool blocks the section work paths; no P-to-A/B or A/B-to-T path is shown through the centered spool.",
         "cartridges": [
           {
+            "role": "electrohydraulic pilot/actuator for the main spool",
+            "position_in_flow": "Mounted above and mechanically/pilot connected to the main directional spool; its small internal pilot-stage connections are shown, but the complete internal flow paths are not fully readable in this crop.",
             "id": "11166838",
-            "role": "PVG 32 module / upper valve assembly",
-            "setting": ""
+            "setting": "PVEO \u2014 ON/OFF"
           },
           {
+            "role": "main directional spool",
+            "position_in_flow": "Section valve between the pressure/return galleries and work ports A and B; shifts to connect P to one work port and the opposite work port to return.",
             "id": "157B7125",
-            "role": "main directional valve/spool section",
+            "setting": "5 lt/min spool; closed neutral"
+          },
+          {
+            "role": "section pressure compensating/control valve",
+            "position_in_flow": "Spring-loaded valve on the section pressure feed at the lower-left of the main spool; inlet traces to the red pressure gallery and outlet feeds the directional-spool inlet; pilot/control detail is shown but not fully readable.",
+            "id": "",
             "setting": ""
           },
           {
-            "id": "11130982",
-            "role": "identifier printed on the upper work-line area; component role not discernible from this crop",
+            "role": "A-work-port relief dumping to return",
+            "position_in_flow": "Branches from the A work-port passage; outlet joins the blue return/T passage and runs down to the return rail.",
+            "id": "",
+            "setting": "180 bar"
+          },
+          {
+            "role": "B-work-port relief dumping to return",
+            "position_in_flow": "Branches from the B work-port passage; outlet joins the blue return/T passage and runs down to the return rail.",
+            "id": "",
+            "setting": "180 bar"
+          },
+          {
+            "role": "shuttle valve for work-port pressure selection",
+            "position_in_flow": "Drawn between the two work-port sensing branches below the spool, selecting one of the A/B pressure signals into the common sensing path.",
+            "id": "",
+            "setting": ""
+          },
+          {
+            "role": "shuttle/check element in sensing/LS path",
+            "position_in_flow": "Lower diamond-and-ball element in the cyan sensing line near the LS rail; exact upstream/downstream connections are only partly traceable in this crop.",
+            "id": "",
             "setting": ""
           }
         ],
-        "settings": [],
+        "flow_scenarios": [
+          "Neutral: the centered main spool is closed; P is not connected through the spool to A or B, and the A/B work passages are not connected through the spool to T.",
+          "IN command (A): the shifted spool connects the section pressure feed P to work port A and connects work port B to the return/T gallery.",
+          "OUT command (B): the opposite spool shift connects the section pressure feed P to work port B and connects work port A to the return/T gallery.",
+          "A-port overpressure: the A work-port relief opens at the shown setting and diverts A-port oil to the blue return/T rail.",
+          "B-port overpressure: the B work-port relief opens at the shown setting and diverts B-port oil to the blue return/T rail.",
+          "Load sensing: the drawn shuttle network selects a work-port pressure signal and passes it toward the section LS connection; the lower sensing element's exact routing is partly obscured/ambiguous in this crop."
+        ],
+        "settings": [
+          "A work-port relief: 180 bar",
+          "B work-port relief: 180 bar"
+        ],
         "ports": [
-          "A \u2014 printed work port; stated as IN; line continues into adjacent circuitry/off crop edge",
-          "B \u2014 printed work port; stated as OUT; line continues into adjacent circuitry/off crop edge",
-          "LS_A and LS_B \u2014 printed lower load-sense connections"
+          "A \u2014 work port for LOCKS IN; connected to the A passage at the top of this valve section and continuing out of the cropped sub-circuit.",
+          "B \u2014 work port for LOCKS OUT; connected to the B passage at the top of this valve section and continuing out of the cropped sub-circuit.",
+          "P \u2014 section pressure feed from the lower red pressure gallery into the section compensating/control valve and main spool.",
+          "T/return \u2014 blue lower return gallery receiving spool return flow and both work-port relief outlets.",
+          "LS_A and LS_B \u2014 labeled lower load-sense gallery connections; they continue laterally into adjacent manifold sections/off the crop."
         ],
         "illegible": [
-          "Fine-print identifiers beside the small lower work-port cartridges are not readable.",
-          "A small value/marking above the left lower cartridge appears present but is not reliably legible.",
-          "Any printed settings on the lower cartridges are not readable.",
-          "Tiny annotations around the main directional-valve symbol are not fully legible."
+          "Any printed identifiers on the two 180-bar work-port relief cartridges are not readable.",
+          "Any printed identifier on the section pressure compensating/control valve is not readable.",
+          "The exact marking and full connection detail of the lower sensing-line shuttle/check element are not readable.",
+          "The main spool vertical identifier appears to read 157B7125, but the small print is faint."
         ],
         "_model": "gpt-5.6-sol"
-      }
+      },
+      "actuation_skeleton": "PVEO - ON/OFF; IN=A / OUT=B",
+      "rating_skeleton": "SPOOL 5 lt/min",
+      "neutral_skeleton": "closed neutral position"
     },
     {
       "label": "MAST WINCH AFT PORT",
       "identifier": "EV-6.3",
-      "rating": "spool 65 lt/min",
-      "actuation": "PVEO - ON/OFF; 1*&3* = A / 2* = B",
-      "neutral": "open neutral position",
+      "rating": "PVG 32 module; spool 65 lt/min",
+      "actuation": "PVEO ON/OFF; open neutral position; legend states 1\u00b0 & 3\u00b0 = A / 2\u00b0 = B",
+      "neutral": "Open neutral position.",
       "x_left": 0.42,
       "x_right": 0.53,
+      "is_block_level": false,
       "detail": {
-        "function": "EL MAST WINCH AFT PORT \u2014 EV-6.3",
-        "rating": "PVG 32 MODULE; spool 65 lt/min",
-        "actuation": "PVEO - ON/OFF; open neutral position; printed spool-position note: \u201c1\u00b0&3\u00b0 =A/2\u00b0 =B\u201d",
-        "neutral": "open neutral position",
+        "function": "MAST WINCH AFT PORT \u2014 EV-6.3",
+        "rating": "PVG 32 module; spool 65 lt/min",
+        "actuation": "PVEO ON/OFF; open neutral position; legend states 1\u00b0 & 3\u00b0 = A / 2\u00b0 = B",
+        "neutral": "Open neutral position.",
         "cartridges": [
           {
-            "id": "11166838",
-            "role": "PVEO electrical actuator/module at top of the PVG section",
-            "setting": ""
-          },
-          {
+            "role": "main directional spool",
+            "position_in_flow": "PVG spool between the pressure/return galleries and work ports A and B; its drawn metering paths select A or B and return the opposite work port",
             "id": "15781723",
-            "role": "main directional spool/valve section",
             "setting": ""
           },
           {
-            "id": "[illegible]",
-            "role": "left-side work-port/pressure-control cartridge",
-            "setting": "[no readable value]"
+            "role": "work-port relief",
+            "position_in_flow": "branch from A work-port line; outlet is drawn into the common light-cyan return/tank gallery",
+            "id": "",
+            "setting": "250 (unit not printed in crop)"
           },
           {
-            "id": "[identifier illegible]",
-            "role": "right-side pressure limiter/relief cartridge",
-            "setting": "250"
+            "role": "work-port relief",
+            "position_in_flow": "branch from B work-port line; outlet is drawn into the common light-cyan return/tank gallery",
+            "id": "",
+            "setting": "230 (unit not printed in crop)"
           },
           {
-            "id": "[identifier illegible]",
-            "role": "right-side pressure limiter/relief cartridge",
-            "setting": "225"
+            "role": "unconfirmed \u2014 connections/function not fully traceable",
+            "position_in_flow": "spring-loaded cartridge at the left/lower side of the main spool, connected between a red branch and the blue pressure/gallery line; exact role cannot be established confidently from this crop",
+            "id": "",
+            "setting": "printed value appears present but is not reliably legible"
+          },
+          {
+            "role": "shuttle/check element",
+            "position_in_flow": "drawn in the lower LS signal path beneath the A-side pressure-control branch, connecting that branch toward the LS gallery",
+            "id": "",
+            "setting": ""
+          },
+          {
+            "role": "shuttle/check element",
+            "position_in_flow": "drawn in the lower LS signal path beneath the B-side pressure-control branch, connecting that branch toward the LS gallery",
+            "id": "",
+            "setting": ""
           }
         ],
+        "flow_scenarios": [
+          "Neutral: the legend specifies an open neutral spool; the spool provides an open internal neutral path between the module galleries rather than holding both work ports closed.",
+          "Command A (legend: positions 1 and 3): pressure is routed through the main spool to port A and the opposite work port B is routed through the spool to return.",
+          "Command B (legend: position 2): pressure is routed through the main spool to port B and the opposite work port A is routed through the spool to return.",
+          "A-port overpressure: the A-side work-port relief opens from A into the common return/tank gallery at its shown setting.",
+          "B-port overpressure: the B-side work-port relief opens from B into the common return/tank gallery at its shown setting.",
+          "Load-sense operation: the selected work-port pressure is conveyed through the drawn lower signal/shuttle network to the module LS gallery; the exact internal selection details are partly obscured by line crossings."
+        ],
         "settings": [
-          "250 [unit not printed/legible in crop]",
-          "225 [unit not printed/legible in crop]"
+          "A work-port relief: 250 (unit not printed in this crop)",
+          "B work-port relief: 230 (unit not printed in this crop)"
         ],
         "ports": [
-          "A \u2014 work port at top; connected down into the main directional section; horizontal line continues off both crop sides",
-          "B \u2014 work port at top; connected down into the main directional section; horizontal line continues off both crop sides",
-          "LS_B \u2014 bottom load-sense connection",
-          "LS_A \u2014 bottom load-sense connection",
-          "S_A \u2014 partially visible at lower-left crop edge; connection continues off crop"
+          "A \u2014 top work port labeled A; continues horizontally beyond this function slice/off-crop to the external circuit.",
+          "B \u2014 top work port labeled B; continues horizontally beyond this function slice/off-crop to the external circuit.",
+          "P/pressure gallery \u2014 blue vertical manifold gallery at the left side of the spool.",
+          "T/return gallery \u2014 light-cyan manifold return path running down to the bottom rail.",
+          "LSA and LSB \u2014 bottom load-sense rails are labeled; signal connections continue into the manifold/off-slice."
         ],
         "illegible": [
-          "Faint identifier above the A/B line reads approximately \u201c157?6203\u201d; one digit is unclear and its component association is ambiguous.",
-          "Part identifier for the left-side cartridge is not readable.",
-          "Part identifiers for the two right-side limiter/relief cartridges are not readable.",
-          "No pressure unit is legible beside the printed values 250 and 225."
+          "The small printed setting/marking beside the left spring-loaded cartridge is not reliably readable.",
+          "Part identifiers for the two work-port relief cartridges and lower LS shuttle/check elements are not legible.",
+          "The tiny annotation above the main spool actuator is not legible.",
+          "Pressure units for the visible 250 and 230 settings are not printed/readable in this crop."
         ],
         "_model": "gpt-5.6-sol"
-      }
+      },
+      "actuation_skeleton": "PVEO - ON/OFF; 1\u00b0&3\u00b0 =A/2\u00b0 =B",
+      "rating_skeleton": "SPOOL 65 lt/min",
+      "neutral_skeleton": "open neutral position"
     },
     {
       "label": "MAST WINCH FWD PORT",
       "identifier": "EV-6.4",
-      "rating": "spool 65 lt/min",
-      "actuation": "PVEO - ON/OFF; 1*&3* = A / 2* = B",
-      "neutral": "open neutral position",
+      "rating": "PVG 32 module; spool 65 lt/min",
+      "actuation": "PVEO electrical ON/OFF actuation; open neutral position. Command legend: 1\" & 3\" = A / 2\" = B.",
+      "neutral": "Open neutral position, as explicitly stated in the sheet equipment data.",
       "x_left": 0.53,
-      "x_right": 0.65,
+      "x_right": 0.64,
+      "is_block_level": false,
       "detail": {
         "function": "MAST WINCH FWD PORT \u2014 EV-6.4",
-        "rating": "PVG 32 MODULE; spool 65 lt/min",
-        "actuation": "PVED - ON/OFF; open neutral position; printed command mapping: 1\u00b0&3\u00b0 =A/2\u00b0 =B",
-        "neutral": "open neutral position",
+        "rating": "PVG 32 module; spool 65 lt/min",
+        "actuation": "PVEO electrical ON/OFF actuation; open neutral position. Command legend: 1\" & 3\" = A / 2\" = B.",
+        "neutral": "Open neutral position, as explicitly stated in the sheet equipment data.",
         "cartridges": [
           {
+            "role": "main directional spool",
+            "position_in_flow": "PVG section between the common pressure/return galleries and work ports A and B; the drawn spool alternately connects pressure to A or B and the opposite work port to return. Its neutral condition is identified by the sheet as open neutral.",
+            "id": "",
+            "setting": "65 lt/min spool rating"
+          },
+          {
+            "role": "work-port relief with anti-cavitation check",
+            "position_in_flow": "Connected from one work-port branch to the blue tank/return line; relief outlet is traceable to the return rail, with a parallel make-up/check path shown from return toward the work port.",
+            "id": "",
+            "setting": "250 bar"
+          },
+          {
+            "role": "work-port relief with anti-cavitation check",
+            "position_in_flow": "Connected from the other work-port branch to the blue tank/return line; relief outlet is traceable to the return rail, with a parallel make-up/check path shown from return toward the work port.",
+            "id": "",
+            "setting": "225 bar"
+          },
+          {
+            "role": "unconfirmed \u2014 connections not fully traceable",
+            "position_in_flow": "Small spring-loaded valve drawn at the lower-left side of the main spool. It is connected into local red and blue/cyan galleries, but the exact inlet and outlet destinations cannot be followed with enough certainty in this crop to classify it as a pressure-line, work-port, or LS valve.",
+            "id": "",
+            "setting": "printed value near this valve is not reliably legible"
+          },
+          {
+            "role": "electrohydraulic spool actuator/control assembly",
+            "position_in_flow": "Mounted above the PVG spool and linked by pilot/control lines to the spool section; this operates the main directional spool rather than carrying the external work-port flow.",
             "id": "11166838",
-            "role": "upper electrohydraulic actuator/control element associated with the PVG module",
-            "setting": ""
-          },
-          {
-            "id": "15761723",
-            "role": "main directional/spool valve",
-            "setting": ""
-          },
-          {
-            "id": "[identifier illegible]",
-            "role": "left-side work-port cartridge/limiter adjacent to main directional valve",
-            "setting": "[setting illegible]"
-          },
-          {
-            "id": "[identifier illegible]",
-            "role": "work-port pressure-limiter/relief cartridge",
-            "setting": "250 [unit not printed/legible in crop]"
-          },
-          {
-            "id": "[identifier illegible]",
-            "role": "work-port pressure-limiter/relief cartridge",
-            "setting": "225 [unit not printed/legible in crop]"
+            "setting": "PVEO ON/OFF"
           }
         ],
+        "flow_scenarios": [
+          "Neutral: the PVG spool is in the sheet-specified open-neutral position; the pressure gallery is unloaded through the open-center/return path while work-port behavior follows the drawn neutral spool lands.",
+          "A command (sheet: 1\" & 3\" = A): pressure is routed through the main spool to work port A, while work port B is routed through the spool to tank/return.",
+          "B command (sheet: 2\" = B): pressure is routed through the main spool to work port B, while work port A is routed through the spool to tank/return.",
+          "A-side overpressure: the relief cartridge on that work-port branch opens and dumps to the blue tank/return rail at its shown setting; its parallel check permits make-up flow in the reverse direction if the work port falls below return pressure.",
+          "B-side overpressure: the relief cartridge on that work-port branch opens and dumps to the blue tank/return rail at its shown setting; its parallel check permits make-up flow in the reverse direction if the work port falls below return pressure."
+        ],
         "settings": [
-          "250 [unit not printed/legible]",
-          "225 [unit not printed/legible]"
+          "Work-port relief settings shown: 250 bar and 225 bar. The crop does not permit an unambiguous assignment of these two values to external port A versus B.",
+          "Spool flow rating: 65 lt/min."
         ],
         "ports": [
-          "A \u2014 work port marked A; line continues horizontally beyond the crop edge; destination not printed in this crop",
-          "B \u2014 work port marked B; line continues horizontally beyond the crop edge; destination not printed in this crop",
-          "LSA \u2014 bottom load-sense connection marked LSA",
-          "LSB \u2014 bottom load-sense connection marked LSB"
+          "A \u2014 labeled work port at the top of the PVG section; line continues horizontally/off-crop to the connected winch circuit.",
+          "B \u2014 labeled work port at the top of the PVG section; line continues horizontally/off-crop to the connected winch circuit.",
+          "P/common pressure gallery \u2014 enters the PVG section from the manifold rail at the bottom.",
+          "T/common return gallery \u2014 blue return rail at the bottom; receives spool return flow and both traced work-port-relief outlets.",
+          "LSA and LSB \u2014 load-sense rails labeled along the lower edge; they continue beyond this cropped function slice."
         ],
         "illegible": [
-          "Small print/symbol annotation above the main directional valve is not readable.",
-          "Identifier and setting on the small left-side cartridge are not readable.",
-          "Part identifiers for the cartridges marked 250 and 225 are obscured/not legible.",
-          "Units for 250 and 225 are not printed or not legible.",
-          "Faint line/reference text 157B6203 is visible above the circuit, but its exact role is not discernible."
+          "The vertical identifier printed beside the main spool is not reliably readable.",
+          "The exact part identifier associated with the spool/header line (appears similar to 157B6203) is not recorded because its association is uncertain.",
+          "The setting/text beside the small lower-left spring-loaded valve is too unclear to read reliably.",
+          "The crop does not unambiguously show which of the 250 bar and 225 bar relief cartridges belongs to external port A and which belongs to port B."
         ],
         "_model": "gpt-5.6-sol"
-      }
+      },
+      "actuation_skeleton": "PVEO - ON/OFF; 1\"&3\" =A/2\" =B",
+      "rating_skeleton": "spool 65 lt/min",
+      "neutral_skeleton": "open neutral position"
     },
     {
       "label": "MAST WINCH AFT STBD",
       "identifier": "EV-6.5",
-      "rating": "spool 65 lt/min",
-      "actuation": "PVEO - ON/OFF; 1*&3* = A / 2* = B",
-      "neutral": "open neutral position",
-      "x_left": 0.65,
-      "x_right": 0.77,
+      "rating": "PVG 32 module; spool 65 lt/min",
+      "actuation": "PVEO electrical ON/OFF; open neutral position. Legend states 1\u00b0 & 3\u00b0 = A, 2\u00b0 = B.",
+      "neutral": "Open neutral position; the drawn center spool position provides open circulation/unloading paths, though the exact internal gallery mapping is partly obscured by line overlap.",
+      "x_left": 0.64,
+      "x_right": 0.75,
+      "is_block_level": false,
       "detail": {
         "function": "MAST WINCH AFT STBD \u2014 EV-6.5",
-        "rating": "PVG 32 MODULE; spool 65 lt/min",
-        "actuation": "PVEO - ON/OFF; open neutral position; printed sequence: 1\u00b0&3\u00b0 =A/2\u00b0 =B",
-        "neutral": "open neutral position",
+        "rating": "PVG 32 module; spool 65 lt/min",
+        "actuation": "PVEO electrical ON/OFF; open neutral position. Legend states 1\u00b0 & 3\u00b0 = A, 2\u00b0 = B.",
+        "neutral": "Open neutral position; the drawn center spool position provides open circulation/unloading paths, though the exact internal gallery mapping is partly obscured by line overlap.",
         "cartridges": [
           {
+            "role": "main directional spool",
+            "position_in_flow": "Central PVG32 directional element between the pressure/return galleries and A/B work lines; switches flow to A or B and returns the opposite work port.",
+            "id": "15761723",
+            "setting": "65 lt/min spool"
+          },
+          {
+            "role": "work-port relief",
+            "position_in_flow": "Branch from the B-side work line at the spool to the cyan tank/return rail; opens from B work port to return.",
+            "id": "",
+            "setting": "225 bar"
+          },
+          {
+            "role": "work-port relief",
+            "position_in_flow": "Branch from the A-side work line at the spool to the cyan tank/return rail; opens from A work port to return.",
+            "id": "",
+            "setting": "250 bar"
+          },
+          {
+            "role": "load-sense shuttle / signal selection element",
+            "position_in_flow": "Small ball/shuttle symbol in the central spool assembly, connected between the selected work-port pressure passages and the LS signal passage.",
+            "id": "",
+            "setting": ""
+          },
+          {
+            "role": "LS pressure limiter",
+            "position_in_flow": "Small adjustable cartridge in the upper pilot/LS network; its inlet is connected to the blue LS/pilot line and its outlet appears to join the red dashed return/pilot drain path. Exact terminal tracing is partly obscured.",
             "id": "11166838",
-            "role": "upper pilot/control valve assembly",
-            "setting": "none printed"
+            "setting": "unreadable"
           },
           {
-            "id": "157B6203",
-            "role": "PVG 32 work-section/module identifier at A/B gallery",
-            "setting": "none printed"
-          },
-          {
-            "id": "157B7123",
-            "role": "main directional/spool valve",
-            "setting": "none printed"
-          },
-          {
-            "id": "C50",
-            "role": "left work-port valve/cartridge marking; exact role not explicitly printed",
-            "setting": "no unit/value explicitly printed"
-          },
-          {
-            "id": "C25",
-            "role": "right work-port valve/cartridge marking; exact role not explicitly printed",
-            "setting": "no unit/value explicitly printed"
+            "role": "orifice / damping restriction",
+            "position_in_flow": "Diamond restriction in the upper blue pilot/LS line feeding the upper control/limiter network.",
+            "id": "",
+            "setting": "unreadable"
           }
+        ],
+        "flow_scenarios": [
+          "Neutral: PVEO de-energized; spool is in the stated open-neutral position, providing an open/unloading path through the PVG section. Exact P-to-T gallery path is not fully distinguishable in the crop.",
+          "Command A (legend: 1\u00b0 and 3\u00b0): spool routes pressure to work port A and routes work port B toward tank/return.",
+          "Command B (legend: 2\u00b0): spool routes pressure to work port B and routes work port A toward tank/return.",
+          "A-port overpressure: the A-side 250 bar work-port relief opens from A to the cyan tank/return rail.",
+          "B-port overpressure: the B-side 225 bar work-port relief opens from B to the cyan tank/return rail.",
+          "Load-sense operation: selected work-port pressure is communicated through the spool's LS shuttle/signal passage to the LS_B line; the upper restriction/limiter network conditions or limits this signal, but its printed setting and some terminal connections are unclear."
+        ],
+        "settings": [
+          "A work-port relief: 250 bar",
+          "B work-port relief: 225 bar"
+        ],
+        "ports": [
+          "A: top-right work port, labeled A; connected to red external manifold line continuing horizontally off both crop edges.",
+          "B: top-left work port, labeled B; connected to red external manifold line continuing horizontally off both crop edges.",
+          "P: pressure supply via the common lower red manifold/gallery into the PVG section; gallery label is not visible in this crop.",
+          "T/return: cyan common lower/side return gallery; receives opposite-port spool return and the two work-port relief outlets.",
+          "LS_B: lower blue load-sense rail, explicitly labeled LS_B, connected to this section's LS signal.",
+          "Additional adjacent rails LS_A and LS_C are visible but belong to neighboring sections."
+        ],
+        "illegible": [
+          "Upper pilot/LS cartridge pressure setting.",
+          "Small text/identifier beside the upper pilot component other than clearly visible 11166838.",
+          "Exact labels of the common P and T galleries in this crop.",
+          "Fine internal port numbering/actuator markings around the PVG spool.",
+          "The magenta identifier is stylized; read as EV-6.5 from the visible text, but punctuation/character form is somewhat faint."
+        ],
+        "_model": "gpt-5.6-sol"
+      },
+      "actuation_skeleton": "PVEO - ON/OFF; 1\u00b0&3\u00b0 =A/2\u00b0 =B",
+      "rating_skeleton": "spool 65 lt/min",
+      "neutral_skeleton": "open neutral position"
+    },
+    {
+      "label": "MAST WINCH FWD STBD",
+      "identifier": "EV-6.6",
+      "rating": "PVG 32 module; spool 65 lt/min",
+      "actuation": "PVEO electrical ON/OFF actuation; open neutral position",
+      "neutral": "Open neutral position; the drawing/legend states open neutral, but the exact internal P/T gallery path is not fully traceable in this crop.",
+      "x_left": 0.75,
+      "x_right": 0.87,
+      "is_block_level": false,
+      "detail": {
+        "function": "MAST WINCH FWD STBD \u2014 EV-6.6",
+        "rating": "PVG 32 module; spool 65 lt/min",
+        "actuation": "PVEO electrical ON/OFF actuation; open neutral position",
+        "neutral": "Open neutral position; the drawing/legend states open neutral, but the exact internal P/T gallery path is not fully traceable in this crop.",
+        "cartridges": [
+          {
+            "role": "main directional spool",
+            "position_in_flow": "Central PVG 32 section between the pressure/return galleries and work ports A and B; shifts to connect pressure to one work port and the opposite work port to return.",
+            "id": "15781723",
+            "setting": "65 lt/min spool"
+          },
+          {
+            "role": "electrohydraulic ON/OFF pilot/actuator assembly for the main spool",
+            "position_in_flow": "Mounted above and pilot-connected to the main directional section; it commands spool shift rather than carrying the external A/B load flow.",
+            "id": "11166838",
+            "setting": "PVEO \u2014 ON/OFF"
+          },
+          {
+            "role": "A-work-port relief dumping to return",
+            "position_in_flow": "Connected from the A work-port branch at the left side of this function; its discharge is drawn into the cyan tank/return gallery running to the lower T rail.",
+            "id": "",
+            "setting": "225 bar"
+          },
+          {
+            "role": "B-work-port relief dumping to return",
+            "position_in_flow": "Connected from the B work-port branch at the right side of this function; its discharge is drawn into the cyan tank/return gallery running to the lower T rail.",
+            "id": "",
+            "setting": "230 bar"
+          },
+          {
+            "role": "internal load-sense selector/check element",
+            "position_in_flow": "Diamond/check element within the PVG section routes the selected work-port pressure toward the section LS passage, which joins the bottom LS_B gallery.",
+            "id": "",
+            "setting": ""
+          }
+        ],
+        "flow_scenarios": [
+          "Neutral/rest: the PVEO is de-energized and the main spool is in the stated open-neutral position; the section unloads through its open-neutral gallery toward return. A and B are not shown as positively blocked by the main spool in neutral.",
+          "Command corresponding to A (legend: 1st and 3rd = A): the main spool shifts to route pressure through the section to work port A, while work port B is connected through the spool to tank/return.",
+          "Command corresponding to B (legend: 2nd = B): the main spool shifts to route pressure through the section to work port B, while work port A is connected through the spool to tank/return.",
+          "A-port overpressure: the A-port relief opens at 225 bar and diverts A-port oil to the tank/return gallery.",
+          "B-port overpressure: the B-port relief opens at 230 bar and diverts B-port oil to the tank/return gallery.",
+          "During either powered work position, the internal LS selector/check communicates the higher active load pressure to the LS_B gallery."
+        ],
+        "settings": [
+          "A work-port relief: 225 bar",
+          "B work-port relief: 230 bar"
+        ],
+        "ports": [
+          "A \u2014 upper work port labeled A; line continues horizontally off the crop to the connected mast-winch circuit.",
+          "B \u2014 upper work port labeled B; line continues horizontally off the crop to the connected mast-winch circuit.",
+          "T/return \u2014 cyan section galleries descend to the common lower return rail.",
+          "LS_B \u2014 load-sense connection at the bottom of the section; joins the common LS_B rail.",
+          "Pressure supply/common PVG gallery \u2014 enters the section from the manifold rail; external source is outside this vertical crop."
+        ],
+        "illegible": [
+          "The tiny text/symbol detail inside the PVEO pilot assembly is not readable beyond assembly identifier 11166838.",
+          "No clearly legible individual part identifiers are visible for the 225 bar and 230 bar work-port relief cartridges.",
+          "The small vertical marking beside the main spool appears to read 15781723, but character size is very small.",
+          "Exact numbering of the actuator states is given by the sheet legend (1st/3rd=A, 2nd=B); the tiny state labels at the spool itself are not independently legible."
+        ],
+        "_model": "gpt-5.6-sol"
+      },
+      "actuation_skeleton": "PVEO - ON/OFF; 1\u00b0&3\u00b0 =A/2\u00b0 =B",
+      "rating_skeleton": "spool 65 lt/min",
+      "neutral_skeleton": "open neutral position"
+    },
+    {
+      "label": "Block end section",
+      "identifier": "",
+      "rating": "Unconfirmed \u2014 no flow/spool rating is visible in the cropped circuit; the sheet table lists multiple possible PVG 32 functions with 5, 40, or 65 lt/min spools, so no unique assignment can be made",
+      "actuation": "Unconfirmed \u2014 actuator and main spool symbol are cropped/illegible; neutral position cannot be established from the visible circuit alone",
+      "neutral": "Unconfirmed from this crop",
+      "x_left": 0.87,
+      "x_right": 0.89,
+      "is_block_level": true,
+      "detail": {
+        "function": "Unconfirmed \u2014 function label/name and printed function identifier are not visible in this crop",
+        "rating": "Unconfirmed \u2014 no flow/spool rating is visible in the cropped circuit; the sheet table lists multiple possible PVG 32 functions with 5, 40, or 65 lt/min spools, so no unique assignment can be made",
+        "actuation": "Unconfirmed \u2014 actuator and main spool symbol are cropped/illegible; neutral position cannot be established from the visible circuit alone",
+        "neutral": "Unconfirmed from this crop",
+        "cartridges": [
+          {
+            "role": "unconfirmed \u2014 connections and complete symbol not traceable",
+            "position_in_flow": "Partial element at the lower-left crop edge appears connected into the visible cyan/red/blue network, but its inlet and outlet endpoints are outside the crop; cannot establish whether it is in a work-port, return, pressure, or LS path",
+            "id": "",
+            "setting": ""
+          },
+          {
+            "role": "shuttle or LS-selection element \u2014 tentative; symbol is only partially visible",
+            "position_in_flow": "Small diamond-like element near the bottom feeds the line labeled LS_A; adjacent branches continue outside the left crop and into the dashed module boundary, so the full source connections are not traceable",
+            "id": "",
+            "setting": ""
+          }
+        ],
+        "flow_scenarios": [
+          "B-port condition: the port labeled B enters the module and follows the red branch, but the controlling spool and final return/pressure connection are outside the crop; P\u2192B or B\u2192T cannot be confirmed.",
+          "LS signaling: a lower internal branch reaches the line labeled LS_A through a partially visible selection element; which work-port pressure is selected cannot be confirmed.",
+          "Neutral/rest: not derivable because the directional spool symbol and its complete galleries are not visible."
         ],
         "settings": [],
         "ports": [
-          "A \u2014 work port shown at upper gallery; destination not identified in crop; gallery continues off both crop edges",
-          "B \u2014 work port shown at upper gallery; destination not identified in crop; gallery continues off both crop edges",
-          "LsB \u2014 lower load-sense port/gallery shown",
-          "LsA \u2014 lower load-sense port/gallery shown"
+          "B \u2014 visible at the upper-left module boundary; its external connection runs off the left crop edge, and its internal red line descends before leaving the visible area.",
+          "LS_A \u2014 visible near the bottom; line continues off the left crop edge.",
+          "Additional cyan/blue/red internal lines cross the crop boundary, but their port labels and destinations are not visible."
         ],
         "illegible": [
-          "Small markings adjacent to/inside several hydraulic symbols are too small or unclear to transcribe reliably.",
-          "The exact functional designation of cartridges marked C50 and C25 is not printed/clearly discernible in this crop.",
-          "Unlabelled lower supply/return connections are present, but their port letters are not readable in this crop."
+          "Function label/name and identifier for this vertical section",
+          "Main directional spool symbol and actuator",
+          "Any cartridge part numbers; a faint text string resembling '157B2014' is present near the upper internal line but is not confidently readable enough to record as a cartridge ID",
+          "Any pressure setting or threshold",
+          "Work port A and pressure/tank port labels",
+          "Complete connections of the lower-left valve/cartridge symbols"
+        ],
+        "_model": "gpt-5.6-sol"
+      },
+      "actuation_skeleton": "",
+      "rating_skeleton": "",
+      "neutral_skeleton": ""
+    }
+  ],
+  "legends": [
+    {
+      "title_as_printed": "LIFTING KEEL UP/DOWN",
+      "kind": "equipment_data_table",
+      "bbox": [
+        0.194,
+        0.087,
+        0.302,
+        0.193
+      ],
+      "content": {
+        "title": "LIFTING KEEL\nUP/DOWN",
+        "entries": [
+          {
+            "label": "PVG 32 MODULE",
+            "symbol_description": ""
+          },
+          {
+            "label": "spool 40 lt/min",
+            "symbol_description": ""
+          },
+          {
+            "label": "PVEU - 0-10 V",
+            "symbol_description": ""
+          },
+          {
+            "label": "DOWN <5V =A / UP>5V =B",
+            "symbol_description": ""
+          },
+          {
+            "label": "open neutral position",
+            "symbol_description": ""
+          }
         ],
         "_model": "gpt-5.6-sol"
       }
     },
     {
-      "label": "MAST WINCH FWD STBD",
-      "identifier": "EV-6.6",
-      "rating": "spool 65 lt/min",
-      "actuation": "PVEO - ON/OFF; 1*&3* = A / 2* = B",
-      "neutral": "open neutral position",
-      "x_left": 0.77,
-      "x_right": 0.89,
-      "detail": {
-        "function": "MAST WINCH FWD STBD \u2014 EV-6.6",
-        "rating": "PVG 32 MODULE; spool 65 lt/min",
-        "actuation": "PVEO - ON/OFF; open neutral position; 1\u00b0&3\u00b0 =A/2\u00b0 =B",
-        "neutral": "open neutral position",
-        "cartridges": [
+      "title_as_printed": "LIFTING KEEL LOCKS",
+      "kind": "equipment_data_table",
+      "bbox": [
+        0.307,
+        0.087,
+        0.416,
+        0.193
+      ],
+      "content": {
+        "title": "<illegible> LIFTING KEEL <illegible>\nLOCKS",
+        "entries": [
           {
-            "id": "11166838",
-            "role": "upper pilot/inlet control assembly; exact role not explicitly printed",
-            "setting": ""
+            "label": "PVG 32 MODULE",
+            "symbol_description": ""
           },
           {
-            "id": "157817123",
-            "role": "main directional spool/cartridge",
-            "setting": ""
+            "label": "SPOOL 5 lt/min",
+            "symbol_description": ""
           },
           {
-            "id": "230",
-            "role": "work-port pressure limiter/relief at B-side branch; identifier not separately legible",
-            "setting": "230 (unit not printed/legible)"
+            "label": "PVEO - ON/OFF",
+            "symbol_description": ""
           },
           {
-            "id": "225",
-            "role": "work-port pressure limiter/relief at A-side branch; identifier not separately legible",
-            "setting": "225 (unit not printed/legible)"
+            "label": "IN=A / OUT=B",
+            "symbol_description": ""
+          },
+          {
+            "label": "closed neutral position",
+            "symbol_description": ""
           }
-        ],
-        "settings": [
-          "230 (unit not printed/legible)",
-          "225 (unit not printed/legible)"
-        ],
-        "ports": [
-          "A \u2014 work port; line reference 157B6203; continues off crop at left edge",
-          "B \u2014 work port; line reference 157B2014; continues off crop at right edge",
-          "LSB \u2014 load-sense port at bottom; continues beyond the shown sub-circuit",
-          "LSA \u2014 load-sense port at bottom; continues beyond the shown sub-circuit"
-        ],
-        "illegible": [
-          "Small fine-print/symbol annotations around the upper assembly 11166838 are not readable.",
-          "Any separate part identifiers for the two work-port limiter cartridges are not readable.",
-          "No pressure unit is legible beside settings 230 and 225."
         ],
         "_model": "gpt-5.6-sol"
       }
-    }
-  ],
-  "legends": [
+    },
+    {
+      "title_as_printed": "MAST WINCH AFT PORT",
+      "kind": "equipment_data_table",
+      "bbox": [
+        0.421,
+        0.087,
+        0.529,
+        0.193
+      ],
+      "content": {
+        "title": "MAST WINCH\nAFT PORT",
+        "entries": [
+          {
+            "label": "PVG 32 MODULE",
+            "symbol_description": ""
+          },
+          {
+            "label": "SPOOL 65 lt/min",
+            "symbol_description": ""
+          },
+          {
+            "label": "PVEO - ON/OFF",
+            "symbol_description": ""
+          },
+          {
+            "label": "1\u00b0&3\u00b0 =A/2\u00b0 =B",
+            "symbol_description": ""
+          },
+          {
+            "label": "open neutral position",
+            "symbol_description": ""
+          }
+        ],
+        "_model": "gpt-5.6-sol"
+      }
+    },
+    {
+      "title_as_printed": "MAST WINCH FWD PORT",
+      "kind": "equipment_data_table",
+      "bbox": [
+        0.535,
+        0.087,
+        0.644,
+        0.193
+      ],
+      "content": {
+        "title": "MAST WINCH\nFWD PORT",
+        "entries": [
+          {
+            "label": "PVG 32 MODULE",
+            "symbol_description": ""
+          },
+          {
+            "label": "spool 65 lt/min",
+            "symbol_description": ""
+          },
+          {
+            "label": "PVEO - ON/OFF",
+            "symbol_description": ""
+          },
+          {
+            "label": "1\"&3\" =A/2\" =B",
+            "symbol_description": ""
+          },
+          {
+            "label": "open neutral position",
+            "symbol_description": ""
+          }
+        ],
+        "_model": "gpt-5.6-sol"
+      }
+    },
+    {
+      "title_as_printed": "MAST WINCH AFT STBD",
+      "kind": "equipment_data_table",
+      "bbox": [
+        0.648,
+        0.087,
+        0.757,
+        0.193
+      ],
+      "content": {
+        "title": "MAST WINCH\nAFT STBD",
+        "entries": [
+          {
+            "label": "PVG 32 MODULE",
+            "symbol_description": ""
+          },
+          {
+            "label": "spool 65 lt/min",
+            "symbol_description": ""
+          },
+          {
+            "label": "PVEO - ON/OFF",
+            "symbol_description": ""
+          },
+          {
+            "label": "1\u00b0&3\u00b0 =A/2\u00b0 =B",
+            "symbol_description": ""
+          },
+          {
+            "label": "open neutral position",
+            "symbol_description": ""
+          }
+        ],
+        "_model": "gpt-5.6-sol"
+      }
+    },
+    {
+      "title_as_printed": "MAST WINCH FWD STBD",
+      "kind": "equipment_data_table",
+      "bbox": [
+        0.762,
+        0.087,
+        0.872,
+        0.193
+      ],
+      "content": {
+        "title": "MAST WINCH\nFWD STBD",
+        "entries": [
+          {
+            "label": "PVG 32 MODULE",
+            "symbol_description": ""
+          },
+          {
+            "label": "spool 65 lt/min",
+            "symbol_description": ""
+          },
+          {
+            "label": "PVEO - ON/OFF",
+            "symbol_description": ""
+          },
+          {
+            "label": "1\u00b0&3\u00b0 =A/2\u00b0 =B",
+            "symbol_description": ""
+          },
+          {
+            "label": "open neutral position",
+            "symbol_description": ""
+          }
+        ],
+        "_model": "gpt-5.6-sol"
+      }
+    },
     {
       "title_as_printed": "MODIFICATIONS",
       "kind": "other_table",
       "bbox": [
-        0.718,
-        0.656,
-        0.989,
+        0.719,
+        0.655,
+        0.985,
         0.858
       ],
       "content": {
@@ -404,7 +909,7 @@
             "symbol_description": ""
           },
           {
-            "label": "3 | 13/12/2022 | PT | -- | ADD. TAFT MAST SAILING, DECK DOOR 2nd LINE",
+            "label": "3 | 13/12/2022 | PT | -- | ADD. T AFT MAST SAILING, DECK DOOR 2nd LINE",
             "symbol_description": ""
           },
           {
@@ -427,10 +932,10 @@
       "title_as_printed": "HYDRAULIC SYSTEM",
       "kind": "other_table",
       "bbox": [
-        0.718,
-        0.856,
-        0.989,
-        0.956
+        0.719,
+        0.857,
+        0.985,
+        0.958
       ],
       "content": {
         "title": "HYDRAULIC SYSTEM",
@@ -440,39 +945,27 @@
             "symbol_description": ""
           },
           {
-            "label": "MYT SYSTEMS | JOB N\u00b0: | 22-53 | CLIENT: | Southern Wind Shipyard | PROJECT: | SWS 108",
+            "label": "MYT SYSTEMS | JOB N\u00b0: 22-53 | CLIENT: Southern Wind Shipyard | PROJECT: SWS 108",
             "symbol_description": ""
           },
           {
-            "label": "TITLE: | HYDRAULIC SYSTEM | REV: | 10",
+            "label": "MYT-Systems S.r.l. | TITLE: HYDRAULIC SYSTEM | REV: 10",
             "symbol_description": ""
           },
           {
-            "label": "MYT-Systems S.r.l. | SECTION: | DIAGRAM | DATE: | 16/04/2026",
+            "label": "Via Borzoli 39,130P,16153 Genova (GE) | SECTION: DIAGRAM | DATE: 16/04/2026",
             "symbol_description": ""
           },
           {
-            "label": "Via Borzoli 39,130P,16153 Genova (GE) | DRAWN: | PT | CHECKED: | PC | SCALE: | not to scale @ A3 | SHEET: | 5 of 12",
+            "label": "ITALY | DRAWN: PT | CHECKED: PC | SCALE: not to scale @ A3 | SHEET: 5 of 12",
             "symbol_description": ""
           },
           {
-            "label": "ITALY | FILE NAME: | SWS108-Hydraulic_System-rev10-Mast_block",
+            "label": "Tel: +390185380903 | FILE NAME: SWS108-Hydraulic_System-rev10-Mast_block",
             "symbol_description": ""
           },
           {
-            "label": "Tel: +390185380903",
-            "symbol_description": ""
-          },
-          {
-            "label": "email: info@myt-systems.com",
-            "symbol_description": ""
-          },
-          {
-            "label": "This drawing and the contained informations are property of MYT-Systems S.r.l. and protected by law. Copying, disclosure",
-            "symbol_description": ""
-          },
-          {
-            "label": "and any other use are prohibited except with written permission of MYT-Systems S.r.l..",
+            "label": "email: info@myt-systems.com | This drawing and the contained informations are property of MYT-Systems S.r.l. and protected by law. Copying, disclosure and any other use are prohibited except with written permission of MYT-Systems S.r.l..",
             "symbol_description": ""
           }
         ],
@@ -480,12 +973,12 @@
       }
     }
   ],
-  "legend_context": "THIS SHEET'S OWN LEGENDS AND TABLES (read first; these definitions are AUTHORITATIVE for this sheet and override any generic symbol/line convention):\n- [other_table] MODIFICATIONS:\n    * 10 | 16/04/2026 | PT | PC | PROPORTIONAL AFT WINCHES\n    * 9 | 25/09/2023 | PT | PC | PRESSURE ADJUSTEMENT\n    * 8 | 29/08/2023 | PT | PC | PRESSURE AFTER COMMISSIONING\n    * 7 | 25/07/2023 | PT | -- | TENDER WINCH SPOOL\n    * 6 | 12/06/2023 | PT | -- | CAPTIVE WINCH AND TENSIONER BLOCKS HARKEN\n    * 5 | 29/05/2023 | PT | -- | DOORS OVERCENTER PRES., FORESTAY MAN. VALVE\n    * 4 | 28/04/2023 | PT | -- | PITCH PROPELLER SYS. SUCTION AND RETURN LINE\n    * 3 | 13/12/2022 | PT | -- | ADD. TAFT MAST SAILING, DECK DOOR 2nd LINE\n    * 2 | 11/11/2022 | PT | PR | SAILING MAN., PRESSURE SENSORS, PVG UPDATE\n    * 1 | 07/10/2022 | PR | PT | BACKUP P.PACK, CAPTIVE & EV NUM., WINDLASS\n    * 0 | 27/07/2022 | PT | PR | FIRST ISSUE\n- [other_table] HYDRAULIC SYSTEM:\n    * REV | DATE | DRAWN | CHECKED | MODIFICATIONS\n    * MYT SYSTEMS | JOB N\u00b0: | 22-53 | CLIENT: | Southern Wind Shipyard | PROJECT: | SWS 108\n    * TITLE: | HYDRAULIC SYSTEM | REV: | 10\n    * MYT-Systems S.r.l. | SECTION: | DIAGRAM | DATE: | 16/04/2026\n    * Via Borzoli 39,130P,16153 Genova (GE) | DRAWN: | PT | CHECKED: | PC | SCALE: | not to scale @ A3 | SHEET: | 5 of 12\n    * ITALY | FILE NAME: | SWS108-Hydraulic_System-rev10-Mast_block\n    * Tel: +390185380903\n    * email: info@myt-systems.com\n    * This drawing and the contained informations are property of MYT-Systems S.r.l. and protected by law. Copying, disclosure\n    * and any other use are prohibited except with written permission of MYT-Systems S.r.l..",
+  "legend_context": "THIS SHEET'S OWN LEGENDS AND TABLES (read first; these definitions are AUTHORITATIVE for this sheet and override any generic symbol/line convention):\n- [equipment_data_table] LIFTING KEEL UP/DOWN:\n    * PVG 32 MODULE\n    * spool 40 lt/min\n    * PVEU - 0-10 V\n    * DOWN <5V =A / UP>5V =B\n    * open neutral position\n- [equipment_data_table] LIFTING KEEL LOCKS:\n    * PVG 32 MODULE\n    * SPOOL 5 lt/min\n    * PVEO - ON/OFF\n    * IN=A / OUT=B\n    * closed neutral position\n- [equipment_data_table] MAST WINCH AFT PORT:\n    * PVG 32 MODULE\n    * SPOOL 65 lt/min\n    * PVEO - ON/OFF\n    * 1\u00b0&3\u00b0 =A/2\u00b0 =B\n    * open neutral position\n- [equipment_data_table] MAST WINCH FWD PORT:\n    * PVG 32 MODULE\n    * spool 65 lt/min\n    * PVEO - ON/OFF\n    * 1\"&3\" =A/2\" =B\n    * open neutral position\n- [equipment_data_table] MAST WINCH AFT STBD:\n    * PVG 32 MODULE\n    * spool 65 lt/min\n    * PVEO - ON/OFF\n    * 1\u00b0&3\u00b0 =A/2\u00b0 =B\n    * open neutral position\n- [equipment_data_table] MAST WINCH FWD STBD:\n    * PVG 32 MODULE\n    * spool 65 lt/min\n    * PVEO - ON/OFF\n    * 1\u00b0&3\u00b0 =A/2\u00b0 =B\n    * open neutral position\n- [other_table] MODIFICATIONS:\n    * 10 | 16/04/2026 | PT | PC | PROPORTIONAL AFT WINCHES\n    * 9 | 25/09/2023 | PT | PC | PRESSURE ADJUSTEMENT\n    * 8 | 29/08/2023 | PT | PC | PRESSURE AFTER COMMISSIONING\n    * 7 | 25/07/2023 | PT | -- | TENDER WINCH SPOOL\n    * 6 | 12/06/2023 | PT | -- | CAPTIVE WINCH AND TENSIONER BLOCKS HARKEN\n    * 5 | 29/05/2023 | PT | -- | DOORS OVERCENTER PRES., FORESTAY MAN. VALVE\n    * 4 | 28/04/2023 | PT | -- | PITCH PROPELLER SYS. SUCTION AND RETURN LINE\n    * 3 | 13/12/2022 | PT | -- | ADD. T AFT MAST SAILING, DECK DOOR 2nd LINE\n    * 2 | 11/11/2022 | PT | PR | SAILING MAN., PRESSURE SENSORS, PVG UPDATE\n    * 1 | 07/10/2022 | PR | PT | BACKUP P.PACK, CAPTIVE & EV NUM., WINDLASS\n    * 0 | 27/07/2022 | PT | PR | FIRST ISSUE\n- [other_table] HYDRAULIC SYSTEM:\n    * REV | DATE | DRAWN | CHECKED | MODIFICATIONS\n    * MYT SYSTEMS | JOB N\u00b0: 22-53 | CLIENT: Southern Wind Shipyard | PROJECT: SWS 108\n    * MYT-Systems S.r.l. | TITLE: HYDRAULIC SYSTEM | REV: 10\n    * Via Borzoli 39,130P,16153 Genova (GE) | SECTION: DIAGRAM | DATE: 16/04/2026\n    * ITALY | DRAWN: PT | CHECKED: PC | SCALE: not to scale @ A3 | SHEET: 5 of 12\n    * Tel: +390185380903 | FILE NAME: SWS108-Hydraulic_System-rev10-Mast_block\n    * email: info@myt-systems.com | This drawing and the contained informations are property of MYT-Systems S.r.l. and protected by law. Copying, disclosure and any other use are prohibited except with written permission of MYT-Systems S.r.l..",
   "passes": {
     "skeleton_dpi": 200,
     "detail_dpi": 600,
-    "slices_found": 6,
-    "detail_calls": 6
+    "slices_found": 8,
+    "detail_calls": 8
   },
   "model": "gpt-5.6-sol",
   "_node_routing": [
@@ -494,6 +987,13 @@
       "action": "attach",
       "target": "570-danfoss-pvg-32-mast-block",
       "confidence": 1.0
+    },
+    {
+      "slice": "Block inlet/end pressure and load-sense control section",
+      "action": "attach",
+      "target": "570-danfoss-pvg-32-mast-block",
+      "via": "block_level",
+      "confidence": "caveat"
     },
     {
       "slice": "LIFTING KEEL UP/DOWN",
@@ -542,6 +1042,13 @@
       "via": "control_map",
       "mechanism": "exact",
       "confidence": "high"
+    },
+    {
+      "slice": "Block end section",
+      "action": "attach",
+      "target": "570-danfoss-pvg-32-mast-block",
+      "via": "block_level",
+      "confidence": "caveat"
     }
   ]
 }

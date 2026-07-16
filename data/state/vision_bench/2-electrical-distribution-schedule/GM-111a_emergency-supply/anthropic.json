@@ -1,0 +1,1713 @@
+{
+  "legends": [
+    {
+      "kind": "text_tag_legend",
+      "title_as_printed": "EMERGENCY PANEL",
+      "bbox": [
+        0.27,
+        0.62,
+        0.39,
+        0.99
+      ],
+      "content": {
+        "title": "EMERGENCY PANEL",
+        "entries": [
+          {
+            "label": "CB8 20A EMERGENCY LTS",
+            "symbol_description": "circuit breaker symbol on line leading to EMERGENCY LTS bus"
+          },
+          {
+            "label": "PRIMARY/EMERGENCY POWER IND. - 1",
+            "symbol_description": "indicator lamp symbol (circle with X) on terminal 1"
+          },
+          {
+            "label": "PRIMARY/EMERGENCY POWER IND. - 2",
+            "symbol_description": "indicator lamp symbol (circle with X) on terminal 2"
+          },
+          {
+            "label": "PRIMARY/EMERGENCY POWER IND. - 3",
+            "symbol_description": "indicator lamp symbol (circle with X) on terminal 3"
+          },
+          {
+            "label": "PRIMARY/EMERGENCY POWER IND. - 4",
+            "symbol_description": "indicator lamp symbol (circle with X) on terminal 4"
+          },
+          {
+            "label": "PRIMARY/EMERGENCY POWER IND. - 5",
+            "symbol_description": "connection dot, no lamp symbol, on terminal 5"
+          },
+          {
+            "label": "RED 1 - 1",
+            "symbol_description": "indicator lamp symbol (circle with X) on terminal 1"
+          },
+          {
+            "label": "GREEN 1 - 2",
+            "symbol_description": "indicator lamp symbol (circle with X) on terminal 2"
+          },
+          {
+            "label": "STERN 1 - 3",
+            "symbol_description": "indicator lamp symbol (circle with X) on terminal 3"
+          },
+          {
+            "label": "RED 2 - 4",
+            "symbol_description": "indicator lamp symbol (circle with X) on terminal 4"
+          },
+          {
+            "label": "GREEN 2 - 5",
+            "symbol_description": "indicator lamp symbol (circle with X) on terminal 5"
+          },
+          {
+            "label": "STERN 2 - 6",
+            "symbol_description": "indicator lamp symbol (circle with X) on terminal 6"
+          },
+          {
+            "label": "STEAM 1 - 7",
+            "symbol_description": "indicator lamp symbol (circle with X) on terminal 7"
+          },
+          {
+            "label": "STEAM 2 - 8",
+            "symbol_description": "indicator lamp symbol (circle with X) on terminal 8"
+          },
+          {
+            "label": "MUTE - 9",
+            "symbol_description": "pushbutton switch symbol on line to terminal 9"
+          },
+          {
+            "label": "- 10",
+            "symbol_description": "connection line to terminal 10, no symbol"
+          },
+          {
+            "label": "- 11",
+            "symbol_description": "connection line to terminal 11, no symbol"
+          },
+          {
+            "label": "- 12",
+            "symbol_description": "connection line to terminal 12, no symbol, arrow leading to 'to...' off-page"
+          }
+        ],
+        "_model": "claude-sonnet-5"
+      }
+    },
+    {
+      "kind": "text_tag_legend",
+      "title_as_printed": "PRIMARY/EMERGENCY POWER IND.",
+      "bbox": [
+        0.27,
+        0.62,
+        0.39,
+        0.99
+      ],
+      "content": {
+        "title": "EMERGENCY PANEL",
+        "entries": [
+          {
+            "label": "CB8 20A",
+            "symbol_description": "circuit breaker symbol on line leading to EMERGENCY LTS"
+          },
+          {
+            "label": "EMERGENCY LTS",
+            "symbol_description": "text label at top of panel, right of CB8 20A"
+          },
+          {
+            "label": "PRIMARY/EMERGENCY POWER IND.",
+            "symbol_description": "text heading above indicator lamp circle symbols numbered 1-5"
+          },
+          {
+            "label": "1",
+            "symbol_description": "circle with X (lamp symbol) and arrow, first of PRIMARY/EMERGENCY POWER IND. group"
+          },
+          {
+            "label": "2",
+            "symbol_description": "circle with X (lamp symbol) and arrow, second of PRIMARY/EMERGENCY POWER IND. group"
+          },
+          {
+            "label": "3",
+            "symbol_description": "circle with X (lamp symbol) and arrow, third of PRIMARY/EMERGENCY POWER IND. group"
+          },
+          {
+            "label": "4",
+            "symbol_description": "circle with X (lamp symbol) and arrow, fourth of PRIMARY/EMERGENCY POWER IND. group"
+          },
+          {
+            "label": "5",
+            "symbol_description": "plain line with arrow, fifth of PRIMARY/EMERGENCY POWER IND. group, no lamp symbol"
+          },
+          {
+            "label": "RED 1",
+            "symbol_description": "text label at left, connects to circle with X (lamp) numbered 1"
+          },
+          {
+            "label": "GREEN 1",
+            "symbol_description": "text label at left, connects to circle with X (lamp) numbered 2"
+          },
+          {
+            "label": "STERN 1",
+            "symbol_description": "text label at left, connects to circle with X (lamp) numbered 3"
+          },
+          {
+            "label": "RED 2",
+            "symbol_description": "text label at left, connects to circle with X (lamp) numbered 4"
+          },
+          {
+            "label": "GREEN 2",
+            "symbol_description": "text label at left, connects to circle with X (lamp) numbered 5"
+          },
+          {
+            "label": "STERN 2",
+            "symbol_description": "text label at left, connects to circle with X (lamp) numbered 6"
+          },
+          {
+            "label": "STEAM 1",
+            "symbol_description": "text label at left, connects to circle with X (lamp) numbered 7"
+          },
+          {
+            "label": "STEAM 2",
+            "symbol_description": "text label at left, connects to circle with X (lamp) numbered 8"
+          },
+          {
+            "label": "MUTE",
+            "symbol_description": "text label at left with pushbutton symbol, connects to line numbered 9, no lamp circle"
+          },
+          {
+            "label": "10",
+            "symbol_description": "plain line with arrow, no label, no lamp symbol"
+          },
+          {
+            "label": "11",
+            "symbol_description": "plain line with arrow, no label, no lamp symbol"
+          },
+          {
+            "label": "12",
+            "symbol_description": "plain line with arrow leading to 'to', no label, no lamp symbol"
+          }
+        ],
+        "_model": "claude-sonnet-5"
+      }
+    },
+    {
+      "kind": "notes_block",
+      "title_as_printed": "THE COPYRIGHT OF THIS DRAWING IS EXPRESSLY RESERVED AND NO PART OF IT MAY BE COPIED WITHOUT PRIOR PERMISSION.",
+      "bbox": [
+        0.5,
+        0.965,
+        1.0,
+        0.995
+      ],
+      "content": {
+        "title": "<UNKNOWN>",
+        "entries": [
+          {
+            "label": "DRAWN | GM"
+          },
+          {
+            "label": "CUSTOMER | SOUTHERN WIND SHIPYARD (PTY) LTD"
+          },
+          {
+            "label": "THE COPYRIGHT OF THIS DRAWING IS EXPRESSLY RESERVED AND NO PART OF IT MAY BE COPIED WITHOUT PRIOR PERMISSION."
+          }
+        ],
+        "_model": "claude-sonnet-5"
+      }
+    },
+    {
+      "kind": "other_table",
+      "title_as_printed": "DWG No.  GMMS 108'-111a / TITLE  EMERGENCY SUPPLY RADIO/NAV./LTS / DATE 4/10/2023 / DRAWN GM / PROJECT SWS 108'-01 \"Gelliceaux\" / CUSTOMER SOUTHERN WIND SHIPYARD (PTY) LTD",
+      "bbox": [
+        0.5,
+        0.895,
+        1.0,
+        0.995
+      ],
+      "content": {
+        "title": "GMMS 108'-111a - Title Block",
+        "entries": [
+          {
+            "label": "DWG No. | GMMS 108'-111a"
+          },
+          {
+            "label": "TITLE | EMERGENCY SUPPLY RADIO/NAV./LTS"
+          },
+          {
+            "label": "DATE | 4/10/2023"
+          },
+          {
+            "label": "DRAWN | GM"
+          },
+          {
+            "label": "PROJECT | SWS 108'-01 \" Gelliceaux \""
+          },
+          {
+            "label": "CUSTOMER | SOUTHERN WIND SHIPYARD (PTY) LTD"
+          },
+          {
+            "label": "THE COPYRIGHT OF THIS DRAWING IS EXPRESSLY RESERVED AND NO PART OF IT MAY BE COPIED WITHOUT PRIOR PERMISSION."
+          }
+        ],
+        "_model": "claude-sonnet-5"
+      }
+    }
+  ],
+  "legend_context": "THIS SHEET'S OWN LEGENDS AND TABLES (read first; these definitions are AUTHORITATIVE for this sheet and override any generic symbol/line convention):\n- [text_tag_legend] EMERGENCY PANEL:\n    * CB8 20A EMERGENCY LTS -> circuit breaker symbol on line leading to EMERGENCY LTS bus\n    * PRIMARY/EMERGENCY POWER IND. - 1 -> indicator lamp symbol (circle with X) on terminal 1\n    * PRIMARY/EMERGENCY POWER IND. - 2 -> indicator lamp symbol (circle with X) on terminal 2\n    * PRIMARY/EMERGENCY POWER IND. - 3 -> indicator lamp symbol (circle with X) on terminal 3\n    * PRIMARY/EMERGENCY POWER IND. - 4 -> indicator lamp symbol (circle with X) on terminal 4\n    * PRIMARY/EMERGENCY POWER IND. - 5 -> connection dot, no lamp symbol, on terminal 5\n    * RED 1 - 1 -> indicator lamp symbol (circle with X) on terminal 1\n    * GREEN 1 - 2 -> indicator lamp symbol (circle with X) on terminal 2\n    * STERN 1 - 3 -> indicator lamp symbol (circle with X) on terminal 3\n    * RED 2 - 4 -> indicator lamp symbol (circle with X) on terminal 4\n    * GREEN 2 - 5 -> indicator lamp symbol (circle with X) on terminal 5\n    * STERN 2 - 6 -> indicator lamp symbol (circle with X) on terminal 6\n    * STEAM 1 - 7 -> indicator lamp symbol (circle with X) on terminal 7\n    * STEAM 2 - 8 -> indicator lamp symbol (circle with X) on terminal 8\n    * MUTE - 9 -> pushbutton switch symbol on line to terminal 9\n    * - 10 -> connection line to terminal 10, no symbol\n    * - 11 -> connection line to terminal 11, no symbol\n    * - 12 -> connection line to terminal 12, no symbol, arrow leading to 'to...' off-page\n- [text_tag_legend] PRIMARY/EMERGENCY POWER IND.:\n    * CB8 20A -> circuit breaker symbol on line leading to EMERGENCY LTS\n    * EMERGENCY LTS -> text label at top of panel, right of CB8 20A\n    * PRIMARY/EMERGENCY POWER IND. -> text heading above indicator lamp circle symbols numbered 1-5\n    * 1 -> circle with X (lamp symbol) and arrow, first of PRIMARY/EMERGENCY POWER IND. group\n    * 2 -> circle with X (lamp symbol) and arrow, second of PRIMARY/EMERGENCY POWER IND. group\n    * 3 -> circle with X (lamp symbol) and arrow, third of PRIMARY/EMERGENCY POWER IND. group\n    * 4 -> circle with X (lamp symbol) and arrow, fourth of PRIMARY/EMERGENCY POWER IND. group\n    * 5 -> plain line with arrow, fifth of PRIMARY/EMERGENCY POWER IND. group, no lamp symbol\n    * RED 1 -> text label at left, connects to circle with X (lamp) numbered 1\n    * GREEN 1 -> text label at left, connects to circle with X (lamp) numbered 2\n    * STERN 1 -> text label at left, connects to circle with X (lamp) numbered 3\n    * RED 2 -> text label at left, connects to circle with X (lamp) numbered 4\n    * GREEN 2 -> text label at left, connects to circle with X (lamp) numbered 5\n    * STERN 2 -> text label at left, connects to circle with X (lamp) numbered 6\n    * STEAM 1 -> text label at left, connects to circle with X (lamp) numbered 7\n    * STEAM 2 -> text label at left, connects to circle with X (lamp) numbered 8\n    * MUTE -> text label at left with pushbutton symbol, connects to line numbered 9, no lamp circle\n    * 10 -> plain line with arrow, no label, no lamp symbol\n    * 11 -> plain line with arrow, no label, no lamp symbol\n    * 12 -> plain line with arrow leading to 'to', no label, no lamp symbol\n- [notes_block] THE COPYRIGHT OF THIS DRAWING IS EXPRESSLY RESERVED AND NO PART OF IT MAY BE COPIED WITHOUT PRIOR PERMISSION.:\n    * DRAWN | GM\n    * CUSTOMER | SOUTHERN WIND SHIPYARD (PTY) LTD\n    * THE COPYRIGHT OF THIS DRAWING IS EXPRESSLY RESERVED AND NO PART OF IT MAY BE COPIED WITHOUT PRIOR PERMISSION.\n- [other_table] DWG No.  GMMS 108'-111a / TITLE  EMERGENCY SUPPLY RADIO/NAV./LTS / DATE 4/10/2023 / DRAWN GM / PROJECT SWS 108'-01 \"Gelliceaux\" / CUSTOMER SOUTHERN WIND SHIPYARD (PTY) LTD:\n    * DWG No. | GMMS 108'-111a\n    * TITLE | EMERGENCY SUPPLY RADIO/NAV./LTS\n    * DATE | 4/10/2023\n    * DRAWN | GM\n    * PROJECT | SWS 108'-01 \" Gelliceaux \"\n    * CUSTOMER | SOUTHERN WIND SHIPYARD (PTY) LTD\n    * THE COPYRIGHT OF THIS DRAWING IS EXPRESSLY RESERVED AND NO PART OF IT MAY BE COPIED WITHOUT PRIOR PERMISSION.",
+  "survey": {
+    "regions": [
+      {
+        "type": "panel_column",
+        "label": "AFT DC PANEL breaker list (Q36-Q38, T/S B)",
+        "bbox": [
+          0.0,
+          0.03,
+          0.35,
+          0.16
+        ],
+        "approx_unit_count": 4
+      },
+      {
+        "type": "power_one_line",
+        "label": "GMDSS Battery / Mastervolt Mass Charger / Emergency Battery power sources",
+        "bbox": [
+          0.0,
+          0.16,
+          0.35,
+          0.55
+        ],
+        "approx_unit_count": 3
+      },
+      {
+        "type": "breaker_bank",
+        "label": "Mastervolt GMDSS Panel CB1-CB4 (VHF/IRIDIUM/GPS/NAVTEX)",
+        "bbox": [
+          0.27,
+          0.42,
+          0.47,
+          0.56
+        ],
+        "approx_unit_count": 4
+      },
+      {
+        "type": "breaker_bank",
+        "label": "Emergency Panel QE1-QE8 breaker column",
+        "bbox": [
+          0.13,
+          0.55,
+          0.32,
+          0.85
+        ],
+        "approx_unit_count": 8
+      },
+      {
+        "type": "breaker_bank",
+        "label": "CB5-CB8 breakers (chart table light, nav lts, emergency lts)",
+        "bbox": [
+          0.32,
+          0.56,
+          0.47,
+          0.72
+        ],
+        "approx_unit_count": 4
+      },
+      {
+        "type": "terminal_strip",
+        "label": "T/S E terminal blocks (multiple, scattered top and right, e.g. 1-13, 19-21, 22-37)",
+        "bbox": [
+          0.55,
+          0.03,
+          0.63,
+          0.32
+        ],
+        "approx_unit_count": 13
+      },
+      {
+        "type": "terminal_strip",
+        "label": "T/S E terminal group right side (VHF/IRIDIUM/GPS/NAVTEX outputs 1-4)",
+        "bbox": [
+          0.4,
+          0.42,
+          0.47,
+          0.56
+        ],
+        "approx_unit_count": 4
+      },
+      {
+        "type": "terminal_strip",
+        "label": "Terminal block 5-8,8a / D17-18 (Eng room/main panel indicators)",
+        "bbox": [
+          0.37,
+          0.62,
+          0.47,
+          0.7
+        ],
+        "approx_unit_count": 8
+      },
+      {
+        "type": "relay_bank",
+        "label": "Re1 relay with contact group (nav lights/steaming lights switching)",
+        "bbox": [
+          0.6,
+          0.05,
+          0.72,
+          0.3
+        ],
+        "approx_unit_count": 1
+      },
+      {
+        "type": "relay_bank",
+        "label": "Re2/Re3/Re4/Re5/Re6 relay bank (right side, emergency/courtesy lts control)",
+        "bbox": [
+          0.72,
+          0.65,
+          0.9,
+          0.92
+        ],
+        "approx_unit_count": 5
+      },
+      {
+        "type": "relay_bank",
+        "label": "Re aux. relay (GMDSS reset area)",
+        "bbox": [
+          0.16,
+          0.42,
+          0.25,
+          0.55
+        ],
+        "approx_unit_count": 1
+      },
+      {
+        "type": "terminal_strip",
+        "label": "Primary/Emergency Power Ind. terminal column 1-12 (emergency panel)",
+        "bbox": [
+          0.3,
+          0.72,
+          0.4,
+          1.0
+        ],
+        "approx_unit_count": 12
+      },
+      {
+        "type": "terminal_strip",
+        "label": "T/S Y terminals 171-172 (to Onyx)",
+        "bbox": [
+          0.9,
+          0.68,
+          0.98,
+          0.73
+        ],
+        "approx_unit_count": 2
+      },
+      {
+        "type": "terminal_strip",
+        "label": "Right side terminal/tap column 38-58 (nav lights plug A, aft courtesy lts, emergency supply/control)",
+        "bbox": [
+          0.78,
+          0.32,
+          0.87,
+          0.68
+        ],
+        "approx_unit_count": 21
+      },
+      {
+        "type": "topology_network",
+        "label": "LOPO LED navigation lights fixture list with fused taps (F0.1A) 22-37",
+        "bbox": [
+          0.6,
+          0.1,
+          0.8,
+          0.32
+        ],
+        "approx_unit_count": 8
+      },
+      {
+        "type": "other",
+        "label": "24V Service Bus / +24V feed with F6 200A, SW7 switch, Q36-38 breakers",
+        "bbox": [
+          0.0,
+          0.02,
+          0.35,
+          0.18
+        ],
+        "approx_unit_count": 1
+      },
+      {
+        "type": "other",
+        "label": "Gen Start Bat / Aux Service Bat feeds with F15/F16 250A, SO9/SO10 switches, 24V 50A charger",
+        "bbox": [
+          0.0,
+          0.85,
+          0.18,
+          1.0
+        ],
+        "approx_unit_count": 2
+      },
+      {
+        "type": "legend",
+        "label": "Title block (DWG No., Title, Date, Drawn, Project, Customer)",
+        "bbox": [
+          0.53,
+          0.9,
+          1.0,
+          1.0
+        ],
+        "approx_unit_count": 1
+      }
+    ],
+    "sub_type": "mixed",
+    "sub_type_reason": "The sheet combines a power one-line topology (batteries, chargers, GMDSS panel, emergency battery feeding breaker banks) on the left/center with a relay/terminal wiring network (multiple T/S E terminal strips, relay bank Re1-Re6, indicator lamp terminal columns, and numbered terminal taps to alarm/monitoring buses) on the right. Neither a pure repeated distribution schedule nor a single connected one-line topology dominates; it is a mixed emergency-supply/radio/nav-lights schematic per its own title.",
+    "title_block": {
+      "title": "EMERGENCY SUPPLY RADIO/NAV./LTS",
+      "drawing_no": "GMMS 108'-111a",
+      "drafter": "GM"
+    },
+    "cross_refs": [
+      "see DWG 111b",
+      "see DWG 511b",
+      "see DWG 119a",
+      "see DWG112",
+      "to ALARMODULE PLUG B (see DWG 511b)",
+      "to ONYX"
+    ],
+    "notes": "Sheet is dense with many small terminal strip fragments labeled T/S E scattered across the top and right (numbers 1-13, 19-21, 22-37, 38-58) that likely belong to a small number of physical terminal strips split visually by routing; grouped here by proximity/number range rather than as fully separate strips. Diamond-enclosed numbers on wires (e.g. 95, 25, 10, 6) are wire-gauge callouts per sheet convention, not devices. Several relay symbols (Re1-Re6, Re aux.) have dotted linkage lines to remote contacts not fully traceable at this resolution - contact routing to right-side terminal columns (42-58) is approximate. Emergency Panel enclosure (dotted boundary) contains CB5-CB8, Primary/Emergency Power Ind. terminal column, and MUTE pushbutton - not fully separated into its own region above due to overlap with breaker bank. Text quality generally legible; some small fuse rating labels (F 0.1A) repeated near LOPO nav lights are legible but numerous.",
+    "_model": "claude-sonnet-5",
+    "_pass1_dpi": 200
+  },
+  "sub_type": "mixed",
+  "regions_read": [
+    {
+      "region": "AFT DC PANEL breaker list (Q36-Q38, T/S B)",
+      "region_type": "panel_column",
+      "bbox": [
+        0.0,
+        0.03,
+        0.35,
+        0.16
+      ],
+      "reader": "schedule",
+      "panel_label": null,
+      "rows": [
+        {
+          "device_type": "fuse",
+          "device_id": "F6",
+          "rating": "200A",
+          "load_name": "+24V SERVICE BUS",
+          "cross_ref": ""
+        },
+        {
+          "device_type": "switch",
+          "device_id": "SW7",
+          "rating": "",
+          "load_name": "+24V SERVICE BUS",
+          "cross_ref": ""
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q36",
+          "rating": "6A",
+          "load_name": "NAVIGATION LTS",
+          "cross_ref": ""
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q37",
+          "rating": "6A",
+          "load_name": "COURTESY LTS",
+          "cross_ref": ""
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q38",
+          "rating": "10A",
+          "load_name": "ENG. ROOM LTS",
+          "cross_ref": ""
+        },
+        {
+          "device_type": "fuse",
+          "device_id": "T/S B",
+          "rating": "6",
+          "load_name": "LAZ. / TRANSOM LTS",
+          "cross_ref": ""
+        }
+      ]
+    },
+    {
+      "region": "Mastervolt GMDSS Panel CB1-CB4 (VHF/IRIDIUM/GPS/NAVTEX)",
+      "region_type": "breaker_bank",
+      "bbox": [
+        0.27,
+        0.42,
+        0.47,
+        0.56
+      ],
+      "reader": "schedule",
+      "panel_label": null,
+      "rows": [
+        {
+          "device_type": "circuit_breaker",
+          "device_id": "CB2",
+          "rating": "10A",
+          "load_name": "IRIDIUM"
+        },
+        {
+          "device_type": "circuit_breaker",
+          "device_id": "CB3",
+          "rating": "10A",
+          "load_name": "GPS"
+        },
+        {
+          "device_type": "circuit_breaker",
+          "device_id": "CB4",
+          "rating": "10A",
+          "load_name": "NAVTEX"
+        },
+        {
+          "device_type": "circuit_breaker",
+          "device_id": "CB5",
+          "rating": "10A",
+          "load_name": "<UNKNOWN>"
+        },
+        {
+          "device_type": "circuit_breaker",
+          "device_id": "CB6",
+          "rating": "10A",
+          "load_name": "CHART TABLE LIGHT"
+        }
+      ]
+    },
+    {
+      "region": "Emergency Panel QE1-QE8 breaker column",
+      "region_type": "breaker_bank",
+      "bbox": [
+        0.13,
+        0.55,
+        0.32,
+        0.85
+      ],
+      "reader": "schedule",
+      "panel_label": "EMERGENCY PANEL",
+      "rows": [
+        {
+          "device_type": "switch",
+          "device_id": "SW12",
+          "load_name": "<UNKNOWN>",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "device_type": "current_transformer",
+          "device_id": "CT7",
+          "load_name": "to ONYX",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE1",
+          "load_name": "<UNKNOWN>",
+          "rating": "32A",
+          "cross_ref": "10 (wire gauge callout, 10mm\u00b2)"
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE2",
+          "load_name": "ENG.ROOM GAS RELEASE ALARM",
+          "rating": "6A"
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE3",
+          "load_name": "GAS/CO2/PETROL VAPOUR ALARM",
+          "rating": "10A"
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE4",
+          "load_name": "SERVICE BAT. VENTILATION",
+          "rating": "10A"
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE5",
+          "load_name": "MYT HYDRAULICS",
+          "rating": "20A"
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE6",
+          "load_name": "FWD PANEL EM SUPPLY",
+          "rating": "16A"
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE7",
+          "load_name": "MAIN PANEL",
+          "rating": "16A"
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE8",
+          "load_name": "AUX1",
+          "rating": "16A"
+        },
+        {
+          "device_type": "circuit_breaker",
+          "device_id": "CB7",
+          "load_name": "<UNKNOWN>",
+          "rating": "10A"
+        },
+        {
+          "device_type": "circuit_breaker",
+          "device_id": "CB8",
+          "load_name": "EMERGENCY LTS",
+          "rating": "20A"
+        }
+      ]
+    },
+    {
+      "region": "CB5-CB8 breakers (chart table light, nav lts, emergency lts)",
+      "region_type": "breaker_bank",
+      "bbox": [
+        0.32,
+        0.56,
+        0.47,
+        0.72
+      ],
+      "reader": "schedule",
+      "panel_label": "EMERGENCY PANEL",
+      "rows": [
+        {
+          "device_type": "circuit_breaker",
+          "device_id": "CB6",
+          "rating": "10A",
+          "load_name": "CHART TABLE LIGHT"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "<UNKNOWN>",
+          "rating": "10A",
+          "load_name": "NAV. LIGHTS"
+        },
+        {
+          "device_type": "circuit_breaker",
+          "device_id": "CB8",
+          "rating": "20A",
+          "load_name": "EMERGENCY LTS",
+          "cross_ref": "terminals 5,6,7,8,8a: FWD/MAST SUPPLY, ENG.ROOM SUPPLY, MAIN PANEL INDICATORS, MAIN PANEL BAE INDICATORS"
+        }
+      ]
+    },
+    {
+      "region": "T/S E terminal blocks (multiple, scattered top and right, e.g. 1-13, 19-21, 22-37)",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.55,
+        0.03,
+        0.63,
+        0.32
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "id": "T/S E",
+          "element_type": "terminal_strip",
+          "label": "T/S E",
+          "connections": []
+        },
+        {
+          "id": "9",
+          "element_type": "terminal",
+          "label": "MUTE (pushbutton switch symbol on line to terminal 9)",
+          "connections": [
+            "T/S E 9 -> relay contact group (top)"
+          ]
+        },
+        {
+          "id": "10",
+          "element_type": "terminal",
+          "label": "connection line to terminal 10, no symbol",
+          "connections": [
+            "T/S E 10 -> connection dot (relay contact group)"
+          ]
+        },
+        {
+          "id": "11",
+          "element_type": "terminal",
+          "label": "fused terminal, connection line to terminal 11, no symbol",
+          "connections": [
+            "T/S E 11 -> relay contact (upper)"
+          ]
+        },
+        {
+          "id": "12",
+          "element_type": "terminal",
+          "label": "fused terminal, connection line to terminal 12, no symbol, arrow leading to 'to...' off-page",
+          "connections": [
+            "T/S E 12 -> connection dot (relay contact group)"
+          ]
+        },
+        {
+          "id": "13",
+          "element_type": "terminal",
+          "label": "terminal 13, connects to relay Re1 coil and contact group",
+          "connections": [
+            "13 -> Re1 coil",
+            "13 -> relay contact (lower)"
+          ]
+        },
+        {
+          "id": "Re1",
+          "element_type": "relay",
+          "label": "Re1",
+          "connections": [
+            "coil -> 13",
+            "contacts -> T/S E terminals (9-12) via dotted linkage",
+            "contact -> 13 line"
+          ]
+        },
+        {
+          "id": "relay_contact_group",
+          "element_type": "relay",
+          "label": "contact group associated with Re1 (dotted line linkage above contacts)",
+          "connections": [
+            "dotted linkage -> Re1 coil",
+            "contacts -> T/S E 9, 10, 11, 12"
+          ],
+          "ambiguous": true
+        }
+      ]
+    },
+    {
+      "region": "T/S E terminal group right side (VHF/IRIDIUM/GPS/NAVTEX outputs 1-4)",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.4,
+        0.42,
+        0.47,
+        0.56
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "terminal",
+          "id": "1",
+          "label": "VHF",
+          "connections": [
+            "1 -> VHF"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "2",
+          "label": "IRIDIUM",
+          "connections": [
+            "2 -> IRIDIUM"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "3",
+          "label": "GPS",
+          "connections": [
+            "3 -> GPS"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "4",
+          "label": "NAVTEX",
+          "connections": [
+            "4 -> NAVTEX"
+          ]
+        },
+        {
+          "element_type": "breaker",
+          "id": "<UNKNOWN>",
+          "label": "10A",
+          "connections": [
+            "10A -> /"
+          ]
+        },
+        {
+          "element_type": "breaker",
+          "id": "<UNKNOWN>",
+          "label": "10A",
+          "connections": [
+            "10A -> CHART TABLE LIGHT"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "Terminal block 5-8,8a / D17-18 (Eng room/main panel indicators)",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.37,
+        0.62,
+        0.47,
+        0.7
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "terminal_strip",
+          "id": "T/S",
+          "label": "terminal strip (unlabeled block containing terminals 5,6,7,8,8a)",
+          "connections": [
+            "LTS",
+            "5",
+            "6",
+            "7",
+            "8",
+            "8a"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "5",
+          "label": "connection dot on terminal 5",
+          "connections": [
+            "LTS (in)",
+            "6 (wire-gauge diamond, out)"
+          ]
+        },
+        {
+          "element_type": "annotation",
+          "id": "6",
+          "label": "wire-gauge callout (diamond enclosing 6) on wire between terminal 5 and FWD/MAST SUPPLY",
+          "connections": [
+            "terminal 5",
+            "FWD/MAST SUPPLY"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "6",
+          "label": "connection dot on terminal 6",
+          "connections": [
+            "<UNKNOWN>"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "7",
+          "label": "connection dot on terminal 7, feeds ENG.ROOM SUPPLY",
+          "connections": [
+            "ENG.ROOM SUPPLY"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "8",
+          "label": "fused terminal (rectangle with inner rectangle/line = built-in fuse) on terminal 8, feeds MAIN PANEL INDICATORS",
+          "connections": [
+            "LTS (in, via bent line)",
+            "MAIN PANEL INDICATORS"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "8a",
+          "label": "fused terminal (rectangle with inner rectangle/line = built-in fuse) on terminal 8a, feeds MAIN PANEL BAE INDICATORS",
+          "connections": [
+            "terminal 8 (jumper)",
+            "MAIN PANEL BAE INDICATORS"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "1",
+          "label": "terminal 1 (bottom of crop, continuation of another terminal group)",
+          "connections": [
+            "<UNKNOWN>"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "2",
+          "label": "terminal 2 (bottom of crop, continuation of another terminal group)",
+          "connections": [
+            "<UNKNOWN>"
+          ],
+          "ambiguous": true
+        }
+      ]
+    },
+    {
+      "region": "Re1 relay with contact group (nav lights/steaming lights switching)",
+      "region_type": "relay_bank",
+      "bbox": [
+        0.6,
+        0.05,
+        0.72,
+        0.3
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "relay",
+          "id": "Re1",
+          "label": "Re1",
+          "connections": [
+            "contact terminal to line above",
+            "coil to wire at left",
+            "contact to line at right"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "switch",
+          "id": "<UNKNOWN>",
+          "label": "multi-pole contact group (relay contacts, top switch bank)",
+          "connections": [
+            "dotted line link to Re1 coil above",
+            "top contacts to left incoming lines",
+            "top contacts to terminal 19/20 block"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "19",
+          "label": "MAIN... (terminal strip 1/3 L)",
+          "connections": [
+            "from top switch contact"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "20",
+          "label": "MAIN... (terminal strip 1/3 L)",
+          "connections": [
+            "from switch contact line",
+            "vertical drop to lower switch contact"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "21",
+          "label": "NAV. (terminal strip 1/3 L)",
+          "connections": [
+            "no visible wire drawn in crop"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal_strip",
+          "id": "<UNKNOWN>",
+          "label": "1/3 L terminal strip housing terminals 19, 20, 21",
+          "connections": [
+            "19 -> MAIN...",
+            "20 -> MAIN...",
+            "21 -> NAV..."
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "annotation",
+          "id": "<UNKNOWN>",
+          "label": "( see DWG 111b",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "unknown",
+          "id": "<UNKNOWN>",
+          "label": "multiple unlabeled connection dots/lines entering from left edge, dashed vertical linkage line between two switch banks and Re1 coil",
+          "connections": [
+            "left edge stub wires -> switch contacts",
+            "dotted line -> Re1 coil linkage"
+          ],
+          "ambiguous": true
+        }
+      ]
+    },
+    {
+      "region": "Re2/Re3/Re4/Re5/Re6 relay bank (right side, emergency/courtesy lts control)",
+      "region_type": "relay_bank",
+      "bbox": [
+        0.72,
+        0.65,
+        0.9,
+        0.92
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "id": "3",
+          "element_type": "terminal",
+          "label": "3",
+          "connections": [
+            "source line -> relay contact block (top right)"
+          ]
+        },
+        {
+          "id": "4",
+          "element_type": "terminal",
+          "label": "4",
+          "connections": [
+            "source line -> down to TECH ROOM LTS relay"
+          ]
+        },
+        {
+          "id": "relay (tech room lts)",
+          "element_type": "relay",
+          "label": "relay with lamp indicator feeding TECH ROOM LTS",
+          "connections": [
+            "terminal 4 -> lamp -> contacts -> TECH ROOM LTS"
+          ]
+        },
+        {
+          "id": "lamp (tech room lts)",
+          "element_type": "status_signal",
+          "label": "indicator lamp (circle with X) on relay coil line",
+          "connections": [
+            "terminal 4 line -> relay coil"
+          ],
+          "ambiguous": true
+        },
+        {
+          "id": "TECH ROOM LTS",
+          "element_type": "device",
+          "label": "TECH ROOM LTS",
+          "connections": [
+            "relay contacts -> TECH ROOM LTS"
+          ]
+        },
+        {
+          "id": "relay (top right)",
+          "element_type": "relay",
+          "label": "unlabeled relay contact block, top right",
+          "connections": [
+            "terminal 3 -> relay -> arrow out (off-page)"
+          ]
+        },
+        {
+          "id": "5",
+          "element_type": "terminal",
+          "label": "5 /",
+          "connections": []
+        },
+        {
+          "id": "6",
+          "element_type": "terminal",
+          "label": "6",
+          "connections": []
+        },
+        {
+          "id": "7",
+          "element_type": "terminal",
+          "label": "7 /",
+          "connections": []
+        },
+        {
+          "id": "8",
+          "element_type": "terminal",
+          "label": "8 /",
+          "connections": []
+        },
+        {
+          "id": "9",
+          "element_type": "terminal",
+          "label": "9 /",
+          "connections": []
+        },
+        {
+          "id": "10",
+          "element_type": "terminal",
+          "label": "AFT COURTESY LTS ( COM. AREA )",
+          "connections": [
+            "terminal 10 -> AFT COURTESY LTS (COM. AREA) -> off-page"
+          ]
+        },
+        {
+          "id": "11",
+          "element_type": "terminal",
+          "label": "11 /",
+          "connections": []
+        },
+        {
+          "id": "12",
+          "element_type": "terminal",
+          "label": "12",
+          "connections": [
+            "terminal 12 -> EMERGENCY SUPPLY/CONTROL -> off-page"
+          ]
+        },
+        {
+          "id": "13",
+          "element_type": "terminal",
+          "label": "13",
+          "connections": [
+            "terminal 13 -> EMERGENCY SUPPLY/CONTROL -> off-page"
+          ]
+        },
+        {
+          "id": "14",
+          "element_type": "terminal",
+          "label": "14 /",
+          "connections": []
+        },
+        {
+          "id": "15",
+          "element_type": "terminal",
+          "label": "15",
+          "connections": [
+            "terminal 15 -> line to Emergency LTS switch"
+          ]
+        },
+        {
+          "id": "16",
+          "element_type": "terminal",
+          "label": "16",
+          "connections": [
+            "terminal 16 -> Emergency LTS switch"
+          ]
+        },
+        {
+          "id": "Emergency LTS Switch",
+          "element_type": "switch",
+          "label": "EMERGENCY LTS SWITCH (MAIN PANEL)",
+          "connections": [
+            "terminal 15/16 -> lamp -> switch contact"
+          ]
+        },
+        {
+          "id": "lamp (emergency lts switch)",
+          "element_type": "status_signal",
+          "label": "indicator lamp (circle with X) on emergency lts switch line",
+          "connections": [
+            "terminal 15 line -> switch"
+          ],
+          "ambiguous": true
+        },
+        {
+          "id": "17",
+          "element_type": "terminal",
+          "label": "17",
+          "connections": [
+            "terminal 17 -> EMERGENCY MAST LTS ( MU4-12 [10] see DWG112 ) -> off-page"
+          ]
+        },
+        {
+          "id": "18",
+          "element_type": "terminal",
+          "label": "18",
+          "connections": []
+        }
+      ]
+    },
+    {
+      "region": "Re aux. relay (GMDSS reset area)",
+      "region_type": "relay_bank",
+      "bbox": [
+        0.16,
+        0.42,
+        0.25,
+        0.55
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "id": "QE",
+          "element_type": "breaker",
+          "label": "QE 32A",
+          "connections": [
+            "QE -> terminal strip (double relay socket)",
+            "QE -> Re (relay coil, top right)"
+          ]
+        },
+        {
+          "id": "Re",
+          "element_type": "relay",
+          "label": "Relay (top right, multi-pole contact group with dotted linkage)",
+          "connections": [
+            "QE 32A -> Re contacts",
+            "Re coil -> Re contacts (dotted linkage)",
+            "Re contacts -> device block below"
+          ]
+        },
+        {
+          "id": "double-relay-socket",
+          "element_type": "relay",
+          "label": "Twin relay/socket block (two stacked rectangles with slash)",
+          "ambiguous": true,
+          "connections": [
+            "QE 32A -> double relay socket",
+            "double relay socket -> device block (right)",
+            "double relay socket -> lower horizontal line"
+          ]
+        },
+        {
+          "id": "device-block-right",
+          "element_type": "relay",
+          "label": "Relay symbol (rectangle with slash, dotted line above) driving contact group below",
+          "connections": [
+            "double-relay-socket -> device-block-right",
+            "device-block-right -> contact group (dotted linkage)",
+            "device-block-right -> Re (bottom, rectangle with slash)"
+          ]
+        },
+        {
+          "id": "contact-group-1",
+          "element_type": "relay",
+          "label": "Contact pair (top of lower contact group)",
+          "connections": [
+            "device-block-right -> contact-group-1",
+            "contact-group-1 -> output line (right, off-page)"
+          ]
+        },
+        {
+          "id": "contact-group-2",
+          "element_type": "relay",
+          "label": "Contact pair (second of lower contact group)",
+          "connections": [
+            "device-block-right -> contact-group-2",
+            "contact-group-2 -> output line (right, off-page)"
+          ]
+        },
+        {
+          "id": "contact-group-3",
+          "element_type": "relay",
+          "label": "Contact pair (third of lower contact group)",
+          "connections": [
+            "double-relay-socket lower line -> contact-group-3",
+            "contact-group-3 -> output line (right, off-page)"
+          ]
+        },
+        {
+          "id": "contact-group-4",
+          "element_type": "switch",
+          "label": "Contact pair with switch symbol (bottom of lower contact group, small vertical tick mark)",
+          "ambiguous": true,
+          "connections": [
+            "unlabeled left stub -> contact-group-4",
+            "contact-group-4 -> output line (right, off-page)"
+          ]
+        },
+        {
+          "id": "Re-bottom",
+          "element_type": "relay",
+          "label": "Re (bottom, rectangle with slash, partial label 'Re...' cut off)",
+          "connections": [
+            "contact-group-1 -> Re-bottom",
+            "contact-group-2 -> Re-bottom",
+            "contact-group-3 -> Re-bottom",
+            "contact-group-4 -> Re-bottom"
+          ]
+        },
+        {
+          "id": "enclosure-boundary",
+          "element_type": "annotation",
+          "label": "Dashed/solid boundary line (partial rectangle, lower left) indicating enclosure edge",
+          "connections": []
+        }
+      ]
+    },
+    {
+      "region": "Primary/Emergency Power Ind. terminal column 1-12 (emergency panel)",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.3,
+        0.72,
+        0.4,
+        1.0
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "terminal_strip",
+          "id": "EMERGENCY PANEL",
+          "label": "EMERGENCY PANEL terminal strip",
+          "connections": []
+        },
+        {
+          "element_type": "terminal",
+          "id": "3",
+          "label": "PRIMARY/EMERGENCY POWER IND. - 3",
+          "connections": [
+            "indicator lamp -> terminal 3"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "4",
+          "label": "PRIMARY/EMERGENCY POWER IND. - 4",
+          "connections": [
+            "indicator lamp -> terminal 4"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "5",
+          "label": "PRIMARY/EMERGENCY POWER IND. - 5",
+          "connections": [
+            "connection dot (no lamp) -> terminal 5"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "1",
+          "label": "RED 1",
+          "connections": [
+            "RED 1 -> indicator lamp -> terminal 1"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "2",
+          "label": "GREEN 1",
+          "connections": [
+            "GREEN 1 -> indicator lamp -> terminal 2"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "3",
+          "label": "STERN 1",
+          "connections": [
+            "STERN 1 -> indicator lamp -> terminal 3"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "4",
+          "label": "RED 2",
+          "connections": [
+            "RED 2 -> indicator lamp -> terminal 4"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "5",
+          "label": "GREEN 2",
+          "connections": [
+            "GREEN 2 -> indicator lamp -> terminal 5"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "6",
+          "label": "STERN 2",
+          "connections": [
+            "STERN 2 -> indicator lamp -> terminal 6"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "7",
+          "label": "STEAM 1",
+          "connections": [
+            "STEAM 1 -> indicator lamp -> terminal 7"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "8",
+          "label": "STEAM 2",
+          "connections": [
+            "STEAM 2 -> indicator lamp -> terminal 8"
+          ]
+        },
+        {
+          "element_type": "switch",
+          "id": "MUTE",
+          "label": "MUTE pushbutton",
+          "connections": [
+            "MUTE pushbutton -> terminal 9"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "9",
+          "label": "MUTE line terminal",
+          "connections": [
+            "MUTE pushbutton -> terminal 9"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "10",
+          "label": "unlabeled terminal 10",
+          "connections": [
+            "line -> terminal 10"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "11",
+          "label": "unlabeled terminal 11",
+          "connections": [
+            "line -> terminal 11"
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "12",
+          "label": "unlabeled terminal 12",
+          "connections": [
+            "line -> terminal 12 -> to ALARM (off-page)"
+          ]
+        },
+        {
+          "element_type": "annotation",
+          "id": "ALARM_POINTER",
+          "label": "to ALA... (off-page arrow)",
+          "connections": [
+            "terminal block output -> to ALARM system"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "T/S Y terminals 171-172 (to Onyx)",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.9,
+        0.68,
+        0.98,
+        0.73
+      ],
+      "reader": "wiring",
+      "elements": []
+    },
+    {
+      "region": "Right side terminal/tap column 38-58 (nav lights plug A, aft courtesy lts, emergency supply/control)",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.78,
+        0.32,
+        0.87,
+        0.68
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "terminal",
+          "id": "34",
+          "label": "terminal 34",
+          "connections": [
+            "F 0.1A -> MU5-12 [10] -> lamp -> S..."
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "35",
+          "label": "terminal 35",
+          "connections": [
+            "return line to lamp circuit at 34"
+          ]
+        },
+        {
+          "element_type": "fuse",
+          "id": "F 0.1A",
+          "label": "F 0.1A (fuse feeding terminal 34 circuit)",
+          "connections": [
+            "34 -> MU5-12 [10]"
+          ]
+        },
+        {
+          "element_type": "wiring_detail",
+          "id": "MU5-12 [10]",
+          "label": "cable leg 10 of MU5-12",
+          "connections": [
+            "F 0.1A -> lamp -> S..."
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "device",
+          "id": "lamp-34/35",
+          "label": "indicator lamp on terminal 34/35 circuit",
+          "connections": [
+            "MU5-12 [10] -> lamp -> S..."
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "36",
+          "label": "terminal 36",
+          "connections": [
+            "F 0.1A -> MU5-12 [11] -> lamp -> S..."
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "37",
+          "label": "terminal 37",
+          "connections": [
+            "return line to lamp circuit at 36"
+          ]
+        },
+        {
+          "element_type": "fuse",
+          "id": "F 0.1A",
+          "label": "F 0.1A (fuse feeding terminal 36 circuit)",
+          "connections": [
+            "36 -> MU5-12 [11]"
+          ]
+        },
+        {
+          "element_type": "wiring_detail",
+          "id": "MU5-12 [11]",
+          "label": "cable leg 11 of MU5-12",
+          "connections": [
+            "F 0.1A -> lamp -> S..."
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "device",
+          "id": "lamp-36/37",
+          "label": "indicator lamp on terminal 36/37 circuit",
+          "connections": [
+            "MU5-12 [11] -> lamp -> S..."
+          ]
+        },
+        {
+          "element_type": "terminal",
+          "id": "38",
+          "label": "terminal 38",
+          "connections": []
+        },
+        {
+          "element_type": "terminal",
+          "id": "39",
+          "label": "terminal 39",
+          "connections": []
+        },
+        {
+          "element_type": "annotation",
+          "id": "see-DWG-111b",
+          "label": "( see DWG 111b )",
+          "connections": []
+        },
+        {
+          "element_type": "terminal",
+          "id": "40",
+          "label": "terminal 40",
+          "connections": []
+        },
+        {
+          "element_type": "terminal",
+          "id": "41",
+          "label": "terminal 41",
+          "connections": []
+        },
+        {
+          "element_type": "device",
+          "id": "tech-room-lts-lamp",
+          "label": "lamp switch feeding TECH ROOM LTS",
+          "connections": [
+            "line -> switch/lamp -> TECH ROOM LTS"
+          ]
+        },
+        {
+          "element_type": "switch",
+          "id": "tech-room-switch",
+          "label": "switch (contact pair) on right side feeding lamp",
+          "connections": [
+            "line -> switch -> lamp"
+          ],
+          "ambiguous": true
+        }
+      ]
+    },
+    {
+      "region": "LOPO LED navigation lights fixture list with fused taps (F0.1A) 22-37",
+      "region_type": "topology_network",
+      "bbox": [
+        0.6,
+        0.1,
+        0.8,
+        0.32
+      ],
+      "reader": "oneline",
+      "nodes": [
+        {
+          "node_type": "switch",
+          "id": "SW1",
+          "label": "selector/isolator switch feeding Re1 circuit",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "unknown",
+          "id": "Re1",
+          "label": "Re1 relay (coil + contacts, dotted linkage)",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "bus",
+          "id": "T/S_E",
+          "label": "Terminal Strip E",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "fuse",
+          "id": "F_22_23",
+          "label": "F 0.1A on terminals 22/23",
+          "rating": "0.1A"
+        },
+        {
+          "node_type": "fuse",
+          "id": "F_24_25",
+          "label": "F 0.1A on terminals 24/25",
+          "rating": "0.1A"
+        },
+        {
+          "node_type": "fuse",
+          "id": "F_26_27",
+          "label": "F 0.1A on terminals 26/27 (see DWG 111b)",
+          "rating": "0.1A"
+        },
+        {
+          "node_type": "fuse",
+          "id": "F_28_29",
+          "label": "F 0.1A on terminals 28/29",
+          "rating": "0.1A"
+        },
+        {
+          "node_type": "fuse",
+          "id": "F_30_31",
+          "label": "F 0.1A on terminals 30/31",
+          "rating": "0.1A"
+        },
+        {
+          "node_type": "fuse",
+          "id": "F_32_33",
+          "label": "F 0.1A on terminals 32/33",
+          "rating": "0.1A"
+        },
+        {
+          "node_type": "fuse",
+          "id": "F_34_35",
+          "label": "F 0.1A on terminals 34/35, feeding MUTE (off-page)",
+          "rating": "0.1A"
+        },
+        {
+          "node_type": "unknown",
+          "id": "CrossRef_111b",
+          "label": "see DWG 111b (cross-drawing pointer on terminals 26/27 circuit)",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "load",
+          "id": "MUTE_ref",
+          "label": "MUTE (off-page continuation, per legend terminal 9 pushbutton on other sheet)",
+          "rating": "<UNKNOWN>"
+        }
+      ],
+      "edges": [
+        "source -> switch_Re1_contact -> T/S_E",
+        "Re1_coil -> Re1_contact (dotted linkage)",
+        "T/S_E_22/23 -> F_22/23 (0.1A) -> load_22/23",
+        "T/S_E_24/25 -> F_24/25 (0.1A) -> load_24/25",
+        "T/S_E_26/27 -> F_26/27 (0.1A) -> load_26/27 (see DWG 111b)",
+        "T/S_E_28/29 -> F_28/29 (0.1A) -> load_28/29",
+        "T/S_E_30/31 -> F_30/31 (0.1A) -> load_30/31",
+        "T/S_E_32/33 -> F_32/33 (0.1A) -> load_32/33",
+        "T/S_E_34/35 -> F_34/35 (0.1A) -> MUTE (off-page)"
+      ]
+    }
+  ],
+  "scoped_next": []
+}

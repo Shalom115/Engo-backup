@@ -204,3 +204,10 @@ Register backbone + live Drive connector built; full SWS 108-01 ingest pending")
 - Per-file routing for multi-subsystem vendors (Farr design files, SENSORS).
 - Naval-architect/builder cross-referencing across the future fleet.
 - Exocet/Pixel-Sur-Mer as a potential v2 monitoring-architecture pivot.
+
+## 2026-07-16 — Full-command-chain rule generalized (engineer)
+The PLC-linkage note (keel example) is now a GENERAL rule for ALL hydraulic functions
+(winch, ram, furler, door, keel, thruster — any function): once the MYT PLC program is
+ingested, each function's equipment node carries the complete chain
+control input → PLC module/channel → energised cartridge/EV → actuator → motion,
+every hop a provenanced fact from its owning source. Tracker updated (FULL-COMMAND-CHAIN RULE).
