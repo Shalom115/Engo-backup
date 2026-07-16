@@ -211,3 +211,9 @@ The PLC-linkage note (keel example) is now a GENERAL rule for ALL hydraulic func
 ingested, each function's equipment node carries the complete chain
 control input → PLC module/channel → energised cartridge/EV → actuator → motion,
 every hop a provenanced fact from its owning source. Tracker updated (FULL-COMMAND-CHAIN RULE).
+
+## 2026-07-16 — Command-chain corrected (engineer): two PLC hops + A/B side mandatory
+Button lands on an INPUT channel (channel N of module position M in rack R); a separate
+OUTPUT channel — same rack or another, same addressing concept — energises the cartridge/EV
+(opens valve / moves spool). Per function, record which output channel drives port A and
+which drives port B (each spool direction = its own solenoid/channel).

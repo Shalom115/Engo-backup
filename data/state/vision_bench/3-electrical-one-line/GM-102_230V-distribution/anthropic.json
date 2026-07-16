@@ -1,0 +1,769 @@
+{
+  "legends": [
+    {
+      "kind": "text_tag_legend",
+      "title_as_printed": "CTA 1 = QI-POWER-485 ... CTA 13 = QI-POWER-485",
+      "bbox": [
+        0.0,
+        0.79,
+        0.135,
+        0.9
+      ],
+      "content": {
+        "entries": [
+          {
+            "label": "CTA 13 = QI-POWER-485"
+          }
+        ],
+        "_model": "claude-sonnet-5"
+      }
+    },
+    {
+      "kind": "other_table",
+      "title_as_printed": "DWG No. / TITLE / DATE / DRAWN",
+      "bbox": [
+        0.55,
+        0.925,
+        1.0,
+        1.0
+      ],
+      "content": {
+        "title": "230V AC POWER DISTRIBUTION",
+        "entries": [
+          {
+            "label": "TITLE | 230V AC POWER DISTRIBUTION | Tel. (027) 021-671 8001   Cell 083 298 3305   goetz@telkomsa.net"
+          },
+          {
+            "label": "DATE | 4/10/2023 | PROJECT | SWS 108'-01 \" Gelliceaux \""
+          },
+          {
+            "label": "DRAWN | GM | CUSTOMER | SOUTHERN WIND SHIPYARD (PTY) LTD"
+          },
+          {
+            "label": "THE COPYRIGHT OF THIS DRAWING IS EXPRESSLY RESERVED AND NO PART OF IT MAY BE COPIED WITHOUT PRIOR PERMISSION."
+          }
+        ],
+        "_model": "claude-sonnet-5"
+      }
+    }
+  ],
+  "legend_context": "THIS SHEET'S OWN LEGENDS AND TABLES (read first; these definitions are AUTHORITATIVE for this sheet and override any generic symbol/line convention):\n- [text_tag_legend] CTA 1 = QI-POWER-485 ... CTA 13 = QI-POWER-485:\n    * CTA 13 = QI-POWER-485\n- [other_table] DWG No. / TITLE / DATE / DRAWN:\n    * TITLE | 230V AC POWER DISTRIBUTION | Tel. (027) 021-671 8001   Cell 083 298 3305   goetz@telkomsa.net\n    * DATE | 4/10/2023 | PROJECT | SWS 108'-01 \" Gelliceaux \"\n    * DRAWN | GM | CUSTOMER | SOUTHERN WIND SHIPYARD (PTY) LTD\n    * THE COPYRIGHT OF THIS DRAWING IS EXPRESSLY RESERVED AND NO PART OF IT MAY BE COPIED WITHOUT PRIOR PERMISSION.",
+  "survey": {
+    "regions": [
+      {
+        "type": "panel_column",
+        "label": "AC DB PANEL - Main breaker column #1-#9 SERVICES/AIRCON/CHARGERS/GALLEY with earth leakage breakers, CTs and AUX supply",
+        "bbox": [
+          0.0,
+          0.05,
+          0.28,
+          0.72
+        ],
+        "approx_unit_count": 9
+      },
+      {
+        "type": "breaker_bank",
+        "label": "Q1-Q6 branch breakers feeding NAV STATION/ELECTRONICS loads (mast base)",
+        "bbox": [
+          0.33,
+          0.14,
+          0.42,
+          0.3
+        ],
+        "approx_unit_count": 6
+      },
+      {
+        "type": "breaker_bank",
+        "label": "Earth Leakage 5-12 group feeding battery chargers, seawater cooling, CPP oil circuits",
+        "bbox": [
+          0.28,
+          0.3,
+          0.42,
+          0.55
+        ],
+        "approx_unit_count": 8
+      },
+      {
+        "type": "breaker_bank",
+        "label": "Q7-Q21 breaker bank feeding cabin/aircon/water heater/water maker loads",
+        "bbox": [
+          0.45,
+          0.08,
+          0.55,
+          0.53
+        ],
+        "approx_unit_count": 15
+      },
+      {
+        "type": "breaker_bank",
+        "label": "Q22-Q38 breaker bank feeding pumps, refrigeration, wine cooler, air compressor, engine room, ventilation, wifi, starlink",
+        "bbox": [
+          0.62,
+          0.08,
+          0.72,
+          0.63
+        ],
+        "approx_unit_count": 17
+      },
+      {
+        "type": "relay_bank",
+        "label": "Re1/T1 relay & timer module near XA40 tap block, feeding pump control interlock",
+        "bbox": [
+          0.83,
+          0.16,
+          0.9,
+          0.24
+        ],
+        "approx_unit_count": 2
+      },
+      {
+        "type": "terminal_strip",
+        "label": "Terminal block 21-24 tap to XA40 monitoring",
+        "bbox": [
+          0.9,
+          0.18,
+          0.94,
+          0.22
+        ],
+        "approx_unit_count": 4
+      },
+      {
+        "type": "terminal_strip",
+        "label": "Terminal block 25-32 for fan power, no-power indication, passage panel MU-XX cable",
+        "bbox": [
+          0.9,
+          0.68,
+          0.96,
+          0.78
+        ],
+        "approx_unit_count": 8
+      },
+      {
+        "type": "relay_bank",
+        "label": "Re1/Re2 relay pair driving ESS ventilation/tendergarage fan control near bottom right",
+        "bbox": [
+          0.76,
+          0.68,
+          0.85,
+          0.78
+        ],
+        "approx_unit_count": 2
+      },
+      {
+        "type": "controller_module",
+        "label": "INVERTER 205KW unit (24VDC to 230VAC) feeding earth leakage 13 / Q34-Q38 loads",
+        "bbox": [
+          0.44,
+          0.85,
+          0.53,
+          0.95
+        ],
+        "approx_unit_count": 1
+      },
+      {
+        "type": "other",
+        "label": "Pump control connector blocks (RM35JA32MW, 3UG4621-1AW30) with I>< symbols feeding pump motors",
+        "bbox": [
+          0.82,
+          0.1,
+          1.0,
+          0.3
+        ],
+        "approx_unit_count": 3
+      },
+      {
+        "type": "legend",
+        "label": "CTA 1-13 = QI-POWER-485 text tag legend, bottom left",
+        "bbox": [
+          0.0,
+          0.75,
+          0.12,
+          0.9
+        ],
+        "approx_unit_count": 13
+      },
+      {
+        "type": "other",
+        "label": "Title block bottom right",
+        "bbox": [
+          0.52,
+          0.94,
+          1.0,
+          1.0
+        ]
+      }
+    ],
+    "sub_type": "distribution_schedule",
+    "sub_type_reason": "The sheet is dominated by repeated horizontal rows of breakers (Q#, Earth Leakage #) each with an ampere rating feeding a named load, organized into panel columns (AC DB PANEL main column plus sub-columns for each branch), which is the defining pattern of a distribution schedule. Some auxiliary topology (inverter, pump control connectors, relays) is present but subordinate to the breaker/load row structure.\"",
+    "title_block": {
+      "drawing_no": "GMMS 108'-102",
+      "title": "230V AC POWER DISTRIBUTION",
+      "drafter": "GM"
+    },
+    "cross_refs": [
+      "see DWG 110e",
+      "see DWG 110c",
+      "see DWG 117",
+      "to AFT DB PANEL (x3)",
+      "MU-XX to PASSAGE PANEL"
+    ],
+    "notes": "Sheet is a 230V AC power distribution schedule for a yacht (SWS 108' Gelliceaux). Main AC DB panel on left feeds numbered breakers (#1-#9) each protected by CTs and earth-leakage breakers, branching to sub-panels/loads across the sheet in columns (Q1-Q38 rating/load rows). Right side has pump control connector blocks (labelled as SWITCH-like harness interfaces with many pins, e.g. RM35JA32MW, 3UG4621-1AW30) feeding pump motors, plus small relay/timer modules (Re1/T1) and terminal strip taps (21-24, 25-32) routing status/monitoring signals to XA40 and a passage-panel terminal strip via multi-core cable MU-XX. Bottom center has an INVERTER 205KW power conversion unit bridging 24VDC and 230VAC buses feeding remaining Q34-Q38 loads. Bottom left has CTA 1-13 text tag legend all mapping to QI-POWER-485. Some breaker/load text at far right (Q33, Q37, Q38) illegible/blank at this resolution - appears unlabeled or spare. Title block bottom right per standard format.",
+    "_model": "claude-sonnet-5",
+    "_pass1_dpi": 200
+  },
+  "sub_type": "distribution_schedule",
+  "regions_read": [
+    {
+      "region": "AC DB PANEL - Main breaker column #1-#9 SERVICES/AIRCON/CHARGERS/GALLEY with earth leakage breakers, CTs and AUX supply",
+      "region_type": "panel_column",
+      "bbox": [
+        0.0,
+        0.05,
+        0.28,
+        0.72
+      ],
+      "reader": "schedule",
+      "panel_label": "230V AC BUS Distribution Schedule",
+      "rows": [
+        {
+          "device_type": "breaker",
+          "device_id": "#1",
+          "rating": "63A",
+          "load_name": "#1 SERVICES",
+          "cross_ref": "CT1"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "#2",
+          "rating": "63A",
+          "load_name": "#2 SERVICES",
+          "cross_ref": "CT2"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "#3",
+          "rating": "63A",
+          "load_name": "AIR-CON",
+          "cross_ref": "CT3"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "#4",
+          "rating": "63A",
+          "load_name": "ENTERTAINMENT",
+          "cross_ref": "CT4"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "#5",
+          "rating": "63A",
+          "load_name": "CHARGERS",
+          "cross_ref": "CT5"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "#6",
+          "rating": "63A",
+          "load_name": "BAE COOLING",
+          "cross_ref": "CT6"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "#7",
+          "rating": "63A",
+          "load_name": "AFT OUTLETS",
+          "cross_ref": "CT7"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "#8",
+          "rating": "63A",
+          "load_name": "GALLEY 1",
+          "cross_ref": "CT8"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "#9",
+          "rating": "63A",
+          "load_name": "GALLEY 2",
+          "cross_ref": "CT9"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "<UNKNOWN>",
+          "rating": "100A",
+          "load_name": "AUX POWER SUPPLY",
+          "cross_ref": "<UNKNOWN>"
+        }
+      ]
+    },
+    {
+      "region": "Q1-Q6 branch breakers feeding NAV STATION/ELECTRONICS loads (mast base)",
+      "region_type": "breaker_bank",
+      "bbox": [
+        0.33,
+        0.14,
+        0.42,
+        0.3
+      ],
+      "reader": "schedule",
+      "panel_label": null,
+      "rows": [
+        {
+          "device_type": "breaker",
+          "device_id": "Q1",
+          "rating": "16A",
+          "load_name": "NAV. STATION ENTERTAINMENT"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q2",
+          "rating": "16A",
+          "load_name": "<UNKNOWN>"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q3",
+          "rating": "16A",
+          "load_name": "ELECTRONICS (MAST BASE)"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q4",
+          "rating": "16A",
+          "load_name": "<UNKNOWN>"
+        }
+      ]
+    },
+    {
+      "region": "Earth Leakage 5-12 group feeding battery chargers, seawater cooling, CPP oil circuits",
+      "region_type": "breaker_bank",
+      "bbox": [
+        0.28,
+        0.3,
+        0.42,
+        0.55
+      ],
+      "reader": "schedule",
+      "panel_label": null,
+      "rows": [
+        {
+          "device_type": "breaker",
+          "device_id": "Q5",
+          "rating": "16A",
+          "load_name": "to AFT DB PANEL"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q6",
+          "rating": "16A",
+          "load_name": "to AFT DB PANEL"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "<UNKNOWN>",
+          "rating": "<UNKNOWN>",
+          "load_name": "to AFT DB PANEL"
+        },
+        {
+          "device_type": "unknown",
+          "device_id": "EARTH LEAKAGE 5",
+          "rating": "16A",
+          "load_name": "START BAT. CHARGER"
+        },
+        {
+          "device_type": "unknown",
+          "device_id": "EARTH LEAKAGE 6",
+          "rating": "16A",
+          "load_name": "EMERGENCY BAT. CHARGER"
+        },
+        {
+          "device_type": "unknown",
+          "device_id": "EARTH LEAKAGE 7",
+          "rating": "16A",
+          "load_name": "GMDSS BAT. CHARGER"
+        },
+        {
+          "device_type": "unknown",
+          "device_id": "EARTH LEAKAGE 8",
+          "rating": "16A",
+          "load_name": "PORT SEAWATER COOLING",
+          "cross_ref": "see DWG 110e"
+        }
+      ]
+    },
+    {
+      "region": "Q7-Q21 breaker bank feeding cabin/aircon/water heater/water maker loads",
+      "region_type": "breaker_bank",
+      "bbox": [
+        0.45,
+        0.08,
+        0.55,
+        0.53
+      ],
+      "reader": "schedule",
+      "panel_label": null,
+      "rows": [
+        {
+          "device_type": "breaker",
+          "device_id": "Q7",
+          "rating": "16A",
+          "load_name": "PORT AFT GUEST CAB."
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q8",
+          "rating": "16A",
+          "load_name": "STBD AFT GUEST CAB."
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q9",
+          "rating": "16A",
+          "load_name": "SALOON"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q10",
+          "rating": "16A",
+          "load_name": "PORT FWD GUEST CAB."
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q11",
+          "rating": "16A",
+          "load_name": "STUDIO"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q12",
+          "rating": "16A",
+          "load_name": "OWNERS CAB."
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q13",
+          "rating": "16A",
+          "load_name": "YACHTICA LIGHTS"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q14",
+          "rating": "16A",
+          "load_name": "AIR-CON FAN COILS"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q15",
+          "rating": "16A",
+          "load_name": "WATER M... (ENG.RO...)"
+        },
+        {
+          "device_type": "current_transformer",
+          "device_id": "CT10",
+          "rating": "<UNKNOWN>",
+          "load_name": "WATER M... (ENG.RO...)"
+        },
+        {
+          "device_type": "current_transformer",
+          "device_id": "CT11",
+          "rating": "<UNKNOWN>",
+          "load_name": "FWD WATER H... (OWNERS C...)"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q16",
+          "rating": "16A",
+          "load_name": "FWD WATER H... (OWNERS C...)"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q17",
+          "rating": "16A",
+          "load_name": "AFT WATER HE... (PORT GUEST ...)"
+        },
+        {
+          "device_type": "current_transformer",
+          "device_id": "CT12",
+          "rating": "<UNKNOWN>",
+          "load_name": "ENG.ROOM E..."
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q18",
+          "rating": "16A",
+          "load_name": "ENG.ROOM E..."
+        }
+      ]
+    },
+    {
+      "region": "Q22-Q38 breaker bank feeding pumps, refrigeration, wine cooler, air compressor, engine room, ventilation, wifi, starlink",
+      "region_type": "breaker_bank",
+      "bbox": [
+        0.62,
+        0.08,
+        0.72,
+        0.63
+      ],
+      "reader": "schedule",
+      "panel_label": null,
+      "rows": [
+        {
+          "device_type": "current_transformer",
+          "device_id": "CT13",
+          "load_name": "<UNKNOWN>",
+          "rating": "<UNKNOWN>",
+          "cross_ref": "QI-POWER-485"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q22",
+          "load_name": "FRESH WATER PUMP 1",
+          "rating": "10A"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q23",
+          "load_name": "FRESH WATER PUMP 2",
+          "rating": "10A"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q24",
+          "load_name": "REFRIGERATION SUPPLY",
+          "rating": "10A"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q25",
+          "load_name": "SALT WATER PUMP",
+          "rating": "16A"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q26",
+          "load_name": "WINE COOLER",
+          "rating": "16A"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q27",
+          "load_name": "/",
+          "rating": "16A"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q28",
+          "load_name": "AIR COMPRESSOR",
+          "rating": "16A"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q29",
+          "load_name": "SALOON UV STERILISER",
+          "rating": "16A"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q30",
+          "load_name": "LAZ / TECH-ROOM /",
+          "rating": "16A"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q31",
+          "load_name": "ENGINE ROOM",
+          "rating": "16A"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q32",
+          "load_name": "DECK FRIDGE",
+          "rating": "16A"
+        },
+        {
+          "device_type": "breaker",
+          "device_id": "Q33",
+          "load_name": "/",
+          "rating": "10A"
+        }
+      ]
+    },
+    {
+      "region": "Re1/T1 relay & timer module near XA40 tap block, feeding pump control interlock",
+      "region_type": "relay_bank",
+      "bbox": [
+        0.83,
+        0.16,
+        0.9,
+        0.24
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "id": "16",
+          "element_type": "terminal",
+          "label": "16",
+          "connections": [
+            "left bus wire -> 16",
+            "16 -> PUMP CON... (PUMP CONTROLLER)"
+          ]
+        },
+        {
+          "id": "17",
+          "element_type": "terminal",
+          "label": "17",
+          "connections": [
+            "left bus wire -> 17",
+            "17 -> PUMP CON... (PUMP CONTROLLER)"
+          ]
+        },
+        {
+          "id": "PUMP CON...",
+          "element_type": "controller_module",
+          "label": "PUMP CONTROLLER (cropped, PUMP CON)",
+          "connections": [
+            "16 -> PUMP CON...",
+            "17 -> PUMP CON..."
+          ],
+          "ambiguous": true
+        },
+        {
+          "id": "18",
+          "element_type": "terminal",
+          "label": "18",
+          "connections": [
+            "left bus wire -> 18",
+            "18 -> PRESSURE SW contact"
+          ]
+        },
+        {
+          "id": "19",
+          "element_type": "terminal",
+          "label": "19",
+          "connections": [
+            "left bus wire -> 19",
+            "19 -> PRESSURE SW contact"
+          ]
+        },
+        {
+          "id": "20",
+          "element_type": "terminal",
+          "label": "20",
+          "connections": [
+            "left bus wire -> 20",
+            "20 -> (continues right, off-crop)"
+          ]
+        },
+        {
+          "id": "PRESSURE_SW",
+          "element_type": "switch",
+          "label": "PRESSURE (SW) - pressostat, automatic pressure-controlled switch feeding pump control circuit via terminals 18/19",
+          "connections": [
+            "18 -> PRESSURE SW contact 1",
+            "19 -> PRESSURE SW contact 2"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "Terminal block 21-24 tap to XA40 monitoring",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.9,
+        0.18,
+        0.94,
+        0.22
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "controller_module",
+          "id": "<UNKNOWN>",
+          "label": "PUMP CONTROL",
+          "connections": [
+            "PUMP CONTROL -> PUMP"
+          ]
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "PUMP",
+          "connections": [
+            "PUMP CONTROL -> PUMP",
+            "PUMP -> ground"
+          ]
+        },
+        {
+          "element_type": "switch",
+          "id": "<UNKNOWN>",
+          "label": "PRESSURE SW",
+          "connections": [
+            "PRESSURE SW -> PUMP"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "PUMP",
+          "connections": [
+            "PRESSURE SW -> PUMP"
+          ]
+        }
+      ]
+    },
+    {
+      "region": "Terminal block 25-32 for fan power, no-power indication, passage panel MU-XX cable",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.9,
+        0.68,
+        0.96,
+        0.78
+      ],
+      "reader": "wiring",
+      "elements": []
+    },
+    {
+      "region": "Re1/Re2 relay pair driving ESS ventilation/tendergarage fan control near bottom right",
+      "region_type": "relay_bank",
+      "bbox": [
+        0.76,
+        0.68,
+        0.85,
+        0.78
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "annotation",
+          "id": "<UNKNOWN>",
+          "label": "( see D...",
+          "connections": [],
+          "ambiguous": true
+        }
+      ]
+    },
+    {
+      "region": "INVERTER 205KW unit (24VDC to 230VAC) feeding earth leakage 13 / Q34-Q38 loads",
+      "region_type": "controller_module",
+      "bbox": [
+        0.44,
+        0.85,
+        0.53,
+        0.95
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "annotation",
+          "id": "<UNKNOWN>",
+          "label": "DWG No. table header region (title block partially visible: DWG No. / TITLE 230V AC POWER DISTRIBUTION / DATE 4/10/2023 / DRAWN GM)",
+          "connections": []
+        }
+      ]
+    }
+  ],
+  "scoped_next": []
+}

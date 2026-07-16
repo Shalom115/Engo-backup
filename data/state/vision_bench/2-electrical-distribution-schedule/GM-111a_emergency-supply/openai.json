@@ -1,0 +1,1763 @@
+{
+  "legends": [
+    {
+      "title_as_printed": "EMERGENCY SUPPLY RADIO/NAV./LTS",
+      "kind": "other_table",
+      "bbox": [
+        0.515,
+        0.887,
+        0.988,
+        0.997
+      ],
+      "content": {
+        "title": "EMERGENCY SUPPLY RADIO/NAV./LTS",
+        "entries": [
+          {
+            "label": "DWG No. | GMMS 108\u2019\u2013111a",
+            "symbol_description": ""
+          },
+          {
+            "label": "G.M. MARINE SERVICES",
+            "symbol_description": ""
+          },
+          {
+            "label": "TITLE | EMERGENCY SUPPLY RADIO/NAV./LTS",
+            "symbol_description": ""
+          },
+          {
+            "label": "Tel. (027) 021\u2013671 8001 | Cell 083 298 3305 | goetz@telkomsa.net",
+            "symbol_description": ""
+          },
+          {
+            "label": "DATE | 4/ 10/2023 | PROJECT | SWS 108\u2019\u201301 \u201d Gelliceaux \u201d",
+            "symbol_description": ""
+          },
+          {
+            "label": "DRAWN | GM | CUSTOMER | SOUTHERN WIND SHIPYARD (PTY) LTD",
+            "symbol_description": ""
+          },
+          {
+            "label": "THE COPYRIGHT OF THIS DRAWING IS EXPRESSLY RESERVED AND NO PART OF IT MAY BE COPIED WITHOUT PRIOR PERMISSION.",
+            "symbol_description": ""
+          }
+        ],
+        "_model": "gpt-5.6-sol"
+      }
+    }
+  ],
+  "legend_context": "THIS SHEET'S OWN LEGENDS AND TABLES (read first; these definitions are AUTHORITATIVE for this sheet and override any generic symbol/line convention):\n- [other_table] EMERGENCY SUPPLY RADIO/NAV./LTS:\n    * DWG No. | GMMS 108\u2019\u2013111a\n    * G.M. MARINE SERVICES\n    * TITLE | EMERGENCY SUPPLY RADIO/NAV./LTS\n    * Tel. (027) 021\u2013671 8001 | Cell 083 298 3305 | goetz@telkomsa.net\n    * DATE | 4/ 10/2023 | PROJECT | SWS 108\u2019\u201301 \u201d Gelliceaux \u201d\n    * DRAWN | GM | CUSTOMER | SOUTHERN WIND SHIPYARD (PTY) LTD\n    * THE COPYRIGHT OF THIS DRAWING IS EXPRESSLY RESERVED AND NO PART OF IT MAY BE COPIED WITHOUT PRIOR PERMISSION.",
+  "survey": {
+    "title_block": {
+      "drawing_no": "GMMS 108\u2019-111a",
+      "title": "EMERGENCY SUPPLY RADIO/NAV./LTS",
+      "drafter": "GM"
+    },
+    "sub_type": "mixed",
+    "sub_type_reason": "The sheet combines a connected emergency DC power topology (batteries, chargers, buses and protective devices) with breaker banks, relay/contact wiring, numbered terminal strips, panel interfaces, and distributed lighting/load endpoints; no single pure layout dominates.",
+    "regions": [
+      {
+        "type": "topology_network",
+        "label": "AFT DC panel service-bus lighting feeds and upper interconnect wiring",
+        "bbox": [
+          0.02,
+          0.03,
+          0.7,
+          0.2
+        ],
+        "approx_unit_count": 4
+      },
+      {
+        "type": "topology_network",
+        "label": "GMDSS battery, charger, emergency battery/charger, shunts, switches and source connections",
+        "bbox": [
+          0.03,
+          0.2,
+          0.31,
+          0.91
+        ],
+        "approx_unit_count": 12
+      },
+      {
+        "type": "breaker_bank",
+        "label": "Emergency/GMDSS distribution breaker banks (CB1-CB8 and QE bank)",
+        "bbox": [
+          0.16,
+          0.4,
+          0.39,
+          0.77
+        ],
+        "approx_unit_count": 16
+      },
+      {
+        "type": "controller_module",
+        "label": "Mastervolt GMDSS panel / alarm interface enclosure",
+        "bbox": [
+          0.26,
+          0.34,
+          0.37,
+          0.59
+        ],
+        "approx_unit_count": 1
+      },
+      {
+        "type": "panel_column",
+        "label": "Emergency panel indication and lamp/mute circuits",
+        "bbox": [
+          0.26,
+          0.59,
+          0.4,
+          0.94
+        ],
+        "approx_unit_count": 15
+      },
+      {
+        "type": "terminal_strip",
+        "label": "Upper terminal-strip and relay interface around Re1",
+        "bbox": [
+          0.5,
+          0.04,
+          0.72,
+          0.39
+        ],
+        "approx_unit_count": 18
+      },
+      {
+        "type": "panel_column",
+        "label": "LOPO LED navigation and steaming-light outgoing circuits",
+        "bbox": [
+          0.73,
+          0.1,
+          0.89,
+          0.45
+        ],
+        "approx_unit_count": 8
+      },
+      {
+        "type": "relay_bank",
+        "label": "Lower control relay bank Re2-Re6 with associated terminal strips",
+        "bbox": [
+          0.54,
+          0.6,
+          0.77,
+          0.89
+        ],
+        "approx_unit_count": 5
+      },
+      {
+        "type": "terminal_strip",
+        "label": "Lower numbered terminal groups and emergency/light control interfaces",
+        "bbox": [
+          0.68,
+          0.62,
+          0.96,
+          0.88
+        ],
+        "approx_unit_count": 18
+      },
+      {
+        "type": "topology_network",
+        "label": "Engine-room, tech-room, courtesy and emergency mast lighting endpoints",
+        "bbox": [
+          0.73,
+          0.62,
+          0.94,
+          0.87
+        ],
+        "approx_unit_count": 5
+      },
+      {
+        "type": "other",
+        "label": "Title block",
+        "bbox": [
+          0.52,
+          0.89,
+          0.99,
+          0.99
+        ],
+        "approx_unit_count": 1
+      }
+    ],
+    "cross_refs": [
+      "DWG 111b",
+      "DWG 511b",
+      "DWG 119a"
+    ],
+    "notes": "Authoritative title block is clear. Structural reading indicates emergency 24 V DC supply and distribution for radio/navigation/lighting, with GMDSS and emergency battery/charger topology at left, panelized protection in the center, and terminal/relay/load wiring at right. Explicit off-sheet references visible include 'see DWG 111b' near navigation/steaming interfaces, 'see DWG 511b' at alarm module plug B, and 'see DWG 119a' at terminal strip Y. Some small terminal captions, cable/plug annotations, and endpoint text are too fine to verify fully at this resolution; repeated-unit counts are approximate.",
+    "_model": "gpt-5.6-sol",
+    "_pass1_dpi": 200
+  },
+  "sub_type": "mixed",
+  "regions_read": [
+    {
+      "region": "AFT DC panel service-bus lighting feeds and upper interconnect wiring",
+      "region_type": "topology_network",
+      "bbox": [
+        0.02,
+        0.03,
+        0.7,
+        0.2
+      ],
+      "reader": "oneline",
+      "nodes": [
+        {
+          "node_type": "source",
+          "id": "+24V SERVICE BUS",
+          "label": "+24V SERVICE BUS",
+          "rating": "24V DC"
+        },
+        {
+          "node_type": "fuse",
+          "id": "F6",
+          "label": "F6",
+          "rating": "200A"
+        },
+        {
+          "node_type": "switch",
+          "id": "SW7",
+          "label": "SW7",
+          "rating": ""
+        },
+        {
+          "node_type": "board",
+          "id": "AFT DC PANEL",
+          "label": "AFT DC PANEL",
+          "rating": "24V DC"
+        },
+        {
+          "node_type": "breaker",
+          "id": "Q36",
+          "label": "NAVIGATION LTS",
+          "rating": "6A"
+        },
+        {
+          "node_type": "load",
+          "id": "NAVIGATION LTS",
+          "label": "NAVIGATION LTS",
+          "rating": ""
+        },
+        {
+          "node_type": "breaker",
+          "id": "Q37",
+          "label": "COURTESY LTS",
+          "rating": "6A"
+        },
+        {
+          "node_type": "load",
+          "id": "COURTESY LTS",
+          "label": "COURTESY LTS",
+          "rating": ""
+        },
+        {
+          "node_type": "breaker",
+          "id": "Q38",
+          "label": "ENG. ROOM LTS",
+          "rating": "10A"
+        },
+        {
+          "node_type": "load",
+          "id": "ENG. ROOM LTS",
+          "label": "ENG. ROOM LTS",
+          "rating": ""
+        },
+        {
+          "node_type": "unknown",
+          "id": "T/S B-6",
+          "label": "T/S B terminal 6, fused terminal",
+          "rating": ""
+        },
+        {
+          "node_type": "load",
+          "id": "LAZ. / TRANSOM LTS",
+          "label": "LAZ. / TRANSOM LTS",
+          "rating": ""
+        }
+      ],
+      "edges": [
+        "+24V SERVICE BUS -> F6 -> SW7 -> AFT DC PANEL",
+        "AFT DC PANEL -> Q36 -> NAVIGATION LTS",
+        "AFT DC PANEL -> Q37 -> COURTESY LTS",
+        "AFT DC PANEL -> Q38 -> ENG. ROOM LTS",
+        "AFT DC PANEL -> T/S B-6 -> LAZ. / TRANSOM LTS"
+      ]
+    },
+    {
+      "region": "GMDSS battery, charger, emergency battery/charger, shunts, switches and source connections",
+      "region_type": "topology_network",
+      "bbox": [
+        0.03,
+        0.2,
+        0.31,
+        0.91
+      ],
+      "reader": "oneline",
+      "nodes": [
+        {
+          "node_type": "bus",
+          "id": "NEG_BUS",
+          "label": "NEGATIVE BUS",
+          "rating": "24V DC return"
+        },
+        {
+          "node_type": "source",
+          "id": "GMDSS_BAT",
+          "label": "GMDSS BATTERY",
+          "rating": "24V 90Ah"
+        },
+        {
+          "node_type": "shunt",
+          "id": "SHUNT_2",
+          "label": "SHUNT #2",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "fuse",
+          "id": "F11",
+          "label": "GMDSS battery positive fuse",
+          "rating": "35A"
+        },
+        {
+          "node_type": "switch",
+          "id": "SW13",
+          "label": "GMDSS battery switch",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "bus",
+          "id": "GMDSS_DC_BUS",
+          "label": "GMDSS 24V DC supply junction/bus",
+          "rating": "24V DC"
+        },
+        {
+          "node_type": "source",
+          "id": "SHIPS_230V_GEN_INVERTER",
+          "label": "SHIPS 230V GEN INVERTER",
+          "rating": "230V AC"
+        },
+        {
+          "node_type": "converter",
+          "id": "MASTERvolt_MASS_CHARGER",
+          "label": "MASTERVOLT MASS CHARGER",
+          "rating": "230V AC / 24V DC, 25A"
+        },
+        {
+          "node_type": "fuse",
+          "id": "F10",
+          "label": "GMDSS charger output fuse",
+          "rating": "35A"
+        },
+        {
+          "node_type": "breaker",
+          "id": "QE",
+          "label": "GMDSS emergency breaker; to reset GMDSS",
+          "rating": "32A"
+        },
+        {
+          "node_type": "board",
+          "id": "GMDSS_DISTRIBUTION",
+          "label": "GMDSS distribution/contact assembly",
+          "rating": "24V DC"
+        },
+        {
+          "node_type": "breaker",
+          "id": "CB1",
+          "label": "GMDSS circuit breaker CB1",
+          "rating": "10A"
+        },
+        {
+          "node_type": "breaker",
+          "id": "CB2",
+          "label": "GMDSS circuit breaker CB2",
+          "rating": "10A"
+        },
+        {
+          "node_type": "breaker",
+          "id": "CB3",
+          "label": "GMDSS circuit breaker CB3",
+          "rating": "10A"
+        },
+        {
+          "node_type": "breaker",
+          "id": "CB4",
+          "label": "GMDSS circuit breaker CB4",
+          "rating": "10A"
+        },
+        {
+          "node_type": "source",
+          "id": "EMERGENCY_BAT",
+          "label": "EMERGENCY BATTERY",
+          "rating": "24V 200Ah"
+        },
+        {
+          "node_type": "shunt",
+          "id": "SHUNT_3",
+          "label": "SHUNT #3",
+          "rating": "500A/50mV"
+        },
+        {
+          "node_type": "fuse",
+          "id": "F13",
+          "label": "Emergency battery main fuse",
+          "rating": "250A"
+        },
+        {
+          "node_type": "switch",
+          "id": "SW12",
+          "label": "Emergency battery switch",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "current_transformer",
+          "id": "CT7",
+          "label": "Current transformer CT7",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "bus",
+          "id": "EMERGENCY_DC_BUS",
+          "label": "Emergency 24V DC distribution bus",
+          "rating": "24V DC"
+        },
+        {
+          "node_type": "source",
+          "id": "AC_230V_INPUT",
+          "label": "230V AC input L/N",
+          "rating": "230V AC"
+        },
+        {
+          "node_type": "converter",
+          "id": "CHARGER_24V_50A",
+          "label": "230V AC / 24V DC charger",
+          "rating": "24V DC 50A"
+        },
+        {
+          "node_type": "fuse",
+          "id": "F12",
+          "label": "Emergency battery charger fuse",
+          "rating": "50A"
+        },
+        {
+          "node_type": "breaker",
+          "id": "QE1",
+          "label": "Emergency breaker QE1",
+          "rating": "32A"
+        },
+        {
+          "node_type": "breaker",
+          "id": "QE2",
+          "label": "ENG.ROOM GAS RELEASE ALARM",
+          "rating": "6A"
+        },
+        {
+          "node_type": "breaker",
+          "id": "QE3",
+          "label": "GAS/CO2/PETROL VAPOUR ALARM",
+          "rating": "10A"
+        },
+        {
+          "node_type": "breaker",
+          "id": "QE4",
+          "label": "SERVICE BAT. VENTILATION",
+          "rating": "10A"
+        },
+        {
+          "node_type": "breaker",
+          "id": "QE5",
+          "label": "MYT HYDRAULICS",
+          "rating": "20A"
+        },
+        {
+          "node_type": "breaker",
+          "id": "QE6",
+          "label": "FWD PANEL EM SUPPLY",
+          "rating": "16A"
+        },
+        {
+          "node_type": "breaker",
+          "id": "QE7",
+          "label": "MAIN PANEL",
+          "rating": "16A"
+        },
+        {
+          "node_type": "breaker",
+          "id": "QE8",
+          "label": "AUX1",
+          "rating": "16A"
+        },
+        {
+          "node_type": "breaker",
+          "id": "CB7",
+          "label": "Downstream circuit breaker CB7",
+          "rating": "10A"
+        },
+        {
+          "node_type": "breaker",
+          "id": "CB8",
+          "label": "Downstream circuit breaker CB8",
+          "rating": "20A"
+        },
+        {
+          "node_type": "fuse",
+          "id": "F15",
+          "label": "GEN START BAT. fuse",
+          "rating": "250A"
+        },
+        {
+          "node_type": "source",
+          "id": "GEN_START_BAT",
+          "label": "GEN START BAT.",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "fuse",
+          "id": "F16",
+          "label": "AUX SERVICE BAT. fuse",
+          "rating": "250A"
+        },
+        {
+          "node_type": "source",
+          "id": "AUX_SERVICE_BAT",
+          "label": "AUX SERVICE BAT.",
+          "rating": "<UNKNOWN>"
+        }
+      ],
+      "edges": [
+        "GMDSS_BAT negative -> SHUNT_2 -> NEG_BUS",
+        "GMDSS_BAT positive -> F11 -> SW13 -> GMDSS_DC_BUS",
+        "SHIPS_230V_GEN_INVERTER -> MASTERvolt_MASS_CHARGER",
+        "MASTERvolt_MASS_CHARGER DC negative -> NEG_BUS",
+        "MASTERvolt_MASS_CHARGER DC positive -> F10 -> GMDSS_DC_BUS",
+        "GMDSS_DC_BUS -> GMDSS_DISTRIBUTION",
+        "GMDSS_DISTRIBUTION -> QE -> <UNKNOWN> relay/contact distribution",
+        "GMDSS_DISTRIBUTION -> CB1 -> <UNKNOWN>",
+        "GMDSS_DISTRIBUTION -> CB2 -> <UNKNOWN>",
+        "GMDSS_DISTRIBUTION -> CB3 -> <UNKNOWN>",
+        "GMDSS_DISTRIBUTION -> CB4 -> <UNKNOWN>",
+        "EMERGENCY_BAT negative -> SHUNT_3 -> NEG_BUS",
+        "EMERGENCY_BAT positive -> F13 -> SW12 -> CT7 -> EMERGENCY_DC_BUS",
+        "AC_230V_INPUT -> CHARGER_24V_50A",
+        "CHARGER_24V_50A DC positive -> F12 -> EMERGENCY_BAT positive",
+        "EMERGENCY_DC_BUS -> QE1 -> CB7 -> <UNKNOWN>",
+        "EMERGENCY_DC_BUS -> QE1 -> CB8 -> <UNKNOWN>",
+        "EMERGENCY_DC_BUS -> QE2 -> ENG.ROOM GAS RELEASE ALARM",
+        "EMERGENCY_DC_BUS -> QE3 -> GAS/CO2/PETROL VAPOUR ALARM",
+        "EMERGENCY_DC_BUS -> QE4 -> SERVICE BAT. VENTILATION",
+        "EMERGENCY_DC_BUS -> QE5 -> MYT HYDRAULICS",
+        "EMERGENCY_DC_BUS -> QE6 -> FWD PANEL EM SUPPLY",
+        "EMERGENCY_DC_BUS -> QE7 -> MAIN PANEL",
+        "EMERGENCY_DC_BUS -> QE8 -> AUX1",
+        "GEN_START_BAT -> F15 -> <UNKNOWN> contactor/source-selection assembly",
+        "AUX_SERVICE_BAT -> F16 -> <UNKNOWN> contactor/source-selection assembly",
+        "EMERGENCY_BAT positive -> F13 -> <UNKNOWN> contactor/source-selection assembly"
+      ]
+    },
+    {
+      "region": "Emergency/GMDSS distribution breaker banks (CB1-CB8 and QE bank)",
+      "region_type": "breaker_bank",
+      "bbox": [
+        0.16,
+        0.4,
+        0.39,
+        0.77
+      ],
+      "reader": "schedule",
+      "panel_label": "EMERGENCY SUPPLY RADIO/NAV./LTS",
+      "rows": [
+        {
+          "device_type": "circuit_breaker",
+          "device_id": "CB1",
+          "rating": "10A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "circuit_breaker",
+          "device_id": "CB2",
+          "rating": "10A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "circuit_breaker",
+          "device_id": "CB3",
+          "rating": "10A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "circuit_breaker",
+          "device_id": "CB4",
+          "rating": "10A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "circuit_breaker",
+          "device_id": "CB5",
+          "rating": "<UNKNOWN>",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": true
+        },
+        {
+          "device_type": "circuit_breaker",
+          "device_id": "CB6",
+          "rating": "<UNKNOWN>",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": true
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE1",
+          "rating": "32A",
+          "load_name": "<UNKNOWN>",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE2",
+          "rating": "6A",
+          "load_name": "ENG.ROOM GAS RELEASE ALARM",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE3",
+          "rating": "10A",
+          "load_name": "GAS/CO2/PETROL VAPOUR ALARM",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE4",
+          "rating": "10A",
+          "load_name": "SERVICE BAT. VENTILATION",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE5",
+          "rating": "20A",
+          "load_name": "MYT HYDRAULICS",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE6",
+          "rating": "16A",
+          "load_name": "FWD PANEL EM SUPPLY",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE7",
+          "rating": "16A",
+          "load_name": "MAIN PANEL",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "emergency_breaker",
+          "device_id": "QE8",
+          "rating": "16A",
+          "load_name": "AUX1",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "circuit_breaker",
+          "device_id": "CB7",
+          "rating": "10A",
+          "load_name": "NAV. LIGHTS",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "circuit_breaker",
+          "device_id": "CB8",
+          "rating": "20A",
+          "load_name": "EMERGENCY LTS",
+          "cross_ref": "",
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "Mastervolt GMDSS panel / alarm interface enclosure",
+      "region_type": "controller_module",
+      "bbox": [
+        0.26,
+        0.34,
+        0.37,
+        0.59
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "controller_module",
+          "id": "<UNKNOWN>",
+          "label": "MASTERVOLT GMDSS PANEL \u2014 ALARM INTERFACE",
+          "connections": [
+            "unlabelled incoming connection at left",
+            "unlabelled conductors at top",
+            "two conductors at right routed to the two-row alarm contact/tap block"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "breaker",
+          "id": "CB1",
+          "label": "CB1 10A",
+          "connections": [
+            "common vertical supply bus at left",
+            "outgoing horizontal conductor to right (destination cropped)"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "breaker",
+          "id": "CB2",
+          "label": "CB2 10A",
+          "connections": [
+            "common vertical supply bus at left",
+            "outgoing horizontal conductor to right (destination cropped)"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "breaker",
+          "id": "CB3",
+          "label": "CB3 10A",
+          "connections": [
+            "common vertical supply bus at left",
+            "outgoing horizontal conductor to right (destination cropped)"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "breaker",
+          "id": "CB4",
+          "label": "CB4 10A",
+          "connections": [
+            "common vertical supply bus at left",
+            "outgoing horizontal conductor to right (destination cropped)"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "status_signal",
+          "id": "1-2",
+          "label": "Upper alarm-interface contact/tap, printed terminals 1 and 2",
+          "connections": [
+            "terminal 1 to left-side common/bridged wiring",
+            "terminal 2 to upper conductor from MASTERVOLT GMDSS PANEL ALARM INTERFACE"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "status_signal",
+          "id": "2-4",
+          "label": "Lower alarm-interface contact/tap, printed terminals 2 and 4",
+          "connections": [
+            "terminal 2 to left-side common/bridged wiring",
+            "terminal 4 to lower conductor from MASTERVOLT GMDSS PANEL ALARM INTERFACE"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "breaker",
+          "id": "CB7",
+          "label": "CB7 10A \u2014 NAV. LIGHTS",
+          "connections": [
+            "connections cropped outside visible region"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "annotation",
+          "id": "<UNKNOWN>",
+          "label": "Dotted enclosure boundary around panel components",
+          "connections": [],
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "Emergency panel indication and lamp/mute circuits",
+      "region_type": "panel_column",
+      "bbox": [
+        0.26,
+        0.59,
+        0.4,
+        0.94
+      ],
+      "reader": "schedule",
+      "panel_label": "EMERGENCY PANEL",
+      "rows": [
+        {
+          "device_type": "circuit_breaker",
+          "device_id": "CB7",
+          "rating": "10A",
+          "load_name": "NAV. LIGHTS",
+          "cross_ref": "",
+          "ambiguous": false
+        },
+        {
+          "device_type": "circuit_breaker",
+          "device_id": "CB8",
+          "rating": "20A",
+          "load_name": "EMERGENCY LTS",
+          "cross_ref": "",
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "Upper terminal-strip and relay interface around Re1",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.5,
+        0.04,
+        0.72,
+        0.39
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "terminal_strip",
+          "id": "T/S E",
+          "label": "Terminal strip E, terminals 9\u201312",
+          "connections": [
+            "terminals 9, 10, 11, 12",
+            "associated with Re1 contact wiring"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E-9",
+          "label": "Terminal 9",
+          "connections": [
+            "left-side conductor",
+            "Re1 contact network (routing partly unclear in crop)"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E-10",
+          "label": "Terminal 10",
+          "connections": [
+            "left-side conductor",
+            "Re1 contact fixed-contact node"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E-11",
+          "label": "Terminal 11; fused terminal; adjacent printed label 1",
+          "connections": [
+            "left-side conductor",
+            "Re1 contact fixed-contact node"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E-12",
+          "label": "Terminal 12; fused terminal; adjacent printed label 2",
+          "connections": [
+            "left-side conductor",
+            "Re1 contact fixed-contact node"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "13",
+          "label": "Terminal 13",
+          "connections": [
+            "left-side conductor",
+            "right-side conductor to Re1 coil circuit",
+            "downward branch conductor"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "relay",
+          "id": "Re1",
+          "label": "Relay Re1; coil mechanically linked by dotted line to multi-pole contacts",
+          "connections": [
+            "coil circuit connected toward terminal 13",
+            "coil return/downward conductor",
+            "contact network connected with T/S E terminals 10\u201312 and right-side circuits; exact pole routing partly obscured/complex"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal_strip",
+          "id": "T/S E",
+          "label": "Terminal strip E, terminals 19\u201321",
+          "connections": [
+            "terminals 19, 20, 21",
+            "right-side MAIN / MAIN / NAV. continuations"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E-19",
+          "label": "Terminal 19; fused terminal",
+          "connections": [
+            "Re1 upper contact circuit",
+            "right-side conductor labelled MAIN"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E-20",
+          "label": "Terminal 20; fused terminal",
+          "connections": [
+            "incoming conductor from lower/left routing",
+            "right-side conductor labelled MAIN"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S E-21",
+          "label": "Terminal 21",
+          "connections": [
+            "Re1 contact circuit",
+            "right-side conductor labelled NAV."
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "annotation",
+          "id": "see DWG 111b",
+          "label": "Cross-drawing pointer: ( see DWG 111b",
+          "connections": [],
+          "ambiguous": false
+        },
+        {
+          "element_type": "switch",
+          "id": "NAV. LIGHTS",
+          "label": "(MAIN PANEL) NAV. LIGHTS, positions I and II",
+          "connections": [
+            "common left-side conductor",
+            "position I to PLUG A pin [5]",
+            "position II to PLUG A pin [6]"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG A [5]",
+          "label": "PLUG A pin [5]",
+          "connections": [
+            "NAV. LIGHTS switch position I",
+            "right-side continuation"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "plug_pin",
+          "id": "PLUG A [6]",
+          "label": "PLUG A pin [6]",
+          "connections": [
+            "NAV. LIGHTS switch position II",
+            "right-side continuation via stepped conductor"
+          ],
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "LOPO LED navigation and steaming-light outgoing circuits",
+      "region_type": "panel_column",
+      "bbox": [
+        0.73,
+        0.1,
+        0.89,
+        0.45
+      ],
+      "reader": "schedule",
+      "panel_label": "T/S E \u2014 LOPO LED NAVIGATION LIGHTS",
+      "rows": [
+        {
+          "device_type": "fuse",
+          "device_id": "22",
+          "rating": "0.1A",
+          "load_name": "PORT NAV...",
+          "cross_ref": "",
+          "ambiguous": true
+        },
+        {
+          "device_type": "fuse",
+          "device_id": "24",
+          "rating": "0.1A",
+          "load_name": "STBD NAV...",
+          "cross_ref": "",
+          "ambiguous": true
+        },
+        {
+          "device_type": "fuse",
+          "device_id": "26",
+          "rating": "0.1A",
+          "load_name": "STERN NA...",
+          "cross_ref": "",
+          "ambiguous": true
+        },
+        {
+          "device_type": "fuse",
+          "device_id": "28",
+          "rating": "0.1A",
+          "load_name": "AUX PORT...",
+          "cross_ref": "",
+          "ambiguous": true
+        },
+        {
+          "device_type": "fuse",
+          "device_id": "30",
+          "rating": "0.1A",
+          "load_name": "AUX STB...",
+          "cross_ref": "",
+          "ambiguous": true
+        },
+        {
+          "device_type": "fuse",
+          "device_id": "32",
+          "rating": "0.1A",
+          "load_name": "AUX STE...",
+          "cross_ref": "",
+          "ambiguous": true
+        },
+        {
+          "device_type": "fuse",
+          "device_id": "34",
+          "rating": "0.1A",
+          "load_name": "STEAMING...",
+          "cross_ref": "MU5-12 [10]",
+          "ambiguous": true
+        },
+        {
+          "device_type": "fuse",
+          "device_id": "36",
+          "rating": "0.1A",
+          "load_name": "STEAMING...",
+          "cross_ref": "MU5-12 [11]",
+          "ambiguous": true
+        }
+      ]
+    },
+    {
+      "region": "Lower control relay bank Re2-Re6 with associated terminal strips",
+      "region_type": "relay_bank",
+      "bbox": [
+        0.54,
+        0.6,
+        0.77,
+        0.89
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "terminal",
+          "id": "14",
+          "label": "Terminal 14",
+          "connections": [
+            "left-edge conductor -> terminal 14 -> vertical wiring feeding relay/contact network"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "15",
+          "label": "Fused terminal 15 (built-in fuse)",
+          "connections": [
+            "left terminal reference 3 -> terminal 15 -> conductor into relay/contact wiring"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "16",
+          "label": "Fused terminal 16 (built-in fuse)",
+          "connections": [
+            "left terminal reference 4 -> terminal 16 -> conductor into relay/contact wiring"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "17",
+          "label": "Terminal 17, D",
+          "connections": [
+            "left terminal reference 5 -> terminal 17 -> relay/contact wiring",
+            "internally linked to terminal 18"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "18",
+          "label": "Terminal 18, D",
+          "connections": [
+            "left-edge conductor -> terminal 18",
+            "internally linked to terminal 17"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "relay",
+          "id": "Re2",
+          "label": "Relay Re2",
+          "connections": [
+            "coil connected into the adjacent three-pole changeover/contact group",
+            "associated contacts route conductors toward terminals 42, 43/44 and 45/46"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "relay",
+          "id": "Re3",
+          "label": "Relay Re3",
+          "connections": [
+            "coil connected into the adjacent changeover contact group",
+            "contact output routes to fused-terminal group 52\u201355",
+            "coil/output wiring routes toward terminal pair 56\u201357"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "relay",
+          "id": "Re4",
+          "label": "Relay Re4",
+          "connections": [
+            "coil with suppression diode across coil",
+            "mechanically linked upper contact routes supply toward fused-terminal group 47\u201351"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "relay",
+          "id": "Re5",
+          "label": "Relay Re5",
+          "connections": [
+            "contact shown below Re4",
+            "coil/output conductor routes right to terminal 58"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "relay",
+          "id": "Re6",
+          "label": "Relay Re6",
+          "connections": [
+            "coil connected to the lower mechanically linked contact",
+            "contact output continues on horizontal conductor"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "42",
+          "label": "Terminal 42",
+          "connections": [
+            "Re2-associated upper contact -> terminal 42 -> right-pointing continuation arrow"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "43",
+          "label": "Terminal 43",
+          "connections": [
+            "Re2-associated middle contact -> terminal 43 -> right-edge continuation",
+            "internally linked to terminal 44"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "44",
+          "label": "Terminal 44",
+          "connections": [
+            "internally linked to terminal 43",
+            "terminal 44 -> remote mechanically linked switch/contact and lamp circuit"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "switch",
+          "id": "<UNKNOWN>",
+          "label": "Unlabelled mechanically linked two-pole switch/contact at right of terminals 43\u201344",
+          "connections": [
+            "terminal 44 -> switch/contact group",
+            "switch/contact group -> right-edge conductor",
+            "associated lamp symbol connected at upper portion"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "Unlabelled lamp/light indicator symbol",
+          "connections": [
+            "connected across/adjacent to the unlabelled switch/contact circuit fed from terminal 44"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "45",
+          "label": "Terminal 45",
+          "connections": [
+            "Re2-associated lower contact -> terminal 45 -> right-side stub",
+            "internally linked to terminal 46"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "46",
+          "label": "Terminal 46",
+          "connections": [
+            "internally linked to terminal 45"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "47",
+          "label": "Fused terminal 47 (built-in fuse)",
+          "connections": [
+            "common left feed from Re4 contact/output network -> terminal 47 -> right-side stub marked /"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "48",
+          "label": "Fused terminal 48 (built-in fuse)",
+          "connections": [
+            "common left feed shared with terminals 47\u201351 -> terminal 48 -> right-side stub marked /"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "49",
+          "label": "Fused terminal 49 (built-in fuse)",
+          "connections": [
+            "common left feed shared with terminals 47\u201351 -> terminal 49 -> right-side stub marked /"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "50",
+          "label": "Fused terminal 50 \u2014 AFT COURTESY LTS ( COM. A\u2026",
+          "connections": [
+            "common left feed shared with terminals 47\u201351 -> terminal 50 -> AFT COURTESY LTS ( COM. A\u2026"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "51",
+          "label": "Fused terminal 51 (built-in fuse)",
+          "connections": [
+            "common left feed shared with terminals 47\u201351 -> terminal 51 -> right-side stub marked /"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "52",
+          "label": "Fused terminal 52 \u2014 EMERGENCY SUPPLY/CO\u2026",
+          "connections": [
+            "Re3-associated contact output/common left feed -> terminal 52 -> EMERGENCY SUPPLY/CO\u2026"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "53",
+          "label": "Fused terminal 53 \u2014 EMERGENCY SUPPLY/CO\u2026",
+          "connections": [
+            "common left feed shared with terminals 52\u201355 -> terminal 53 -> EMERGENCY SUPPLY/CO\u2026"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "54",
+          "label": "Fused terminal 54 (built-in fuse)",
+          "connections": [
+            "common left feed shared with terminals 52\u201355 -> terminal 54 -> right-side stub marked /"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "55",
+          "label": "Fused terminal 55 (built-in fuse)",
+          "connections": [
+            "common left feed shared with terminals 52\u201355 -> terminal 55 -> right-edge conductor"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "56",
+          "label": "Terminal 56",
+          "connections": [
+            "left-side relay wiring -> terminal 56 -> right-edge conductor",
+            "internally linked to terminal 57"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "57",
+          "label": "Terminal 57 \u2014 EMERGENCY MAST LTS",
+          "connections": [
+            "internally linked to terminal 56",
+            "terminal 57 -> EMERGENCY MAST LTS"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "58",
+          "label": "Terminal 58",
+          "connections": [
+            "Re5 coil/output conductor -> terminal 58"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "annotation",
+          "id": "DWG No.",
+          "label": "GMMS 108\u2019-111a",
+          "connections": [],
+          "ambiguous": false
+        }
+      ]
+    },
+    {
+      "region": "Lower numbered terminal groups and emergency/light control interfaces",
+      "region_type": "terminal_strip",
+      "bbox": [
+        0.68,
+        0.62,
+        0.96,
+        0.88
+      ],
+      "reader": "wiring",
+      "elements": [
+        {
+          "element_type": "terminal",
+          "id": "42",
+          "label": "Terminal 42",
+          "connections": [
+            "Incoming conductor from left",
+            "Outgoing arrow/continuation to right; destination not printed"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal_strip",
+          "id": "43\u201344",
+          "label": "Two-position terminal strip, terminals 43 and 44; terminals shown linked",
+          "connections": [
+            "Incoming conductors from left",
+            "Terminal 43 -> ENG. ROOM LTS switch/contact assembly",
+            "Terminal 44 -> TECH ROOM LTS switch/contact assembly"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "43",
+          "label": "Terminal 43",
+          "connections": [
+            "Incoming conductor from left",
+            "Linked to terminal 44",
+            "ENG. ROOM LTS switch/contact assembly"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "44",
+          "label": "Terminal 44",
+          "connections": [
+            "Incoming conductor from left",
+            "Linked to terminal 43",
+            "TECH ROOM LTS switch/contact assembly"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "switch",
+          "id": "<UNKNOWN>",
+          "label": "Illuminated two-pole switch/contact assembly \u2014 ENG. ROOM LTS",
+          "connections": [
+            "Terminal 43 -> left contact side",
+            "Right contact side -> ENG. ROOM LTS",
+            "Integral indicator lamp shown across assembly"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "ENG. ROOM LTS",
+          "connections": [
+            "From illuminated switch/contact assembly supplied by terminal 43",
+            "Outgoing arrow/continuation to ENG. ROOM LTS"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "switch",
+          "id": "<UNKNOWN>",
+          "label": "Illuminated two-pole switch/contact assembly \u2014 TECH ROOM LTS",
+          "connections": [
+            "Terminal 44 -> left contact side",
+            "Right contact side -> TECH ROOM LTS",
+            "Integral indicator lamp shown across assembly"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "TECH ROOM LTS",
+          "connections": [
+            "From illuminated switch/contact assembly supplied by terminal 44",
+            "Outgoing arrow/continuation to TECH ROOM LTS"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal_strip",
+          "id": "45\u201346",
+          "label": "Two-position terminal strip, terminals 45 and 46; terminals shown linked",
+          "connections": [
+            "Incoming conductor from left to terminal 45",
+            "Terminal 45 outgoing stub to right",
+            "Terminal 46 linked to terminal 45"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "45",
+          "label": "Terminal 45",
+          "connections": [
+            "Incoming conductor from left",
+            "Linked to terminal 46",
+            "Outgoing stub to right; destination not printed"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "46",
+          "label": "Terminal 46",
+          "connections": [
+            "Linked to terminal 45"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal_strip",
+          "id": "47\u201351",
+          "label": "Five-position fused terminal strip",
+          "connections": [
+            "Common/linked wiring shown along left side of positions 47\u201351",
+            "Terminal 50 -> AFT COURTESY LTS (COM. AREA) -> T/S Y terminal 171"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "47",
+          "label": "Fused terminal 47",
+          "connections": [
+            "Left-side linked/common wiring",
+            "Outgoing stub to right; destination not printed"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "48",
+          "label": "Fused terminal 48",
+          "connections": [
+            "Left-side linked/common wiring",
+            "Outgoing stub to right; destination not printed"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "49",
+          "label": "Fused terminal 49",
+          "connections": [
+            "Left-side linked/common wiring",
+            "Outgoing stub to right; destination not printed"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "50",
+          "label": "Fused terminal 50 \u2014 AFT COURTESY LTS (COM. AREA)",
+          "connections": [
+            "Left-side linked/common wiring",
+            "AFT COURTESY LTS (COM. AREA) -> T/S Y terminal 171"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "51",
+          "label": "Fused terminal 51",
+          "connections": [
+            "Left-side linked/common wiring",
+            "Outgoing stub to right; destination not printed"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal_strip",
+          "id": "52\u201357",
+          "label": "Six-position terminal strip; fused terminals 52\u201355 and linked terminals 56\u201357",
+          "connections": [
+            "Terminal 52 -> EMERGENCY SUPPLY/CONTROL -> T/S Y terminal 172",
+            "Terminal 53 -> EMERGENCY SUPPLY/CONTROL",
+            "Terminal 55 -> indicator branch associated with (MAIN PANEL) EMERGENCY LTS SWITCH",
+            "Terminal 56 -> (MAIN PANEL) EMERGENCY LTS SWITCH",
+            "Terminal 57 -> EMERGENCY MAST LTS (MU4-12 [10] see DWG112)"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "52",
+          "label": "Fused terminal 52 \u2014 EMERGENCY SUPPLY/CONTROL",
+          "connections": [
+            "Incoming conductor from left",
+            "EMERGENCY SUPPLY/CONTROL -> T/S Y terminal 172"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "53",
+          "label": "Fused terminal 53 \u2014 EMERGENCY SUPPLY/CONTROL",
+          "connections": [
+            "Left-side linked/common wiring",
+            "EMERGENCY SUPPLY/CONTROL conductor to right; visible line ends without a printed destination"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "54",
+          "label": "Fused terminal 54",
+          "connections": [
+            "Left-side linked/common wiring",
+            "Outgoing stub to right; destination marked '/'"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "55",
+          "label": "Fused terminal 55",
+          "connections": [
+            "Left-side linked/common wiring",
+            "Conductor to indicator lamp branch at (MAIN PANEL) EMERGENCY LTS SWITCH"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "56",
+          "label": "Terminal 56",
+          "connections": [
+            "Incoming conductor from left",
+            "Linked to terminal 57",
+            "(MAIN PANEL) EMERGENCY LTS SWITCH contact"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "57",
+          "label": "Terminal 57 \u2014 EMERGENCY MAST LTS (MU4-12 [10] see DWG112)",
+          "connections": [
+            "Incoming conductor from left",
+            "Linked to terminal 56",
+            "EMERGENCY MAST LTS via MU4-12 core [10]; cross-reference see DWG112"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "switch",
+          "id": "<UNKNOWN>",
+          "label": "(MAIN PANEL) EMERGENCY LTS SWITCH, illuminated",
+          "connections": [
+            "Terminal 56 -> switch contact",
+            "Terminal 55 -> integral indicator lamp branch",
+            "Outgoing side shown terminating at short bar; further destination not printed"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "device",
+          "id": "<UNKNOWN>",
+          "label": "EMERGENCY MAST LTS",
+          "connections": [
+            "From terminal 57",
+            "MU4-12 [10]",
+            "See DWG112"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal_strip",
+          "id": "T/S Y",
+          "label": "Terminal strip Y; visible terminals 171 and 172",
+          "connections": [
+            "Terminal 171 <- terminal 50 / AFT COURTESY LTS (COM. AREA)",
+            "Terminal 172 <- terminal 52 / EMERGENCY SUPPLY/CONTROL",
+            "Nearby note partially visible: '( see DWG 1\u2026'"
+          ],
+          "ambiguous": true
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S Y 171",
+          "label": "Terminal 171",
+          "connections": [
+            "From terminal 50 via AFT COURTESY LTS (COM. AREA)"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "T/S Y 172",
+          "label": "Terminal 172",
+          "connections": [
+            "From terminal 52 via EMERGENCY SUPPLY/CONTROL"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "terminal",
+          "id": "58",
+          "label": "Terminal 58",
+          "connections": [
+            "Incoming conductor from left"
+          ],
+          "ambiguous": false
+        },
+        {
+          "element_type": "annotation",
+          "id": "<UNKNOWN>",
+          "label": "Cross-reference note partially cropped: '( see DWG 1\u2026'",
+          "connections": [
+            "Located near T/S Y"
+          ],
+          "ambiguous": true
+        }
+      ]
+    },
+    {
+      "region": "Engine-room, tech-room, courtesy and emergency mast lighting endpoints",
+      "region_type": "topology_network",
+      "bbox": [
+        0.73,
+        0.62,
+        0.94,
+        0.87
+      ],
+      "reader": "oneline",
+      "nodes": [
+        {
+          "node_type": "unknown",
+          "id": "<UNKNOWN>",
+          "label": "Unlabeled incoming lighting supply/continuation at left",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "switch",
+          "id": "<UNKNOWN>",
+          "label": "TECH ROOM LTS illuminated multi-pole switch",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "load",
+          "id": "<UNKNOWN>",
+          "label": "TECH ROOM LTS",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "switch",
+          "id": "<UNKNOWN>",
+          "label": "ENG. ROOM LTS illuminated multi-pole switch",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "load",
+          "id": "<UNKNOWN>",
+          "label": "ENG. ROOM LTS",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "unknown",
+          "id": "<UNKNOWN>",
+          "label": "Unlabeled emergency-lighting supply/continuation at left",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "switch",
+          "id": "<UNKNOWN>",
+          "label": "EMERGENCY LTS SWITCH (MAIN PANEL)",
+          "rating": "<UNKNOWN>"
+        },
+        {
+          "node_type": "load",
+          "id": "MU4-12 [10]",
+          "label": "EMERGENCY MAST LTS; see DWG112",
+          "rating": "<UNKNOWN>"
+        }
+      ],
+      "edges": [
+        "Unlabeled incoming lighting supply/continuation at left -> TECH ROOM LTS illuminated multi-pole switch -> TECH ROOM LTS",
+        "Unlabeled incoming lighting supply/continuation at left -> ENG. ROOM LTS illuminated multi-pole switch -> ENG. ROOM LTS",
+        "Unlabeled emergency-lighting supply/continuation at left -> EMERGENCY LTS SWITCH (MAIN PANEL) -> EMERGENCY MAST LTS (MU4-12 [10], see DWG112)"
+      ]
+    }
+  ],
+  "scoped_next": []
+}
