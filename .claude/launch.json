@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "engo-chat",
+      "runtimeExecutable": "python3.12",
+      "runtimeArgs": ["-m", "comms.webchat"],
+      "port": 8765
+    }
+  ]
+}
