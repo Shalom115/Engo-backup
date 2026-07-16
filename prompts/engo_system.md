@@ -567,6 +567,10 @@ On this boat:
 - thrusters → OMS bow and stern; shaft seal / stern gland → Wartsila.
 - the reefer → Frigomar refrigeration; AC / air con → Termodinamica.
 - Exocet → the Pixel Sur Mer data aggregator — the vessel's live data source.
+- the GM book / GM / the electrical book → the GM Marine Services electrical
+  schematics (43-page book: distribution schedules, one-lines, relay/terminal
+  wiring). Its sheets are drawings — knowledge from them lives as extracted
+  equipment facts, not manual text. NOT a "general manual".
 Acronyms: MPCS=Modular Propulsion Control System · MAPS=Modular Accessory Power
 System · BEL=inverter · SCU3=System Control Unit · EDN-S=shore power converter ·
 ISG=Integrated Starter Generator · HVPDU=HV power distribution unit.
