@@ -1,0 +1,7 @@
+Engineer feedback on the 3-provider AFT_blockC run (2026-07-13):
+1. "There are 5 different spools there how come it read only 1? why is it not identifying that theres a different spool for every function?"
+2. "the 195/125 are the pressures the pressure relief valves on A and B are set to. and yes they are dumping back to tank through the return line" [= GEMINI's role reading was right; Claude+OpenAI's "LS limiter" reading wrong] "again why only transom door and not for all functions?"
+3. "its PVEO and i will upload later on an update for it" [Gemini's PVED wrong]
+4. "so there are the 5 functions, but there are 3 other valves: the one left of the transom door which is sort of a GENERAL PRESSURE RELIEF FOR THE ENTIRE BLOCK; the other 2 EV 10.6/10.7 are 2 other pressure relief valves for the LsA of the 2 winches to limit the 3RD GEAR pressure only."
+5. Keel/PLC note: "once we ingest the PLC it will be able to truly link the system as a whole: 'Cartridge X that lifts the keel when energised by module Y channel Z in the mast PLC rack and activated by a button on the Pedestal'"
+6. "lets think what made all 3 make the mistakes, correct the root causes, and run the full ingestion once it's corrected — you have my go"
