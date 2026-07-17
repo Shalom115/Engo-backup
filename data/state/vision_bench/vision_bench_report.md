@@ -1,11 +1,22 @@
 # Vision benchmark — side-by-side (engineer grades)
 
-Generated 2026-07-16T22:30:36+00:00.
+Generated 2026-07-17T20:39:27+00:00.
 
 Per sheet: what each provider extracted, agreement/disagreement in element labels, runtime. Grade on: correctness vs the actual sheet, fabrication (worst failure), <UNKNOWN> honesty (credit), completeness.
 
 
 ## 1-hydraulic-manifold — mast_block
+
+- ROUTING MATRIX (rows = intended node; cells = the label each provider read; ✗ = provider never routed anything here):
+
+| intended node | anthropic | gemini | openai |
+|---|---|---|---|
+| `570-danfoss-pvg-32-mast-block` | Danfoss PVG 32 - 6 functions; Inlet section with pressure relief / gauge port (M) and standalone auxiliary valve at left edge | DANFOSS PVG 32; Inlet Block; End Plate | Danfoss PVG 32; Block inlet/end pressure and load-sense control section; Block end section |
+| `130-apm-lifting-keel` | LIFTING KEEL UP/DOWN; LIFTING KEEL LOCKS | LIFTING KEEL UP/DOWN; LIFTING KEEL LOCKS | LIFTING KEEL UP/DOWN; LIFTING KEEL LOCKS |
+| `220-mast-winch-aft-port` | MAST WINCH AFT PORT | MAST WINCH AFT PORT | MAST WINCH AFT PORT |
+| `220-mast-winch-fwd-port` | MAST WINCH FWD PORT | MAST WINCH FWD PORT | MAST WINCH FWD PORT |
+| `220-mast-winch-aft-stbd` | MAST WINCH AFT STBD | MAST WINCH AFT STBD | MAST WINCH AFT STBD |
+| `220-mast-winch-fwd-stbd` | MAST WINCH FWD STBD | MAST WINCH FWD STBD | MAST WINCH FWD STBD |
 
 ### anthropic — 54 elements
 - agreed with all: 7 · unique to anthropic: 47
@@ -73,6 +84,17 @@ EV<illegible>
 
 ## 1-hydraulic-manifold — AFT_blockC
 
+- ROUTING MATRIX (rows = intended node; cells = the label each provider read; ✗ = provider never routed anything here):
+
+| intended node | anthropic | gemini | openai |
+|---|---|---|---|
+| `570-danfoss-pvg-32-aft-blockc` | Danfoss PVG 32; Standalone auxiliary valve block (relief/pilot, top-left of manifold, near M/LS lines); EV-10.6 standalone auxiliary valve (1/4"G ports A/B); EV-10.7 standalone auxiliary valve (1/4"G ports A/B) | DANFOSS PVG 32; Inlet Section; Auxiliary Valve EV-10.6; Auxiliary Valve EV-10.7 | Danfoss PVG 32; Unlabeled inlet/end section with block pressure-control and gauge/test components; Standalone auxiliary valve below secondary winch section; Standalone auxiliary valve below primary winch section |
+| `260-transom-door` | TRANSOM DOOR | TRANSOM DOOR | TRANSOM DOOR |
+| `260-deck-door` | DECK DOOR | DECK DOOR | DECK DOOR |
+| `840-cariboni-hydraulic-cylinders` | MAINSHEET TRAVELER | MAINSHEET TRAVELER | MAINSHEET TRAVELLER |
+| `220-secondary-winch-port` | SECONDARY WINCH PORT | SECONDARY WINCH PORT | SECONDARY WINCH PORT |
+| `220-primary-winch-port` | PRIMARY WINCH PORT | PRIMARY WINCH PORT | PRIMARY WINCH PORT |
+
 ### anthropic — 41 elements
 - agreed with all: 10 · unique to anthropic: 31
 - unique reads (VERIFY THESE — disagreement or fabrication): TRANSOM DOOR - EV-10.1 (PVG 32 Module), 125, 195, DECK DOOR - EV-10.2, 157B6203, MAINSHEET TRAVELER, SECONDARY WINCH PORT (EV-10.4) — PVG 32 module, 157B7... (partially legible, cartridge marked 260), 157B7126, PRIMARY WINCH PORT — PVG 32 module, EV-10.5 (main spool section, PN 157B7126), 260, EV-10.6, EV-10.7 (label cut off), EV-10.7 (function identifier as printed; part/tag "157B2014" on adjacent circuit at top), Standalone auxiliary valve block (relief/pilot, top-left of manifold, near M/LS lines), AFT WINCH / OPTIONAL AFT WINCHES hydraulic sub-circuit (block C) - identifier 157B5111 / partial ref 1116683 (top, truncated), unconfirmed, 300, EV-10.6 standalone auxiliary valve (1/4"G ports A/B), PRIMARY WINCH SUPPORT PORT (EV-10.5 / EV-10.6) - PVG 32 module, unconfirmed id, marked 260 on each cartridge body, EV-10.7 standalone auxiliary valve (1/4"G ports A/B), EV-10.7, 260 (partial marking), JOB N°: 22-53 | CLIENT: Southern Wind Shipyard | PROJECT: SWS 108, TITLE: HYDRAULIC SYSTEM | REV: 10, SECTION: DIAGRAM | DATE: 16/04/2026, DRAWN: PT | CHECKED: PC | SCALE: not to scale @ A3 | SHEET: 8 of 12, FILE NAME: SWS108-Hydraulic_System-rev10-AFT_blockC, This drawing and the contained informations are property of MYT-Systems S.r.l. and protected by law. Copying, disclosure and any other use are prohibited except with written permission of MYT-Systems S.r.l.., MYT-Systems S.r.l. | Via Borzoli 39,130P,16153 Genova (GE) | ITALY | Tel: +390185380903 | email: info@myt-systems.com
@@ -116,138 +138,164 @@ EV<illegible>
 
 ## 1-hydraulic-manifold — rev0_reference
 
+- ROUTING MATRIX (rows = intended node; cells = the label each provider read; ✗ = provider never routed anything here):
+
+| intended node | anthropic | gemini | openai |
+|---|---|---|---|
+| `(flagged — no node)` | Danfoss PVG 32 / PVG 32/16 valve blocks; Aluminum modular manifolds; Danfoss Series 45 Pump Frame K2; CAPTIVE WINCH 9T; ENGINE ROOM / HYDRAULIC OIL TANK; LOCKING PIN; MAST WINCH STBD FWD; POWER PACKS PUMP (x2, Danfoss Series 45 Frame K2) | Southern Wind Shipyard; ENGINE ROOM HYDRAULIC POWER PACK; LOCKING PIN; MAST WINCH STBD FWD; SPARE; JIB CUNINGHAM | TRANSOM CYLINDER; DOCK TENDER CYLINDER; Standalone captive-winch auxiliary/compensating valve assembly; OUTHALL; ENGINE ROOM POWER PACKS / pumps and auxiliary valves; LOCKING PIN; MAST WINCH STBD FWD; Block inlet/end and LS-compensating/shuttle sections distributed among manifolds |
+| `840-cariboni-hydraulic-cylinders` | BACKSTAY; MAINSHEET TRAVELLER CYLINDER; OUTHAUL; JIB IN/OUT; JIB UP/DOWN; VANG; BACKSTAY DEFLECTOR; MAIN CUNNINGHAM; JIB CUNNINGHAM; THRUSTER UP/DOWN; THRUSTER UP/DOWN | THRUSTER UP/DOWN; BACKSTAY; MAINSHEET TRAVELLER CYLINDER; OUTHAUL; JIB IN/OUT; JIB UP/DOWN; VANG; BACKSTAY DEFLECTOR; MAIN CUNNINGHAM; THRUSTER UP/DOWN | BACKSTAY; MAINSHEET TRAVELLER CYLINDER; JIB UP/OUT; JIB UP/DOWN; VANG; BACKSTAY DEFLECTOR; MAIN CUNNINGHAM; JIB CUNNINGHAM; THRUSTER UP/DOWN; THRUSTER UP/DOWN |
+| `260-transom-door` | TRANSOM DOOR CYLINDER | TRANSOM DOOR CYLINDER | ✗ |
+| `260-deck-door` | DECK DOOR CYLINDER | DECK DOOR CYLINDER | ✗ |
+| `220-secondary-winch-port` | SECONDARY WINCH PORT | SECONDARY WINCH PORT | SECONDARY WINCH PORT |
+| `220-primary-winch-port` | PRIMARY WINCH PORT | PRIMARY WINCH PORT | PRIMARY WINCH PORT |
+| `860-bamar-gfsi30` | FORESTAY RTA; JIB FURLER | JIB FURLER; FORESTAY RTA | FORESTAY RTA; JIB FURLER |
+| `461-stern-thruster-oms-h250` | STERN THRUSTER | STERN THRUSTER | STERN THRUSTER |
+| `460-bow-thruster-oms-h300` | THRUSTER LOCK; BOW THRUSTER; THRUSTER LOCK | THRUSTER LOCK; BOW THRUSTER; THRUSTER LOCK | THRUSTER LOCK; BOW THRUSTER; THRUSTER LOCK |
+| `270-tender-car-antal-ld1500` | TENDER CAR CONTROLLER | TENDER CAR CONTROLLER | TENDER CAR CONTROLLER |
+| `270-tender-winch-warn-hy2000` | TENDER HAULING WINCH | TENDER HAULING WINCH | TENDER WINCH |
+| `220-secondary-winch-stbd` | SECONDARY WINCH STB | SECONDARY WINCH STB | SECONDARY WINCH STB |
+| `220-primary-winch-stbd` | PRIMARY WINCH STBD | PRIMARY WINCH STBD | PRIMARY WINCH STBD |
+| `130-apm-lifting-keel` | LIFTING KEEL | LIFTING KEEL | LIFTING KEEL |
+| `220-mast-winch-aft-port` | MAST WINCH PORT AFT; MAST WINCH STBD AFT | MAST WINCH PORT AFT; MAST WINCH STBD AFT | MAST WINCH PORT AFT; MAST WINCH STBD AFT |
+| `220-mast-winch-fwd-port` | MAST WINCH PORT FWD | MAST WINCH PORT FWD | MAST WINCH PORT FWD |
+| `250-windlass-lewmar-v8` | WINDLASS | WINDLASS | WINDLASS |
+| `220-capstan-winch` | CAPSTAN | CAPSTAN | CAPSTAN |
+| `860-bamar-sit20` | INNERSTAY RTA; STAYSAIL FURLER | STAYSAIL FURLER | INNERSTAY RTA; STAYSAIL FURLER |
+| `860-bamar-pi20` | CODE 0 FURLER | INNERSTAY FURLER; CODE 0 FURLER | CODE 0 FURLER |
+| `220-captive-mainsheet-9t` | ✗ | CAPTIVE WINCH ST | CAPTIVE WINCH 2T |
+
 ### anthropic — 131 elements
 - agreed with all: 36 · unique to anthropic: 95
 - unique reads (VERIFY THESE — disagreement or fabrication): Danfoss PVG 32 / PVG 32/16 valve blocks; Aluminum modular manifolds; Danfoss Series 45 Pump Frame K2, BACKSTAY (item 11 - AFT SAILING MANIFOLD, 2 functions - this crop shows one function: BACKSTAY ram control with dual pressure sensors and shutoff/selector valve), 22, unconfirmed, 11, TRANSOM DOOR CYLINDER, TRANSOM DOOR CYLINDER / DECK DOOR CYLINDER dual actuator function (part of aft door cylinders group), DECK DOOR CYLINDER, TENDER HAULING WINCH (aft block section, one of the cylinder/winch function groups shown in this crop), unconfirmed — block-level ID not individually legible for this single section, MAINSHEET TRAVELLER CYLINDER function (upper section, 1 of 2 similar sub-circuits shown), Winch Port functions (Secondary Winch Port / Primary Winch Port) — two parallel PVG-type sections shown in upper crop, item "10" (AFT BLOCK "C" - DANFOSS PVG 32 - 5 FUNCTIONS) group, unconfirmed — matches BOM item 18 REXROTH A-VBSO-DE-78-14-35 dual counterbalance but id not legible on drawing, PRIMARY WINCH PORT / STBD (dual mast winch functions, part of AFT BLOCK "A"/"C" grouping, items 8 & 10 per BOM), unconfirmed, associated with item 10 AFT BLOCK C per BOM but not directly legible on the symbol, unconfirmed, associated with item 8 AFT BLOCK A per BOM but not directly legible on the symbol, unconfirmed — likely item 18 (REXROTH A-VBSO-DE-78-14-35 dual counterbalance) per BOM but part number not legible on drawing, unconfirmed, possibly item 22 pressure sensor (WIKA 12719341) given small square symbol convention, but not confirmed by legible tag, CAPTIVE WINCH 9T, Captive Winch 9T circuit (Danfoss PVG 32 Captive Block, item 5) - Harken Tensioner CT1 and 6T winch drum functions, OUTHAUL, JIB IN/OUT, OUTHAUL / JIB IN-OUT (two adjacent functions shown in crop, aft mast sailing manifold area), JIB IN/OUT (winch function actuator, part of aft mast sailing manifold group), REXROTH A-VBSO-DE-78-14-35 (per BOM item 18, dual counterbalance, 9 off across sheet), MAST WINCH STBD FWD (function 7, part of AFT MAST SAILING MANIFOLD - 4 FUNCTIONS), SPARE (function label printed above valve, marked "SPARE" in yellow highlight; leftmost of two visible sailing-manifold functions in this crop — companion function to the right is "BACKSTAY DEFLECTOR"), FWD MAST SAILING MANIFOLD - 2 Functions: BACKSTAY DEFLECTOR and MAIN CUNNINGHAM (part 6 per BOM), FORESTAY RTA (Forestay Ram/Cylinder Actuator) — sub-circuit under FWD MAST SAILING MANIFOLD group, left function, 22 (WIKA 12719341 pressure sensor, per BOM), JIB CUNNINGHAM, FOREHIRESTAY / RTA (FORESTAY) and JIB CUNINGHAM - two adjacent single-acting cylinder functions on aft mast sailing manifold (item 3), BACKSTAY (mast sailing manifold function, item 7 AFT MAST SAILING MANIFOLD family), 22 (PS), AFT SAILING MANIFOLD - BACKSTAY function (item 11, sheet ref "11"), unlabeled, THRUSTER UP/DOWN with THRUSTER LOCK (part of AFT BLOCK "B" area, ref item 9), illegible small labels near junction, TRANSOM DOOR CYLINDER / DECK DOOR CYLINDER / MAINSHEET TRAVELLER CYLINDER (three parallel cylinder functions, top group), TENDER HAULING WINCH
 - node routing (same backbone for every provider):
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
+    - Danfoss PVG 32 / PVG 32/16 valve blocks; Aluminum modular manifolds; Danfoss Series 45 Pump Frame K2 → create_flagged [—] via -
+    - BACKSTAY → attach [840-cariboni-hydraulic-cylinders] via control_map
+    - TRANSOM DOOR CYLINDER → attach [260-transom-door] via control_map
+    - DECK DOOR CYLINDER → attach [260-deck-door] via control_map
+    - MAINSHEET TRAVELLER CYLINDER → attach [840-cariboni-hydraulic-cylinders] via control_map
+    - SECONDARY WINCH PORT → attach [220-secondary-winch-port] via control_map
+    - PRIMARY WINCH PORT → attach [220-primary-winch-port] via control_map
+    - CAPTIVE WINCH 9T → create_flagged [—] via -
+    - OUTHAUL → attach [840-cariboni-hydraulic-cylinders] via control_map
+    - JIB IN/OUT → attach [840-cariboni-hydraulic-cylinders] via control_map
+    - JIB UP/DOWN → attach [840-cariboni-hydraulic-cylinders] via control_map
+    - VANG → attach [840-cariboni-hydraulic-cylinders] via control_map
+    - BACKSTAY DEFLECTOR → attach [840-cariboni-hydraulic-cylinders] via control_map
+    - MAIN CUNNINGHAM → attach [840-cariboni-hydraulic-cylinders] via control_map
+    - FORESTAY RTA → attach [860-bamar-gfsi30] via control_map
+    - JIB CUNNINGHAM → attach [840-cariboni-hydraulic-cylinders] via control_map
+    - STERN THRUSTER → attach [461-stern-thruster-oms-h250] via control_map
+    - THRUSTER UP/DOWN → attach [840-cariboni-hydraulic-cylinders] via control_map
+    - THRUSTER LOCK → attach [460-bow-thruster-oms-h300] via control_map
+    - TENDER CAR CONTROLLER → attach [270-tender-car-antal-ld1500] via control_map
+    - TENDER HAULING WINCH → attach [270-tender-winch-warn-hy2000] via control_map
+    - SECONDARY WINCH STB → attach [220-secondary-winch-stbd] via control_map
+    - PRIMARY WINCH STBD → attach [220-primary-winch-stbd] via control_map
+    - ENGINE ROOM / HYDRAULIC OIL TANK → create_flagged [—] via -
+    - LIFTING KEEL → attach [130-apm-lifting-keel] via control_map
+    - LOCKING PIN → create_flagged [—] via no_match
+    - MAST WINCH PORT AFT → attach [220-mast-winch-aft-port] via control_map
+    - MAST WINCH PORT FWD → attach [220-mast-winch-fwd-port] via control_map
+    - MAST WINCH STBD AFT → attach [220-mast-winch-aft-port] via control_map
+    - MAST WINCH STBD FWD → create_flagged [—] via no_match
+    - WINDLASS → attach [250-windlass-lewmar-v8] via control_map
+    - CAPSTAN → attach [220-capstan-winch] via control_map
+    - INNERSTAY RTA → attach [860-bamar-sit20] via control_map
+    - STAYSAIL FURLER → attach [860-bamar-sit20] via control_map
+    - JIB FURLER → attach [860-bamar-gfsi30] via control_map
+    - CODE 0 FURLER → attach [860-bamar-pi20] via control_map
+    - BOW THRUSTER → attach [460-bow-thruster-oms-h300] via control_map
+    - THRUSTER UP/DOWN → attach [840-cariboni-hydraulic-cylinders] via control_map
+    - THRUSTER LOCK → attach [460-bow-thruster-oms-h300] via control_map
+    - POWER PACKS PUMP (x2, Danfoss Series 45 Frame K2) → create_flagged [—] via -
 ### gemini — 76 elements
 - agreed with all: 36 · unique to gemini: 40
 - unique reads (VERIFY THESE — disagreement or fabrication): Southern Wind Shipyard, STERN THRUSTER (bottom section) and BACKST... [BACKSTAY] (top section), 22, TRANSOM DOOR CYLINDER, DECK DOOR CYLINDER, TENDER HAULING WINCH, null, PVG 32 spool, ENGINE ROOM HYDRAULIC POWER PACK, CAPTIVE BLOCK 5 (CAPTIVE WINCH 9T & Tensioner Harken CT1) and POWER PACKS, unlabeled, 12, 13, 14, 21, CAPTIVE WINCH ST, unclear from crop, LIFTING KEEL / LOCKING PIN, PVG 32 slice, 15 (PVFC), unconfirmed, OUTHAUL, JIB IN/OUT, BACKSTAY DEFLECTOR / SPARE, INNERSTAY FURLER, SPARE, WINDLASS / CAPSTAN (with inlet block), none, JIB CUNINGHAM, # | NAME | QTY | MODEL | # | QTY, 1 | FWD BLOCK "A" | 1 | DANFOSS PVG 32 - 6 FUNCTIONS | 13 | POWERPACKS NON RETURN VALVE | 2 | REXROTH CA25, 2 | FWD BLOCK "B" | 1 | DANFOSS PVG 32/16 - 3 FUNCTIONS | 14 | POWERPACKS LS VALVE | 2 | REXROTH VEI-16-08A-NC, 3 | FWD SAILING MANIFOLD | 1 | ALLUMINUM MODULAR MANIFOLD - 2 FUNCTIONS | 15 | LS COMPENSATING VALVE | 5 | DANFOSS PVFC, 4 | MAST BLOCK | 1 | DANFOSS PVG 32 - 6 FUNCTIONS | 16 | SHUTTLE VALVE | 8 | FLUID-PRESS FPT1/4, 5 | CAPTIVE BLOCK | 1 | DANFOSS PVG 32 - 2 FUNCTIONS | 17 | DUAL COUNTERBALANCE VALVE | 1 | REXROTH A-VBSO-DE30-CSL-PI-38-35, 6 | FWD MAST SAILING MANIFOLD | 1 | ALLUMINUM MODULAR MANIFOLD - 2 FUNCTIONS | 18 | DUAL COUNTERBALANCE VALVE | 9 | REXROTH A-VBSO-DE-78-14-35, 7 | AFT MAST SAILING MANIFOLD | 1 | ALLUMINUM MODULAR MANIFOLD - 4 FUNCTIONS | 19 | FLOW CONTROL VALVE | 1 | TOGNELLA 251/5/S-01-14, 8 | AFT BLOCK "A" | 1 | DANFOSS PVG 32 - 4 FUNCTIONS | 20 | FLOW DIVIDER-COMBINER VALVE | 2 | REXROTH A-DRF16-1238-16-C, 9 | AFT BLOCK "B" | 1 | DANFOSS PVG 32/16 - 3 FUNCTIONS | 21 | FLOW METER | 1 | HYDROTECHNIK 31JH-71-35.030, 10 | AFT BLOCK "C" | 1 | DANFOSS PVG 32 - 5 FUNCTIONS | 22 | PRESSURE SENSOR | 5 | WIKA 12719341
 - node routing (same backbone for every provider):
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
+    - Southern Wind Shipyard → create_flagged [—] via -
+    - STERN THRUSTER → attach [461-stern-thruster-oms-h250] via control_map
+    - THRUSTER UP/DOWN → attach [840-cariboni-hydraulic-cylinders] via control_map
+    - THRUSTER LOCK → attach [460-bow-thruster-oms-h300] via control_map
+    - BACKSTAY → attach [840-cariboni-hydraulic-cylinders] via control_map
+    - TRANSOM DOOR CYLINDER → attach [260-transom-door] via control_map
+    - DECK DOOR CYLINDER → attach [260-deck-door] via control_map
+    - MAINSHEET TRAVELLER CYLINDER → attach [840-cariboni-hydraulic-cylinders] via control_map
+    - SECONDARY WINCH PORT → attach [220-secondary-winch-port] via control_map
+    - PRIMARY WINCH PORT → attach [220-primary-winch-port] via control_map
+    - TENDER CAR CONTROLLER → attach [270-tender-car-antal-ld1500] via control_map
+    - TENDER HAULING WINCH → attach [270-tender-winch-warn-hy2000] via control_map
+    - SECONDARY WINCH STB → attach [220-secondary-winch-stbd] via control_map
+    - PRIMARY WINCH STBD → attach [220-primary-winch-stbd] via control_map
+    - ENGINE ROOM HYDRAULIC POWER PACK → create_flagged [—] via -
+    - CAPTIVE WINCH ST → attach [220-captive-mainsheet-9t] via control_map
+    - LIFTING KEEL → attach [130-apm-lifting-keel] via control_map
+    - LOCKING PIN → create_flagged [—] via no_match
+    - MAST WINCH PORT AFT → attach [220-mast-winch-aft-port] via control_map
+    - MAST WINCH PORT FWD → attach [220-mast-winch-fwd-port] via control_map
+    - MAST WINCH STBD AFT → attach [220-mast-winch-aft-port] via control_map
+    - MAST WINCH STBD FWD → create_flagged [—] via no_match
+    - OUTHAUL → attach [840-cariboni-hydraulic-cylinders] via control_map
+    - JIB IN/OUT → attach [840-cariboni-hydraulic-cylinders] via control_map
+    - JIB UP/DOWN → attach [840-cariboni-hydraulic-cylinders] via control_map
+    - VANG → attach [840-cariboni-hydraulic-cylinders] via control_map
+    - WINDLASS → attach [250-windlass-lewmar-v8] via control_map
+    - CAPSTAN → attach [220-capstan-winch] via control_map
+    - INNERSTAY FURLER → attach [860-bamar-pi20] via control_map
+    - STAYSAIL FURLER → attach [860-bamar-sit20] via control_map
+    - JIB FURLER → attach [860-bamar-gfsi30] via control_map
+    - CODE 0 FURLER → attach [860-bamar-pi20] via control_map
+    - SPARE → create_flagged [—] via no_match
+    - BACKSTAY DEFLECTOR → attach [840-cariboni-hydraulic-cylinders] via control_map
+    - MAIN CUNNINGHAM → attach [840-cariboni-hydraulic-cylinders] via control_map
+    - FORESTAY RTA → attach [860-bamar-gfsi30] via control_map
+    - JIB CUNINGHAM → create_flagged [—] via no_match
+    - BOW THRUSTER → attach [460-bow-thruster-oms-h300] via control_map
+    - THRUSTER UP/DOWN → attach [840-cariboni-hydraulic-cylinders] via control_map
+    - THRUSTER LOCK → attach [460-bow-thruster-oms-h300] via control_map
 ### openai — 119 elements
 - agreed with all: 36 · unique to openai: 83
 - unique reads (VERIFY THESE — disagreement or fabrication): THRUSTER LOCK — identifier 9 (identifier appears to denote the enclosing AFT BLOCK “B”, not a separately printed function number), TRANSOM CYLINDER, TENDER CAR CONTROL — identifier not visible in this crop, 16 — FLUID-PRESS FPT1/4 (per sheet part list), 15 — DANFOSS PVFC (per sheet part list), DOCK TENDER CYLINDER, DECK DOOR CYLINDER (no separate function identifier legible in this crop), 20 — REXROTH A-DRF16-1238-16-C, 18 — REXROTH A-VBSO-DE-78-14-35, MAIN SHEET TRAVELLER CYLINDER — function identifier not legible in this crop, 18 (BOM: Rexroth A-VBSO-DE-78-14-35), Ambiguous crop: six function labels are visible — MAIN SHEET TRAVELLER CYLINDER; SECONDARY WINCH PORT; PRIMARY WINCH PORT; TENDER HAULING WINCH; SECONDARY WINCH STB; PRIMARY WINCH STBD. No single target function is uniquely identified., Ambiguous crop: two printed function labels are visible, “PRIMARY WINCH PORT” (upper section, block identifier 10 nearby) and “PRIMARY WINCH STBD” (lower section, block identifier 8 nearby); no single target identifier is clearly isolated., CAPTIVE WINCH 2T, CAPTIVE WINCH 9T — Captive Block item 5, left-hand function section, Standalone captive-winch auxiliary/compensating valve assembly, CAPTIVE WINCH 2T (identifier as printed; the nearby vertical cylinder/graphic is marked “6T”, significance unclear), OUTHALL, MAST WINCH PORT AFT (no separate function identifier clearly legible in this crop), JIB UP/OUT, MAST WINCH PORT FWD (no separate identifier legible in crop), MAST WINCH STBD AFT (center vertical function; no separate function number legible), MAST WINCH STBD AFT (left-hand vertical section in MAST BLOCK, item 4); adjacent MAST WINCH STBD FWD section is also visible, so the intended single section is not explicitly marked, INTERSTAY RTA (identifier as printed; no separate function number legible), STAYSAIL FURLER (printed label); no separate function identifier legible in this crop, 16 (BOM: FLUID-PRESS FPT1/4), THRUSTER UP/DOWN (no separate identifier legible in the crop), JIB CUNNINGHAM, THRUSTER LOCK (printed label); nearby printed identifier “2” appears to identify the enclosing block/manifold, but its exact association with this function is not fully explicit in the crop, BACKSTAY — no separate function identifier is legible in this crop, 22 (BOM: WIKA 12719341), THRUSTER UP/DOWN — identifier 9 (AFT BLOCK “B”, inferred only from the clearly printed manifold callout 9 at the right edge of the shown block; no separate function number is legible), THRUSTER LOCK — identifier 9 is printed at the AFT BLOCK “B” assembly boundary; no separate function number is legible, DECK DOOR CYLINDER (identifier not legible in crop), TENDER WINCH, TENDER HAULING WINCH (identifier not visible in crop), 18 — REXROTH A-VBSO-DE-78-14-35 (per sheet part list), Ambiguous crop: two centered function slices are visible — “SECONDARY WINCH PORT” (upper block) and “SECONDARY WINCH STB” (lower block); no printed function identifier is legible., PRIMARY WINCH PORT — adjacent assembly/item callout 10; no separate function identifier is clearly readable, ENGINE ROOM POWER PACKS / pumps and auxiliary valves
 - node routing (same backbone for every provider):
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
-    - ? → refused_superseded [—] via -
+    - BACKSTAY → attach [840-cariboni-hydraulic-cylinders] via control_map
+    - TRANSOM CYLINDER → create_flagged [—] via no_match
+    - DOCK TENDER CYLINDER → create_flagged [—] via no_match
+    - MAINSHEET TRAVELLER CYLINDER → attach [840-cariboni-hydraulic-cylinders] via control_map
+    - SECONDARY WINCH PORT → attach [220-secondary-winch-port] via control_map
+    - PRIMARY WINCH PORT → attach [220-primary-winch-port] via control_map
+    - CAPTIVE WINCH 2T → attach [220-captive-mainsheet-9t] via control_map
+    - Standalone captive-winch auxiliary/compensating valve assembly → create_flagged [—] via -
+    - OUTHALL → create_flagged [—] via no_match
+    - JIB UP/OUT → attach [840-cariboni-hydraulic-cylinders] via control_map
+    - JIB UP/DOWN → attach [840-cariboni-hydraulic-cylinders] via control_map
+    - VANG → attach [840-cariboni-hydraulic-cylinders] via control_map
+    - BACKSTAY DEFLECTOR → attach [840-cariboni-hydraulic-cylinders] via control_map
+    - MAIN CUNNINGHAM → attach [840-cariboni-hydraulic-cylinders] via control_map
+    - FORESTAY RTA → attach [860-bamar-gfsi30] via control_map
+    - JIB CUNNINGHAM → attach [840-cariboni-hydraulic-cylinders] via control_map
+    - STERN THRUSTER → attach [461-stern-thruster-oms-h250] via control_map
+    - THRUSTER UP/DOWN → attach [840-cariboni-hydraulic-cylinders] via control_map
+    - THRUSTER LOCK → attach [460-bow-thruster-oms-h300] via control_map
+    - TENDER CAR CONTROLLER → attach [270-tender-car-antal-ld1500] via control_map
+    - TENDER WINCH → attach [270-tender-winch-warn-hy2000] via control_map
+    - SECONDARY WINCH STB → attach [220-secondary-winch-stbd] via control_map
+    - PRIMARY WINCH STBD → attach [220-primary-winch-stbd] via control_map
+    - ENGINE ROOM POWER PACKS / pumps and auxiliary valves → create_flagged [—] via -
+    - LIFTING KEEL → attach [130-apm-lifting-keel] via control_map
+    - LOCKING PIN → create_flagged [—] via no_match
+    - MAST WINCH PORT AFT → attach [220-mast-winch-aft-port] via control_map
+    - MAST WINCH PORT FWD → attach [220-mast-winch-fwd-port] via control_map
+    - MAST WINCH STBD AFT → attach [220-mast-winch-aft-port] via control_map
+    - MAST WINCH STBD FWD → create_flagged [—] via no_match
+    - WINDLASS → attach [250-windlass-lewmar-v8] via control_map
+    - CAPSTAN → attach [220-capstan-winch] via control_map
+    - INNERSTAY RTA → attach [860-bamar-sit20] via control_map
+    - STAYSAIL FURLER → attach [860-bamar-sit20] via control_map
+    - JIB FURLER → attach [860-bamar-gfsi30] via control_map
+    - CODE 0 FURLER → attach [860-bamar-pi20] via control_map
+    - BOW THRUSTER → attach [460-bow-thruster-oms-h300] via control_map
+    - THRUSTER UP/DOWN → attach [840-cariboni-hydraulic-cylinders] via control_map
+    - THRUSTER LOCK → attach [460-bow-thruster-oms-h300] via control_map
+    - Block inlet/end and LS-compensating/shuttle sections distributed among manifolds → create_flagged [—] via -
 
 
 ## 2-electrical-distribution-schedule — GM-111_24V-DC-distribution

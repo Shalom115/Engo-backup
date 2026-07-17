@@ -133,7 +133,10 @@ def _route_hydraulic(result: Dict[str, Any], sheet: Dict[str, Any]) -> Optional[
     """
     try:
         from pipeline.node_write import NodeWriter
-        w = NodeWriter(dry_run=True)
+        # bypass_revision_gate: bench-only (dry-run) — superseded sheets route
+        # anyway so each provider's INTENDED node placement is visible side by
+        # side (engineer request 2026-07-17). Real writes keep the gate.
+        w = NodeWriter(dry_run=True, bypass_revision_gate=True)
         src = {"source_doc": sheet["name"], "sheet": sheet["name"],
                "source_type": "hydraulic_schematic",
                "drive_file_id": sheet.get("drive_file_id")}
@@ -240,6 +243,47 @@ def _labels_of(result: Any) -> List[str]:
     return out
 
 
+def _routing_matrix(runs: Dict[str, Any]) -> List[str]:
+    """
+    Side-by-side routing alignment (engineer request 2026-07-17): one row per
+    element, matched across providers by intended TARGET NODE (the judgment
+    that matters), cells show the label as each provider read it. Rows where
+    providers disagree on target — or where a provider missed the element —
+    are exactly what the engineer grades.
+    """
+    per_vendor: Dict[str, List[Dict[str, Any]]] = {}
+    for vendor, result in runs.items():
+        rows = []
+        for d in result.get("_node_routing") or []:
+            if "routing_error" in d or d.get("action") == "refused_superseded":
+                continue
+            rows.append({"label": d.get("slice") or d.get("block") or "?",
+                         "target": d.get("target") or "(flagged — no node)",
+                         "action": d.get("action")})
+        per_vendor[vendor] = rows
+    if not any(per_vendor.values()):
+        return []
+    # group rows by target node; within a target, list each vendor's labels
+    targets: List[str] = []
+    for rows in per_vendor.values():
+        for r in rows:
+            if r["target"] not in targets:
+                targets.append(r["target"])
+    vendors = sorted(per_vendor)
+    lines = ["- ROUTING MATRIX (rows = intended node; cells = the label each "
+             "provider read; ✗ = provider never routed anything here):",
+             "", "| intended node | " + " | ".join(vendors) + " |",
+             "|" + "---|" * (len(vendors) + 1)]
+    for tgt in targets:
+        cells = []
+        for v in vendors:
+            labels = [r["label"] for r in per_vendor[v] if r["target"] == tgt]
+            cells.append("; ".join(labels) if labels else "✗")
+        lines.append(f"| `{tgt}` | " + " | ".join(cells) + " |")
+    lines.append("")
+    return lines
+
+
 def build_report() -> None:
     manifest = json.loads(MANIFEST.read_text())
     lines = ["# Vision benchmark — side-by-side (engineer grades)",
@@ -256,6 +300,7 @@ def build_report() -> None:
             if not runs:
                 continue
             lines.append(f"\n## {cat['category']} — {sheet['name']}\n")
+            lines.extend(_routing_matrix(runs))
             label_sets = {v: set(l.lower() for l in _labels_of(r))
                           for v, r in runs.items()}
             common = set.intersection(*label_sets.values()) if label_sets else set()

@@ -60,9 +60,16 @@ def _atomic_write_json(path: Path, obj: Any) -> None:
 
 
 class NodeWriter:
-    def __init__(self, vessel: Optional[str] = None, *, dry_run: bool = True):
+    def __init__(self, vessel: Optional[str] = None, *, dry_run: bool = True,
+                 bypass_revision_gate: bool = False):
         self.vessel = vessel or config.VESSEL_NAMESPACE
         self.dry_run = dry_run
+        # Bench-only: route superseded-revision facts anyway so provider intent
+        # is visible side by side. NEVER valid for a real write — the gate
+        # protects the Register from stale drawings.
+        if bypass_revision_gate and not dry_run:
+            raise ValueError("bypass_revision_gate is bench-only: requires dry_run=True")
+        self.bypass_revision_gate = bypass_revision_gate
         self.reg_path = config.STATE_DIR / f"register_{self.vessel}.json"
         self.reg = json.loads(self.reg_path.read_text())
         self.entries = self.reg["entries"]
@@ -86,6 +93,10 @@ class NodeWriter:
 
     def _revision_refused(self, source_ref: Dict[str, Any]) -> Optional[Dict[str, Any]]:
         fid = source_ref.get("drive_file_id")
+        if fid and fid in self.superseded_ids and self.bypass_revision_gate:
+            # Bench bypass: route anyway, but keep the superseded marker visible.
+            source_ref.setdefault("revision_note", "SUPERSEDED revision — routed for bench comparison only")
+            return None
         if fid and fid in self.superseded_ids:
             dec = {"action": "refused_superseded", "source_doc": source_ref.get("source_doc"),
                    "drive_file_id": fid,
