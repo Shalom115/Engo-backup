@@ -1,0 +1,210 @@
+{
+ "sheet": "AFT_blockB",
+ "provider": "gemini",
+ "extraction": {
+  "header": {
+   "make_model": "DANFOSS PVG 32/16",
+   "title": "AFT BLOCK B: DANFOSS PVG 32/16 - 3 FUNCTIONS",
+   "revision": "10",
+   "sheet": "7 of 12"
+  },
+  "rails": [
+   "M",
+   "LS",
+   "T",
+   "P",
+   "LSB",
+   "LSA"
+  ],
+  "block_capacity_printed": false,
+  "notes": "Cartridge and component part numbers in the schematic diagram are small and illegible. The spool flow ratings and EV numbers are legible at the top of each slice. There is a small sub-circuit on the far left that acts as an inlet/relief group. High resolution is required to read component numbers.",
+  "slices": [
+   {
+    "label": "inlet / main relief section",
+    "is_block_level": true,
+    "detail": {
+     "skipped": "no x-extent from skeleton"
+    }
+   },
+   {
+    "label": "STERN THRUSTER",
+    "identifier": "EV-9.1",
+    "rating": "65 lt/min",
+    "actuation": "0-10 V",
+    "neutral": "open",
+    "is_block_level": false,
+    "detail": {
+     "skipped": "no x-extent from skeleton"
+    }
+   },
+   {
+    "label": "S.T. UP/DOWN",
+    "identifier": "EV-9.2",
+    "rating": "5 lt/min",
+    "actuation": "ON/OFF",
+    "neutral": "closed",
+    "is_block_level": false,
+    "detail": {
+     "skipped": "no x-extent from skeleton"
+    }
+   },
+   {
+    "label": "S.T. LOCK",
+    "identifier": "EV-9.3",
+    "rating": "5 lt/min",
+    "actuation": "ON/OFF",
+    "neutral": "closed",
+    "is_block_level": false,
+    "detail": {
+     "skipped": "no x-extent from skeleton"
+    }
+   }
+  ],
+  "legends": [
+   {
+    "title_as_printed": "",
+    "kind": "other_table",
+    "bbox": [
+     658,
+     722,
+     856,
+     982
+    ],
+    "content": {
+     "error": "Coordinate 'right' is less than 'left'"
+    }
+   }
+  ],
+  "legend_context": "THIS SHEET'S OWN LEGENDS AND TABLES (read first; these definitions are AUTHORITATIVE for this sheet and override any generic symbol/line convention):\n- [other_table] other_table: (present on sheet; not read)",
+  "passes": {
+   "skeleton_dpi": 200,
+   "detail_dpi": 600,
+   "slices_found": 4,
+   "detail_calls": 0
+  },
+  "model": "gemini-3.1-pro-preview",
+  "_node_routing": [
+   {
+    "block": "DANFOSS PVG 32/16",
+    "action": "attach",
+    "target": "570-danfoss-pvg-32-16-aft-blockb",
+    "confidence": 1.0
+   },
+   {
+    "slice": "inlet / main relief section",
+    "action": "attach",
+    "target": "570-danfoss-pvg-32-16-aft-blockb",
+    "via": "block_level",
+    "confidence": "caveat"
+   },
+   {
+    "slice": "STERN THRUSTER",
+    "action": "attach",
+    "target": "461-stern-thruster-oms-h250",
+    "via": "control_map",
+    "mechanism": "exact",
+    "confidence": "high"
+   },
+   {
+    "slice": "S.T. UP/DOWN",
+    "action": "attach",
+    "target": "461-stern-thruster-oms-h250",
+    "via": "control_map",
+    "mechanism": "abbreviation_expanded",
+    "confidence": "medium"
+   },
+   {
+    "slice": "S.T. LOCK",
+    "action": "attach",
+    "target": "461-stern-thruster-oms-h250",
+    "via": "control_map",
+    "mechanism": "abbreviation_expanded",
+    "confidence": "medium"
+   }
+  ]
+ },
+ "disposition": {
+  "items": [
+   {
+    "information": "Header Make/Model: DANFOSS PVG 32/16",
+    "relevance": "relevant",
+    "reason": "Identifies the specific make and model of the hydraulic valve block.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "Make and Model"
+   },
+   {
+    "information": "Header Title: AFT BLOCK B: DANFOSS PVG 32/16 - 3 FUNCTIONS",
+    "relevance": "relevant",
+    "reason": "Provides the block designation and number of active functions.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "Block Designation"
+   },
+   {
+    "information": "Header Revision and Sheet: Revision 10, Sheet 7 of 12",
+    "relevance": "relevant",
+    "reason": "Provides document tracking and reference context for the block.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "Drawing Reference"
+   },
+   {
+    "information": "Block hydraulic rails: M, LS, T, P, LSB, LSA",
+    "relevance": "relevant",
+    "reason": "Details the internal hydraulic connections / galleries of the manifold.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "Hydraulic Rails"
+   },
+   {
+    "information": "Block capacity printed status: false",
+    "relevance": "irrelevant",
+    "reason": "Metadata from the extraction process, not a vessel fact."
+   },
+   {
+    "information": "Notes regarding illegible cartridge and part numbers, requiring high resolution, and mentioning flow ratings/EV numbers at the top.",
+    "relevance": "relevant",
+    "reason": "Crucial maintenance and documentation note regarding the schematic's legibility for this specific block.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "Drawing Note"
+   },
+   {
+    "information": "Slice 1: inlet / main relief section (block level)",
+    "relevance": "relevant",
+    "reason": "Confirms the presence of an inlet/relief module on the block.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "Inlet Section"
+   },
+   {
+    "information": "Slice 2: STERN THRUSTER (EV-9.1, 65 lt/min rating, 0-10 V actuation, open neutral)",
+    "relevance": "relevant",
+    "reason": "Defines the operating parameters for the main stern thruster hydraulic supply slice.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "Stern Thruster Slice (EV-9.1)"
+   },
+   {
+    "information": "Slice 3: S.T. UP/DOWN (EV-9.2, 5 lt/min rating, ON/OFF actuation, closed neutral)",
+    "relevance": "relevant",
+    "reason": "Defines the operating parameters for the stern thruster deployment (up/down) hydraulic slice.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "S.T. Up/Down Slice (EV-9.2)"
+   },
+   {
+    "information": "Slice 4: S.T. LOCK (EV-9.3, 5 lt/min rating, ON/OFF actuation, closed neutral)",
+    "relevance": "relevant",
+    "reason": "Defines the operating parameters for the stern thruster locking hydraulic slice.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "S.T. Lock Slice (EV-9.3)"
+   },
+   {
+    "information": "Legends error content: Coordinate 'right' is less than 'left'",
+    "relevance": "irrelevant",
+    "reason": "OCR/Extraction error metadata."
+   },
+   {
+    "information": "Legend context instructions: THIS SHEET'S OWN LEGENDS AND TABLES...",
+    "relevance": "irrelevant",
+    "reason": "Extraction parser instructions, not vessel equipment data."
+   }
+  ],
+  "_model": "gemini-3.1-pro-preview"
+ },
+ "elapsed_s": 51.0
+}

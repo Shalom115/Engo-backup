@@ -1,0 +1,2015 @@
+{
+ "sheet": "AFT_blockB",
+ "provider": "openai",
+ "extraction": {
+  "header": {
+   "make_model": "Danfoss PVG 32/16",
+   "title": "AFT BLOCK B: DANFOSS PVG 32/16 - 3 FUNCTIONS; title block: HYDRAULIC SYSTEM / DIAGRAM",
+   "revision": "10",
+   "sheet": "7 of 12"
+  },
+  "rails": [
+   "T",
+   "P",
+   "LS",
+   "M",
+   "LSB",
+   "LSA"
+  ],
+  "block_capacity_printed": false,
+  "notes": "Three repeated vertical function sections are visible. The left block-level inlet/end section includes pressure-control/relief, gauge/test, and auxiliary cartridge symbols; most small cartridge/part numbers are illegible. A setting marked '300' is visible, but its units and exact component association are not safely readable. Small numbers along interconnecting lines and several component numbers within the slices require a higher-resolution read. Header wording says '3 FUNCTIONS'. S.T. UP/DOWN legend supplied as 'T >5V=B UP=A / DOWN=B', but the exact punctuation/logic around 'T >5V=B' should be verified at higher resolution. S.T. LOCK neutral text appears truncated as 'closed neutral positi' in the supplied legend.",
+  "slices": [
+   {
+    "label": "STERN THRUSTER",
+    "identifier": "EV-91",
+    "rating": "PVG 32 module; spool 65 lt/min",
+    "actuation": "PVEU proportional electrohydraulic actuation, 0\u201310 V; open neutral position. Sheet legend states TO STBD <5 V=A / TO PORT >5 V=B.",
+    "neutral": "Open neutral position.",
+    "x_left": 0.335,
+    "x_right": 0.445,
+    "is_block_level": false,
+    "detail": {
+     "function": "STERN THRUSTER \u2014 EV-91",
+     "rating": "PVG 32 module; spool 65 lt/min",
+     "actuation": "PVEU proportional electrohydraulic actuation, 0\u201310 V; open neutral position. Sheet legend states TO STBD <5 V=A / TO PORT >5 V=B.",
+     "neutral": "Open neutral position.",
+     "cartridges": [
+      {
+       "role": "main directional spool",
+       "position_in_flow": "PVG 32 spool between P/T galleries and A/B work ports; the drawn spool meters pressure to either work port and returns the opposite side toward T.",
+       "id": "157B?13 (partly legible; exact characters unconfirmed)",
+       "setting": "65 lt/min spool"
+      },
+      {
+       "role": "work-port pressure-control cartridge \u2014 exact relief/anticavitation action unconfirmed from symbol detail",
+       "position_in_flow": "One 280-marked cartridge is connected at the A-side work-port branch; its opposite side joins the common lower gallery drawn down toward the valve section. The final connection of that common gallery to T is not fully unambiguous in this crop.",
+       "id": "157B2280",
+       "setting": "280 (unit not printed in crop)"
+      },
+      {
+       "role": "work-port pressure-control cartridge \u2014 exact relief/anticavitation action unconfirmed from symbol detail",
+       "position_in_flow": "One 280-marked cartridge is connected at the B-side work-port branch; its opposite side joins the same common lower gallery drawn down toward the valve section. The final connection of that common gallery to T is not fully unambiguous in this crop.",
+       "id": "157B2280",
+       "setting": "280 (unit not printed in crop)"
+      },
+      {
+       "role": "cross-port/check-valve bridge assembly \u2014 detailed role unconfirmed",
+       "position_in_flow": "Cyan-outlined assembly above port A is tied into the A/B work-port branching shown at the top of this section; internal check/valve symbols form a bridge, but every external connection cannot be traced confidently in the crop.",
+       "id": "11166832",
+       "setting": ""
+      },
+      {
+       "role": "LS pressure limiter",
+       "position_in_flow": "230-marked adjustable pressure-control element connected from one work-port sensing branch into the LS selection network near LS_B/LS_A; exact side assignment is unclear.",
+       "id": "",
+       "setting": "230 (unit not printed in crop)"
+      },
+      {
+       "role": "LS pressure limiter",
+       "position_in_flow": "Second 230-marked adjustable pressure-control element connected from the other work-port sensing branch into the LS selection network near LS_B/LS_A; exact side assignment is unclear.",
+       "id": "",
+       "setting": "230 (unit not printed in crop)"
+      },
+      {
+       "role": "LS shuttle/check element",
+       "position_in_flow": "Diamond/circle element in the lower LS sensing network, selecting/isolation between a work-port sensing branch and an LS rail.",
+       "id": "",
+       "setting": ""
+      },
+      {
+       "role": "LS shuttle/check element",
+       "position_in_flow": "Second diamond/circle element in the lower LS sensing network, selecting/isolation between the other work-port sensing branch and an LS rail.",
+       "id": "",
+       "setting": ""
+      }
+     ],
+     "flow_scenarios": [
+      "Neutral: the legend explicitly specifies open neutral position; the centered spool provides an open neutral path through the section toward return, while A/B are not commanded.",
+      "Command A / TO STBD (<5 V per sheet legend): P is metered through the main spool to A; the opposite B side is connected through the spool toward T/return.",
+      "Command B / TO PORT (>5 V per sheet legend): P is metered through the main spool to B; the opposite A side is connected through the spool toward T/return.",
+      "Work-port overpressure: the corresponding 280-marked work-port pressure-control branch opens at its marked threshold into the common lower gallery; this crop does not make the final dump destination sufficiently unambiguous to state tank with certainty.",
+      "Load-sense operation: pressure from the active work-port sensing branch is selected through the lower LS elements and passed to the LS rails; each sensing branch has a 230-marked limiting element."
+     ],
+     "settings": [
+      "Work-port pressure-control cartridges: 280 each; pressure unit not printed in this crop.",
+      "LS pressure limiters: 230 each; pressure unit not printed in this crop.",
+      "PVEU command: 0\u201310 V; TO STBD <5 V=A, TO PORT >5 V=B."
+     ],
+     "ports": [
+      "P: pressure/supply rail at bottom of section.",
+      "T: return/tank rail at bottom of section.",
+      "A: work port at top; continues off the cropped function toward the stern-thruster actuator.",
+      "B: work port at top; continues off the cropped function toward the stern-thruster actuator.",
+      "LS_B: load-sense rail at bottom.",
+      "LS_A: load-sense rail at bottom."
+     ],
+     "illegible": [
+      "Main spool printed identifier appears as 157B?13; exact middle character(s) are unclear.",
+      "Pressure units for the printed 280 and 230 settings are not shown/readable in this crop.",
+      "Small identifiers beside the two lower 230-marked LS elements are not legible.",
+      "Exact external-node mapping of all internal elements in assembly 11166832 is not fully traceable from this crop."
+     ],
+     "_model": "gpt-5.6-sol"
+    },
+    "actuation_skeleton": "PVEU - 0-10 V; TO STBD <5 V=A / TO PORT >5 V=B",
+    "neutral_skeleton": "open neutral position"
+   },
+   {
+    "label": "S.T. UP/DOWN",
+    "identifier": "EV-92; 11166838",
+    "rating": "PVG 16 module; spool 5 lt/min",
+    "actuation": "PVEO ON/OFF electrohydraulic actuation; legend states \u201cT >5V=B\u201d; command mapping \u201cUP=A / DOWN=B\u201d; closed neutral position.",
+    "neutral": "Closed neutral position: the main directional spool blocks the work-port metering paths; no A/B-to-P or A/B-to-T path is shown open through the spool in neutral.",
+    "x_left": 0.445,
+    "x_right": 0.555,
+    "is_block_level": false,
+    "detail": {
+     "function": "S.T. UP/DOWN \u2014 EV-92",
+     "rating": "PVG 16 module; spool 5 lt/min",
+     "actuation": "PVEO ON/OFF electrohydraulic actuation; legend states \u201cT >5V=B\u201d; command mapping \u201cUP=A / DOWN=B\u201d; closed neutral position.",
+     "neutral": "Closed neutral position: the main directional spool blocks the work-port metering paths; no A/B-to-P or A/B-to-T path is shown open through the spool in neutral.",
+     "cartridges": [
+      {
+       "role": "electrohydraulic ON/OFF actuator/pilot stage for the main spool",
+       "position_in_flow": "Mounted at the top of the PVG slice and mechanically/pilot-associated with the main directional spool; its detailed internal pilot connections are only partly traceable in this crop.",
+       "id": "11166838",
+       "setting": "PVEO \u2014 ON/OFF"
+      },
+      {
+       "role": "main directional spool",
+       "position_in_flow": "Central multi-position spool between the pressure supply, tank return, and A/B work-port galleries; shifts to meter P to one work port and the opposite work port to T.",
+       "id": "11105632",
+       "setting": "5 lt/min spool; closed neutral"
+      },
+      {
+       "role": "pressure-line regulating/compensating valve \u2014 exact subtype unconfirmed",
+       "position_in_flow": "Small spring-loaded element immediately upstream/along the red pressure feed into the main spool; the local connections are visible, but the complete symbol and outlet routing are not clear enough to distinguish pressure compensator from another pressure-control element.",
+       "id": "",
+       "setting": ""
+      },
+      {
+       "role": "LS-line valve \u2014 exact role unconfirmed",
+       "position_in_flow": "Small spring-loaded element on the cyan load-sense branch at the right of the main spool; lower connection runs to the common cyan LS rail. The other connection is locally visible, but its complete origin/destination is not unambiguous in this crop.",
+       "id": "",
+       "setting": ""
+      }
+     ],
+     "flow_scenarios": [
+      "Neutral: closed-center spool blocks P-to-A/B and blocks both work ports through the main spool; no open-center P-to-T path is shown for this slice.",
+      "UP command (A): the legend assigns UP=A; shifted spool connects pressure supply through the spool to work port A and provides a return path from work port B to the tank/return gallery.",
+      "DOWN command (B): the legend assigns DOWN=B; shifted spool connects pressure supply through the spool to work port B and provides a return path from work port A to the tank/return gallery.",
+      "Load sensing while operated: the selected/load-side pressure is communicated into the cyan LS branch and toward the common LS rail; the exact action of the small LS-line element cannot be confirmed from this crop."
+     ],
+     "settings": [
+      "Spool flow rating: 5 lt/min.",
+      "Electrical threshold/logic as printed: T >5V=B.",
+      "No hydraulic pressure setting is legible in this slice."
+     ],
+     "ports": [
+      "A: work port at the upper right gallery; continues horizontally off the right crop toward the external UP/DOWN actuator circuit.",
+      "B: work port at the upper left gallery; continues horizontally off the left crop toward the external UP/DOWN actuator circuit.",
+      "P: red pressure supply enters from the bottom manifold pressure rail and feeds the main spool through the local pressure-control/compensating section.",
+      "T: blue tank/return gallery runs to the bottom return rail.",
+      "LS: cyan load-sense branch from the spool area runs to the common bottom LS rail marked LS_A."
+     ],
+     "illegible": [
+      "Small annotations adjacent to the electrohydraulic actuator symbol are not readable.",
+      "Any identifier/setting on the small pressure-line element is not readable.",
+      "Any identifier/setting on the small LS-line element is not readable.",
+      "The detailed internal pilot-line routing within the top 11166838 actuator box is not fully distinguishable."
+     ],
+     "_model": "gpt-5.6-sol"
+    },
+    "actuation_skeleton": "PVEO - ON/OFF; UP=A / DOWN=B",
+    "neutral_skeleton": "closed neutral position"
+   },
+   {
+    "label": "S.T. LOCK",
+    "identifier": "EV-93; 11166838",
+    "rating": "PVG 16 module; spool 5 lt/min",
+    "actuation": "PVEO ON/OFF; IN=A / OUT=B; closed neutral position",
+    "neutral": "Closed neutral position; work-port flow paths are blocked at the main spool as drawn. Any internal auxiliary/pilot paths are not fully traceable.",
+    "x_left": 0.555,
+    "x_right": 0.675,
+    "is_block_level": false,
+    "detail": {
+     "function": "S.T. LOCK \u2014 EV-93",
+     "rating": "PVG 16 module; spool 5 lt/min",
+     "actuation": "PVEO ON/OFF; IN=A / OUT=B; closed neutral position",
+     "neutral": "Closed neutral position; work-port flow paths are blocked at the main spool as drawn. Any internal auxiliary/pilot paths are not fully traceable.",
+     "cartridges": [
+      {
+       "role": "main directional spool",
+       "position_in_flow": "PVG 16 section between the common pressure/return/LS galleries and work ports A and B; shifts to connect supply to one work port and the opposite work port to return.",
+       "id": "11160532",
+       "setting": "not shown"
+      },
+      {
+       "role": "work-port pressure-control cartridge (exact relief/check function unconfirmed)",
+       "position_in_flow": "Branch immediately beside the main spool on the left-hand work-port passage; connections are visible locally but the complete outlet destination is not unambiguously traceable in this crop.",
+       "id": "",
+       "setting": "not shown"
+      },
+      {
+       "role": "pressure-control cartridge, role unconfirmed \u2014 connections not fully traceable",
+       "position_in_flow": "Small adjustable/spring-loaded element on the right side, connected between a cyan work/pilot line and a vertical blue line; final rail identities are not explicit in this crop.",
+       "id": "",
+       "setting": "not shown"
+      },
+      {
+       "role": "pressure-control cartridge, role unconfirmed \u2014 connections not fully traceable",
+       "position_in_flow": "Small adjustable/spring-loaded element at the lower left edge, partly outside the function boundary/crop; connected to cyan and blue lines, but complete connections are not traceable.",
+       "id": "",
+       "setting": "not shown"
+      },
+      {
+       "role": "upper pilot/logic valve assembly, role unconfirmed \u2014 connections not traceable",
+       "position_in_flow": "Cyan-outlined assembly above port A, tied into the A/B-level passages and red pilot lines; outlet/return routing cannot be followed with certainty in this crop.",
+       "id": "11166838",
+       "setting": "not shown"
+      }
+     ],
+     "flow_scenarios": [
+      "Neutral/de-energized: the equipment legend specifies closed neutral; the main spool blocks the work-port paths, so no commanded P-to-A/B or A/B-to-return path is shown.",
+      "IN command (A): the legend assigns IN=A. On shifting to the A position, the directional section supplies work port A and provides a return path from work port B through the spool to the return gallery; auxiliary pilot/pressure-control behavior is not fully resolvable from the crop.",
+      "OUT command (B): the legend assigns OUT=B. On shifting to the B position, the directional section supplies work port B and provides a return path from work port A through the spool to the return gallery; auxiliary pilot/pressure-control behavior is not fully resolvable from the crop."
+     ],
+     "settings": [],
+     "ports": [
+      "A: labeled work port at the upper center-right; line continues horizontally beyond this function slice/off-crop.",
+      "B: labeled work port(s) at the upper left and upper right continuation; horizontal line continues into adjacent sections/off-crop, so the external lock actuator connection is not shown here.",
+      "Common bottom manifold galleries: several pressure/return/LS rails continue horizontally off-crop; individual rail labels are not visible in this slice."
+     ],
+     "illegible": [
+      "The final word of the printed legend appears truncated as \u201cclosed neutral positi\u201d; authoritative table gives \u201cclosed neutral position.\u201d",
+      "Small symbol details and any identifiers/settings on the side pressure-control cartridges are unreadable.",
+      "Upper assembly internal labels are too small to read; only identifier 11166838 is legible.",
+      "Main spool vertical identifier appears to read 11160532, but fine symbol annotations around it are not readable.",
+      "No pressure setting or threshold value is legible in this function slice."
+     ],
+     "_model": "gpt-5.6-sol"
+    },
+    "actuation_skeleton": "PVEO - ON/OFF; IN=A / OUT=B",
+    "neutral_skeleton": "closed neutral position"
+   },
+   {
+    "label": "Unlabeled inlet/end section with block-level pressure-control and gauge/test components",
+    "identifier": "",
+    "rating": "No flow/spool rating is legible for this boxed sub-circuit in the crop.",
+    "actuation": "Hydraulically/pilot operated, spring-return pressure-control/unloading arrangement; no electrical actuator is shown. Exact neutral/rest flow state of the central multi-position element is not unambiguously traceable from the crop.",
+    "neutral": "Spring-rest state is indicated by the springs on the pressure-control elements, but the complete neutral P/T/LS path through the central symbol is ambiguous in this crop.",
+    "x_left": 0.27,
+    "x_right": 0.335,
+    "is_block_level": true,
+    "detail": {
+     "function": "SS PVG 3 (as printed at the top of the crop); boxed identifier 15785111",
+     "rating": "No flow/spool rating is legible for this boxed sub-circuit in the crop.",
+     "actuation": "Hydraulically/pilot operated, spring-return pressure-control/unloading arrangement; no electrical actuator is shown. Exact neutral/rest flow state of the central multi-position element is not unambiguously traceable from the crop.",
+     "neutral": "Spring-rest state is indicated by the springs on the pressure-control elements, but the complete neutral P/T/LS path through the central symbol is ambiguous in this crop.",
+     "cartridges": [
+      {
+       "role": "pressure-control/relief valve",
+       "position_in_flow": "Lower horizontal spring-loaded cartridge lies between the red P branch on its right and the blue T return line on its left; therefore it provides a P-to-T pressure-control/dump path.",
+       "id": "",
+       "setting": "No legible setting adjacent to this cartridge."
+      },
+      {
+       "role": "LS pressure limiter",
+       "position_in_flow": "Lower-left adjustable cartridge is connected to the cyan LS line and to the blue T return rail; it limits LS pressure by dumping the LS signal to T.",
+       "id": "",
+       "setting": "300 (units not printed in the visible crop)."
+      },
+      {
+       "role": "pilot-operated pressure-control valve",
+       "position_in_flow": "Upper-left spring-loaded cartridge is fed from a red pressure/pilot branch at its right; its left/lower side joins the blue control/return network feeding the central control element. Exact terminal routing is partly obscured, so its more specific role is unconfirmed.",
+       "id": "",
+       "setting": "No legible setting."
+      },
+      {
+       "role": "main pressure-control/unloading spool",
+       "position_in_flow": "Central spring-biased multi-position element is connected to the red P/control branch and blue T/control network; it pilots/controls unloading of pressure toward return. Exact internal port mapping is not fully resolvable from the crop.",
+       "id": "",
+       "setting": "No legible setting."
+      },
+      {
+       "role": "filter/restriction element",
+       "position_in_flow": "Diamond-shaped inline element sits in the lower red pilot-pressure branch between the 300-setting LS limiter area and the red P-side control branch; a restriction/orifice symbol is also drawn immediately to its right.",
+       "id": "",
+       "setting": "No value shown."
+      }
+     ],
+     "flow_scenarios": [
+      "Pressure available at P: the red P rail supplies the pilot/control branches and the central spring-biased pressure-control assembly.",
+      "Pressure-control/unloading event: the lower horizontal valve provides a traced path from P on the right to the T return network on the left when it opens.",
+      "LS overpressure: the adjustable LS limiter marked 300 opens from the cyan LS signal line to the blue T return rail, limiting LS pressure.",
+      "Rest/neutral: spring-rest positions are shown, but the exact P-to-T state through the central multi-position element cannot be stated confidently from this crop alone."
+     ],
+     "settings": [
+      "LS pressure limiter: 300; units are not printed/legible in this crop."
+     ],
+     "ports": [
+      "P: bottom pressure port/rail, red; continues vertically off the crop to the manifold.",
+      "T: bottom tank/return port/rail, blue; connected to the relief/dump network and continues off the crop.",
+      "LS: lower-left load-sense port, cyan; connected to the adjustable 300 limiter and continues off the left/crop/manifold boundary.",
+      "M: left-side measuring/test port on the blue control/return network; external destination not shown in this crop."
+     ],
+     "illegible": [
+      "Any pressure unit associated with the printed value 300.",
+      "Any cartridge model/part numbers for the individual valves.",
+      "Small internal annotations around the central multi-position symbol.",
+      "The full function designation, if additional text exists outside the cropped heading."
+     ],
+     "_model": "gpt-5.6-sol"
+    },
+    "actuation_skeleton": "",
+    "rating_skeleton": "",
+    "neutral_skeleton": ""
+   }
+  ],
+  "legends": [
+   {
+    "title_as_printed": "STERN THRUSTER",
+    "kind": "equipment_data_table",
+    "bbox": [
+     0.329,
+     0.105,
+     0.42,
+     0.241
+    ],
+    "content": {
+     "title": "STERN THRUSTER",
+     "entries": [
+      {
+       "label": "PVG 32 MODULE",
+       "symbol_description": ""
+      },
+      {
+       "label": "spool 65 lt/min",
+       "symbol_description": ""
+      },
+      {
+       "label": "PVEU - 0-10 V",
+       "symbol_description": ""
+      },
+      {
+       "label": "TO STBD <5 V=A/TO PORT",
+       "symbol_description": ""
+      },
+      {
+       "label": "open neutral position",
+       "symbol_description": ""
+      },
+      {
+       "label": "EV-91",
+       "symbol_description": ""
+      }
+     ],
+     "_model": "gpt-5.6-sol"
+    }
+   },
+   {
+    "title_as_printed": "S.T. UP/DOWN",
+    "kind": "equipment_data_table",
+    "bbox": [
+     0.436,
+     0.105,
+     0.522,
+     0.241
+    ],
+    "content": {
+     "title": "S.T.\nUP/DOWN",
+     "entries": [
+      {
+       "label": "PVG 16 MODULE",
+       "symbol_description": ""
+      },
+      {
+       "label": "spool 5 lt/min",
+       "symbol_description": ""
+      },
+      {
+       "label": "PVEO - ON/OFF",
+       "symbol_description": ""
+      },
+      {
+       "label": "T >5V=B UP=A / DOWN=B",
+       "symbol_description": ""
+      },
+      {
+       "label": "closed neutral position",
+       "symbol_description": ""
+      },
+      {
+       "label": "EV-92",
+       "symbol_description": ""
+      },
+      {
+       "label": "11166838",
+       "symbol_description": ""
+      }
+     ],
+     "_model": "gpt-5.6-sol"
+    }
+   },
+   {
+    "title_as_printed": "S.T. LOCK",
+    "kind": "equipment_data_table",
+    "bbox": [
+     0.544,
+     0.105,
+     0.629,
+     0.241
+    ],
+    "content": {
+     "title": "SITI\nLOCK",
+     "entries": [
+      {
+       "label": "PVG 16 MODULE",
+       "symbol_description": "text row"
+      },
+      {
+       "label": "spool 5 lt/min",
+       "symbol_description": "text row"
+      },
+      {
+       "label": "PVEO - ON/OFF",
+       "symbol_description": "text row"
+      },
+      {
+       "label": "IN=A / OUT=B",
+       "symbol_description": "text row"
+      },
+      {
+       "label": "closed neutral positi",
+       "symbol_description": "text row"
+      },
+      {
+       "label": "EV-93",
+       "symbol_description": "magenta text"
+      },
+      {
+       "label": "11166838",
+       "symbol_description": "black text in a cyan-outlined box"
+      }
+     ],
+     "_model": "gpt-5.6-sol"
+    }
+   },
+   {
+    "title_as_printed": "REV  DATE  DRAWN  CHECKED  MODIFICATIONS",
+    "kind": "other_table",
+    "bbox": [
+     0.689,
+     0.662,
+     0.941,
+     0.866
+    ],
+    "content": {
+     "title": "REV | DATE | DRAWN | CHECKED | MODIFICATIONS",
+     "entries": [
+      {
+       "label": "10 | 16/04/2026 | PT | PC | PROPORTIONAL AFT WINCHES",
+       "symbol_description": ""
+      },
+      {
+       "label": "9 | 25/09/2023 | PT | PC | PRESSURE ADJUSTEMENT",
+       "symbol_description": ""
+      },
+      {
+       "label": "8 | 29/08/2023 | PT | PC | PRESSURE AFTER COMMISSIONING",
+       "symbol_description": ""
+      },
+      {
+       "label": "7 | 25/07/2023 | PT | -- | TENDER WINCH SPOOL",
+       "symbol_description": ""
+      },
+      {
+       "label": "6 | 12/06/2023 | PT | -- | CAPTIVE WINCH AND TENSIONER BLOCKS",
+       "symbol_description": ""
+      },
+      {
+       "label": "5 | 29/05/2023 | PT | -- | DOORS OVERCENTER PRES., FORESTAY MA<illegible>",
+       "symbol_description": ""
+      },
+      {
+       "label": "4 | 28/04/2023 | PT | -- | PITCH PROPELLER SYS. SUCTION AND RET<illegible>",
+       "symbol_description": ""
+      },
+      {
+       "label": "3 | 13/12/2022 | PT | -- | ADD. T AFT MAST SAILING, DECK DOOR 2<illegible>",
+       "symbol_description": ""
+      },
+      {
+       "label": "2 | 11/11/2022 | PT | PR | SAILING MAN., PRESSURE SENSORS, PVG<illegible>",
+       "symbol_description": ""
+      },
+      {
+       "label": "1 | 07/10/2022 | PR | PT | BACKUP P.PACK, CAPTIVE & EV NUM., WIN<illegible>",
+       "symbol_description": ""
+      },
+      {
+       "label": "0 | 27/07/2022 | PT | PR | FIRST ISSUE",
+       "symbol_description": ""
+      }
+     ],
+     "_model": "gpt-5.6-sol"
+    }
+   }
+  ],
+  "legend_context": "THIS SHEET'S OWN LEGENDS AND TABLES (read first; these definitions are AUTHORITATIVE for this sheet and override any generic symbol/line convention):\n- [equipment_data_table] STERN THRUSTER:\n    * PVG 32 MODULE\n    * spool 65 lt/min\n    * PVEU - 0-10 V\n    * TO STBD <5 V=A/TO PORT\n    * open neutral position\n    * EV-91\n- [equipment_data_table] S.T. UP/DOWN:\n    * PVG 16 MODULE\n    * spool 5 lt/min\n    * PVEO - ON/OFF\n    * T >5V=B UP=A / DOWN=B\n    * closed neutral position\n    * EV-92\n    * 11166838\n- [equipment_data_table] S.T. LOCK:\n    * PVG 16 MODULE -> text row\n    * spool 5 lt/min -> text row\n    * PVEO - ON/OFF -> text row\n    * IN=A / OUT=B -> text row\n    * closed neutral positi -> text row\n    * EV-93 -> magenta text\n    * 11166838 -> black text in a cyan-outlined box\n- [other_table] REV  DATE  DRAWN  CHECKED  MODIFICATIONS:\n    * 10 | 16/04/2026 | PT | PC | PROPORTIONAL AFT WINCHES\n    * 9 | 25/09/2023 | PT | PC | PRESSURE ADJUSTEMENT\n    * 8 | 29/08/2023 | PT | PC | PRESSURE AFTER COMMISSIONING\n    * 7 | 25/07/2023 | PT | -- | TENDER WINCH SPOOL\n    * 6 | 12/06/2023 | PT | -- | CAPTIVE WINCH AND TENSIONER BLOCKS\n    * 5 | 29/05/2023 | PT | -- | DOORS OVERCENTER PRES., FORESTAY MA<illegible>\n    * 4 | 28/04/2023 | PT | -- | PITCH PROPELLER SYS. SUCTION AND RET<illegible>\n    * 3 | 13/12/2022 | PT | -- | ADD. T AFT MAST SAILING, DECK DOOR 2<illegible>\n    * 2 | 11/11/2022 | PT | PR | SAILING MAN., PRESSURE SENSORS, PVG<illegible>\n    * 1 | 07/10/2022 | PR | PT | BACKUP P.PACK, CAPTIVE & EV NUM., WIN<illegible>\n    * 0 | 27/07/2022 | PT | PR | FIRST ISSUE",
+  "passes": {
+   "skeleton_dpi": 200,
+   "detail_dpi": 600,
+   "slices_found": 4,
+   "detail_calls": 4
+  },
+  "model": "gpt-5.6-sol",
+  "_node_routing": [
+   {
+    "block": "Danfoss PVG 32/16",
+    "action": "attach",
+    "target": "570-danfoss-pvg-32-16-aft-blockb",
+    "confidence": 1.0
+   },
+   {
+    "slice": "STERN THRUSTER",
+    "action": "attach",
+    "target": "461-stern-thruster-oms-h250",
+    "via": "control_map",
+    "mechanism": "exact",
+    "confidence": "high"
+   },
+   {
+    "slice": "S.T. UP/DOWN",
+    "action": "attach",
+    "target": "461-stern-thruster-oms-h250",
+    "via": "control_map",
+    "mechanism": "abbreviation_expanded",
+    "confidence": "medium"
+   },
+   {
+    "slice": "S.T. LOCK",
+    "action": "attach",
+    "target": "461-stern-thruster-oms-h250",
+    "via": "control_map",
+    "mechanism": "abbreviation_expanded",
+    "confidence": "medium"
+   },
+   {
+    "slice": "Unlabeled inlet/end section with block-level pressure-control and gauge/test components",
+    "action": "attach",
+    "target": "570-danfoss-pvg-32-16-aft-blockb",
+    "via": "block_level",
+    "confidence": "caveat"
+   }
+  ]
+ },
+ "disposition": {
+  "items": [
+   {
+    "information": "Header make/model: Danfoss PVG 32/16.",
+    "relevance": "relevant",
+    "reason": "Identifies the exact registered hydraulic valve block.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "make_model"
+   },
+   {
+    "information": "Header/title: \u201cAFT BLOCK B: DANFOSS PVG 32/16 - 3 FUNCTIONS\u201d; title block says \u201cHYDRAULIC SYSTEM / DIAGRAM\u201d.",
+    "relevance": "relevant",
+    "reason": "Primary equipment and drawing identification.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "drawing_title"
+   },
+   {
+    "information": "Drawing revision: 10.",
+    "relevance": "relevant",
+    "reason": "Current drawing revision for the registered block.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "drawing_revision"
+   },
+   {
+    "information": "Sheet: 7 of 12.",
+    "relevance": "relevant",
+    "reason": "Document locator for this block schematic.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "drawing_sheet"
+   },
+   {
+    "information": "Rail label T.",
+    "relevance": "relevant",
+    "reason": "Tank/return manifold rail on the block.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "manifold_port"
+   },
+   {
+    "information": "Rail label P.",
+    "relevance": "relevant",
+    "reason": "Pressure/supply manifold rail on the block.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "manifold_port"
+   },
+   {
+    "information": "Rail label LS.",
+    "relevance": "relevant",
+    "reason": "Load-sense manifold rail on the block.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "manifold_port"
+   },
+   {
+    "information": "Rail label M.",
+    "relevance": "relevant",
+    "reason": "Measuring/test connection on the block.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "test_port"
+   },
+   {
+    "information": "Rail label LSB.",
+    "relevance": "relevant",
+    "reason": "Named load-sense rail on the block.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "manifold_port"
+   },
+   {
+    "information": "Rail label LSA.",
+    "relevance": "relevant",
+    "reason": "Named load-sense rail on the block.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "manifold_port"
+   },
+   {
+    "information": "No overall block capacity is printed.",
+    "relevance": "relevant",
+    "reason": "Useful documented absence; prevents treating section spool ratings as total block capacity.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "drawing_limitation"
+   },
+   {
+    "information": "Three repeated vertical function sections are visible.",
+    "relevance": "relevant",
+    "reason": "Describes block configuration.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "configuration"
+   },
+   {
+    "information": "The left inlet/end section includes pressure-control/relief, gauge/test, and auxiliary cartridge symbols.",
+    "relevance": "relevant",
+    "reason": "Block-level inlet/end-section configuration.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "inlet_section_configuration"
+   },
+   {
+    "information": "Most small cartridge/part numbers are illegible.",
+    "relevance": "relevant",
+    "reason": "Source-readability limitation affecting component identification.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "drawing_limitation"
+   },
+   {
+    "information": "A setting marked 300 is visible, but its units and exact component association were not safely readable in the initial whole-sheet extraction.",
+    "relevance": "relevant",
+    "reason": "Potential pressure setting with explicit uncertainty.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "uncertain_setting"
+   },
+   {
+    "information": "Small line numbers and several slice component numbers require a higher-resolution read.",
+    "relevance": "relevant",
+    "reason": "Source-readability limitation.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "drawing_limitation"
+   },
+   {
+    "information": "Header wording says \u201c3 FUNCTIONS\u201d.",
+    "relevance": "relevant",
+    "reason": "Confirms function count.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "configuration"
+   },
+   {
+    "information": "S.T. UP/DOWN legend was read as \u201cT >5V=B UP=A / DOWN=B\u201d; punctuation/logic around \u201cT >5V=B\u201d should be verified at higher resolution.",
+    "relevance": "relevant",
+    "reason": "Control logic is useful but transcription is uncertain.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "control_logic_uncertainty"
+   },
+   {
+    "information": "S.T. LOCK neutral text appears truncated as \u201cclosed neutral positi\u201d.",
+    "relevance": "relevant",
+    "reason": "Documents a source-text truncation.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "drawing_limitation"
+   },
+   {
+    "information": "Function slice: STERN THRUSTER, identifier EV-91.",
+    "relevance": "relevant",
+    "reason": "Valve function and equipment tag on this block.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "function_section"
+   },
+   {
+    "information": "STERN THRUSTER rating: PVG 32 module; spool 65 lt/min.",
+    "relevance": "relevant",
+    "reason": "Section type and rated spool flow.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "section_rating"
+   },
+   {
+    "information": "STERN THRUSTER actuation: PVEU proportional electrohydraulic, 0\u201310 V; open neutral; TO STBD <5 V=A / TO PORT >5 V=B.",
+    "relevance": "relevant",
+    "reason": "Section actuation and command mapping.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "actuation_logic"
+   },
+   {
+    "information": "STERN THRUSTER neutral: open neutral position.",
+    "relevance": "relevant",
+    "reason": "Directional-section neutral configuration.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "neutral_configuration"
+   },
+   {
+    "information": "STERN THRUSTER extraction bounds x_left 0.335, x_right 0.445.",
+    "relevance": "irrelevant",
+    "reason": "Image-layout coordinates, not equipment knowledge.",
+    "target_node_id": "",
+    "fact_kind": "extraction_geometry"
+   },
+   {
+    "information": "STERN THRUSTER is_block_level=false.",
+    "relevance": "irrelevant",
+    "reason": "Extraction-structure flag, not an equipment fact.",
+    "target_node_id": "",
+    "fact_kind": "extraction_metadata"
+   },
+   {
+    "information": "STERN THRUSTER detail function repeats \u201cSTERN THRUSTER \u2014 EV-91\u201d.",
+    "relevance": "irrelevant",
+    "reason": "Exact duplicate of the function label/tag already dispositioned.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "STERN THRUSTER detail rating repeats PVG 32 module and 65 lt/min spool.",
+    "relevance": "irrelevant",
+    "reason": "Exact duplicate of section rating already dispositioned.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "STERN THRUSTER detail actuation repeats PVEU 0\u201310 V, open neutral, and STBD/PORT voltage mapping.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate of section actuation already dispositioned.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "STERN THRUSTER detail neutral repeats open neutral position.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate of section neutral fact already dispositioned.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "STERN THRUSTER main directional spool: PVG 32 spool between P/T galleries and A/B ports; meters pressure to either work port and returns the opposite side toward T; ID appears 157B?13; setting/rating 65 lt/min.",
+    "relevance": "relevant",
+    "reason": "Internal section component, flow role, uncertain part ID, and rating.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "cartridge_spool"
+   },
+   {
+    "information": "STERN THRUSTER A-side work-port pressure-control cartridge: exact relief/anticavitation action unconfirmed; connected from A branch to a common lower gallery whose final T connection is ambiguous; ID 157B2280; setting 280 with unit not printed.",
+    "relevance": "relevant",
+    "reason": "Internal cartridge identification, location, and setting with stated uncertainty.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "work_port_cartridge"
+   },
+   {
+    "information": "STERN THRUSTER B-side work-port pressure-control cartridge: exact relief/anticavitation action unconfirmed; connected from B branch to the same common lower gallery whose final T connection is ambiguous; ID 157B2280; setting 280 with unit not printed.",
+    "relevance": "relevant",
+    "reason": "Internal cartridge identification, location, and setting with stated uncertainty.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "work_port_cartridge"
+   },
+   {
+    "information": "STERN THRUSTER cross-port/check-valve bridge assembly above A: ID 11166832; tied into A/B branching; detailed role and all external connections unconfirmed; no setting shown.",
+    "relevance": "relevant",
+    "reason": "Identifiable internal assembly on the valve section.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "logic_valve_assembly"
+   },
+   {
+    "information": "STERN THRUSTER first LS pressure limiter: adjustable 230-marked element from a work-port sensing branch to the LS selection network near LS_B/LS_A; side assignment unclear; no ID legible; unit not printed.",
+    "relevance": "relevant",
+    "reason": "Internal LS limiting component and setting.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "ls_limiter"
+   },
+   {
+    "information": "STERN THRUSTER second LS pressure limiter: adjustable 230-marked element from the other work-port sensing branch to the LS selection network near LS_B/LS_A; side assignment unclear; no ID legible; unit not printed.",
+    "relevance": "relevant",
+    "reason": "Internal LS limiting component and setting.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "ls_limiter"
+   },
+   {
+    "information": "STERN THRUSTER first LS shuttle/check element: diamond/circle element in lower sensing network selecting or isolating a work-port sensing branch and LS rail; ID and setting absent.",
+    "relevance": "relevant",
+    "reason": "Internal load-sense selection component.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "ls_shuttle_check"
+   },
+   {
+    "information": "STERN THRUSTER second LS shuttle/check element: diamond/circle element selecting or isolating the other work-port sensing branch and LS rail; ID and setting absent.",
+    "relevance": "relevant",
+    "reason": "Internal load-sense selection component.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "ls_shuttle_check"
+   },
+   {
+    "information": "STERN THRUSTER neutral scenario: open neutral path through the centered section toward return; A/B are not commanded.",
+    "relevance": "relevant",
+    "reason": "Operational flow behavior.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "flow_scenario"
+   },
+   {
+    "information": "STERN THRUSTER command A / TO STBD (<5 V): P is metered to A and B returns toward T.",
+    "relevance": "relevant",
+    "reason": "Operational command-to-flow mapping.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "flow_scenario"
+   },
+   {
+    "information": "STERN THRUSTER command B / TO PORT (>5 V): P is metered to B and A returns toward T.",
+    "relevance": "relevant",
+    "reason": "Operational command-to-flow mapping.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "flow_scenario"
+   },
+   {
+    "information": "STERN THRUSTER work-port overpressure scenario: corresponding 280-marked branch opens into the common lower gallery; final dump destination cannot safely be called tank from this crop.",
+    "relevance": "relevant",
+    "reason": "Protective behavior with explicit routing uncertainty.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "flow_scenario"
+   },
+   {
+    "information": "STERN THRUSTER load-sense scenario: active work-port pressure is selected through lower LS elements and passed to LS rails; each branch has a 230-marked limiter.",
+    "relevance": "relevant",
+    "reason": "Load-sense operating behavior.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "flow_scenario"
+   },
+   {
+    "information": "STERN THRUSTER setting summary: two work-port pressure-control cartridges at 280 each; unit not printed.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate summary of the two cartridge facts already dispositioned.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "STERN THRUSTER setting summary: two LS pressure limiters at 230 each; unit not printed.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate summary of the two limiter facts already dispositioned.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "STERN THRUSTER setting summary: PVEU 0\u201310 V; TO STBD <5 V=A and TO PORT >5 V=B.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate of actuation and command mapping already dispositioned.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "STERN THRUSTER port P: pressure/supply rail at bottom.",
+    "relevance": "relevant",
+    "reason": "Section port mapping.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "section_port"
+   },
+   {
+    "information": "STERN THRUSTER port T: return/tank rail at bottom.",
+    "relevance": "relevant",
+    "reason": "Section port mapping.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "section_port"
+   },
+   {
+    "information": "STERN THRUSTER port A: top work port continuing toward the stern-thruster actuator.",
+    "relevance": "relevant",
+    "reason": "Section work-port mapping.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "section_port"
+   },
+   {
+    "information": "STERN THRUSTER port B: top work port continuing toward the stern-thruster actuator.",
+    "relevance": "relevant",
+    "reason": "Section work-port mapping.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "section_port"
+   },
+   {
+    "information": "STERN THRUSTER port LS_B: bottom load-sense rail.",
+    "relevance": "relevant",
+    "reason": "Section load-sense port mapping.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "section_port"
+   },
+   {
+    "information": "STERN THRUSTER port LS_A: bottom load-sense rail.",
+    "relevance": "relevant",
+    "reason": "Section load-sense port mapping.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "section_port"
+   },
+   {
+    "information": "STERN THRUSTER main spool identifier appears 157B?13; middle characters unclear.",
+    "relevance": "relevant",
+    "reason": "Part-number uncertainty that should accompany the component record.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "identification_uncertainty"
+   },
+   {
+    "information": "STERN THRUSTER pressure units for 280 and 230 are not shown/readable.",
+    "relevance": "relevant",
+    "reason": "Setting-unit limitation.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "setting_uncertainty"
+   },
+   {
+    "information": "STERN THRUSTER small identifiers beside the two 230 LS elements are illegible.",
+    "relevance": "relevant",
+    "reason": "Component-identification limitation.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "identification_uncertainty"
+   },
+   {
+    "information": "STERN THRUSTER external-node mapping of assembly 11166832 is not fully traceable.",
+    "relevance": "relevant",
+    "reason": "Connection uncertainty for an identified block assembly.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "routing_uncertainty"
+   },
+   {
+    "information": "STERN THRUSTER extraction model marker: gpt-5.6-sol.",
+    "relevance": "irrelevant",
+    "reason": "Extraction provenance, not vessel equipment knowledge.",
+    "target_node_id": "",
+    "fact_kind": "extraction_metadata"
+   },
+   {
+    "information": "STERN THRUSTER actuation skeleton repeats PVEU 0\u201310 V and STBD/PORT mapping.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate normalized extraction field.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "STERN THRUSTER neutral skeleton repeats open neutral position.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate normalized extraction field.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "Function slice: S.T. UP/DOWN, identifier EV-92; associated identifier 11166838.",
+    "relevance": "relevant",
+    "reason": "Valve function and identifiers on this block.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "function_section"
+   },
+   {
+    "information": "S.T. UP/DOWN rating: PVG 16 module; spool 5 lt/min.",
+    "relevance": "relevant",
+    "reason": "Section type and rated flow.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "section_rating"
+   },
+   {
+    "information": "S.T. UP/DOWN actuation: PVEO ON/OFF; printed logic \u201cT >5V=B\u201d; UP=A / DOWN=B; closed neutral.",
+    "relevance": "relevant",
+    "reason": "Actuation and command mapping, preserving printed wording.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "actuation_logic"
+   },
+   {
+    "information": "S.T. UP/DOWN neutral: closed; main spool blocks A/B metering paths and no A/B-to-P or A/B-to-T path is shown open.",
+    "relevance": "relevant",
+    "reason": "Directional-section neutral behavior.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "neutral_configuration"
+   },
+   {
+    "information": "S.T. UP/DOWN extraction bounds x_left 0.445, x_right 0.555.",
+    "relevance": "irrelevant",
+    "reason": "Image-layout coordinates, not equipment knowledge.",
+    "target_node_id": "",
+    "fact_kind": "extraction_geometry"
+   },
+   {
+    "information": "S.T. UP/DOWN is_block_level=false.",
+    "relevance": "irrelevant",
+    "reason": "Extraction-structure flag.",
+    "target_node_id": "",
+    "fact_kind": "extraction_metadata"
+   },
+   {
+    "information": "S.T. UP/DOWN detail function repeats \u201cS.T. UP/DOWN \u2014 EV-92\u201d.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate function identification.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "S.T. UP/DOWN detail rating repeats PVG 16 and 5 lt/min.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate rating.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "S.T. UP/DOWN detail actuation repeats PVEO logic and closed neutral.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate actuation fact.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "S.T. UP/DOWN detail neutral repeats closed-spool behavior.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate neutral fact.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "S.T. UP/DOWN electrohydraulic ON/OFF actuator/pilot stage: mounted above and associated with main spool; internal pilot connections only partly traceable; ID 11166838; PVEO ON/OFF.",
+    "relevance": "relevant",
+    "reason": "Identified actuator assembly within the section.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "electrohydraulic_actuator"
+   },
+   {
+    "information": "S.T. UP/DOWN main directional spool: between P, T, A and B; shifts P to one work port and opposite port to T; ID 11105632; 5 lt/min; closed neutral.",
+    "relevance": "relevant",
+    "reason": "Internal spool identification and operation.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "cartridge_spool"
+   },
+   {
+    "information": "S.T. UP/DOWN pressure-line spring-loaded regulating/compensating valve: immediately upstream of red pressure feed; exact subtype, ID, setting, and outlet routing unconfirmed.",
+    "relevance": "relevant",
+    "reason": "Internal pressure-control component with explicit uncertainty.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "pressure_control_element"
+   },
+   {
+    "information": "S.T. UP/DOWN LS-line spring-loaded valve: on cyan branch right of spool, lower connection to common LS rail; exact role, other endpoint, ID, and setting unconfirmed.",
+    "relevance": "relevant",
+    "reason": "Internal load-sense component with explicit uncertainty.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "ls_line_element"
+   },
+   {
+    "information": "S.T. UP/DOWN neutral scenario: closed-center spool blocks P-to-A/B and both work ports; no open-center P-to-T path is shown for this slice.",
+    "relevance": "relevant",
+    "reason": "Operational flow behavior.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "flow_scenario"
+   },
+   {
+    "information": "S.T. UP/DOWN UP command (A): pressure to A and B returns to tank/return.",
+    "relevance": "relevant",
+    "reason": "Operational command-to-flow mapping.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "flow_scenario"
+   },
+   {
+    "information": "S.T. UP/DOWN DOWN command (B): pressure to B and A returns to tank/return.",
+    "relevance": "relevant",
+    "reason": "Operational command-to-flow mapping.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "flow_scenario"
+   },
+   {
+    "information": "S.T. UP/DOWN load sensing while operated: selected/load-side pressure passes into cyan LS branch toward common rail; exact small LS valve action unconfirmed.",
+    "relevance": "relevant",
+    "reason": "Load-sense operating behavior.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "flow_scenario"
+   },
+   {
+    "information": "S.T. UP/DOWN setting summary: spool flow 5 lt/min.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate of section and spool ratings.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "S.T. UP/DOWN setting summary: printed electrical threshold/logic \u201cT >5V=B\u201d.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate of actuation logic.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "S.T. UP/DOWN: no hydraulic pressure setting is legible.",
+    "relevance": "relevant",
+    "reason": "Documents absence of a readable hydraulic setting.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "drawing_limitation"
+   },
+   {
+    "information": "S.T. UP/DOWN port A: upper-right work-port gallery continuing to external UP/DOWN actuator circuit.",
+    "relevance": "relevant",
+    "reason": "Section work-port mapping.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "section_port"
+   },
+   {
+    "information": "S.T. UP/DOWN port B: upper-left work-port gallery continuing to external UP/DOWN actuator circuit.",
+    "relevance": "relevant",
+    "reason": "Section work-port mapping.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "section_port"
+   },
+   {
+    "information": "S.T. UP/DOWN port P: red supply from bottom rail through local pressure-control/compensating section to spool.",
+    "relevance": "relevant",
+    "reason": "Section supply routing.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "section_port"
+   },
+   {
+    "information": "S.T. UP/DOWN port T: blue return gallery to bottom return rail.",
+    "relevance": "relevant",
+    "reason": "Section return routing.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "section_port"
+   },
+   {
+    "information": "S.T. UP/DOWN LS: cyan branch from spool area to common bottom LS_A rail.",
+    "relevance": "relevant",
+    "reason": "Section load-sense routing.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "section_port"
+   },
+   {
+    "information": "S.T. UP/DOWN small annotations beside electrohydraulic actuator are unreadable.",
+    "relevance": "relevant",
+    "reason": "Source-readability limitation.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "drawing_limitation"
+   },
+   {
+    "information": "S.T. UP/DOWN pressure-line element identifier/setting is unreadable.",
+    "relevance": "relevant",
+    "reason": "Component-identification limitation.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "identification_uncertainty"
+   },
+   {
+    "information": "S.T. UP/DOWN LS-line element identifier/setting is unreadable.",
+    "relevance": "relevant",
+    "reason": "Component-identification limitation.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "identification_uncertainty"
+   },
+   {
+    "information": "S.T. UP/DOWN internal pilot routing within actuator box 11166838 is not fully distinguishable.",
+    "relevance": "relevant",
+    "reason": "Routing uncertainty.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "routing_uncertainty"
+   },
+   {
+    "information": "S.T. UP/DOWN extraction model marker: gpt-5.6-sol.",
+    "relevance": "irrelevant",
+    "reason": "Extraction provenance only.",
+    "target_node_id": "",
+    "fact_kind": "extraction_metadata"
+   },
+   {
+    "information": "S.T. UP/DOWN actuation skeleton repeats PVEO ON/OFF and UP/DOWN mapping.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate normalized extraction field.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "S.T. UP/DOWN neutral skeleton repeats closed neutral.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate normalized extraction field.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "Function slice: S.T. LOCK, identifier EV-93; associated identifier 11166838.",
+    "relevance": "relevant",
+    "reason": "Valve function and identifiers on this block.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "function_section"
+   },
+   {
+    "information": "S.T. LOCK rating: PVG 16 module; spool 5 lt/min.",
+    "relevance": "relevant",
+    "reason": "Section type and rated flow.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "section_rating"
+   },
+   {
+    "information": "S.T. LOCK actuation: PVEO ON/OFF; IN=A / OUT=B; closed neutral.",
+    "relevance": "relevant",
+    "reason": "Actuation and command mapping.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "actuation_logic"
+   },
+   {
+    "information": "S.T. LOCK neutral: closed; work-port flow paths blocked at main spool; auxiliary/pilot paths not fully traceable.",
+    "relevance": "relevant",
+    "reason": "Neutral behavior with routing caveat.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "neutral_configuration"
+   },
+   {
+    "information": "S.T. LOCK extraction bounds x_left 0.555, x_right 0.675.",
+    "relevance": "irrelevant",
+    "reason": "Image-layout coordinates.",
+    "target_node_id": "",
+    "fact_kind": "extraction_geometry"
+   },
+   {
+    "information": "S.T. LOCK is_block_level=false.",
+    "relevance": "irrelevant",
+    "reason": "Extraction-structure flag.",
+    "target_node_id": "",
+    "fact_kind": "extraction_metadata"
+   },
+   {
+    "information": "S.T. LOCK detail function repeats \u201cS.T. LOCK \u2014 EV-93\u201d.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate function identification.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "S.T. LOCK detail rating repeats PVG 16 and 5 lt/min.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate rating.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "S.T. LOCK detail actuation repeats PVEO and IN/OUT mapping.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate actuation fact.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "S.T. LOCK detail neutral repeats closed-spool behavior.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate neutral fact.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "S.T. LOCK main directional spool: PVG 16 between common P/T/LS galleries and A/B; shifts supply to one port and opposite port to return; ID 11160532; setting not shown.",
+    "relevance": "relevant",
+    "reason": "Internal spool identification and function.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "cartridge_spool"
+   },
+   {
+    "information": "S.T. LOCK left-side work-port pressure-control cartridge beside spool: exact relief/check function and complete outlet destination unconfirmed; no ID or setting shown.",
+    "relevance": "relevant",
+    "reason": "Internal work-port cartridge with uncertainty.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "work_port_cartridge"
+   },
+   {
+    "information": "S.T. LOCK right-side adjustable pressure-control cartridge: between cyan work/pilot line and vertical blue line; role and final rail identities unconfirmed; no ID or setting shown.",
+    "relevance": "relevant",
+    "reason": "Internal pressure-control component with uncertainty.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "pressure_control_element"
+   },
+   {
+    "information": "S.T. LOCK lower-left adjustable pressure-control cartridge: partly outside function boundary, connected to cyan and blue lines; complete connections, ID, and setting unconfirmed.",
+    "relevance": "relevant",
+    "reason": "Internal/adjacent pressure-control component with uncertainty.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "pressure_control_element"
+   },
+   {
+    "information": "S.T. LOCK upper pilot/logic assembly above A: ID 11166838; tied to A/B-level passages and red pilot lines; role, return routing, and setting unconfirmed.",
+    "relevance": "relevant",
+    "reason": "Identified internal pilot/logic assembly.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "logic_valve_assembly"
+   },
+   {
+    "information": "S.T. LOCK neutral/de-energized scenario: closed neutral blocks commanded P-to-A/B and A/B-to-return paths.",
+    "relevance": "relevant",
+    "reason": "Operational flow behavior.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "flow_scenario"
+   },
+   {
+    "information": "S.T. LOCK IN command (A): supplies A and returns B; auxiliary pilot/pressure-control behavior unresolved.",
+    "relevance": "relevant",
+    "reason": "Operational command-to-flow mapping.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "flow_scenario"
+   },
+   {
+    "information": "S.T. LOCK OUT command (B): supplies B and returns A; auxiliary pilot/pressure-control behavior unresolved.",
+    "relevance": "relevant",
+    "reason": "Operational command-to-flow mapping.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "flow_scenario"
+   },
+   {
+    "information": "S.T. LOCK settings array is empty.",
+    "relevance": "relevant",
+    "reason": "Documents that no discrete settings were extracted for this section.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "drawing_limitation"
+   },
+   {
+    "information": "S.T. LOCK port A: upper center-right work port continuing beyond the function slice.",
+    "relevance": "relevant",
+    "reason": "Section work-port mapping.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "section_port"
+   },
+   {
+    "information": "S.T. LOCK port B: labeled upper continuation(s); external lock-actuator connection is not shown.",
+    "relevance": "relevant",
+    "reason": "Section work-port mapping with source limitation.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "section_port"
+   },
+   {
+    "information": "S.T. LOCK common bottom manifold galleries continue horizontally; individual rail labels are not visible in this slice.",
+    "relevance": "relevant",
+    "reason": "Section connection and labeling limitation.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "manifold_connection"
+   },
+   {
+    "information": "S.T. LOCK legend ends \u201cclosed neutral positi\u201d; authoritative reading is \u201cclosed neutral position\u201d.",
+    "relevance": "relevant",
+    "reason": "Resolves a source-text truncation.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "text_resolution"
+   },
+   {
+    "information": "S.T. LOCK side-cartridge symbol details, identifiers, and settings are unreadable.",
+    "relevance": "relevant",
+    "reason": "Component-identification limitation.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "drawing_limitation"
+   },
+   {
+    "information": "S.T. LOCK upper assembly labels are unreadable; only 11166838 is legible.",
+    "relevance": "relevant",
+    "reason": "Assembly-identification limitation.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "identification_uncertainty"
+   },
+   {
+    "information": "S.T. LOCK main spool vertical ID appears 11160532; fine annotations are unreadable.",
+    "relevance": "relevant",
+    "reason": "Part identification with uncertainty.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "identification_uncertainty"
+   },
+   {
+    "information": "S.T. LOCK no pressure setting or threshold is legible.",
+    "relevance": "relevant",
+    "reason": "Documents absence of readable settings.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "drawing_limitation"
+   },
+   {
+    "information": "S.T. LOCK extraction model marker: gpt-5.6-sol.",
+    "relevance": "irrelevant",
+    "reason": "Extraction provenance only.",
+    "target_node_id": "",
+    "fact_kind": "extraction_metadata"
+   },
+   {
+    "information": "S.T. LOCK actuation skeleton repeats PVEO ON/OFF and IN/OUT mapping.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate normalized extraction field.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "S.T. LOCK neutral skeleton repeats closed neutral.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate normalized extraction field.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "Block-level unlabeled inlet/end section with pressure-control and gauge/test components; boxed identifier not present at slice level.",
+    "relevance": "relevant",
+    "reason": "Block-level inlet/end assembly belonging to this exact valve block.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "inlet_end_section"
+   },
+   {
+    "information": "No flow/spool rating is legible for the inlet/end boxed sub-circuit.",
+    "relevance": "relevant",
+    "reason": "Documents rating limitation.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "drawing_limitation"
+   },
+   {
+    "information": "Inlet/end actuation: hydraulic/pilot operated, spring-return pressure-control/unloading arrangement; no electrical actuator; exact rest flow state ambiguous.",
+    "relevance": "relevant",
+    "reason": "Block inlet/control architecture.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "actuation_configuration"
+   },
+   {
+    "information": "Inlet/end neutral: spring-rest states shown, but complete P/T/LS path through central symbol is ambiguous.",
+    "relevance": "relevant",
+    "reason": "Neutral-state limitation for block control section.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "neutral_configuration"
+   },
+   {
+    "information": "Inlet/end extraction bounds x_left 0.27, x_right 0.335.",
+    "relevance": "irrelevant",
+    "reason": "Image-layout coordinates.",
+    "target_node_id": "",
+    "fact_kind": "extraction_geometry"
+   },
+   {
+    "information": "Inlet/end is_block_level=true.",
+    "relevance": "irrelevant",
+    "reason": "Extraction-structure flag; block ownership is already inherent in the stored facts.",
+    "target_node_id": "",
+    "fact_kind": "extraction_metadata"
+   },
+   {
+    "information": "Inlet/end detail heading read as \u201cSS PVG 3\u201d; boxed identifier 15785111.",
+    "relevance": "uncertain",
+    "reason": "Potential section designation/assembly ID, but heading transcription appears questionable; store only after higher-resolution verification.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "section_identification_uncertainty"
+   },
+   {
+    "information": "Inlet/end detail rating repeats that no rating is legible.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate of rating limitation already dispositioned.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "Inlet/end detail actuation repeats hydraulic/pilot spring-return arrangement and ambiguous rest state.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate actuation fact.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "Inlet/end detail neutral repeats spring-rest and ambiguous P/T/LS path.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate neutral fact.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "Inlet/end lower horizontal pressure-control/relief valve: between red P branch and blue T return, providing a P-to-T dump path; no ID or adjacent setting legible.",
+    "relevance": "relevant",
+    "reason": "Block inlet pressure-control component and routing.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "pressure_relief_valve"
+   },
+   {
+    "information": "Inlet/end lower-left LS pressure limiter: cyan LS to blue T, limiting LS by dumping to T; setting 300, units not printed; ID absent.",
+    "relevance": "relevant",
+    "reason": "Block-level LS limiter and setting.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "ls_limiter"
+   },
+   {
+    "information": "Inlet/end upper-left pilot-operated pressure-control valve: red pressure/pilot feed to blue control/return network for central element; specific role and terminal routing partly obscured; no ID or setting.",
+    "relevance": "relevant",
+    "reason": "Block control component with routing uncertainty.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "pilot_pressure_control"
+   },
+   {
+    "information": "Inlet/end central spring-biased pressure-control/unloading spool: connected to red P/control and blue T/control networks; controls unloading toward return; exact port mapping unresolved; no ID/setting.",
+    "relevance": "relevant",
+    "reason": "Principal block inlet/control element.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "unloading_spool"
+   },
+   {
+    "information": "Inlet/end filter/restriction: diamond inline element and adjacent orifice in lower red pilot branch between 300-limiter area and P-side control branch; no value or ID shown.",
+    "relevance": "relevant",
+    "reason": "Block pilot-circuit conditioning element.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "pilot_filter_restriction"
+   },
+   {
+    "information": "Inlet/end pressure-available scenario: P rail supplies pilot/control branches and central spring-biased assembly.",
+    "relevance": "relevant",
+    "reason": "Block-level operating behavior.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "flow_scenario"
+   },
+   {
+    "information": "Inlet/end pressure-control/unloading event: lower horizontal valve opens a traced P-to-T return path.",
+    "relevance": "relevant",
+    "reason": "Block-level protective/unloading behavior.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "flow_scenario"
+   },
+   {
+    "information": "Inlet/end LS overpressure: adjustable limiter marked 300 opens LS to T.",
+    "relevance": "relevant",
+    "reason": "Block-level LS protection behavior.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "flow_scenario"
+   },
+   {
+    "information": "Inlet/end rest/neutral: springs show rest positions, but exact P-to-T state through central element is uncertain.",
+    "relevance": "relevant",
+    "reason": "Block-level neutral behavior with explicit uncertainty.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "flow_scenario"
+   },
+   {
+    "information": "Inlet/end setting summary: LS pressure limiter 300; unit not printed/legible.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate of the LS limiter cartridge fact.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "Inlet/end port P: bottom red pressure rail continuing to manifold.",
+    "relevance": "relevant",
+    "reason": "Block inlet port mapping.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "section_port"
+   },
+   {
+    "information": "Inlet/end port T: bottom blue tank/return rail connected to relief/dump network.",
+    "relevance": "relevant",
+    "reason": "Block return port mapping.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "section_port"
+   },
+   {
+    "information": "Inlet/end port LS: lower-left cyan load-sense port connected to adjustable 300 limiter.",
+    "relevance": "relevant",
+    "reason": "Block load-sense port mapping.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "section_port"
+   },
+   {
+    "information": "Inlet/end port M: left-side measuring/test port on blue control/return network; external destination not shown.",
+    "relevance": "relevant",
+    "reason": "Block test-port mapping.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "test_port"
+   },
+   {
+    "information": "Inlet/end pressure unit for setting 300 is illegible.",
+    "relevance": "relevant",
+    "reason": "Setting-unit limitation.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "setting_uncertainty"
+   },
+   {
+    "information": "Inlet/end individual cartridge model/part numbers are illegible.",
+    "relevance": "relevant",
+    "reason": "Component-identification limitation.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "identification_uncertainty"
+   },
+   {
+    "information": "Inlet/end small annotations around central multi-position symbol are illegible.",
+    "relevance": "relevant",
+    "reason": "Source-readability limitation.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "drawing_limitation"
+   },
+   {
+    "information": "Inlet/end full function designation may extend outside the cropped heading.",
+    "relevance": "relevant",
+    "reason": "Designation uncertainty.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "identification_uncertainty"
+   },
+   {
+    "information": "Inlet/end extraction model marker: gpt-5.6-sol.",
+    "relevance": "irrelevant",
+    "reason": "Extraction provenance only.",
+    "target_node_id": "",
+    "fact_kind": "extraction_metadata"
+   },
+   {
+    "information": "Inlet/end empty actuation_skeleton.",
+    "relevance": "irrelevant",
+    "reason": "Empty extraction field.",
+    "target_node_id": "",
+    "fact_kind": "empty_field"
+   },
+   {
+    "information": "Inlet/end empty rating_skeleton.",
+    "relevance": "irrelevant",
+    "reason": "Empty extraction field.",
+    "target_node_id": "",
+    "fact_kind": "empty_field"
+   },
+   {
+    "information": "Inlet/end empty neutral_skeleton.",
+    "relevance": "irrelevant",
+    "reason": "Empty extraction field.",
+    "target_node_id": "",
+    "fact_kind": "empty_field"
+   },
+   {
+    "information": "Legend 1 metadata: title STERN THRUSTER; kind equipment_data_table.",
+    "relevance": "irrelevant",
+    "reason": "Parsing/table-type metadata; title is duplicated by the function fact.",
+    "target_node_id": "",
+    "fact_kind": "extraction_metadata"
+   },
+   {
+    "information": "Legend 1 bbox [0.329, 0.105, 0.42, 0.241].",
+    "relevance": "irrelevant",
+    "reason": "Image-layout coordinates.",
+    "target_node_id": "",
+    "fact_kind": "extraction_geometry"
+   },
+   {
+    "information": "Legend 1 content title: STERN THRUSTER.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate of function title.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "Legend row: STERN THRUSTER \u2014 PVG 32 MODULE.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate of section rating/type already dispositioned.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "Legend row: STERN THRUSTER \u2014 spool 65 lt/min.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate of section/spool rating.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "Legend row: STERN THRUSTER \u2014 PVEU - 0-10 V.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate of actuation fact.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "Legend row: STERN THRUSTER \u2014 TO STBD <5 V=A/TO PORT.",
+    "relevance": "uncertain",
+    "reason": "Relevant command row but visibly incomplete; fuller extracted mapping was dispositioned, and original text should be verified.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "control_logic_source_text"
+   },
+   {
+    "information": "Legend row: STERN THRUSTER \u2014 open neutral position.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate neutral fact.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "Legend row: STERN THRUSTER \u2014 EV-91.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate function tag.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "Legend 1 empty symbol_description values.",
+    "relevance": "irrelevant",
+    "reason": "Empty extraction fields.",
+    "target_node_id": "",
+    "fact_kind": "empty_field"
+   },
+   {
+    "information": "Legend 1 extraction model marker: gpt-5.6-sol.",
+    "relevance": "irrelevant",
+    "reason": "Extraction provenance only.",
+    "target_node_id": "",
+    "fact_kind": "extraction_metadata"
+   },
+   {
+    "information": "Legend 2 metadata: title S.T. UP/DOWN; kind equipment_data_table.",
+    "relevance": "irrelevant",
+    "reason": "Parsing metadata; title duplicates function fact.",
+    "target_node_id": "",
+    "fact_kind": "extraction_metadata"
+   },
+   {
+    "information": "Legend 2 bbox [0.436, 0.105, 0.522, 0.241].",
+    "relevance": "irrelevant",
+    "reason": "Image-layout coordinates.",
+    "target_node_id": "",
+    "fact_kind": "extraction_geometry"
+   },
+   {
+    "information": "Legend 2 content title: S.T. UP/DOWN.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate function title.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "Legend row: S.T. UP/DOWN \u2014 PVG 16 MODULE.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate section type.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "Legend row: S.T. UP/DOWN \u2014 spool 5 lt/min.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate section rating.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "Legend row: S.T. UP/DOWN \u2014 PVEO - ON/OFF.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate actuation fact.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "Legend row: S.T. UP/DOWN \u2014 T >5V=B UP=A / DOWN=B.",
+    "relevance": "uncertain",
+    "reason": "Relevant printed control logic, but the \u201cT >5V=B\u201d portion needs source verification.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "control_logic_source_text"
+   },
+   {
+    "information": "Legend row: S.T. UP/DOWN \u2014 closed neutral position.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate neutral fact.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "Legend row: S.T. UP/DOWN \u2014 EV-92.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate function tag.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "Legend row: S.T. UP/DOWN \u2014 11166838.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate actuator/assembly identifier.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "Legend 2 empty symbol_description values.",
+    "relevance": "irrelevant",
+    "reason": "Empty extraction fields.",
+    "target_node_id": "",
+    "fact_kind": "empty_field"
+   },
+   {
+    "information": "Legend 2 extraction model marker: gpt-5.6-sol.",
+    "relevance": "irrelevant",
+    "reason": "Extraction provenance only.",
+    "target_node_id": "",
+    "fact_kind": "extraction_metadata"
+   },
+   {
+    "information": "Legend 3 metadata: title S.T. LOCK; kind equipment_data_table.",
+    "relevance": "irrelevant",
+    "reason": "Parsing metadata; title duplicates function fact.",
+    "target_node_id": "",
+    "fact_kind": "extraction_metadata"
+   },
+   {
+    "information": "Legend 3 bbox [0.544, 0.105, 0.629, 0.241].",
+    "relevance": "irrelevant",
+    "reason": "Image-layout coordinates.",
+    "target_node_id": "",
+    "fact_kind": "extraction_geometry"
+   },
+   {
+    "information": "Legend 3 content title was OCR-read as \u201cSITI LOCK\u201d.",
+    "relevance": "irrelevant",
+    "reason": "OCR artifact contradicted by the clearly identified S.T. LOCK title.",
+    "target_node_id": "",
+    "fact_kind": "ocr_artifact"
+   },
+   {
+    "information": "Legend row: S.T. LOCK \u2014 PVG 16 MODULE; symbol_description \u201ctext row\u201d.",
+    "relevance": "irrelevant",
+    "reason": "Equipment content duplicates section type; symbol description is parsing metadata.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "Legend row: S.T. LOCK \u2014 spool 5 lt/min; symbol_description \u201ctext row\u201d.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate rating plus parsing metadata.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "Legend row: S.T. LOCK \u2014 PVEO - ON/OFF; symbol_description \u201ctext row\u201d.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate actuation plus parsing metadata.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "Legend row: S.T. LOCK \u2014 IN=A / OUT=B; symbol_description \u201ctext row\u201d.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate command mapping plus parsing metadata.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "Legend row: S.T. LOCK \u2014 closed neutral positi; symbol_description \u201ctext row\u201d.",
+    "relevance": "irrelevant",
+    "reason": "Truncated duplicate resolved elsewhere; symbol description is parsing metadata.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "Legend row: S.T. LOCK \u2014 EV-93; shown as magenta text.",
+    "relevance": "irrelevant",
+    "reason": "Tag duplicates function identification; color is drawing-format metadata.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "Legend row: S.T. LOCK \u2014 11166838; black text in cyan-outlined box.",
+    "relevance": "irrelevant",
+    "reason": "Identifier duplicates assembly fact; color/box description is drawing-format metadata.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "Legend 3 extraction model marker: gpt-5.6-sol.",
+    "relevance": "irrelevant",
+    "reason": "Extraction provenance only.",
+    "target_node_id": "",
+    "fact_kind": "extraction_metadata"
+   },
+   {
+    "information": "Revision table metadata/title: REV | DATE | DRAWN | CHECKED | MODIFICATIONS; kind other_table.",
+    "relevance": "relevant",
+    "reason": "Defines the drawing revision-history columns.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "revision_table_header"
+   },
+   {
+    "information": "Revision table bbox [0.689, 0.662, 0.941, 0.866].",
+    "relevance": "irrelevant",
+    "reason": "Image-layout coordinates.",
+    "target_node_id": "",
+    "fact_kind": "extraction_geometry"
+   },
+   {
+    "information": "Revision 10 | 16/04/2026 | PT | PC | PROPORTIONAL AFT WINCHES.",
+    "relevance": "relevant",
+    "reason": "Current drawing revision-history row on the sheet containing this block.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "revision_history"
+   },
+   {
+    "information": "Revision 9 | 25/09/2023 | PT | PC | PRESSURE ADJUSTEMENT.",
+    "relevance": "relevant",
+    "reason": "Drawing revision-history row potentially affecting hydraulic pressure data.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "revision_history"
+   },
+   {
+    "information": "Revision 8 | 29/08/2023 | PT | PC | PRESSURE AFTER COMMISSIONING.",
+    "relevance": "relevant",
+    "reason": "Drawing revision-history row potentially affecting hydraulic settings.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "revision_history"
+   },
+   {
+    "information": "Revision 7 | 25/07/2023 | PT | -- | TENDER WINCH SPOOL.",
+    "relevance": "irrelevant",
+    "reason": "Revision concerns tender-winch equipment, not AFT Block B functions shown here.",
+    "target_node_id": "",
+    "fact_kind": "revision_history_other_equipment"
+   },
+   {
+    "information": "Revision 6 | 12/06/2023 | PT | -- | CAPTIVE WINCH AND TENSIONER BLOCKS.",
+    "relevance": "irrelevant",
+    "reason": "Revision concerns captive-winch/tensioner blocks, not this block.",
+    "target_node_id": "",
+    "fact_kind": "revision_history_other_equipment"
+   },
+   {
+    "information": "Revision 5 | 29/05/2023 | PT | -- | DOORS OVERCENTER PRES., FORESTAY MA<illegible>.",
+    "relevance": "irrelevant",
+    "reason": "Revision concerns doors/forestay equipment rather than this AFT Block B; text is also incomplete.",
+    "target_node_id": "",
+    "fact_kind": "revision_history_other_equipment"
+   },
+   {
+    "information": "Revision 4 | 28/04/2023 | PT | -- | PITCH PROPELLER SYS. SUCTION AND RET<illegible>.",
+    "relevance": "irrelevant",
+    "reason": "Revision concerns pitch-propeller system, not this block; text incomplete.",
+    "target_node_id": "",
+    "fact_kind": "revision_history_other_equipment"
+   },
+   {
+    "information": "Revision 3 | 13/12/2022 | PT | -- | ADD. T AFT MAST SAILING, DECK DOOR 2<illegible>.",
+    "relevance": "irrelevant",
+    "reason": "Revision concerns aft-mast sailing/deck-door circuits rather than the shown block functions; text incomplete.",
+    "target_node_id": "",
+    "fact_kind": "revision_history_other_equipment"
+   },
+   {
+    "information": "Revision 2 | 11/11/2022 | PT | PR | SAILING MAN., PRESSURE SENSORS, PVG<illegible>.",
+    "relevance": "uncertain",
+    "reason": "May include a PVG update applicable to this block, but the row is truncated and scope cannot be confirmed.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "revision_history_uncertain"
+   },
+   {
+    "information": "Revision 1 | 07/10/2022 | PR | PT | BACKUP P.PACK, CAPTIVE & EV NUM., WIN<illegible>.",
+    "relevance": "uncertain",
+    "reason": "The \u201cEV NUM.\u201d change could affect EV-91/92/93, but truncated text prevents confirming scope.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "revision_history_uncertain"
+   },
+   {
+    "information": "Revision 0 | 27/07/2022 | PT | PR | FIRST ISSUE.",
+    "relevance": "relevant",
+    "reason": "Original issue record for the drawing containing this block.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "revision_history"
+   },
+   {
+    "information": "Revision table extraction model marker: gpt-5.6-sol.",
+    "relevance": "irrelevant",
+    "reason": "Extraction provenance only.",
+    "target_node_id": "",
+    "fact_kind": "extraction_metadata"
+   },
+   {
+    "information": "legend_context statement that this sheet\u2019s legends/tables are authoritative and override generic symbol/line conventions.",
+    "relevance": "relevant",
+    "reason": "Important interpretation rule for all facts extracted from this block drawing.",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "fact_kind": "drawing_interpretation_rule"
+   },
+   {
+    "information": "legend_context repeats all STERN THRUSTER table rows.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate synthesized context; individual rows were dispositioned above.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "legend_context repeats all S.T. UP/DOWN table rows.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate synthesized context; individual rows were dispositioned above.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "legend_context repeats all S.T. LOCK table rows and their text/color descriptions.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate synthesized context; individual rows were dispositioned above.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   },
+   {
+    "information": "legend_context repeats the full revision-history table.",
+    "relevance": "irrelevant",
+    "reason": "Duplicate synthesized context; every revision row was dispositioned above.",
+    "target_node_id": "",
+    "fact_kind": "duplicate"
+   }
+  ],
+  "_model": "gpt-5.6-sol"
+ },
+ "elapsed_s": 301.8
+}
