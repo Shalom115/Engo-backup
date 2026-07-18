@@ -1,0 +1,175 @@
+{
+ "category": "6-plc-io",
+ "sheet": "AFT-PLC-rev4-p21",
+ "drawing_class": "plc",
+ "composition": {
+  "serve_who": "Sheet 21/27 (AFT PLC, section AFT) shows three WAGO 750-508 2DO modules (POS.13/14/15, CPU 750-8213) each driving two solenoid coils via a Connector Type I to field equipment. POS.13 (DO-03) explicitly labels its two channels \"transom door CLOSE (EV 10.1A)\" and \"transom door OPEN (EV 10.1B)\" \u2014 serves 260-transom-door. POS.14 (DO-04) labels its channels \"deck door OPEN (EV 10.2A)\" and \"deck door CLOSE (EV 10.2B)\" \u2014 serves 260-deck-door. POS.15 (DO-05) labels its channels \"mainsheet traveler TO PORT (EV 10.3A)\" and \"mainsheet traveler TO STBD (EV 10.3B)\" \u2014 per engineer-confirmed mapping \"mainsheet traveller\" -> 840-cariboni-hydraulic-cylinders. The rack/coupler common structure (module positions, CPU, bus terminals A1/A2, connector type reference to sheet 4) is shared PLC infrastructure, not tied to one piece of equipment.",
+  "equipment_groups": [
+   {
+    "equipment_name": "Transom Door",
+    "target_node_id": "260-transom-door",
+    "placement_reasoning": "DO-03 module (POS.13) channel labels explicitly name 'transom door CLOSE' and 'transom door OPEN' with EV 10.1A/10.1B tags, directly matching the register's Transom Door node.",
+    "functions": [
+     {
+      "function_id": "transom-door-close",
+      "label": "Transom door CLOSE command",
+      "what_it_does": "PLC digital output energises the CLOSE solenoid valve coil to drive the transom door hydraulic actuator to close the door.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/de-energised",
+        "path": "DO-03 CH01 output at 0V \u2014 no current to EV 10.1A coil \u2014 transom door hydraulics hold last position, door stationary."
+       },
+       {
+        "state": "command CLOSE",
+        "path": "Channel 1 of module position 13 in the AFT PLC rack energises EV 10.1A \u2192 solenoid valve shifts \u2192 hydraulic flow directed to close-side of transom door cylinder \u2192 transom door closes."
+       }
+      ],
+      "key_components": [
+       "solenoid valve coil EV 10.1A (CLOSE)"
+      ],
+      "dry_data": "WAGO 750-508 2DO module, POS.13, CPU 750-8213, DO-03 CH01, +/- terminal pair to solenoid coil, via Connector Type I (4-pin circular, ref sheet 4).",
+      "sheet_region": "Left column, module POS.13/DO-03, CH01 output block, rows B-D, columns 2-3"
+     },
+     {
+      "function_id": "transom-door-open",
+      "label": "Transom door OPEN command",
+      "what_it_does": "PLC digital output energises the OPEN solenoid valve coil to drive the transom door hydraulic actuator to open the door.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/de-energised",
+        "path": "DO-03 CH02 output at 0V \u2014 no current to EV 10.1B coil \u2014 transom door hydraulics hold last position, door stationary."
+       },
+       {
+        "state": "command OPEN",
+        "path": "Channel 2 of module position 13 in the AFT PLC rack energises EV 10.1B \u2192 solenoid valve shifts \u2192 hydraulic flow directed to open-side of transom door cylinder \u2192 transom door opens."
+       }
+      ],
+      "key_components": [
+       "solenoid valve coil EV 10.1B (OPEN)"
+      ],
+      "dry_data": "WAGO 750-508 2DO module, POS.13, CPU 750-8213, DO-03 CH02, +/- terminal pair to solenoid coil, via Connector Type I (4-pin circular, ref sheet 4).",
+      "sheet_region": "Left column, module POS.13/DO-03, CH02 output block, rows B-D, columns 3-4"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Deck Door",
+    "target_node_id": "260-deck-door",
+    "placement_reasoning": "DO-04 module (POS.14) channel labels explicitly name 'deck door OPEN' and 'deck door CLOSE' with EV 10.2A/10.2B tags, directly matching the register's Deck Door node.",
+    "functions": [
+     {
+      "function_id": "deck-door-open",
+      "label": "Deck door OPEN command",
+      "what_it_does": "PLC digital output energises the OPEN solenoid valve coil to drive the deck door hydraulic actuator to open the door.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/de-energised",
+        "path": "DO-04 CH01 output at 0V \u2014 no current to EV 10.2A coil \u2014 deck door hydraulics hold last position, door stationary."
+       },
+       {
+        "state": "command OPEN",
+        "path": "Channel 1 of module position 14 in the AFT PLC rack energises EV 10.2A \u2192 solenoid valve shifts \u2192 hydraulic flow directed to open-side of deck door cylinder \u2192 deck door opens."
+       }
+      ],
+      "key_components": [
+       "solenoid valve coil EV 10.2A (OPEN)"
+      ],
+      "dry_data": "WAGO 750-508 2DO module, POS.14, CPU 750-8213, DO-04 CH01, +/- terminal pair to solenoid coil, via Connector Type I (4-pin circular, ref sheet 4).",
+      "sheet_region": "Middle column, module POS.14/DO-04, CH01 output block, rows B-D, columns 5-6"
+     },
+     {
+      "function_id": "deck-door-close",
+      "label": "Deck door CLOSE command",
+      "what_it_does": "PLC digital output energises the CLOSE solenoid valve coil to drive the deck door hydraulic actuator to close the door.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/de-energised",
+        "path": "DO-04 CH02 output at 0V \u2014 no current to EV 10.2B coil \u2014 deck door hydraulics hold last position, door stationary."
+       },
+       {
+        "state": "command CLOSE",
+        "path": "Channel 2 of module position 14 in the AFT PLC rack energises EV 10.2B \u2192 solenoid valve shifts \u2192 hydraulic flow directed to close-side of deck door cylinder \u2192 deck door closes."
+       }
+      ],
+      "key_components": [
+       "solenoid valve coil EV 10.2B (CLOSE)"
+      ],
+      "dry_data": "WAGO 750-508 2DO module, POS.14, CPU 750-8213, DO-04 CH02, +/- terminal pair to solenoid coil, via Connector Type I (4-pin circular, ref sheet 4).",
+      "sheet_region": "Middle column, module POS.14/DO-04, CH02 output block, rows B-D, columns 6-7"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Mainsheet Traveller (Cariboni hydraulic cylinder)",
+    "target_node_id": "840-cariboni-hydraulic-cylinders",
+    "placement_reasoning": "DO-05 module (POS.15) channel labels name 'mainsheet traveler TO PORT' and 'mainsheet traveler TO STBD' with EV 10.3A/10.3B tags; per engineer-confirmed mapping mainsheet traveller belongs to the Cariboni hydraulic cylinders node.",
+    "functions": [
+     {
+      "function_id": "traveller-to-port",
+      "label": "Mainsheet traveller TO PORT command",
+      "what_it_does": "PLC digital output energises the PORT-side solenoid valve coil to drive the mainsheet traveller carriage hydraulic cylinder to move the traveller to port.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/de-energised",
+        "path": "DO-05 CH01 output at 0V \u2014 no current to EV 10.3A coil \u2014 traveller carriage holds last position."
+       },
+       {
+        "state": "command TO PORT",
+        "path": "Channel 1 of module position 15 in the AFT PLC rack energises EV 10.3A \u2192 solenoid valve shifts \u2192 hydraulic flow directed to port-side of traveller cylinder \u2192 mainsheet traveller moves to port."
+       }
+      ],
+      "key_components": [
+       "solenoid valve coil EV 10.3A (TO PORT)"
+      ],
+      "dry_data": "WAGO 750-508 2DO module, POS.15, CPU 750-8213, DO-05 CH01, +/- terminal pair to solenoid coil, via Connector Type I (4-pin circular, ref sheet 4).",
+      "sheet_region": "Right column, module POS.15/DO-05, CH01 output block, rows B-D, columns 7-8"
+     },
+     {
+      "function_id": "traveller-to-stbd",
+      "label": "Mainsheet traveller TO STBD command",
+      "what_it_does": "PLC digital output energises the STBD-side solenoid valve coil to drive the mainsheet traveller carriage hydraulic cylinder to move the traveller to starboard.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/de-energised",
+        "path": "DO-05 CH02 output at 0V \u2014 no current to EV 10.3B coil \u2014 traveller carriage holds last position."
+       },
+       {
+        "state": "command TO STBD",
+        "path": "Channel 2 of module position 15 in the AFT PLC rack energises EV 10.3B \u2192 solenoid valve shifts \u2192 hydraulic flow directed to starboard-side of traveller cylinder \u2192 mainsheet traveller moves to starboard."
+       }
+      ],
+      "key_components": [
+       "solenoid valve coil EV 10.3B (TO STBD)"
+      ],
+      "dry_data": "WAGO 750-508 2DO module, POS.15, CPU 750-8213, DO-05 CH02, +/- terminal pair to solenoid coil, via Connector Type I (4-pin circular, ref sheet 4).",
+      "sheet_region": "Right column, module POS.15/DO-05, CH02 output block, rows B-D, columns 8-9"
+     }
+    ]
+   }
+  ],
+  "infrastructure": {
+   "target_node_id": "",
+   "facts": [
+    "Three WAGO 750-508 2-channel digital output (2DO) modules mounted in a WAGO 750-8213 CPU rack, at positions POS.13, POS.14, POS.15, labeled DO-03, DO-04, DO-05 respectively.",
+    "Each module has A1/A2 bus/power terminals feeding two output channels (CH01, CH02), each with +/- polarity pairs and an earth/ground terminal before reaching field wiring.",
+    "Each module's two channel outputs route to a 4-pin circular 'Connector Type I' field connector (pins 1-4); connector construction/pinout detailed on sheet 4 (not this sheet).",
+    "No local switches, fuses, or breakers are shown for individual valve circuits \u2014 control originates purely from PLC digital outputs.",
+    "No alarm/monitoring taps shown on this sheet.",
+    "Rev 4 (05/05/2026) note: 'SUBSTITUTE WINCHES MODULES FROM DIGITAL TO ANALOG' \u2014 indicates winches were removed from this digital-output scheme elsewhere; not directly depicted on this sheet."
+   ]
+  },
+  "uncertainties": [
+   "No node in the register index specifically represents the AFT PLC rack/coupler/CPU 750-8213 infrastructure itself; infrastructure facts recorded without a target_node_id.",
+   "Sheet does not show wet/hydraulic-side data (pressures, cylinder sizes, relief settings) for transom door, deck door, or mainsheet traveller actuators \u2014 only electrical DO wiring to solenoid coils; dry_data limited to module/channel/connector info only."
+  ],
+  "discarded_as_clutter": [
+   "Title block / drawing metadata (job no., client, project, sheet number, revision history)",
+   "DIN 34 rights-reserved note (left margin, Italian legal boilerplate)",
+   "MYT-Systems company address/contact block",
+   "Repeated 'CONNECTOR TYPE I (see sheet 4)' cross-reference labels (same note repeated 3x, not new data)",
+   "Repeated TYPE/CPU header text per module (750-508 / 750-8213) \u2014 restates same module type already captured once per module in dry_data"
+  ],
+  "_model": "claude-sonnet-5"
+ },
+ "elapsed_s": 43.4
+}

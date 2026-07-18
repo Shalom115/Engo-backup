@@ -1,0 +1,1413 @@
+{
+ "category": "2-electrical-distribution-schedule",
+ "sheet": "GM-111_24V-DC-distribution",
+ "drawing_class": "electrical",
+ "composition": {
+  "serve_who": "This sheet (\"+24V DC DISTRIBUTION\", GMMS 108'-111) is a 24V DC distribution schedule for two panels (AFT PANEL DC BREAKERS, FWD PANEL DC BREAKERS), plus an EMERGENCY POWER SUPPLY panel and an EMERGENCY PANEL/GMDSS sub-panel. Each breaker row names a discrete load; per the class rule, each load is attributed to the equipment its name identifies, with the panel providing the supply (fed via breaker Qxx/QExx/CBx <rating> from AFT/FWD/EMERGENCY panel). The panels themselves, the 24V service supply bus, F5-F8 fuses/switches feeding SW6-SW9 (bilge/fire pump/tender winch pre-panel switching), CT7/CT8/CT9/CT10 current transformers, the B&G relay (Re/), and the T/S E terminal strip are shared infrastructure/monitoring elements and are attached to the DC Distribution Panels infrastructure node, not to individual equipment.",
+  "equipment_groups": [
+   {
+    "equipment_name": "Radar System",
+    "target_node_id": "710-radar-furuno",
+    "placement_reasoning": "Breaker Q45 labeled RADAR SYSTEM directly maps to Furuno radar node.",
+    "functions": [
+     {
+      "label": "24V supply to radar system",
+      "what_it_does": "Provides switched 24V DC power to the radar system electronics.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q45 (10A) \u2192 RADAR SYSTEM"
+       }
+      ],
+      "dry_data": "Breaker Q45, 10A, AFT panel DC breakers",
+      "sheet_region": "AFT PANEL DC BREAKERS column 1, top"
+     }
+    ]
+   },
+   {
+    "equipment_name": "External Screens",
+    "target_node_id": "713-external-screens",
+    "placement_reasoning": "Q46 labeled EXT. SCREENS matches External Screens node.",
+    "functions": [
+     {
+      "label": "24V supply to external screens",
+      "what_it_does": "Feeds power to external display screens.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q46 (10A) \u2192 EXT. SCREENS"
+       }
+      ],
+      "dry_data": "Breaker Q46, 10A",
+      "sheet_region": "AFT PANEL DC BREAKERS column 1"
+     }
+    ]
+   },
+   {
+    "equipment_name": "B&G Instruments",
+    "target_node_id": "711-bg-instruments",
+    "placement_reasoning": "Q47 labeled B&G feeds instruments; also a relay contact/coil (Re/) tapped to B&G appears near top, and QE8 (AUX1/B&G) on emergency supply also feeds B&G \u2014 both belong to same instrument system.",
+    "functions": [
+     {
+      "label": "24V supply to B&G instruments (aft panel)",
+      "what_it_does": "Provides main 24V power to B&G navigation instruments.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q47 (10A) \u2192 B&G"
+       }
+      ],
+      "dry_data": "Breaker Q47, 10A",
+      "sheet_region": "AFT PANEL DC BREAKERS column 1"
+     },
+     {
+      "label": "Relay-switched backup/control feed to B&G",
+      "what_it_does": "A relay (coil Re/) switches an auxiliary contact path to B&G, likely for control or backup switching between sources.",
+      "flow_scenarios": [
+       {
+        "state": "energized",
+        "path": "Relay coil Re/ energized \u2192 contact closes \u2192 feeds B&G"
+       }
+      ],
+      "dry_data": "Relay Re/, contact labeled B&G",
+      "sheet_region": "top area near Q49-Q50, right of column 1"
+     },
+     {
+      "label": "Emergency supply to B&G / AUX1",
+      "what_it_does": "Emergency battery feed maintains B&G power under emergency conditions.",
+      "flow_scenarios": [
+       {
+        "state": "emergency",
+        "path": "Emergency Power Supply panel \u2192 breaker QE8 (10A) \u2192 AUX 1 / B&G"
+       }
+      ],
+      "dry_data": "Breaker QE8, 10A, Emergency Power Supply panel",
+      "sheet_region": "EMERGENCY POWER SUPPLY panel, bottom rows"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Nav Station (Navigation PC / Chart Table)",
+    "target_node_id": "712-nav-station",
+    "placement_reasoning": "Q48 NAVIGATION PC and CB8 CHART TABLE LT both serve the nav station equipment group.",
+    "functions": [
+     {
+      "label": "24V supply to navigation PC",
+      "what_it_does": "Powers the navigation computer at the nav station.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q48 (10A) \u2192 NAVIGATION PC"
+       }
+      ],
+      "dry_data": "Breaker Q48, 10A",
+      "sheet_region": "AFT PANEL DC BREAKERS column 1"
+     },
+     {
+      "label": "Emergency/chart table light supply",
+      "what_it_does": "Provides lighting at the chart table via the emergency panel.",
+      "flow_scenarios": [
+       {
+        "state": "normal/emergency",
+        "path": "Emergency Panel \u2192 breaker CB8 (6A) \u2192 CHART TABLE LT"
+       }
+      ],
+      "dry_data": "Breaker CB8, 6A, Emergency Panel",
+      "sheet_region": "EMERGENCY PANEL block, bottom center"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Autopilot (Marsili)",
+    "target_node_id": "150-marsili-autopilot",
+    "placement_reasoning": "Q49 AUTO PILOT and Q31 AUTOPILOT PUMP (with CT10 monitoring) both map to Marsili autopilot per engineer mapping.",
+    "functions": [
+     {
+      "label": "24V supply to autopilot control",
+      "what_it_does": "Powers the autopilot control head/electronics.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q49 (10A) \u2192 AUTO PILOT"
+       }
+      ],
+      "dry_data": "Breaker Q49, 10A",
+      "sheet_region": "AFT PANEL DC BREAKERS column 1"
+     },
+     {
+      "label": "24V supply to autopilot hydraulic pump with current monitoring",
+      "what_it_does": "Powers the autopilot's hydraulic drive pump; current is monitored via CT10 for load/status feedback.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q31 (40A) \u2192 CT10 current sensor \u2192 AUTOPILOT PUMP"
+       }
+      ],
+      "key_components": [
+       "CT10 current transformer (monitoring)"
+      ],
+      "dry_data": "Breaker Q31, 40A, CT10 inline current transformer",
+      "sheet_region": "AFT PANEL DC BREAKERS right column"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Network / LAN",
+    "target_node_id": "732-network",
+    "placement_reasoning": "Q50 labeled NETWORK.",
+    "functions": [
+     {
+      "label": "24V supply to network equipment",
+      "what_it_does": "Powers onboard network/LAN switch gear.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q50 (10A) \u2192 NETWORK"
+       }
+      ],
+      "dry_data": "Breaker Q50, 10A",
+      "sheet_region": "AFT PANEL DC BREAKERS, upper right column"
+     }
+    ]
+   },
+   {
+    "equipment_name": "VHF",
+    "target_node_id": "730-vhf",
+    "placement_reasoning": "Q51 labeled AUX VHF.",
+    "functions": [
+     {
+      "label": "24V supply to auxiliary VHF",
+      "what_it_does": "Powers the auxiliary VHF radio.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q51 (10A) \u2192 AUX VHF"
+       }
+      ],
+      "dry_data": "Breaker Q51, 10A",
+      "sheet_region": "AFT PANEL DC BREAKERS, upper right column"
+     }
+    ]
+   },
+   {
+    "equipment_name": "CCTV",
+    "target_node_id": "720-cctv",
+    "placement_reasoning": "Q52 labeled CCTV.",
+    "functions": [
+     {
+      "label": "24V supply to CCTV system",
+      "what_it_does": "Powers the CCTV cameras/DVR.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q52 (10A) \u2192 CCTV"
+       }
+      ],
+      "dry_data": "Breaker Q52, 10A",
+      "sheet_region": "AFT PANEL DC BREAKERS, upper right column"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Grey Water Pumps",
+    "target_node_id": "530-grey-water-pumps",
+    "placement_reasoning": "Q1(aft) and FWD panel Q1 (FWD GREY WATER PUMP) both map to grey water pumps.",
+    "functions": [
+     {
+      "label": "24V supply to aft grey water pump",
+      "what_it_does": "Powers the aft grey water discharge pump.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q1 (10A) \u2192 AFT GREY WATER PUMP"
+       }
+      ],
+      "dry_data": "Breaker Q1 (AFT), 10A",
+      "sheet_region": "AFT PANEL DC BREAKERS main column"
+     },
+     {
+      "label": "24V supply to fwd grey water pump",
+      "what_it_does": "Powers the forward grey water discharge pump.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "FWD panel 24V bus \u2192 breaker Q1 (10A) \u2192 FWD GREY WATER PUMP"
+       }
+      ],
+      "dry_data": "Breaker Q1 (FWD), 10A",
+      "sheet_region": "FWD PANEL DC BREAKERS"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Sump Pumps",
+    "target_node_id": "530-sump-pumps",
+    "placement_reasoning": "Multiple sump pump loads (port/stbd grey guest sump, aft/fwd crew sump, aft aircon sump, owners sump, fwd guest sump, fwd manual sump) all map to Sump Pumps node.",
+    "functions": [
+     {
+      "label": "24V supply to port aft grey guest sump pump",
+      "what_it_does": "Powers sump pump for port aft guest area.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q2 (20A) \u2192 PORT AFT GREY GUEST SUMP"
+       }
+      ],
+      "dry_data": "Breaker Q2, 20A",
+      "sheet_region": "AFT PANEL DC BREAKERS main column"
+     },
+     {
+      "label": "24V supply to stbd aft grey guest sump pump",
+      "what_it_does": "Powers sump pump for stbd aft guest area.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q3 (20A) \u2192 STBD AFT GREY GUEST SUMP"
+       }
+      ],
+      "dry_data": "Breaker Q3, 20A",
+      "sheet_region": "AFT PANEL DC BREAKERS main column"
+     },
+     {
+      "label": "24V supply to aft crew sump pump",
+      "what_it_does": "Powers aft crew area sump pump.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q4 (10A) \u2192 AFT CREW SUMP PUMP"
+       }
+      ],
+      "dry_data": "Breaker Q4, 10A",
+      "sheet_region": "AFT PANEL DC BREAKERS main column"
+     },
+     {
+      "label": "24V supply to fwd crew sump pump",
+      "what_it_does": "Powers forward crew area sump pump.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q5 (10A) \u2192 FWD CREW SUMP PUMP"
+       }
+      ],
+      "dry_data": "Breaker Q5, 10A",
+      "sheet_region": "AFT PANEL DC BREAKERS main column"
+     },
+     {
+      "label": "24V supply to aft aircon sump pump",
+      "what_it_does": "Powers sump pump draining aft aircon condensate.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q6 (20A) \u2192 AFT AIRCON SUMP PUMP"
+       }
+      ],
+      "dry_data": "Breaker Q6, 20A",
+      "sheet_region": "AFT PANEL DC BREAKERS main column"
+     },
+     {
+      "label": "24V supply to owners sump pump",
+      "what_it_does": "Powers sump pump for owners cabin/head area.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "FWD panel 24V bus \u2192 breaker Q4 (20A) \u2192 OWNERS SUMP PUMP"
+       }
+      ],
+      "dry_data": "Breaker Q4, 20A (FWD)",
+      "sheet_region": "FWD PANEL DC BREAKERS"
+     },
+     {
+      "label": "24V supply to fwd guest sump pump",
+      "what_it_does": "Powers sump pump for forward guest area.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "FWD panel 24V bus \u2192 breaker Q5 (20A) \u2192 FWD GUEST SUMP PUMP"
+       }
+      ],
+      "dry_data": "Breaker Q5, 20A (FWD)",
+      "sheet_region": "FWD PANEL DC BREAKERS"
+     },
+     {
+      "label": "24V supply to fwd manual sump pump",
+      "what_it_does": "Powers manually operated forward sump pump.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "FWD panel 24V bus \u2192 breaker Q15 (10A) \u2192 FWD MAN. SUMP PUMP"
+       }
+      ],
+      "dry_data": "Breaker Q15, 10A (FWD)",
+      "sheet_region": "FWD PANEL DC BREAKERS"
+     }
+    ]
+   },
+   {
+    "equipment_name": "WC / Toilets",
+    "target_node_id": "540-wc-toilets",
+    "placement_reasoning": "Port/stbd aft guest WC, port/stbd crew head WC (AFT panel), owners WC, fwd guest WC (FWD panel) all map to WC/Toilets node.",
+    "functions": [
+     {
+      "label": "24V supply to port aft guest WC",
+      "what_it_does": "Powers electric toilet macerator/pump for port aft guest head.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q7 (20A) \u2192 PORT AFT GUEST WC"
+       }
+      ],
+      "dry_data": "Breaker Q7, 20A",
+      "sheet_region": "AFT PANEL DC BREAKERS main column"
+     },
+     {
+      "label": "24V supply to stbd aft guest WC",
+      "what_it_does": "Powers electric toilet for stbd aft guest head.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q8 (20A) \u2192 STBD AFT GUEST WC"
+       }
+      ],
+      "dry_data": "Breaker Q8, 20A",
+      "sheet_region": "AFT PANEL DC BREAKERS main column"
+     },
+     {
+      "label": "24V supply to port crew head WC",
+      "what_it_does": "Powers electric toilet for port crew head.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q9 (20A) \u2192 PORT CREW HEAD WC"
+       }
+      ],
+      "dry_data": "Breaker Q9, 20A",
+      "sheet_region": "AFT PANEL DC BREAKERS main column"
+     },
+     {
+      "label": "24V supply to stbd crew head WC",
+      "what_it_does": "Powers electric toilet for stbd crew head.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q10 (20A) \u2192 STBD CREW HEAD WC"
+       }
+      ],
+      "dry_data": "Breaker Q10, 20A",
+      "sheet_region": "AFT PANEL DC BREAKERS main column"
+     },
+     {
+      "label": "24V supply to owners WC",
+      "what_it_does": "Powers electric toilet in owners head.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "FWD panel 24V bus \u2192 breaker Q7 (20A) \u2192 OWNERS WC"
+       }
+      ],
+      "dry_data": "Breaker Q7, 20A (FWD)",
+      "sheet_region": "FWD PANEL DC BREAKERS"
+     },
+     {
+      "label": "24V supply to fwd guest WC",
+      "what_it_does": "Powers electric toilet for forward guest head.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "FWD panel 24V bus \u2192 breaker Q8 (20A) \u2192 FWD GUEST WC"
+       }
+      ],
+      "dry_data": "Breaker Q8, 20A (FWD)",
+      "sheet_region": "FWD PANEL DC BREAKERS"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Black Water Pumps",
+    "target_node_id": "540-black-water-pumps",
+    "placement_reasoning": "Q11 FWD BLACK WATER PUMP and Q12 AFT BLACK WATER PUMP map directly.",
+    "functions": [
+     {
+      "label": "24V supply to fwd black water pump",
+      "what_it_does": "Powers forward black water discharge pump.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q11 (32A) \u2192 FWD BLACK WATER PUMP"
+       }
+      ],
+      "dry_data": "Breaker Q11, 32A",
+      "sheet_region": "AFT PANEL DC BREAKERS main column"
+     },
+     {
+      "label": "24V supply to aft black water pump",
+      "what_it_does": "Powers aft black water discharge pump.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q12 (32A) \u2192 AFT BLACK WATER PUMP"
+       }
+      ],
+      "dry_data": "Breaker Q12, 32A",
+      "sheet_region": "AFT PANEL DC BREAKERS main column"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Water Transfer Valves",
+    "target_node_id": "510-water-transfer-valves",
+    "placement_reasoning": "Q13 labeled WATER TRANSFER VALVES.",
+    "functions": [
+     {
+      "label": "24V supply/control to water transfer valves",
+      "what_it_does": "Powers solenoid valves controlling fresh water tank transfer.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q13 (6A) \u2192 WATER TRANSFER VALVES"
+       }
+      ],
+      "dry_data": "Breaker Q13, 6A",
+      "sheet_region": "AFT PANEL DC BREAKERS main column"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Bilge Valves",
+    "target_node_id": "520-bilge-valves",
+    "placement_reasoning": "Q14 labeled BILGE VALVES matches Burkert bilge valves node.",
+    "functions": [
+     {
+      "label": "24V supply/control to bilge valves",
+      "what_it_does": "Powers solenoid valves controlling bilge system routing.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q14 (10A) \u2192 BILGE VALVES"
+       }
+      ],
+      "dry_data": "Breaker Q14, 10A",
+      "sheet_region": "AFT PANEL DC BREAKERS main column"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Fuel Transfer",
+    "target_node_id": "550-fuel-transfer",
+    "placement_reasoning": "Q15 MANUAL FUEL PUMP, Q23 ONYX (AUTO FUEL TRANSFER PUMP) with CT8 monitoring line to ONYX, and Q35 TENDER REFUELING PUMP all map to Fuel Transfer per engineer mapping.",
+    "functions": [
+     {
+      "label": "24V supply to manual fuel transfer pump",
+      "what_it_does": "Powers manually operated fuel transfer pump between tanks.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q15 (20A) \u2192 MANUAL FUEL PUMP"
+       }
+      ],
+      "dry_data": "Breaker Q15, 20A",
+      "sheet_region": "AFT PANEL DC BREAKERS main column"
+     },
+     {
+      "label": "24V supply to ONYX automatic fuel transfer pump",
+      "what_it_does": "Powers the automated fuel transfer pump; a CT8 current sensor on the feed line taps status to the ONYX monitoring system (via 'to ONYX' line).",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q23 (25A) \u2192 ONYX (AUTO FUEL TRANSFER PUMP); CT8 senses current, tap routed 'to ONYX' monitoring"
+       }
+      ],
+      "key_components": [
+       "CT8 current sensor (status tap to ONYX monitoring, not power)"
+      ],
+      "dry_data": "Breaker Q23, 25A",
+      "sheet_region": "AFT PANEL DC BREAKERS top area / right column"
+     },
+     {
+      "label": "24V supply to tender refueling pump",
+      "what_it_does": "Powers pump used to refuel the tender from the yacht's fuel supply.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q35 (32A) \u2192 TENDER REFUELING PUMP"
+       }
+      ],
+      "dry_data": "Breaker Q35, 32A",
+      "sheet_region": "AFT PANEL DC BREAKERS right column"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Ventilation Fans (Fuel/Engine)",
+    "target_node_id": "599-ventilation-fans",
+    "placement_reasoning": "Q16 labeled FUEL / ENG. VENTILATION.",
+    "functions": [
+     {
+      "label": "24V supply to fuel/engine ventilation fans",
+      "what_it_does": "Powers ventilation fans for fuel and engine spaces.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q16 (10A) \u2192 FUEL / ENG. VENTILATION"
+       }
+      ],
+      "dry_data": "Breaker Q16, 10A",
+      "sheet_region": "AFT PANEL DC BREAKERS main column"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Emergency Stops",
+    "target_node_id": "654-emergency-stops",
+    "placement_reasoning": "Q17 labeled EMERGENCY STOP.",
+    "functions": [
+     {
+      "label": "24V supply to emergency stop circuit",
+      "what_it_does": "Powers the emergency stop control circuit.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q17 (6A) \u2192 EMERGENCY STOP"
+       }
+      ],
+      "dry_data": "Breaker Q17, 6A",
+      "sheet_region": "AFT PANEL DC BREAKERS main column"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Fire Alarm",
+    "target_node_id": "695-fire-alarm",
+    "placement_reasoning": "Q18 labeled FIRE ALARM; QE2/QE3 emergency breakers labeled ENG.ROOM GAS RELEASE ALARM/GAS-CO2-PETROL VAPOUR ALARM also map per given vocabulary (ENG.ROOM GAS RELEASE ALARM->695-fire-system in mapping list but also 695-fire-alarm listed separately; using explicit engineer mapping which routes ENG. ROOM GAS RELEASE ALARM to 695-fire-alarm, and GAS/CO2/PETROL VAPOUR ALARM to 696-gas-alarms).",
+    "functions": [
+     {
+      "label": "24V supply to fire alarm system",
+      "what_it_does": "Powers the main fire alarm detection panel/circuit.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q18 (6A) \u2192 FIRE ALARM"
+       }
+      ],
+      "dry_data": "Breaker Q18, 6A",
+      "sheet_region": "AFT PANEL DC BREAKERS main column"
+     },
+     {
+      "label": "Emergency supply to engine room gas release alarm",
+      "what_it_does": "Provides emergency-backed power to the engine room gas release alarm circuit.",
+      "flow_scenarios": [
+       {
+        "state": "emergency",
+        "path": "Emergency Power Supply panel \u2192 breaker QE2 (6A) \u2192 ENG.ROOM GAS RELEASE ALARM"
+       }
+      ],
+      "dry_data": "Breaker QE2, 6A, Emergency Power Supply panel",
+      "sheet_region": "EMERGENCY POWER SUPPLY panel"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Gas / Vapour Alarms",
+    "target_node_id": "696-gas-alarms",
+    "placement_reasoning": "Q19 PETROL VAPOUR ALARM, Q20 GAS/CO ALARM (AFT panel) and QE3 GAS/CO2/PETROL VAPOUR ALARM (emergency panel) map to Gas/Vapour Alarms node.",
+    "functions": [
+     {
+      "label": "24V supply to petrol vapour alarm",
+      "what_it_does": "Powers the petrol vapour detection alarm.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q19 (10A) \u2192 PETROL VAPOUR ALARM"
+       }
+      ],
+      "dry_data": "Breaker Q19, 10A",
+      "sheet_region": "AFT PANEL DC BREAKERS main column"
+     },
+     {
+      "label": "24V supply to gas/CO alarm",
+      "what_it_does": "Powers the gas/carbon monoxide detection alarm.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q20 (10A) \u2192 GAS / CO ALARM"
+       }
+      ],
+      "dry_data": "Breaker Q20, 10A",
+      "sheet_region": "AFT PANEL DC BREAKERS main column"
+     },
+     {
+      "label": "Emergency supply to gas/CO2/petrol vapour alarm",
+      "what_it_does": "Provides emergency-backed power to combined gas/petrol vapour alarm circuit.",
+      "flow_scenarios": [
+       {
+        "state": "emergency",
+        "path": "Emergency Power Supply panel \u2192 breaker QE3 (10A) \u2192 GAS/CO2/PETROL VAPOUR ALARM"
+       }
+      ],
+      "dry_data": "Breaker QE3, 10A, Emergency Power Supply panel",
+      "sheet_region": "EMERGENCY POWER SUPPLY panel"
+     }
+    ]
+   },
+   {
+    "equipment_name": "MYT Systems Hydraulics",
+    "target_node_id": "570-myt-systems-hydraulics",
+    "placement_reasoning": "Q21 labeled MYT HYDRAULICS per engineer mapping.",
+    "functions": [
+     {
+      "label": "24V supply to MYT hydraulics control",
+      "what_it_does": "Powers the MYT hydraulic system control electronics.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q21 (20A) \u2192 MYT HYDRAULICS"
+       }
+      ],
+      "dry_data": "Breaker Q21, 20A",
+      "sheet_region": "AFT PANEL DC BREAKERS main column"
+     }
+    ]
+   },
+   {
+    "equipment_name": "ONYX Monitoring & Control",
+    "target_node_id": "652-onyx-monitoring",
+    "placement_reasoning": "Q22 and Q24 both labeled ONYX CONTROL feed the ONYX monitoring/control system (distinct from the fuel transfer pump itself).",
+    "functions": [
+     {
+      "label": "24V supply to ONYX control (aft panel Q22)",
+      "what_it_does": "Powers ONYX monitoring/control electronics.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q22 (6A) \u2192 ONYX CONTROL"
+       }
+      ],
+      "dry_data": "Breaker Q22, 6A",
+      "sheet_region": "AFT PANEL DC BREAKERS main column"
+     },
+     {
+      "label": "24V supply to ONYX control (right column Q24)",
+      "what_it_does": "Secondary/redundant supply for ONYX control electronics.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q24 (6A) \u2192 ONYX CONTROL"
+       }
+      ],
+      "dry_data": "Breaker Q24, 6A",
+      "sheet_region": "AFT PANEL DC BREAKERS right column"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Passerelle",
+    "target_node_id": "260-passerelle",
+    "placement_reasoning": "Q25 labeled PASSARELLE LIGHT.",
+    "functions": [
+     {
+      "label": "24V supply to passerelle light",
+      "what_it_does": "Powers the light fitted at the passerelle.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q25 (10A) \u2192 PASSARELLE LIGHT"
+       }
+      ],
+      "dry_data": "Breaker Q25, 10A",
+      "sheet_region": "AFT PANEL DC BREAKERS right column"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Watermaker",
+    "target_node_id": "510-ecosistems-watermaker",
+    "placement_reasoning": "Q26 labeled WATER MAKER with CT9 current monitoring.",
+    "functions": [
+     {
+      "label": "24V supply to watermaker with current monitoring",
+      "what_it_does": "Powers the watermaker unit; CT9 monitors current draw for status/protection.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q26 (32A) \u2192 CT9 current sensor \u2192 WATER MAKER"
+       }
+      ],
+      "key_components": [
+       "CT9 current transformer (monitoring)"
+      ],
+      "dry_data": "Breaker Q26, 32A, CT9 inline current transformer",
+      "sheet_region": "AFT PANEL DC BREAKERS right column"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Pneumatic System (companionways)",
+    "target_node_id": "575-pneumatic-system",
+    "placement_reasoning": "Q27 AFT COMPANION WAY and Q28 SALOON COMPANION WAY both map to Pneumatic System per engineer mapping.",
+    "functions": [
+     {
+      "label": "24V supply to aft companionway pneumatic actuator",
+      "what_it_does": "Powers the pneumatic actuator for the aft companionway hatch/door.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q27 (6A) \u2192 AFT COMPANION WAY"
+       }
+      ],
+      "dry_data": "Breaker Q27, 6A",
+      "sheet_region": "AFT PANEL DC BREAKERS right column"
+     },
+     {
+      "label": "24V supply to saloon companionway pneumatic actuator",
+      "what_it_does": "Powers the pneumatic actuator for the saloon companionway hatch/door.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q28 (6A) \u2192 SALOON COMPANION WAY"
+       }
+      ],
+      "dry_data": "Breaker Q28, 6A",
+      "sheet_region": "AFT PANEL DC BREAKERS right column"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Dirty Oil Transfer Pump",
+    "target_node_id": "551-dirty-oil-transfer",
+    "placement_reasoning": "Q29 labeled OIL TRANSFER PUMP.",
+    "functions": [
+     {
+      "label": "24V supply to oil transfer pump",
+      "what_it_does": "Powers the dirty oil transfer pump used for engine oil changes.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q29 (16A) \u2192 OIL TRANSFER PUMP"
+       }
+      ],
+      "dry_data": "Breaker Q29, 16A",
+      "sheet_region": "AFT PANEL DC BREAKERS right column"
+     }
+    ]
+   },
+   {
+    "equipment_name": "DC Sockets",
+    "target_node_id": "692-dc-sockets",
+    "placement_reasoning": "Q30 AFT DC SOCKET (AFT panel) and Q13 DC SOCKETS (FWD panel) both map to DC Sockets node.",
+    "functions": [
+     {
+      "label": "24V supply to aft DC socket",
+      "what_it_does": "Powers an aft-located 24V DC accessory socket.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q30 (10A) \u2192 AFT DC SOCKET"
+       }
+      ],
+      "dry_data": "Breaker Q30, 10A",
+      "sheet_region": "AFT PANEL DC BREAKERS right column"
+     },
+     {
+      "label": "24V supply to fwd DC sockets",
+      "what_it_does": "Powers forward-located 24V DC accessory sockets.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "FWD panel 24V bus \u2192 breaker Q13 (10A) \u2192 DC SOCKETS"
+       }
+      ],
+      "dry_data": "Breaker Q13, 10A (FWD)",
+      "sheet_region": "FWD PANEL DC BREAKERS"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Galvanic Control",
+    "target_node_id": "670-galvanic-control",
+    "placement_reasoning": "Q32 labeled GALVANIC CONTROL.",
+    "functions": [
+     {
+      "label": "24V supply to galvanic isolation control",
+      "what_it_does": "Powers the galvanic corrosion protection control unit.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q32 (10A) \u2192 GALVANIC CONTROL"
+       }
+      ],
+      "dry_data": "Breaker Q32, 10A",
+      "sheet_region": "AFT PANEL DC BREAKERS right column"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Lights \u2014 navigation",
+    "target_node_id": "690-lts-navigation",
+    "placement_reasoning": "Q36 labeled NAVIGATION LTS (aft panel general nav lighting circuit); distinct from dedicated Navigation Lights node used elsewhere for masthead/sidelights (CB5 NAV. LIGHTS on emergency panel maps to 690-lts-nav-em per engineer mapping).",
+    "functions": [
+     {
+      "label": "24V supply to navigation lights circuit",
+      "what_it_does": "Powers the general navigation lighting circuit.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q36 (6A) \u2192 NAVIGATION LTS"
+       }
+      ],
+      "dry_data": "Breaker Q36, 6A",
+      "sheet_region": "AFT PANEL DC BREAKERS right column"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Lights \u2014 nav em (emergency nav lights)",
+    "target_node_id": "690-lts-nav-em",
+    "placement_reasoning": "CB5 labeled NAV. LIGHTS on Emergency Panel maps per engineer mapping to lts-nav-em, with wire routed through T/S E terminal (points 5,6,7) toward diamond 4 gauge callout.",
+    "functions": [
+     {
+      "label": "Emergency-backed supply to navigation lights",
+      "what_it_does": "Provides emergency panel power to navigation lights circuit, wired via terminal strip T/S E.",
+      "flow_scenarios": [
+       {
+        "state": "emergency",
+        "path": "Emergency Panel \u2192 breaker CB5 (10A) \u2192 NAV. LIGHTS; routed via terminal strip T/S E points 5-6-7"
+       }
+      ],
+      "key_components": [
+       "Terminal strip T/S E (routing, not power source)"
+      ],
+      "dry_data": "Breaker CB5, 10A, Emergency Panel",
+      "sheet_region": "EMERGENCY PANEL block, bottom center-right"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Lights \u2014 courtesy",
+    "target_node_id": "690-lts-courtesy",
+    "placement_reasoning": "Q37 labeled COURTESY LTS.",
+    "functions": [
+     {
+      "label": "24V supply to courtesy lights",
+      "what_it_does": "Powers courtesy/step lighting circuit.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q37 (6A) \u2192 COURTESY LTS"
+       }
+      ],
+      "dry_data": "Breaker Q37, 6A",
+      "sheet_region": "AFT PANEL DC BREAKERS right column"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Lights \u2014 engroom laz transom",
+    "target_node_id": "690-lts-engroom-laz-transom",
+    "placement_reasoning": "Q38 labeled ENG. ROOM / LAZ. / TRANSOM LTS.",
+    "functions": [
+     {
+      "label": "24V supply to engine room/lazarette/transom lights",
+      "what_it_does": "Powers combined lighting circuit for engine room, lazarette and transom.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q38 (10A) \u2192 ENG. ROOM / LAZ. / TRANSOM LTS"
+       }
+      ],
+      "dry_data": "Breaker Q38, 10A",
+      "sheet_region": "AFT PANEL DC BREAKERS right column"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Yachtica Lighting Control",
+    "target_node_id": "691-yachtica-lighting-control",
+    "placement_reasoning": "Q39 labeled YACHTICA SYSTEM.",
+    "functions": [
+     {
+      "label": "24V supply to Yachtica lighting control system",
+      "what_it_does": "Powers the Yachtica lighting control processor.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q39 (10A) \u2192 YACHTICA SYSTEM"
+       }
+      ],
+      "dry_data": "Breaker Q39, 10A",
+      "sheet_region": "AFT PANEL DC BREAKERS right column"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Lights \u2014 galley",
+    "target_node_id": "690-lts-galley",
+    "placement_reasoning": "Q40 labeled GALLEY LIGHTS.",
+    "functions": [
+     {
+      "label": "24V supply to galley lights",
+      "what_it_does": "Powers the galley lighting circuit.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q40 (40A) \u2192 GALLEY LIGHTS"
+       }
+      ],
+      "dry_data": "Breaker Q40, 40A",
+      "sheet_region": "AFT PANEL DC BREAKERS right column"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Lights \u2014 crew",
+    "target_node_id": "690-lts-crew",
+    "placement_reasoning": "Q41 PORT/STBD CREW LTS and Q42 STBD CREW LIGHTS both map to crew lighting.",
+    "functions": [
+     {
+      "label": "24V supply to port/stbd crew lights",
+      "what_it_does": "Powers combined port/stbd crew area lighting circuit.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q41 (40A) \u2192 PORT/STBD CREW LTS"
+       }
+      ],
+      "dry_data": "Breaker Q41, 40A",
+      "sheet_region": "AFT PANEL DC BREAKERS right column"
+     },
+     {
+      "label": "24V supply to stbd crew lights",
+      "what_it_does": "Powers stbd crew area lighting circuit.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q42 (40A) \u2192 STBD CREW LIGHTS"
+       }
+      ],
+      "dry_data": "Breaker Q42, 40A",
+      "sheet_region": "AFT PANEL DC BREAKERS right column"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Lights \u2014 guest aft",
+    "target_node_id": "690-lts-guest-aft",
+    "placement_reasoning": "Q43 PORT AFT GUEST LIGHTS and Q44 STBD AFT GUEST LIGHTS map to guest aft lighting.",
+    "functions": [
+     {
+      "label": "24V supply to port aft guest lights",
+      "what_it_does": "Powers port aft guest cabin lighting circuit.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q43 (40A) \u2192 PORT AFT GUEST LIGHTS"
+       }
+      ],
+      "dry_data": "Breaker Q43, 40A",
+      "sheet_region": "AFT PANEL DC BREAKERS right column"
+     },
+     {
+      "label": "24V supply to stbd aft guest lights",
+      "what_it_does": "Powers stbd aft guest cabin lighting circuit.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT panel 24V bus \u2192 breaker Q44 (40A) \u2192 STBD AFT GUEST LIGHTS"
+       }
+      ],
+      "dry_data": "Breaker Q44, 40A",
+      "sheet_region": "AFT PANEL DC BREAKERS right column"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Emergency Lighting & EM Supply",
+    "target_node_id": "693-emergency-lighting",
+    "placement_reasoning": "QE1 EMERGENCY SUPPLY, CB6 EMERGENCY LTS (via T/S E terminal to diamond 4), QE6 FWD PANEL EM SUPPLY, and FWD panel QE1 FWD EMERGENCY LTS/HATCH SUPPLY all map to Emergency Lighting node per engineer mapping.",
+    "functions": [
+     {
+      "label": "Emergency battery supply feed to emergency panel",
+      "what_it_does": "Distributes the +24V emergency battery supply into the emergency panel bus.",
+      "flow_scenarios": [
+       {
+        "state": "emergency",
+        "path": "Emergency Power Supply panel \u2192 breaker QE1 (32A) \u2192 EMERGENCY SUPPLY \u2192 feeds Emergency Panel bus"
+       }
+      ],
+      "dry_data": "Breaker QE1, 32A, Emergency Power Supply panel",
+      "sheet_region": "EMERGENCY POWER SUPPLY panel, top row"
+     },
+     {
+      "label": "Emergency lights circuit supply via terminal strip",
+      "what_it_does": "Powers emergency lighting circuit, routed through terminal block T/S E (points 5,6,7) to a wire-gauge callout (diamond 4).",
+      "flow_scenarios": [
+       {
+        "state": "emergency",
+        "path": "Emergency Panel \u2192 breaker CB6 (15A) \u2192 EMERGENCY LTS \u2192 terminal strip T/S E (pts 5,6,7) \u2192 diamond callout 4 (downstream wiring)"
+       }
+      ],
+      "key_components": [
+       "Terminal strip T/S E (routing)"
+      ],
+      "dry_data": "Breaker CB6, 15A, Emergency Panel",
+      "sheet_region": "EMERGENCY PANEL block"
+     },
+     {
+      "label": "Emergency supply feed to forward panel",
+      "what_it_does": "Feeds the forward DC panel's emergency supply bus from the aft emergency power supply.",
+      "flow_scenarios": [
+       {
+        "state": "emergency",
+        "path": "Emergency Power Supply panel \u2192 breaker QE6 (20A) \u2192 FWD PANEL EM SUPPLY \u2192 feeds FWD panel emergency breakers"
+       }
+      ],
+      "dry_data": "Breaker QE6, 20A, Emergency Power Supply panel",
+      "sheet_region": "EMERGENCY POWER SUPPLY panel, lower rows"
+     },
+     {
+      "label": "Forward emergency lights/hatch supply",
+      "what_it_does": "Powers forward emergency lighting and hatch release supply from the FWD panel.",
+      "flow_scenarios": [
+       {
+        "state": "emergency",
+        "path": "FWD panel 24V bus (fed from FWD PANEL EM SUPPLY) \u2192 breaker QE1 (10A) \u2192 FWD EMERGENCY LTS/HATCH SUPPLY"
+       }
+      ],
+      "dry_data": "Breaker QE1, 10A, FWD panel",
+      "sheet_region": "FWD PANEL DC BREAKERS, bottom (QE rows)"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Vessel Control Panel (VCP)",
+    "target_node_id": "641-vessel-control-panel",
+    "placement_reasoning": "QE7 labeled MAIN PANEL maps to Vessel Control Panel per engineer mapping.",
+    "functions": [
+     {
+      "label": "Emergency supply to main panel",
+      "what_it_does": "Feeds emergency power to the vessel's main control panel.",
+      "flow_scenarios": [
+       {
+        "state": "emergency",
+        "path": "Emergency Power Supply panel \u2192 breaker QE7 (10A) \u2192 MAIN PANEL"
+       }
+      ],
+      "dry_data": "Breaker QE7, 10A, Emergency Power Supply panel",
+      "sheet_region": "EMERGENCY POWER SUPPLY panel"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Main Bilge Pump",
+    "target_node_id": "520-main-bilge-pump",
+    "placement_reasoning": "BILGE PUMP fed via fuse F7/SW8/SO6 (solenoid) at left of sheet maps to Main Bilge Pump per engineer mapping.",
+    "functions": [
+     {
+      "label": "24V supply to main bilge pump via fuse/switch/solenoid",
+      "what_it_does": "Provides pre-panel switched 24V power to the main bilge pump, gated by a solenoid-operated switch.",
+      "flow_scenarios": [
+       {
+        "state": "normal/commanded",
+        "path": "24V Service Supply \u2192 fuse F7 (60A) \u2192 switch SW8 \u2192 solenoid SO6 \u2192 BILGE PUMP"
+       }
+      ],
+      "key_components": [
+       "SO6 solenoid (command/lock switch)"
+      ],
+      "dry_data": "Fuse F7 60A, switch SW8, solenoid SO6",
+      "sheet_region": "left side of sheet, service supply fuse/switch block"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Aux Bilge Pumps (mast + eng.room)",
+    "target_node_id": "520-aux-bilge-pumps",
+    "placement_reasoning": "FWD panel Q2 MAST BILGE PUMP and Q3 AUX BILGE PUMP ENG. ROOM both map to Aux Bilge Pumps node.",
+    "functions": [
+     {
+      "label": "24V supply to mast bilge pump",
+      "what_it_does": "Powers auxiliary bilge pump located at the mast base area.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "FWD panel 24V bus \u2192 breaker Q2 (10A) \u2192 MAST BILGE PUMP"
+       }
+      ],
+      "dry_data": "Breaker Q2, 10A (FWD)",
+      "sheet_region": "FWD PANEL DC BREAKERS"
+     },
+     {
+      "label": "24V supply to engine room auxiliary bilge pump",
+      "what_it_does": "Powers auxiliary bilge pump in the engine room.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "FWD panel 24V bus \u2192 breaker Q3 (10A) \u2192 AUX BILGE PUMP ENG. ROOM"
+       }
+      ],
+      "dry_data": "Breaker Q3, 10A (FWD)",
+      "sheet_region": "FWD PANEL DC BREAKERS"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Fire Pump",
+    "target_node_id": "520-fire-pump",
+    "placement_reasoning": "FIRE PUMP fed via fuse F8/SW9/SO7 (solenoid) maps to Fire Pump per engineer mapping.",
+    "functions": [
+     {
+      "label": "24V supply to fire pump via fuse/switch/solenoid",
+      "what_it_does": "Provides pre-panel switched 24V power to the fire pump, gated by a solenoid-operated switch.",
+      "flow_scenarios": [
+       {
+        "state": "normal/commanded",
+        "path": "24V Service Supply \u2192 fuse F8 (60A) \u2192 switch SW9 \u2192 solenoid SO7 \u2192 FIRE PUMP"
+       }
+      ],
+      "key_components": [
+       "SO7 solenoid (command/lock switch)"
+      ],
+      "dry_data": "Fuse F8 60A, switch SW9, solenoid SO7",
+      "sheet_region": "left side of sheet, service supply fuse/switch block"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Tender Winch (WARN HY2000)",
+    "target_node_id": "270-tender-winch-warn-hy2000",
+    "placement_reasoning": "TENDER WINCH fed via fuse F?(50A)/SW? maps to Tender Winch per engineer mapping.",
+    "functions": [
+     {
+      "label": "24V supply to tender winch via fuse/switch",
+      "what_it_does": "Provides pre-panel switched 24V power to the tender hauling winch.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "24V Service Supply \u2192 fuse F? (50A, uncertain id) \u2192 switch SW? \u2192 TENDER WINCH"
+       }
+      ],
+      "dry_data": "Fuse ~50A (id illegible), switch SW? (id illegible)",
+      "sheet_region": "left side of sheet, service supply fuse/switch block"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Saloon Fridge",
+    "target_node_id": "360-fridges",
+    "placement_reasoning": "FWD panel Q6 labeled SALOON FRIDGE; no explicit engineer mapping row given for this label, closest register node is Fridges under Galley features.",
+    "functions": [
+     {
+      "label": "24V supply to saloon fridge",
+      "what_it_does": "Powers the saloon refrigerator unit.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "FWD panel 24V bus \u2192 breaker Q6 (20A) \u2192 SALOON FRIDGE"
+       }
+      ],
+      "dry_data": "Breaker Q6, 20A (FWD)",
+      "sheet_region": "FWD PANEL DC BREAKERS"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Lights \u2014 saloon locker",
+    "target_node_id": "690-lts-saloon-locker",
+    "placement_reasoning": "FWD panel Q9 SALOON LKR LT. maps per engineer mapping to Saloon Locker Light.",
+    "functions": [
+     {
+      "label": "24V supply to saloon locker light",
+      "what_it_does": "Powers the saloon locker light fitting.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "FWD panel 24V bus \u2192 breaker Q9 (10A) \u2192 SALOON LKR LT."
+       }
+      ],
+      "dry_data": "Breaker Q9, 10A (FWD)",
+      "sheet_region": "FWD PANEL DC BREAKERS"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Lights \u2014 sail locker",
+    "target_node_id": "690-lts-sail-locker",
+    "placement_reasoning": "FWD panel Q10 SAIL LKR LTS maps per engineer mapping.",
+    "functions": [
+     {
+      "label": "24V supply to sail locker lights",
+      "what_it_does": "Powers the sail locker lighting circuit.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "FWD panel 24V bus \u2192 breaker Q10 (10A) \u2192 SAIL LKR LTS"
+       }
+      ],
+      "dry_data": "Breaker Q10, 10A (FWD)",
+      "sheet_region": "FWD PANEL DC BREAKERS"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Lights \u2014 mast",
+    "target_node_id": "690-lts-mast",
+    "placement_reasoning": "FWD panel Q11 MAST LTS maps per engineer mapping.",
+    "functions": [
+     {
+      "label": "24V supply to mast lights",
+      "what_it_does": "Powers the mast lighting circuit.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "FWD panel 24V bus \u2192 breaker Q11 (10A) \u2192 MAST LTS"
+       }
+      ],
+      "dry_data": "Breaker Q11, 10A (FWD)",
+      "sheet_region": "FWD PANEL DC BREAKERS"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Lights \u2014 boom",
+    "target_node_id": "690-lts-boom",
+    "placement_reasoning": "FWD panel Q12 BOOM LTS maps per engineer mapping.",
+    "functions": [
+     {
+      "label": "24V supply to boom lights",
+      "what_it_does": "Powers the boom lighting circuit.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "FWD panel 24V bus \u2192 breaker Q12 (6A) \u2192 BOOM LTS"
+       }
+      ],
+      "dry_data": "Breaker Q12, 6A (FWD)",
+      "sheet_region": "FWD PANEL DC BREAKERS"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Fog Horn",
+    "target_node_id": "733-fog-horn",
+    "placement_reasoning": "FWD panel Q14 FOG HORN maps per engineer mapping.",
+    "functions": [
+     {
+      "label": "24V supply to fog horn",
+      "what_it_does": "Powers the fog horn signaling device.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "FWD panel 24V bus \u2192 breaker Q14 (16A) \u2192 FOG HORN"
+       }
+      ],
+      "dry_data": "Breaker Q14, 16A (FWD)",
+      "sheet_region": "FWD PANEL DC BREAKERS"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Lights \u2014 deck",
+    "target_node_id": "690-lts-deck",
+    "placement_reasoning": "FWD panel Q16 DECK LTS maps per engineer mapping.",
+    "functions": [
+     {
+      "label": "24V supply to deck lights",
+      "what_it_does": "Powers the deck lighting circuit.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "FWD panel 24V bus \u2192 breaker Q16 (10A) \u2192 DECK LTS"
+       }
+      ],
+      "dry_data": "Breaker Q16, 10A (FWD)",
+      "sheet_region": "FWD PANEL DC BREAKERS"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Lights \u2014 saloon",
+    "target_node_id": "690-lts-saloon",
+    "placement_reasoning": "FWD panel Q17 SALOON LTS and Q18 SALOON/STUDIO LTS both map per engineer mapping.",
+    "functions": [
+     {
+      "label": "24V supply to saloon lights",
+      "what_it_does": "Powers the saloon lighting circuit.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "FWD panel 24V bus \u2192 breaker Q17 (40A) \u2192 SALOON LTS"
+       }
+      ],
+      "dry_data": "Breaker Q17, 40A (FWD)",
+      "sheet_region": "FWD PANEL DC BREAKERS"
+     },
+     {
+      "label": "24V supply to saloon/studio lights",
+      "what_it_does": "Powers combined saloon/studio lighting circuit.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "FWD panel 24V bus \u2192 breaker Q18 (40A) \u2192 SALOON/STUDIO LTS"
+       }
+      ],
+      "dry_data": "Breaker Q18, 40A (FWD)",
+      "sheet_region": "FWD PANEL DC BREAKERS"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Lights \u2014 owners",
+    "target_node_id": "690-lts-owners",
+    "placement_reasoning": "FWD panel Q19 OWNERS LTS maps per engineer mapping.",
+    "functions": [
+     {
+      "label": "24V supply to owners lights",
+      "what_it_does": "Powers the owners cabin lighting circuit.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "FWD panel 24V bus \u2192 breaker Q19 (40A) \u2192 OWNERS LTS"
+       }
+      ],
+      "dry_data": "Breaker Q19, 40A (FWD)",
+      "sheet_region": "FWD PANEL DC BREAKERS"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Lights \u2014 guest fwd",
+    "target_node_id": "690-lts-guest-fwd",
+    "placement_reasoning": "FWD panel Q20 PORT FWD GUEST LTS maps per engineer mapping.",
+    "functions": [
+     {
+      "label": "24V supply to port fwd guest lights",
+      "what_it_does": "Powers the forward port guest cabin lighting circuit.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "FWD panel 24V bus \u2192 breaker Q20 (40A) \u2192 PORT FWD GUEST LTS"
+       }
+      ],
+      "dry_data": "Breaker Q20, 40A (FWD)",
+      "sheet_region": "FWD PANEL DC BREAKERS"
+     }
+    ]
+   }
+  ],
+  "infrastructure": {
+   "target_node_id": "640-dc-distribution",
+   "facts": [
+    "Sheet defines the 24V DC distribution scheme across AFT PANEL DC BREAKERS, FWD PANEL DC BREAKERS, EMERGENCY POWER SUPPLY panel, and EMERGENCY PANEL (with GMDSS sub-breakers CB7/CB8).",
+    "24V SERVICE SUPPLY bus (left side) is fed via fuses F5 (100A), F6 (200A), F7 (60A), F8 (60A) and an unlabeled ~50A fuse, feeding switches SW6-SW9 and an unlabeled switch SW? which pre-switch the Bilge Pump, Fire Pump and Tender Winch loads before the main panel bus.",
+    "CT8 current transformer sits on the 'to ONYX' feed line near the top of the AFT panel, providing a status tap to ONYX monitoring, not a power path.",
+    "A small relay (coil labeled Re/, contact labeled B&G) sits between breaker rows Q49/Q50 and the B&G supply, providing an auxiliary switched path.",
+    "Text legend defines CTB7 = QI-POWER-485-300-LV; CTB8, CTB9, CTB10 = QI-POWER-485-LV (network/bus interface module identifiers for panel monitoring, not equipment loads).",
+    "Emergency battery (+24V EMERGENCY BATTERY) feeds the Emergency Power Supply panel via CT7 (see DWG 111a) and also feeds 'to ONYX'.",
+    "Diamond callouts '4' and '6' near EMERGENCY LTS / T/S E terminal and near bottom right (toward FWD panel) are wire-gauge cross-reference tags, not equipment.",
+    "GMDSS sub-panel breaker CB7 (6A) row is unlabeled/marked '/' \u2014 no confirmed load."
+   ]
+  },
+  "uncertainties": "[\"Many right-column AFT panel breaker labels (Q23-Q44) were originally illegible in the raw scan but were confirmed via the engineer mapping and duplicate schedule read; a few residual ambiguities remain: exact breaker ID for the ONYX auto fuel transfer pump breaker (labeled Q23 in one reading, unlabeled 'breaker' in another) \u2014 used Q23 25A per most consistent reading.\",\"Fuse ID for Tender Winch circuit at far left is illegible ('F?' with ~50A rating); switch ID also illegible ('SW?').\",\"QE4 load label on both AFT emergency panel and FWD panel is illegible ('<UNKNOWN>') \u2014 not reported as a function.\",\"QE5 (Emergency Power Supply, 20A) load label is illegible ('/') \u2014 not reported.\",\"CB7 (GMDSS, 6A) target load is illegible/marked '/' \u2014 not reported.\",\"FWD panel QE2, QE3, QE4 loads are marked '/' (blank/spare) \u2014 not reported.\",\"AFT panel Q33, Q34 loads are marked '/' (spare) \u2014 not reported.\",\"Diamond callout values '4' and '6' are assumed to be wire-gauge references per convention but exact meaning not labeled on this sheet.\"]}",
+  "_model": "claude-sonnet-5"
+ },
+ "elapsed_s": 141.4,
+ "note": "retry with max_tokens=20000 after truncation at 16384"
+}
