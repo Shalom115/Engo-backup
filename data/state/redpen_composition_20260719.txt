@@ -1,0 +1,89 @@
+ENGINEER RED-PEN — composition pass v1, 10-category results (2026-07-19, verbatim)
+
+GENERAL: hydraulic result suspected of "copying my answers in a smart way" — run another
+hydraulic sheet to prove not cheating. P&ID same concern (bilge details known from prior
+sessions) — run plumbing check on another P&ID sheet.
+
+HYDRAULIC (AFT_blockB) uncertainties:
+1. numbers are Bars for press relief correctly assumed good for verifying
+2. units are bar
+3. why is it not illegible if its there? [values ARE on the sheet]
+4. 100 is bar and its load sense press. relief
+5. 70 is bar and its load sense press relief
+6. the red triangle with the number is the revision number that it was added in, and the
+   valve block is not valve block — that's the PVEO module that directs the spool which way to go
+7. from the ports theres a hose that goes to the relevant function; in 9.3 specifically its
+   the lock — in A out B — but make it GENERAL knowledge for all blocks: the function is
+   written in the data above it
+8. not sure which ones are referred [show him]
+9. show me images of which ones and we will decide if they are worth the extra pass
+
+ELECTRICAL 110a:
+* HVPDU and DC distribution are 2 SEPARATE SYSTEMS (both DC ≠ same system) — each should
+  have its own node. Find the protocol-level cause; make a rule so it can't recur (v1+v2).
+* start key logic is a COMPLETE INVENTION — proximity to the emergency inverter, no line
+  connecting. Protocol-level rule so it can't recur.
+* wiring routes of valves/sensors all right EXCEPT: terminals also have fuses — rectangle
+  terminal containing a rectangle-with-a-line = terminal with built-in replaceable fuse;
+  known culprits, an ace in troubleshooting.
+* uncertainties flagged a lot of single LETTERS — pass mistake; find why, fix; if
+  irrelevant fragments, correct them for context, don't flag.
+
+114a uncertainties:
+1. follow the lines from the terminals: 12, 14, 15 are the control lines that activate the
+   solenoid contactor; multi-switch concept — multiple switches can energize the solenoid
+   and turn the pump on.
+2. XA40 and XA10 correct (status signals) BUT XA11 is the ACTIVATION signal for the bilge
+   pump (see 3).
+3. same multi-switch route: terminals 6 and 7 = main panel switch; closing them closes the
+   circuit on 13 and 14 → pump on; circuit can ALSO be closed by XA11 from ONYX connected
+   to cable 7 in terminal 50, connected by Re6. Same circuit came back as 3 different
+   flags — why didn't it follow all the lines and assemble the loop? Protocol-level rule.
+
+P&ID (bilge & fire):
+1. Gianneschi — good flag (the cf-002 history).
+2. keep the fact there's a coolant leak alarm; part number borderline irrelevant — FUNCTION
+   over part number; engineer gets PN at inspection/failure follow-up. Protocol rule.
+3. irrelevant, changes all the time.
+4. from the pump there's an emergency suction line — engine-room flood: water sucked via
+   the gens raw-water pump through exhaust separator and overboard.
+5. not clearly labeled but obviously an auxiliary bilge pump — currently the E.R.'s aux
+   bilge pump; good flag.
+
+PLC:
+* mention channel voltage is RELATIVE TO THE MODULE'S COMMON channel — so its clear where
+  to measure.
+* EV-10.2 assumed "solenoid" but the aft block sheet (already ingested) says PVEO module —
+  it noted the reference but noted it WRONG. Protocol-level rule (cross-sheet consistency).
+Uncertainties: 1. there SHOULD be PLC control on every boat's hydraulic system — Wago/Fuji/
+many other I/O modules, different software per boat, PLC racks/hubs in multiple locations —
+part of the skeleton of a boat; add to the right glossary/protocol. 2. correct — logic PLC
+control only.
+
+STEERING GA:
+1. find the FUNCTION of the line first; exact length secondary. Steering rope (it is) →
+   flag length unknown to engineer; no function → don't flag. → protocol.
+2. Port and STBD are MIRRORING — obvious from the drawing, wasn't reasoned because no
+   protocol. ALSO: GAs differ — the attached Navigation GA is a schematic GA; consider
+   splitting GA into sub-categories (building GA vs schematic GA). Protocol-level rule.
+3. rudder blades should go under 150 steering system node (confirm); Marsili autopilot ram
+   is only a PART of the autopilot system which is part of the steering system. What in the
+   node-creation protocol made that mistake? Rule so it can't recur (v1+v2).
+
+BAE:
+* "uncertain what BEL means" — BEL is in the acronym glossary, part of the corpus, Engo
+  already answered it. Find what went wrong; rule.
+
+TERMODINAMICA:
+1. there should be [a node/known item] — we've been over it — why isn't there? fix it.
+2. ok. 3. irrelevant. 4. good.
+
+HARKEN PHOTO: good; unc 1 clears as corpus builds; unc 2 extract best-effort, flag if cant.
+
+ATTACHED: SWS 108-01 Navigation drawing (F. Monti, 28 Oct 2022) — example of a SCHEMATIC GA
+(Nmea 2000 backbone/drops, cable labels EL/V_xx VHF/Nvtx/Irid, EL/C_xx Comm&Net, EL/N_xx
+Navigations, EL/E_xx Entertainment; analog expansion Ch1-5 from MYT plc: backstay press,
+keel position, bobstay load cell, backstay deflector).
+
+INSTRUCTION: correct all the above, show clarifications where asked, then run the requested
+tests (fresh hydraulic sheet + fresh P&ID sheet). Work methodically; address everything.
