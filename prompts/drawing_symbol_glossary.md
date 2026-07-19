@@ -104,3 +104,9 @@
   terminal, but note the inline protection.
 - [STD] breaker ≠ fuse ≠ relay ≠ contactor ≠ terminal ≠ switch; signal ≠ power;
   mark ambiguous rather than guess.
+
+## REVISION MARKER (hydraulic/mechanical sheets) — engineer-taught 2026-07-19
+A RED WARNING TRIANGLE containing a number is a REVISION MARKER: the element it
+sits next to was added or changed in that numbered row of the sheet's revision
+table. It is never a component. Cross-read the revision table row to learn what
+changed and when — this ties drawn elements to design history.

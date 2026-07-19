@@ -772,11 +772,37 @@
       ],
       "note": "assembled from this sheet's wiring elements per the power-path protocol"
      }
+    },
+    {
+     "kind": "identity_note",
+     "value": "Marsili ram is the ACTUATOR COMPONENT of the autopilot system, not the system itself (engineer 2026-07-19). B&G control unit also part of this system (source pending ingestion).",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen on composition v1",
+      "file": "data/state/redpen_composition_20260719.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-19"
+     }
     }
    ],
    "identity_status": "pending",
    "fact_classes_present": [
     "electrical_schematic"
+   ],
+   "parent_id": "150-autopilot-system",
+   "cross_links": [
+    {
+     "relation": "part_of",
+     "target": "150-autopilot-system",
+     "source": {
+      "source_doc": "engineer red-pen on composition v1",
+      "file": "data/state/redpen_composition_20260719.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-19"
+     }
+    }
    ]
   },
   {
@@ -5233,7 +5259,20 @@
    "doc_subfolders": {},
    "file_count": 2,
    "flags": [],
-   "confidence": "Confirmed"
+   "confidence": "Confirmed",
+   "cross_links": [
+    {
+     "relation": "fed_by",
+     "target": "620-hvpdu",
+     "source": {
+      "source_doc": "engineer red-pen on composition v1",
+      "file": "data/state/redpen_composition_20260719.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-19"
+     }
+    }
+   ]
   },
   {
    "equipment_id": "620-modular-propulsion-control-system-mpcs",
@@ -16334,6 +16373,17 @@
       "authority": "engineer_verified",
       "confidence": "high"
      }
+    },
+    {
+     "relation": "part_of",
+     "target": "520-bilge-system",
+     "source": {
+      "source_doc": "engineer red-pen on composition v1",
+      "file": "data/state/redpen_composition_20260719.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-19"
+     }
     }
    ],
    "expected_fact_classes": [
@@ -16387,6 +16437,18 @@
       "source": "engineer verbal 2026-07-04, correcting the prior same-pump assumption",
       "authority": "engineer_verified",
       "confidence": "high"
+     }
+    },
+    {
+     "kind": "control_loop",
+     "value": "MULTI-SWITCH ACTIVATION (engineer-traced, GM-114a): terminals 13/14 close the solenoid contactor coil that runs the pump; T/S terminals 12/14/15 are the control lines. The coil circuit can be closed by ANY of: (a) the local pump switch; (b) the MAIN PANEL switch via plug C pins 6/7; (c) ONYX remote command XA11 via cable 7 into terminal 50, switched through relay Re6. XA40/XA10 are STATUS taps (monitoring only); XA11 is an ACTIVATION signal \u2014 direction matters.",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen on composition v1",
+      "file": "data/state/redpen_composition_20260719.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-19"
      }
     }
    ],
@@ -36891,7 +36953,20 @@
     }
    ],
    "identity_status": "pending",
-   "facts": [],
+   "facts": [
+    {
+     "kind": "alias_note",
+     "value": "= Owner's cabin fancoil (BUS Addr.11, MRMAXI30i per Termodinamica wiring rev0); 'master' and 'owner's cabin' are the same space",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen on composition v1",
+      "file": "data/state/redpen_composition_20260719.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-19"
+     }
+    }
+   ],
    "note": "Zone identity: HIGH confidence, engineer-stated. 'AIR HANDLER' (BOM name, items 006/007) and 'FANCOIL UNIT' (plan-view name) are the SAME equipment. Per-unit model size (MR.MAXI18i 18kBTU vs MR.MAXI30i 30kBTU) and the drawing's FCU tag number for this zone are NOT yet confirmed \u2014 pending legends-first re-read; not guessed."
   },
   {
@@ -39717,6 +39792,255 @@
     }
    ],
    "note": ""
+  },
+  {
+   "equipment_id": "150-steering-system",
+   "name": "Steering System",
+   "confidence": "Flagged",
+   "origin": "engineer_redpen_20260719",
+   "node_provenance": {
+    "source_doc": "engineer red-pen on composition v1",
+    "file": "data/state/redpen_composition_20260719.txt",
+    "source_type": "engineer_redpen",
+    "authority": "engineer",
+    "as_of": "2026-07-19"
+   },
+   "region_code": "100",
+   "subsystem_code": "150",
+   "subsystem_label": "Steering",
+   "category": "system",
+   "children": [
+    "150-rudder-blades",
+    "150-autopilot-system"
+   ],
+   "cross_links": [
+    {
+     "relation": "comprises",
+     "target": "150-rudder-blades",
+     "source": {
+      "source_doc": "engineer red-pen on composition v1",
+      "file": "data/state/redpen_composition_20260719.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-19"
+     }
+    },
+    {
+     "relation": "comprises",
+     "target": "150-autopilot-system",
+     "source": {
+      "source_doc": "engineer red-pen on composition v1",
+      "file": "data/state/redpen_composition_20260719.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-19"
+     }
+    }
+   ]
+  },
+  {
+   "equipment_id": "150-rudder-blades",
+   "name": "Rudder Blades (P+S, mirrored)",
+   "confidence": "Flagged",
+   "origin": "engineer_redpen_20260719",
+   "node_provenance": {
+    "source_doc": "engineer red-pen on composition v1",
+    "file": "data/state/redpen_composition_20260719.txt",
+    "source_type": "engineer_redpen",
+    "authority": "engineer",
+    "as_of": "2026-07-19"
+   },
+   "region_code": "100",
+   "subsystem_code": "150",
+   "parent_id": "150-steering-system",
+   "facts": [
+    {
+     "kind": "structure",
+     "value": "Twin rudder blades, port and starboard mirrored; 1.8\u00b0 toe-in at neutral with rod links 2044mm; Ackermann effect per steering GA table. 3 independent steering paths: 2 wheels + autopilot; single rod failure leaves one rudder active; both-wheel failure leaves pilot in control. [Steering System GA 108-01-150-001]",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen on composition v1",
+      "file": "data/state/redpen_composition_20260719.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-19"
+     }
+    }
+   ],
+   "cross_links": [
+    {
+     "relation": "part_of",
+     "target": "150-steering-system",
+     "source": {
+      "source_doc": "engineer red-pen on composition v1",
+      "file": "data/state/redpen_composition_20260719.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-19"
+     }
+    }
+   ]
+  },
+  {
+   "equipment_id": "150-autopilot-system",
+   "name": "Autopilot System",
+   "confidence": "Flagged",
+   "origin": "engineer_redpen_20260719",
+   "node_provenance": {
+    "source_doc": "engineer red-pen on composition v1",
+    "file": "data/state/redpen_composition_20260719.txt",
+    "source_type": "engineer_redpen",
+    "authority": "engineer",
+    "as_of": "2026-07-19"
+   },
+   "region_code": "100",
+   "subsystem_code": "150",
+   "parent_id": "150-steering-system",
+   "children": [
+    "150-marsili-autopilot"
+   ],
+   "cross_links": [
+    {
+     "relation": "part_of",
+     "target": "150-steering-system",
+     "source": {
+      "source_doc": "engineer red-pen on composition v1",
+      "file": "data/state/redpen_composition_20260719.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-19"
+     }
+    },
+    {
+     "relation": "comprises",
+     "target": "150-marsili-autopilot",
+     "source": {
+      "source_doc": "engineer red-pen on composition v1",
+      "file": "data/state/redpen_composition_20260719.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-19"
+     }
+    }
+   ]
+  },
+  {
+   "equipment_id": "590-aircon-fancoil-fwd-guest",
+   "name": "Fancoil Fwd Guest Cabin (MRMAXI18i, Addr.2)",
+   "confidence": "Flagged",
+   "origin": "engineer_redpen_20260719",
+   "node_provenance": {
+    "source_doc": "engineer red-pen on composition v1",
+    "file": "data/state/redpen_composition_20260719.txt",
+    "source_type": "engineer_redpen",
+    "authority": "engineer",
+    "as_of": "2026-07-19"
+   },
+   "region_code": "500",
+   "subsystem_code": "590",
+   "subsystem_label": "Aircon",
+   "facts": [
+    {
+     "kind": "identity",
+     "value": "Termodinamica MRMAXI18i, BUS address 2, port side loop [Termodinamica wiring rev0]",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen on composition v1",
+      "file": "data/state/redpen_composition_20260719.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-19"
+     }
+    }
+   ]
+  },
+  {
+   "equipment_id": "620-hvpdu",
+   "name": "HV Power Distribution Unit (HVPDU, port + stbd)",
+   "confidence": "Flagged",
+   "origin": "engineer_redpen_20260719",
+   "node_provenance": {
+    "source_doc": "engineer red-pen on composition v1",
+    "file": "data/state/redpen_composition_20260719.txt",
+    "source_type": "engineer_redpen",
+    "authority": "engineer",
+    "as_of": "2026-07-19"
+   },
+   "region_code": "600",
+   "subsystem_code": "620",
+   "subsystem_label": "Propulsion electrical",
+   "category": "system",
+   "facts": [
+    {
+     "kind": "identity",
+     "value": "Two HVPDU units (PORT/STBD). S1 switch separates port/stbd HV DC buses for fault isolation; S2 switch selects which MPCS drives the ACTM. Q1-Q4 32A breakers + F1/F2 500A fuses per side; feeds MAPS converters (600V DC -> 24V DC). Authoritative: CM-22-702. DISTINCT SYSTEM from 640-dc-distribution \u2014 sharing DC voltage does not merge systems (engineer rule 2026-07-19).",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen on composition v1",
+      "file": "data/state/redpen_composition_20260719.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-19"
+     }
+    }
+   ],
+   "cross_links": [
+    {
+     "relation": "feeds",
+     "target": "620-modular-accessory-power-system-maps",
+     "source": {
+      "source_doc": "engineer red-pen on composition v1",
+      "file": "data/state/redpen_composition_20260719.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-19"
+     }
+    }
+   ]
+  },
+  {
+   "equipment_id": "520-bilge-system",
+   "name": "Bilge & Fire System (system card)",
+   "confidence": "Flagged",
+   "origin": "engineer_redpen_20260719",
+   "node_provenance": {
+    "source_doc": "engineer red-pen on composition v1",
+    "file": "data/state/redpen_composition_20260719.txt",
+    "source_type": "engineer_redpen",
+    "authority": "engineer",
+    "as_of": "2026-07-19"
+   },
+   "region_code": "500",
+   "subsystem_code": "520",
+   "subsystem_label": "Bilge",
+   "category": "system",
+   "facts": [
+    {
+     "kind": "flow_scenario",
+     "value": "EMERGENCY ENGINE-ROOM FLOOD SUCTION: water is sucked from the engine room via the STBD generator's raw-water pump (Jabsco 43400) through the exhaust water separator and discharged overboard (engineer 2026-07-19).",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen on composition v1",
+      "file": "data/state/redpen_composition_20260719.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-19"
+     }
+    }
+   ],
+   "cross_links": [
+    {
+     "relation": "comprises",
+     "target": "520-main-bilge-pump",
+     "source": {
+      "source_doc": "engineer red-pen on composition v1",
+      "file": "data/state/redpen_composition_20260719.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-19"
+     }
+    }
+   ]
   }
  ],
  "acronyms": {

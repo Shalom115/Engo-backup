@@ -217,3 +217,29 @@ Button lands on an INPUT channel (channel N of module position M in rack R); a s
 OUTPUT channel — same rack or another, same addressing concept — energises the cartridge/EV
 (opens valve / moves spool). Per function, record which output channel drives port A and
 which drives port B (each spool direction = its own solenoid/channel).
+
+## 2026-07-19 — Composition v2: engineer red-pen round applied (protocol-level rules)
+Root-cause rules (all in pipeline/compose.py general rules + class rules):
+- DRAWN-LINE LAW: adjacency is never connectivity; scenarios only along drawn lines
+  (the 110a "start key logic" invention).
+- SYSTEM IDENTITY: same commodity != same system; named systems need own nodes, never
+  folded into siblings (HVPDU vs DC distribution).
+- LOOP-WALK: wiring loops walked end-to-end; multi-switch activation = ONE scenario with
+  alternative paths (the 114a triple-flag).
+- UNCERTAINTY DISCIPLINE: meaning-level only, no orphan glyphs; FUNCTION OVER PART NUMBER
+  (coolant-leak-alarm rule); volatile data irrelevant.
+- Hydraulic: bar convention; port mapping from the spec block resolves hose destinations;
+  red triangle = revision marker (also in drawing_symbol_glossary.md); PVEO/PVEU = pilot
+  module not valve block.
+- Electrical: fused-terminal named in loops (troubleshooting culprits); XA taps can be
+  ACTIVATION not just status — direction from drawn wiring (XA11 bilge case).
+- PLC: channel voltage relative to module COMMON; cross-sheet consistency (EV-x.y keeps
+  its hydraulic-sheet type).
+- Building/GA: sub-type classification first (building vs schematic GA); PORT/STBD mirror
+  fact; line function first, length secondary.
+- Glossary injection: composition always receives the vessel acronym glossary (BEL fix).
+Register (373 entries): 150-steering-system hierarchy (rudder blades + autopilot-system
+parent over Marsili ram — root cause: maker-folder-as-system), 620-hvpdu, 520-bilge-system
+(+ emergency ER flood suction scenario), bilge multi-switch activation loop fact
+(engineer-traced), fwd-guest fancoil + master=owner's alias. fp-002 CONFIRMED: PLC control
+is boat-skeleton (racks expected on every vessel).

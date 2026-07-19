@@ -1,0 +1,28 @@
+{
+  "conversation_id": "chat-20260716-u0zl2",
+  "created_at": "2026-07-16T21:22:27+00:00",
+  "updated_at": "2026-07-16T21:34:04+00:00",
+  "turns_compressed": 0,
+  "summary": null,
+  "summary_meta": null,
+  "turns": [
+    {
+      "turn_index": 0,
+      "timestamp": "2026-07-16T21:22:38+00:00",
+      "question": "which relay alarms the onyx when the 230V is off?",
+      "answer": "Straight answer: the context doesn't contain that specific wiring detail.\n\nThe retrieved chunks confirm that ONYX has a 230V alarm function and that there's a remote alarm notification tab [GELLICEAUX Onyx Alarms.xlsx, sheet=Sheet1, row=20], and there's history of the SMS 230V alarm being defective and disconnected during the Lanzarote delivery [108-01_Lanzarote_list_20231123.xlsx, sheet=Foglio1, row=24] — but none of the chunks identify which specific relay feeds the 230V-off alarm signal into ONYX.\n\nTo find that, I'd look at:\n- **The ONYX electrical schematic / wiring diagram** — this should show the alarm input terminals and what feeds them\n- **The ONYX system configuration file or commissioning documentation** — the alarm input mapping will be defined there\n- **The SMS module documentation** — given the Lanzarote note references an \"SMS 230V alarm,\" the SMS module is likely the interface; its wiring into ONYX would be in that sub-schematic\n\nDo you have the ONYX wiring drawings in the folder? If you can pull up the alarm input sheet, I can help you trace it from there."
+    },
+    {
+      "turn_index": 1,
+      "timestamp": "2026-07-16T21:23:53+00:00",
+      "question": "do you have access to the GM book or is none of it ingested yet?",
+      "answer": "The retrieved context doesn't contain anything from a General Manager / Guidance Manual (\"GM book\") — none of it has been ingested in this session's context window.\n\nThe only Owner's Manual chunk I can see is from **108-01 Owner's Manual Rev1 2023-08-08.pdf** [108-01 Owner's Manual Rev1 2023-08-08.pdf, p.8], which is the SWS owner's overview document — not a full GM/operations manual.\n\nIf the GM book is in the document library, it hasn't surfaced in the retrieved results here. A few possibilities:\n\n1. **It's ingested but didn't retrieve** — the query didn't pull it. Try asking me something specific that would be in it (a procedure, a system description) and see if it comes up.\n2. **It's not yet ingested** — it may be sitting in the library as a file that hasn't been processed into the retrieval system yet.\n3. **It doesn't exist as a separate document** — on some SWS deliveries, the \"GM book\" is the owner's manual plus the individual OEM manuals, not a standalone document.\n\nWhich version are you looking for — the SWS-authored operations/handover manual, or something else? That'll help narrow down whether it's in here or missing."
+    },
+    {
+      "turn_index": 2,
+      "timestamp": "2026-07-16T21:34:04+00:00",
+      "question": "find me all of BAE's acrynoms",
+      "answer": "The best acronym source in the corpus is the handover notes list, which covers the BAE/SWS abbreviations used across manuals and procedures. Here it is in full:\n\n[SY Gelliceaux Engineering Handover Notes 2025.pdf, p.4-5, section='1.- ABBREVIATIONS AND ACRONYMS']\n\n| Abbreviation | Description |\n|---|---|\n| AC | Alternate Current |\n| ACTM | Alternate Current Traction Motor |\n| APS | Auxiliary Power System |\n| BCP | Battery Cooling Pumps |\n| BEL | Inverters |\n| BMS | Battery Management System |\n| CPSWP | CPP Sea Water Pump |\n| DC | Direct Current |\n| ECP | Electronic Cooling Pumps |\n| EDN | Chargers |\n| ENG | (Engine) Generators |\n| ESS | Energy Storage System |\n| GHG | Greenhouse Gas |\n| GINV | Generator Inverter |\n| HCP | Hydraulics Cooling Pumps |\n| HINV | Hydraulics Inverter |\n| HMI | Human Machine Interface |\n| HVPDU | High Voltage Power Distribution Unit |\n| ICD | Installation Control Drawing |\n| IDS | Intuitive Diagnostic System |\n| ISG | Integrated Starter Generator |\n| Li-ION | Lithium Ion |\n| LVPDU | Low Voltage Power Distribution Unit |\n| MAPS | Modular Auxiliary Power System |\n| MCP | Motor Cooling Pump |\n| MCSWP | Main Cooling Sea Water Pump |\n| MPCS | Modular Propulsion Control System |\n| MYT | Mallorca Yacht Technologies |\n| PCS | Propulsion Control System |\n| PS | Port |\n| PSR | Planetary Speed Reducer (Epicyclic Gearbox) |\n| SCU | System Control Unit |\n| SOC | State of Charge |\n| STB | Starboard |\n| TINV | Traction Motor Inverter |\n| TM | Traction Motor |\n| WEG | Water / Ethylene / Glycol |\n\n---\n\nA few additions from the locked vessel facts and the BAE report in the retrieved context, not in that list:\n\n| Abbreviation | Description |\n|---|---|\n| MPCS_P / MPCS_S | Modular Propulsion Control System — Port / Starboard |\n| HVPDU S1 / S2 | HV Power Distribution Unit switches (bus isolation / MPCS selection) |\n| GPM-12 | The specific BAE traction motor variant aboard Gelliceaux |\n| CM-26-2024 | BAE Corrective Measures report, April 2026 [108-01_BAE-report-20260403.pdf] |\n\nNote: the BAE manuals in the retrieved context (M50GB3825 DE User's Manual, M50GB3822 Maintenance Manual) are **HybriGen generic documents, not GPM-12 specific** — any acronyms in those apply to the broader product line and may not all be relevant to Gelliceaux's specific configuration. If you need the full glossary from those manuals, I can pull it, but flag it accordingly."
+    }
+  ]
+}

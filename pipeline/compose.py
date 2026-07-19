@@ -35,34 +35,71 @@ CLASS_RULES: Dict[str, str] = {
         "actuator, returns via port B to line T back to tank; relief set to "
         "X bar'. Relief/limiter settings go INLINE in the scenario they "
         "protect. Load-sense rails, block inlet/relief and end sections are "
-        "INFRASTRUCTURE (the manifold/block node)."),
+        "INFRASTRUCTURE (the manifold/block node). "
+        "CONVENTIONS (engineer-confirmed): pressure settings on hydraulic "
+        "sheets are in BAR — state them as bar, do not flag units as "
+        "uncertain. The function's port mapping (which side is A, which is "
+        "B, IN/OUT, UP/DOWN) is PRINTED in its own spec/legend block — use "
+        "it to resolve where each work port's hose goes: the hose from a "
+        "work port goes to the actuator of the function named above it. "
+        "A red warning triangle with a number is a REVISION MARKER — the "
+        "element was added/changed in that revision-table row; cross-read "
+        "the revision table, never call it an unknown component. The pilot "
+        "module on a slice (PVEO/PVEU) is the device that directs the spool "
+        "— call it the pilot module, not a valve block."),
     "electrical": (
         "Each load/row/branch serves the equipment the LOAD NAME names. The "
         "scenario is the SUPPLY or CONTROL LOOP in words: 'fed from <panel> "
         "via breaker <id> <rating>' or 'commanded from <switch/panel> via "
         "terminal <n> and relay <id>; status back to monitoring via <tap>'. "
         "Bus structure, supply topology, terminal strips and relay banks are "
-        "INFRASTRUCTURE (the panel/distribution node). Status taps are "
-        "signals, never power."),
+        "INFRASTRUCTURE (the panel/distribution node). "
+        "FUSED TERMINALS (engineer rule): a rectangular terminal containing "
+        "a small rectangle-with-a-line symbol is a terminal with a BUILT-IN "
+        "REPLACEABLE FUSE — always name it in the loop ('via fused terminal "
+        "8'); these are known troubleshooting culprits. "
+        "SIGNAL DIRECTION: monitoring-system taps (XA-style) can be STATUS "
+        "taps out of the circuit OR ACTIVATION commands into it — derive "
+        "the direction from the drawn wiring (what the line reaches), never "
+        "assume all taps are status."),
     "pid": (
         "The sheet describes a fluid SYSTEM. The system node gets the flow "
         "scenarios ('suction from X via strainer to pump, discharge overboard "
         "via Y'; alternate/emergency lineups as separate scenarios) plus the "
         "roster of equipment within the system. Each pump/valve/tank also "
         "gets its own role-in-flow fact on ITS node, with BOM identity "
-        "(make/model per item tag) when the sheet's table provides it."),
+        "(make/model per item tag) when the sheet's table provides it. The "
+        "infrastructure/system target must be a real SYSTEM node — never a "
+        "documentation/folder node."),
     "plc": (
         "Each I/O channel serves the equipment its signal name names. The "
         "scenario is the COMMAND CHAIN with the side stated: 'channel <n> of "
         "module position <p> in the <rack> energises <EV/output> = <equipment "
         "action>' — record which channel drives which direction (port A vs "
-        "B / open vs close). Rack layout (coupler, module types, positions) "
-        "is INFRASTRUCTURE (the PLC/rack node)."),
+        "B / open vs close). State that a channel's voltage is measured "
+        "RELATIVE TO THE MODULE'S COMMON channel — name the common so the "
+        "engineer knows where to put the meter probes. Rack layout (coupler, "
+        "module types, positions) is INFRASTRUCTURE (the PLC/rack node). "
+        "CROSS-SHEET CONSISTENCY: an EV-x.y identifier referenced here is a "
+        "hydraulic-manifold FUNCTION whose pilot device type (PVEO/PVEU "
+        "module) is established on the hydraulic sheet — keep that type; "
+        "never downgrade it to a bare 'solenoid'."),
     "building_ga": (
-        "Callouts serve the equipment they point at. Facts are POSITIONS and "
-        "PHYSICAL SPECS: where aboard (frame/compartment/height), dimensions, "
-        "SWL, structural details. A compartment-level fact lists what lives "
-        "in the compartment. No flow scenarios — location is the fact."),
+        "FIRST classify the GA sub-type from the sheet itself: a BUILDING/"
+        "STRUCTURAL GA (positions, dimensions, structural details) or a "
+        "SCHEMATIC GA (a system's connectivity drawn over the vessel outline "
+        "— e.g. a navigation/network layout with cable labels). A schematic "
+        "GA is composed under its system's rules (loops/backbones per "
+        "equipment), not as positions. For building GAs: callouts serve the "
+        "equipment they point at; facts are POSITIONS and PHYSICAL SPECS "
+        "(frame/compartment, dimensions, SWL); a compartment-level fact "
+        "lists what lives in the compartment; no flow scenarios. MIRRORING: "
+        "when the drawing shows PORT/STBD mirrored pairs, state the mirror "
+        "fact once ('stbd mirrors port') instead of treating the sides as "
+        "unrelated. LINES/ROPES: identify the FUNCTION of a line first; "
+        "length is secondary — flag an unknown length only when the line "
+        "has a real function (e.g. steering rope), never for functionless "
+        "graphics."),
     "interconnect": (
         "Each device's facts are its LOOP MEMBERSHIPS: which bus it sits on, "
         "its neighbours and terminators, and pin/wire signal chains "
@@ -181,9 +218,36 @@ THE GENERAL RULE — a drawing is a view onto equipment, never the destination:
 5. Values you cannot read cleanly are UNCERTAINTIES — state them; never guess.
 6. Use ONLY node ids from the register index. If no node fits, name the
    equipment and say no node fits — do not force a wrong attach.
+7. THE DRAWN-LINE LAW: a connection exists ONLY where a line is drawn.
+   Proximity on the sheet is NEVER connectivity. Never compose a scenario,
+   control relationship, or interlock across a link that is not drawn — an
+   invented connection is the worst possible failure of this pass.
+8. SYSTEM IDENTITY: sharing a commodity (same DC voltage, same fluid) does
+   NOT make two systems one system. The sheet's own titled sections/boxes
+   define distinct systems; each named system attaches to ITS OWN node — if
+   no node exists for it, say so ('no fitting node'), never fold it into a
+   sibling system's node.
+9. LOOP-WALK (wiring sheets): compose control loops by WALKING the drawn
+   lines end to end. When several switches/relays/remote commands can
+   energise the same device, that is ONE loop scenario listing the
+   alternative activation paths — not several disconnected fragments, and
+   not several separate uncertainties. Flag only where the walk genuinely
+   dead-ends off-sheet or in illegible print.
+10. UNCERTAINTY DISCIPLINE: an uncertainty is about MEANING — a value, a
+   role, a connection. Never flag orphan letters/fragments from the
+   extraction: resolve them from context, or discard them as clutter with
+   the corrected reading noted.
+11. FUNCTION OVER PART NUMBER: the presence and FUNCTION of a device is the
+   critical fact. An unreadable part number on an identified device is NOT
+   an uncertainty — record the function, note 'part number: capture at
+   inspection if ever needed'. Data that changes routinely (dates of
+   record-keeping, live values) is irrelevant.
 
 CLASS-SPECIFIC RULES for this sheet:
 {class_rules}
+
+VESSEL ACRONYM GLOSSARY (authoritative — never call one of these unknown):
+{glossary}
 
 ENGINEER-CONFIRMED MAPPINGS (authoritative vocabulary → node; use when a
 label matches):
@@ -212,6 +276,27 @@ def _register_index() -> str:
             bits.append(f"({e['subsystem_label']})")
         lines.append(f"{e['equipment_id']} — {' '.join(b for b in bits if b)}")
     return "\n".join(lines)
+
+
+def _glossary_digest() -> str:
+    """Vessel acronym glossary — the BEL-uncertainty fix (2026-07-19): the
+    composition pass must never call a glossaried acronym unknown."""
+    path = config.STATE_DIR / f"glossary_{config.VESSEL_NAMESPACE}.json"
+    if not path.exists():
+        return "(no glossary file)"
+    g = json.loads(path.read_text())
+    entries = g.get("acronyms", g if isinstance(g, dict) else {})
+    lines = []
+    if isinstance(entries, dict):
+        for k, v in entries.items():
+            exp = v.get("expansion") if isinstance(v, dict) else v
+            if exp:
+                lines.append(f"{k} = {exp}")
+    elif isinstance(entries, list):
+        for e in entries:
+            if isinstance(e, dict) and e.get("acronym"):
+                lines.append(f"{e['acronym']} = {e.get('expansion','')}")
+    return "\n".join(lines) if lines else "(empty glossary)"
 
 
 def _maps_digest(drawing_class: str) -> str:
@@ -246,6 +331,7 @@ def compose(image_png: bytes, extraction: Dict[str, Any],
            if k not in ("_node_routing", "model", "passes")}
     prompt = _COMPOSE_PROMPT.format(
         class_rules=rules,
+        glossary=_glossary_digest(),
         maps=_maps_digest(drawing_class),
         extraction=json.dumps(ext, indent=1)[:55000],
         index=_register_index())
