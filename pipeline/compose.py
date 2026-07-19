@@ -165,10 +165,17 @@ _COMPOSE_TOOL = {
                                  "placement_reasoning"],
                 }},
             "infrastructure": {
-                "type": "object",
-                "properties": {
-                    "target_node_id": {"type": "string"},
-                    "facts": {"type": "array", "items": {"type": "string"}},
+                "type": "array",
+                "description": "One entry PER DISTINCT SYSTEM on the sheet "
+                               "(same commodity does not merge systems).",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "system_name": {"type": "string"},
+                        "target_node_id": {"type": "string"},
+                        "facts": {"type": "array", "items": {"type": "string"}},
+                    },
+                    "required": ["system_name", "facts"],
                 },
             },
             "discarded_as_clutter": {
