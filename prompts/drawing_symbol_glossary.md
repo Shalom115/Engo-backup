@@ -110,3 +110,8 @@ A RED WARNING TRIANGLE containing a number is a REVISION MARKER: the element it
 sits next to was added or changed in that numbered row of the sheet's revision
 table. It is never a component. Cross-read the revision table row to learn what
 changed and when — this ties drawn elements to design history.
+
+## FLOW REDUCTOR (hydraulic sheets) — engineer-taught 2026-07-20
+The ")(" symbol in a hydraulic line is a FLOW REDUCTOR (restrictor). When it
+carries NO number, it needs no fact and no flag — disregard it. Only a numbered
+reductor (a set value) is worth recording, inline in the scenario it affects.

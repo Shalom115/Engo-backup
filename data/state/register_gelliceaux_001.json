@@ -572,6 +572,30 @@
        "terms=0.50"
       ]
      }
+    },
+    {
+     "kind": "hydraulic_function_id",
+     "value": "EV-6.1 = hydraulic function 'LIFTING KEEL UP/DOWN' on mast_block (manifold slice; the cross-sheet join key for PLC channels and control references)",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "mast_block",
+      "sheet": "mast_block",
+      "source_type": "hydraulic_schematic",
+      "note": "EV-id backfill 2026-07-20 \u2014 join key was dropped by the original write pass",
+      "as_of": "2026-07-20"
+     }
+    },
+    {
+     "kind": "hydraulic_function_id",
+     "value": "EV-6.2 = hydraulic function 'LIFTING KEEL LOCKS' on mast_block (manifold slice; the cross-sheet join key for PLC channels and control references)",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "mast_block",
+      "sheet": "mast_block",
+      "source_type": "hydraulic_schematic",
+      "note": "EV-id backfill 2026-07-20 \u2014 join key was dropped by the original write pass",
+      "as_of": "2026-07-20"
+     }
     }
    ],
    "identity_status": "pending",
@@ -9080,6 +9104,18 @@
       "control_map_function": "12",
       "match_mechanism": "fuzzy"
      }
+    },
+    {
+     "kind": "hydraulic_function_id",
+     "value": "EV-10.3 = hydraulic function 'MAINSHEET TRAVELER' on AFT_blockC (manifold slice; the cross-sheet join key for PLC channels and control references)",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "AFT_blockC",
+      "sheet": "AFT_blockC",
+      "source_type": "hydraulic_schematic",
+      "note": "EV-id backfill 2026-07-20 \u2014 join key was dropped by the original write pass",
+      "as_of": "2026-07-20"
+     }
     }
    ],
    "identity_status": "pending",
@@ -12053,6 +12089,30 @@
       "control_map_function": "34",
       "function_no": "34"
      }
+    },
+    {
+     "kind": "hydraulic_function_id",
+     "value": "EV-9.1 = hydraulic function 'STERN THRUSTER' on AFT_blockB (manifold slice; the cross-sheet join key for PLC channels and control references)",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "AFT_blockB",
+      "sheet": "AFT_blockB",
+      "source_type": "hydraulic_schematic",
+      "note": "EV-id backfill 2026-07-20 \u2014 join key was dropped by the original write pass",
+      "as_of": "2026-07-20"
+     }
+    },
+    {
+     "kind": "hydraulic_function_id",
+     "value": "EV-9.3 = hydraulic function 'S.T. LOCK' on AFT_blockB (manifold slice; the cross-sheet join key for PLC channels and control references)",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "AFT_blockB",
+      "sheet": "AFT_blockB",
+      "source_type": "hydraulic_schematic",
+      "note": "EV-id backfill 2026-07-20 \u2014 join key was dropped by the original write pass",
+      "as_of": "2026-07-20"
+     }
     }
    ],
    "identity_status": "pending"
@@ -13856,6 +13916,18 @@
       "control_map_function": "21",
       "function_no": "21"
      }
+    },
+    {
+     "kind": "hydraulic_function_id",
+     "value": "EV-6.4 = hydraulic function 'MAST WINCH FWD PORT' on mast_block (manifold slice; the cross-sheet join key for PLC channels and control references)",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "mast_block",
+      "sheet": "mast_block",
+      "source_type": "hydraulic_schematic",
+      "note": "EV-id backfill 2026-07-20 \u2014 join key was dropped by the original write pass",
+      "as_of": "2026-07-20"
+     }
     }
    ],
    "identity_status": "pending"
@@ -14036,6 +14108,18 @@
       "control_map_function": "22",
       "function_no": "22"
      }
+    },
+    {
+     "kind": "hydraulic_function_id",
+     "value": "EV-6.6 = hydraulic function 'MAST WINCH FWD STBD' on mast_block (manifold slice; the cross-sheet join key for PLC channels and control references)",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "mast_block",
+      "sheet": "mast_block",
+      "source_type": "hydraulic_schematic",
+      "note": "EV-id backfill 2026-07-20 \u2014 join key was dropped by the original write pass",
+      "as_of": "2026-07-20"
+     }
     }
    ],
    "identity_status": "pending"
@@ -14215,6 +14299,18 @@
       "control_map_function": "23",
       "function_no": "23"
      }
+    },
+    {
+     "kind": "hydraulic_function_id",
+     "value": "EV-6.3 = hydraulic function 'MAST WINCH AFT PORT' on mast_block (manifold slice; the cross-sheet join key for PLC channels and control references)",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "mast_block",
+      "sheet": "mast_block",
+      "source_type": "hydraulic_schematic",
+      "note": "EV-id backfill 2026-07-20 \u2014 join key was dropped by the original write pass",
+      "as_of": "2026-07-20"
+     }
     }
    ],
    "identity_status": "pending"
@@ -14370,6 +14466,18 @@
       "match_score": 1.0,
       "control_map_function": "24",
       "function_no": "24"
+     }
+    },
+    {
+     "kind": "hydraulic_function_id",
+     "value": "EV-6.5 = hydraulic function 'MAST WINCH AFT STBD' on mast_block (manifold slice; the cross-sheet join key for PLC channels and control references)",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "mast_block",
+      "sheet": "mast_block",
+      "source_type": "hydraulic_schematic",
+      "note": "EV-id backfill 2026-07-20 \u2014 join key was dropped by the original write pass",
+      "as_of": "2026-07-20"
      }
     }
    ],
@@ -14562,6 +14670,18 @@
       "match_score": 1.0,
       "control_map_function": "25",
       "function_no": "25"
+     }
+    },
+    {
+     "kind": "hydraulic_function_id",
+     "value": "EV-10.5 = hydraulic function 'PRIMARY WINCH PORT' on AFT_blockC (manifold slice; the cross-sheet join key for PLC channels and control references)",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "AFT_blockC",
+      "sheet": "AFT_blockC",
+      "source_type": "hydraulic_schematic",
+      "note": "EV-id backfill 2026-07-20 \u2014 join key was dropped by the original write pass",
+      "as_of": "2026-07-20"
      }
     }
    ],
@@ -14970,6 +15090,18 @@
       "match_score": 1.0,
       "control_map_function": "27",
       "function_no": "27"
+     }
+    },
+    {
+     "kind": "hydraulic_function_id",
+     "value": "EV-10.4 = hydraulic function 'SECONDARY WINCH PORT' on AFT_blockC (manifold slice; the cross-sheet join key for PLC channels and control references)",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "AFT_blockC",
+      "sheet": "AFT_blockC",
+      "source_type": "hydraulic_schematic",
+      "note": "EV-id backfill 2026-07-20 \u2014 join key was dropped by the original write pass",
+      "as_of": "2026-07-20"
      }
     }
    ],
@@ -15581,6 +15713,18 @@
       "control_map_function": "19",
       "function_no": "19"
      }
+    },
+    {
+     "kind": "hydraulic_function_id",
+     "value": "EV-10.2 = hydraulic function 'DECK DOOR' on AFT_blockC (manifold slice; the cross-sheet join key for PLC channels and control references)",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "AFT_blockC",
+      "sheet": "AFT_blockC",
+      "source_type": "hydraulic_schematic",
+      "note": "EV-id backfill 2026-07-20 \u2014 join key was dropped by the original write pass",
+      "as_of": "2026-07-20"
+     }
     }
    ],
    "identity_status": "pending"
@@ -15646,6 +15790,18 @@
       "region_code": "500",
       "subsystem_code": "570",
       "authority": "schematic"
+     }
+    },
+    {
+     "kind": "hydraulic_function_id",
+     "value": "EV-6.1 = hydraulic function 'Inlet section with pressure relief / gauge port (M) and standalone auxiliary valve at left edge' on mast_block (manifold slice; the cross-sheet join key for PLC channels and control references)",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "mast_block",
+      "sheet": "mast_block",
+      "source_type": "hydraulic_schematic",
+      "note": "EV-id backfill 2026-07-20 \u2014 join key was dropped by the original write pass",
+      "as_of": "2026-07-20"
      }
     }
    ],
@@ -15915,6 +16071,18 @@
       "region_code": "500",
       "subsystem_code": "570",
       "authority": "schematic"
+     }
+    },
+    {
+     "kind": "hydraulic_function_id",
+     "value": "EV-9.1 = hydraulic function 'Inlet section / standalone valve (unlabeled, near M/LS rails)' on AFT_blockB (manifold slice; the cross-sheet join key for PLC channels and control references)",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "AFT_blockB",
+      "sheet": "AFT_blockB",
+      "source_type": "hydraulic_schematic",
+      "note": "EV-id backfill 2026-07-20 \u2014 join key was dropped by the original write pass",
+      "as_of": "2026-07-20"
      }
     }
    ]
@@ -40041,6 +40209,37 @@
      }
     }
    ]
+  },
+  {
+   "equipment_id": "430-wartsila-shaft-seal",
+   "name": "Wartsila Shaft Seal (stern gland)",
+   "confidence": "Flagged",
+   "origin": "ontology_preseed_backfill_20260720",
+   "node_provenance": {
+    "source_doc": "ontology gap scan (engineer challenge on steering pre-seed)",
+    "source_type": "ontology_preseed_backfill",
+    "authority": "protocol",
+    "as_of": "2026-07-20"
+   },
+   "make": "Wartsila",
+   "subsystem_code": "430",
+   "region_code": "400",
+   "note": "Adjudicated in Suppliers red-pen (Bearing folder renamed Shaft Seal) but never got a node \u2014 ontology pre-seed backfill."
+  },
+  {
+   "equipment_id": "570-er-hydraulic-power-pack",
+   "name": "Engine Room Hydraulic Power Packs (ship-services supply)",
+   "confidence": "Flagged",
+   "origin": "ontology_preseed_backfill_20260720",
+   "node_provenance": {
+    "source_doc": "ontology gap scan (engineer challenge on steering pre-seed)",
+    "source_type": "ontology_preseed_backfill",
+    "authority": "protocol",
+    "as_of": "2026-07-20"
+   },
+   "subsystem_code": "570",
+   "region_code": "500",
+   "note": "Danfoss Series 45 Frame K2 pumps x2 per rev0 hydraulic overview BOM; the supply side of the MYT system \u2014 no node existed."
   }
  ],
  "acronyms": {

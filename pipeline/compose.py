@@ -256,6 +256,11 @@ CLASS-SPECIFIC RULES for this sheet:
 VESSEL ACRONYM GLOSSARY (authoritative — never call one of these unknown):
 {glossary}
 
+ESTABLISHED FACTS (already on the vessel's nodes from previously ingested
+sheets — identifiers on THIS sheet that these facts cover keep their
+established identity/type; build on them, never re-derive or downgrade them):
+{established}
+
 ENGINEER-CONFIRMED MAPPINGS (authoritative vocabulary → node; use when a
 label matches):
 {maps}
@@ -268,42 +273,11 @@ REGISTER INDEX:
 """
 
 
-def _register_index() -> str:
-    reg = json.loads((config.STATE_DIR / f"register_{config.VESSEL_NAMESPACE}.json").read_text())
-    lines = []
-    for e in reg["entries"]:
-        if e.get("retired"):
-            continue
-        bits = [e.get("name") or ""]
-        if e.get("make"):
-            bits.append(e["make"])
-        if e.get("model"):
-            bits.append(e["model"])
-        if e.get("subsystem_label"):
-            bits.append(f"({e['subsystem_label']})")
-        lines.append(f"{e['equipment_id']} — {' '.join(b for b in bits if b)}")
-    return "\n".join(lines)
 
 
-def _glossary_digest() -> str:
-    """Vessel acronym glossary — the BEL-uncertainty fix (2026-07-19): the
-    composition pass must never call a glossaried acronym unknown."""
-    path = config.STATE_DIR / f"glossary_{config.VESSEL_NAMESPACE}.json"
-    if not path.exists():
-        return "(no glossary file)"
-    g = json.loads(path.read_text())
-    entries = g.get("acronyms", g if isinstance(g, dict) else {})
-    lines = []
-    if isinstance(entries, dict):
-        for k, v in entries.items():
-            exp = v.get("expansion") if isinstance(v, dict) else v
-            if exp:
-                lines.append(f"{k} = {exp}")
-    elif isinstance(entries, list):
-        for e in entries:
-            if isinstance(e, dict) and e.get("acronym"):
-                lines.append(f"{e['acronym']} = {e.get('expansion','')}")
-    return "\n".join(lines) if lines else "(empty glossary)"
+# Vessel knowledge substrate — shared by ALL equipment-knowledge passes
+# (the intrinsic-truth architecture, engineer-mandated 2026-07-20).
+from pipeline import vessel_context
 
 
 def _maps_digest(drawing_class: str) -> str:
@@ -336,12 +310,14 @@ def compose(image_png: bytes, extraction: Dict[str, Any],
                          f"Known: {sorted(CLASS_RULES)}")
     ext = {k: v for k, v in extraction.items()
            if k not in ("_node_routing", "model", "passes")}
+    ext_json = json.dumps(ext, indent=1)[:55000]
     prompt = _COMPOSE_PROMPT.format(
         class_rules=rules,
-        glossary=_glossary_digest(),
+        glossary=vessel_context.glossary_block(),
+        established=vessel_context.established_facts_for(ext_json),
         maps=_maps_digest(drawing_class),
-        extraction=json.dumps(ext, indent=1)[:55000],
-        index=_register_index())
+        extraction=ext_json,
+        index=vessel_context.register_index())
     vp = get_vision_provider(vision_kind)
     return vp.extract(image_png, "image/png", prompt, _COMPOSE_TOOL,
                       max_tokens=max_tokens)
