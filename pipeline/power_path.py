@@ -125,7 +125,11 @@ def _tile_key(el: Dict[str, Any]):
 
 
 def _brief(e: Dict[str, Any]) -> Dict[str, Any]:
-    return {"id": e.get("id"), "type": e.get("element_type"), "label": e.get("label")}
+    b = {"id": e.get("id"), "type": e.get("element_type"), "label": e.get("label")}
+    if e.get("has_builtin_fuse"):
+        b["has_builtin_fuse"] = True  # engineer rule: fused terminals are
+        # prime troubleshooting suspects — the flag must survive into hops
+    return b
 
 
 def build_edges(elements: List[Dict[str, Any]]) -> Dict[int, List[Dict[str, Any]]]:

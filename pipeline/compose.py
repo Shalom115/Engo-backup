@@ -344,6 +344,11 @@ def compose(image_png: bytes, extraction: Dict[str, Any],
         digest = loop_prepass.loops_digest(extraction)
         if digest and "no wiring graph" not in digest:
             loop_block = "\n\n" + digest
+    elif drawing_class == "pid":
+        from pipeline import pid_extract
+        digest = pid_extract.loops_digest(extraction)
+        if digest and "no fluid topology" not in digest:
+            loop_block = "\n\n" + digest
     prompt = _COMPOSE_PROMPT.format(
         class_rules=rules + loop_block,
         glossary=vessel_context.glossary_block(),

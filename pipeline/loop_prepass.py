@@ -81,8 +81,11 @@ def assemble_loops(extraction: Dict[str, Any],
                 nid = node.get("id") or node.get("label")
                 if ntype in ("terminal", "terminal_strip") and nid:
                     terminals.append(nid)
-                    # fused-terminal marker rides on the element label/type
-                    if "fus" in (node.get("label") or "").lower():
+                    # fused-terminal marker: the extractor's per-terminal flag
+                    # (has_builtin_fuse), with label fallback for extractions
+                    # made before the flag existed
+                    if node.get("has_builtin_fuse") or \
+                       "fus" in (node.get("label") or "").lower():
                         fused.append(nid)
                 if ntype in ("switch", "status_signal", "relay") and nid:
                     role = h.get("role") or ""

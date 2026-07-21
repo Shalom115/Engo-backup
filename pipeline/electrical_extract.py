@@ -188,6 +188,10 @@ _WIRING_PROMPT = (
     "and annotation for a wired tag: it carries a wire = status_signal.\n"
     " - id (as printed, e.g. a relay number, terminal number, module model), the "
     "function/label text near it, and its connections as printed (from -> to).\n"
+    "FUSED TERMINALS (engineer rule): a terminal drawn as an OUTER rectangle "
+    "containing a SMALLER rectangle crossed by a line has a BUILT-IN REPLACEABLE "
+    "FUSE — set has_builtin_fuse=true on that terminal (type stays terminal). "
+    "These are prime troubleshooting suspects; never skip the marker.\n"
     "Read ONLY what is printed. '<UNKNOWN>' for illegible fields. Mark ambiguous "
     "elements ambiguous=true. Never guess or invent ids."
 )
@@ -205,6 +209,7 @@ _WIRING_TOOL = {
                     "switch", "annotation", "unknown"]},
                 "id": {"type": "string"}, "label": {"type": "string"},
                 "connections": {"type": "array", "items": {"type": "string"}},
+                "has_builtin_fuse": {"type": "boolean"},
                 "ambiguous": {"type": "boolean"}},
                 "required": ["element_type"]}},
         },
