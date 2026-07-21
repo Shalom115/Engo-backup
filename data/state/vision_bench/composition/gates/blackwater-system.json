@@ -1,0 +1,1129 @@
+{
+ "sheet": "blackwater-system",
+ "drawing_class": "pid",
+ "page": 0,
+ "extraction": {
+  "survey": {
+   "drawing_no": "108-01-540-001",
+   "revision": "A",
+   "title": "BLACKWATER SYSTEM SCHEMATIC",
+   "regions": [
+    {
+     "kind": "title_block",
+     "bbox": [
+      0.66,
+      0.945,
+      1.0,
+      1.0
+     ],
+     "label": "Title block - Southern Wind, Blackwater System Schematic, Dwg 108-01-540-001, Rev A"
+    },
+    {
+     "kind": "bom_table",
+     "bbox": [
+      0.66,
+      0.028,
+      1.0,
+      0.062
+     ],
+     "label": "Piping Details table"
+    },
+    {
+     "kind": "bom_table",
+     "bbox": [
+      0.66,
+      0.878,
+      0.865,
+      0.945
+     ],
+     "label": "Bill of Materials table"
+    },
+    {
+     "kind": "diagram",
+     "bbox": [
+      0.0,
+      0.06,
+      1.0,
+      0.63
+     ],
+     "label": "Deck plan / General arrangement of blackwater system routing"
+    },
+    {
+     "kind": "diagram",
+     "bbox": [
+      0.0,
+      0.63,
+      0.66,
+      0.98
+     ],
+     "label": "Schematic diagram - pump sets, tanks, toilet flush lines, discharge lines"
+    },
+    {
+     "kind": "legend",
+     "bbox": [
+      0.715,
+      0.63,
+      0.8,
+      0.72
+     ],
+     "label": "Text Legend"
+    },
+    {
+     "kind": "legend",
+     "bbox": [
+      0.8,
+      0.63,
+      0.895,
+      0.72
+     ],
+     "label": "Symbols Legend"
+    },
+    {
+     "kind": "legend",
+     "bbox": [
+      0.895,
+      0.63,
+      1.0,
+      0.7
+     ],
+     "label": "Tank Connections legend"
+    },
+    {
+     "kind": "legend",
+     "bbox": [
+      0.775,
+      0.735,
+      0.865,
+      0.765
+     ],
+     "label": "2-Way Valve State Designation"
+    },
+    {
+     "kind": "bom_table",
+     "bbox": [
+      0.865,
+      0.735,
+      1.0,
+      0.775
+     ],
+     "label": "Pump Data table"
+    },
+    {
+     "kind": "notes",
+     "bbox": [
+      0.865,
+      0.795,
+      1.0,
+      0.845
+     ],
+     "label": "Drawing-specific notes"
+    },
+    {
+     "kind": "notes",
+     "bbox": [
+      0.865,
+      0.845,
+      1.0,
+      0.9
+     ],
+     "label": "Standard notes"
+    }
+   ],
+   "_model": "claude-sonnet-5"
+  },
+  "tables": [
+   {
+    "rows": [
+     {
+      "raw": "th40 | THOR003 | IBERICA DE MANGUERAS THOR | 20Mt | 40mm 1-1/2\" | ISO 15540 FIRE RESISTANT | RUBBER, FIBRE-REINFORCED | EASYFLEX 40mm Hose | 1.79",
+      "item_tag": "th40",
+      "make_model": "IBERICA DE MANGUERAS THOR / 20Mt",
+      "description": "SWS CODE: THOR003; DETAILS: 40mm 1-1/2\"; RATING: ISO 15540 FIRE RESISTANT; MATERIAL: RUBBER, FIBRE-REINFORCED; DESCRIPTION: EASYFLEX 40mm Hose; (kg/m): 1.79",
+      "qty": ""
+     },
+     {
+      "raw": "sa25 | SEA041 | VETUS | SAHOSE25 | 25mm 1\", 36mm OD | | SBR RUBBER, STEEL SPRIAL | SANITARY \"NO SMELL\" HOSE | 0.72",
+      "item_tag": "sa25",
+      "make_model": "VETUS / SAHOSE25",
+      "description": "SWS CODE: SEA041; DETAILS: 25mm 1\", 36mm OD; RATING: ; MATERIAL: SBR RUBBER, STEEL SPRIAL; DESCRIPTION: SANITARY \"NO SMELL\" HOSE; (kg/m): 0.72",
+      "qty": ""
+     },
+     {
+      "raw": "sa38 | SEA005 | VETUS | SAHOSE38 | 38mm 1-1/2\", 48mm OD | | SBR RUBBER, STEEL SPRIAL | SANITARY \"NO SMELL\" HOSE | 1.15",
+      "item_tag": "sa38",
+      "make_model": "VETUS / SAHOSE38",
+      "description": "SWS CODE: SEA005; DETAILS: 38mm 1-1/2\", 48mm OD; RATING: ; MATERIAL: SBR RUBBER, STEEL SPRIAL; DESCRIPTION: SANITARY \"NO SMELL\" HOSE; (kg/m): 1.15",
+      "qty": ""
+     }
+    ],
+    "_model": "claude-sonnet-5",
+    "bbox": [
+     0.66,
+     0.028,
+     1.0,
+     0.062
+    ]
+   },
+   {
+    "rows": [],
+    "title_as_printed": "SOUTHERN",
+    "_model": "claude-sonnet-5",
+    "bbox": [
+     0.66,
+     0.878,
+     0.865,
+     0.945
+    ]
+   },
+   {
+    "rows": [],
+    "title_as_printed": "",
+    "_model": "claude-sonnet-5",
+    "bbox": [
+     0.865,
+     0.735,
+     1.0,
+     0.775
+    ]
+   }
+  ],
+  "topology": {
+   "components": [
+    {
+     "component_type": "tank",
+     "item_tag": "<UNKNOWN>",
+     "label": "AFT BLACK TANK 500 L",
+     "bbox": [
+      806,
+      293,
+      930,
+      340
+     ]
+    },
+    {
+     "component_type": "tank",
+     "item_tag": "<UNKNOWN>",
+     "label": "FWD BLACK TANK 620",
+     "bbox": [
+      2075,
+      258,
+      2150,
+      300
+     ]
+    },
+    {
+     "component_type": "manifold",
+     "item_tag": "<UNKNOWN>",
+     "label": "ANTI-SIPHON MANIFOLD",
+     "bbox": [
+      1032,
+      380,
+      1130,
+      430
+     ]
+    },
+    {
+     "component_type": "manifold",
+     "item_tag": "<UNKNOWN>",
+     "label": "BLACK SUCTION PUMPS & MANIFOLD",
+     "bbox": [
+      1180,
+      340,
+      1290,
+      460
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "<UNKNOWN>",
+     "label": "AFT BLACK TANK SUCTION TO PUMP",
+     "bbox": [
+      800,
+      320,
+      940,
+      395
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "<UNKNOWN>",
+     "label": "FWD BLACK TANK SUCTION TO PUMP",
+     "bbox": [
+      1330,
+      195,
+      1465,
+      240
+     ]
+    },
+    {
+     "component_type": "toilet",
+     "item_tag": "<UNKNOWN>",
+     "label": "PORT AFT GUEST TOILET FLUSH TO TANK",
+     "bbox": [
+      880,
+      150,
+      1000,
+      220
+     ]
+    },
+    {
+     "component_type": "toilet",
+     "item_tag": "<UNKNOWN>",
+     "label": "STBD AFT GUEST TOILET FLUSH TO TANK",
+     "bbox": [
+      980,
+      420,
+      1090,
+      470
+     ]
+    },
+    {
+     "component_type": "toilet",
+     "item_tag": "<UNKNOWN>",
+     "label": "COMBINED TOILET FLUSH TO TANK",
+     "bbox": [
+      530,
+      315,
+      630,
+      370
+     ]
+    },
+    {
+     "component_type": "toilet",
+     "item_tag": "<UNKNOWN>",
+     "label": "FWD GUEST TOILET FLUSH TO TANK",
+     "bbox": [
+      1440,
+      195,
+      1560,
+      260
+     ]
+    },
+    {
+     "component_type": "toilet",
+     "item_tag": "<UNKNOWN>",
+     "label": "OWNERS TOILET FLUSH TO TANK",
+     "bbox": [
+      1830,
+      185,
+      1960,
+      240
+     ]
+    },
+    {
+     "component_type": "toilet",
+     "item_tag": "<UNKNOWN>",
+     "label": "TOILET (aft crew head)",
+     "bbox": [
+      555,
+      380,
+      630,
+      420
+     ]
+    },
+    {
+     "component_type": "shower",
+     "item_tag": "<UNKNOWN>",
+     "label": "SHOWER",
+     "bbox": [
+      1010,
+      145,
+      1070,
+      185
+     ]
+    },
+    {
+     "component_type": "shower",
+     "item_tag": "<UNKNOWN>",
+     "label": "SHOWER",
+     "bbox": [
+      1005,
+      380,
+      1065,
+      420
+     ]
+    },
+    {
+     "component_type": "shower",
+     "item_tag": "<UNKNOWN>",
+     "label": "SHOWER",
+     "bbox": [
+      637,
+      370,
+      690,
+      405
+     ]
+    },
+    {
+     "component_type": "shower",
+     "item_tag": "<UNKNOWN>",
+     "label": "SHOWER (AFT CREW)",
+     "bbox": [
+      575,
+      425,
+      630,
+      460
+     ]
+    },
+    {
+     "component_type": "shower",
+     "item_tag": "<UNKNOWN>",
+     "label": "SHOWER (FWD GUEST)",
+     "bbox": [
+      1465,
+      95,
+      1530,
+      130
+     ]
+    },
+    {
+     "component_type": "shower",
+     "item_tag": "<UNKNOWN>",
+     "label": "SHOWER (OWNERS)",
+     "bbox": [
+      2005,
+      190,
+      2065,
+      225
+     ]
+    },
+    {
+     "component_type": "overboard_discharge",
+     "item_tag": "<UNKNOWN>",
+     "label": "AFT BLACK OVERBOARD",
+     "bbox": [
+      943,
+      400,
+      1030,
+      460
+     ]
+    },
+    {
+     "component_type": "pump_out_fitting",
+     "item_tag": "<UNKNOWN>",
+     "label": "PUMP OUT FITTING (LOCATION TBD)",
+     "bbox": [
+      90,
+      595,
+      175,
+      660
+     ]
+    },
+    {
+     "component_type": "pump_out_fitting",
+     "item_tag": "<UNKNOWN>",
+     "label": "PUMP OUT FITTING IN ANCHOR BAY",
+     "bbox": [
+      2160,
+      410,
+      2245,
+      470
+     ]
+    },
+    {
+     "component_type": "pump_out_fitting",
+     "item_tag": "005-01",
+     "label": "PUMP-OUT FITTING",
+     "bbox": [
+      55,
+      850,
+      100,
+      890
+     ]
+    },
+    {
+     "component_type": "pump_out_fitting",
+     "item_tag": "005-02",
+     "label": "PUMP-OUT FITTING",
+     "bbox": [
+      1595,
+      850,
+      1640,
+      890
+     ]
+    },
+    {
+     "component_type": "line_label",
+     "item_tag": "<UNKNOWN>",
+     "label": "AFT DOCK DISCHARGE LINE",
+     "bbox": [
+      305,
+      895,
+      385,
+      925
+     ]
+    },
+    {
+     "component_type": "line_label",
+     "item_tag": "<UNKNOWN>",
+     "label": "FWD DOCK DISCHARGE LINE",
+     "bbox": [
+      1275,
+      895,
+      1355,
+      925
+     ]
+    },
+    {
+     "component_type": "line_label",
+     "item_tag": "<UNKNOWN>",
+     "label": "DOCK DISCHARGE LINE RUNNING IN SHEER",
+     "bbox": [
+      1540,
+      530,
+      1660,
+      550
+     ]
+    },
+    {
+     "component_type": "control_panel",
+     "item_tag": "<UNKNOWN>",
+     "label": "CP",
+     "bbox": [
+      1030,
+      890,
+      1050,
+      910
+     ]
+    },
+    {
+     "component_type": "toilet",
+     "item_tag": "<UNKNOWN>",
+     "label": "AFT CREW HEAD toilet (bottom schematic)",
+     "bbox": [
+      155,
+      990,
+      195,
+      1030
+     ]
+    },
+    {
+     "component_type": "toilet",
+     "item_tag": "<UNKNOWN>",
+     "label": "FWD CREW HEAD toilet (bottom schematic)",
+     "bbox": [
+      255,
+      990,
+      295,
+      1030
+     ]
+    },
+    {
+     "component_type": "toilet",
+     "item_tag": "<UNKNOWN>",
+     "label": "AFT GUEST HEAD PORT toilet (bottom schematic)",
+     "bbox": [
+      670,
+      990,
+      710,
+      1030
+     ]
+    },
+    {
+     "component_type": "toilet",
+     "item_tag": "<UNKNOWN>",
+     "label": "AFT GUEST HEAD STBD toilet (bottom schematic)",
+     "bbox": [
+      745,
+      990,
+      785,
+      1030
+     ]
+    },
+    {
+     "component_type": "toilet",
+     "item_tag": "<UNKNOWN>",
+     "label": "FWD GUEST HEAD toilet (bottom schematic)",
+     "bbox": [
+      1195,
+      990,
+      1235,
+      1030
+     ]
+    },
+    {
+     "component_type": "toilet",
+     "item_tag": "<UNKNOWN>",
+     "label": "OWNERS HEAD toilet (bottom schematic)",
+     "bbox": [
+      1465,
+      990,
+      1505,
+      1030
+     ]
+    },
+    {
+     "component_type": "level_sensor",
+     "item_tag": "LS",
+     "label": "level sensor (legend example)",
+     "bbox": [
+      2192,
+      934,
+      2210,
+      950
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "003-01",
+     "label": "valve at top left",
+     "bbox": [
+      180,
+      0,
+      300,
+      25
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "003-02",
+     "label": "valve at top left",
+     "bbox": [
+      345,
+      0,
+      460,
+      25
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "003-03",
+     "label": "valve top middle",
+     "bbox": [
+      980,
+      0,
+      1095,
+      25
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "003-04",
+     "label": "valve top middle",
+     "bbox": [
+      1105,
+      0,
+      1220,
+      25
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "003-05",
+     "label": "valve top right",
+     "bbox": [
+      1780,
+      0,
+      1895,
+      25
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "003-06",
+     "label": "valve top right",
+     "bbox": [
+      2150,
+      0,
+      2265,
+      25
+     ]
+    },
+    {
+     "component_type": "manifold",
+     "item_tag": "002-01",
+     "label": "ANTI-SIPHON MANIFOLD 700mm ABOVE DWL",
+     "bbox": [
+      1030,
+      175,
+      1210,
+      265
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "007-01",
+     "label": "anti-siphon manifold valve",
+     "bbox": [
+      1090,
+      205,
+      1155,
+      260
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "<UNKNOWN>",
+     "label": "fire-rated pipe overboard valve, NO",
+     "bbox": [
+      1075,
+      380,
+      1120,
+      425
+     ]
+    },
+    {
+     "component_type": "overboard discharge",
+     "item_tag": "<UNKNOWN>",
+     "label": "BELOW DWL overboard discharge",
+     "bbox": [
+      1050,
+      425,
+      1130,
+      450
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "001-02",
+     "label": "BLACKWATER DISCHARGE PUMP 1",
+     "bbox": [
+      1345,
+      250,
+      1410,
+      330
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "001-01",
+     "label": "BLACKWATER DISCHARGE PUMP 2",
+     "bbox": [
+      1345,
+      435,
+      1410,
+      515
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "004-02",
+     "label": "NO valve before pump 1",
+     "bbox": [
+      1275,
+      300,
+      1315,
+      340
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "004-01",
+     "label": "NO valve before pump 2",
+     "bbox": [
+      1275,
+      480,
+      1315,
+      520
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "004-04",
+     "label": "NO valve after pump 1",
+     "bbox": [
+      1440,
+      300,
+      1480,
+      340
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "004-03",
+     "label": "NO valve after pump 2",
+     "bbox": [
+      1440,
+      480,
+      1480,
+      520
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "004-06",
+     "label": "NO valve",
+     "bbox": [
+      1530,
+      300,
+      1570,
+      340
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "004-05",
+     "label": "NO valve",
+     "bbox": [
+      1530,
+      480,
+      1570,
+      520
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "004-07",
+     "label": "NO valve to discharge",
+     "bbox": [
+      1605,
+      300,
+      1645,
+      340
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "004-08",
+     "label": "NC valve crossover",
+     "bbox": [
+      1495,
+      375,
+      1535,
+      415
+     ]
+    },
+    {
+     "component_type": "connection point",
+     "item_tag": "CP",
+     "label": "connection point pump 1",
+     "bbox": [
+      1310,
+      245,
+      1335,
+      265
+     ]
+    },
+    {
+     "component_type": "connection point",
+     "item_tag": "CP",
+     "label": "connection point pump 2",
+     "bbox": [
+      1310,
+      390,
+      1335,
+      410
+     ]
+    },
+    {
+     "component_type": "connection point",
+     "item_tag": "CP",
+     "label": "connection point tank AFT",
+     "bbox": [
+      980,
+      575,
+      1005,
+      595
+     ]
+    },
+    {
+     "component_type": "connection point",
+     "item_tag": "CP",
+     "label": "connection point tank FWD",
+     "bbox": [
+      2190,
+      555,
+      2215,
+      575
+     ]
+    },
+    {
+     "component_type": "tank",
+     "item_tag": "<UNKNOWN>",
+     "label": "AFT BLACK TANK 500 L",
+     "bbox": [
+      605,
+      630,
+      970,
+      890
+     ]
+    },
+    {
+     "component_type": "tank",
+     "item_tag": "<UNKNOWN>",
+     "label": "FWD BLACK TANK 400 L",
+     "bbox": [
+      1810,
+      630,
+      2185,
+      890
+     ]
+    },
+    {
+     "component_type": "level switch",
+     "item_tag": "LS",
+     "label": "ALARM HIGH AFT tank",
+     "bbox": [
+      905,
+      685,
+      935,
+      715
+     ]
+    },
+    {
+     "component_type": "level switch",
+     "item_tag": "LS",
+     "label": "TANK FULL AFT tank (discharge reqd.)",
+     "bbox": [
+      905,
+      745,
+      935,
+      775
+     ]
+    },
+    {
+     "component_type": "level switch",
+     "item_tag": "LS",
+     "label": "TANK LOW AFT tank",
+     "bbox": [
+      860,
+      805,
+      890,
+      835
+     ]
+    },
+    {
+     "component_type": "level switch",
+     "item_tag": "LS",
+     "label": "ALARM HIGH FWD tank",
+     "bbox": [
+      2095,
+      685,
+      2125,
+      715
+     ]
+    },
+    {
+     "component_type": "level switch",
+     "item_tag": "LS",
+     "label": "TANK FULL FWD tank (discharge reqd.)",
+     "bbox": [
+      2095,
+      745,
+      2125,
+      775
+     ]
+    },
+    {
+     "component_type": "level switch",
+     "item_tag": "LS",
+     "label": "TANK LOW FWD tank",
+     "bbox": [
+      2090,
+      805,
+      2120,
+      835
+     ]
+    },
+    {
+     "component_type": "sensor/gauge assembly",
+     "item_tag": "006-01",
+     "label": "tank instrument assembly AFT",
+     "bbox": [
+      850,
+      600,
+      950,
+      625
+     ]
+    },
+    {
+     "component_type": "sensor/gauge assembly",
+     "item_tag": "006-02",
+     "label": "tank instrument assembly FWD",
+     "bbox": [
+      2035,
+      600,
+      2135,
+      625
+     ]
+    },
+    {
+     "component_type": "vent/breather",
+     "item_tag": "<UNKNOWN>",
+     "label": "AFT BLACK TANK BREATHER REF DWG 108-01-508-001",
+     "bbox": [
+      605,
+      605,
+      630,
+      890
+     ]
+    },
+    {
+     "component_type": "vent/breather",
+     "item_tag": "<UNKNOWN>",
+     "label": "FWD BLACK TANK BREATHER REF DWG 108-01-508-001",
+     "bbox": [
+      1815,
+      605,
+      1840,
+      890
+     ]
+    },
+    {
+     "component_type": "external connection",
+     "item_tag": "<UNKNOWN>",
+     "label": "COMBINED DOCK DISCHARGE LINE",
+     "bbox": [
+      1480,
+      30,
+      1610,
+      60
+     ]
+    }
+   ],
+   "connections": []
+  }
+ },
+ "composition": {
+  "serve_who": "Sheet 108-01-540-001 \"BLACKWATER SYSTEM SCHEMATIC\" documents the black (sewage) water system: all vessel toilets, showers-adjacent zone drawings (showers are grey water, shown for location context only, not part of this loop), two black water holding tanks (AFT 500L, FWD 400/620L), the discharge pumpset (2x Gianneschi MV44G pumps in the engine room), the anti-siphon manifold, tank level instrumentation, and dockside/overboard discharge fittings. Toilets flush TO the tanks (register node 540-wc-toilets); tank suction/discharge is via the 540-black-water-pumps (Gianneschi pump set, node 540-gianneschi-pumps for BOM identity); the tanks themselves have no dedicated register node found (integral tanks covered generically at 505-* for calibration/sensors only) so tank-specific facts are attached to 540-black-water-pumps as the system node per class rule, with cross-reference noted. Level switches/alarms feed tank instrumentation only (no separate monitoring node found for this specific alarm loop beyond San Giorgio sensor BOM at 505-san-giorgio-gas-monitoring-tank-sensors, which does NOT match \u2014 that node is gas monitoring; level switches here are 'San Giorgio S.E.I.N. TIL 40368' static level switches per BOM item 006, no dedicated node exists, so recorded as key components under 540-black-water-pumps).",
+  "equipment_groups": [
+   {
+    "equipment_name": "Black Water Discharge Pumpset (Gianneschi MV44G x2)",
+    "target_node_id": "540-gianneschi-pumps",
+    "placement_reasoning": "BOM item 001 identifies 'Blackwater Overboard Pump' as GIANNESCHI SRL KMV4401G / GIA-KMV4401G, matching the Gianneschi node directly by make/model in the BOM table.",
+    "functions": [
+     {
+      "function_id": "F1",
+      "label": "Blackwater Discharge Pump 1 & 2 (duty/standby pumpset)",
+      "what_it_does": "Two identical 24V DC motor-driven Gianneschi MV44G pumps mounted in the engine room, arranged in parallel with manual ball valves either side so either pump can be isolated/swapped as duty or standby. Each pump draws from the common black suction manifold (fed from AFT tank suction, FWD tank suction, or toilet direct-flush lines) and discharges through a set of NO/NC valves to either the dockside pump-out lines or the overboard fire-rated discharge line via the anti-siphon manifold.",
+      "flow_scenarios": [
+       {
+        "state": "Normal discharge - Pump 1 duty",
+        "path": "Black suction manifold -> NO valve 004-02 -> Pump 1 (001-02) -> NO valve 004-04 -> NO valve 004-06 -> NO valve 004-07 -> overboard discharge / dock line"
+       },
+       {
+        "state": "Normal discharge - Pump 2 duty (alternate/standby)",
+        "path": "Black suction manifold -> NO valve 004-01 -> Pump 2 (001-01) -> NO valve 004-03 -> NO valve 004-05 -> crossover NC valve 004-08 (closed in normal ops) -> joins Pump 1 discharge line -> overboard/dock"
+       },
+       {
+        "state": "Crossover/emergency (NC valve 004-08 opened)",
+        "path": "Pump 2 discharge crosses via NC valve 004-08 into Pump 1 discharge run, allowing either pump to serve either outlet if one line is blocked"
+       },
+       {
+        "state": "Overboard discharge below DWL",
+        "path": "Discharge line -> fire-rated ISO 15540 pipe -> NO valve (below DWL) -> overboard fitting"
+       },
+       {
+        "state": "Anti-siphon protection (inline, protects against back-flow/siphoning)",
+        "path": "Discharge routes through Anti-Siphon Manifold 700mm above DWL (item 007, SWS custom part) before overboard/dock connection, protecting against siphon back-flow when pump stops"
+       }
+      ],
+      "key_components": [
+       "Pump 1 - Gianneschi MV44G (001-02)",
+       "Pump 2 - Gianneschi MV44G (001-01)",
+       "NO manual ball valves 004-01/02/03/04/05/06/07 (isolation)",
+       "NC crossover valve 004-08 (normally closed, emergency crossover)",
+       "Anti-siphon manifold (breather ref DWG 108-01-508-001) - back-flow/siphon protection",
+       "connection points (CP) either side of each pump for maintenance/instrumentation"
+      ],
+      "dry_data": "Pump: Gianneschi MV44G, 24V DC, flow rate 50 l/min, power 0.3kW (per Pump Data table). Fittings 1-1/2\" Cu-Ni per note. Fire-rated ISO15540 discharge pipe for below-DWL run.",
+      "sheet_region": "Schematic diagram, engine room box, x~1180-1650/y~250-520 (bottom-left schematic)"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Toilets / WC (all heads) - Black Water Flush System",
+    "target_node_id": "540-wc-toilets",
+    "placement_reasoning": "All toilet flush-to-tank labels (Port Aft Guest, Stbd Aft Guest, Combined, Fwd Guest, Owners, Aft/Fwd Crew) plus the macerator toilet pump data (BOM item 003, Planus Vortex Discharge Pump) belong to the WC/Toilet node; these are the flush devices, not the tank/pump system.",
+    "functions": [
+     {
+      "function_id": "F2",
+      "label": "Toilet flush-to-tank (macerator discharge)",
+      "what_it_does": "Each head's toilet uses an integral macerator/vortex discharge pump (Planus PW.02.00) to flush waste through sanitary hose into the nearest black tank (AFT or FWD depending on location) or, for the combined/crew heads, direct to the aft black tank via dedicated flush lines.",
+      "flow_scenarios": [
+       {
+        "state": "Normal flush - aft-served heads (Port Aft Guest, Stbd Aft Guest, Combined, Aft/Fwd Crew)",
+        "path": "Toilet bowl -> macerator pump -> sa38/sa25 sanitary hose -> AFT BLACK TANK (500L) via horizontal/top tank entry"
+       },
+       {
+        "state": "Normal flush - fwd-served heads (Fwd Guest, Owners)",
+        "path": "Toilet bowl -> macerator pump -> sanitary hose -> FWD BLACK TANK (400/620L) via tank entry"
+       },
+       {
+        "state": "Direct-to-manifold (aft guest heads shown feeding Black Suction Pumps & Manifold region)",
+        "path": "Toilet -> flush line -> Black Suction Pumps & Manifold (engine room) -> onward via discharge pumpset"
+       }
+      ],
+      "key_components": [
+       "Toilet bowl/macerator units (6 total: aft crew, fwd crew, aft guest port, aft guest stbd, fwd guest, owners) - per bottom schematic toilet icons with local switch (LS) at each",
+       "Local switch at each head (red 'local switch' icon per Symbols Legend) - operator flush control",
+       "Ball valve isolation at each toilet drain connection"
+      ],
+      "dry_data": "Toilet Pump - Macerator type: PLANUS S.p.A PW.02.00, 24V DC, power 0.6kW (Pump Data table). BOM item 003 qty 6."
+     },
+     {
+      "function_id": "F3",
+      "label": "Aft Black Overboard (direct discharge, no tank)",
+      "what_it_does": "One labeled flow path 'AFT BLACK OVERBOARD' shows a direct overboard route separate from the tank, likely a permitted direct-discharge line for offshore use (bypassing tank storage) associated with the aft guest toilet flush zone.",
+      "flow_scenarios": [
+       {
+        "state": "Direct overboard (offshore permitted mode)",
+        "path": "Stbd Aft Guest Toilet flush line -> AFT BLACK OVERBOARD fitting -> sea (bypass of tank)"
+       }
+      ],
+      "key_components": [
+       "overboard discharge valve (NO, fire-rated pipe branch per schematic)"
+      ],
+      "dry_data": "No BOM tag readable for this specific overboard fitting; uses same fire-rated pipe class as main discharge."
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "Black Water Holding Tanks (AFT 500L / FWD 400-620L)",
+    "target_node_id": "540-black-water-pumps",
+    "facts": [
+     "AFT BLACK TANK: 500 L capacity, located amidships (frame ~7-8), fed by aft-zone toilets via sanitary hose, suction taken to discharge pumpset via 'AFT BLACK TANK SUCTION TO PUMP' line.",
+     "FWD BLACK TANK: labelled 620 (upper GA plan) and 400 L (lower schematic) - same tank, two views on this sheet; capacity per lower schematic BOM callout = 400L. Fed by fwd-zone toilets (Fwd Guest, Owners).",
+     "Each tank has a 3-contact static level switch assembly (BOM item 006, San Giorgio S.E.I.N. TIL 40368, 30V 1A): ALARM HIGH (audible alarm), TANK FULL (discharge required indication), TANK LOW.",
+     "Each tank has an instrument assembly (006-01 aft, 006-02 fwd) mounted on tank top, wired to a local Control Panel (CP) which also controls the associated discharge pump via NO/NC valve pairs.",
+     "Each tank has a breather/vent line referenced to a separate drawing '108-01-508-001 Tank Breathers Routing' - not detailed on this sheet (see drawing-specific note 2).",
+     "Tank connections use standard entry types per 'Tank Connections' legend: horizontal side entry (S), vertical top entry (T), vertical bottom entry (B), tank lid entry.",
+     "No dedicated tank equipment-register node found; tank facts recorded against the pump/system node 540-black-water-pumps per class rule (system node carries tank roster) - flag: consider requesting a tank node if register is expanded."
+    ]
+   },
+   {
+    "system_name": "Anti-Siphon Manifold / Breather Assembly",
+    "target_node_id": "540-black-water-pumps",
+    "facts": [
+     "Anti-siphon manifold (BOM item 007, SWS custom part, qty 1) mounted 700mm above DWL, positioned between the discharge pumpset and the overboard/dock discharge lines - prevents back-siphoning of seawater into tanks/pumps when pump is off.",
+     "Separate small anti-siphon/breather valve (007-01) shown at the manifold outlet leading toward the fwd black tank suction area.",
+     "Siphon-break valve item 002 (BOM: GUIDI SRL ART 1250, qty 1, 185kg total) is the physical valve within the manifold assembly."
+    ]
+   },
+   {
+    "system_name": "Dockside Pump-Out / Discharge Distribution",
+    "target_node_id": "540-black-water-pumps",
+    "facts": [
+     "Two shore pump-out fittings: AFT (item 005-01) near frame L/K and FWD (item 005-02) near frame B/A, plus a third 'pump out fitting (location TBD)' at the stern lazarette area and one in the anchor bay - these are waste pump-out fittings (BOM item 005, GUIDI SRL ART 1182, qty 2 costed; additional shown are uncosted/TBD).",
+     "Aft Dock Discharge Line runs from aft pump-out fitting through the hull along frames L-H to the combined discharge line.",
+     "Fwd Dock Discharge Line runs from fwd pump-out fitting through frames C-F to the combined discharge line.",
+     "Combined Dock Discharge Line runs in the sheer (upper hull), connecting aft and fwd discharge runs - single continuous overboard/pump-out header serving both tanks.",
+     "Piping: fire-rated 40mm hose (th40, Iberica EasyFlex, ISO15540) used for overboard/fire-rated runs; sanitary 'no smell' hose sa25 (25mm) and sa38 (38mm) used for toilet-to-tank flush lines (Vetus SAHOSE25/38)."
+    ]
+   }
+  ],
+  "discarded_as_clutter": [
+   "Title block / rev history (First Issue, GE, 12 Jul 2022) - meta only",
+   "Approved/Reviewed stamps (Hilton van Ginkel, Michael McIver) - meta only",
+   "Standard Notes box (do not scale, dimensions, break edges) - generic drafting boilerplate",
+   "Symbols Legend entries restating standard P&ID symbols (motor pump, ball valve, non-return valve, thru-hull valve, control panel, level sensor icons) - legend restates function already captured",
+   "Text Legend (unique number/BOM number/pipe code key) - documentation key, not equipment data",
+   "2-Way Valve State Designation legend (NO/NC definitions) - restated inline where valves are described",
+   "Tank Connections legend (S/T/B/lid entry types) - restated as tank facts, legend itself discarded",
+   "Deck GA plan room labels not related to blackwater (Working Galley, Crew Mess, Tender Garage, Sail Locker, Studio, Bilge Freezer, etc.) - general arrangement clutter, no blackwater function",
+   "Shower icons (orange boxes) - grey water fixtures shown only for spatial reference on this blackwater sheet, not part of black water loop",
+   "Duplicate FWD BLACK TANK capacity conflict (620 vs 400L) noted as uncertainty rather than clutter (see uncertainties)"
+  ],
+  "uncertainties": [
+   "FWD BLACK TANK capacity is labeled '620' on the upper GA plan view but '400 L' on the lower schematic tank detail - same tank, conflicting capacity figures; do not guess which is correct, flag for engineer confirmation.",
+   "Second/third 'pump out fitting' locations (lazarette 'location TBD' and 'anchor bay') are shown but not clearly tied to BOM item 005 quantity (BOM shows qty 2 for waste pump-out fitting, but sheet shows 4 pump-out symbols total: 005-01, 005-02, TBD, anchor bay) - possible extras not yet in BOM count, or anchor-bay/TBD ones may be fresh-water pump-out (different system) misread as black water; cannot confirm from this sheet alone.",
+   "'AFT BLACK OVERBOARD' direct discharge path legality/interlock (e.g. whether it is disabled inside 3nm/12nm limits) is not detailed on this sheet - no valve interlock or placard shown.",
+   "Crossover valve 004-08 (NC) purpose confirmed by state (normally closed) but the exact operational trigger/procedure for opening it (manual only, or automatic on pump fault) is not indicated on the sheet.",
+   "Item 007-01 anti-siphon manifold valve function (breather vs isolation) is inferred from position; exact valve type not labeled beyond generic valve symbol."
+  ],
+  "_model": "claude-sonnet-5"
+ },
+ "elapsed_s": 152.8
+}

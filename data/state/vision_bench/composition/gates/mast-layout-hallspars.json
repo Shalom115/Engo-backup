@@ -1,0 +1,259 @@
+{
+ "sheet": "mast-layout-hallspars",
+ "drawing_class": "building_ga",
+ "page": 0,
+ "extraction": null,
+ "composition": {
+  "serve_who": "This is the Hall Spars mast layout (drawing P03818-01 / SW108-01, \"MAST LAYOUT PRELIM FOR CONTRACT REVIEW\"). It is a building/structural GA of the carbon mast spar and its fittings \u2014 a section-by-section elevation and cross-sections showing masthead, spreaders, gooseneck/collar, mast base, hardware positions and dimensions. Nearly all callouts (tangs, sheave boxes, locks, hydraulic exits, jammers, cleats, halyard locks, deflectors, mast jacks, builder's step, drain exit, cut tube) are physical fittings ON the mast structure itself, so they belong to the Mast register node (810-hall-spars-manual-20sep2023). A few callouts reference equipment served BY the mast (nav lights, deck light, steaming light, radar dome, tracphone/VHF dome, horn, windex/wand, camera) which belong to their own equipment nodes per the register, with the mast sheet giving their POSITION on the spar only.",
+  "equipment_groups": [
+   {
+    "equipment_name": "Hall Spars Carbon Mast (spar structure, spreaders, standing rigging fittings, running rigging exits)",
+    "target_node_id": "810-hall-spars-manual-20sep2023",
+    "placement_reasoning": "The sheet title block reads 'MAST LAYOUT', project components list 'MAST SECTION: 500C', 'BOOM SECTION: 650D Maxi Rack', finish/paint/rigging specs, and the entire drawing is an elevation + sections of the spar itself with fitting call-outs (tangs, sheave boxes, locks, deflectors, jammers, cleats, exits). This is the Hall Spars mast structural GA \u2014 all structural/fitting facts attach to the Mast node.",
+    "functions": [
+     {
+      "label": "Standing rigging termination points along the mast (caps, verticals, diagonals, checkstays, babystay, backstay, runners)",
+      "what_it_does": "Provides fixed attachment points (tangs, dead-ends, sheave boxes) at masthead, spreader levels 1-4, and base for all standing rigging legs (V1-V4, D1-D4, cap shrouds, babystay, checkstay/backstay deflector) that hold the mast in column.",
+      "flow_scenarios": [],
+      "key_components": [
+       "45940 Masthead fitting",
+       "45895 Backstay tang",
+       "45825 Runner tang",
+       "45419 2:1 dead-end (1st MWL)",
+       "43923 Cap tang",
+       "43310/43045 IM/IG HS tangs",
+       "34980 Checkstay/BS deflector combination tang (P&S, 1st dog bone tang)",
+       "27677 Babystay 2:1 dead-end (1st MWL)",
+       "26562/26310 Spreader 3 + LJ ferrule"
+      ],
+      "dry_data": "Mast section 500C, 43.310mm P (luff length), IG 12.060mm, J 42.680mm, E 14.330mm, BAS 2.800mm, ISP 15.750mm, SPL/STL, bury 2.696mm, 1/2 CFW 3.191mm, base rake 2\u00b0, spreader sweep 22\u00b0.",
+      "sheet_region": "Left full-height elevation (port profile) and centre 'view in spreader plane' + 'view from boat CL' sections"
+     },
+     {
+      "label": "Spreaders 1-4",
+      "what_it_does": "Support the diagonal (D1-D4) and vertical (V1-V4) shroud legs at four levels, spacing them off the mast to control column buckling; angles and lengths given per spreader.",
+      "flow_scenarios": [],
+      "key_components": [
+       "Spreader 1 9058",
+       "Spreader 2 17852",
+       "Spreader 3 26562",
+       "Spreader 4 35232"
+      ],
+      "dry_data": "Spreader angles/offsets: e.g. Spreader top 2004/2173mm at ~8.4\u00b0/10.6\u00b0; Spreader 3 2783/3015mm at 5.1\u00b0/22.0\u00b0; Spreader 2 3173/3428mm at 3.2\u00b0/22.0\u00b0; Spreader 1 3304/3566mm at 2.3\u00b0/22.0\u00b0. Sweep 22\u00b0 per rig dimension table.",
+      "sheet_region": "Left elevation, height callouts 9058/17852/26562/35232; centre spreader-plane view"
+     },
+     {
+      "label": "Reef, halyard, lock and sheave hardware set at masthead/gooseneck",
+      "what_it_does": "Provides locking, hoisting and reefing points for sails and halyards run internal/external to the spar: frac hoist sheave, IM/IG locks, jib lock, reef 1-3 dead ends/locks, IFS lock, storm sail sheave box.",
+      "flow_scenarios": [
+       {
+        "state": "halyard hoisting",
+        "path": "halyard led internally from exit slot at base \u2192 up mast core \u2192 over sheave at masthead/frac sheave box \u2192 down to lock/jammer at deck level for load holding"
+       }
+      ],
+      "key_components": [
+       "44498 Frac sheave box (1:1 sheave, 2:1 purchase)",
+       "44170/42795 Deflector pins",
+       "42433 Jib lock (1st SWL)",
+       "34650 IFS lock (Facnor 20T)",
+       "27298 Babystay sheave box (16T #130 sheave)",
+       "26995 Storm sail sheave box (12T #100 sheave)",
+       "40390/34890/29260 Reef 1-3 (preliminary \u2014 dead ends/locks not fully confirmed)"
+      ],
+      "dry_data": "Sheave sizes #100-#130, purchases 1:1/2:1, SWL 1st/preliminary values as noted; reef positions marked 'preliminary' on drawing.",
+      "sheet_region": "Top of left elevation (masthead detail) and mid-elevation reef callouts"
+     },
+     {
+      "label": "Gooseneck / collar / mast base structural fittings and deck-level rigging exits",
+      "what_it_does": "Terminates boom at gooseneck, provides exits for hydraulic hose, halyard, vang, lazyjack, cunningham, tack lines and jammers/cleats/locks at the base of the mast, plus mast jacks and builder's step for stepping the spar.",
+      "flow_scenarios": [
+       {
+        "state": "hydraulic line routing",
+        "path": "hydraulic hose enters mast base at 'exit slot HYD + electrics' \u2192 routed internally up mast \u2192 exits at mainsheet/reefing/cunningham/backstay deflector exit through mast step"
+       },
+       {
+        "state": "control line routing (halyards/vang/lazyjack)",
+        "path": "line run from sail/boom fitting \u2192 through internal mast core or external track \u2192 down to jammer/cleat/lock at collar (e.g. 1697 jammers, 1392 reef tack, 1100 lazyjack jammers, 924 hyd exit) \u2192 cleated/locked at base for crew control"
+       }
+      ],
+      "key_components": [
+       "2503 Boom gooseneck",
+       "2110 Hyd exit (double 1/4 clamp)",
+       "1950/1697/1392/1100 Jammers, reef tack, lazyjack jammers (roles: lock/hold line under load)",
+       "924 Hyd exit (double 1/2 clamp)",
+       "476 Vang gooseneck",
+       "383 Titanium chafe plate",
+       "386 Drain exit (470 water trap, 50mm below)",
+       "2432 Builder's step",
+       "2237 Cut tube (to be confirmed)",
+       "Mast jacks 2x RC-750",
+       "277/287 Top of collar"
+      ],
+      "dry_data": "Boom topper 2:1 (slot 25x150); frac hyd 2:1 (slot 25x150); MH stbd hyd lock/jammer (slot 25x100); main hyd lock (slot 15x100); mast jacks RC-750 (2x).",
+      "sheet_region": "Bottom half of centre elevation views (three parallel sections) and base cross-section detail lower-right"
+     },
+     {
+      "label": "Masthead antenna/instrument mounting cross-section",
+      "what_it_does": "Provides mounting bracket geometry at masthead for wind instrument (B&G vertical wand), windex, and structural top fitting; shows lightning strike path to head fitting for bonding.",
+      "flow_scenarios": [
+       {
+        "state": "lightning protection path",
+        "path": "lightning strike at masthead tip \u2192 down through B&G wand mount/head fitting \u2192 (implied) down mast conductor to base \u2014 path only partially shown, no continuation drawn below masthead detail"
+       }
+      ],
+      "key_components": [
+       "Masthead top casting",
+       "B&G vertical wand mount",
+       "Windex mount"
+      ],
+      "dry_data": "Masthead detail dimensions 350mm, 2004mm, 2173mm span shown in top-right elevation inset.",
+      "sheet_region": "Top-right masthead detail view and small isometric mast-top casting views"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Navigation Lights (masthead tricolor + deck-level)",
+    "target_node_id": "690-navigation-lights",
+    "placement_reasoning": "Sheet explicitly labels 'NAV LIGHTS RED+WHITE 360\u00b0' at masthead and 'NAV LIGHTS LOPO 2NM RED/GREEN 180\u00b0' partway down mast \u2014 these are positional callouts for the navigation light node, not mast structure itself.",
+    "functions": [
+     {
+      "label": "Masthead tricolour / all-round nav light",
+      "what_it_does": "Provides all-round white + tricolour red/white navigation light visibility at masthead per COLREGs.",
+      "flow_scenarios": [],
+      "key_components": [
+       "Masthead nav light fitting"
+      ],
+      "dry_data": "360\u00b0 visibility, red+white.",
+      "sheet_region": "Top-right elevation, near masthead detail"
+     },
+     {
+      "label": "Sidelights (port/stbd) mounted on mast",
+      "what_it_does": "Provides port (red)/stbd (green) sidelight visibility at 2NM range, 180\u00b0 arc, mounted mid-mast on the cap tang area.",
+      "flow_scenarios": [],
+      "key_components": [
+       "43464 Nav light fitting P&S"
+      ],
+      "dry_data": "LOPO 2NM, red 180\u00b0 port / green 180\u00b0 stbd.",
+      "sheet_region": "Left elevation, ~upper third, near Cap Tang 43923 callout"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Deck / Steaming Light",
+    "target_node_id": "690-lts-deck",
+    "placement_reasoning": "Callout '10500 STEAMING LIGHT / DECK LIGHT' positioned on mast \u2014 a lighting circuit fitting mounted on the spar, not part of spar structure.",
+    "functions": [
+     {
+      "label": "Steaming/deck light mounted on mast",
+      "what_it_does": "Provides steaming light (forward white, motoring) and deck illumination from a fitting mounted partway up the mast.",
+      "flow_scenarios": [],
+      "key_components": [
+       "10500 Steaming/deck light fitting"
+      ],
+      "dry_data": "Position only \u2014 mounted below removable CF brackets on mast.",
+      "sheet_region": "Left elevation, lower-middle section near removable CF brackets"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Furuno Radar",
+    "target_node_id": "710-radar-furuno",
+    "placement_reasoning": "Callout '11000 Removable CF Bracket \u2014 Furuno 24\" Radar' gives mast-mounted position for the radar dome; radar equipment itself belongs to its own node.",
+    "functions": [
+     {
+      "label": "Radar dome mast mount",
+      "what_it_does": "Provides a removable carbon-fibre bracket position on the mast for the Furuno 24-inch radar dome.",
+      "flow_scenarios": [],
+      "key_components": [
+       "11000 Removable CF bracket"
+      ],
+      "dry_data": "Furuno 24\" radar, bracket type removable CF.",
+      "sheet_region": "Left elevation, lower-middle section"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Communications dome (Tracphone / VT dome) & Horn",
+    "target_node_id": "730-vhf",
+    "placement_reasoning": "Callout '11800 Removable CF Bracket \u2014 Tracphone, KVH VT Dome, Horn Kahlenberg S330' \u2014 a satcom/VHF-adjacent dome and fog horn mounted on the mast; positional fact for the comms/horn node (733-fog-horn covers the horn specifically but only one node can be chosen; horn is a distinct labelled item \u2014 flagged as uncertainty below since two different pieces of equipment share one bracket callout).",
+    "functions": [
+     {
+      "label": "Satcom dome + fog horn mast mount",
+      "what_it_does": "Provides a removable carbon-fibre bracket position on the mast for the satellite communications dome (Tracphone/KVH) and the Kahlenberg S330 fog horn.",
+      "flow_scenarios": [],
+      "key_components": [
+       "11800 Removable CF bracket"
+      ],
+      "dry_data": "KVH VT dome, Kahlenberg S330 horn \u2014 bracket type removable CF.",
+      "sheet_region": "Left elevation, lower-middle section, above radar bracket"
+     }
+    ]
+   },
+   {
+    "equipment_name": "B&G Wind Instrument (Windex + Vertical Wand)",
+    "target_node_id": "711-bg-instruments",
+    "placement_reasoning": "Top-right masthead detail explicitly labels '23\" WINDEX AND LIGHT' and 'B&G VERTICAL WAND' \u2014 instrument mounting position on the masthead.",
+    "functions": [
+     {
+      "label": "Masthead wind instrument mounting",
+      "what_it_does": "Provides masthead mounting position for the 23-inch mechanical windex (with light) and the B&G vertical wand (electronic wind sensor).",
+      "flow_scenarios": [],
+      "key_components": [
+       "Windex 23\" + light",
+       "B&G vertical wand"
+      ],
+      "dry_data": "Mounting dimension ~350mm offset shown at masthead detail.",
+      "sheet_region": "Top-right masthead detail view"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Oscar (MOB) Camera",
+    "target_node_id": "720-cctv",
+    "placement_reasoning": "Callout 'OSCAR CAMERA' at masthead detail \u2014 camera equipment mounted on mast for man-overboard visual monitoring; CCTV is the closest matching register node.",
+    "functions": [
+     {
+      "label": "Masthead-mounted camera",
+      "what_it_does": "Provides elevated camera position at the masthead for overview/MOB (Oscar) monitoring.",
+      "flow_scenarios": [],
+      "key_components": [
+       "Masthead camera mount"
+      ],
+      "dry_data": "Position only, no cabling shown on this sheet.",
+      "sheet_region": "Top-right masthead detail view"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "Standing rigging leg identification (V1-V4, D1-D4, Cap shroud) \u2014 labelling/tagging system, not a separate physical system",
+    "target_node_id": "830-standing-rigging",
+    "facts": [
+     "V1 C6-210, V2 C6-161, V3 C6-127, V4 C6-95 (vertical shroud legs, wire/rod section C6 with taper diameters noted)",
+     "D1 C6-82, D2 C6-57, D3 C6-50, D4 C6-95x48 (diagonal shroud legs)",
+     "CapShroud C6-95",
+     "Rig dimension table: P 43.310mm, IG 12.060mm, J 42.680mm, E 14.330mm, BAS 2.800mm, ISP 15.750mm, SPL/STL, bury 2.696mm, 1/2 CFW 3.191mm, base rake 2\u00b0, spreader sweep 22\u00b0",
+     "Rigging colour/braid: 'ECsix - Braid Colour TBC' (Hall supplied EC rigging system)"
+    ]
+   }
+  ],
+  "uncertainties": [
+   "Reef 1, 2, 3 positions/hardware are explicitly marked 'PRELIMINARY' on the drawing \u2014 not yet finalized, do not treat as confirmed dead-end/lock specs.",
+   "Cut tube dimension '2237' marked 'TBC' (to be confirmed) at mast base \u2014 length/position not final.",
+   "Builder's step position marked 'TBC' (to be confirmed).",
+   "Lightning bonding path shown only as a single arrow at masthead ('LIGHTNING STRIKE') with no continuation drawn down the mast on this sheet \u2014 cannot confirm full down-conductor route from this drawing alone.",
+   "Bracket callout 11800 combines three distinct devices (Tracphone, KVH VT dome, Kahlenberg S330 horn) on one CF bracket \u2014 attached to VHF/comms node as best fit; horn functionally could also sit under 733-fog-horn, but only one bracket position is drawn so both are noted under the same physical mount.",
+   "Rigging braid colour marked 'TBC' in project components table \u2014 not yet specified."
+  ],
+  "discarded_as_clutter": [
+   "Title block revision history row '09 - Collar eye bolt layout changed to match halyard leads - 14-06-2022' (meta/revision note)",
+   "Drawing number/date/scale repeats in title block (P03818-01, SW108-01, sheet 1 of 1, dimensions in mm range tolerances table \u2014 pure drafting standard notes)",
+   "Hall Spars & Rigging company logo and website URL (branding, not equipment data)",
+   "Small human figure silhouette (scale reference only, not equipment)",
+   "'0 MAST DATUM' / '000 MAST DATUM' repeated reference marks (same datum callout repeated at both ends of elevation)"
+  ],
+  "_model": "claude-sonnet-5"
+ },
+ "elapsed_s": 76.1
+}

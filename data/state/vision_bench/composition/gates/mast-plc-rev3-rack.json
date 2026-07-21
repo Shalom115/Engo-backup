@@ -1,0 +1,57 @@
+{
+ "sheet": "mast-plc-rev3-rack",
+ "drawing_class": "plc",
+ "page": 2,
+ "extraction": null,
+ "composition": {
+  "serve_who": "This sheet (03 of 25, \"PLC INTERFACE\", section MAST) is a WAGO I/O rack layout for the MAST hydraulic PLC node. It shows a fieldbus coupler rack (X0) with a CAN gateway, digital/analog I/O modules (00-33), power supply modules, and a bus extension to a second rack (X6-33) via coupler module. This is INFRASTRUCTURE (the rack/bus/PLC backbone itself) \u2014 the sheet does not name any specific EV/actuator signals against I/O channels (no signal-name labels like EV-x.y are printed on this sheet), so no individual equipment functions can be composed from this view. All content here (coupler, filter, gateway, DI/AI/DO/AO modules, power supplies, bus extension/end modules) is the mast-PLC rack architecture that will carry signals to mast-area hydraulic equipment (winches, furlers, cylinders) documented on other sheets \u2014 but since no channel-to-EV mapping is visible/legible on this sheet, no equipment-specific flow scenarios can be drawn without inventing connections.",
+  "equipment_groups": [],
+  "infrastructure": [
+   {
+    "system_name": "MAST PLC I/O Rack (WAGO fieldbus node, Rack 1)",
+    "target_node_id": "570-myt-systems-hydraulics",
+    "facts": [
+     "X0 Fieldbus Coupler 750-362 with CAN Gateway 750-658, DIP-switch address block, Ethernet ports IN/OUT for daisy-chain networking",
+     "X1 Filter module 750-626",
+     "Position 00-04: DI1-DI4 digital input modules (750-1405 x4) plus one extra 750-1405",
+     "Position 05-07: AI1-AI3 analog input modules (750-455, 750-455, 750-457)",
+     "Position 08: DO1 digital output module 750-1504",
+     "X2 Power Supply module 750-602 (feeds DO2/DO3 group)",
+     "Positions 09-13: DO2-DO6 digital output modules (750-508 x5)",
+     "X3 Power Supply module 750-602 (feeds DO7-DO11 group)",
+     "Positions 14-18: DO7-DO11 digital output modules (750-508 x5)",
+     "X4 Power Supply module 750-602 (feeds DO12-DO16 group)",
+     "Positions 19-23: DO12-DO16 digital output modules (750-508 x5)",
+     "X5 Bus Extension End Module 750-627 terminates rack 1 and links via cable to rack 2 coupler X6",
+     "Rack is DIN-rail mounted per DIN 34 norm (per sheet note, rights reserved)"
+    ]
+   },
+   {
+    "system_name": "MAST PLC I/O Rack (WAGO fieldbus node, Rack 2 - bus extension)",
+    "target_node_id": "570-myt-systems-hydraulics",
+    "facts": [
+     "X6 Bus Extension Coupler Module 750-628 receives extension from Rack 1 X5 end module",
+     "Positions 24-28: DO17-DO21 digital output modules (750-508 x5)",
+     "X7 Power Supply module 750-602 (feeds DO22-DO25/AO1 group)",
+     "Positions 29-32: DO22-DO25 digital output modules (750-508 x4)",
+     "Position 33: AO1 analog output module 750-559",
+     "X8 End Module 750-600 terminates rack 2"
+    ]
+   }
+  ],
+  "uncertainties": [
+   "No signal names (e.g. EV-x.y hydraulic pilot identifiers, sensor names) are printed against any I/O channel on this sheet, so which specific mast equipment (winches, furlers, cylinders) each DI/DO/AI/AO channel drives cannot be determined from this drawing alone \u2014 that mapping must come from a wiring/interconnection sheet not shown here.",
+   "Common/reference channel designations for each module (needed to state 'measure relative to common') are not legible/labeled distinctly beyond generic +/- terminal markings; cannot be captured without risking a guess.",
+   "Module position count 00-04 shows five DI-type terminals under four labeled DI1-DI4 signal names (750-1405 appears 4x plus initial position 00) - exact channel-to-position correspondence not fully resolved from image alone."
+  ],
+  "discarded_as_clutter": [
+   "Title block metadata (drawn/checked/scale/sheet/job/client/project/rev/date/file name)",
+   "Revision history rows (0 FIRST ISSUE, 3 REVISION AFTER COMMISSIONING)",
+   "MYT-Systems company address/contact block",
+   "Copyright/rights-reserved notice re: DIN 34 norm",
+   "Sheet border zone/grid reference numbers (1-8, A-F)"
+  ],
+  "_model": "claude-sonnet-5"
+ },
+ "elapsed_s": 25.5
+}

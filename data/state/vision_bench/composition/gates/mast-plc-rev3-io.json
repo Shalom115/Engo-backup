@@ -1,0 +1,300 @@
+{
+ "sheet": "mast-plc-rev3-io",
+ "drawing_class": "plc",
+ "page": 8,
+ "extraction": null,
+ "composition": {
+  "serve_who": "This sheet (09 of 25, \"16 DI MODULE (POS.01) 750-1405 DI-01\", section MAST) is a WAGO 750 I/O rack drawing showing digital input channels for pushbutton/switch commands. Each channel's signal name identifies the equipment it serves: capstan (CW/CCW), windlass (slow/fast up/down), hydraulic ON/OFF (system-wide, no dedicated node), forestay RTA (in/out), and four mast winches (aft port, fwd port, aft stbd, fwd stbd) each with 1\u00b0/3\u00b0 and 2\u00b0 speed pushbuttons. The rack/coupler itself (750-8213 CPU, POS 01, +24Vdc field supply rails) is infrastructure for the MAST PLC rack, not equipment.",
+  "equipment_groups": [
+   {
+    "equipment_name": "Capstan winch",
+    "target_node_id": "220-capstan-winch",
+    "placement_reasoning": "Signal names 'capstan CW_pusw_AL' and 'capstan CCW_pusw_AL' directly name the capstan; mapped via engineer glossary to 220-capstan-winch.",
+    "functions": [
+     {
+      "label": "Capstan rotation direction pushbutton command",
+      "function_id": "capstan-direction-pb",
+      "sheet_region": "row CH01/CH02, upper-left/upper-right of module",
+      "what_it_does": "Two pushbutton inputs command the capstan drum to rotate clockwise or counter-clockwise; each channel is a discrete alarm-type (_AL) pushbutton input read by the PLC to drive the capstan direction output.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/default",
+        "path": "No pushbutton pressed -> both CH01 and CH02 read LOW (open) -> no capstan rotation command issued."
+       },
+       {
+        "state": "CW pressed",
+        "path": "Field pushbutton (capstan CW_pusw_AL) -> DI-01 CH01 (module 750-1405, rack position 01) -> PLC reads channel HIGH relative to module COMMON -> PLC energises capstan CW rotation output."
+       },
+       {
+        "state": "CCW pressed",
+        "path": "Field pushbutton (capstan CCW_pusw_AL) -> DI-01 CH02 -> PLC reads channel HIGH relative to module COMMON -> PLC energises capstan CCW rotation output."
+       }
+      ],
+      "key_components": [
+       "CH01 = CW command input",
+       "CH02 = CCW command input",
+       "module COMMON (rail reference, not individually numbered on this sheet)"
+      ],
+      "dry_data": "Module 750-1405, 16DI, CPU 750-8213, rack position 01; channels 1-2; +24Vdc field supply; pushbutton (alarm-type) contact inputs."
+     }
+    ]
+   },
+   {
+    "equipment_name": "Windlass",
+    "target_node_id": "250-windlass-lewmar-v8",
+    "placement_reasoning": "Signal names 'windlass SLOW UP/DOWN' and 'windlass FAST UP/DOWN' directly name the windlass; mapped via engineer glossary to 250-windlass-lewmar-v8.",
+    "functions": [
+     {
+      "label": "Windlass speed/direction pushbutton commands",
+      "function_id": "windlass-speed-direction-pb",
+      "sheet_region": "rows CH03-CH06",
+      "what_it_does": "Four pushbutton inputs command the windlass to raise or lower the anchor at slow or fast speed.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/default",
+        "path": "No pushbutton pressed -> CH03-CH06 all LOW -> no windlass motion command."
+       },
+       {
+        "state": "slow up pressed",
+        "path": "Field pushbutton (windlass SLOW UP_pusw_AL) -> DI-01 CH03 -> PLC reads HIGH relative to module COMMON -> PLC energises windlass UP at slow speed."
+       },
+       {
+        "state": "slow down pressed",
+        "path": "Field pushbutton (windlass SLOW DOWN_pusw_AL) -> DI-01 CH04 -> PLC reads HIGH relative to module COMMON -> PLC energises windlass DOWN at slow speed."
+       },
+       {
+        "state": "fast up pressed",
+        "path": "Field pushbutton (windlass FAST UP_pusw_AL) -> DI-01 CH05 -> PLC reads HIGH relative to module COMMON -> PLC energises windlass UP at fast speed."
+       },
+       {
+        "state": "fast down pressed",
+        "path": "Field pushbutton (windlass FAST DOWN_pusw_AL) -> DI-01 CH06 -> PLC reads HIGH relative to module COMMON -> PLC energises windlass DOWN at fast speed."
+       }
+      ],
+      "key_components": [
+       "CH03 = slow up",
+       "CH04 = slow down",
+       "CH05 = fast up",
+       "CH06 = fast down",
+       "module COMMON reference"
+      ],
+      "dry_data": "Module 750-1405, 16DI, rack position 01; channels 3-6; +24Vdc field supply; pushbutton (alarm-type) contact inputs."
+     }
+    ]
+   },
+   {
+    "equipment_name": "Forestay RTA (Jib Furler)",
+    "target_node_id": "860-bamar-gfsi30",
+    "placement_reasoning": "Signal names 'forestay RTA IN_pb' and 'forestay RTA OUT_pb' directly name the forestay RTA function, mapped via engineer glossary to 860-bamar-gfsi30 (Jib Furler + Forestay RTA).",
+    "functions": [
+     {
+      "label": "Forestay RTA extend/retract pushbutton command",
+      "function_id": "forestay-rta-inout-pb",
+      "sheet_region": "rows CH07-CH09",
+      "what_it_does": "Pushbutton inputs command the forestay RTA (rod tensioning actuator) to move IN or OUT to adjust forestay tension.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/default",
+        "path": "No pushbutton pressed -> CH08 and CH09 LOW -> no RTA motion command."
+       },
+       {
+        "state": "IN pressed",
+        "path": "Field pushbutton (forestay RTA IN_pb) -> DI-01 CH08 -> PLC reads HIGH relative to module COMMON -> PLC energises forestay RTA IN motion."
+       },
+       {
+        "state": "OUT pressed",
+        "path": "Field pushbutton (forestay RTA OUT_pb) -> DI-01 CH09 -> PLC reads HIGH relative to module COMMON -> PLC energises forestay RTA OUT motion."
+       }
+      ],
+      "key_components": [
+       "CH08 = RTA IN command",
+       "CH09 = RTA OUT command",
+       "module COMMON reference"
+      ],
+      "dry_data": "Module 750-1405, 16DI, rack position 01; channels 8-9; +24Vdc field supply; pushbutton contact inputs (non-alarm, _pb suffix)."
+     }
+    ]
+   },
+   {
+    "equipment_name": "Mast Winch Aft Port",
+    "target_node_id": "220-mast-winch-aft-port",
+    "placement_reasoning": "Signal names 'mast winch aft port 1\u00b0 e 3\u00b0_pb_MW' (CH10) and 'mast winch aft port 2\u00b0_pb_MW' (CH11) directly name this winch; mapped via engineer glossary to 220-mast-winch-aft-port.",
+    "functions": [
+     {
+      "label": "Mast winch aft port speed pushbutton commands (1st/3rd and 2nd speed)",
+      "function_id": "mastwinch-aftport-speed-pb",
+      "sheet_region": "rows CH10-CH11",
+      "what_it_does": "Pushbutton inputs select the winch speed stage: combined 1st/3rd speed selection on one channel, 2nd speed on the other, for the aft port mast winch.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/default",
+        "path": "No pushbutton pressed -> CH10 and CH11 LOW -> no speed-stage command issued."
+       },
+       {
+        "state": "1st/3rd speed pressed",
+        "path": "Field pushbutton (mast winch aft port 1\u00b0 e 3\u00b0_pb_MW) -> DI-01 CH10 -> PLC reads HIGH relative to module COMMON -> PLC energises aft port mast winch 1st/3rd speed stage."
+       },
+       {
+        "state": "2nd speed pressed",
+        "path": "Field pushbutton (mast winch aft port 2\u00b0_pb_MW) -> DI-01 CH11 -> PLC reads HIGH relative to module COMMON -> PLC energises aft port mast winch 2nd speed stage."
+       }
+      ],
+      "key_components": [
+       "CH10 = 1st/3rd speed command",
+       "CH11 = 2nd speed command",
+       "module COMMON reference"
+      ],
+      "dry_data": "Module 750-1405, 16DI, rack position 01; channels 10-11; +24Vdc field supply; pushbutton (MW = mast winch) contact inputs."
+     }
+    ]
+   },
+   {
+    "equipment_name": "Mast Winch Fwd Port",
+    "target_node_id": "220-mast-winch-fwd-port",
+    "placement_reasoning": "Signal names 'mast winch fwd port 1\u00b0 e 3\u00b0_pb_MW' (CH12) and 'mast winch fwd port 2\u00b0_pb_MW' (CH13) directly name this winch; mapped via engineer glossary to 220-mast-winch-fwd-port.",
+    "functions": [
+     {
+      "label": "Mast winch fwd port speed pushbutton commands (1st/3rd and 2nd speed)",
+      "function_id": "mastwinch-fwdport-speed-pb",
+      "sheet_region": "rows CH12-CH13",
+      "what_it_does": "Pushbutton inputs select the winch speed stage: combined 1st/3rd speed on one channel, 2nd speed on the other, for the forward port mast winch.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/default",
+        "path": "No pushbutton pressed -> CH12 and CH13 LOW -> no speed-stage command issued."
+       },
+       {
+        "state": "1st/3rd speed pressed",
+        "path": "Field pushbutton (mast winch fwd port 1\u00b0 e 3\u00b0_pb_MW) -> DI-01 CH12 -> PLC reads HIGH relative to module COMMON -> PLC energises fwd port mast winch 1st/3rd speed stage."
+       },
+       {
+        "state": "2nd speed pressed",
+        "path": "Field pushbutton (mast winch fwd port 2\u00b0_pb_MW) -> DI-01 CH13 -> PLC reads HIGH relative to module COMMON -> PLC energises fwd port mast winch 2nd speed stage."
+       }
+      ],
+      "key_components": [
+       "CH12 = 1st/3rd speed command",
+       "CH13 = 2nd speed command",
+       "module COMMON reference"
+      ],
+      "dry_data": "Module 750-1405, 16DI, rack position 01; channels 12-13; +24Vdc field supply; pushbutton (MW = mast winch) contact inputs."
+     }
+    ]
+   },
+   {
+    "equipment_name": "Mast Winch Aft Stbd",
+    "target_node_id": "220-mast-winch-aft-stbd",
+    "placement_reasoning": "Signal names 'mast winch aft stbd 1\u00b0 e 3\u00b0_pb_MW' (CH14) and 'mast winch aft stbd 2\u00b0_pb_MW' (CH15) directly name this winch; mapped via engineer glossary to 220-mast-winch-aft-stbd.",
+    "functions": [
+     {
+      "label": "Mast winch aft stbd speed pushbutton commands (1st/3rd and 2nd speed)",
+      "function_id": "mastwinch-aftstbd-speed-pb",
+      "sheet_region": "rows CH14-CH15",
+      "what_it_does": "Pushbutton inputs select the winch speed stage: combined 1st/3rd speed on one channel, 2nd speed on the other, for the aft starboard mast winch.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/default",
+        "path": "No pushbutton pressed -> CH14 and CH15 LOW -> no speed-stage command issued."
+       },
+       {
+        "state": "1st/3rd speed pressed",
+        "path": "Field pushbutton (mast winch aft stbd 1\u00b0 e 3\u00b0_pb_MW) -> DI-01 CH14 -> PLC reads HIGH relative to module COMMON -> PLC energises aft stbd mast winch 1st/3rd speed stage."
+       },
+       {
+        "state": "2nd speed pressed",
+        "path": "Field pushbutton (mast winch aft stbd 2\u00b0_pb_MW) -> DI-01 CH15 -> PLC reads HIGH relative to module COMMON -> PLC energises aft stbd mast winch 2nd speed stage."
+       }
+      ],
+      "key_components": [
+       "CH14 = 1st/3rd speed command",
+       "CH15 = 2nd speed command",
+       "module COMMON reference"
+      ],
+      "dry_data": "Module 750-1405, 16DI, rack position 01; channels 14-15; +24Vdc field supply; pushbutton (MW = mast winch) contact inputs."
+     }
+    ]
+   },
+   {
+    "equipment_name": "Mast Winch Fwd Stbd",
+    "target_node_id": "220-mast-winch-fwd-stbd",
+    "placement_reasoning": "Signal name 'mast winch fwd stbd 1\u00b0 e 3\u00b0_pb_MW' (CH16) directly names this winch; mapped via engineer glossary to 220-mast-winch-fwd-stbd.",
+    "functions": [
+     {
+      "label": "Mast winch fwd stbd speed pushbutton command (1st/3rd speed)",
+      "function_id": "mastwinch-fwdstbd-speed-pb",
+      "sheet_region": "row CH16",
+      "what_it_does": "Pushbutton input selects the combined 1st/3rd speed stage for the forward starboard mast winch. Note: no dedicated 2nd-speed channel is shown for this winch on this module (all 16 channels of the module are used; 2nd speed command may be provided on a different module/sheet if it exists).",
+      "flow_scenarios": [
+       {
+        "state": "neutral/default",
+        "path": "No pushbutton pressed -> CH16 LOW -> no speed-stage command issued."
+       },
+       {
+        "state": "1st/3rd speed pressed",
+        "path": "Field pushbutton (mast winch fwd stbd 1\u00b0 e 3\u00b0_pb_MW) -> DI-01 CH16 -> PLC reads HIGH relative to module COMMON -> PLC energises fwd stbd mast winch 1st/3rd speed stage."
+       }
+      ],
+      "key_components": [
+       "CH16 = 1st/3rd speed command",
+       "module COMMON reference"
+      ],
+      "dry_data": "Module 750-1405, 16DI, rack position 01; channel 16; +24Vdc field supply; pushbutton (MW = mast winch) contact input."
+     }
+    ]
+   },
+   {
+    "equipment_name": "Hydraulic system ON/OFF (MAST hydraulic power pack enable)",
+    "target_node_id": "570-myt-systems-hydraulics",
+    "placement_reasoning": "Signal 'hydraulic ON/OFF_pb_AL' (CH07) is a general system enable command, not tied to one named winch/furler; placed on the MYT hydraulics power/control node as the closest fitting node for a hydraulic-system-wide enable pushbutton on the MAST PLC.",
+    "functions": [
+     {
+      "label": "Hydraulic system enable/disable pushbutton command",
+      "function_id": "hydraulic-onoff-pb",
+      "sheet_region": "row CH07",
+      "what_it_does": "Pushbutton input toggles the mast hydraulic power system ON or OFF, enabling/disabling hydraulic power to all mast deck equipment served by this PLC.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/default",
+        "path": "No pushbutton pressed -> CH07 LOW -> hydraulic system state unchanged."
+       },
+       {
+        "state": "toggle pressed",
+        "path": "Field pushbutton (hydraulic ON/OFF_pb_AL) -> DI-01 CH07 -> PLC reads HIGH relative to module COMMON -> PLC toggles hydraulic power pack enable/disable output."
+       }
+      ],
+      "key_components": [
+       "CH07 = hydraulic ON/OFF toggle command",
+       "module COMMON reference"
+      ],
+      "dry_data": "Module 750-1405, 16DI, rack position 01; channel 7; +24Vdc field supply; pushbutton (alarm-type) contact input."
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "MAST PLC I/O Rack (WAGO 750 series, position 01)",
+    "target_node_id": "650-653-myt-hydraulic-system-monitoring",
+    "facts": [
+     "16 DI MODULE, type 750-1405, mounted at rack POS.01, CPU 750-8213 (fieldbus coupler/controller for the rack).",
+     "Module designation DI-01 with 16 channels (CH01-CH16), wired in pairs left/right per row.",
+     "+24Vdc (field) supply rail runs vertically on both left and right sides of the sheet feeding all field pushbuttons/switches; cross-reference tags 9.7E/6.4C (left rail) and 10.2E/9.2B (right rail) indicate continuation to/from other sheets.",
+     "Sheet is part of file SWS_108-1_MAST PLC.dwg, sheet 09 of 25, section MAST, project SWS 108-1, rev 3."
+    ]
+   }
+  ],
+  "uncertainties": [
+   "Channel COMMON terminal for module 750-1405 DI-01 is not individually labeled on this sheet (WAGO 750-1405 modules typically share a common per channel pair or per module depending on wiring convention) \u2014 exact COMMON terminal number should be confirmed from module datasheet/wiring table if precise multimeter probe placement is needed.",
+   "No dedicated 2nd-speed pushbutton channel appears for 'mast winch fwd stbd' on this module (only CH16 '1\u00b0 e 3\u00b0' is present); unclear whether the 2nd-speed command for this winch is wired on a different DI module/sheet or omitted \u2014 flagged rather than assumed.",
+   "'hydraulic ON/OFF_pb_AL' has no specific hydraulic power pack node in the register for this exact function; attached to 570-myt-systems-hydraulics as the closest general hydraulics node \u2014 may need a more specific 'power pack enable' node if one exists elsewhere."
+  ],
+  "discarded_as_clutter": [
+   "title block metadata (revision history, drawn/checked, file name, job number, client/project/section labels)",
+   "DIN 34 rights-reserved note (left margin boilerplate)",
+   "sheet border zone/grid reference letters and numbers (A-F, 1-8) - navigation aids only",
+   "cross-reference tags 9.7E, 6.4C, 10.2E, 9.2B - infrastructure rail continuation markers, not equipment data"
+  ],
+  "_model": "claude-sonnet-5"
+ },
+ "elapsed_s": 56.5
+}
