@@ -3547,7 +3547,20 @@
    "doc_subfolders": {},
    "file_count": 2,
    "flags": [],
-   "confidence": "Confirmed"
+   "confidence": "Confirmed",
+   "cross_links": [
+    {
+     "relation": "fed_by",
+     "target": "515-seachest-main",
+     "source": {
+      "source_doc": "engineer red-pen round 2 on composition",
+      "file": "chat 2026-07-20",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
+    }
+   ]
   },
   {
    "equipment_id": "515-ifm-raw-water-sensors",
@@ -5294,6 +5307,17 @@
       "source_type": "engineer_redpen",
       "authority": "engineer",
       "as_of": "2026-07-19"
+     }
+    },
+    {
+     "relation": "fed_by",
+     "target": "620-hv-dc-backbone",
+     "source": {
+      "source_doc": "engineer red-pen round 2 on composition",
+      "file": "chat 2026-07-20",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
      }
     }
    ]
@@ -12113,6 +12137,17 @@
       "note": "EV-id backfill 2026-07-20 \u2014 join key was dropped by the original write pass",
       "as_of": "2026-07-20"
      }
+    },
+    {
+     "kind": "pressure_settings",
+     "value": "EV-9.1 stern thruster: 250 bar = LS limiters (both sides); 280 bar = A/B work-port reliefs. EV-9.2 S.T. UP/DOWN: 100 bar = load-sensing pressure relief. EV-9.3 S.T. LOCK: 70 bar = load-sensing pressure relief. All values in BAR (engineer 2026-07-20).",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen round 2",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
     }
    ],
    "identity_status": "pending"
@@ -14683,6 +14718,17 @@
       "note": "EV-id backfill 2026-07-20 \u2014 join key was dropped by the original write pass",
       "as_of": "2026-07-20"
      }
+    },
+    {
+     "kind": "gear_terminology",
+     "value": "WINCH GEAR TERMINOLOGY (general, all winch functions): the proportional positions are '1st/3rd gear' (the <5V / A-side) and '2nd gear' (>5V / B-side) \u2014 write them as gears, not 'position 1/3' and 'position 2' (engineer 2026-07-20).",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen round 2",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
     }
    ],
    "identity_status": "pending"
@@ -14709,7 +14755,18 @@
    "confidence": "Confirmed",
    "parent_id": "220-primary-winch-harken-b1235",
    "children": [],
-   "cross_links": [],
+   "cross_links": [
+    {
+     "relation": "third_gear_relief_on",
+     "target": "570-danfoss-pvg-32-aft-blocka",
+     "source": {
+      "source_doc": "engineer red-pen round 2",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
+    }
+   ],
    "expected_fact_classes": [
     "inventory",
     "manual",
@@ -14862,6 +14919,17 @@
       "match_score": 1.0,
       "control_map_function": "26",
       "function_no": "26"
+     }
+    },
+    {
+     "kind": "gear_terminology",
+     "value": "WINCH GEAR TERMINOLOGY (general, all winch functions): the proportional positions are '1st/3rd gear' (the <5V / A-side) and '2nd gear' (>5V / B-side) \u2014 write them as gears, not 'position 1/3' and 'position 2' (engineer 2026-07-20).",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen round 2",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
      }
     }
    ],
@@ -15103,6 +15171,17 @@
       "note": "EV-id backfill 2026-07-20 \u2014 join key was dropped by the original write pass",
       "as_of": "2026-07-20"
      }
+    },
+    {
+     "kind": "gear_terminology",
+     "value": "WINCH GEAR TERMINOLOGY (general, all winch functions): the proportional positions are '1st/3rd gear' (the <5V / A-side) and '2nd gear' (>5V / B-side) \u2014 write them as gears, not 'position 1/3' and 'position 2' (engineer 2026-07-20).",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen round 2",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
     }
    ],
    "identity_status": "pending"
@@ -15129,7 +15208,18 @@
    "confidence": "Confirmed",
    "parent_id": "220-secondary-winch-harken-b1235",
    "children": [],
-   "cross_links": [],
+   "cross_links": [
+    {
+     "relation": "third_gear_relief_on",
+     "target": "570-danfoss-pvg-32-aft-blocka",
+     "source": {
+      "source_doc": "engineer red-pen round 2",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
+    }
+   ],
    "expected_fact_classes": [
     "inventory",
     "manual",
@@ -15285,6 +15375,17 @@
       "match_score": 1.0,
       "control_map_function": "28",
       "function_no": "28"
+     }
+    },
+    {
+     "kind": "gear_terminology",
+     "value": "WINCH GEAR TERMINOLOGY (general, all winch functions): the proportional positions are '1st/3rd gear' (the <5V / A-side) and '2nd gear' (>5V / B-side) \u2014 write them as gears, not 'position 1/3' and 'position 2' (engineer 2026-07-20).",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen round 2",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
      }
     }
    ],
@@ -15964,7 +16065,28 @@
    "confidence": "Flagged",
    "parent_id": null,
    "children": [],
-   "cross_links": [],
+   "cross_links": [
+    {
+     "relation": "third_gear_relief_for",
+     "target": "220-primary-winch-stbd",
+     "source": {
+      "source_doc": "engineer red-pen round 2",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
+    },
+    {
+     "relation": "third_gear_relief_for",
+     "target": "220-secondary-winch-stbd",
+     "source": {
+      "source_doc": "engineer red-pen round 2",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
+    }
+   ],
    "expected_fact_classes": [
     "manual",
     "schematic",
@@ -16004,6 +16126,17 @@
       "region_code": "500",
       "subsystem_code": "570",
       "authority": "schematic"
+     }
+    },
+    {
+     "kind": "third_gear_relief",
+     "value": "EV-8.5 and EV-8.6 = additional pressure-relief valves that open ONLY in 3rd gear, limiting the pressure at that gear for the two STBD winches (primary + secondary). Added in rev.10 \u2014 the red notes on the sheet regard both stbd winches and are part of rev.10 (engineer 2026-07-20).",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen round 2",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
      }
     }
    ]
@@ -16082,6 +16215,17 @@
       "sheet": "AFT_blockB",
       "source_type": "hydraulic_schematic",
       "note": "EV-id backfill 2026-07-20 \u2014 join key was dropped by the original write pass",
+      "as_of": "2026-07-20"
+     }
+    },
+    {
+     "kind": "block_relief",
+     "value": "Inlet-section relief = the main BLOCK pressure relief, in bar (engineer 2026-07-20).",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen round 2",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
       "as_of": "2026-07-20"
      }
     }
@@ -22029,6 +22173,18 @@
       "mapped_via": "load_map_engineer_confirmed",
       "load_as_printed": "GALVANIC CONTROL",
       "enrichment_note": "kept most-complete read; partial duplicate reads of the same printed row removed 2026-07-03"
+     }
+    },
+    {
+     "kind": "make_correction",
+     "value": "This vessel's galvanic control is TECNOSEAL, NOT Cathelco (engineer 2026-07-20). The raw-water sheet's blind composition guessed Cathelco \u2014 corrected.",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen round 2 on composition",
+      "file": "chat 2026-07-20",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
      }
     }
    ],
@@ -40163,6 +40319,17 @@
       "authority": "engineer",
       "as_of": "2026-07-19"
      }
+    },
+    {
+     "relation": "fed_by",
+     "target": "620-hv-dc-backbone",
+     "source": {
+      "source_doc": "engineer red-pen round 2 on composition",
+      "file": "chat 2026-07-20",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
     }
    ]
   },
@@ -40213,8 +40380,8 @@
   {
    "equipment_id": "430-wartsila-shaft-seal",
    "name": "Wartsila Shaft Seal (stern gland)",
-   "confidence": "Flagged",
-   "origin": "ontology_preseed_backfill_20260720",
+   "confidence": "Confirmed",
+   "origin": "ontology_skeleton_expected",
    "node_provenance": {
     "source_doc": "ontology gap scan (engineer challenge on steering pre-seed)",
     "source_type": "ontology_preseed_backfill",
@@ -40224,13 +40391,27 @@
    "make": "Wartsila",
    "subsystem_code": "430",
    "region_code": "400",
-   "note": "Adjudicated in Suppliers red-pen (Bearing folder renamed Shaft Seal) but never got a node \u2014 ontology pre-seed backfill."
+   "note": "Adjudicated in Suppliers red-pen (Bearing folder renamed Shaft Seal) but never got a node \u2014 ontology pre-seed backfill.",
+   "facts": [
+    {
+     "kind": "skeleton_note",
+     "value": "Every inboard-motor vessel has a shaft seal / stern gland \u2014 intrinsic to the hull-shaft interface, not an uncertain find (engineer).",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen round 2 on composition",
+      "file": "chat 2026-07-20",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
+    }
+   ]
   },
   {
    "equipment_id": "570-er-hydraulic-power-pack",
    "name": "Engine Room Hydraulic Power Packs (ship-services supply)",
-   "confidence": "Flagged",
-   "origin": "ontology_preseed_backfill_20260720",
+   "confidence": "Confirmed",
+   "origin": "ontology_skeleton_expected",
    "node_provenance": {
     "source_doc": "ontology gap scan (engineer challenge on steering pre-seed)",
     "source_type": "ontology_preseed_backfill",
@@ -40239,7 +40420,163 @@
    },
    "subsystem_code": "570",
    "region_code": "500",
-   "note": "Danfoss Series 45 Frame K2 pumps x2 per rev0 hydraulic overview BOM; the supply side of the MYT system \u2014 no node existed."
+   "note": "Danfoss Series 45 Frame K2 pumps x2 per rev0 hydraulic overview BOM; the supply side of the MYT system \u2014 no node existed.",
+   "facts": [
+    {
+     "kind": "skeleton_note",
+     "value": "Every boat with hydraulics has a power pack (PTO or electric \u2014 type is boat-dependent, presence is not); intrinsic skeleton (engineer).",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen round 2 on composition",
+      "file": "chat 2026-07-20",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
+    }
+   ]
+  },
+  {
+   "equipment_id": "515-seachest-main",
+   "name": "Main Sea Chest (raw water intake)",
+   "confidence": "Confirmed",
+   "origin": "engineer_redpen2_20260720",
+   "node_provenance": {
+    "source_doc": "engineer red-pen round 2 on composition",
+    "file": "chat 2026-07-20",
+    "source_type": "engineer_redpen",
+    "authority": "engineer",
+    "as_of": "2026-07-20"
+   },
+   "region_code": "500",
+   "subsystem_code": "515",
+   "subsystem_label": "Raw water cooling",
+   "category": "equipment",
+   "facts": [
+    {
+     "kind": "identity",
+     "value": "Main raw-water sea chest: seawater inlet below DWL -> strainers -> main cooling seawater pumps + CPP seawater pump. SEPARATE from the aircon sea chest and the watermaker sea chest \u2014 those are distinct intakes shown separately on the drawing (engineer 2026-07-20); do not merge the three.",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen round 2 on composition",
+      "file": "chat 2026-07-20",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
+    },
+    {
+     "kind": "separation_flag",
+     "value": "Aircon sea chest and watermaker sea chest each need their OWN node once the P&ID topology is properly extracted \u2014 the blind composition wrongly merged all three because it had no extracted water loop to walk.",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen round 2 on composition",
+      "file": "chat 2026-07-20",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
+    }
+   ],
+   "cross_links": [
+    {
+     "relation": "feeds",
+     "target": "515-grundfos-main-seawater-cooling-pumps",
+     "source": {
+      "source_doc": "engineer red-pen round 2 on composition",
+      "file": "chat 2026-07-20",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
+    }
+   ]
+  },
+  {
+   "equipment_id": "620-hv-dc-backbone",
+   "name": "600V DC High-Voltage Backbone",
+   "confidence": "Confirmed",
+   "origin": "engineer_redpen2_20260720",
+   "node_provenance": {
+    "source_doc": "engineer red-pen round 2 on composition",
+    "file": "chat 2026-07-20",
+    "source_type": "engineer_redpen",
+    "authority": "engineer",
+    "as_of": "2026-07-20"
+   },
+   "region_code": "600",
+   "subsystem_code": "620",
+   "subsystem_label": "Propulsion electrical",
+   "category": "system",
+   "facts": [
+    {
+     "kind": "identity",
+     "value": "The 600V DC bus is the HIGH-VOLTAGE backbone the HVPDU distributes from (engineer 2026-07-20). Feeds MAPS converters (600V->24V) and the propulsion path. Its own system, not part of 640 DC distribution.",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen round 2 on composition",
+      "file": "chat 2026-07-20",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
+    }
+   ],
+   "cross_links": [
+    {
+     "relation": "feeds",
+     "target": "620-hvpdu",
+     "source": {
+      "source_doc": "engineer red-pen round 2 on composition",
+      "file": "chat 2026-07-20",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
+    },
+    {
+     "relation": "feeds",
+     "target": "620-modular-accessory-power-system-maps",
+     "source": {
+      "source_doc": "engineer red-pen round 2 on composition",
+      "file": "chat 2026-07-20",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
+    }
+   ]
+  },
+  {
+   "equipment_id": "694-main-ac-panel",
+   "name": "Main AC Panel (230V distribution hub)",
+   "confidence": "Confirmed",
+   "origin": "engineer_redpen2_20260720",
+   "node_provenance": {
+    "source_doc": "engineer red-pen round 2 on composition",
+    "file": "chat 2026-07-20",
+    "source_type": "engineer_redpen",
+    "authority": "engineer",
+    "as_of": "2026-07-20"
+   },
+   "region_code": "600",
+   "subsystem_code": "694",
+   "subsystem_label": "AC distribution",
+   "category": "system",
+   "facts": [
+    {
+     "kind": "identity",
+     "value": "Main 230V AC distribution panel \u2014 a HUB card. Many equipment nodes with breakers/relays IN this panel will cross-link to it once the Main AC Panel schematics are ingested (engineer 2026-07-20).",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen round 2 on composition",
+      "file": "chat 2026-07-20",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
+    }
+   ]
   }
  ],
  "acronyms": {

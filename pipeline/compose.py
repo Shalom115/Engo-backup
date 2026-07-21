@@ -70,7 +70,22 @@ CLASS_RULES: Dict[str, str] = {
         "gets its own role-in-flow fact on ITS node, with BOM identity "
         "(make/model per item tag) when the sheet's table provides it. The "
         "infrastructure/system target must be a real SYSTEM node — never a "
-        "documentation/folder node."),
+        "documentation/folder node. "
+        "WALK THE FLUID LOOP (do not merge parallel loops): follow each pipe "
+        "line pump-to-discharge; SEPARATE intakes stay separate — a main "
+        "cooling sea chest, an aircon sea chest and a watermaker sea chest are "
+        "DIFFERENT sea chests even though all take seawater; never merge them. "
+        "Likewise keep distinct cooling loops apart: the GENERATOR raw-water "
+        "loop (gens -> heat exchanger, warming the water) is NOT the engine-"
+        "room / BAE electric cooling loop — different circuits, different "
+        "nodes. A raw-water feed that goes to COOL a component (e.g. Calpeda "
+        "pump raw water cooling the shaft seal) is a cooling supply TO that "
+        "component, not a join into its outlet. "
+        "PIPE-SIZE LABELS ARE NOT VALVES: a '2\"' or '3\"' next to a line is a "
+        "PIPE DIAMETER, not a 2-way/3-way valve — never read a size as a valve "
+        "type. "
+        "DO NOT GUESS MAKES: name a component's make only if the sheet's BOM "
+        "gives it; otherwise record the function and leave make unstated."),
     "plc": (
         "Each I/O channel serves the equipment its signal name names. The "
         "scenario is the COMMAND CHAIN with the side stated: 'channel <n> of "
