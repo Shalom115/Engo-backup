@@ -1,0 +1,19 @@
+{
+ "comment": "LIVING DOCS channel (engineer decision 2026-07-20): these operational files change continuously; they are re-ingested PERIODICALLY with --refresh (delete-by-filename then re-ingest) so the corpus tracks the differences. authority=live, doc_temporality=living. Refresh cadence: before any diagnostic session or weekly, whichever first.",
+ "refresh_command": "python3.12 -m pipeline.ingest --refresh <path>",
+ "files": [
+  {
+   "name": "Running log.xlsx",
+   "why": "live fault/work history \u2014 recency drives Step-0"
+  },
+  {
+   "name": "Gelliceaux tools.xlsx",
+   "why": "live tool inventory"
+  },
+  {
+   "name": "Gelliceaux inventory.xlsx",
+   "why": "live spares/stock \u2014 min-level flags"
+  }
+ ],
+ "note": "The ~1,700 legacy un-placed chunks from these files stay retrievable; each refresh replaces them under the living-docs placement going forward."
+}

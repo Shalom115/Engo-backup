@@ -1,0 +1,286 @@
+{
+ "sheet": "raw-water-schematic-515",
+ "composition": {
+  "serve_who": "This sheet (108-01-515-001 \"RAW WATER SYSTEM SCHEMATIC\") is the raw-water side of the vessel's cooling system: it shows the seachest intake, strainers, main cooling seawater pumps, CPP seawater pump, main system heat exchangers (port/stbd), hydraulic pumps heat exchanger, pitch control heat exchanger, port/stbd generator raw-water circuits, aircon/watermaker seawater strainers, cathodic protection unit, and hull thru-hull fittings. Titled \"SEACHEST 001-01\" box and \"Main Cooling Seawater Pump (MCSWP-P/S)\", \"CPP Seawater Pump (CPSWP)\" labels tie directly to register raw-water-system nodes. Per engineer correction, the galvanic unit is TECNOSEAL not Cathelco as printed. Generators (Cummins QSB4.5) and CPP/Hundested sterngear equipment appear only as raw-water consumers (their own control/electrical facts live on other sheets/nodes). The bottom-left general-arrangement inset (ACTM/BEL/ESS/MPCS/EDN/MAPS boxes) is BAE hybrid-electric equipment layout, NOT part of the raw-water fluid system \u2014 it shares the sheet only as a plan-view location reference and has no raw-water piping connection drawn to it; those items get no fluid-scenario facts here.",
+  "equipment_groups": [
+   {
+    "equipment_name": "Grundfos Main Cooling Seawater Pumps (Port + Stbd)",
+    "target_node_id": "515-grundfos-main-seawater-cooling-pumps",
+    "placement_reasoning": "BOM item 013 x2 'MAIN COOLING SEAWATER PUMP' GRUNDFOSS CME 10-1, tagged 013-01 (MCSWP-P) and 013-02 (MCSWP-S) on the schematic, each feeding its own Main System Heat Exchanger.",
+    "functions": [
+     {
+      "label": "Port main cooling seawater pump (MCSWP-P, item 013-01)",
+      "what_it_does": "Draws seawater from the seachest main branch manifold, through NO valve 007-07, boosts it through the port Main System Heat Exchanger circuit, discharging via NO valve 007-08 back toward the main branch / overboard, cooling the port main system (coolant circuit) heat exchanger 010-01.",
+      "flow_scenarios": [
+       {
+        "state": "normal running",
+        "path": "Seachest -> main branch manifold -> 2\" NO valve -> MCSWP-P (013-01) -> NC solenoid 018-02 branch / NO valve 007-08 -> pipe th40/th51 -> Main System HX Port (010-01) -> flow switch FS(016-01) -> seawater outlet below DWL"
+       },
+       {
+        "state": "flushing (maintenance)",
+        "path": "Flush connection point on main branch manifold via 1\" valve -> circuit reversed through quick-couplers (item 017) on heat exchanger 010-01 to remove fouling (per Note 3)"
+       }
+      ],
+      "key_components": [
+       "flow switch FS 016-01 (low-flow protection)",
+       "SCU monitoring point",
+       "NO valve 007-07 (suction isolation)",
+       "NO valve 007-08 (discharge isolation)",
+       "NC solenoid 018-02"
+      ],
+      "dry_data": "Centrifugal variable-speed pump, 230V AC 50Hz 1-ph, 18.9kg unit weight, item 013-01",
+      "sheet_region": "diagram, mid-left, ~x720-790,y385-430"
+     },
+     {
+      "label": "Stbd main cooling seawater pump (MCSWP-S, item 013-02)",
+      "what_it_does": "Mirror of port pump: draws seawater from seachest main branch, through NO valve 007-05, feeds stbd Main System Heat Exchanger (010-02), discharge via NO valve 007-06.",
+      "flow_scenarios": [
+       {
+        "state": "normal running",
+        "path": "Seachest -> main branch manifold -> 2\" NO valve -> MCSWP-S (013-02) -> NC solenoid 018-01 / NO valve 007-06 -> pipe th40/th25 -> Main System HX Stbd (010-02) -> flow switch FS(016-02) -> seawater outlet below DWL"
+       },
+       {
+        "state": "flushing (maintenance)",
+        "path": "Flush connection via quick-couplers on HX 010-02 per Note 3"
+       }
+      ],
+      "key_components": [
+       "flow switch FS 016-02",
+       "SCU monitoring point",
+       "NO valve 007-05/007-06",
+       "NC solenoid 018-01"
+      ],
+      "dry_data": "Centrifugal variable-speed pump, 230V AC 50Hz 1-ph, item 013-02",
+      "sheet_region": "diagram, mid-left, ~x720-790,y845-890"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Calpeda CPP Seawater Pump",
+    "target_node_id": "515-calpeda-cpp-seawater-pump",
+    "placement_reasoning": "BOM item 014 'CPP SEAWATER PUMP' CALPEDA BCM 20/A, tagged 014-01 on schematic, dedicated to the Pitch Control Heat Exchanger circuit.",
+    "functions": [
+     {
+      "label": "CPP seawater cooling pump (CPSWP, item 014-01)",
+      "what_it_does": "Supplies seawater cooling to the Pitch Control Heat Exchanger (012-01), which cools the Hundested VP4 FR-HP pitch control hydraulics and the shaft seal/sterntube bearing circuit.",
+      "flow_scenarios": [
+       {
+        "state": "normal running",
+        "path": "Seachest -> branch -> NO valve 005-06 -> CPSWP (014-01) -> NO valve 005-05 -> pipe th25 -> Pitch Control Heat Exchanger (012-01) -> seawater outlet below DWL"
+       },
+       {
+        "state": "priming",
+        "path": "Priming line from fresh water supply ref DWG 108-01-510-01 feeds into suction side ahead of pump per sheet annotation"
+       }
+      ],
+      "key_components": [
+       "NO valve 005-05/005-06 (isolation)",
+       "SCU monitoring point"
+      ],
+      "dry_data": "2900rpm, 6 bar max, H max 12.3m, single-phase 230V AC, item 014-01",
+      "sheet_region": "diagram, lower-mid, ~x720-790,y1055-1095"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Bowman / Funke Heat Exchangers (Main System Port+Stbd, Hydraulic Pumps, Pitch Control)",
+    "target_node_id": "515-bowman-coolers-heat-exchangers",
+    "placement_reasoning": "BOM items 010 (MAIN COOLING SYSTEM HEAT EXCHANGER, FUNKE, x2), 011 (HYDRAULIC PUMPS HEAT EXCHANGER, BOWMAN), 012 (PITCH CONTROL HEAT EXCHANGER, BOWMAN) all sit on the raw-water schematic as coolant/seawater plate or shell heat exchangers; grouped as the raw-water-cooled heat exchanger roster since no more granular per-function node exists beyond this shared BOM family.",
+    "functions": [
+     {
+      "label": "Main System Heat Exchanger - Port (010-01)",
+      "what_it_does": "Plate & Frame heat exchanger cooling the port main coolant circuit using raw seawater from MCSWP-P.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "MCSWP-P discharge -> 3-way valves 019-01/019-02 (Note 3) -> HX 010-01 seawater side -> outlet below DWL"
+       }
+      ],
+      "key_components": [
+       "3-way L-port ball valves 019-01/019-02 (flush/select function per Note 3)",
+       "quick-couplers (item 017) for flushing"
+      ],
+      "dry_data": "Plate & Frame, 40kW Heat Dissipation, item 010 (Funke FP-09-29-2-NH)",
+      "sheet_region": "diagram, ~x350-430,y340-400"
+     },
+     {
+      "label": "Main System Heat Exchanger - Stbd (010-02)",
+      "what_it_does": "Plate & Frame heat exchanger cooling the stbd main coolant circuit using raw seawater from MCSWP-S.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "MCSWP-S discharge -> 3-way valves 019-03/019-04 (Note 3) -> HX 010-02 seawater side -> outlet below DWL"
+       }
+      ],
+      "key_components": [
+       "3-way L-port ball valves 019-03/019-04",
+       "quick-couplers item 017"
+      ],
+      "dry_data": "Plate & Frame, 40kW Heat Dissipation, item 010",
+      "sheet_region": "diagram, ~x350-430,y800-860"
+     },
+     {
+      "label": "Hydraulic Pumps Heat Exchanger (011-01)",
+      "what_it_does": "Shell & Tube exchanger cooling the hydraulic motors/pumps circuit; raw water side branches off the main cooling seawater loop (per drawn dashed th25 line to NC valve 007-09).",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "Branch off main cooling seawater loop -> NO valve 005-03 -> HX 011-01 -> NC valve 007-09 -> rejoin common return line th25"
+       }
+      ],
+      "key_components": [
+       "NO valve 005-03",
+       "NC valve 007-09"
+      ],
+      "dry_data": "Shell & Tube, 3.2kW Heat Dissipation, item 011 (Bowman EC80-3875-1-CO)",
+      "sheet_region": "diagram, ~x350-430,y520-580"
+     },
+     {
+      "label": "Pitch Control Heat Exchanger (012-01)",
+      "what_it_does": "3/4\" plate exchanger cooling the Hundested VP4 pitch control hydraulics and shaft seal circuit, fed by the CPP seawater pump.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "CPSWP discharge -> HX 012-01 -> seawater outlet below DWL; coolant side loops through shaft seal / sterntube bearing / pitch control hydraulics"
+       }
+      ],
+      "key_components": [
+       "NO valve 005-01 (sterntube bearing branch isolation)"
+      ],
+      "dry_data": "3/4\" Water In/Out, 3/4\" Oil In/Out, 8kW Heat Dissipation, item 012 (Bowman EC100-3875-3)",
+      "sheet_region": "diagram, ~x350-430,y1060-1120"
+     }
+    ]
+   },
+   {
+    "equipment_name": "ifm Raw Water Sensors (Flow Switches / SCU monitoring points)",
+    "target_node_id": "515-ifm-raw-water-sensors",
+    "placement_reasoning": "Flow sensors item 016 (x2, TBD make) and SCU monitoring symbols shown at each pump/HX pair are the raw-water instrumentation roster; grouped to the sensors node since the BOM/legend defines them as sensing devices distinct from the pumps/HX they protect.",
+    "functions": [
+     {
+      "label": "Flow sensors (016-01 port, 016-02 stbd)",
+      "what_it_does": "Monitor seawater flow downstream of each Main System Heat Exchanger to confirm adequate cooling flow to the SCU/monitoring system.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "Inline on discharge of HX 010-01/010-02 before main branch return; low-flow signal reported to SCU"
+       }
+      ],
+      "key_components": [
+       "flow switch FS"
+      ],
+      "dry_data": "Make/model TBD per BOM item 016 (TBD/TBD)",
+      "sheet_region": "diagram, ~x520-565,y390-880"
+     },
+     {
+      "label": "SCU monitoring points (raw water)",
+      "what_it_does": "System Control Unit taps positioned at each main cooling pump, CPP pump, and generator coolant circuit to report raw-water system status.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "Monitoring tie-in only, no fluid path \u2014 SCU symbol adjacent to MCSWP-P, MCSWP-S, CPSWP and coolant circuits"
+       }
+      ],
+      "key_components": [
+       "SCU symbol (BAE System Control Unit)"
+      ],
+      "dry_data": "Legend symbol only, no BOM row",
+      "sheet_region": "diagram, multiple locations"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Main Sea Chest (raw water intake)",
+    "target_node_id": "515-seachest-main",
+    "placement_reasoning": "Titled box 'SEACHEST 001-01' with BOM item 001 'SEACHEST' (SWS CUSTOM, see drawing for details) is the shared raw-water intake infrastructure serving all seawater pumps on this sheet.",
+    "functions": [
+     {
+      "label": "Seachest intake distribution (001-01)",
+      "what_it_does": "Provides raw seawater intake below DWL for all cooling and utility seawater pumps aboard: main branch manifold feeds main cooling pumps, CPP pump, generator raw-water pumps, aircon and watermaker strainers via dedicated thru-hull valves and strainers.",
+      "flow_scenarios": [
+       {
+        "state": "normal intake, main cooling branch",
+        "path": "Seawater inlet below DWL -> 3\" NO valve -> seawater strainer -> main branch manifold -> 2\" NO valve branches to MCSWP-P / MCSWP-S suction"
+       },
+       {
+        "state": "normal intake, secondary strainer branch (galvanic-protected seachest)",
+        "path": "Second seawater inlet below DWL -> 3\" NO valve -> seawater strainer -> feeds Cathelco/Tecnoseal control zone and remaining branch manifold valves"
+       },
+       {
+        "state": "flushing",
+        "path": "Flush connection point (1\" valve) allows fresh-water flush of seachest branch to remove fouling"
+       }
+      ],
+      "key_components": [
+       "2x seawater strainers (item 002, Guidi SRL Art 1166 Strainer 1.5\")",
+       "thru-hull ball valves (items 006/007/008, 1\"/1.5\"/2\" G I Trade Options)",
+       "main branch manifold"
+      ],
+      "dry_data": "SWS Custom seachest assembly, item 001; see DWG 108-01-504-002 for thru-hull fitting details",
+      "sheet_region": "diagram, right side box 'SEACHEST 001-01', ~x1030-1420,y225-1160"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Tecnoseal Hull Protection (Galvanic Control Unit)",
+    "target_node_id": "670-tecnoseal-hull-protection",
+    "placement_reasoning": "Sheet shows box labelled 'CATHELCO GALVANIC PROTECTION CONTROL UNIT' item 009-01 inside the seachest zone (BOM: CATH-NANOSYS SEA CHEST NANO 3 SYSTEM). Per engineer's established correction, this vessel's galvanic control is actually TECNOSEAL, not Cathelco as printed \u2014 attach to the corrected node.",
+    "functions": [
+     {
+      "label": "Galvanic protection control unit (item 009-01, printed as 'Cathelco' \u2014 actually TECNOSEAL per engineer correction)",
+      "what_it_does": "Provides cathodic/galvanic protection control for the seachest and hull fittings; sits within the seachest zone monitoring the seawater system for galvanic corrosion protection.",
+      "flow_scenarios": [
+       {
+        "state": "n/a - electronic control device, no fluid path",
+        "path": "Located inside seachest box; no seawater pipe drawn through the unit itself"
+       }
+      ],
+      "key_components": [
+       "control unit, no fluid components"
+      ],
+      "dry_data": "BOM description 'Sea Chest Nano 3 System' printed as CATHELCO \u2014 engineer correction: actual make is TECNOSEAL",
+      "sheet_region": "diagram, seachest box, ~x1195-1315,y635-680"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "Raw Water System (overall schematic, DWG 108-01-515-001)",
+    "target_node_id": "515-seachest-main",
+    "facts": [
+     "Title 'RAW WATER SYSTEM SCHEMATIC', drawing 108-01-515-001 Rev A, dated 24 Oct 2022.",
+     "To be read in conjunction with DWG 108-01-515-002 'Cooling Water System Schematic' (coolant/glycol side).",
+     "Thru-hull valves detailed separately in DWG 108-01-504-002 'Thru-Hull Fittings Below & Near DWL'.",
+     "Note 3: Quick couplings on main heat exchangers (item 017) allow flushing of seawater circuit to remove fouling.",
+     "Pipe legend distinguishes seawater metallic pipe (blue solid), seawater flex pipe (green), coolant metallic/flex, vent/breather flex (red dashed), hydraulic oil flex (orange), fresh water cold (blue dashed).",
+     "Pipe details table lists sea water hoses (mw19/25/32/38/51, EPOM rubber steel spiral, Vetus Maxwell) and fire-resistant EASYFLEX hoses (th25/30/35/40/45/51, Iberica de Mangueras Thor) up to 7 bar rating.",
+     "Raw Water System Pump Data table: STBD/PORT generator raw water pump (Sherwood P2709-01) 193 l/min @ 2500rpm, 0.3kW; Main cooling circuit seawater pumps (Grundfos CME10-1) 200 l/min, 1.1kW; Controllable pitch seawater pump (Calpeda BCM20/A) 80 l/min, 0.37kW.",
+     "Minimum flow note (near CPP heat exchanger callout): minimum flow 22.5 l/min, max pressure 1.2 bar (0.6-0.7 bar sufficient) \u2014 suitable pressure/flow regulators + gauges may be required."
+    ]
+   }
+  ],
+  "discarded_as_clutter": [
+   "SYMBOLS LEGEND - generic symbol key, restates conventions already covered by class rules",
+   "TEXT LEGEND - generic abbreviation key (FS, LS, SS, TS, NC, NO, M, PI, S, WEG)",
+   "PIPE LEGEND - restates pipe color coding, folded into infrastructure facts",
+   "Title block / approvals (Southern Wind, Hilton van Ginkel, Michael McIvor) - meta, not equipment data",
+   "STANDARD NOTES box - generic drafting instructions (do not scale, break sharp edges, etc.)",
+   "General Arrangement inset (ACTM/BEL/ESS/MPCS/EDN/MAPS/W-MAKER boxes, generator icons in plan view) - BAE hybrid electrical/battery layout shown for location reference only; no raw-water piping drawn to these boxes, so no fluid scenario attaches here",
+   "80L FWD BOILER / 80L AFT BOILER heat exchanger callouts at far right/left edges - these are coolant-side glycol loop items per DWG 108-01-515-002, only their internal heat exchanger tie-in is shown here as a stub with no seawater path drawn",
+   "Watermaker units (ref DWG 108-01-510-001) and Aircon system (ref DWG 108-01-590-001) seawater strainer/valve stubs (items 003-01/003-02, 004-01/004-02) - these strainers/valves feed those OTHER systems' raw-water need but the pumps/units themselves are detailed on their own referenced sheets, not this one; kept as thru-hull stub facts only, not elaborated as equipment functions here to avoid duplicating 510/590 node data",
+   "Port/Stbd Generator Cummins QSB4.5 coolant circuit boxes - the generator itself and its coolant loop is proper to 610-cummins-qsb4-5 node; raw water side (Sherwood pump per Pump Data table) is a generator-integral pump not separately tagged in BOM, so left as infrastructure fact rather than forcing an equipment function without a clean BOM tag",
+   "Duplicate 'BREATHER TO RUN INTO E-R VENT BOX REF: DWG 108-01-508-001' callouts (appear 6x) - vent routing reference repeated at each anti-siphon/breather point, single fact captured, remainder discarded as repeat"
+  ],
+  "uncertainties": [
+   "Flow sensor (item 016) make/model listed as 'TBD/TBD' in BOM \u2014 actual manufacturer not yet specified on this sheet.",
+   "Quick-coupler (item 017) make listed as '#N/A' in BOM \u2014 manufacturer not given.",
+   "The exact drawn connectivity of the CPP priming line from fresh water supply (ref DWG 108-01-510-01) into the CPSWP suction is annotated by reference only; the tie-in point is not fully traceable within this sheet's crop.",
+   "Generator raw-water (Sherwood P2709-01) pump is listed in the Pump Data table but not given an explicit item tag / BOM row on this sheet, so it is recorded as infrastructure data rather than an owned equipment function.",
+   "The seachest's dual strainer/manifold arrangement (upper vs lower valve banks in the SEACHEST 001-01 box) is not clearly differentiated in the extraction as to which serves which pump exclusively \u2014 treated as shared intake infrastructure."
+  ],
+  "_model": "claude-sonnet-5"
+ },
+ "elapsed_s": 79.1,
+ "note": "v3: WP1 relationship-triggered fact exchange live"
+}

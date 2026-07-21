@@ -16784,6 +16784,18 @@
       "authority": "engineer",
       "as_of": "2026-07-19"
      }
+    },
+    {
+     "kind": "identity_resolution",
+     "value": "CLOSED (engineer 2026-07-20): main bilge pump = Gianneschi ACB 431 B \u2014 the SAME MODEL as the electric fire pump (520-fire-pump) but TWO SEPARATE physical pumps. The schematic's printed 'FEIT VA 40B' was a documentation error (cf-002 resolved).",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer Q10 answers",
+      "file": "data/state/redpen_q10_20260720.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
     }
    ],
    "note": "engineer: main is its own subnode",
@@ -40621,6 +40633,17 @@
       "file": "chat 2026-07-20",
       "source_type": "engineer_redpen",
       "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
+    },
+    {
+     "kind": "authoritative_source",
+     "value": "ENGO'S REASONED ANSWER (engineer grades): the Main AC Panel's authoritative schematics are GM book p4 '230V AC POWER DISTRIBUTION' (GM-102, one-line \u2014 the panel's breaker banks Q1-Q38, earth-leakage groups, CT bank, service feeders #1-#9) plus p3 '230V AC SERVICE SUPPLY' for the feed side (shore/generator/inverter -> AC bus). p5 '230V AFT DISTRIBUTION PANEL' is the AFT AC sub-panel, a sibling. NAMING TRAP surfaced: p16/p17 'MAIN PANEL SCHEMATIC A/B' are NOT the AC panel \u2014 in GM vocabulary 'Main Panel' is the DC monitoring/alarm panel (the one GM-114a's plugs C/D feed). Evidence: GM-102's composition read the 'AC DB PANEL' breaker columns directly.",
+     "confidence": "proposed",
+     "provenance": {
+      "source_doc": "Engo reasoning over GM book manifest (engineer-requested test)",
+      "source_type": "engo_reasoning",
+      "authority": "proposed",
       "as_of": "2026-07-20"
      }
     }

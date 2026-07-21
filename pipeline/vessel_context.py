@@ -117,3 +117,87 @@ def established_facts_for(text: str, max_facts: int = 40) -> str:
     hits.sort(key=lambda h: h[0])
     out = [line for _, line in hits[:max_facts]]
     return "\n".join(out) if out else "(none)"
+
+
+# ---------------------------------------------------------------------------
+# WP1 — RELATIONSHIP-TRIGGERED FACT EXCHANGE (engineer-approved wording,
+# 2026-07-20): "Whenever a pass establishes ANY relationship between a drawn
+# element and an equipment or system (controls, actuates, feeds, cools,
+# monitors, part-of), it must at that moment: (a) resolve the related
+# node(s); (b) pull their established facts into the reasoning BEFORE
+# composing — never re-derive or downgrade what a node already knows;
+# (c) attach what was newly learned to the correct side of the relationship.
+# Identifier codes are merely one trigger; the RELATIONSHIP is the trigger."
+#
+# Implementation: pre-resolve candidate nodes by NAME/EQUIPMENT-WORD overlap
+# with the sheet text (so 'GALVANIC PROTECTION CONTROL UNIT' pulls the
+# galvanic node's facts even though no identifier code appears), union with
+# the identifier-triggered set, engineer-authority facts first.
+# ---------------------------------------------------------------------------
+
+_STOPWORDS = {"system", "unit", "control", "controller", "pump", "valve",
+              "panel", "port", "stbd", "main", "the", "and", "with", "for"}
+
+
+def resolve_candidates(text: str, max_nodes: int = 150) -> List[str]:
+    """Node ids whose NAME tokens appear in the sheet text (relationship
+    trigger — no identifier needed). Distinctive tokens only."""
+    low = text.lower()
+    out: List[str] = []
+    for e in _reg()["entries"]:
+        if e.get("retired"):
+            continue
+        name_bits = " ".join(str(x) for x in (
+            e.get("name"), e.get("make"), e.get("model")) if x).lower()
+        toks = [t for t in re.split(r"[^a-z0-9]+", name_bits)
+                if len(t) >= 5 and t not in _STOPWORDS]
+        if toks and any(t in low for t in toks):
+            out.append(e["equipment_id"])
+        if len(out) >= max_nodes:
+            break
+    return out
+
+
+def facts_for_nodes(node_ids: List[str], per_node: int = 3,
+                    max_facts: int = 45) -> str:
+    """Established facts of the given nodes, engineer-authority first."""
+    wanted = set(node_ids)
+    hits: List[tuple] = []
+    for e in _reg()["entries"]:
+        if e["equipment_id"] not in wanted or e.get("retired"):
+            continue
+        n = 0
+        for f in e.get("facts") or []:
+            val = str(f.get("value", ""))
+            prov = f.get("provenance") or {}
+            pri = 0 if prov.get("authority") == "engineer" else 1
+            src = prov.get("source_doc", "")
+            hits.append((pri, f"[{e['equipment_id']}] {f.get('kind','fact')}: "
+                              f"{val[:300]}" + (f"  (source: {src})" if src else "")))
+            n += 1
+            if n >= per_node:
+                break
+    hits.sort(key=lambda h: h[0])
+    return "\n".join(line for _, line in hits[:max_facts]) or "(none)"
+
+
+def relationship_context(text: str) -> str:
+    """The WP1 substrate block: identifier-triggered facts UNION
+    relationship-triggered facts of every name-resolved candidate node."""
+    ident_block = established_facts_for(text)
+    rel_ids = resolve_candidates(text)
+    rel_block = facts_for_nodes(rel_ids) if rel_ids else "(none)"
+    if ident_block == "(none)" and rel_block == "(none)":
+        return "(none)"
+    parts = []
+    if ident_block != "(none)":
+        parts.append(ident_block)
+    if rel_block != "(none)":
+        parts.append(rel_block)
+    # dedupe lines, preserve order
+    seen, out = set(), []
+    for line in "\n".join(parts).split("\n"):
+        if line not in seen:
+            seen.add(line)
+            out.append(line)
+    return "\n".join(out)

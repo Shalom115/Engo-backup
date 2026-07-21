@@ -352,7 +352,7 @@ def compose(image_png: bytes, extraction: Dict[str, Any],
     prompt = _COMPOSE_PROMPT.format(
         class_rules=rules + loop_block,
         glossary=vessel_context.glossary_block(),
-        established=vessel_context.established_facts_for(ext_json),
+        established=vessel_context.relationship_context(ext_json),
         maps=_maps_digest(drawing_class),
         extraction=ext_json,
         index=vessel_context.register_index())
