@@ -11226,6 +11226,17 @@
       "control_map_function": "36",
       "function_no": "36"
      }
+    },
+    {
+     "kind": "pressure_settings",
+     "value": "EV-8.1 (tender car drive): LS pressure relief set 100 bar (engineer 2026-07-20 \u2014 LS relief, not work-port).",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen round 3 (Fable check of Opus round)",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
     }
    ],
    "identity_status": "pending"
@@ -16134,6 +16145,17 @@
      "confidence": "high",
      "provenance": {
       "source_doc": "engineer red-pen round 2",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
+    },
+    {
+     "kind": "pressure_settings",
+     "value": "AFT block A (engineer 2026-07-20): the '100' relief settings on EV-8.1 are LOAD-SENSING pressure reliefs (not work-port reliefs), in bar. The '300' at the inlet is the MAIN BLOCK pressure relief, in bar. The EV-8.2 LS limiter value ('134') is in bar.",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen round 3 (Fable check of Opus round)",
       "source_type": "engineer_redpen",
       "authority": "engineer",
       "as_of": "2026-07-20"
@@ -38420,7 +38442,19 @@
      "as_of": "2026-07-11"
     }
    ],
-   "facts": [],
+   "facts": [
+    {
+     "kind": "alias_note",
+     "value": "SAME UNITS, two naming conventions (engineer-confirmed 2026-07-20): '80L FWD BOILER' (raw-water sheet) = FWD Water Heater (Owners Cab.); '80L AFT BOILER' = AFT Water Heater (Port Guest Cab.).",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen round 3 (Fable check of Opus round)",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
+    }
+   ],
    "note": ""
   },
   {
@@ -40306,6 +40340,17 @@
       "authority": "engineer",
       "as_of": "2026-07-19"
      }
+    },
+    {
+     "kind": "identity",
+     "value": "The 600V DC bus bars ARE the HVPDU's high-voltage buses \u2014 the HVPDU is where the 600V distribution starts, and all BAE components (MAPS, BELs, EDN, MPCS...) hang on these buses. Never model the 600V bus as a separate 'backbone' system (engineer 2026-07-20; owner's-manual electrical GA).",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen round 3 (Fable check of Opus round)",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
     }
    ],
    "cross_links": [
@@ -40545,7 +40590,10 @@
       "as_of": "2026-07-20"
      }
     }
-   ]
+   ],
+   "retired": true,
+   "merged_into": "620-hvpdu",
+   "retire_reason": "Engineer 2026-07-20: the 600V DC bus bar IS the HVPDU \u2014 all BAE components sit on it (owner's-manual GA; CM-22-702; glossary 'HVPDU = HIGH VOLTAGE DC LINK'). Node was invented from a composition no-fit flag without checking corpus knowledge."
   },
   {
    "equipment_id": "694-main-ac-panel",

@@ -93,18 +93,27 @@ def established_facts_for(text: str, max_facts: int = 40) -> str:
             idents.add(stripped)
     if not idents:
         return "(none)"
-    out: List[str] = []
+    # ENGINEER-authority facts first — a red-pen traced loop must never lose
+    # its slot to a routine extraction fact (the 114a plug-C-6/7 lesson:
+    # one-fact-per-node truncation dropped the engineer's control_loop fact).
+    hits: List[tuple] = []   # (priority, line)
     for e in _reg()["entries"]:
         if e.get("retired"):
             continue
+        per_node = 0
         for f in e.get("facts") or []:
             blob = norm(json.dumps(f, default=str))
             if any(i in blob for i in idents):
                 val = str(f.get("value", ""))
-                src = (f.get("provenance") or {}).get("source_doc", "")
-                out.append(f"[{e['equipment_id']}] {f.get('kind','fact')}: "
-                           f"{val[:260]}" + (f"  (source: {src})" if src else ""))
-                break  # one hit per node is enough to anchor
-        if len(out) >= max_facts:
-            break
+                prov = f.get("provenance") or {}
+                src = prov.get("source_doc", "")
+                pri = 0 if prov.get("authority") == "engineer" else 1
+                hits.append((pri,
+                             f"[{e['equipment_id']}] {f.get('kind','fact')}: "
+                             f"{val[:300]}" + (f"  (source: {src})" if src else "")))
+                per_node += 1
+                if per_node >= 3:   # up to 3 facts per node, not 1
+                    break
+    hits.sort(key=lambda h: h[0])
+    out = [line for _, line in hits[:max_facts]]
     return "\n".join(out) if out else "(none)"
