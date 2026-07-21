@@ -311,8 +311,16 @@ def compose(image_png: bytes, extraction: Dict[str, Any],
     ext = {k: v for k, v in extraction.items()
            if k not in ("_node_routing", "model", "passes")}
     ext_json = json.dumps(ext, indent=1)[:55000]
+    # Wiring sheets: walk the graph FIRST so composition discovers the control
+    # loop (multi-switch activation) instead of fragmenting it (114a lesson).
+    loop_block = ""
+    if drawing_class == "electrical":
+        from pipeline import loop_prepass
+        digest = loop_prepass.loops_digest(extraction)
+        if digest and "no wiring graph" not in digest:
+            loop_block = "\n\n" + digest
     prompt = _COMPOSE_PROMPT.format(
-        class_rules=rules,
+        class_rules=rules + loop_block,
         glossary=vessel_context.glossary_block(),
         established=vessel_context.established_facts_for(ext_json),
         maps=_maps_digest(drawing_class),

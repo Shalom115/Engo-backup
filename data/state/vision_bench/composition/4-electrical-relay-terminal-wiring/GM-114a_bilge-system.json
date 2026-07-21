@@ -1,222 +1,317 @@
 {
- "category": "4-electrical-relay-terminal-wiring",
  "sheet": "GM-114a_bilge-system",
  "drawing_class": "electrical",
  "composition": {
-  "serve_who": "This sheet (GMMS 108'-114a, \"BILGE SYSTEM\") serves the vessel's bilge pump/valve/monitoring group: the MAIN BILGE PUMP (motor, top of sheet, fed via F3 60A/SW8/SO6), the BILGE VALVES (six motorised valve controllers Re1-Re6 driving open/close on Port/Stbd Lazarette, Aft, Eng. Room, Fwd, Sail Locker bilge lines), and the bilge level switches/monitoring loop that reports each compartment's bilge state to the MAIN PANEL and MAIN PANEL PC CARD (indicator lamps, S20-S24 selector switches, S13 pump switch). The register's engineer-confirmed vocabulary maps BILGE PUMP -> 520-main-bilge-pump and BILGE VALVES -> 520-bilge-valves; the bilge level switches and monitoring path belong to the bilge valves' control loop (they command/read back the same 6 valves) so are grouped there. MAIN PANEL itself is infrastructure (641-vessel-control-panel) providing the switch/plug/PC-card housing, not equipment in its own right; T/S S, T/S B, T/S C terminal strips, Re1-Re6 relay bank and the XA-tag stub wires are the shared wiring/terminal infrastructure connecting these two equipment groups to the panel.",
+  "serve_who": "This sheet (GMMS 108'-114a, \"BILGE SYSTEM\") serves the bilge subsystem equipment: the Main Bilge Pump (top-left motor circuit fed via F3 60A/SW8), the six motorised Bilge Valves feeding each named zone bilge (Port Lazarette, Stbd Lazarette, Aft, Eng. Room, Fwd, Sail Locker), the corresponding bilge level switches per zone, and the Vessel Control Panel (Main Panel + PC Card) that displays open/closed valve status and drives the bilge pump switch. Evidence: title block says \"BILGE SYSTEM\"; each valve controller block is explicitly captioned \"BILGE VALVE ENG. ROOM BILGE\" (generic caption reused per row) with the zone name printed beside the level switch (PORT LAZARETTE BILGE, STBD LAZARETTE BILGE, AFT BILGE, ENG. ROOM BILGE, FWD BILGE, SAIL LOCKER); the relay bank/terminal strips (T/S B, T/S C) and PLUG C/PLUG D interface into \"MAIN PANEL\" and \"MAIN PANEL PC CARD\" boxes explicitly labelled as such, matching engineer mapping BILGE VALVES -> 520-bilge-valves and MAIN PANEL -> 641-vessel-control-panel. The Main Bilge Pump motor at top is separately fed from F3 60A and matches established fact for 520-main-bilge-pump (fuse F7 60A on another sheet; this sheet shows a local F3 60A/SW8/SO6 branch feeding the same motor symbol, treated as the same pump equipment node with its own local control loop). No node exists for individual level switches or the PC card enclosure itself as separate equipment \u2014 these are composed as key components/infrastructure of the valve and panel nodes respectively.",
   "equipment_groups": [
    {
     "equipment_name": "Main Bilge Pump",
     "target_node_id": "520-main-bilge-pump",
-    "placement_reasoning": "Top-of-sheet motor labeled 'MAIN BILGE PUMP', fed via F3 60A fuse, SW8 switch and SO6 relay/solenoid, with a local pump switch (T/S S, LOCAL PUMP SW) and remote command via S13 on the Main Panel. Matches engineer mapping BILGE PUMP -> 520-main-bilge-pump.",
+    "placement_reasoning": "Top-of-sheet motor symbol explicitly labelled 'MAIN BILGE PUMP', matching engineer mapping BILGE PUMP -> 520-main-bilge-pump. Fed via its own F3 60A fuse/SW8 switch/SO6 solenoid-overload branch, separate from the local pump switch loop routed through T/S S.",
     "functions": [
      {
-      "label": "Main bilge pump run/stop control",
-      "what_it_does": "Drives the main bilge pump motor to clear bilge water from the vessel, switchable either locally at the pump or remotely from the Main Panel bilge pump switch S13.",
+      "function_id": "main-bilge-pump-supply",
+      "label": "Main bilge pump power feed and local start switch",
+      "what_it_does": "Provides +24V power to the main bilge pump motor and allows local start/stop via a dedicated local pump switch wired through terminal strip T/S S.",
       "flow_scenarios": [
        {
-        "state": "default/standby",
-        "path": "+24V service battery -> F3 60A fuse -> SW8 -> SO6 relay (de-energised) -> pump motor idle"
+        "state": "default/off",
+        "path": "+24V service battery bus -> F3 60A fuse -> SW8 switch (open) -> SO 6 device -> pump motor circuit de-energised"
        },
        {
-        "state": "local run command",
-        "path": "+24V service bat. -> F3 60A -> SW8 -> T/S S terminals 13/14/15 -> LOCAL PUMP SW (contact 1/2) closed -> SO6 energised -> MAIN BILGE PUMP motor runs -> overboard discharge"
-       },
-       {
-        "state": "remote run command (Main Panel)",
-        "path": "MAIN PANEL bilge pump switch S13 -> PLUG C -> T/S wiring -> SO6 relay coil energised -> MAIN BILGE PUMP motor runs"
+        "state": "local start command",
+        "path": "+24V service battery bus -> F3 60A fuse -> SW8 switch (closed) -> SO 6 -> terminal strip T/S S (terminals 13,14,15) -> LOCAL PUMP SW contact -> pump motor energised, pump runs"
        }
       ],
+      "dry_data": "Fed via fuse F3, 60A; local switch SW8; SO 6 device inline; local pump switch on T/S S terminals 13-15.",
       "key_components": [
-       "F3 60A fuse (supply protection)",
-       "SW8 (main on/off switch)",
-       "SO6 (pump run relay/solenoid)",
-       "T/S S terminal strip (local switch interface)",
-       "S13 (Main Panel remote switch)"
+       "fuse F3 60A",
+       "switch SW8",
+       "device SO 6",
+       "local pump switch (LOCAL PUMP SW)"
       ],
-      "dry_data": "24V DC motor pump; fed via F3 60A fuse, SW8 switch, SO6 relay; local switch at T/S S terminals 13-15, remote switch S13 on Main Panel",
-      "sheet_region": "top of sheet (~0.05-0.25 vertical), left-to-right from F3 60A fuse to MAIN BILGE PUMP motor symbol"
+      "sheet_region": "top of sheet, bbox approx [0.05,0.06,0.9,0.25]"
      }
     ]
    },
    {
-    "equipment_name": "Bilge Valves (with associated bilge level switches)",
+    "equipment_name": "Bilge Valves (motorised bilge selector/isolation valves)",
     "target_node_id": "520-bilge-valves",
-    "placement_reasoning": "Six motorised valve blocks each captioned 'BILGE VALVE ENG. ROOM BILGE' (per caption-attaches-to-device-below convention) are commanded via Re1-Re6 relays and OPEN/CLOSE contact pairs from T/S C, each valve line paired with a bilge level switch (Port/Stbd Lazarette, Aft, Eng Room, Fwd, Sail Locker) whose status is read back to the Main Panel PC Card. Matches engineer mapping BILGE VALVES -> 520-bilge-valves; the compartment bilge switches are the sensors for this same valve-selection loop, not separate equipment nodes in this register.",
+    "placement_reasoning": "Each of the six valve controller blocks is captioned 'BILGE VALVE ENG. ROOM BILGE' (a repeated generic caption applying to the device symbol below/beside it) and is wired with OPEN/CLOSE contacts driving a motorised valve [2]/[3] terminals; matches engineer mapping BILGE VALVES -> 520-bilge-valves. Each valve serves one named bilge zone as printed beside its level switch (Port/Stbd Lazarette combined, Aft, Eng Room, Fwd, Sail Locker) and is commanded from relays Re1-Re5 via terminal strip T/S C, with status reported to Main Panel PLUG C / PC Card.",
     "functions": [
      {
-      "label": "Port/Stbd Lazarette bilge valve select & level monitoring",
-      "what_it_does": "Opens/closes the bilge valve routing the Port and Stbd Lazarette bilge lines to the main bilge pump manifold, and reports lazarette bilge-full status back to the Main Panel indicator (LAZARETTE BILGE).",
+      "function_id": "valve-port-stbd-lazarette",
+      "label": "Port/Stbd Lazarette bilge valve open/close control",
+      "what_it_does": "Opens or closes the motorised bilge valve routing the Port and Stbd Lazarette bilge level-switch signals into the bilge monitoring/pump-call loop; relay Re1 selects which lazarette bilge switch feeds the loop.",
       "flow_scenarios": [
        {
-        "state": "neutral/closed",
-        "path": "Bilge Valves Q13 10A supply -> T/S B terminal 8 -> Re1 relay de-energised -> valve closed"
+        "state": "neutral/default",
+        "path": "Port Lazarette Bilge SW and Stbd Lazarette Bilge SW (level switches) -> wired to bilge valve motor terminals via T/S C terminals 7-13 -> relay Re1 (fed from Bilge Valves breaker Q13 10A via T/S B terminal 8) -> valve holds last commanded position"
        },
        {
-        "state": "open command",
-        "path": "T/S C terminals 7/8 OPEN/CLOSE contacts -> Re1 -> valve motor [2]/[3] -> valve opens -> Port/Stbd Lazarette bilge line admitted to manifold"
+        "state": "OPEN command",
+        "path": "OPEN switch contact -> T/S C terminal 7/1 -> valve motor terminal [2] -> valve opens, admitting lazarette bilge flow path to common bilge line"
        },
        {
-        "state": "level status signal",
-        "path": "Port Lazarette BILGE SW / Stbd Lazarette BILGE SW -> status tap -> T/S C terminals 12/13,14/15 -> XA40<14>/XA40<12> -> Main Panel PLUG C pin 1 -> S20 LAZARETTE BILGE indicator -> Main Panel PC Card line 1 open/closed lamp"
+        "state": "CLOSE command",
+        "path": "CLOSE switch contact -> T/S C terminal 8/2 -> valve motor terminal [3] -> valve closes, isolating lazarette bilge line"
+       },
+       {
+        "state": "status out",
+        "path": "valve/level-switch loop -> T/S C terminals 12/13 -> XA40 taps 14/12 -> monitoring loom (status signal, direction into monitoring per drawn taps)"
        }
       ],
+      "dry_data": "Motor-actuated valve with OPEN/CLOSE contact pair, commanded via relay Re1 fed from Bilge Valves breaker Q13 10A through T/S B terminal 8 and T/S C terminals 1-15; wire-gauge diamond callouts on T/S C wires (12,13) are gauge marks, not devices.",
       "key_components": [
-       "Re1 (valve command relay)",
-       "Port Lazarette BILGE SW (level sensor)",
-       "Stbd Lazarette BILGE SW (level sensor)",
-       "S20 (Main Panel indicator/selector switch)"
+       "relay Re1",
+       "OPEN/CLOSE contact pair",
+       "motorised valve [2]/[3] terminals",
+       "Port Lazarette Bilge level switch",
+       "Stbd Lazarette Bilge level switch"
       ],
-      "dry_data": "24V DC motorised valve with OPEN/CLOSE contact pair, terminals 7-15 on T/S C via Re1; status taps XA40<14>, XA40<12>",
-      "sheet_region": "upper-middle valve block row 1 (~y 0.24-0.35), Port/Stbd Lazarette bilge switches at right (~x 0.75-0.92)"
+      "sheet_region": "mid-left/center, bbox approx [0.18,0.26,0.72,0.42]"
      },
      {
-      "label": "Aft bilge valve select & level monitoring",
-      "what_it_does": "Opens/closes the bilge valve for the Aft bilge compartment and reports its bilge-full status to the Main Panel (AFT BILGE).",
+      "function_id": "valve-aft-bilge",
+      "label": "Aft bilge valve open/close control",
+      "what_it_does": "Opens or closes the motorised bilge valve serving the Aft Bilge level switch loop, commanded via relay Re2.",
       "flow_scenarios": [
        {
-        "state": "neutral/closed",
-        "path": "T/S B terminal 9 -> Re2 relay de-energised -> valve closed"
+        "state": "neutral/default",
+        "path": "Aft Bilge level switch -> T/S C terminals 16-23 -> relay Re2 (fed from T/S B terminal 9, Bilge Valves breaker Q13 10A) -> valve holds position"
        },
        {
-        "state": "open command",
-        "path": "T/S C terminals 16/17 OPEN/CLOSE -> Re2 -> valve motor [2]/[3] -> valve opens -> Aft bilge admitted to manifold"
+        "state": "OPEN command",
+        "path": "OPEN switch contact -> T/S C terminal 16/3 -> valve motor terminal [2] -> valve opens"
        },
        {
-        "state": "level status signal",
-        "path": "AFT BILGE SW -> T/S C terminals 21/22 -> XA40<16> -> Main Panel PLUG C pin 2 -> S21 AFT BILGE indicator -> Main Panel PC Card line 2 open/closed lamp"
+        "state": "CLOSE command",
+        "path": "CLOSE switch contact -> T/S C terminal 17/4 -> valve motor terminal [3] -> valve closes"
+       },
+       {
+        "state": "status out",
+        "path": "loop -> T/S C terminal 21 -> XA40 tap 16 -> monitoring loom (status signal)"
        }
       ],
+      "dry_data": "Relay Re2, fed from T/S B terminal 9 off Bilge Valves breaker Q13 10A; T/S C terminals 16-23.",
       "key_components": [
-       "Re2 (valve command relay)",
-       "AFT BILGE SW (level sensor)",
-       "S21 (Main Panel indicator/selector switch)"
+       "relay Re2",
+       "OPEN/CLOSE contact pair",
+       "motorised valve [2]/[3] terminals",
+       "Aft Bilge level switch"
       ],
-      "dry_data": "24V DC motorised valve, terminals 16-23 on T/S C via Re2; status tap XA40<16>",
-      "sheet_region": "valve block row 2 (~y 0.35-0.45)"
+      "sheet_region": "bbox approx [0.18,0.42,0.72,0.5]"
      },
      {
-      "label": "Engine Room bilge valve select & level monitoring",
-      "what_it_does": "Opens/closes the bilge valve for the Engine Room bilge compartment and reports its bilge-full status to the Main Panel (ENG. ROOM BILGE).",
+      "function_id": "valve-eng-room-bilge",
+      "label": "Engine Room bilge valve open/close control",
+      "what_it_does": "Opens or closes the motorised bilge valve serving the Engine Room Bilge level switch loop, commanded via relay Re3.",
       "flow_scenarios": [
        {
-        "state": "neutral/closed",
-        "path": "T/S B terminal 10 -> Re3 relay de-energised -> valve closed"
+        "state": "neutral/default",
+        "path": "Eng. Room Bilge level switch -> T/S C terminals 24-31 -> relay Re3 (fed from T/S B terminal 10, Bilge Valves breaker Q13 10A) -> valve holds position"
        },
        {
-        "state": "open command",
-        "path": "T/S C terminals 24/25 OPEN/CLOSE -> Re3 -> valve motor [2]/[3] -> valve opens -> Eng. Room bilge admitted to manifold"
+        "state": "OPEN command",
+        "path": "OPEN switch contact -> T/S C terminal 24/5 -> valve motor terminal [2] -> valve opens"
        },
        {
-        "state": "level status signal",
-        "path": "ENG. ROOM BILGE SW -> T/S C terminals 29/30 -> XA10<06> -> Main Panel PLUG C pin 3 -> S22 ENG. ROOM BILGE indicator -> Main Panel PC Card line 3 open/closed lamp"
+        "state": "CLOSE command",
+        "path": "CLOSE switch contact -> T/S C terminal 25/6 -> valve motor terminal [3] -> valve closes"
+       },
+       {
+        "state": "status out",
+        "path": "loop -> T/S C terminal 29 -> XA10 tap 06 -> monitoring loom (status signal)"
        }
       ],
+      "dry_data": "Relay Re3, fed from T/S B terminal 10 off Bilge Valves breaker Q13 10A; T/S C terminals 24-31.",
       "key_components": [
-       "Re3 (valve command relay)",
-       "ENG. ROOM BILGE SW (level sensor)",
-       "S22 (Main Panel indicator/selector switch)"
+       "relay Re3",
+       "OPEN/CLOSE contact pair",
+       "motorised valve [2]/[3] terminals",
+       "Eng. Room Bilge level switch"
       ],
-      "dry_data": "24V DC motorised valve, terminals 24-31 on T/S C via Re3; status tap XA10<06>",
-      "sheet_region": "valve block row 3 (~y 0.45-0.55)"
+      "sheet_region": "bbox approx [0.18,0.5,0.72,0.58]"
      },
      {
-      "label": "Forward bilge valve select & level monitoring",
-      "what_it_does": "Opens/closes the bilge valve for the Forward bilge compartment and reports its bilge-full status to the Main Panel (FWD BILGE).",
+      "function_id": "valve-fwd-bilge",
+      "label": "Forward bilge valve open/close control",
+      "what_it_does": "Opens or closes the motorised bilge valve serving the FWD Bilge level switch loop, commanded via relay Re4.",
       "flow_scenarios": [
        {
-        "state": "neutral/closed",
-        "path": "T/S B terminal 11 -> Re4 relay de-energised -> valve closed"
+        "state": "neutral/default",
+        "path": "FWD Bilge level switch -> T/S C terminals 32-39 -> relay Re4 (fed from T/S B terminal 11, Bilge Valves breaker Q13 10A) -> valve holds position"
        },
        {
-        "state": "open command",
-        "path": "T/S C terminals 32/33 OPEN/CLOSE -> Re4 -> valve motor [2]/[3] -> valve opens -> Fwd bilge admitted to manifold"
+        "state": "OPEN command",
+        "path": "OPEN switch contact -> T/S C terminal 32/7 -> valve motor terminal [2] -> valve opens"
        },
        {
-        "state": "level status signal",
-        "path": "FWD BILGE SW -> T/S C terminals 37/38 -> XA10<04> -> Main Panel PLUG C pin 4 -> S23 FWD BILGE indicator -> Main Panel PC Card line 7/8 open/closed lamp"
+        "state": "CLOSE command",
+        "path": "CLOSE switch contact -> T/S C terminal 33/8 -> valve motor terminal [3] -> valve closes"
+       },
+       {
+        "state": "status out",
+        "path": "loop -> T/S C terminal 37 -> XA10 tap 04 -> monitoring loom (status signal)"
        }
       ],
+      "dry_data": "Relay Re4, fed from T/S B terminal 11 off Bilge Valves breaker Q13 10A; T/S C terminals 32-39.",
       "key_components": [
-       "Re4 (valve command relay)",
-       "FWD BILGE SW (level sensor)",
-       "S23 (Main Panel indicator/selector switch)"
+       "relay Re4",
+       "OPEN/CLOSE contact pair",
+       "motorised valve [2]/[3] terminals",
+       "FWD Bilge level switch"
       ],
-      "dry_data": "24V DC motorised valve, terminals 32-39 on T/S C via Re4; status tap XA10<04>",
-      "sheet_region": "valve block row 4 (~y 0.55-0.65)"
+      "sheet_region": "bbox approx [0.18,0.58,0.72,0.66]"
      },
      {
-      "label": "Sail Locker bilge valve select & level monitoring",
-      "what_it_does": "Opens/closes the bilge valve for the Sail Locker bilge compartment and reports its bilge-full status to the Main Panel (SAIL LOCKER).",
+      "function_id": "valve-sail-locker-bilge",
+      "label": "Sail Locker bilge valve open/close control",
+      "what_it_does": "Opens or closes the motorised bilge valve serving the Sail Locker Bilge level switch loop, commanded via relay Re5.",
       "flow_scenarios": [
        {
-        "state": "neutral/closed",
-        "path": "T/S B terminal 12 -> Re5 relay de-energised -> valve closed"
+        "state": "neutral/default",
+        "path": "Sail Locker Bilge level switch -> T/S C terminals 40-47 -> relay Re5 (fed from T/S B terminal 12, Bilge Valves breaker Q13 10A) -> valve holds position"
        },
        {
-        "state": "open command",
-        "path": "T/S C terminals 40/41 OPEN/CLOSE -> Re5 -> valve motor [2]/[3] -> valve opens -> Sail Locker bilge admitted to manifold"
+        "state": "OPEN command",
+        "path": "OPEN switch contact -> T/S C terminal 40/9 -> valve motor terminal [2] -> valve opens"
        },
        {
-        "state": "level status signal",
-        "path": "SAIL LOCKER BILGE SW -> T/S C terminals 45/46 -> XA10<02> -> Main Panel PLUG C pin 5 -> S24 SAIL LOCKER indicator -> Main Panel PC Card line 9/10 open/closed lamp"
+        "state": "CLOSE command",
+        "path": "CLOSE switch contact -> T/S C terminal 41/10 -> valve motor terminal [3] -> valve closes"
+       },
+       {
+        "state": "status out",
+        "path": "loop -> T/S C terminal 45 -> XA10 tap 02 -> monitoring loom (status signal)"
        }
       ],
+      "dry_data": "Relay Re5, fed from T/S B terminal 12 off Bilge Valves breaker Q13 10A; T/S C terminals 40-47.",
       "key_components": [
-       "Re5 (valve command relay)",
-       "SAIL LOCKER BILGE SW (level sensor)",
-       "S24 (Main Panel indicator/selector switch)"
+       "relay Re5",
+       "OPEN/CLOSE contact pair",
+       "motorised valve [2]/[3] terminals",
+       "Sail Locker Bilge level switch"
       ],
-      "dry_data": "24V DC motorised valve, terminals 40-47 on T/S C via Re5; status tap XA10<02>",
-      "sheet_region": "valve block row 5 (~y 0.65-0.75)"
+      "sheet_region": "bbox approx [0.18,0.66,0.72,0.74]"
      },
      {
-      "label": "Auxiliary relay (Re6) / ONYX interface signal",
-      "what_it_does": "Provides an additional relay contact stage on the bilge valve control loom, with a status tap forwarded to the ONYX monitoring system.",
+      "function_id": "relay-re6-onyx-loop",
+      "label": "Auxiliary relay Re6 loop to ONYX fuel-transfer monitoring",
+      "what_it_does": "A sixth relay (Re6) on T/S B terminal 13, wired via T/S C terminals 48-50 and cross-ref XA11 tap 32, routes a signal off-sheet to the ONYX monitoring/fuel-transfer system rather than to a bilge valve \u2014 no bilge valve device is shown attached to this relay position (second contact pair marked 'not used').",
       "flow_scenarios": [
        {
-        "state": "neutral",
-        "path": "T/S B terminal 13 -> Re6 relay de-energised -> no signal to ONYX"
-       },
-       {
-        "state": "signal active",
-        "path": "T/S C terminal 50 / XA11<32> -> Re6 contact -> signal line 'to ONYX' -> ONYX Monitoring & Control (652-onyx-monitoring)"
+        "state": "signal path",
+        "path": "T/S B terminal 13 -> relay Re6 -> T/S C terminals 48-50 -> XA11 tap 32 -> pointer 'to ONYX' -> off-sheet ONYX monitoring system (652-onyx-monitoring)"
        }
       ],
+      "dry_data": "Relay Re6, fed from T/S B terminal 13 off Bilge Valves breaker Q13 10A; second contact pair (terminal 12) marked 'not used'.",
       "key_components": [
-       "Re6 (auxiliary relay)"
+       "relay Re6"
       ],
-      "dry_data": "Relay contact stage, terminal 48-50 on T/S C; tap XA11<32> routed 'to ONYX'",
-      "sheet_region": "bottom valve/relay row (~y 0.75-0.78), Re6 labeled '13'/'not used-12'"
+      "sheet_region": "bbox approx [0.18,0.74,0.46,0.79]"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Vessel Control Panel (Main Panel + PC Card) \u2014 bilge indication/control",
+    "target_node_id": "641-vessel-control-panel",
+    "placement_reasoning": "The sheet's own boxes are titled 'MAIN PANEL' and 'MAIN PANEL PC CARD' with PLUG C / PLUG D interconnects, matching engineer mapping MAIN PANEL -> 641-vessel-control-panel. This panel receives the open/closed status of each of the five monitored bilge valves (Lazarette, Aft, Eng Room, Fwd, Sail Locker) and hosts the bilge pump start switch S13 and pedestal alarm/mute module.",
+    "functions": [
+     {
+      "function_id": "panel-bilge-valve-status-indication",
+      "label": "Bilge valve position indication (open/closed lamps) on PC Card",
+      "what_it_does": "Displays open/closed status for each of the five bilge valve zones (Lazarette, Aft, Eng Room, Fwd, Sail Locker) using circled-X indicator lamps on the PC Card, driven by a +24V diode array fed from PLUG D via PLUG C.",
+      "flow_scenarios": [
+       {
+        "state": "status display",
+        "path": "Bilge valve loops (via T/S C terminals and XA40/XA10 taps) -> PLUG C pins 1-5 (Lazarette=1, Aft=2, Eng.Room=3, Fwd=4, Sail Locker=5) -> PLUG D pins 1-10 -> Main Panel PC Card diode array (+24V) -> open/closed circled-X lamps per zone"
+       },
+       {
+        "state": "aux plug tap",
+        "path": "AUX PLUG on PC board pins [8]->>[1], [9]->>[2], [10]->>[3], [11]->>[4] -> feeds corresponding PLUG C pins 1-4 as auxiliary source/status link"
+       }
+      ],
+      "dry_data": "PC Card indicator array: 10 circled-X lamps (open/closed pairs for 5 zones), +24V supply, diode array for isolation; PLUG C 7-pin, PLUG D 12-pin interconnects.",
+      "key_components": [
+       "PLUG C terminal strip",
+       "PLUG D terminal strip",
+       "PC Card diode array",
+       "circled-X indicator lamps (open/closed) per zone"
+      ],
+      "sheet_region": "bottom right, bbox approx [0.6,0.72,1.0,1.0]"
+     },
+     {
+      "function_id": "panel-bilge-pump-switch",
+      "label": "Main Panel bilge pump start switch",
+      "what_it_does": "Provides a panel-mounted switch (S13, labelled BILGE PUMP SW) allowing the pump to be started/monitored from the main panel, separate from the local pump switch on T/S S.",
+      "flow_scenarios": [
+       {
+        "state": "panel command",
+        "path": "Main Panel switch S13 (BILGE PUMP SW) -> panel wiring -> bilge pump control loop (link to main bilge pump motor circuit not fully traced beyond panel box on this sheet)"
+       }
+      ],
+      "dry_data": "Switch S13 on Main Panel, labelled BILGE PUMP SW.",
+      "key_components": [
+       "switch S13"
+      ],
+      "sheet_region": "bbox approx [0.83,0.79,0.95,0.91]"
+     },
+     {
+      "function_id": "panel-pedestal-alarm-mute",
+      "label": "Pedestal alarm and mute interface",
+      "what_it_does": "Provides an alarm sounder/mute module (ALARM MOD) at the helm pedestal, wired via a 12-terminal PLUG D style loom back to the Main Panel, for audible annunciation tied to the bilge/monitoring loop.",
+      "flow_scenarios": [
+       {
+        "state": "alarm/mute loop",
+        "path": "Main Panel wiring -> PEDESTAL ALARM+MUTE terminals 1-12 -> ALARM MOD (sounder + mute button) at pedestal"
+       }
+      ],
+      "dry_data": "PEDESTAL ALARM+MUTE module, ALARM MOD device with mute pushbutton, 12-way terminal interconnect.",
+      "key_components": [
+       "ALARM MOD sounder",
+       "mute pushbutton"
+      ],
+      "sheet_region": "bbox approx [0.5,0.75,0.75,0.79]"
      }
     ]
    }
   ],
-  "infrastructure": {
-   "target_node_id": "641-vessel-control-panel",
-   "facts": [
-    "MAIN PANEL provides PLUG C (7-pin) and PLUG D (12-pin) connectors distributing bilge valve open/closed status to indicator switches S20 (Lazarette), S21 (Aft), S22 (Eng. Room), S23 (Fwd), S24 (Sail Locker) and pump switch S13.",
-    "MAIN PANEL PC CARD is the indicator/logic card behind the panel with open/closed lamp pairs for each of the 5 monitored bilge compartments, a diode array, and +24V supply.",
-    "PEDESTAL ALARM + MUTE / ALARM MOD wired via a 12-terminal strip to PLUG D and to an AUX PLUG on the PC board ([8]->>[1] etc.) for audible alarm/mute function shared across the panel.",
-    "T/S S, T/S B, T/S C are terminal strips distributing supply and control signals between the relay bank Re1-Re6, the bilge valves, and the Main Panel; Bilge Valves fed from breaker Q13 10A.",
-    "Numbers in diamonds on T/S C wires (12,13,21,22,29,30,37,38,45,46) are wire-gauge callouts, not devices."
-   ]
-  },
+  "infrastructure": [
+   {
+    "system_name": "24V Service Battery Distribution feeding this sheet",
+    "target_node_id": "640-dc-distribution",
+    "facts": [
+     "Main bilge pump local branch fed via F3 60A fuse and SW8 switch from +24V SERVICE BAT. bus at top-left of sheet.",
+     "Bilge valves circuit fed via BILGE VALVES Q13 10A breaker from the same +24V SERVICE BAT. bus, feeding T/S B terminals 8-13 and relays Re1-Re6.",
+     "F2 200A appears as a bus-level protective device on the +24V SERVICE BAT. supply riser (main distribution fuse, not specific to bilge valves or pump)."
+    ]
+   },
+   {
+    "system_name": "Terminal strip / relay bank wiring infrastructure (T/S S, T/S B, T/S C)",
+    "target_node_id": "641-vessel-control-panel",
+    "facts": [
+     "T/S S (3 terminals, 13-15) carries the local pump switch loop for the main bilge pump.",
+     "T/S B (terminals 8-13) distributes Bilge Valves breaker Q13 10A supply to relays Re1-Re6.",
+     "T/S C is a 50-terminal strip carrying OPEN/CLOSE commands and status taps for all five monitored bilge valve loops plus the Re6/ONYX loop; numbers in diamonds on T/S C wires (e.g. 12,13,21,22,29,30,37,38,45,46) are wire-gauge callouts, not devices."
+    ]
+   }
+  ],
   "uncertainties": [
-   "T/S S local pump switch relay contact wiring (terminals 13/14/15) is partially ambiguous per prior extraction - exact contact routing to SO6 not fully certain.",
-   "XA40/XA10/XA11 tags are treated as status-signal taps to a monitoring/alarm loom per sheet convention, but their exact downstream destination (which monitoring bus) beyond 'to ONYX' for XA11<32> is not explicitly labeled on this sheet.",
-   "PLUG C pins 6 and 7 destinations are unclear/unlabeled in the extraction.",
-   "Re6 / terminal 13 function ('not used' on contact 12) suggests this relay may be partially unused or spare - not fully certain of its active role beyond the ONYX tap.",
-   "Bottom-right secondary tables (PLUG D header fragments referencing PROJECT/CUSTOMER) appear to be illegible duplicate/title-block artifacts, not distinct data."
+   "T/S S relay/lamp wiring detail (contacts, 'LO' label, fuse-vs-terminal at position 15) is ambiguous in the extraction; exact local pump switch lamp/indicator behaviour could not be confidently resolved \u2014 treated as local start switch loop only.",
+   "The connection from Main Panel switch S13 (BILGE PUMP SW) onward to the actual main bilge pump motor circuit is not fully traced on this sheet \u2014 no drawn line confirms it joins the F3/SW8 branch; flagged rather than assumed.",
+   "PLUG C pins 6 and 7 and AUX PLUG pin 12 (AUX-12) have no clear destination label in the extraction \u2014 left uncomposed rather than guessed.",
+   "Exact identity/rating of individual bilge level switches (Vega vs Whale vs generic) not given on this sheet; captured generically as 'BILGE SW' per zone as printed.",
+   "Part numbers on relays Re1-Re6 and terminal strips are not legible; function and role recorded per FUNCTION OVER PART NUMBER rule \u2014 capture at inspection if ever needed."
   ],
   "discarded_as_clutter": [
-   "Title block fields (DWG No., customer, project, drawn, date) - meta, not equipment",
-   "Duplicate PLUG C / PLUG D pin-to-pin listing tables - restate terminal strip wiring already captured",
-   "Illegible PLUG D secondary table fragments (PROJECT/CUSTOMER/SERVED text) - duplicate/illegible title block artifacts",
-   "Wire-gauge diamond callouts on T/S C (12,13,21,22,29,30,37,38,45,46) - not devices",
-   "Copyright/legal notice block"
+   "Numbers in diamonds on T/S C wires (12,13,21,22,29,30,37,38,45,46) \u2014 resolved as wire-gauge callouts, not devices, per sheet notes; discarded as clutter",
+   "Title block repeat text on PLUG D region legend (illegible 'G.M. M...', 'PROJECT | SW<illegible>', 'CUSTOMER | SC<illegible>') \u2014 duplicate of main title block, discarded",
+   "Copyright notice block \u2014 administrative, discarded",
+   "'AL / MUTE (partial text, likely PEDESTAL ALARM MUTE reference)' fragment \u2014 resolved into pedestal alarm/mute function, not a separate uncertainty"
   ],
   "_model": "claude-sonnet-5"
  },
- "elapsed_s": 52.7
+ "elapsed_s": 73.2,
+ "note": "RE-RUN with loop pre-pass"
 }
