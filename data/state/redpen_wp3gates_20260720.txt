@@ -1,0 +1,50 @@
+ENGINEER RED-PEN — WP3 gates (2026-07-20, verbatim)
+
+1. BLACKWATER: "the read is off by a mile! it read the schematic completely wrong!"
+ARCHITECTURE Q: cards -> nodes -> details; card = the system, nodes on it, details
+(wiring, power source, fluid flow) on the nodes. "if that is the case than 540 black
+water will be the card no? and the pump will get its own SFi and be under that card no?"
+DIRECTIVE: "DONT LOOK AT THE EXACT CORRECTIONS AND CORRECT THEM, BUT TRY AND UNDERSTAND
+WHY WERE THE MISTAKES MADE TO BEGIN WITH AND CORRECT THE PROTOCOL SO ENGO GETS THESE
+RESULTS WITHOUT ME"
+CORRECT READING (authoritative): "Two identical 24V DC motor-driven Gianneschi MV44G
+pumps mounted in the engine room, arranged in parallel with manual ball valves either
+side so either pump sucks from each tank (fwd/aft) but they can be isolated/connected
+so each pump can work individually and suck from both tanks. Each pump draws from the
+common black suction manifold (fed from AFT tank suction, FWD tank suction and can T
+off to an overboard discharge to a truck on the dock [no direct toilet overboard line —
+engo invented it, very bad!!]), and discharges through the overboard fire-rated
+discharge line via the anti-siphon manifold. {No set of NO/NC valves to dockside
+pump-out on the discharge — this is all on the SUCTION side; the pumps can only pump
+overboard.}"
+ROOT CAUSES (his): (A) read the drawing BACKWARDS; (B) didn't pay attention to the
+loops; (C) didn't read the legends / the ARROWS on the lines ("they are there for a
+reason"); (D) can't tell NO/NC (normally open/closed) valves and how they determine
+flow.
+- All 4 discharge-pump readings wrong (bad foundation: assumed 1 duty pump etc.)
+- "Direct-to-manifold (aft guest heads...)" = COMPLETE FABRICATION. "why did you not
+  pick up on that how can i trust you to oversee the work if you say no fabrication
+  and on first glance i see multiple!"
+- "Aft Black Overboard (direct discharge, no tank)" can't be right — a tank must have
+  a pump to empty it.
+
+2. MAST PLC RACK:
+- "Position 00-04: DI1-DI4..." INCORRECT: 00 = CAN GATEWAY; 01-04 = digital inputs.
+- MISSED X7 Power Supply module 750-602 (feeds DO22-DO25 group and AO1).
+- YES create a card for EACH rack location. This rack page = the INDEX of the sheet
+  set (shows the whole rack/GA, then pages go module by module).
+- COMMONS: only relevant for OUTPUT modules; marked "M" on WAGO modules; other vendors
+  may not have it on-module (then it's the vessel's 24V-).
+
+3. PLC PAGE 9: "very good keep the protocol as it is" — when the hydraulic schematic
+is ingested it just links to the right EV in the right block and the right port.
+
+4. MAST LAYOUT: good — the key value is Engo can see the building plan and knows WHERE
+the fittings/important parts are so it can refer the engineer/crew to the drawing.
+
+5. POINTER FILES: all irrelevant (incl. sealogs CSVs + 2 .eml). Only the cutlass .pptx
+matters (already ingested).
+
+6. MAIN AC PANEL CARD: good but should ALSO include GM 112 and 112a.
+
+7. Repeat the 2 flags + WP2 (couldn't find them).
