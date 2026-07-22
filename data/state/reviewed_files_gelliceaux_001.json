@@ -1,42 +1,97 @@
 {
-  "vessel_namespace": "gelliceaux_001",
-  "updated_at": "2026-06-17T21:29:26+00:00",
-  "files": {
-    "1MFslS1QcpLohoLGr1i1l1WhUuGuwWq4h": {
-      "name": "Diagnostics and testing with BAE.docx",
-      "disposition": "text_ok_terse",
-      "note": "plain structured text, terse — confirmed no vision needed",
-      "reviewed_at": "2026-06-17T21:29:26+00:00"
-    },
-    "1Pvx7Dpbp2kvdcVr4LaO7UCSqlQs7CRrA": {
-      "name": "SWS108-01 - Tasks PreHandOver - 26MAY2023.xlsx",
-      "disposition": "excluded_no_value",
-      "note": "pre-delivery PM content (contracts/spares/insurance) — no engineering value",
-      "reviewed_at": "2026-06-17T21:29:26+00:00"
-    },
-    "1hL2qmRVyux8eXO-ndw-fiFjEJ8gcAhQT": {
-      "name": "SWS108-01 - Tasks PreHandOver - 28 APR2023.xlsx",
-      "disposition": "excluded_no_value",
-      "note": "pre-delivery PM content (contracts/spares/insurance) — no engineering value",
-      "reviewed_at": "2026-06-17T21:29:26+00:00"
-    },
-    "1qrUQCouO9wEfzhf1k0gmPf3R4WPyamCl": {
-      "name": "SWS108-01 - Tasks PreHandOver - 31MAR2023SA.xlsx",
-      "disposition": "excluded_no_value",
-      "note": "pre-delivery PM content (contracts/spares/insurance) — no engineering value",
-      "reviewed_at": "2026-06-17T21:29:26+00:00"
-    },
-    "1QrdQXoYXE5T5o8vSderPQJSX6Xr6HuWx": {
-      "name": "Lanzarote list (undated, no STATUS column)",
-      "disposition": "superseded",
-      "note": "replaced by 108-01_Lanzarote_list_20231123.xlsx (dated, has STATUS; CAN bus H resolved 2023)",
-      "reviewed_at": "2026-06-17T21:29:26+00:00"
-    },
-    "1PrwrheGWD5Lw8FPhfD5xWZ7LDOn29eG_": {
-      "name": "Lanzarote list (undated, no STATUS column)",
-      "disposition": "superseded",
-      "note": "replaced by 108-01_Lanzarote_list_20231123.xlsx (dated, has STATUS; CAN bus H resolved 2023)",
-      "reviewed_at": "2026-06-17T21:29:26+00:00"
-    }
+ "vessel_namespace": "gelliceaux_001",
+ "updated_at": "2026-07-20",
+ "files": {
+  "1MFslS1QcpLohoLGr1i1l1WhUuGuwWq4h": {
+   "name": "Diagnostics and testing with BAE.docx",
+   "disposition": "text_ok_terse",
+   "note": "plain structured text, terse \u2014 confirmed no vision needed",
+   "reviewed_at": "2026-06-17T21:29:26+00:00"
+  },
+  "1Pvx7Dpbp2kvdcVr4LaO7UCSqlQs7CRrA": {
+   "name": "SWS108-01 - Tasks PreHandOver - 26MAY2023.xlsx",
+   "disposition": "excluded_no_value",
+   "note": "pre-delivery PM content (contracts/spares/insurance) \u2014 no engineering value",
+   "reviewed_at": "2026-06-17T21:29:26+00:00"
+  },
+  "1hL2qmRVyux8eXO-ndw-fiFjEJ8gcAhQT": {
+   "name": "SWS108-01 - Tasks PreHandOver - 28 APR2023.xlsx",
+   "disposition": "excluded_no_value",
+   "note": "pre-delivery PM content (contracts/spares/insurance) \u2014 no engineering value",
+   "reviewed_at": "2026-06-17T21:29:26+00:00"
+  },
+  "1qrUQCouO9wEfzhf1k0gmPf3R4WPyamCl": {
+   "name": "SWS108-01 - Tasks PreHandOver - 31MAR2023SA.xlsx",
+   "disposition": "excluded_no_value",
+   "note": "pre-delivery PM content (contracts/spares/insurance) \u2014 no engineering value",
+   "reviewed_at": "2026-06-17T21:29:26+00:00"
+  },
+  "1QrdQXoYXE5T5o8vSderPQJSX6Xr6HuWx": {
+   "name": "Lanzarote list (undated, no STATUS column)",
+   "disposition": "superseded",
+   "note": "replaced by 108-01_Lanzarote_list_20231123.xlsx (dated, has STATUS; CAN bus H resolved 2023)",
+   "reviewed_at": "2026-06-17T21:29:26+00:00"
+  },
+  "1PrwrheGWD5Lw8FPhfD5xWZ7LDOn29eG_": {
+   "name": "Lanzarote list (undated, no STATUS column)",
+   "disposition": "superseded",
+   "note": "replaced by 108-01_Lanzarote_list_20231123.xlsx (dated, has STATUS; CAN bus H resolved 2023)",
+   "reviewed_at": "2026-06-17T21:29:26+00:00"
+  },
+  "SY Gelliceaux - Onboarding Setup.gsheet": {
+   "disposition": "excluded_no_value",
+   "reason": "engineer 2026-07-20: irrelevant; only cutlass pptx mattered (already ingested)",
+   "as_of": "2026-07-20"
+  },
+  "Mast Spares.gsheet": {
+   "disposition": "excluded_no_value",
+   "reason": "engineer 2026-07-20: irrelevant; only cutlass pptx mattered (already ingested)",
+   "as_of": "2026-07-20"
+  },
+  "580 Refridgeration.gsheet": {
+   "disposition": "excluded_no_value",
+   "reason": "engineer 2026-07-20: irrelevant; only cutlass pptx mattered (already ingested)",
+   "as_of": "2026-07-20"
+  },
+  "Onyx tank calibration.gdoc": {
+   "disposition": "excluded_no_value",
+   "reason": "engineer 2026-07-20: irrelevant; only cutlass pptx mattered (already ingested)",
+   "as_of": "2026-07-20"
+  },
+  "Inventories.sealogs_2023-06-21_to_2023-06-28.csv": {
+   "disposition": "excluded_no_value",
+   "reason": "engineer 2026-07-20: irrelevant; only cutlass pptx mattered (already ingested)",
+   "as_of": "2026-07-20"
+  },
+  "Inventories.Sealogs_2023-06-21_to_2023-06-28.csv": {
+   "disposition": "excluded_no_value",
+   "reason": "engineer 2026-07-20: irrelevant; only cutlass pptx mattered (already ingested)",
+   "as_of": "2026-07-20"
+  },
+  "Inventories.Sealogs.Gelliceaux_2023-06-28.csv": {
+   "disposition": "excluded_no_value",
+   "reason": "engineer 2026-07-20: irrelevant; only cutlass pptx mattered (already ingested)",
+   "as_of": "2026-07-20"
+  },
+  "Colors for Boat-Name on Transom.eml": {
+   "disposition": "excluded_no_value",
+   "reason": "engineer 2026-07-20: irrelevant; only cutlass pptx mattered (already ingested)",
+   "as_of": "2026-07-20"
+  },
+  "FW_ CQC SI-00164.eml": {
+   "disposition": "excluded_no_value",
+   "reason": "engineer 2026-07-20: irrelevant; only cutlass pptx mattered (already ingested)",
+   "as_of": "2026-07-20"
+  },
+  "Gelliceaux 1 8-23.doc": {
+   "disposition": "excluded_no_value",
+   "reason": "engineer 2026-07-20: irrelevant; only cutlass pptx mattered (already ingested)",
+   "as_of": "2026-07-20"
+  },
+  "SOUTHERN WIND SKIPPER TOOLS  QTE.xls": {
+   "disposition": "excluded_no_value",
+   "reason": "engineer 2026-07-20: irrelevant; only cutlass pptx mattered (already ingested)",
+   "as_of": "2026-07-20"
   }
+ }
 }
