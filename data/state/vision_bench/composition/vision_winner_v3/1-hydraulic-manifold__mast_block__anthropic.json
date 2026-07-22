@@ -1,0 +1,276 @@
+{
+ "category": "1-hydraulic-manifold",
+ "sheet": "mast_block",
+ "vendor": "anthropic",
+ "drawing_class": "hydraulic",
+ "composition": {
+  "serve_who": "This sheet (\"MAST BLOCK: DANFOSS PVG 32 - 6 FUNCTIONS\", sheet 5 of 12) is a single PVG32 valve block located at the mast, with six labelled function slices each naming its served equipment directly in the header: LIFTING KEEL UP/DOWN and LIFTING KEEL LOCKS both serve the lifting keel (130-apm-lifting-keel, per mapping table and established facts already carrying rating/actuation/cartridges from this same sheet). MAST WINCH AFT PORT/FWD PORT/AFT STBD/FWD STBD each serve their respective named mast winch nodes (220-mast-winch-aft-port, 220-mast-winch-fwd-port, 220-mast-winch-aft-stbd, 220-mast-winch-fwd-stbd), consistent with the engineer-confirmed mapping table and established facts already on those four nodes. The shared P/T/LS/M rails, common inlet section (with the 300-bar main block relief and standalone spool-control pressure-reducing valve at far left), and the six PVG32 module housing itself are infrastructure of the mast block manifold (570-danfoss-pvg-32-mast-block), not of any individual function's equipment record.",
+  "equipment_groups": [
+   {
+    "equipment_name": "Lifting Keel (APM)",
+    "target_node_id": "130-apm-lifting-keel",
+    "placement_reasoning": "Two adjacent slices are titled LIFTING KEEL UP/DOWN and LIFTING KEEL LOCKS; the mapping table sends both 'lifting keel' and 'lifting keel lock' aliases to 130-apm-lifting-keel, and this node already carries a 40 l/min PVEU rating and cartridge 11166832/157B5111 from this same sheet in prior facts.",
+    "functions": [
+     {
+      "label": "LIFTING KEEL UP/DOWN",
+      "function_id": "EV-6.1",
+      "sheet_region": "top-left, x\u22480.19-0.32",
+      "what_it_does": "Proportionally drives the lifting keel actuator up or down via a 0-10V pilot signal on the PVG32 spool; open-center at rest so the pump can idle to tank when the keel is not being moved.",
+      "key_components": [
+       "Main proportional directional spool (PVG32 40 l/min module, cartridge 11166832)",
+       "PVEU proportional pilot stage (0-10V) driving the spool",
+       "Pilot-operated check/counterbalance stack holding load on A and B ports when spool is centered",
+       "Work-port relief valves on A and B lines (settings printed as 220 and 60, unit not legible but bar per sheet convention \u2014 part number: capture at inspection if ever needed)",
+       "LS shuttle/orifice elements feeding LS_A/LS_B signal to the LS rail"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "Neutral (no signal, open-center)",
+        "path": "P rail flows through the open-center spool directly to T return rail; A and B work ports blocked and held by the pilot-operated counterbalance stack, keel load locked in position"
+       },
+       {
+        "state": "DOWN command (<5V)",
+        "path": "PVEU pilot shifts spool to A-side: P \u2192 spool \u2192 work port A \u2192 through counterbalance stack \u2192 keel actuator (down motion); return oil from B port \u2192 spool \u2192 T rail; LS_A reports A-port pressure to LS rail"
+       },
+       {
+        "state": "UP command (>5V)",
+        "path": "PVEU pilot shifts spool to B-side: P \u2192 spool \u2192 work port B \u2192 through counterbalance stack \u2192 keel actuator (up motion); return oil from A port \u2192 spool \u2192 T rail; LS_B reports B-port pressure to LS rail"
+       },
+       {
+        "state": "Overpressure on A or B work line",
+        "path": "respective work-port relief (220 or presumed-bar setting on one line, 60 on the other) opens, diverting excess flow from that work port directly to the T/tank rail regardless of spool position"
+       }
+      ],
+      "dry_data": "PVG32 module, spool 40 l/min, PVEU proportional 0-10V, open neutral position (DOWN <5V=A / UP >5V=B)"
+     },
+     {
+      "label": "LIFTING KEEL LOCKS",
+      "function_id": "EV-6.2",
+      "sheet_region": "top, x\u22480.32-0.45",
+      "what_it_does": "Engages/releases the keel lock mechanism on ON/OFF command; closed-center at rest so the lock circuit holds its state with no flow when idle.",
+      "key_components": [
+       "Solenoid pilot valve (PVEO ON/OFF, cartridge 11166838) actuating the main directional spool",
+       "Main directional 2-position spool, closed-center, IN=A / OUT=B (PVG32 5 l/min module)",
+       "Pilot-operated check/non-return element on the P feed to the spool",
+       "Work-port relief cartridge on the B branch (setting not legibly printed)",
+       "Pair of LS orifice/restrictor cartridges (marked 100) feeding an LS shuttle/selector that passes signal to LS_A/LS_B"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "Neutral (de-energized, closed-center)",
+        "path": "spool blocks P from both A and B; lock mechanism held mechanically in place, no oil movement"
+       },
+       {
+        "state": "Energized (ON, IN=A/OUT=B)",
+        "path": "PVEO pilot shifts spool: P \u2192 A port \u2192 lock actuator (unlock/actuate); displaced oil returns B port \u2192 spool \u2192 T rail"
+       },
+       {
+        "state": "LS sensing (either state)",
+        "path": "pressure at A and/or B work ports taps through the two orifice cartridges (marked 100) into a shuttle selector, which passes the higher signal onward to the LS_A/LS_B rail"
+       }
+      ],
+      "dry_data": "PVG32 module, spool 5 l/min, PVEO ON/OFF, closed neutral position (IN=A / OUT=B)"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Mast Winch Aft Port",
+    "target_node_id": "220-mast-winch-aft-port",
+    "placement_reasoning": "Slice titled MAST WINCH AFT PORT (EV-6.3) directly names this winch per the engineer-confirmed mapping table; established facts on this node already carry the 65 l/min PVED ON/OFF rating and cartridges 11166838/157B6203/11763831 from this sheet.",
+    "functions": [
+     {
+      "label": "MAST WINCH AFT PORT",
+      "function_id": "EV-6.3",
+      "sheet_region": "x\u22480.45-0.58",
+      "what_it_does": "Drives the mast winch motor in either rotational direction on ON/OFF command from three spool positions (1st/3rd gear = A-side, 2nd gear = B-side); open-center neutral lets pump flow idle to tank when the winch is not commanded.",
+      "key_components": [
+       "Main directional PVEO ON/OFF pilot valve (cartridge 11166838) actuating the main spool",
+       "Main directional spool (PVG32 65 l/min work section, cartridge 157B7123) with open-center neutral",
+       "Work-port relief cartridge on one work line, set to 250 bar",
+       "Work-port relief cartridge on the other work line, set to 225 bar",
+       "LS shuttle takeoff feeding LS_A/LS_B rail"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "Neutral (open-center)",
+        "path": "P flow passes through the centered spool directly to T return; no flow to A or B work ports; LS line unloaded"
+       },
+       {
+        "state": "1st/3rd gear (=A)",
+        "path": "solenoid pilot shifts spool: P \u2192 A work port \u2192 winch motor; return B port \u2192 spool \u2192 T; LS_A reports A-port pressure"
+       },
+       {
+        "state": "2nd gear (=B)",
+        "path": "solenoid pilot shifts spool opposite: P \u2192 B work port \u2192 winch motor (reverse); return A port \u2192 spool \u2192 T; LS_B reports B-port pressure"
+       },
+       {
+        "state": "Overpressure on A work line",
+        "path": "relief valve (250 bar) opens, diverting A-line oil to return/LS rail to limit pressure"
+       },
+       {
+        "state": "Overpressure on B work line",
+        "path": "relief valve (225 bar) opens, diverting B-line oil to return/LS rail to limit pressure"
+       }
+      ],
+      "dry_data": "PVG32 module, spool 65 l/min, PVEO ON/OFF, open neutral position (1st&3rd gear=A / 2nd gear=B)"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Mast Winch Fwd Port",
+    "target_node_id": "220-mast-winch-fwd-port",
+    "placement_reasoning": "Slice column header reads MAST WINCH FWD PORT (identifier EV-6.4 per top labels); the underlying detail block was mis-tagged in the source extraction as EV-6.5/'AFT STBD' text but sits under the FWD PORT header column and rating/actuation matches established facts already on this node from this same sheet.",
+    "functions": [
+     {
+      "label": "MAST WINCH FWD PORT",
+      "function_id": "EV-6.4",
+      "sheet_region": "x\u22480.58-0.71",
+      "what_it_does": "Drives the mast winch motor bidirectionally on ON/OFF command (1st/3rd gear = A-side, 2nd gear = B-side); open-center neutral idles pump flow to tank when not commanded, motor holds position via integral counterbalance/check.",
+      "key_components": [
+       "Main directional spool (PVG32 module, cartridge 11166838), open-center neutral",
+       "Solenoid pilot valve (ON/OFF) atop the spool",
+       "Motor/winch drive cartridge with integral counterbalance/relief check (157B7123)",
+       "Work-port relief valve set to 250 bar",
+       "Work-port relief valve set to 225 bar",
+       "LS shuttle line feeding LS_B rail"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "Neutral (open-center)",
+        "path": "pump flow passes through spool to tank/return rail; no flow to A or B; winch motor holds position via counterbalance/check"
+       },
+       {
+        "state": "1st/3rd gear (=A)",
+        "path": "pilot solenoid shifts spool: P \u2192 A port \u2192 winch motor inlet; B port returns to tank; winch drives in one direction"
+       },
+       {
+        "state": "2nd gear (=B)",
+        "path": "spool shifts opposite: P \u2192 B port \u2192 winch motor; A port returns to tank; winch drives in reverse direction"
+       },
+       {
+        "state": "Overpressure on work line",
+        "path": "corresponding relief cartridge (250 or 225 bar) opens, dumping excess flow from that work port to tank/return"
+       },
+       {
+        "state": "LS signalling",
+        "path": "pressure at the active work port is sensed via cyan LS line and communicated to LS_B rail for load-sense compensation elsewhere in the manifold"
+       }
+      ],
+      "dry_data": "PVG32 module, spool 65 l/min, PVEO ON/OFF, open neutral position (1st&3rd gear=A / 2nd gear=B)"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Mast Winch Aft Stbd",
+    "target_node_id": "220-mast-winch-aft-stbd",
+    "placement_reasoning": "Slice column header reads MAST WINCH AFT STBD (identifier EV-6.5 per top labels); established facts on this node already list 65 l/min, PVED ON/OFF, cartridges 11166838/15786203/17231EN51 from this sheet.",
+    "functions": [
+     {
+      "label": "MAST WINCH AFT STBD",
+      "function_id": "EV-6.5",
+      "sheet_region": "x\u22480.71-0.84",
+      "what_it_does": "Drives the mast winch motor bidirectionally on ON/OFF command via a 3-position spool (1st/3rd gear=A, 2nd gear=B); open-center neutral idles flow to tank, load held on the non-pressurized port by dual counterbalance/overcenter valves.",
+      "key_components": [
+       "Main directional spool (PVG32 work section, cartridge 11166838), open-center neutral",
+       "Load-holding counterbalance/overcenter valves (one per work line, on motor block 157B7123), pilot-operated check with relief override",
+       "Work-port relief valve on A line, ~230 bar",
+       "Work-port relief valve on B line, ~225 bar",
+       "Shuttle/check element selecting the higher LS signal from A or B to feed the LS rail"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "Neutral (open-center)",
+        "path": "P flows through the spool directly to tank return; A and B ports blocked/isolated; motor holds position via counterbalance valves"
+       },
+       {
+        "state": "1st/3rd gear (=A)",
+        "path": "P \u2192 spool \u2192 A work port \u2192 counterbalance on A \u2192 winch motor; return oil from motor B port \u2192 counterbalance on B (pilot-opened by A pressure) \u2192 spool \u2192 tank; LS signal taken from A line"
+       },
+       {
+        "state": "2nd gear (=B)",
+        "path": "P \u2192 spool \u2192 B work port \u2192 counterbalance on B \u2192 winch motor (reverse); return from motor A port \u2192 counterbalance on A (pilot-opened by B pressure) \u2192 spool \u2192 tank; LS signal taken from B line"
+       },
+       {
+        "state": "Overpressure on A port",
+        "path": "A-line relief (~230 bar) opens, dumping A port oil to tank return rail"
+       },
+       {
+        "state": "Overpressure on B port",
+        "path": "B-line relief (~225 bar) opens, dumping B port oil to tank return rail"
+       }
+      ],
+      "dry_data": "PVG32 module, spool 65 l/min, PVEO ON/OFF, open neutral position (1st&3rd gear=A / 2nd gear=B)"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Mast Winch Fwd Stbd",
+    "target_node_id": "220-mast-winch-fwd-stbd",
+    "placement_reasoning": "Rightmost slice column header reads MAST WINCH FWD STBD (identifier EV-6.6); established facts on this node already list 65 l/min PVED ON/OFF with cartridges 15786203/15782014 from this sheet.",
+    "functions": [
+     {
+      "label": "MAST WINCH FWD STBD",
+      "function_id": "EV-6.6",
+      "sheet_region": "top-right, x\u22480.84-0.97",
+      "what_it_does": "Drives the mast winch motor bidirectionally on ON/OFF command via a 3-position spool (1st/3rd gear=A, 2nd gear=B); open-center neutral idles flow to tank when not commanded.",
+      "key_components": [
+       "Main directional spool (PVEO ON/OFF, cartridge 11166838), open-center neutral",
+       "Solenoid coil pair actuating the spool for A/B shift directions",
+       "Work port line B (cartridge 157B2014) running to the actuator connection"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "Neutral (open-center)",
+        "path": "P \u2192 spool \u2192 T; no flow to A/B work ports"
+       },
+       {
+        "state": "1st/3rd gear (=A)",
+        "path": "pressure rail (157B6203) \u2192 spool \u2192 work port A; opposite port B open to tank/return"
+       },
+       {
+        "state": "2nd gear (=B)",
+        "path": "pressure rail (157B6203) \u2192 spool \u2192 work port B (line 157B2014) \u2192 down to winch motor connection; opposite port A vented to tank"
+       }
+      ],
+      "dry_data": "PVG32 module, spool 65 l/min, PVEO ON/OFF, open neutral position (1st&3rd gear=A / 2nd gear=B)"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "Danfoss PVG 32 Mast Block (manifold housing, common rails, inlet section)",
+    "target_node_id": "570-danfoss-pvg-32-mast-block",
+    "facts": [
+     "Single PVG32, 6-function valve block located at the mast, housing all six function slices side by side (rev 10 of the SWS108 hydraulic system set, sheet 5 of 12).",
+     "Common horizontal rails run the length of the block: P (pressure supply), T (tank return), LS/LS_A/LS_B (load-sense), and M (gauge/measure port), shared across all six function slices.",
+     "Cartridge/line identifiers printed along the rails include 157B5111, 157B6203, 11130982, 157B2014 \u2014 these tag the shared rail segments, not any single function.",
+     "Standalone spool-control (pilot) pressure-reducing valve at the far left of the inlet section supplies reduced pilot/spool-control pressure to all six pilot stages on the block.",
+     "Main block inlet pressure-relief setting: 300 (bar, per sheet convention) protects the whole manifold inlet, located at the lower-left of the inlet section alongside a shuttle/check element.",
+     "Red warning triangles with numbers scattered across the slices are revision markers, cross-referenced to rows in the modification table (e.g. row 10 'PROPORTIONAL AFT WINCHES', row 9 'PRESSURE ADJUSTEMENT', row 8 'PRESSURE AFTER COMMISSIONING')."
+    ]
+   }
+  ],
+  "discarded_as_clutter": [
+   "Header/title block text (MAST BLOCK: DANFOSS PVG 32 - 6 FUNCTIONS)",
+   "Revision/modification table rows (dates, drawn/checked initials) \u2014 administrative metadata, not equipment function",
+   "Job/client/project/title/section/scale/drawn/checked/file-name title-block fields",
+   "Duplicate equipment_data_table entries repeating the same spool/actuation/neutral text already captured in scenarios",
+   "Illegible revision row noted beneath row 2 in notes_block",
+   "Orphan legend fragment '<illegible>' entries with no resolvable content"
+  ],
+  "uncertainties": [
+   "Exact numeric setting/unit for the pilot-operated check/counterbalance stack (157B7122) on Lifting Keel Up/Down \u2014 not legibly printed.",
+   "Precise identity/value of the relief valve near bottom-left of Lifting Keel Up/Down slice (red triangle, no visible number).",
+   "Numeric setting on the work-port relief cartridge on the Lifting Keel Locks B branch \u2014 spring symbol only, no value printed.",
+   "Exact meaning of the '100' markings on the Lifting Keel Locks LS orifice cartridges (likely bore size, units not stated).",
+   "Units on the 250/225 bar relief settings across the mast winch slices are assumed bar per sheet convention but not explicitly printed in these crops.",
+   "Exact identifier/model of the shuttle/check symbol selecting LS signal on Mast Winch Aft Stbd \u2014 no ID legible.",
+   "Meaning of the coil markings '230'/'220' near the solenoid pair on Mast Winch Fwd Stbd (EV-6.6) \u2014 could be relief settings or coil codes, not confirmed.",
+   "Full part numbers on several cartridges throughout the sheet are partially cut off or below legible resolution \u2014 noted per part-number rule as capture-at-inspection, not treated as functional uncertainty."
+  ],
+  "_model": "claude-sonnet-5",
+  "_protocol_version": 3
+ },
+ "elapsed_s": 64.8
+}

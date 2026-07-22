@@ -1,0 +1,96 @@
+{
+ "category": "7-building-ga",
+ "sheet": "steering-system-ga",
+ "vendor": "gemini",
+ "drawing_class": "building_ga",
+ "composition": {
+  "serve_who": "This sheet serves the vessel's primary steering system, detailing the structural general arrangement of the mechanical linkage, twin rudders, manual wheel steering sheaves, and the autopilot ram. The title 'Steering System GA' and the visual representation of bearings, tie rods, and redundant steering paths confirm it is the definitive structural reference for the mechanical steering installation.",
+  "equipment_groups": [
+   {
+    "target_node_id": "150-steering-system",
+    "equipment_name": "Steering System",
+    "placement_reasoning": "The drawing acts as the primary GA for the mechanical steering linkages, showing how the helm wheels connect to the rudders.",
+    "functions": [
+     {
+      "label": "Mechanical Steering Linkage",
+      "what_it_does": "Connects the manual steering wheels to the rudder tiller arms via Vectran lines, sheaves, and tie rods, providing fully redundant mechanical control.",
+      "key_components": [
+       "upper sheaves",
+       "lower sheave box",
+       "Vectran steering wire (20mm)",
+       "tie rod links (JP3)",
+       "G10 spacer"
+      ],
+      "dry_data": "3 independent systems (2 wheels + pilot); single rod failure leaves one rudder active; single wheel failure leaves second wheel in control of both rudders; part numbers capture at inspection.",
+      "sheet_region": "Plan View, Safety Notes, Parts Table, Detail A"
+     }
+    ]
+   },
+   {
+    "target_node_id": "150-rudder-blades",
+    "equipment_name": "Twin Rudder Blades",
+    "placement_reasoning": "The drawing extensively details the structural positioning, toe-in geometry, and bearing arrangements for the dual rudders.",
+    "functions": [
+     {
+      "label": "Directional Control Surface",
+      "what_it_does": "Provides hydrodynamic directional control for the vessel, installed as a port and starboard mirrored pair with tunable toe-in geometry to generate the Ackermann effect.",
+      "key_components": [
+       "rudder blades",
+       "upper bearing structure (Solimar)",
+       "lower bearing structure (Solimar)"
+      ],
+      "dry_data": "Stbd mirrors port; 1.8\u00b0 toe-in at neutral position with 2044mm rod links; Ackermann effect dynamically tunable \u00b1365mm from CL.",
+      "sheet_region": "Perspective View, Section B-B, Section C-C, System Notes"
+     }
+    ]
+   },
+   {
+    "target_node_id": "150-autopilot-system",
+    "equipment_name": "Autopilot System",
+    "placement_reasoning": "The drawing illustrates the installation of the autopilot ram and its direct structural connection to the steering system.",
+    "functions": [
+     {
+      "label": "Automated Steering Actuation",
+      "what_it_does": "Acts as a third independent steering source, driving the steering linkage automatically and remaining fully operational even if both manual wheels fail.",
+      "key_components": [
+       "autopilot ram (Marsili)",
+       "autopilot ram support structure"
+      ],
+      "dry_data": "500mm stroke Marsili ram; support is bolted through Bulkhead L with bond tapping plates on FWD face.",
+      "sheet_region": "Plan View, Autopilot Ram Support detail text, Parts Table"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "Hull Steering Compartment Structure",
+    "target_node_id": "no fitting node",
+    "facts": [
+     "Partitions LM1 and LM2 frame and integrate the lower bearing structure.",
+     "Bulkhead L (BHD L) provides structural mounting and bolting points for the autopilot ram support.",
+     "Tri-beam 11 is penetrated to accommodate the clearance required for pilot rod movement."
+    ]
+   }
+  ],
+  "discarded_as_clutter": [
+   "STANDARD NOTES: - DO NOT SCALE. PROJECTION : 1st ANGLE...",
+   "Southern Wind",
+   "APPROVED REVIEWED",
+   "Steering System GA",
+   "SECTION C-C THROUGH RUDDER BLADE VIEW ROTATED 26\u00b0 SCALE 1 : 10",
+   "DETAIL D SCALE 1 : 5",
+   "DETAIL E SCALE 1 : 5",
+   "SECTION B-B LOOKING TO PORT PARTITION LM HIDDEN SCALE 1 : 20",
+   "PLAN VIEW SCALE 1 : 20",
+   "PORT LOWER SHEAVE BOX DETAIL SCALE NTS",
+   "DETAIL A SCALE 1 : 10",
+   "ON DECK INNER SKIN",
+   "ON HULL OUTER SKIN"
+  ],
+  "uncertainties": [],
+  "_model": "gemini-3.1-pro-preview",
+  "_protocol_version": 3
+ },
+ "elapsed_s": 54.1
+}

@@ -1,0 +1,44 @@
+{
+ "category": "10-photos-figures",
+ "sheet": "harken-spares-photo-3325",
+ "vendor": "openai",
+ "drawing_class": "photos",
+ "composition": {
+  "serve_who": "This photo serves the vessel\u2019s spare-parts inventory node because it documents two loose, packaged Harken needle roller bearings rather than an installed assembly. The label establishes manufacturer, part identity, dimensions, quantity, and order reference, but does not identify the specific Harken winch or other parent equipment; therefore the bearings must not be forced onto any individual winch node.",
+  "equipment_groups": [
+   {
+    "target_node_id": "500-spares-recomended-by-sws",
+    "equipment_name": "Harken replacement needle roller bearings",
+    "placement_reasoning": "The items are photographed loose in a labelled parts bag and are not shown installed. The only supported attachment is the general spares node; although Harken winch nodes exist, the label gives no model, location, or equipment serial reference that links this bearing to a particular winch.",
+    "functions": [
+     {
+      "function_id": "replacement-bearing-provision",
+      "label": "Replacement bearing provision",
+      "what_it_does": "Provides two replacement needle roller bearings for maintenance of an as-yet-unidentified Harken assembly aboard SWS108.",
+      "flow_scenarios": [],
+      "key_components": [
+       "Replacement rolling-element bearing \u2014 Harken needle roller bearing, part A72931800, quantity 2"
+      ],
+      "dry_data": "Manufacturer: Harken; part/code: A72931800; description: needle roller bearing; size: 120 \u00d7 126 \u00d7 19; quantity: 2; PO/order reference: SWS108#1 ID13398; installation/actuation/rating: not applicable to this packaged spare.",
+      "sheet_region": "Central paper label on the clear plastic parts bag; the label occupies most of the image."
+     }
+    ]
+   }
+  ],
+  "infrastructure": [],
+  "discarded_as_clutter": [
+   "Harken logo",
+   "Barcode and encoded barcode text",
+   "www.harken.com",
+   "Duplicate presentation of A72931800 as both Code and Part Number",
+   "Blank Customer Reference field",
+   "Plastic bag, background surface, and label wrinkles"
+  ],
+  "uncertainties": [
+   "The parent Harken equipment is not identified on the label or elsewhere in the photo. It could not be assigned to a specific captive, mast, primary, secondary, or other winch node without inventing an association.",
+   "The photograph does not establish whether these are commissioned onboard spares, delivery stock, or parts awaiting installation; placement on the spares node reflects only their loose packaged state."
+  ],
+  "_model": "gpt-5.6-sol",
+  "_protocol_version": 3
+ }
+}

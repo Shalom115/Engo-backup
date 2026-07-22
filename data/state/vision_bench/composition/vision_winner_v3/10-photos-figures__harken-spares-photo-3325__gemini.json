@@ -1,0 +1,38 @@
+{
+ "category": "10-photos-figures",
+ "sheet": "harken-spares-photo-3325",
+ "vendor": "gemini",
+ "drawing_class": "photos",
+ "composition": {
+  "serve_who": "This image serves the vessel's general spare parts inventory, specifically for Harken deck gear or winches. The evidence is the label on a packaged replacement part showing the Harken brand and a purchase order number 'SWS108#1'.",
+  "equipment_groups": [
+   {
+    "target_node_id": "500-spares-recomended-by-sws",
+    "equipment_name": "Harken Spare Parts",
+    "placement_reasoning": "The item is a packaged spare part labeled with the vessel's project reference (SWS108) but without designation to a specific individual winch or block, making it part of the general spares inventory.",
+    "functions": [
+     {
+      "label": "Needle Roller Bearing",
+      "what_it_does": "Provides a packaged replacement rolling-element bearing for Harken deck machinery.",
+      "flow_scenarios": [],
+      "key_components": [
+       "Part Number: A72931800",
+       "PO Number: SWS108#1 ID13398"
+      ],
+      "dry_data": "Brand: HARKEN / Description: Needle Roller Bearing i20xi26x19 / Quantity: 2",
+      "sheet_region": "Center label"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [],
+  "discarded_as_clutter": [
+   "Code A72931800 (redundant to Part Number)",
+   "Customer Reference *0000000000*",
+   "www.harken.com"
+  ],
+  "uncertainties": [],
+  "_model": "gemini-3.1-pro-preview",
+  "_protocol_version": 3
+ }
+}

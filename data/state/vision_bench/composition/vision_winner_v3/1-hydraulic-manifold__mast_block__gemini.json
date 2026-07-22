@@ -1,0 +1,247 @@
+{
+ "category": "1-hydraulic-manifold",
+ "sheet": "mast_block",
+ "vendor": "gemini",
+ "drawing_class": "hydraulic",
+ "composition": {
+  "serve_who": "This sheet serves the vessel's lifting keel and the forward/aft mast winches (port and starboard). This is evidenced by the function slice labels (LIFTING KEEL UP/DOWN, LIFTING KEEL LOCKS, MAST WINCH AFT PORT, etc.) which are grouped together on a common mast block hydraulic manifold.",
+  "equipment_groups": [
+   {
+    "target_node_id": "130-apm-lifting-keel",
+    "equipment_name": "Lifting Keel",
+    "placement_reasoning": "The first two slices are explicitly labelled 'LIFTING KEEL UP/DOWN' and 'LIFTING KEEL LOCKS'.",
+    "functions": [
+     {
+      "function_id": "EV-6.1",
+      "label": "LIFTING KEEL UP/DOWN",
+      "what_it_does": "Controls the up and down movement of the lifting keel via a proportional directional valve.",
+      "flow_scenarios": [
+       {
+        "state": "neutral",
+        "path": "Spool in open neutral position; P rail is blocked, A and B work lines are bled to T rail via small orifices, and the LS line is drained to the T rail."
+       },
+       {
+        "state": "actuate UP (>5V)",
+        "path": "Pilot module shifts spool to connect P to B; fluid flows from P rail out port B, upwards through the pilot-operated check valve to the actuator. Return fluid from the actuator opens the A port PO check via pilot pressure from the B line, returning to the T rail. Port B maximum pressure is limited to 220 bar by an inline port relief valve."
+       },
+       {
+        "state": "actuate DOWN (<5V)",
+        "path": "Pilot module shifts spool to connect P to A; fluid flows from P rail out port A, upwards through the pilot-operated check valve to the actuator. Return fluid from the actuator opens the B port PO check via pilot pressure from the A line, returning to the T rail. Port A maximum pressure is limited to 60 bar by an inline port relief valve."
+       }
+      ],
+      "key_components": [
+       "Main directional control spool",
+       "Pilot module (PVEU)",
+       "Double pilot-operated check valve",
+       "Port A relief valve",
+       "Port B relief valve"
+      ],
+      "dry_data": "PVG 32 MODULE, spool 40 lt/min, PVEU - 0-10 V",
+      "sheet_region": "Slice EV-6.1, left side of the active block"
+     },
+     {
+      "function_id": "EV-6.2",
+      "label": "LIFTING KEEL LOCKS",
+      "what_it_does": "Controls the locking mechanism for the lifting keel via an on/off directional valve.",
+      "flow_scenarios": [
+       {
+        "state": "neutral",
+        "path": "Spool in closed neutral position; P, A, and B ports are blocked; the load-sense (LS) signal is vented to tank."
+       },
+       {
+        "state": "actuate IN (A-side)",
+        "path": "Pilot module shifts spool to connect P to A; flow goes out port A to the actuator and returns from port B to the T rail. Pressure on port A is limited to 100 bar by its relief valve."
+       },
+       {
+        "state": "actuate OUT (B-side)",
+        "path": "Pilot module shifts spool to connect P to B; flow goes out port B to the actuator and returns from port A to the T rail. Pressure on port B is limited to 100 bar by its relief valve."
+       }
+      ],
+      "key_components": [
+       "Main directional spool valve",
+       "Pilot module (PVEO)",
+       "Pressure compensator",
+       "Port A relief valve",
+       "Port B relief valve",
+       "Port routing block"
+      ],
+      "dry_data": "PVG 32 MODULE, spool 5 lt/min, PVEO - ON/OFF",
+      "sheet_region": "Slice EV-6.2, second from left"
+     }
+    ]
+   },
+   {
+    "target_node_id": "220-mast-winch-aft-port",
+    "equipment_name": "Mast Winch Aft Port",
+    "placement_reasoning": "Slice EV-6.3 is labelled 'MAST WINCH AFT PORT'.",
+    "functions": [
+     {
+      "function_id": "EV-6.3",
+      "label": "MAST WINCH AFT PORT",
+      "what_it_does": "Directs hydraulic flow to drive the aft port mast winch in 1st/3rd gear or 2nd gear.",
+      "flow_scenarios": [
+       {
+        "state": "neutral",
+        "path": "Spool in open neutral position; P is blocked, A and B work ports are open to the T return rail."
+       },
+       {
+        "state": "1st/3rd gear (A-side)",
+        "path": "Pilot module shifts spool to direct flow from P through the compensator to port A. Return flow from port B is directed to tank T. Maximum pressure on port A is limited to 250 bar by the shock/anti-cavitation valve."
+       },
+       {
+        "state": "2nd gear (B-side)",
+        "path": "Pilot module shifts spool to direct flow from P through the compensator to port B. Return flow from port A is directed to tank T. Maximum pressure on port B is limited to 225 bar by the shock/anti-cavitation valve."
+       },
+       {
+        "state": "cavitation prevention",
+        "path": "If pressure at port A or B drops below tank pressure, anti-cavitation check valves allow makeup fluid to flow from the T rail into the respective work port."
+       }
+      ],
+      "key_components": [
+       "Main directional control spool",
+       "Pilot module (PVED)",
+       "Pressure compensator",
+       "Port A shock/anti-cavitation relief valve",
+       "Port B shock/anti-cavitation relief valve"
+      ],
+      "dry_data": "PVG 32 MODULE, spool 65 lt/min, PVED - ON/OFF",
+      "sheet_region": "Slice EV-6.3, third from left"
+     }
+    ]
+   },
+   {
+    "target_node_id": "220-mast-winch-fwd-port",
+    "equipment_name": "Mast Winch Fwd Port",
+    "placement_reasoning": "Slice EV-6.4 is labelled 'MAST WINCH FWD PORT'.",
+    "functions": [
+     {
+      "function_id": "EV-6.4",
+      "label": "MAST WINCH FWD PORT",
+      "what_it_does": "Directs hydraulic flow to drive the fwd port mast winch in 1st/3rd gear or 2nd gear.",
+      "flow_scenarios": [
+       {
+        "state": "neutral",
+        "path": "Spool in open neutral position; P is blocked, A and B work ports are open to the T return rail."
+       },
+       {
+        "state": "1st/3rd gear (A-side)",
+        "path": "Pilot module shifts spool to direct pressure flow from P to port A. Return flow from port B is directed to tank T. Port A maximum pressure is limited to 250 bar by the shock/anti-cavitation valve."
+       },
+       {
+        "state": "2nd gear (B-side)",
+        "path": "Pilot module shifts spool to direct pressure flow from P to port B. Return flow from port A is directed to tank T. Port B maximum pressure is limited to 225 bar by the shock/anti-cavitation valve."
+       },
+       {
+        "state": "cavitation prevention",
+        "path": "Anti-cavitation check valves draw fluid from the T rail to replenish work ports A or B if pressure drops below tank line pressure."
+       }
+      ],
+      "key_components": [
+       "Main directional control spool",
+       "Pilot module (PVED)",
+       "Port A shock/anti-cavitation relief valve",
+       "Port B shock/anti-cavitation relief valve"
+      ],
+      "dry_data": "PVG 32 MODULE, spool 65 lt/min, PVED - ON/OFF",
+      "sheet_region": "Slice EV-6.4, fourth from left"
+     }
+    ]
+   },
+   {
+    "target_node_id": "220-mast-winch-aft-stbd",
+    "equipment_name": "Mast Winch Aft Stbd",
+    "placement_reasoning": "Slice EV-6.5 is labelled 'MAST WINCH AFT STBD'.",
+    "functions": [
+     {
+      "function_id": "EV-6.5",
+      "label": "MAST WINCH AFT STBD",
+      "what_it_does": "Directs hydraulic flow to drive the aft stbd mast winch in 1st/3rd gear or 2nd gear.",
+      "flow_scenarios": [
+       {
+        "state": "neutral",
+        "path": "Spool in open neutral position; P is blocked, A and B work ports are open to the T return rail."
+       },
+       {
+        "state": "1st/3rd gear (A-side)",
+        "path": "Pilot module shifts spool to connect P to A; flow is regulated by the upstream pressure compensator. Return flow from port B connects to T. Pressure on port A is limited to 250 bar by the shock/anti-cavitation relief valve."
+       },
+       {
+        "state": "2nd gear (B-side)",
+        "path": "Pilot module shifts spool to connect P to B. Return flow from port A connects to T. Pressure on port B is limited to 225 bar by the shock/anti-cavitation relief valve."
+       },
+       {
+        "state": "cavitation prevention",
+        "path": "Anti-cavitation check valves draw fluid from the T rail to replenish work ports A or B if pressure drops below tank line pressure."
+       }
+      ],
+      "key_components": [
+       "Main directional control spool",
+       "Pilot module (PVED)",
+       "Pressure compensator",
+       "Port A shock/anti-cavitation relief valve",
+       "Port B shock/anti-cavitation relief valve"
+      ],
+      "dry_data": "PVG 32 MODULE, spool 65 lt/min, PVED - ON/OFF",
+      "sheet_region": "Slice EV-6.5, fifth from left"
+     }
+    ]
+   },
+   {
+    "target_node_id": "220-mast-winch-fwd-stbd",
+    "equipment_name": "Mast Winch Fwd Stbd",
+    "placement_reasoning": "Slice EV-6.6 is labelled 'MAST WINCH FWD STBD'.",
+    "functions": [
+     {
+      "function_id": "EV-6.6",
+      "label": "MAST WINCH FWD STBD",
+      "what_it_does": "Directs hydraulic flow to drive the fwd stbd mast winch in 1st/3rd gear or 2nd gear.",
+      "flow_scenarios": [
+       {
+        "state": "neutral",
+        "path": "Spool in open neutral position; P and LS lines are connected to T."
+       },
+       {
+        "state": "1st/3rd gear (A-side)",
+        "path": "Pilot module shifts spool to connect P to port A. Return flow from port B connects to the T rail. Port A pressure is limited to 230 bar by an inline relief valve."
+       },
+       {
+        "state": "2nd gear (B-side)",
+        "path": "Pilot module shifts spool to connect P to port B. Return flow from port A connects to the T rail. Port B pressure is limited to 225 bar by an inline relief valve."
+       }
+      ],
+      "key_components": [
+       "Main directional control spool",
+       "Pilot module (PVED)",
+       "Port A pressure relief valve",
+       "Port B pressure relief valve"
+      ],
+      "dry_data": "PVG 32 MODULE, spool 65 lt/min, PVED - ON/OFF",
+      "sheet_region": "Slice EV-6.6, far right active slice"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "Mast Block Danfoss PVG 32 Manifold",
+    "target_node_id": "570-danfoss-pvg-32-mast-block",
+    "facts": [
+     "Provides common P, T, LSA, and LSB rails to all six function slices on the sheet.",
+     "Includes an inlet section block with a standalone auxiliary valve at the left edge.",
+     "Includes a closing end plate at the right edge."
+    ]
+   }
+  ],
+  "discarded_as_clutter": [
+   "Part numbers mapping to internal components (e.g. 157B7122, 11166832, 157B6203, ENE8E63) omitted in favor of component roles.",
+   "Extraction metadata (e.g. `_model: gemini...`) ignored.",
+   "Extracted references to 'Exact internal connections of the uppermost spool envelope' discarded as standard float center representation."
+  ],
+  "uncertainties": [
+   "The relief valve setting for EV-6.6 port A was extracted as 230 bar, which diverges slightly from the 250 bar printed on identical neighboring winch slices. Recorded as 230 bar per extraction, but may be an illegible 250 bar."
+  ],
+  "_model": "gemini-3.1-pro-preview",
+  "_protocol_version": 3
+ },
+ "elapsed_s": 65.5
+}

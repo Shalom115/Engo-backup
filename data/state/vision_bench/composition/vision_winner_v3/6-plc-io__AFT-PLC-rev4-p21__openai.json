@@ -1,0 +1,144 @@
+{
+ "category": "6-plc-io",
+ "sheet": "AFT-PLC-rev4-p21",
+ "vendor": "openai",
+ "drawing_class": "plc",
+ "composition": {
+  "serve_who": "AFT hydraulic-system automation output detail serving three named mechanisms: the transom door (EV-10.1A/B), deck door (EV-10.2A/B), and mainsheet traveler (EV-10.3A/B). The equipment ownership follows the destination labels printed beside each drawn output channel; the WAGO 750-508 modules, their printed positions 13\u201315, CPU association, commons, and connector routing belong to the AFT PLC I/O rack infrastructure rather than to any one mechanism.",
+  "equipment_groups": [
+   {
+    "target_node_id": "260-transom-door",
+    "equipment_name": "Transom Door",
+    "placement_reasoning": "Both channels in the left-hand circuit are explicitly labelled \u201ctransom door\u201d and identify CLOSE/OPEN pilot outputs EV-10.1A and EV-10.1B, matching the authoritative transom-door mapping.",
+    "functions": [
+     {
+      "function_id": "transom-door-direction-command",
+      "label": "Command transom door closed or open",
+      "what_it_does": "Issues the two mutually directional PLC output commands for transom-door hydraulic movement: EV-10.1A commands CLOSE and EV-10.1B commands OPEN.",
+      "flow_scenarios": [
+       {
+        "state": "Neutral/default",
+        "path": "DO-03 channels 01 and 02 de-energised \u2192 no switched output through the position-13 Type I connector \u2192 EV-10.1A and EV-10.1B not commanded; the resulting hydraulic holding state is not shown on this sheet. Measure either channel relative to the position-13 output module\u2019s M common."
+       },
+       {
+        "state": "CLOSE command",
+        "path": "Channel 01 of module position 13 in the AFT PLC I/O rack energises EV-10.1A = transom door CLOSE: DO-03 CH01 \u2192 drawn switched conductor \u2192 Type I connector pin 1 \u2192 off-sheet continuation to EV-10.1A; paired module M/common return \u2192 connector pin 2 \u2192 off-sheet return. Channel voltage is measured between CH01 and that same position-13 module M common."
+       },
+       {
+        "state": "OPEN command",
+        "path": "Channel 02 of module position 13 in the AFT PLC I/O rack energises EV-10.1B = transom door OPEN: DO-03 CH02 \u2192 drawn switched conductor \u2192 Type I connector pin 4 \u2192 off-sheet continuation to EV-10.1B; paired module M/common return \u2192 connector pin 3 \u2192 off-sheet return. Channel voltage is measured between CH02 and that same position-13 module M common."
+       }
+      ],
+      "key_components": [
+       "PLC digital-output command channels \u2014 DO-03 CH01/CH02",
+       "Hydraulic pilot devices \u2014 EV-10.1A CLOSE and EV-10.1B OPEN; established type PVEO ON/OFF",
+       "Four-pin field connector \u2014 Type I, with CH01 on pins 1/2 and CH02 on pins 4/3",
+       "Per-module measurement reference/return \u2014 WAGO M common"
+      ],
+      "dry_data": "Command module: WAGO 2DO Type 750-508 at printed position 13, associated CPU 750-8213; hydraulic pilot actuation: EV-10.1 PVEO ON/OFF; output/supply voltage and protective-device rating are not stated on this sheet.",
+      "sheet_region": "Left third, approximately zones B2\u2013E3: DO-03 position 13, transom-door labels, and left Type I connector."
+     }
+    ]
+   },
+   {
+    "target_node_id": "260-deck-door",
+    "equipment_name": "Deck Door",
+    "placement_reasoning": "Both channels in the centre circuit are explicitly labelled \u201cdeck door\u201d and identify OPEN/CLOSE outputs EV-10.2A and EV-10.2B, matching the authoritative deck-door mapping.",
+    "functions": [
+     {
+      "function_id": "deck-door-direction-command",
+      "label": "Command deck door open or closed",
+      "what_it_does": "Issues the two directional PLC output commands for deck-door hydraulic movement: EV-10.2A commands OPEN and EV-10.2B commands CLOSE.",
+      "flow_scenarios": [
+       {
+        "state": "Neutral/default",
+        "path": "DO-04 channels 01 and 02 de-energised \u2192 no switched output through the position-14 Type I connector \u2192 EV-10.2A and EV-10.2B not commanded; the resulting hydraulic holding state is not shown on this sheet. Measure either channel relative to the position-14 output module\u2019s M common."
+       },
+       {
+        "state": "OPEN command",
+        "path": "Channel 01 of module position 14 in the AFT PLC I/O rack energises EV-10.2A = deck door OPEN: DO-04 CH01 \u2192 drawn switched conductor \u2192 Type I connector pin 1 \u2192 off-sheet continuation to EV-10.2A; paired module M/common return \u2192 connector pin 2 \u2192 off-sheet return. Channel voltage is measured between CH01 and that same position-14 module M common."
+       },
+       {
+        "state": "CLOSE command",
+        "path": "Channel 02 of module position 14 in the AFT PLC I/O rack energises EV-10.2B = deck door CLOSE: DO-04 CH02 \u2192 drawn switched conductor \u2192 Type I connector pin 4 \u2192 off-sheet continuation to EV-10.2B; paired module M/common return \u2192 connector pin 3 \u2192 off-sheet return. Channel voltage is measured between CH02 and that same position-14 module M common."
+       }
+      ],
+      "key_components": [
+       "PLC digital-output command channels \u2014 DO-04 CH01/CH02",
+       "Hydraulic pilot devices \u2014 EV-10.2A OPEN and EV-10.2B CLOSE; pilot device type retained as a hydraulic-manifold function but not identified on this sheet",
+       "Four-pin field connector \u2014 Type I, with CH01 on pins 1/2 and CH02 on pins 4/3",
+       "Per-module measurement reference/return \u2014 WAGO M common"
+      ],
+      "dry_data": "Command module: WAGO 2DO Type 750-508 at printed position 14, associated CPU 750-8213; digital two-direction command; hydraulic pilot-device type, output/supply voltage, and protective-device rating are not stated on this sheet.",
+      "sheet_region": "Centre third, approximately zones B4\u2013E5: DO-04 position 14, deck-door labels, and centre Type I connector."
+     }
+    ]
+   },
+   {
+    "target_node_id": "840-cariboni-hydraulic-cylinders",
+    "equipment_name": "Mainsheet Traveler / Cariboni Hydraulic Cylinders",
+    "placement_reasoning": "Both channels in the right-hand circuit are explicitly labelled \u201cmainsheet traveler\u201d and command TO PORT/TO STBD movement; the authoritative mapping assigns mainsheet traveller functions to the Cariboni hydraulic-cylinders node.",
+    "functions": [
+     {
+      "function_id": "mainsheet-traveler-side-command",
+      "label": "Move mainsheet traveler to port or starboard",
+      "what_it_does": "Issues the two directional PLC output commands that move the mainsheet traveler toward port or starboard: EV-10.3A commands TO PORT and EV-10.3B commands TO STBD.",
+      "flow_scenarios": [
+       {
+        "state": "Neutral/default",
+        "path": "DO-05 channels 01 and 02 de-energised \u2192 no switched output through the position-15 Type I connector \u2192 EV-10.3A and EV-10.3B not commanded; the resulting hydraulic holding state is not shown on this sheet. Measure either channel relative to the position-15 output module\u2019s M common."
+       },
+       {
+        "state": "TO PORT command",
+        "path": "Channel 01 of module position 15 in the AFT PLC I/O rack energises EV-10.3A = mainsheet traveler TO PORT: DO-05 CH01 \u2192 drawn switched conductor \u2192 Type I connector pin 1 \u2192 off-sheet continuation to EV-10.3A; paired module M/common return \u2192 connector pin 2 \u2192 off-sheet return. Channel voltage is measured between CH01 and that same position-15 module M common."
+       },
+       {
+        "state": "TO STBD command",
+        "path": "Channel 02 of module position 15 in the AFT PLC I/O rack energises EV-10.3B = mainsheet traveler TO STBD: DO-05 CH02 \u2192 drawn switched conductor \u2192 Type I connector pin 4 \u2192 off-sheet continuation to EV-10.3B; paired module M/common return \u2192 connector pin 3 \u2192 off-sheet return. Channel voltage is measured between CH02 and that same position-15 module M common."
+       }
+      ],
+      "key_components": [
+       "PLC digital-output command channels \u2014 DO-05 CH01/CH02",
+       "Hydraulic pilot devices \u2014 EV-10.3A TO PORT and EV-10.3B TO STBD; pilot device type retained as a hydraulic-manifold function but not identified on this sheet",
+       "Four-pin field connector \u2014 Type I, with CH01 on pins 1/2 and CH02 on pins 4/3",
+       "Per-module measurement reference/return \u2014 WAGO M common"
+      ],
+      "dry_data": "Command module: WAGO 2DO Type 750-508 at printed position 15, associated CPU 750-8213; digital port/starboard command. Existing Cariboni node data describes PVED ON/OFF and 25 l/min spools generally, but this sheet does not establish that rating/type specifically for EV-10.3; output/supply voltage and protection are not stated.",
+      "sheet_region": "Right third, approximately zones B6\u2013E8: DO-05 position 15, mainsheet-traveler labels, and right Type I connector."
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "AFT PLC I/O Rack (WAGO)",
+    "target_node_id": "570-plc-rack-aft",
+    "facts": [
+     "This detail inventories three WAGO two-channel digital-output modules: DO-03 Type 750-508 at printed position 13, DO-04 Type 750-508 at printed position 14, and DO-05 Type 750-508 at printed position 15.",
+     "All three modules are printed as associated with CPU 750-8213.",
+     "Each output module has its own WAGO M common/reference; channel voltage is checked relative to the M common of the same module, not to a neighbouring module.",
+     "Each module routes two output circuits through a separate four-pin Connector Type I: CH01 uses pins 1/2 and CH02 uses pins 4/3; all three connectors continue to sheet 4.",
+     "The drawn topology ends at the off-sheet connector continuation. No local switch, relay, contactor, status feedback, alarm tap, incoming field-power source, fuse, breaker, or protective rating is shown.",
+     "The sheet is a detail page, not the complete rack-layout index; positions 13\u201315 are accepted only from their printed labels, and no unshown coupler, power-supply module, or other rack position is inferred."
+    ]
+   }
+  ],
+  "discarded_as_clutter": [
+   "Top legend rows repeating the three module types/positions already captured in the rack inventory",
+   "Repeated \u201c2DO,\u201d TYPE 750-508, CPU 750-8213, and position annotations where they duplicate the circuit facts",
+   "Three repeated \u201cCONNECTOR TYPE I (see sheet 4)\u201d captions after retaining each connector\u2019s actual pin routing",
+   "Drawing border, zone grid, DIN 34 rights notice, company contact block, revision history, signatures, scale fields, and title-block administration",
+   "Revision note \u201cSUBSTITUTE WINCHES MODULES FROM DIGITAL TO ANALOG,\u201d because it is change-history metadata and does not alter the three door/traveler digital circuits drawn here"
+  ],
+  "uncertainties": [
+   "The external wiring and actual EV pilot-device terminations continue on sheet 4, so the command-chain walk legitimately ends off-sheet at each Type I connector.",
+   "No incoming field-power source, nominal output voltage, fuse/breaker, or protective rating is identified on this sheet.",
+   "The hydraulic pilot-device types for EV-10.2A/B and EV-10.3A/B are not established by this sheet or the supplied established facts; they must not be reduced to generic bare solenoids or guessed.",
+   "The sheet does not show software interlocking or electrical prevention of simultaneous opposing outputs; no such interlock is inferred.",
+   "The neutral hydraulic valve/cylinder behavior and hydraulic pressure/return paths are outside this electrical detail and cannot be composed from the drawn lines here."
+  ],
+  "_model": "gpt-5.6-sol",
+  "_protocol_version": 3
+ },
+ "elapsed_s": 47.8
+}

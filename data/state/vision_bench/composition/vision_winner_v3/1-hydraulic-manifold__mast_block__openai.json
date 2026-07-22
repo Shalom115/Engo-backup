@@ -1,0 +1,241 @@
+{
+ "category": "1-hydraulic-manifold",
+ "sheet": "mast_block",
+ "vendor": "openai",
+ "drawing_class": "hydraulic",
+ "composition": {
+  "serve_who": "Sheet 5 of 12 is the Danfoss PVG 32 mast manifold: its six titled function slices serve the lifting keel (up/down and locks) and four individually named mast winches, while the common inlet, P/T/load-sense rails, spool-control-pressure supply, and end section serve the mast-block manifold itself. This assignment follows the sheet title \u201cMAST BLOCK: DANFOSS PVG 32 \u2013 6 FUNCTIONS,\u201d the six EV-6.x headings, and each slice\u2019s printed A/B command mapping.",
+  "equipment_groups": [
+   {
+    "target_node_id": "130-apm-lifting-keel",
+    "equipment_name": "APM lifting keel",
+    "placement_reasoning": "Both EV-6.1 \u201cLIFTING KEEL UP/DOWN\u201d and EV-6.2 \u201cLIFTING KEEL LOCKS\u201d explicitly name functions of the lifting keel, so both attach to the established lifting-keel node rather than to the manifold node.",
+    "functions": [
+     {
+      "function_id": "EV-6.1",
+      "label": "Raise and lower the lifting keel",
+      "what_it_does": "Proportionally directs hydraulic oil to lower or raise the lifting keel, with A assigned to DOWN and B assigned to UP.",
+      "flow_scenarios": [
+       {
+        "state": "Neutral/default",
+        "path": "Manifold P supply \u2192 EV-6.1 open-neutral PVG spool \u2192 manifold T return; the A and B hoses remain associated only with the lifting-keel actuator, and the section load signal relaxes through the drawn load-sense network."
+       },
+       {
+        "state": "DOWN command (<5 V, A)",
+        "path": "Manifold P supply \u2192 EV-6.1 proportional spool \u2192 work port A \u2192 lifting-keel DOWN side; oil from the opposite actuator side \u2192 work port B \u2192 spool \u2192 T return. The A-side load signal passes through the drawn shuttle/LS limiter network; its printed limiter setting is not reliably readable."
+       },
+       {
+        "state": "UP command (>5 V, B)",
+        "path": "Manifold P supply \u2192 EV-6.1 proportional spool \u2192 work port B \u2192 lifting-keel UP side; oil from the opposite actuator side \u2192 work port A \u2192 spool \u2192 T return. The B-side load signal passes through the drawn shuttle/LS limiter network; its printed limiter setting is not reliably readable."
+       }
+      ],
+      "key_components": [
+       "Proportional PVEU pilot module directing the main spool (assembly 11166832)",
+       "40 l/min main directional spool",
+       "A/B load-sense selector/shuttle network",
+       "Adjustable load-sense pressure limiters on the two work-port sensing branches"
+      ],
+      "dry_data": "Danfoss PVG 32 module; 40 l/min spool; proportional PVEU 0\u201310 V; DOWN <5 V=A, UP >5 V=B; open neutral; established cartridges include 11166832 and 15785111.",
+      "sheet_region": "Leftmost function slice, EV-6.1, approximately x=20\u201331% of the schematic body."
+     },
+     {
+      "function_id": "EV-6.2",
+      "label": "Insert and withdraw the lifting-keel locks",
+      "what_it_does": "Operates the lifting-keel locking actuators, sending oil to insert the locks on A or withdraw them on B.",
+      "flow_scenarios": [
+       {
+        "state": "Neutral/default",
+        "path": "EV-6.2 PVEO de-energized \u2192 closed-neutral spool blocks P from A/B and blocks actuator return through the spool, hydraulically holding the lock circuit."
+       },
+       {
+        "state": "Locks IN command (A)",
+        "path": "Manifold P supply \u2192 section pressure-control/compensating stage \u2192 EV-6.2 shifted spool \u2192 work port A \u2192 lifting-keel lock IN side; opposite side \u2192 work port B \u2192 spool \u2192 T return. If A-side pressure reaches 180 bar, the A work-port relief opens \u2192 T return."
+       },
+       {
+        "state": "Locks OUT command (B)",
+        "path": "Manifold P supply \u2192 section pressure-control/compensating stage \u2192 EV-6.2 shifted spool \u2192 work port B \u2192 lifting-keel lock OUT side; opposite side \u2192 work port A \u2192 spool \u2192 T return. If B-side pressure reaches 180 bar, the B work-port relief opens \u2192 T return."
+       }
+      ],
+      "key_components": [
+       "ON/OFF PVEO pilot module directing the main spool (assembly 11166838)",
+       "5 l/min closed-neutral directional spool",
+       "Two 180 bar work-port relief valves",
+       "Work-port pressure selector/shuttle and load-sense path",
+       "Section pressure-control/compensating valve"
+      ],
+      "dry_data": "Danfoss PVG 32 module; 5 l/min spool; PVEO ON/OFF; IN=A, OUT=B; closed neutral.",
+      "sheet_region": "Second function slice, EV-6.2, approximately x=31\u201342% of the schematic body."
+     }
+    ]
+   },
+   {
+    "target_node_id": "220-mast-winch-aft-port",
+    "equipment_name": "Mast winch aft port",
+    "placement_reasoning": "EV-6.3 is explicitly headed \u201cMAST WINCH AFT PORT,\u201d matching the dedicated equipment node.",
+    "functions": [
+     {
+      "function_id": "EV-6.3",
+      "label": "Select aft-port mast-winch gearing",
+      "what_it_does": "Directs oil to the aft-port mast winch\u2019s hydraulic gear-selection actuator: A selects 1st/3rd gear and B selects 2nd gear.",
+      "flow_scenarios": [
+       {
+        "state": "Neutral/default",
+        "path": "PVEO de-energized \u2192 EV-6.3 spool in open neutral \u2192 manifold P gallery unloaded toward T; no commanded gear-selection pressure is applied to A or B."
+       },
+       {
+        "state": "Select 1st/3rd gear (A)",
+        "path": "Manifold P supply \u2192 EV-6.3 spool \u2192 work port A \u2192 aft-port mast-winch 1st/3rd-gear actuator side; opposite side \u2192 B \u2192 spool \u2192 T return. If A pressure reaches 250 bar, the A-side work-port relief opens \u2192 T return."
+       },
+       {
+        "state": "Select 2nd gear (B)",
+        "path": "Manifold P supply \u2192 EV-6.3 spool \u2192 work port B \u2192 aft-port mast-winch 2nd-gear actuator side; opposite side \u2192 A \u2192 spool \u2192 T return. If B pressure reaches 230 bar, the B-side work-port relief opens \u2192 T return."
+       }
+      ],
+      "key_components": [
+       "ON/OFF PVEO pilot module directing the spool",
+       "65 l/min open-neutral directional spool",
+       "A-side 250 bar and B-side 230 bar work-port relief valves",
+       "Load-sense selector/check network"
+      ],
+      "dry_data": "Danfoss PVG 32 module; 65 l/min spool; PVEO ON/OFF; A=1st/3rd gear, B=2nd gear; open neutral.",
+      "sheet_region": "Third function slice, EV-6.3, approximately x=42\u201353% of the schematic body."
+     }
+    ]
+   },
+   {
+    "target_node_id": "220-mast-winch-fwd-port",
+    "equipment_name": "Mast winch forward port",
+    "placement_reasoning": "EV-6.4 is explicitly headed \u201cMAST WINCH FWD PORT,\u201d matching the dedicated equipment node.",
+    "functions": [
+     {
+      "function_id": "EV-6.4",
+      "label": "Select forward-port mast-winch gearing",
+      "what_it_does": "Directs oil to the forward-port mast winch\u2019s hydraulic gear-selection actuator: A selects 1st/3rd gear and B selects 2nd gear.",
+      "flow_scenarios": [
+       {
+        "state": "Neutral/default",
+        "path": "PVEO de-energized \u2192 EV-6.4 spool in open neutral \u2192 manifold P gallery unloaded toward T; no commanded gear-selection pressure is applied to A or B."
+       },
+       {
+        "state": "Select 1st/3rd gear (A)",
+        "path": "Manifold P supply \u2192 EV-6.4 spool \u2192 work port A \u2192 forward-port mast-winch 1st/3rd-gear actuator side; opposite side \u2192 B \u2192 spool \u2192 T return. The associated work-port relief/check cartridge protects this branch; the two shown settings are 250 and 225 bar, but their A-versus-B assignment is not reliably resolvable."
+       },
+       {
+        "state": "Select 2nd gear (B)",
+        "path": "Manifold P supply \u2192 EV-6.4 spool \u2192 work port B \u2192 forward-port mast-winch 2nd-gear actuator side; opposite side \u2192 A \u2192 spool \u2192 T return. The associated work-port relief/check cartridge protects this branch; the two shown settings are 250 and 225 bar, but their A-versus-B assignment is not reliably resolvable."
+       }
+      ],
+      "key_components": [
+       "ON/OFF PVEO pilot module directing the spool (assembly 11166838)",
+       "65 l/min open-neutral directional spool",
+       "Two work-port relief valves set 250 bar and 225 bar, with anti-cavitation/make-up checks",
+       "Load-sense selector/check network"
+      ],
+      "dry_data": "Danfoss PVG 32 module; 65 l/min spool; PVEO ON/OFF; A=1st/3rd gear, B=2nd gear; open neutral; established cartridges include 11166838 and 157B6203.",
+      "sheet_region": "Fourth function slice, EV-6.4, approximately x=53\u201364% of the schematic body."
+     }
+    ]
+   },
+   {
+    "target_node_id": "220-mast-winch-aft-stbd",
+    "equipment_name": "Mast winch aft starboard",
+    "placement_reasoning": "EV-6.5 is explicitly headed \u201cMAST WINCH AFT STBD,\u201d matching the dedicated equipment node.",
+    "functions": [
+     {
+      "function_id": "EV-6.5",
+      "label": "Select aft-starboard mast-winch gearing",
+      "what_it_does": "Directs oil to the aft-starboard mast winch\u2019s hydraulic gear-selection actuator: A selects 1st/3rd gear and B selects 2nd gear.",
+      "flow_scenarios": [
+       {
+        "state": "Neutral/default",
+        "path": "PVEO de-energized \u2192 EV-6.5 spool in open neutral \u2192 manifold P gallery unloaded toward T; no commanded gear-selection pressure is applied to A or B."
+       },
+       {
+        "state": "Select 1st/3rd gear (A)",
+        "path": "Manifold P supply \u2192 EV-6.5 spool \u2192 work port A \u2192 aft-starboard mast-winch 1st/3rd-gear actuator side; opposite side \u2192 B \u2192 spool \u2192 T return. If A pressure reaches 250 bar, the A-side work-port relief opens \u2192 T return."
+       },
+       {
+        "state": "Select 2nd gear (B)",
+        "path": "Manifold P supply \u2192 EV-6.5 spool \u2192 work port B \u2192 aft-starboard mast-winch 2nd-gear actuator side; opposite side \u2192 A \u2192 spool \u2192 T return. If B pressure reaches 225 bar, the B-side work-port relief opens \u2192 T return."
+       }
+      ],
+      "key_components": [
+       "ON/OFF PVEO pilot module directing the spool (assembly 11166838)",
+       "65 l/min open-neutral directional spool",
+       "A-side 250 bar and B-side 225 bar work-port relief valves",
+       "Load-sense selector/shuttle and pilot-line damping restriction"
+      ],
+      "dry_data": "Danfoss PVG 32 module; 65 l/min spool; PVEO ON/OFF; A=1st/3rd gear, B=2nd gear; open neutral.",
+      "sheet_region": "Fifth function slice, EV-6.5, approximately x=64\u201375% of the schematic body."
+     }
+    ]
+   },
+   {
+    "target_node_id": "220-mast-winch-fwd-stbd",
+    "equipment_name": "Mast winch forward starboard",
+    "placement_reasoning": "EV-6.6 is explicitly headed \u201cMAST WINCH FWD STBD,\u201d matching the dedicated equipment node.",
+    "functions": [
+     {
+      "function_id": "EV-6.6",
+      "label": "Select forward-starboard mast-winch gearing",
+      "what_it_does": "Directs oil to the forward-starboard mast winch\u2019s hydraulic gear-selection actuator: A selects 1st/3rd gear and B selects 2nd gear.",
+      "flow_scenarios": [
+       {
+        "state": "Neutral/default",
+        "path": "PVEO de-energized \u2192 EV-6.6 spool in open neutral \u2192 manifold P gallery unloaded toward T; no commanded gear-selection pressure is applied to A or B."
+       },
+       {
+        "state": "Select 1st/3rd gear (A)",
+        "path": "Manifold P supply \u2192 EV-6.6 spool \u2192 work port A \u2192 forward-starboard mast-winch 1st/3rd-gear actuator side; opposite side \u2192 B \u2192 spool \u2192 T return. If A pressure reaches 225 bar, the A-side work-port relief opens \u2192 T return."
+       },
+       {
+        "state": "Select 2nd gear (B)",
+        "path": "Manifold P supply \u2192 EV-6.6 spool \u2192 work port B \u2192 forward-starboard mast-winch 2nd-gear actuator side; opposite side \u2192 A \u2192 spool \u2192 T return. If B pressure reaches 230 bar, the B-side work-port relief opens \u2192 T return."
+       }
+      ],
+      "key_components": [
+       "ON/OFF PVEO pilot module directing the spool (assembly 11166838)",
+       "65 l/min open-neutral directional spool",
+       "A-side 225 bar and B-side 230 bar work-port relief valves",
+       "Internal load-sense selector/check"
+      ],
+      "dry_data": "Danfoss PVG 32 module; 65 l/min spool; PVEO ON/OFF; A=1st/3rd gear, B=2nd gear; open neutral; established cartridges include 15786203 and 15782014.",
+      "sheet_region": "Sixth/rightmost function slice, EV-6.6, approximately x=75\u201387% of the schematic body."
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "Danfoss PVG 32 mast block common hydraulic infrastructure",
+    "target_node_id": "570-danfoss-pvg-32-mast-block",
+    "facts": [
+     "Six-section mast manifold comprising EV-6.1 through EV-6.6, with a common inlet at far left and end section at far right.",
+     "Common drawn galleries/rails are P pressure supply, T tank return, LS load-sense, and sectional LS_A/LS_B signal rails; work ports A/B leave only their own named function slice for that function\u2019s actuator.",
+     "The inlet section contains the main block pressure-relief valve set to 300 bar, discharging from the pressure passage to T.",
+     "The standalone reduced-pressure valve in the inlet section supplies spool-control/pilot pressure to the slice pilot modules.",
+     "An M measuring/test connection is drawn on the inlet/control passage.",
+     "Load-sense shuttles/selectors and section compensating/control elements communicate active load demand into the common LS structure.",
+     "The right-hand end section terminates the common manifold galleries; it is not an additional equipment function."
+    ]
+   }
+  ],
+  "discarded_as_clutter": [
+   "Duplicate legend/table restatements of each slice\u2019s rating, actuation, command mapping, and neutral state after those facts were composed into the functions",
+   "Drawing title-block administration, company/contact/copyright text, scale, job number, sheet number, drafter/checker, and record dates",
+   "Revision-table rows 0\u20139 as document history unrelated to the six operational paths",
+   "Red warning triangles marked 8: revision markers for revision 8 \u201cPRESSURE AFTER COMMISSIONING,\u201d not hydraulic components",
+   "Repeated fine-print cartridge identifiers where they do not add an operational role",
+   "Prior-extraction pseudo-slices \u201cBlock inlet/end pressure and load-sense control section\u201d and \u201cBlock end section\u201d treated as equipment functions; these are manifold infrastructure, not extra served equipment"
+  ],
+  "uncertainties": [
+   "EV-6.1 has two printed load-sense limiter values, but the exact digits cannot be read cleanly enough from this sheet image; no values are asserted.",
+   "EV-6.4 clearly shows 250 bar and 225 bar work-port relief settings, but the line walk at this resolution does not securely assign which value belongs to external port A versus port B.",
+   "Some fine-print cartridge/spool part numbers are too small to capture; their identified operational roles are retained, and part numbers can be captured at inspection if ever needed.",
+   "Revision 10 is titled \u201cPROPORTIONAL AFT WINCHES,\u201d yet the visible EV-6.3 and EV-6.5 legends read PVEO ON/OFF; no proportional command characteristic is inferred without a drawn/printed slice-level mapping."
+  ],
+  "_model": "gpt-5.6-sol",
+  "_protocol_version": 3
+ },
+ "elapsed_s": 83.9
+}

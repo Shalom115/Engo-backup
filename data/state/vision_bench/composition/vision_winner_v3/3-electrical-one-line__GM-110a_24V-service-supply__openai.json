@@ -1,0 +1,350 @@
+{
+ "category": "3-electrical-one-line",
+ "sheet": "GM-110a_24V-service-supply",
+ "vendor": "openai",
+ "drawing_class": "electrical",
+ "composition": {
+  "serve_who": "GMMS 108\u2019-110a is the vessel\u2019s 24 V DC service-supply one-line. It principally serves the DC distribution system by showing how four MAPS outputs, one 230 V AC/24 V DC standby converter, and the auxiliary-service battery are selected onto the +24 V service bus, then distributed to the forward/aft DC panels, main bilge pump, fire pump, and low-voltage BAE panel. The left side also shows the port/starboard HVPDU 600 V buses feeding the MAPS units; the lower and centre regions show shared return, sensing, selector, terminal-strip, relay, and PC-card infrastructure. Named outgoing loads are attached to their own equipment nodes rather than absorbed into the panel.",
+  "equipment_groups": [
+   {
+    "target_node_id": "626-maps-p",
+    "equipment_name": "MAPS-P (port)",
+    "placement_reasoning": "The upper-left conversion block is explicitly labelled PORT MAPS-1/2 and is fed from the PORT HVPDU 600 V DC bus, matching the authoritative MAPS-P mapping.",
+    "functions": [
+     {
+      "function_id": "maps_p_service_conversion",
+      "label": "Convert port HVPDU power into redundant 24 V service feeds",
+      "what_it_does": "Provides two independently protected 24 V DC source channels from the port 600 V DC HVPDU supply for connection to the vessel service bus.",
+      "flow_scenarios": [
+       {
+        "state": "neutral / isolated",
+        "path": "PORT HVPDU 600 V DC bus \u2192 Q4 32 A source breaker and PORT MAPS-1/2 inputs \u2192 MAPS 600 V DC/24 V DC converters; with SW1/SO1 and SW2/SO2 open, the two 24 V outputs stop before the +24 V service bus \u2192 converter negative returns \u2192 NEGATIVE BUS."
+       },
+       {
+        "state": "channel 1 connected",
+        "path": "PORT HVPDU 600 V DC bus \u2192 Q4 32 A \u2192 PORT MAPS channel 1 \u2192 F1 250 A \u2192 CT1 \u2192 SW1/SO1 closed \u2192 SHUNT #1 500 A/50 mV \u2192 +24 V SERVICE BUS \u2192 selected service load \u2192 NEGATIVE BUS \u2192 MAPS return."
+       },
+       {
+        "state": "channel 2 connected",
+        "path": "PORT HVPDU 600 V DC bus \u2192 Q4 32 A \u2192 PORT MAPS channel 2 \u2192 F2 250 A \u2192 CT2 \u2192 SW2/SO2 closed \u2192 SHUNT #1 500 A/50 mV \u2192 +24 V SERVICE BUS \u2192 selected service load \u2192 NEGATIVE BUS \u2192 MAPS return."
+       }
+      ],
+      "key_components": [
+       "two 600 V DC/24 V DC conversion channels",
+       "250 A output fuse F1",
+       "250 A output fuse F2",
+       "output-current sensors CT1 and CT2",
+       "coil-operated source isolators SW1/SO1 and SW2/SO2"
+      ],
+      "dry_data": "2 \u00d7 5 kW MAPS channels; 600 V DC input / 24 V DC output; over-current protected and electronically fused; external outputs protected by F1/F2 at 250 A.",
+      "sheet_region": "Upper-left to upper-centre: PORT HVPDU and PORT MAPS-1/2 through F1/F2, CT1/CT2 and SW1/SW2-SO1/SO2."
+     }
+    ]
+   },
+   {
+    "target_node_id": "626-maps-s",
+    "equipment_name": "MAPS-S (starboard)",
+    "placement_reasoning": "The lower-left conversion block is explicitly labelled STBD MAPS-1/2 and is fed from the STBD HVPDU 600 V DC bus, matching the authoritative MAPS-S mapping.",
+    "functions": [
+     {
+      "function_id": "maps_s_service_conversion",
+      "label": "Convert starboard HVPDU power into redundant 24 V service feeds",
+      "what_it_does": "Provides two independently protected 24 V DC source channels from the starboard 600 V DC HVPDU supply for connection to the vessel service bus.",
+      "flow_scenarios": [
+       {
+        "state": "neutral / isolated",
+        "path": "STBD HVPDU 600 V DC bus \u2192 Q4 32 A source breaker and STBD MAPS-1/2 inputs \u2192 MAPS 600 V DC/24 V DC converters; with SW3/SO3 and SW4/SO4 open, the two 24 V outputs stop before the +24 V service bus \u2192 converter negative returns \u2192 NEGATIVE BUS."
+       },
+       {
+        "state": "channel 1 connected",
+        "path": "STBD HVPDU 600 V DC bus \u2192 Q4 32 A \u2192 STBD MAPS channel 1 \u2192 F3 250 A \u2192 CT3 \u2192 SW3/SO3 closed \u2192 SHUNT #1 500 A/50 mV \u2192 +24 V SERVICE BUS \u2192 selected service load \u2192 NEGATIVE BUS \u2192 MAPS return."
+       },
+       {
+        "state": "channel 2 connected",
+        "path": "STBD HVPDU 600 V DC bus \u2192 Q4 32 A \u2192 STBD MAPS channel 2 \u2192 F4 250 A \u2192 CT4 \u2192 SW4/SO4 closed \u2192 SHUNT #1 500 A/50 mV \u2192 +24 V SERVICE BUS \u2192 selected service load \u2192 NEGATIVE BUS \u2192 MAPS return."
+       }
+      ],
+      "key_components": [
+       "two 600 V DC/24 V DC conversion channels",
+       "250 A output fuse F3",
+       "250 A output fuse F4",
+       "output-current sensors CT3 and CT4",
+       "coil-operated source isolators SW3/SO3 and SW4/SO4"
+      ],
+      "dry_data": "2 \u00d7 5 kW MAPS channels; 600 V DC input / 24 V DC output; over-current protected and electronically fused; external outputs protected by F3/F4 at 250 A.",
+      "sheet_region": "Left-centre to centre: STBD HVPDU and STBD MAPS-1/2 through F3/F4, CT3/CT4 and SW3/SW4-SO3/SO4."
+     }
+    ]
+   },
+   {
+    "target_node_id": "634-battery-aux-service",
+    "equipment_name": "Aux Service Battery Bank",
+    "placement_reasoning": "The right-side source is explicitly labelled AUX. SERVICE BAT., 200 Ah, 24 V and matches the register node and established F16 identity.",
+    "functions": [
+     {
+      "function_id": "aux_battery_service_support",
+      "label": "Support the +24 V service bus from the auxiliary-service battery",
+      "what_it_does": "Connects the auxiliary-service battery to the service bus so it can support DC distribution when selected.",
+      "flow_scenarios": [
+       {
+        "state": "neutral / disconnected",
+        "path": "AUX SERVICE BAT. positive \u2192 F16 250 A \u2192 SW11 open; battery is isolated from SHUNT #1 and the +24 V SERVICE BUS \u2192 battery negative \u2192 NEGATIVE BUS."
+       },
+       {
+        "state": "battery connected to service bus",
+        "path": "AUX SERVICE BAT. positive \u2192 F16 250 A \u2192 SW11 closed \u2192 SHUNT #1 500 A/50 mV \u2192 +24 V SERVICE BUS \u2192 selected DC load \u2192 NEGATIVE BUS \u2192 AUX SERVICE BAT. negative."
+       }
+      ],
+      "key_components": [
+       "24 V auxiliary-service battery bank",
+       "250 A battery fuse F16",
+       "battery/service isolator SW11",
+       "service-current shunt SHUNT #1"
+      ],
+      "dry_data": "24 V DC, 200 Ah; main protection F16 250 A; bus current measurement 500 A/50 mV.",
+      "sheet_region": "Upper-right: AUX. SERVICE BAT., F16, SW11, SHUNT #1 and +24 V SERVICE BUS."
+     }
+    ]
+   },
+   {
+    "target_node_id": "633-battery-gen-start",
+    "equipment_name": "Generator Start Battery Bank",
+    "placement_reasoning": "A separately drawn branch is labelled \u201cto GEN. START BAT.\u201d; the register contains the matching generator-start battery node, so this branch is not merged with the auxiliary-service battery system.",
+    "functions": [
+     {
+      "function_id": "gen_start_battery_link",
+      "label": "Connect the generator-start battery branch to the service-supply switching point",
+      "what_it_does": "Provides a switched electrical link between the service-supply junction at SW11 and the off-sheet generator-start battery circuit.",
+      "flow_scenarios": [
+       {
+        "state": "neutral / link open",
+        "path": "Service-supply junction at SW11 \u2192 SO9 open \u2192 off-sheet GEN. START BAT. branch disconnected; generator-start battery negative return is shown separately on the NEGATIVE BUS."
+       },
+       {
+        "state": "link closed",
+        "path": "Service-supply junction at SW11 \u2192 SO9 closed \u2192 off-sheet continuation \u201cto GEN. START BAT.\u201d \u2192 generator-start battery circuit \u2192 GEN START BAT. negative connection \u2192 NEGATIVE BUS."
+       }
+      ],
+      "key_components": [
+       "coil-operated link contact SO9",
+       "off-sheet generator-start battery continuation",
+       "negative-bus return connection"
+      ],
+      "dry_data": "24 V DC battery-link branch; SO9 coil-operated contact; branch rating not stated on this sheet.",
+      "sheet_region": "Upper-right above AUX SERVICE BAT.: SO9 and arrow \u201cto GEN. START BAT.\u201d; return named on lower NEGATIVE BUS."
+     }
+    ]
+   },
+   {
+    "target_node_id": "520-main-bilge-pump",
+    "equipment_name": "Main Bilge Pump \u2014 Gianneschi ACB 431 B",
+    "placement_reasoning": "The +24 V service-bus outgoing branch is explicitly named BILGE PUMP, which the authoritative mapping assigns to the main bilge-pump node; this supplements its established multi-switch control-loop fact without merging it with the separate fire pump.",
+    "functions": [
+     {
+      "function_id": "main_bilge_pump_power_feed",
+      "label": "Supply 24 V DC power to the main bilge pump",
+      "what_it_does": "Provides the high-current service-bus feed that allows the main bilge pump contactor branch to run the pump when enabled.",
+      "flow_scenarios": [
+       {
+        "state": "neutral / pump feed isolated",
+        "path": "+24 V SERVICE BUS \u2192 F7 60 A \u2192 SW8 and/or SO6 open \u2192 BILGE PUMP de-energized \u2192 pump negative remains connected to NEGATIVE BUS."
+       },
+       {
+        "state": "pump feed enabled",
+        "path": "+24 V SERVICE BUS \u2192 F7 60 A \u2192 SW8 closed \u2192 SO6 closed by the pump control loop \u2192 BILGE PUMP \u2192 NEGATIVE BUS \u2192 active service source return."
+       }
+      ],
+      "key_components": [
+       "60 A feeder fuse F7",
+       "manual feeder isolator SW8",
+       "coil-operated power contact SO6",
+       "negative-bus return"
+      ],
+      "dry_data": "24 V DC high-current branch; F7 60 A; model identity established as Gianneschi ACB 431 B; detailed alternative control commands are on GM-114a, not redrawn here.",
+      "sheet_region": "Right-centre: +24 V SERVICE BUS branch F7-SW8-SO6 to BILGE PUMP; lower NEGATIVE BUS return."
+     }
+    ]
+   },
+   {
+    "target_node_id": "520-fire-pump",
+    "equipment_name": "Fire Pump \u2014 Gianneschi ACB 431 B",
+    "placement_reasoning": "The adjacent outgoing branch is explicitly named FIRE PUMP and maps to the separate fire-pump node; established facts confirm it is physically distinct from the main bilge pump despite sharing the same model.",
+    "functions": [
+     {
+      "function_id": "fire_pump_power_feed",
+      "label": "Supply 24 V DC power to the electric fire pump",
+      "what_it_does": "Provides the high-current service-bus feed that allows the electric fire pump contactor branch to run the pump when enabled.",
+      "flow_scenarios": [
+       {
+        "state": "neutral / pump feed isolated",
+        "path": "+24 V SERVICE BUS \u2192 F8 60 A \u2192 SW9 and/or SO7 open \u2192 FIRE PUMP de-energized \u2192 pump negative remains connected to NEGATIVE BUS."
+       },
+       {
+        "state": "pump feed enabled",
+        "path": "+24 V SERVICE BUS \u2192 F8 60 A \u2192 SW9 closed \u2192 SO7 closed by its control circuit \u2192 FIRE PUMP \u2192 NEGATIVE BUS \u2192 active service source return."
+       }
+      ],
+      "key_components": [
+       "60 A feeder fuse F8",
+       "manual feeder isolator SW9",
+       "coil-operated power contact SO7",
+       "negative-bus return"
+      ],
+      "dry_data": "24 V DC high-current branch; F8 60 A; model identity established as Gianneschi ACB 431 B; separate physical pump from the main bilge pump.",
+      "sheet_region": "Right-centre: +24 V SERVICE BUS branch F8-SW9-SO7 to FIRE PUMP; lower NEGATIVE BUS return."
+     }
+    ]
+   },
+   {
+    "target_node_id": "625-bae-system",
+    "equipment_name": "BAE Hybrid System \u2014 low-voltage panel feed and sensing",
+    "placement_reasoning": "The rightmost outgoing branch is labelled LV. BAE PANEL and terminates at a BAE voltage-sense continuation; the BAE system is a distinct named system and has its own hub node.",
+    "functions": [
+     {
+      "function_id": "lv_bae_panel_supply",
+      "label": "Supply the low-voltage BAE panel",
+      "what_it_does": "Feeds the BAE low-voltage panel from the vessel +24 V service bus and provides branch current measurement.",
+      "flow_scenarios": [
+       {
+        "state": "neutral / BAE feeder isolated",
+        "path": "+24 V SERVICE BUS \u2192 F9 125 A \u2192 SW10 and/or SO8 open \u2192 CT6 and LV. BAE PANEL de-energized \u2192 panel negative \u2192 NEGATIVE BUS."
+       },
+       {
+        "state": "BAE feeder connected",
+        "path": "+24 V SERVICE BUS \u2192 F9 125 A \u2192 SW10 closed \u2192 SO8 closed \u2192 CT6 \u2192 LV. BAE PANEL \u2192 NEGATIVE BUS \u2192 active service source return."
+       }
+      ],
+      "key_components": [
+       "125 A feeder fuse F9",
+       "feeder isolator SW10",
+       "coil-operated feeder contact SO8",
+       "branch-current sensor CT6"
+      ],
+      "dry_data": "24 V DC feeder; F9 125 A; current sensing by CT6; downstream panel details continue on DWG 110b.",
+      "sheet_region": "Far right-centre: F9-SW10-SO8-CT6 to LV. BAE PANEL."
+     },
+     {
+      "function_id": "bae_voltage_sensing",
+      "label": "Provide service-bus voltage sense to BAE controls",
+      "what_it_does": "Carries a drawn voltage-sense signal from the shunt/terminal area toward the BAE control system.",
+      "flow_scenarios": [
+       {
+        "state": "default monitoring",
+        "path": "SHUNT #1 sense taps \u2192 right-side T/S S terminals 1/1/2/3 \u2192 off-sheet continuation \u201cBAE VOLTAGE SENCE\u201d / see DWG 413 \u2192 BAE monitoring input; sensing return follows the drawn terminal wiring."
+       }
+      ],
+      "key_components": [
+       "SHUNT #1 sense taps",
+       "T/S S terminals 1, 1, 2 and 3",
+       "off-sheet BAE voltage-sense continuation"
+      ],
+      "dry_data": "Voltage-sense circuit; shunt main element rated 500 A/50 mV; downstream input details off-sheet.",
+      "sheet_region": "Centre-right below SHUNT #1: T/S S 1/1/2/3, \u201csee DWG 413\u201d and BAE VOLTAGE SENCE arrow."
+     }
+    ]
+   },
+   {
+    "target_node_id": "652-onyx-monitoring",
+    "equipment_name": "ONYX Monitoring & Control",
+    "placement_reasoning": "CT6 has a separately drawn signal continuation explicitly marked \u201cto ONYX\u201d; this is a monitoring output, not inferred command wiring.",
+    "functions": [
+     {
+      "function_id": "lv_bae_feeder_current_monitoring",
+      "label": "Monitor low-voltage BAE feeder current",
+      "what_it_does": "Reports current in the LV BAE panel feeder to ONYX without carrying the feeder\u2019s load current.",
+      "flow_scenarios": [
+       {
+        "state": "default monitoring",
+        "path": "LV BAE feeder conductor through CT6 \u2192 CT6 secondary/signal lead \u2192 drawn arrow \u201cto ONYX\u201d \u2192 ONYX monitoring input; feeder power itself continues separately to LV. BAE PANEL and returns through NEGATIVE BUS."
+       }
+      ],
+      "key_components": [
+       "current sensor CT6",
+       "drawn ONYX signal continuation"
+      ],
+      "dry_data": "Monitoring tap from a 24 V DC feeder; CT6 ratio/range not stated.",
+      "sheet_region": "Far right-lower centre: CT6 on LV BAE feeder with separate arrow \u201cto ONYX\u201d."
+     }
+    ]
+   },
+   {
+    "target_node_id": "641-vessel-control-panel",
+    "equipment_name": "Vessel Control Panel \u2014 emergency indicator supply",
+    "placement_reasoning": "The lower branch is a 6 A QE7 feed to +24 V EMERGENCY POWER, and established facts identify QE7 MAIN PANEL as the supply for main GM panel indicators.",
+    "functions": [
+     {
+      "function_id": "main_panel_emergency_indicator_supply",
+      "label": "Feed the vessel-control-panel indicators from emergency power",
+      "what_it_does": "Provides a protected emergency 24 V supply into the panel interface so essential indication remains available.",
+      "flow_scenarios": [
+       {
+        "state": "neutral / breaker open",
+        "path": "+24 V EMERGENCY POWER source \u2192 QE7 open \u2192 T/S E fused terminal 8 and PC-card/panel indicator circuits de-energized \u2192 NEG return."
+       },
+       {
+        "state": "emergency indicator supply enabled",
+        "path": "+24 V EMERGENCY POWER source \u2192 QE7 6 A closed \u2192 T/S E fused terminal 8 \u2192 vessel-control-panel indicator/interface wiring \u2192 NEG return."
+       }
+      ],
+      "key_components": [
+       "6 A emergency breaker QE7",
+       "built-in replaceable fuse at T/S E terminal 8",
+       "panel PC-card indicator interface"
+      ],
+      "dry_data": "24 V DC emergency indication supply; QE7 6 A; exact fuse rating inside terminal 8 is not printed.",
+      "sheet_region": "Lower-centre: \u201cto +24V EMERGENCY POWER\u201d, QE7 6A and T/S E terminal 8; PC CARD at lower-left."
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "HV Power Distribution Unit \u2014 port and starboard HVPDU",
+    "target_node_id": "620-hvpdu",
+    "facts": [
+     "The PORT and STBD 600 V DC bus bars are the two HVPDU high-voltage buses; they are not a separate backbone system.",
+     "Each HVPDU bank shows Q1-Q4 rated 32 A; only the Q4-to-MAPS connection is drawn on this sheet, so no destinations are assigned to Q1-Q3 here.",
+     "Each side has two 500 A main fuses F1/F2 in the HVPDU bus structure before the lower/upper bus sections.",
+     "PORT Q4 supplies PORT MAPS-1/2; STBD Q4 supplies STBD MAPS-1/2.",
+     "The HVPDU and DC service distribution remain distinct systems despite both participating in the conversion chain."
+    ]
+   },
+   {
+    "system_name": "24 V DC service distribution",
+    "target_node_id": "640-dc-distribution",
+    "facts": [
+     "Owns the +24 V SERVICE BUS, NEGATIVE BUS, SHUNT #1 500 A/50 mV, source isolator bank SW1-SW5/SO1-SO5, terminal strips, relay bank Re1/Re2, and BAE/AUX selector/PC-card interface.",
+     "Five selectable positive source paths reach the common shunt/service bus: PORT MAPS channels through F1/F2 and CT1/CT2; STBD MAPS channels through F3/F4 and CT3/CT4; and the standby 230 V AC/24 V DC converter through F18 125 A and CT5.",
+     "The standby source path is drawn as 230 V AC L/N \u2192 24 V DC converter rated 110 A \u2192 F18 125 A \u2192 CT5 \u2192 SW5/SO5 \u2192 SHUNT #1 \u2192 +24 V SERVICE BUS; its AC source identity is off-sheet.",
+     "The +24 V SERVICE BUS owns the FWD DC PANEL feeder F5 100 A via SW6 and the AFT DC PANEL feeder F6 200 A via SW7.",
+     "All named returns for FWD DC PANEL, AFT DC PANEL, BILGE PUMP, FIRE PUMP, GEN START BAT., EMERGENCY BAT. and AUX SERVICE BAT. terminate on the common NEGATIVE BUS, which is bonded to ship\u2019s ground as drawn.",
+     "The source-isolator command/indication network uses T/S S terminals 4-7 and 8-12 with relays Re1/Re2; several external command conductors continue off-sheet, so only the locally drawn terminal-to-relay/isolator relationships are retained.",
+     "The PC CARD provides ten left and ten right interface pins, indicator channels, BAE/AUX selection, NEG and +EM interfaces; no load identity is assigned to unlabeled indicator channels.",
+     "CTB1-CTB6 are noted as QI-POWER-485-300-LV and CTB7 as the same type for EMERGENCY BAT.; this is panel instrumentation type data, not seven separate systems."
+    ]
+   }
+  ],
+  "discarded_as_clutter": [
+   "Drawing title/revision/date/customer and company title-block data",
+   "Repeated acronym definitions for HVPDU and MAPS after applying them to the identified systems",
+   "Repeated CTB1-CTB7 legend rows after retaining the common type and CTB7 emergency-battery note in infrastructure",
+   "Diamond \u201c70\u201d wire-size callouts treated as conductor annotations, not devices",
+   "Duplicate terminal-strip and isolator entries from overlapping extraction regions",
+   "Unlabelled PC-card lamp-channel repeats retained only as panel infrastructure, not equipment functions",
+   "Cross-reference labels DWG 401a, 413, 110b, 113 and 114 retained only where they mark a genuine off-sheet continuation",
+   "Prior extraction\u2019s incorrect \u201c230V AC\u201d rating on the NEGATIVE BUS; contextual reading is 230 V AC ground (= ship\u2019s ground), while the bus itself is the 24 V DC negative return"
+  ],
+  "uncertainties": [
+   "The 230 V AC source feeding the 24 V/110 A standby converter is off-sheet and not named, so it cannot be attached to a specific AC panel from this drawing alone.",
+   "The exact command logic and normal contact positions for source isolators SO1-SO5 and relays Re1/Re2 are not fully stated; external conductors at T/S S terminals 4-12 continue off-sheet. The composition therefore states only open/closed source-path effects and does not invent an interlock.",
+   "The exact junction relationship of the ground/return branch adjacent to T/S S terminals 11 and 12 is not unambiguous at this image scale.",
+   "The downstream identity of the \u201cLV. BAE PANEL\u201d beyond DWG 110b is not more specific on this sheet.",
+   "CT1-CT6 measurement ratios/ranges are not printed.",
+   "The control source for SO6, SO7, SO8 and SO9 is not shown end-to-end on this sheet; their power-contact effect is clear, but their remote/local activation logic is off-sheet.",
+   "The fuse rating built into T/S E terminal 8 is not printed; only upstream QE7 is clearly rated 6 A."
+  ],
+  "_model": "gpt-5.6-sol",
+  "_protocol_version": 3
+ },
+ "elapsed_s": 92.9
+}

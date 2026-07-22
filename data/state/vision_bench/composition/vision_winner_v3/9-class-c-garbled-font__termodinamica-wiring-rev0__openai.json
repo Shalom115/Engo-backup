@@ -1,0 +1,466 @@
+{
+ "category": "9-class-c-garbled-font",
+ "sheet": "termodinamica-wiring-rev0",
+ "vendor": "openai",
+ "drawing_class": "electrical",
+ "composition": {
+  "serve_who": "This sheet serves the Termodinamica VRV18E1 air-conditioning installation: the title identifies a marine inverter air-conditioning wiring schematic, the left side shows two engine-room VRV18E1 compressor/heat-exchanger units with dedicated seawater pumps, the center shows room-named MRMAXI fan-coil loads, and the right-side insets detail their terminals, touchscreens, sensors, bridges, and bus connections. Compressor and room-load functions attach to their named equipment; the Main Switchboard feed, LAN, and Termodinamica bus/control topology remain infrastructure.",
+  "equipment_groups": [
+   {
+    "target_node_id": "590-aircon-compressor-1",
+    "equipment_name": "Termodinamica VRV18E1 Aircon Unit 1 \u2014 engine room PORT, including TMD100 seawater cooling pump",
+    "placement_reasoning": "The upper-left load is explicitly labeled \u201cVRV18E1 ENGINE ROOM PORT\u201d; the register defines compressor unit 1 as the VRV18E1 compressor, heat exchanger, and seawater cooling pump assembly.",
+    "functions": [
+     {
+      "function_id": "port-vrv-power-and-cooling",
+      "label": "Power the port refrigeration unit and its seawater cooling pump",
+      "what_it_does": "Supplies the port VRV18E1 refrigeration unit from the vessel AC system and lets that unit feed its dedicated TMD100 seawater pump for condenser cooling.",
+      "flow_scenarios": [
+       {
+        "state": "De-energized / breaker open",
+        "path": "Main Switchboard \u2192 B1 open \u2192 port VRV18E1 and its TMD100 pump unpowered; compressor protective earth remains bonded only to the specified independent anode/zinc."
+       },
+       {
+        "state": "Energized",
+        "path": "Main Switchboard 230 VAC \u2192 breaker B1, 40 A, C or D curve \u2192 3-core 6 mm\u00b2 L/N/PE feeder \u2192 port VRV18E1 \u2192 drawn red 3-core 1.5 mm\u00b2 pump supply \u2192 dedicated TMD100 seawater pump \u2192 neutral/PE return; compressor ground wire separately terminates at an independent anode/zinc and must not connect to another device."
+       }
+      ],
+      "key_components": [
+       "40 A C-or-D-curve protective breaker B1",
+       "dedicated TMD100 seawater cooling pump",
+       "independent compressor grounding anode/zinc"
+      ],
+      "dry_data": "Termodinamica VRV18E1; 230 VAC compressor feeder, L+N+PE, 3 \u00d7 6 mm\u00b2; pump feeder L+N+PE, 3 \u00d7 1.5 mm\u00b2.",
+      "sheet_region": "Upper-left main schematic; terminal details in top-right inset titled \u201cVRV18E1 Terminal Block Connection\u201d."
+     },
+     {
+      "function_id": "port-vrv-bus-participation",
+      "label": "Exchange air-conditioning commands and status on master bus line 1",
+      "what_it_does": "Connects the port VRV18E1 controller into the installation control bus serving the distributed air handlers and interfaces.",
+      "flow_scenarios": [
+       {
+        "state": "Bus idle / no change requested",
+        "path": "Port VRV18E1 controller \u2192 BUS MASTER LINE 1 \u2192 Switch BUS Box \u2192 air-conditioning bus; devices remain at their current/default state while communications remain available."
+       },
+       {
+        "state": "Command or status exchange",
+        "path": "Port VRV18E1 controller \u2194 BUS MASTER LINE 1 \u2194 Switch BUS Box \u2194 BUS SLAVE network \u2194 addressed air handler/interface; response returns over the same drawn bus route."
+       }
+      ],
+      "key_components": [
+       "port VRV18E1 control board",
+       "Switch BUS Box connection"
+      ],
+      "dry_data": "BUS MASTER LINE 1; cable sizing is length/PCB-count dependent per sheet notes.",
+      "sheet_region": "Orange upper master-bus run from port VRV18E1 to central-left Switch BUS Box; associated right-side bus-box and terminal insets."
+     }
+    ]
+   },
+   {
+    "target_node_id": "590-aircon-compressor-2",
+    "equipment_name": "Termodinamica VRV18E1 Aircon Unit 2 \u2014 engine room STBD, including TMD100 seawater cooling pump",
+    "placement_reasoning": "The lower-left load is explicitly labeled \u201cVRV18E1 ENGINE ROOM STBD\u201d; it is the second of the two register-defined VRV18E1 assemblies.",
+    "functions": [
+     {
+      "function_id": "stbd-vrv-power-and-cooling",
+      "label": "Power the starboard refrigeration unit and its seawater cooling pump",
+      "what_it_does": "Supplies the starboard VRV18E1 refrigeration unit from the vessel AC system and lets that unit feed its dedicated TMD100 seawater pump for condenser cooling.",
+      "flow_scenarios": [
+       {
+        "state": "De-energized / breaker open",
+        "path": "Main Switchboard \u2192 B1 open \u2192 starboard VRV18E1 and its TMD100 pump unpowered; compressor protective earth remains bonded only to the specified independent anode/zinc."
+       },
+       {
+        "state": "Energized",
+        "path": "Main Switchboard 230 VAC \u2192 breaker B1, 40 A, C or D curve \u2192 3-core 6 mm\u00b2 L/N/PE feeder \u2192 starboard VRV18E1 \u2192 drawn red 3-core 1.5 mm\u00b2 pump supply \u2192 dedicated TMD100 seawater pump \u2192 neutral/PE return; compressor ground wire separately terminates at an independent anode/zinc and must not connect to another device."
+       }
+      ],
+      "key_components": [
+       "40 A C-or-D-curve protective breaker B1",
+       "dedicated TMD100 seawater cooling pump",
+       "independent compressor grounding anode/zinc"
+      ],
+      "dry_data": "Termodinamica VRV18E1; 230 VAC compressor feeder, L+N+PE, 3 \u00d7 6 mm\u00b2; pump feeder L+N+PE, 3 \u00d7 1.5 mm\u00b2.",
+      "sheet_region": "Lower-left main schematic; terminal details in top-right inset titled \u201cVRV18E1 Terminal Block Connection\u201d."
+     },
+     {
+      "function_id": "stbd-vrv-bus-participation",
+      "label": "Exchange air-conditioning commands and status on master bus line 2",
+      "what_it_does": "Connects the starboard VRV18E1 controller into the installation control bus serving the distributed air handlers and interfaces.",
+      "flow_scenarios": [
+       {
+        "state": "Bus idle / no change requested",
+        "path": "Starboard VRV18E1 controller \u2192 BUS MASTER LINE 2 \u2192 Switch BUS Box \u2192 air-conditioning bus; devices remain at their current/default state while communications remain available."
+       },
+       {
+        "state": "Command or status exchange",
+        "path": "Starboard VRV18E1 controller \u2194 BUS MASTER LINE 2 \u2194 Switch BUS Box \u2194 BUS SLAVE network \u2194 addressed air handler/interface; response returns over the same drawn bus route."
+       }
+      ],
+      "key_components": [
+       "starboard VRV18E1 control board",
+       "Switch BUS Box connection"
+      ],
+      "dry_data": "BUS MASTER LINE 2; cable sizing is length/PCB-count dependent per sheet notes.",
+      "sheet_region": "Brown lower master-bus run from starboard VRV18E1 to central-left Switch BUS Box; associated right-side bus-box and terminal insets."
+     }
+    ]
+   },
+   {
+    "target_node_id": "590-aircon-fancoil-fwd-guest",
+    "equipment_name": "Fancoil \u2014 Fwd Guest Cabin",
+    "placement_reasoning": "The upper air-handler row explicitly labels MRMAXI18i \u201cFwd Guest cabin\u201d at BUS address 2, matching the established register identity.",
+    "functions": [
+     {
+      "function_id": "fwd-guest-room-conditioning",
+      "label": "Condition the forward guest cabin on local thermostat demand",
+      "what_it_does": "Runs the forward guest air handler when its local room control requests heating or cooling and exchanges the request/status with the Termodinamica bus.",
+      "flow_scenarios": [
+       {
+        "state": "No thermostat demand",
+        "path": "230 VAC branch \u2192 MRMAXI18i available but inactive \u2192 neutral return; local thermostat and BUS address 2 remain connected for control/status."
+       },
+       {
+        "state": "Thermostat demand",
+        "path": "Local thermostat \u2192 drawn control lead \u2192 MRMAXI18i Addr.2; 230 VAC branch \u2192 air handler \u2192 neutral return, with command/status exchanged over the drawn BUS SLAVE line \u2192 Switch BUS Box/VRV controllers \u2192 same bus return."
+       }
+      ],
+      "key_components": [
+       "local thermostat",
+       "addressed MRMAXI18i air handler, Addr.2"
+      ],
+      "dry_data": "MRMAXI18i; BUS Addr.2; 90 W at 230 VAC.",
+      "sheet_region": "Upper center row, first fan coil after the upper Touch Screen Interface; air-handler connection details at right."
+     }
+    ]
+   },
+   {
+    "target_node_id": "590-aircon-fancoil-saloon-port",
+    "equipment_name": "Fancoil \u2014 Saloon Port",
+    "placement_reasoning": "The upper row explicitly names \u201cSalon port\u201d Addr.3, matching the dedicated saloon-port node.",
+    "functions": [
+     {
+      "function_id": "saloon-port-conditioning",
+      "label": "Condition the port side of the saloon on local thermostat demand",
+      "what_it_does": "Runs the port saloon air handler in response to its local thermostat and reports/exchanges control on the air-conditioning bus.",
+      "flow_scenarios": [
+       {
+        "state": "No thermostat demand",
+        "path": "230 VAC branch \u2192 MRMAXI30i available but inactive \u2192 neutral return; thermostat and BUS Addr.3 remain connected."
+       },
+       {
+        "state": "Thermostat demand",
+        "path": "Local thermostat \u2192 drawn control lead \u2192 MRMAXI30i Addr.3; 230 VAC branch \u2192 air handler \u2192 neutral return, with command/status over BUS SLAVE line \u2192 Switch BUS Box/VRV controllers \u2192 same bus return."
+       }
+      ],
+      "key_components": [
+       "local thermostat",
+       "addressed MRMAXI30i air handler, Addr.3"
+      ],
+      "dry_data": "MRMAXI30i; BUS Addr.3; 170 W at 230 VAC.",
+      "sheet_region": "Upper center row, \u201cSalon port\u201d module."
+     }
+    ]
+   },
+   {
+    "target_node_id": "590-aircon-fancoil-aft-guest-port",
+    "equipment_name": "Fancoil \u2014 Aft Guest Cabin Port",
+    "placement_reasoning": "The upper row load name is \u201cAft Guest cabin port\u201d Addr.4 and directly matches this node.",
+    "functions": [
+     {
+      "function_id": "aft-guest-port-conditioning",
+      "label": "Condition the port aft guest cabin on local thermostat demand",
+      "what_it_does": "Operates the port aft guest cabin air handler under local thermostat control with bus command/status exchange.",
+      "flow_scenarios": [
+       {
+        "state": "No thermostat demand",
+        "path": "230 VAC branch \u2192 MRMAXI18i available but inactive \u2192 neutral return; thermostat and BUS Addr.4 remain connected."
+       },
+       {
+        "state": "Thermostat demand",
+        "path": "Local thermostat \u2192 drawn control lead \u2192 MRMAXI18i Addr.4; 230 VAC branch \u2192 air handler \u2192 neutral return, with command/status over BUS SLAVE line \u2192 Switch BUS Box/VRV controllers \u2192 same bus return."
+       }
+      ],
+      "key_components": [
+       "local thermostat",
+       "addressed MRMAXI18i air handler, Addr.4"
+      ],
+      "dry_data": "MRMAXI18i; BUS Addr.4; 90 W at 230 VAC.",
+      "sheet_region": "Upper center row, \u201cAft Guest cabin port\u201d module."
+     }
+    ]
+   },
+   {
+    "target_node_id": "590-aircon-fancoil-galley",
+    "equipment_name": "Galley fan-coil group \u2014 Fwd Galley and Aft Galley",
+    "placement_reasoning": "Two distinct drawn air-handler loads are named Fwd Galley Addr.5.0 and Aft Galley Addr.5.1; the register provides one fitting galley fan-coil group node, so both remain separate functions on that equipment group rather than being invented as separate nodes.",
+    "functions": [
+     {
+      "function_id": "fwd-galley-conditioning",
+      "label": "Condition the forward galley on local thermostat demand",
+      "what_it_does": "Runs the forward-galley air handler under its local thermostat and bus control.",
+      "flow_scenarios": [
+       {
+        "state": "No thermostat demand",
+        "path": "230 VAC branch \u2192 MRMAXI30i available but inactive \u2192 neutral return; thermostat and BUS Addr.5.0 remain connected."
+       },
+       {
+        "state": "Thermostat demand",
+        "path": "Local thermostat \u2192 drawn control lead \u2192 Fwd Galley MRMAXI30i Addr.5.0; 230 VAC branch \u2192 air handler \u2192 neutral return, with command/status over BUS SLAVE line \u2192 Switch BUS Box/VRV controllers \u2192 same bus return."
+       }
+      ],
+      "key_components": [
+       "local thermostat",
+       "addressed MRMAXI30i forward-galley air handler, Addr.5.0"
+      ],
+      "dry_data": "MRMAXI30i; BUS Addr.5.0; 170 W at 230 VAC.",
+      "sheet_region": "Upper center row, \u201cFwd Galley\u201d module."
+     },
+     {
+      "function_id": "aft-galley-conditioning",
+      "label": "Condition the aft galley on local thermostat demand",
+      "what_it_does": "Runs the aft-galley air handler under its local thermostat and bus control.",
+      "flow_scenarios": [
+       {
+        "state": "No thermostat demand",
+        "path": "230 VAC branch \u2192 MRMAXI30i available but inactive \u2192 neutral return; thermostat and BUS Addr.5.1 remain connected."
+       },
+       {
+        "state": "Thermostat demand",
+        "path": "Local thermostat \u2192 drawn control lead \u2192 Aft Galley MRMAXI30i Addr.5.1; 230 VAC branch \u2192 air handler \u2192 neutral return, with command/status over BUS SLAVE line \u2192 Switch BUS Box/VRV controllers \u2192 same bus return."
+       }
+      ],
+      "key_components": [
+       "local thermostat",
+       "addressed MRMAXI30i aft-galley air handler, Addr.5.1"
+      ],
+      "dry_data": "MRMAXI30i; BUS Addr.5.1; 170 W at 230 VAC.",
+      "sheet_region": "Upper center row, \u201cAft Galley\u201d module."
+     }
+    ]
+   },
+   {
+    "target_node_id": "590-aircon-fancoil-aft-crew-port",
+    "equipment_name": "Fancoil \u2014 Aft Crew Cabin Port",
+    "placement_reasoning": "The upper row explicitly names \u201cAft Crew cabin port\u201d Addr.6, matching the dedicated node.",
+    "functions": [
+     {
+      "function_id": "aft-crew-port-conditioning",
+      "label": "Condition the port aft crew cabin on local thermostat demand",
+      "what_it_does": "Operates the port aft crew cabin air handler under its local thermostat with bus command/status exchange.",
+      "flow_scenarios": [
+       {
+        "state": "No thermostat demand",
+        "path": "230 VAC branch \u2192 MRMAXI18i available but inactive \u2192 neutral return; thermostat and BUS Addr.6 remain connected."
+       },
+       {
+        "state": "Thermostat demand",
+        "path": "Local thermostat \u2192 drawn control lead \u2192 MRMAXI18i Addr.6; 230 VAC branch \u2192 air handler \u2192 neutral return, with command/status over BUS SLAVE line \u2192 Switch BUS Box/VRV controllers \u2192 same bus return."
+       }
+      ],
+      "key_components": [
+       "local thermostat",
+       "addressed MRMAXI18i air handler, Addr.6"
+      ],
+      "dry_data": "MRMAXI18i; BUS Addr.6; 90 W at 230 VAC.",
+      "sheet_region": "Upper center row, \u201cAft Crew cabin port\u201d module."
+     }
+    ]
+   },
+   {
+    "target_node_id": "590-aircon-fancoil-aft-crew-stbd",
+    "equipment_name": "Fancoil \u2014 Aft Crew Cabin Stbd",
+    "placement_reasoning": "The lower row explicitly names \u201cAft Crew cabin stbd\u201d Addr.7, matching the dedicated node.",
+    "functions": [
+     {
+      "function_id": "aft-crew-stbd-conditioning",
+      "label": "Condition the starboard aft crew cabin on local thermostat demand",
+      "what_it_does": "Operates the starboard aft crew cabin air handler under its local thermostat with bus command/status exchange.",
+      "flow_scenarios": [
+       {
+        "state": "No thermostat demand",
+        "path": "230 VAC branch \u2192 MRMAXI18i available but inactive \u2192 neutral return; thermostat and BUS Addr.7 remain connected."
+       },
+       {
+        "state": "Thermostat demand",
+        "path": "Local thermostat \u2192 drawn control lead \u2192 MRMAXI18i Addr.7; 230 VAC branch \u2192 air handler \u2192 neutral return, with command/status over BUS SLAVE line \u2192 Switch BUS Box/VRV controllers \u2192 same bus return."
+       }
+      ],
+      "key_components": [
+       "local thermostat",
+       "addressed MRMAXI18i air handler, Addr.7"
+      ],
+      "dry_data": "MRMAXI18i; BUS Addr.7; 90 W at 230 VAC.",
+      "sheet_region": "Lower center row, first fan coil after lower Touch Screen Interface."
+     }
+    ]
+   },
+   {
+    "target_node_id": "590-aircon-fancoil-fwd-crew-stbd",
+    "equipment_name": "Fancoil \u2014 Fwd Crew Cabin Stbd",
+    "placement_reasoning": "The lower row explicitly names \u201cFwd Crew cabin stbd\u201d Addr.8, matching the dedicated node.",
+    "functions": [
+     {
+      "function_id": "fwd-crew-stbd-conditioning",
+      "label": "Condition the starboard forward crew cabin on local thermostat demand",
+      "what_it_does": "Operates the starboard forward crew cabin air handler under its local thermostat with bus command/status exchange.",
+      "flow_scenarios": [
+       {
+        "state": "No thermostat demand",
+        "path": "230 VAC branch \u2192 MRMAXI18i available but inactive \u2192 neutral return; thermostat and BUS Addr.8 remain connected."
+       },
+       {
+        "state": "Thermostat demand",
+        "path": "Local thermostat \u2192 drawn control lead \u2192 MRMAXI18i Addr.8; 230 VAC branch \u2192 air handler \u2192 neutral return, with command/status over BUS SLAVE line \u2192 Switch BUS Box/VRV controllers \u2192 same bus return."
+       }
+      ],
+      "key_components": [
+       "local thermostat",
+       "addressed MRMAXI18i air handler, Addr.8"
+      ],
+      "dry_data": "MRMAXI18i; BUS Addr.8; 90 W at 230 VAC.",
+      "sheet_region": "Lower center row, \u201cFwd Crew cabin stbd\u201d module."
+     }
+    ]
+   },
+   {
+    "target_node_id": "590-aircon-fancoil-aft-guest-stbd",
+    "equipment_name": "Fancoil \u2014 Aft Guest Cabin Stbd",
+    "placement_reasoning": "The lower row explicitly names \u201cAft Guest cabin stbd\u201d Addr.9, matching the dedicated node.",
+    "functions": [
+     {
+      "function_id": "aft-guest-stbd-conditioning",
+      "label": "Condition the starboard aft guest cabin on local thermostat demand",
+      "what_it_does": "Operates the starboard aft guest cabin air handler under its local thermostat with bus command/status exchange.",
+      "flow_scenarios": [
+       {
+        "state": "No thermostat demand",
+        "path": "230 VAC branch \u2192 MRMAXI18i available but inactive \u2192 neutral return; thermostat and BUS Addr.9 remain connected."
+       },
+       {
+        "state": "Thermostat demand",
+        "path": "Local thermostat \u2192 drawn control lead \u2192 MRMAXI18i Addr.9; 230 VAC branch \u2192 air handler \u2192 neutral return, with command/status over BUS SLAVE line \u2192 Switch BUS Box/VRV controllers \u2192 same bus return."
+       }
+      ],
+      "key_components": [
+       "local thermostat",
+       "addressed MRMAXI18i air handler, Addr.9"
+      ],
+      "dry_data": "MRMAXI18i; BUS Addr.9; 90 W at 230 VAC.",
+      "sheet_region": "Lower center row, \u201cAft Guest cabin stbd\u201d module."
+     }
+    ]
+   },
+   {
+    "target_node_id": "590-aircon-fancoil-saloon-stbd",
+    "equipment_name": "Fancoil \u2014 Saloon Stbd",
+    "placement_reasoning": "The lower row explicitly names \u201cSalon stbd\u201d Addr.10, matching the dedicated saloon-starboard node.",
+    "functions": [
+     {
+      "function_id": "saloon-stbd-conditioning",
+      "label": "Condition the starboard side of the saloon on local thermostat demand",
+      "what_it_does": "Operates the starboard saloon air handler under its local thermostat with bus command/status exchange.",
+      "flow_scenarios": [
+       {
+        "state": "No thermostat demand",
+        "path": "230 VAC branch \u2192 MRMAXI30i available but inactive \u2192 neutral return; thermostat and BUS Addr.10 remain connected."
+       },
+       {
+        "state": "Thermostat demand",
+        "path": "Local thermostat \u2192 drawn control lead \u2192 MRMAXI30i Addr.10; 230 VAC branch \u2192 air handler \u2192 neutral return, with command/status over BUS SLAVE line \u2192 Switch BUS Box/VRV controllers \u2192 same bus return."
+       }
+      ],
+      "key_components": [
+       "local thermostat",
+       "addressed MRMAXI30i air handler, Addr.10"
+      ],
+      "dry_data": "MRMAXI30i; BUS Addr.10; 170 W at 230 VAC.",
+      "sheet_region": "Lower center row, \u201cSalon stbd\u201d module."
+     }
+    ]
+   },
+   {
+    "target_node_id": "590-aircon-fancoil-master",
+    "equipment_name": "Fancoil \u2014 Master/Owner\u2019s Cabin",
+    "placement_reasoning": "The lower row labels MRMAXI30i \u201cOwner\u2019s cabin\u201d Addr.11; the established fact confirms that Owner\u2019s cabin and fancoil master are the same equipment.",
+    "functions": [
+     {
+      "function_id": "owners-cabin-conditioning",
+      "label": "Condition the owner\u2019s/master cabin on local thermostat demand",
+      "what_it_does": "Operates the owner\u2019s/master cabin air handler under its local thermostat with bus command/status exchange.",
+      "flow_scenarios": [
+       {
+        "state": "No thermostat demand",
+        "path": "230 VAC branch \u2192 MRMAXI30i available but inactive \u2192 neutral return; thermostat and BUS Addr.11 remain connected."
+       },
+       {
+        "state": "Thermostat demand",
+        "path": "Local thermostat \u2192 drawn control lead \u2192 MRMAXI30i Addr.11; 230 VAC branch \u2192 air handler \u2192 neutral return, with command/status over BUS SLAVE line \u2192 Switch BUS Box/VRV controllers \u2192 same bus return."
+       }
+      ],
+      "key_components": [
+       "local thermostat",
+       "addressed MRMAXI30i air handler, Addr.11"
+      ],
+      "dry_data": "MRMAXI30i; BUS Addr.11; 170 W at 230 VAC; Owner\u2019s cabin = master cabin.",
+      "sheet_region": "Lower center row, \u201cOwner\u2019s cabin\u201d module."
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "Main AC Panel / compressor distribution",
+    "target_node_id": "694-main-ac-panel",
+    "facts": [
+     "Two separately drawn Main Switchboard branches feed the port and starboard VRV18E1 units.",
+     "Each branch has a breaker identified B1, rated 40 A, C or D curve.",
+     "Each compressor feeder is specified as 230 VAC, L+N+PE, 3 \u00d7 6 mm\u00b2.",
+     "The sheet does not identify the upstream bus section or distinguish the two repeated B1 labels beyond PORT/STBD placement."
+    ]
+   },
+   {
+    "system_name": "Termodinamica air-conditioning control, local power, and monitoring network",
+    "target_node_id": "590-aircon-system",
+    "facts": [
+     "The Switch BUS Box joins drawn BUS MASTER LINE 1 from the port VRV18E1 and BUS MASTER LINE 2 from the starboard VRV18E1 to the magenta BUS SLAVE topology.",
+     "Two Touch Screen Interface devices are shown at Addr.1, each rated 10 W at 24 VDC; Touch Screen 7 is drawn to the upper interface/network.",
+     "A TMD Internet Interface rated 80 W at 24 VDC connects by Ethernet to the Internet Router and into the Termodinamica control installation.",
+     "AC/DC Current Sensor TRMS modules are shown at Addr.31, model QI-50-V-485, rated 5 W at 24 VDC; their detailed current-sensing conductor arrangement is shown in the lower-right inset area.",
+     "TMD Bridge modules are shown at Addr.32, rated 5 W at 24 VDC, with RS485 Modbus RTU.",
+     "Room air handlers have separately drawn 230 VAC drops and local thermostat leads; the source panel and branch protective devices for those 230 VAC drops are not identified on this sheet.",
+     "Right-side insets define touchscreen, VRV terminal block, air-handler, master/slave, current-sensor, and Switch BUS Box connection arrangements.",
+     "Bus cable conductor sizes vary with route length and PCB count as listed in the sheet notes; these notes belong to the air-conditioning distribution infrastructure."
+    ]
+   },
+   {
+    "system_name": "Vessel Ethernet/LAN serving the air-conditioning remote interface",
+    "target_node_id": "732-network",
+    "facts": [
+     "An Internet Router has two drawn Ethernet LAN links: one to the TMD Internet Interface and one to Touch Screen 7.",
+     "Ethernet cable is specified as UTP CAT.5.",
+     "No connection beyond the router is drawn on this sheet, so no WAN or wider-vessel network path is inferred."
+    ]
+   }
+  ],
+  "discarded_as_clutter": [
+   "Drawing title, title block, revision/date, drafter and verifier fields",
+   "Key-line color samples after their cable meanings were incorporated",
+   "Repeated right-side inset titles where the detail merely repeats the main topology",
+   "Generic \u201cFANCOIL NOTES\u201d heading with no legible operational content",
+   "Duplicate upper/lower labels for Addr.1, Addr.31, and Addr.32 treated as repeated installation infrastructure rather than separate equipment nodes",
+   "Legend spelling artifacts such as \u201clenght\u201d and extraction variants \u201cSxythSense/Sxythsense\u201d",
+   "Decorative company logo and sheet border"
+  ],
+  "uncertainties": [
+   "Exact terminal numbers and any built-in replaceable fused-terminal positions in the small right-side detail insets are not cleanly readable at the supplied resolution; no terminal-specific loop or fuse claim is made. Capture those terminal numbers from the native drawing before terminal-level troubleshooting.",
+   "The sheet labels both compressor protective devices as B1; whether these are duplicated local designations or one panel identifier repeated across two branches is not resolved here.",
+   "The source panel, breaker/fuse identifiers, and return terminals for the fan-coil 230 VAC branches are not identified on this sheet.",
+   "The detailed direction and measured conductor assignment of each Addr.31 current-sensor connection cannot be walked confidently from the raster; only its drawn monitoring role and model/address/rating are retained.",
+   "Bus note thresholds contain compact notation for PCB counts that is not fully unambiguous in the raster, so cable-size options are not converted into exact route requirements."
+  ],
+  "_model": "gpt-5.6-sol",
+  "_protocol_version": 3
+ },
+ "elapsed_s": 93.4
+}

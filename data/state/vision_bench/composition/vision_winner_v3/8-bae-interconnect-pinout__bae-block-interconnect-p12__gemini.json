@@ -1,0 +1,124 @@
+{
+ "category": "8-bae-interconnect-pinout",
+ "sheet": "bae-block-interconnect-p12",
+ "vendor": "gemini",
+ "drawing_class": "interconnect",
+ "composition": {
+  "serve_who": "This sheet serves the starboard Battery Eliminator Line (BEL) modules, specifically BEL1-S and BEL2-S, detailing their control, communication (CAN-A), and synchronization wiring. The sheet evidence is the prominent title blocks 'BEL1-S' and 'BEL2-S' alongside BAE system naming conventions.",
+  "equipment_groups": [
+   {
+    "target_node_id": "629-bel1-s",
+    "equipment_name": "BEL1-S Module",
+    "placement_reasoning": "The top half of the schematic is explicitly labeled 'BEL1-S' and maps its pinout, communication networks, and sync chain.",
+    "functions": [
+     {
+      "function_id": "bel1-s-communications",
+      "label": "Control and Communication Interface",
+      "what_it_does": "Connects the BEL1-S module to the vessel's CAN-A network, sync chain, and battery return for operational coordination.",
+      "flow_scenarios": [
+       {
+        "state": "CAN-A Network",
+        "path": "CAN communications path routes CANA_HI from pin 5 via wire G3-S3AH to CAN-A HI, CANA_LO from pin 6 via wire G3-S3AL to CAN-A LO, and CANA_Shield from pin N/C via wire G3-S3AS to CAN-A Shield."
+       },
+       {
+        "state": "Sync Chain",
+        "path": "Synchronization path crosses signals: CHAIN_OUTPUT from pin 11 via wire G3-S321 routes to SYNC pin 3; SYNC from pin 3 via wire G3-S3S2 routes to SYNC pin 10."
+       },
+       {
+        "state": "Supply and Return",
+        "path": "VBATTERY RTN from pin 7 via wire G3-S3R1 connects to BEL RTN1; CHAIN_SUPPLY from pin 10 via wire G3-S3S3 connects to terminal pin 4."
+       },
+       {
+        "state": "Unused Paths",
+        "path": "ENABLE (pin 1 via G3-S329), ADR_0 (pin 8 via G3-S300a), and ADR_1 (pin 9 via G3-S300b) terminate as Not Connected (N/C). FREQ_SELECT (pin 2 via G3-S3S1) remains unconnected."
+       }
+      ],
+      "key_components": [
+       "BEL1-S module pins",
+       "CAN-A network interface"
+      ],
+      "dry_data": "BAE Systems BEL module; Starboard 1",
+      "sheet_region": "Top half (zones H-E, 8-3)"
+     }
+    ]
+   },
+   {
+    "target_node_id": "629-bel2-s",
+    "equipment_name": "BEL2-S Module",
+    "placement_reasoning": "The bottom half of the schematic is explicitly labeled 'BEL2-S' and maps its identical pinout, communication networks, and sync chain.",
+    "functions": [
+     {
+      "function_id": "bel2-s-communications",
+      "label": "Control and Communication Interface",
+      "what_it_does": "Connects the BEL2-S module to the vessel's CAN-A network, sync chain, and battery return for operational coordination.",
+      "flow_scenarios": [
+       {
+        "state": "CAN-A Network",
+        "path": "CAN communications path routes CANA_HI from pin 5 via wire G3-S4AH to CAN-A HI, CANA_LO from pin 6 via wire G3-S4AL to CAN-A LO, and CANA_Shield from pin N/C via wire G3-S4AS to CAN-A Shield."
+       },
+       {
+        "state": "Sync Chain",
+        "path": "Synchronization path crosses signals: CHAIN_OUTPUT from pin 11 via wire G3-S421 routes to SYNC pin 4; SYNC from pin 3 via wire G3-S4S2 routes to SYNC pin 9."
+       },
+       {
+        "state": "Supply and Return",
+        "path": "VBATTERY RTN from pin 7 via wire G3-S4R1 connects to BEL RTN1; CHAIN_SUPPLY from pin 10 via wire G3-S4S3 connects to terminal pin 4."
+       },
+       {
+        "state": "Unused Paths",
+        "path": "ENABLE (pin 1 via G3-S429), ADR_0 (pin 8 via G3-S400a), and ADR_1 (pin 9 via G3-S400b) terminate as Not Connected (N/C). FREQ_SELECT (pin 2 via G3-S4S1) remains unconnected."
+       }
+      ],
+      "key_components": [
+       "BEL2-S module pins",
+       "CAN-A network interface"
+      ],
+      "dry_data": "BAE Systems BEL module; Starboard 2",
+      "sheet_region": "Bottom half (zones D-A, 8-3)"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "BAE Control Networks (CAN & SYNC)",
+    "target_node_id": "625-bae-system",
+    "facts": [
+     "CAN-A network provides a common communications bus (HI, LO, Shield) for the Starboard BEL modules.",
+     "BEL RTN1 serves as the common battery return reference for both BEL1-S and BEL2-S modules.",
+     "The SYNC network provides crossed synchronization and chain connections for inter-module coordination (BEL1-S connects to pins 3/10, BEL2-S connects to pins 4/9)."
+    ]
+   }
+  ],
+  "discarded_as_clutter": [
+   "196D5023",
+   "12",
+   "1",
+   "REVISIONS",
+   "REV DESCRIPTION DATE APPROVED",
+   "BAE SYSTEMS PROPRIETARY INFORMATION",
+   "CONTR NO: NOT APPLICABLE",
+   "WARNING: EXPORT CONTROLLED - SEE TITLE PAGE",
+   "C. Zaleski",
+   "D",
+   "89954",
+   "ISSUED",
+   "SEE SHEET 1",
+   "SCALE NONE",
+   "SHEET 12 OF 47",
+   "1/0",
+   "10",
+   "3",
+   "4",
+   "9",
+   "N/C",
+   "HI",
+   "LO",
+   "Shield"
+  ],
+  "uncertainties": [],
+  "_model": "gemini-3.1-pro-preview",
+  "_protocol_version": 3
+ },
+ "elapsed_s": 62.5
+}

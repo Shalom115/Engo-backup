@@ -1,0 +1,165 @@
+{
+ "category": "6-plc-io",
+ "sheet": "AFT-PLC-rev4-p21",
+ "vendor": "gemini",
+ "drawing_class": "plc",
+ "composition": {
+  "serve_who": "This sheet details the automation digital outputs from the AFT PLC rack (modules at positions 13, 14, and 15). It provides control commands for three hydraulic functions: the transom door, the deck door, and the mainsheet traveler. The conclusion is derived directly from the field load labels (e.g., 'transom door CLOSE', 'deck door OPEN') mapped to each module's respective output channels.",
+  "equipment_groups": [
+   {
+    "target_node_id": "260-transom-door",
+    "equipment_name": "Transom Door",
+    "placement_reasoning": "The outputs from module POS.13 explicitly target the 'transom door CLOSE' and 'transom door OPEN' functions (EV 10.1A/B).",
+    "functions": [
+     {
+      "function_id": "transom_door_control",
+      "label": "Transom Door Hydraulic Control",
+      "what_it_does": "Provides digital directional commands from the AFT PLC to hydraulically open and close the transom door.",
+      "flow_scenarios": [
+       {
+        "state": "neutral",
+        "path": "Module POS. 13 channels de-energised, door movement halts."
+       },
+       {
+        "state": "close",
+        "path": "Channel 01 of module position 13 in the AFT PLC rack energises EV 10.1A (PVEO pilot) = transom door CLOSE. Signal voltage is measured relative to the module's on-board '-' common terminal."
+       },
+       {
+        "state": "open",
+        "path": "Channel 02 of module position 13 in the AFT PLC rack energises EV 10.1B (PVEO pilot) = transom door OPEN. Signal voltage is measured relative to the module's on-board '-' common terminal."
+       }
+      ],
+      "key_components": [
+       "POS. 13 (WAGO 750-508 DO module)",
+       "EV 10.1A (PVEO close pilot)",
+       "EV 10.1B (PVEO open pilot)"
+      ],
+      "dry_data": "Actuation: PVEO ON/OFF (established); Module: WAGO 750-508 (2-channel digital output)",
+      "sheet_region": "Left section (POS.13)"
+     }
+    ]
+   },
+   {
+    "target_node_id": "260-deck-door",
+    "equipment_name": "Deck Door",
+    "placement_reasoning": "The outputs from module POS.14 explicitly target the 'deck door OPEN' and 'deck door CLOSE' functions (EV 10.2A/B).",
+    "functions": [
+     {
+      "function_id": "deck_door_control",
+      "label": "Deck Door Hydraulic Control",
+      "what_it_does": "Provides digital directional commands from the AFT PLC to hydraulically open and close the deck door.",
+      "flow_scenarios": [
+       {
+        "state": "neutral",
+        "path": "Module POS. 14 channels de-energised, door movement halts."
+       },
+       {
+        "state": "open",
+        "path": "Channel 01 of module position 14 in the AFT PLC rack energises EV 10.2A pilot = deck door OPEN. Signal voltage is measured relative to the module's on-board '-' common terminal."
+       },
+       {
+        "state": "close",
+        "path": "Channel 02 of module position 14 in the AFT PLC rack energises EV 10.2B pilot = deck door CLOSE. Signal voltage is measured relative to the module's on-board '-' common terminal."
+       }
+      ],
+      "key_components": [
+       "POS. 14 (WAGO 750-508 DO module)",
+       "EV 10.2A (open pilot)",
+       "EV 10.2B (close pilot)"
+      ],
+      "dry_data": "Module: WAGO 750-508 (2-channel digital output)",
+      "sheet_region": "Center section (POS.14)"
+     }
+    ]
+   },
+   {
+    "target_node_id": "840-cariboni-hydraulic-cylinders",
+    "equipment_name": "Mainsheet Traveler",
+    "placement_reasoning": "The outputs from module POS.15 explicitly target 'mainsheet traveler TO PORT' and 'mainsheet traveler TO STBD'. 'Mainsheet traveler' is an established alias for the Cariboni hydraulic cylinders node.",
+    "functions": [
+     {
+      "function_id": "mainsheet_traveler_control",
+      "label": "Mainsheet Traveler Hydraulic Control",
+      "what_it_does": "Provides digital directional commands from the AFT PLC to hydraulically drive the mainsheet traveler to port or starboard.",
+      "flow_scenarios": [
+       {
+        "state": "neutral",
+        "path": "Module POS. 15 channels de-energised, traveler movement halts."
+       },
+       {
+        "state": "port",
+        "path": "Channel 01 of module position 15 in the AFT PLC rack energises EV 10.3A pilot = mainsheet traveler TO PORT. Signal voltage is measured relative to the module's on-board '-' common terminal."
+       },
+       {
+        "state": "starboard",
+        "path": "Channel 02 of module position 15 in the AFT PLC rack energises EV 10.3B pilot = mainsheet traveler TO STBD. Signal voltage is measured relative to the module's on-board '-' common terminal."
+       }
+      ],
+      "key_components": [
+       "POS. 15 (WAGO 750-508 DO module)",
+       "EV 10.3A (port pilot)",
+       "EV 10.3B (stbd pilot)"
+      ],
+      "dry_data": "Module: WAGO 750-508 (2-channel digital output)",
+      "sheet_region": "Right section (POS.15)"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "AFT PLC I/O Rack",
+    "target_node_id": "570-plc-rack-aft",
+    "facts": [
+     "Rack CPU is a WAGO 750-8213.",
+     "Module POS. 13 is a WAGO 750-508 2-channel digital output module.",
+     "Module POS. 14 is a WAGO 750-508 2-channel digital output module.",
+     "Module POS. 15 is a WAGO 750-508 2-channel digital output module.",
+     "Field wiring for all three modules routes through 'CONNECTOR TYPE I' (detailed on sheet 4) using terminals 1-4 for the respective output and return loops."
+    ]
+   }
+  ],
+  "discarded_as_clutter": [
+   "1",
+   "2",
+   "3",
+   "4",
+   "5",
+   "6",
+   "7",
+   "8",
+   "A",
+   "B",
+   "C",
+   "D",
+   "E",
+   "F",
+   "2 DO MODULE",
+   "TYPE: 750-508",
+   "CPU: 750-8213",
+   "Diritti riservati in osservanza della norma DIN 34",
+   "SUBSTITUTE WINCHES MODULES FROM DIGITAL TO ANALOG",
+   "MYT-Systems S.r.l.",
+   "Via Borzoli, 39/130P",
+   "16153 Genova (GE)",
+   "ITALY",
+   "S.W. SHIPYARD",
+   "SWS_108-1",
+   "05/05/2026",
+   "21 of 27",
+   "HYDRAULIC SYSTEM AUTOMATION",
+   "A1 A2",
+   "2DO",
+   "FIRST ISSUE",
+   "SWS_108-1_AFT PLC.dwg",
+   "CH 01",
+   "CH 02",
+   "+",
+   "-"
+  ],
+  "uncertainties": [],
+  "_model": "gemini-3.1-pro-preview",
+  "_protocol_version": 3
+ },
+ "elapsed_s": 65.1
+}

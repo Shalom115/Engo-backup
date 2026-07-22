@@ -1,0 +1,40 @@
+{
+ "category": "10-photos-figures",
+ "sheet": "harken-spares-photo-3325",
+ "vendor": "anthropic",
+ "drawing_class": "photos",
+ "composition": {
+  "serve_who": "This is a photograph of a Harken spares bag (packing slip A72931800, PO SWS108#1 ID13398) containing 2x Needle Roller Bearings (120x126x19). No specific winch/furler is named on the label itself, but the PO reference \"SWS108#1\" and Harken branding tie it to the vessel's Harken winch/deck-gear spares stock. Since no equipment-specific identifier is given (no winch model, no location), this is best treated as general Harken spares stock rather than attached to any single winch node; closest fit given register structure is the general \"Winches and deck gear\" grouping \u2014 but no single node explicitly represents 'spares'. Best available attach point given Harken branding and winch bearing size is left unassigned pending inspection confirmation of which Harken unit uses this bearing size.",
+  "equipment_groups": [
+   {
+    "equipment_name": "Harken Spares Stock (Needle Roller Bearing 120x126x19)",
+    "target_node_id": "230-sailing-items",
+    "functions": [
+     {
+      "label": "Spare part identity record",
+      "what_it_does": "Documents a spare needle roller bearing (qty 2) held in stock for a Harken winch/furling component, per packing slip photo.",
+      "dry_data": "Part Number A72931800; Description: Needle Roller Bearing 120x126x19; Qty 2; PO Number SWS108#1 ID13398; Supplier: Harken",
+      "flow_scenarios": [],
+      "key_components": [
+       "Needle Roller Bearing 120x126x19 (qty 2)"
+      ],
+      "sheet_region": "Entire frame \u2014 photographed packing slip label stapled to clear plastic spares bag"
+     }
+    ],
+    "placement_reasoning": "No specific Harken winch, furler, or tensioner model is named on the label \u2014 only a generic bearing size and a PO/customer reference matching the vessel's project code (SWS108). Without a named equipment identifier, this cannot be confidently attached to any single winch node (e.g. mast winch, primary winch, captive winch) in the register. Attached provisionally to the general sailing/deck-gear items node as the closest fit for undifferentiated Harken deck-gear spares; should be re-attached to the specific winch/furler node once the bearing's application is confirmed at inspection."
+   }
+  ],
+  "infrastructure": [],
+  "uncertainties": [
+   "Which specific Harken winch, furling drum, or tensioner this Needle Roller Bearing (120x126x19) belongs to is not stated on the label \u2014 only a generic part number and bearing size are given. Do not assume it belongs to any single winch node without inspection confirmation.",
+   "Code field on label is blank/illegible \u2014 part number and customer reference are the same value shown (A72931800)."
+  ],
+  "discarded_as_clutter": [
+   "www.harken.com website footer",
+   "Barcode graphic (redundant with printed Part Number/Customer Reference text)",
+   "Generic bag/background photo description (crinkled plastic, dark countertop) \u2014 no equipment data"
+  ],
+  "_model": "claude-sonnet-5",
+  "_protocol_version": 3
+ }
+}

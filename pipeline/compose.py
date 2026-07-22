@@ -407,6 +407,25 @@ def compose(image_png: bytes, extraction: Dict[str, Any],
     vp = get_vision_provider(vision_kind)
     result = vp.extract(image_png, "image/png", prompt, _COMPOSE_TOOL,
                         max_tokens=max_tokens)
+    result = _repair_stringified(result)
     if isinstance(result, dict):
         result["_protocol_version"] = PROTOCOL_VERSION
+    return result
+
+
+def _repair_stringified(result: Any) -> Any:
+    """Some vision providers return an array/object tool-arg as a JSON STRING
+    (seen 2026-07-22: equipment_groups came back as a 1836-char string, which
+    len()'d to a fake '1836 groups'). Parse any list/dict field that arrived
+    as a string so downstream never iterates characters."""
+    if not isinstance(result, dict):
+        return result
+    for key in ("equipment_groups", "infrastructure", "uncertainties",
+                "discarded_as_clutter"):
+        v = result.get(key)
+        if isinstance(v, str) and v.strip().startswith(("[", "{")):
+            try:
+                result[key] = json.loads(v)
+            except (ValueError, TypeError):
+                pass  # leave as-is; the writer's guards still catch it
     return result

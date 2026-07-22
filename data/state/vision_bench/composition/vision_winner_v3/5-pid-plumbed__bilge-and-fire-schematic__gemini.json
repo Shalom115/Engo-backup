@@ -1,0 +1,221 @@
+{
+ "category": "5-pid-plumbed",
+ "sheet": "bilge-and-fire-schematic",
+ "vendor": "gemini",
+ "drawing_class": "pid",
+ "composition": {
+  "serve_who": "This sheet serves the vessel's primary bilge and fire fluid systems, detailing the main and auxiliary bilge pumping loops for clearing sumps across the vessel, as well as the electric and diesel seawater fire lines feeding the hydrants. This is evidenced by the title block 'BILGE & FIRE SYSTEM SCHEMATIC', the comprehensive layout of bilge sumps (Lazarette, Midship, Engine Room, Mast, Sail Locker), and the interconnected firelines.",
+  "equipment_groups": [
+   {
+    "target_node_id": "520-main-bilge-pump",
+    "equipment_name": "Main Bilge Pump",
+    "placement_reasoning": "Identified as 001-01 (BOM item 001) connected to the main bilge manifold.",
+    "functions": [
+     {
+      "function_id": "001-01",
+      "label": "Main Bilge Clearance",
+      "what_it_does": "Provides primary high-capacity bilge clearing by drawing from the main bilge manifold and discharging overboard.",
+      "flow_scenarios": [
+       {
+        "state": "Normal State",
+        "path": "Pump is inactive, all bilge zone manifold valves (017-XX) are Normally Closed (NC)."
+       },
+       {
+        "state": "Active Pumping",
+        "path": "Selected Sump (Lazarette/Midship/ER/Mast/ESS/Sail Locker) -> Local Strumbox (006-XX) -> Opened Actuated Valve (017-XX) -> Main Bilge Line Manifold -> Main Bilge Pump (001-01) -> Overboard Discharge via Anti-Siphon Manifold (012-01) and Siphon Break (013-01)"
+       }
+      ],
+      "key_components": [
+       "012-01 Anti-Siphon Manifold (protective)",
+       "013-01 Siphon Break (protective)",
+       "006-XX Strumboxes (strainer/pickup)"
+      ],
+      "dry_data": "Gianneschi ACB 431 B (per established engineering fact overriding BOM misprint), 24V DC, 300 l/min, 0.75kW",
+      "sheet_region": "Bottom Right (AFT of Sail Locker Sump)"
+     }
+    ]
+   },
+   {
+    "target_node_id": "520-fire-pump",
+    "equipment_name": "Electric Fire Pump",
+    "placement_reasoning": "Identified as 024-01 (BOM item 024), drawing seawater to pressurize the fire line.",
+    "functions": [
+     {
+      "function_id": "024-01",
+      "label": "Primary Fire Main Pressurization",
+      "what_it_does": "Pressurizes the vessel's primary fire main utilizing seawater.",
+      "flow_scenarios": [
+       {
+        "state": "Active Fire Suppression",
+        "path": "Seawater Pickup (Stbd) -> Seawater Strainer (005-02) -> Electric Fire Pump (024-01) -> Fireline Manifold -> FWD (018-02) and AFT (018-01) Fire Hydrants"
+       }
+      ],
+      "key_components": [
+       "005-02 Seawater Strainer",
+       "018-01, 018-02 Fire Hydrant Valves (delivery)"
+      ],
+      "dry_data": "Gianneschi ACB 431 B, 24V DC, 230 l/min, 1.5 kW",
+      "sheet_region": "Bottom Right (near ESS Enclosure)"
+     }
+    ]
+   },
+   {
+    "target_node_id": "520-diesel-fire-pump",
+    "equipment_name": "Diesel Fire Pump",
+    "placement_reasoning": "Identified as 002-01 (BOM item 002) located in the Lazarette section feeding the fire line.",
+    "functions": [
+     {
+      "function_id": "002-01",
+      "label": "Emergency Engine-Driven Fire Pumping",
+      "what_it_does": "Provides a high-capacity, engine-driven backup for fire main pressurization, independent of the vessel's electrical system.",
+      "flow_scenarios": [
+       {
+        "state": "Active Pumping",
+        "path": "Seawater Supply (Lazarette Pickup) -> Seawater Strainer (005-01) -> Diesel Fire Pump (002-01) -> Fireline Manifold -> FWD and AFT Fire Hydrants"
+       }
+      ],
+      "key_components": [
+       "005-01 Seawater Strainer"
+      ],
+      "dry_data": "Aussie Pumps UF48 with Yanmar L48 Diesel Engine, 715 l/min, 3.6 kW",
+      "sheet_region": "Bottom Left (Lazarette)"
+     }
+    ]
+   },
+   {
+    "target_node_id": "520-aux-bilge-pumps",
+    "equipment_name": "Auxiliary Bilge Pumps",
+    "placement_reasoning": "Identified as 003-01 and 003-02 (BOM item 003), dedicated to local clearance in the Mast and Engine Room areas.",
+    "functions": [
+     {
+      "function_id": "003-01 / 003-02",
+      "label": "Localized Sump Clearance",
+      "what_it_does": "Provides direct, smaller-scale localized pumping for the Engine Room and Mast sumps independent of the main bilge manifold.",
+      "flow_scenarios": [
+       {
+        "state": "Mast Area Clearance",
+        "path": "Mast Area Sump -> Mast Aux Bilge Pump (003-01) -> Overboard Discharge"
+       },
+       {
+        "state": "Engine Room Clearance (Overboard)",
+        "path": "Engine Room Sump -> Valve 021-01 (Open) -> E-R Aux Bilge Pump (003-02) -> Overboard via Exhaust Water Separator"
+       },
+       {
+        "state": "Engine Room Clearance (Oil Storage)",
+        "path": "Engine Room Sump -> Valve 021-01 (Open) -> E-R Aux Bilge Pump (003-02) -> Valve 014-02 (Open) -> Portable Oil Storage Tank"
+       }
+      ],
+      "key_components": [
+       "021-01 Sump Selection Valve",
+       "014-02 Oil Storage Routing Valve"
+      ],
+      "dry_data": "Whale Gulper 320, 24V DC, 19 l/min",
+      "sheet_region": "Bottom Center (Engine Room and Mast Area)"
+     }
+    ]
+   },
+   {
+    "target_node_id": "520-bilge-valves",
+    "equipment_name": "Actuated Bilge Valves",
+    "placement_reasoning": "Identified as components 017-XX (valves) controlled by 016-XX (actuators) bridging sumps to the main bilge manifold.",
+    "functions": [
+     {
+      "function_id": "017-XX Series",
+      "label": "Manifold Isolation",
+      "what_it_does": "Isolates individual bilge compartments from the main suction manifold, opening selectively to clear a targeted zone.",
+      "flow_scenarios": [
+       {
+        "state": "Default Closed",
+        "path": "Valves 017-01 through 017-05 are normally closed (NC), blocking suction from their respective sumps to the main manifold."
+       },
+       {
+        "state": "Zone Active",
+        "path": "Valve 017-XX opens, allowing the Main Bilge Pump to pull fluid from the specific zone's strumbox."
+       }
+      ],
+      "key_components": [
+       "016-01 to 016-05 Electric Rotary Actuators (actuation)"
+      ],
+      "dry_data": "Burkert 2-way DN050 ball valves with electric rotary actuators",
+      "sheet_region": "Distributed across all primary sumps (Lazarette, Midship, Engine Room, Mast Area, Sail Locker)"
+     }
+    ]
+   },
+   {
+    "target_node_id": "610-cummins-qsb4-5",
+    "equipment_name": "STBD Generator Raw Water Pump",
+    "placement_reasoning": "The schematic depicts an emergency bilge suction pathway via the STBD Genset and exhaust water separator, aligning with established facts for the generator raw water pump.",
+    "functions": [
+     {
+      "function_id": "STBD Genset Raw Water Pump",
+      "label": "Emergency Bilge Suction",
+      "what_it_does": "Serves as an emergency, engine-driven, high-volume bilge pump by utilizing the generator's raw water cooling pump to draw directly from the Engine Room sump.",
+      "flow_scenarios": [
+       {
+        "state": "Emergency Pumping",
+        "path": "Engine Room Sump -> STBD Genset Raw Water Pump (Jabsco 43400) -> Overboard via Exhaust Water Separator"
+       }
+      ],
+      "key_components": [],
+      "dry_data": "Cummins QSB4.5 Engine Pump, 195 l/min",
+      "sheet_region": "Center Left (Engine Room Block)"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "Bilge and Fire System",
+    "target_node_id": "520-bilge-system",
+    "facts": [
+     "The system utilizes a single, integrated main bilge manifold spanning the vessel, collecting from motorized strumbox pickups located in the Lazarette, Midship, Engine Room, Mast Area, ESS Enclosure, and Sail Locker sumps.",
+     "The Main Bilge Pump (Gianneschi ACB 431 B) draws from this manifold and discharges overboard via an anti-siphon loop.",
+     "The fire main is pressurized independently by an Electric Fire Pump (Gianneschi ACB 431 B) and a Diesel Fire Pump (Yanmar L48), both drawing from dedicated seawater pickups to supply hydrants.",
+     "Emergency engine-room flood suction is provided by the STBD generator's raw-water pump, which can draw directly from the engine room bilge and discharge overboard via the exhaust water separator.",
+     "Auxiliary bilge loops utilizing Whale Gulper 320 pumps provide localized clearance for the Engine Room and Mast Area sumps."
+    ]
+   }
+  ],
+  "discarded_as_clutter": [
+   "006-01 (extraction misidentified strumbox as pump)",
+   "006-02 (extraction misidentified strumbox as pump)",
+   "006-03 (extraction misidentified strumbox as pump)",
+   "006-04 (extraction misidentified strumbox as pump)",
+   "006-05 (extraction misidentified strumbox as pump)",
+   "006-06 (extraction misidentified strumbox as pump)",
+   "006-07 (extraction misidentified strumbox as pump)",
+   "006-08 (extraction misidentified strumbox as pump)",
+   "006-0X (extraction misidentified strumbox as pump)",
+   "007-01",
+   "007-02",
+   "007-05",
+   "011-01",
+   "011-03",
+   "011-04",
+   "014-01",
+   "016-01",
+   "018-01",
+   "018-02",
+   "019-01",
+   "020-01",
+   "021-03",
+   "021-04",
+   "022-01",
+   "023-01",
+   "023-02",
+   "025-01",
+   "025-02",
+   "025-03",
+   "025-04",
+   "026-01",
+   "026-02",
+   "026-03"
+  ],
+  "uncertainties": [
+   "The exact state-alignment of the manual 3-way routing valves (e.g., 014-XX series) for directing flow to the portable oil storage tank vs overboard discharge lacks explicit operational threshold data."
+  ],
+  "_model": "gemini-3.1-pro-preview",
+  "_protocol_version": 3
+ },
+ "elapsed_s": 80.4
+}

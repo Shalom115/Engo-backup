@@ -1,0 +1,149 @@
+{
+ "category": "7-building-ga",
+ "sheet": "steering-system-ga",
+ "vendor": "anthropic",
+ "drawing_class": "building_ga",
+ "composition": {
+  "serve_who": "This is a BUILDING/STRUCTURAL GA \u2014 \"Steering System GA\" (108-01-150-001) \u2014 showing the physical arrangement, positions, and specs of the twin-wheel + autopilot steering system: rudder stocks, bearing structures, tiller arms, sheave/track/car mechanical linkage, rod links, and the autopilot ram, all mounted port/stbd mirrored about CL between BHD L and the tri-beams. Callouts and BOM balloons all name components of this one steering assembly, so the whole sheet serves node 150-steering-system, with the rudder blades themselves and the autopilot ram sub-parts attaching to their own established/registered nodes (150-rudder-blades, 150-autopilot-system) per the register.",
+  "equipment_groups": [
+   {
+    "equipment_name": "Steering System (wheel-driven mechanical linkage: sheaves, track, car, tiller arms, rod links)",
+    "target_node_id": "150-steering-system",
+    "placement_reasoning": "The plan view, Detail A, Port Lower Sheave Box Detail, Sections B-B, D and E, and the BOM (items 1, 6-17) all describe the wheel-to-rudder mechanical steering train (upper/lower sheave boxes, track, car, Vectran line, rod links, tiller arms). This is the core mechanical steering linkage distinct from the rudder blades and autopilot ram, so it is composed under the main Steering System node.",
+    "functions": [
+     {
+      "label": "Wheel steering transmission (sheave/track/car/Vectran line linkage)",
+      "what_it_does": "Transmits helm input from each of the two steering wheels via a Vectran line running over aluminium sheaves (upper sheave box at BHD L, lower sheave box near hull shell) through a track-mounted car, converting wheel rotation into linear car travel that pulls the rod links to the tiller arms, turning both rudders in coordination.",
+      "key_components": [
+       "100mm aluminium sheave (upper/lower sheave boxes) \u2014 item 1",
+       "Upper sheave box (SWS standard) \u2014 item 8",
+       "Lower sheave box \u2014 item 9",
+       "Sheave pin set \u2014 item 10",
+       "Track 1100mm \u2014 item 11",
+       "E-glass wedge stops (end-of-travel stops) \u2014 item 12",
+       "Assembled car \u2014 item 13",
+       "Vectran line 20mm \u2014 item 14",
+       "Rod link carbon tube + BHD fittings + M16 ball joints \u2014 item 15"
+      ],
+      "sheet_region": "Detail A (top center-left, scale 1:10); Port Lower Sheave Box Detail (top center-right, NTS); Plan View (scale 1:20, mid-right); Section B-B (scale 1:20, center)",
+      "flow_scenarios": [
+       {
+        "state": "neutral (rudders centered)",
+        "path": "Wheel input (off-sheet) -> Vectran line -> upper sheave box (fixed to BHD L) -> track/car assembly -> lower sheave box -> rod links (2044mm at neutral, giving 1.8\u00b0 toe-in) -> port and stbd tiller arms -> rudder stocks centered"
+       },
+       {
+        "state": "helm turned",
+        "path": "Wheel rotation -> Vectran line pulls car along 1100mm track -> car travel limited by E-glass wedge stops at track ends -> rod links transmit push/pull to both tiller arms simultaneously -> both rudders turn together (Ackermann effect: inside/outside rudder angles differ per table, e.g. at car position 212mm from CL, inside rudder 20\u00b0, outside rudder 16.0\u00b0)"
+       },
+       {
+        "state": "single rod-link failure (safety note)",
+        "path": "One rod link fails -> corresponding tiller arm loses direct linkage -> other rudder remains actively controlled via its own intact rod link -> one rudder still active per system safety notes"
+       }
+      ]
+     },
+     {
+      "label": "Tiller arm assemblies (port/stbd)",
+      "what_it_does": "Converts linear rod-link motion into rotary torque applied directly to each rudder stock, port and stbd mirrored.",
+      "key_components": [
+       "Port assembled racing tiller arm 1400mm arm 600/240 \u2014 item 16",
+       "Stbd assembled racing tiller arm 1400mm arm 600/240 \u2014 item 17"
+      ],
+      "sheet_region": "Plan view (mid-right); Detail E (scale 1:5, lower area); Section C-C (bottom-left)",
+      "flow_scenarios": [
+       {
+        "state": "mirrored operation",
+        "path": "Rod link -> tiller arm ball-joint connection -> rudder stock -> rudder blade rotates; STBD mirrors PORT arrangement"
+       }
+      ]
+     },
+     {
+      "label": "Track support structural mounting",
+      "what_it_does": "Provides the structural mounting base for the sheave/car track, tapping-plate reinforced.",
+      "key_components": [
+       "16mm tapping plate insert (see DWG 108-01-150-006)"
+      ],
+      "sheet_region": "Detail E, scale 1:5, lower-left"
+     }
+    ],
+    "dry_data": "Rod link length 2044mm nominal at neutral (adjustable 2025-2056mm range for 0-3\u00b0 toe-in fine tuning); car race \u00b1365mm from CL; track length 1100mm"
+   },
+   {
+    "equipment_name": "Rudder Blades (P+S, mirrored)",
+    "target_node_id": "150-rudder-blades",
+    "placement_reasoning": "Bearing structures, rudder stock, rudder retainer, water-tight tube and rudder blade section views all describe the rudder assembly itself, which already has an established node with prior structural facts from this same GA \u2014 this sheet adds bearing/structural specifics.",
+    "functions": [
+     {
+      "label": "Rudder stock bearing support (upper + lower)",
+      "what_it_does": "Supports and locates the rudder stock at two points (upper bearing near deck/BHD L, lower bearing near hull shell bottom), allowing rotation while sealing against water ingress.",
+      "key_components": [
+       "220mm bottom rudder bearing (8032-220) \u2014 item 2",
+       "220mm rudder bearing housing (GRP) (8038-220) \u2014 item 3",
+       "180mm top rudder bearing (8032P-180) \u2014 item 4",
+       "180mm rudder bearing housing (GRP) (8038P-180) \u2014 item 5",
+       "Water tight system neoprene tube D.305mm \u2014 item 6",
+       "SWS rudder retainer (aluminium) \u2014 item 7",
+       "Rudder blade \u2014 item 18"
+      ],
+      "sheet_region": "Detail D (scale 1:5, lower-left, upper bearing area); Section B-B (center); Section C-C through rudder blade (bottom-left, view rotated 26\u00b0); Upper/Lower bearing structure callouts on perspective view (see DWG 108-05-151-001 / -002)"
+     }
+    ],
+    "dry_data": "Rudder stock diameters: 220mm at bottom bearing, 180mm at top bearing; G10 spacers 30mm at top bearing (per Section B-B); datum 0 established at Section C-C for blade depth 1493mm and stock offset 1685mm"
+   },
+   {
+    "equipment_name": "Autopilot System (ram + support)",
+    "target_node_id": "150-autopilot-system",
+    "placement_reasoning": "The autopilot ram (item 19) and its dedicated 'AUTOPILOT RAM SUPPORT' callout, bolted through BHD L with bonded tapping plates, form the third independent steering path (pilot) noted in the system safety notes \u2014 distinct from the wheel-driven linkage, warranting attachment to the dedicated autopilot node.",
+    "functions": [
+     {
+      "label": "Autopilot ram drive",
+      "what_it_does": "Provides the third, independent steering path directly actuating the rudder linkage without operator wheel input, per system safety note ('3 independent systems: 2 wheels + pilot').",
+      "key_components": [
+       "Autopilot ram \u2013 300mm stroke (CLO-75N) \u2014 item 19",
+       "Autopilot ram support bracket, bolted through BHD L with bonded tapping plates on fwd face"
+      ],
+      "sheet_region": "Plan view, center (item 19 balloon); callout 'AUTOPILOT RAM SUPPORT IS BOLTED THROUGH BHD L / BOND TAPPING PLATES ON FWD FACE' near plan view center-left",
+      "flow_scenarios": [
+       {
+        "state": "pilot active",
+        "path": "Autopilot control signal (off-sheet) -> ram extends/retracts (300mm stroke) -> acts on steering linkage independent of wheel Vectran line -> both rudders move together"
+       },
+       {
+        "state": "both-wheel failure (safety note)",
+        "path": "Both wheel steering paths fail -> pilot ram remains functional -> pilot still in control of rudders per safety notes"
+       }
+      ]
+     }
+    ],
+    "dry_data": "300mm stroke ram, model CLO-75N per BOM item 19; ram support bolted through BHD L, tapping plates bonded on fwd face"
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "Structural mounting (tri-beams, partitions, bulkhead BHD L, hull shell)",
+    "target_node_id": "150-steering-system",
+    "facts": [
+     "Tri-beam 11 and tri-beams 6+7 are the structural beams the steering linkage penetrates/is supported from; a penetration must be made in the tri-beam to suit pilot rod movement (callout, plan view center)",
+     "Partition LM1 (port) and LM2 (stbd) are bulkhead partitions adjacent to each rudder stock, providing local structural support for sheave boxes",
+     "BHD L is the bulkhead through which the autopilot ram support is bolted and where the upper sheave box is mounted",
+     "Sheave boxes are to be bonded horizontally (callout, plan view right side) \u2014 an assembly instruction, not a flow scenario",
+     "Station reference STN 10 marks a hull structural station at 651mm on deck inner skin (dimension chain, plan view)",
+     "DWL (design waterline) and DATUM 0 are structural/geometric references used across plan/section views for dimensioning bearing and rudder blade positions"
+    ]
+   }
+  ],
+  "discarded_as_clutter": [
+   "Perspective View / Section labels (Detail A, Section B-B, C-C, D, E) \u2014 view/scale metadata only, not equipment facts",
+   "Standard notes box (do not scale, projection angle, dimension tolerances, break sharp edges) \u2014 drawing meta",
+   "Approved/Reviewed/title block signatures and dates \u2014 administrative meta",
+   "Revision block (First issue, Dims added, Modification) \u2014 administrative meta",
+   "BOM table itself \u2014 restates item descriptions already captured against each function's key_components list"
+  ],
+  "uncertainties": [
+   "Part numbers for bearing/housing items (e.g. 8032-220, 8038P-180) are legible in BOM but treated as function-identifying only; exact tolerance/material grade beyond GRP/ALU not further specified on this sheet.",
+   "Exact routing of Vectran line between upper and lower sheave boxes inside the hull (concealed by hull shell in perspective view) is not fully traceable \u2014 general path only, per drawn sheave/track arrangement."
+  ],
+  "_model": "claude-sonnet-5",
+  "_protocol_version": 3
+ },
+ "elapsed_s": 48.9
+}

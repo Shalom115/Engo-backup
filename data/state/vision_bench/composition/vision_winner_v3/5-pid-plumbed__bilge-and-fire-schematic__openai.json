@@ -1,0 +1,397 @@
+{
+ "category": "5-pid-plumbed",
+ "sheet": "bilge-and-fire-schematic",
+ "vendor": "openai",
+ "drawing_class": "pid",
+ "composition": {
+  "serve_who": "Drawing 108-01-520-001 Rev B is principally the vessel Bilge & Fire System: the title, pipe legend, lower flow schematic, pump data/BOM, sump pickups, bilge main, fire main, hydrants and overboard discharge all establish that service. Within the engine-room box it also shows a distinct STBD-generator raw-water loop used for emergency engine-room bilge suction; that region serves the Cummins QSB4.5 generator package and is not merged into the bilge/fire main merely because it can pump bilge water.",
+  "equipment_groups": [
+   {
+    "target_node_id": "520-bilge-system",
+    "equipment_name": "Bilge & Fire System",
+    "placement_reasoning": "This is the real system card matching the sheet title and the two drawn longitudinal mains. It receives the end-to-end operating paths and the shared roster; individual pumps, actuated valves and sensors are also attached to their own nodes below.",
+    "functions": [
+     {
+      "function_id": "bilge-main-dewatering",
+      "label": "Collect and discharge compartment bilge water",
+      "what_it_does": "Provides a sectionalized metallic suction main so the main bilge pump can dewater the selected vessel sump and discharge overboard without back-siphoning.",
+      "flow_scenarios": [
+       {
+        "state": "Neutral/default",
+        "path": "Main bilge pump stopped; normally open pickup/main isolations remain available, normally closed crossover or emergency branches pass no flow, and no sump is narrated as draining merely by gravity."
+       },
+       {
+        "state": "Main-pump dewatering",
+        "path": "Selected drawn pickup in lazarette, midship, engine room, mast area or sail locker \u2192 its open branch isolation/check arrangement \u2192 cyan metallic main bilge line \u2192 seawater/bilge strainer at the main-pump suction \u2192 main bilge pump \u2192 discharge isolation/check route \u2192 anti-siphon manifold located 700 mm above DWL \u2192 bilge overboard."
+       },
+       {
+        "state": "Section isolation",
+        "path": "Affected pickup or longitudinal section \u2192 closed local/section valve stops flow at that boundary; remaining pickups connected by the still-open drawn main can continue to the main bilge pump \u2192 anti-siphon manifold \u2192 bilge overboard."
+       }
+      ],
+      "key_components": [
+       "sectionalized metallic bilge main",
+       "sump pickup strum boxes in lazarette, midship, engine room, mast area and sail locker",
+       "branch isolation valves and non-return/check devices",
+       "main-pump suction strainer",
+       "700 mm-above-DWL anti-siphon manifold",
+       "bilge overboard outlet"
+      ],
+      "dry_data": "Metallic main bilge line; compartment arrangement spans aft stowage/lazarette through sail locker; anti-siphon manifold elevation 700 mm above DWL.",
+      "sheet_region": "Lower schematic: cyan longitudinal line from LAZARETTE SUMP through MIDSHIP, ENGINE ROOM and MAST AREA to MAIN BILGE PUMP/ANTI-SIPHON MANIFOLD and SAIL LOCKER; upper GA shows corresponding hull routing."
+     },
+     {
+      "function_id": "auxiliary-oily-bilge-removal",
+      "label": "Provide local auxiliary and oily-bilge pumping",
+      "what_it_does": "Allows the engine-room and mast-area auxiliary pumps to remove local bilge liquid or draw from the explicitly piped flex/portable-oil connections, while keeping each selectable source isolated when its NC valve is shut.",
+      "flow_scenarios": [
+       {
+        "state": "Neutral/default",
+        "path": "Auxiliary pumps stopped; NC source-selector valves remain closed, so flex-hose and portable-oil branches carry no flow."
+       },
+       {
+        "state": "Engine-room auxiliary pumping",
+        "path": "Selected drawn engine-room sump/flex-suction/portable-oil source \u2192 opened selector valve \u2192 oily-bilge filter where drawn \u2192 engine-room auxiliary bilge pump \u2192 its drawn discharge connection to the bilge piping; other NC source branches remain shut."
+       },
+       {
+        "state": "Mast-area or ESS auxiliary pumping",
+        "path": "Selected mast-area auxiliary pickup or ESS-enclosure pickup \u2192 opened source valve on the mast auxiliary bilge-pump suction manifold \u2192 mast auxiliary bilge pump \u2192 its drawn discharge connection; unselected NC manifold branches remain shut."
+       }
+      ],
+      "key_components": [
+       "two independently operated Whale auxiliary bilge pumps",
+       "engine-room oily-bilge cartridge filter",
+       "mast auxiliary suction manifold",
+       "flex suction hose connections",
+       "portable-oil-storage-tank hose connections",
+       "ESS enclosure pickup and local bilge/coolant-leak alarms"
+      ],
+      "dry_data": "Auxiliary line is PVC/flex per legend; two Whale Gulper 320, 24 V DC pumps, each listed 19 L/min (1.1 m\u00b3/h), 0.1 kW, max head 3 m.",
+      "sheet_region": "Lower center: ENGINE ROOM auxiliary-pump/oily-filter box and MAST AREA SUMP\u2013ESS ENCLOSURE suction-manifold box."
+     },
+     {
+      "function_id": "fire-main-supply",
+      "label": "Pressurize the fire main and hydrants",
+      "what_it_does": "Uses either the electric fire pump or the independent diesel fire pump to supply the sectionalized metallic fire main and its aft and forward hydrant hose stations.",
+      "flow_scenarios": [
+       {
+        "state": "Neutral/default",
+        "path": "Fire pumps stopped; pump discharge checks prevent reverse flow and NC suction/backup branches carry no flow."
+       },
+       {
+        "state": "Electric fire-pump service",
+        "path": "Drawn seawater supply \u2192 seawater strainer \u2192 opened electric-fire-pump suction isolation \u2192 electric fire pump \u2192 discharge check/isolation \u2192 red metallic fire main \u2192 selected aft or forward fire hydrant \u2192 hose/nozzle."
+       },
+       {
+        "state": "Diesel fire-pump service",
+        "path": "Tender-garage seawater pickup \u2192 seawater strainer \u2192 diesel fire pump (manual pull-start; fresh-water line is priming supply only) \u2192 discharge check/isolation \u2192 red metallic fire main \u2192 selected aft or forward fire hydrant \u2192 hose/nozzle."
+       },
+       {
+        "state": "Fire-main section isolation",
+        "path": "Operating fire pump \u2192 open portion of fire main up to a closed section valve; the closed valve blocks the isolated section, while hydrants remaining on the supplied open section can receive flow."
+       }
+      ],
+      "key_components": [
+       "metallic fire main",
+       "electric fire pump and diesel fire pump as independent sources",
+       "aft and forward fire hydrant valves, 15 m hose assemblies and nozzles",
+       "pump suction strainers",
+       "discharge check valves",
+       "section isolation valves",
+       "fresh-water priming connection for the diesel pump"
+      ],
+      "dry_data": "Fire hose is ISO 15540 fire-resistant; hose assemblies are shown as nominal 15 m plus 3 m; GA marks about 18 m aft-hydrant reach and 15 m forward-hydrant reach.",
+      "sheet_region": "Lower schematic: red longitudinal FIRE LINE from aft to forward hydrant and both pump tie-ins; upper GA: hydrant locations and dashed maximum-hose-reach arcs."
+     }
+    ]
+   },
+   {
+    "target_node_id": "520-main-bilge-pump",
+    "equipment_name": "Main Bilge Pump \u2014 Gianneschi ACB 431 B",
+    "placement_reasoning": "The right-side pump labeled MAIN BILGE PUMP is the prime mover for the metallic bilge main. Established engineering resolution overrides the erroneous FEIT/VA 408 identity printed in the pump-data row: it is a separate physical Gianneschi ACB 431 B, same model as the fire pump.",
+    "functions": [
+     {
+      "function_id": "main-bilge-pump-role",
+      "label": "Pump selected bilge-main suction overboard",
+      "what_it_does": "Creates suction on the selected compartment branch and raises the collected bilge water through the protected overboard discharge.",
+      "flow_scenarios": [
+       {
+        "state": "Stopped/default",
+        "path": "Bilge main \u2192 pump stopped; no pumped discharge, with discharge check preventing reverse flow."
+       },
+       {
+        "state": "Running",
+        "path": "Selected sump pickup \u2192 metallic bilge main \u2192 suction strainer/isolation \u2192 main bilge pump \u2192 discharge check/isolation \u2192 anti-siphon manifold 700 mm above DWL \u2192 bilge overboard."
+       }
+      ],
+      "key_components": [
+       "suction strainer",
+       "suction and discharge isolations",
+       "discharge non-return/check valve",
+       "anti-siphon manifold",
+       "local start and remote-start controls shown on GA"
+      ],
+      "dry_data": "Authoritative identity: Gianneschi ACB 431 B, 24 V DC, 1.5 kW, 1500 rpm; separate physical pump from the electric fire pump. The sheet\u2019s FEIT VA 408 identity is superseded.",
+      "sheet_region": "Lower right, MAIN BILGE PUMP beside electric fire pump and anti-siphon manifold; upper GA near frame E/D with local and remote starts."
+     }
+    ]
+   },
+   {
+    "target_node_id": "520-aux-bilge-pumps",
+    "equipment_name": "Auxiliary Bilge Pumps \u2014 engine room and mast area",
+    "placement_reasoning": "The two local pumps labeled E-R AUX BILGE PUMP and MAST AUX BILGE PUMP match the established two-unit Whale Gulper 320 auxiliary set.",
+    "functions": [
+     {
+      "function_id": "aux-pump-role",
+      "label": "Pump locally selected auxiliary bilge source",
+      "what_it_does": "Each pump independently evacuates the source selected by its own drawn suction valves/manifold; neither pump is assumed connected to a source lacking a drawn pipe.",
+      "flow_scenarios": [
+       {
+        "state": "Stopped/default",
+        "path": "Pump stopped; NC selector branches remain shut and pass no flow."
+       },
+       {
+        "state": "Engine-room unit running",
+        "path": "Selected engine-room/flex/portable-oil branch \u2192 opened isolation and oily-bilge filter where drawn \u2192 engine-room Whale pump \u2192 drawn discharge connection."
+       },
+       {
+        "state": "Mast-area unit running",
+        "path": "Selected mast-area or ESS pickup/flex/portable-oil branch \u2192 opened mast suction-manifold valve \u2192 mast-area Whale pump \u2192 drawn discharge connection."
+       }
+      ],
+      "key_components": [
+       "individually isolatable suction branches",
+       "engine-room oily-bilge filter",
+       "mast-area source-selection manifold",
+       "local alarms associated with the served sumps"
+      ],
+      "dry_data": "BOM 003: Central Boating / Whale 2054 Gulper 320, 24 V DC, quantity 2; each 19 L/min (1.1 m\u00b3/h), 0.1 kW, max head 3 m.",
+      "sheet_region": "Lower center-left E-R AUX BILGE PUMP and lower center-right MAST AUX BILGE PUMP; upper GA shows both remote-start locations."
+     }
+    ]
+   },
+   {
+    "target_node_id": "520-fire-pump",
+    "equipment_name": "Electric Fire Pump \u2014 Gianneschi ACB 431 B",
+    "placement_reasoning": "The electric motor-driven fire pump is shown as a separate physical pump connected between the seawater suction arrangement and fire main; established identity explicitly prevents merging it with the same-model main bilge pump.",
+    "functions": [
+     {
+      "function_id": "electric-fire-pump-role",
+      "label": "Electrically pressurize the fire main",
+      "what_it_does": "Provides the normal electric pumping source for fire-fighting water at the vessel hydrants.",
+      "flow_scenarios": [
+       {
+        "state": "Stopped/default",
+        "path": "Seawater suction \u2192 pump stopped; discharge check prevents fire-main backflow through the pump."
+       },
+       {
+        "state": "Running",
+        "path": "Drawn seawater supply \u2192 seawater strainer \u2192 open suction isolation \u2192 Gianneschi electric fire pump \u2192 discharge check/isolation \u2192 metallic fire main \u2192 selected hydrant \u2192 hose/nozzle."
+       }
+      ],
+      "key_components": [
+       "suction strainer",
+       "suction isolation",
+       "discharge check valve",
+       "fire-main isolation",
+       "local/remote pump controls shown on GA"
+      ],
+      "dry_data": "BOM 024: Gianneschi S.r.l. ACB 431 B, 24 V CC, 1.5 kW, 1500 rpm (SWS GIA-01AAC9991); pump table lists 230 L/min (13.8 m\u00b3/h), max head 30 m.",
+      "sheet_region": "Lower right-center ELECTRIC FIRE PUMP branch; upper GA near frame D with pump and remote-start symbols."
+     }
+    ]
+   },
+   {
+    "target_node_id": "520-diesel-fire-pump",
+    "equipment_name": "Diesel Fire Pump (crash/backup pump) \u2014 Aussie Pumps / Yanmar L48",
+    "placement_reasoning": "The tender-garage manual pull-start pump is the independent diesel fire-main source and is labeled on the GA as both diesel fire pump and diesel backup bilge pump.",
+    "functions": [
+     {
+      "function_id": "diesel-fire-pump-role",
+      "label": "Independently pressurize the fire main",
+      "what_it_does": "Provides a manually started, engine-driven fire-water source independent of the 24 V electric fire pump.",
+      "flow_scenarios": [
+       {
+        "state": "Stopped/default",
+        "path": "Tender-garage seawater pickup \u2192 pump stopped; discharge check prevents reverse flow from the fire main."
+       },
+       {
+        "state": "Fire-main service",
+        "path": "Tender-garage seawater pickup \u2192 seawater strainer \u2192 open suction isolation \u2192 manually pull-started diesel pump \u2192 discharge check/isolation \u2192 metallic fire main \u2192 selected hydrant \u2192 hose/nozzle; the fresh-water branch from drawing 108-01-510-001 is used for priming, not treated as the pump discharge."
+       },
+       {
+        "state": "Backup bilge lineup",
+        "path": "Bilge pickup/backup suction route shown at the tender-garage branch \u2192 required NC selector opened \u2192 diesel pump \u2192 drawn bilge-overboard route; the normal seawater/fire lineup must not be assumed open through an NC selector."
+       }
+      ],
+      "key_components": [
+       "manual pull-start diesel engine",
+       "tender-garage seawater pickup",
+       "seawater strainer",
+       "fresh-water priming connection",
+       "suction/discharge isolations",
+       "discharge check valve",
+       "bilge-overboard selector branch"
+      ],
+      "dry_data": "Register/BOM identity: Aussie Pumps RSEBUV/L48 NF driven by Yanmar L48; pump table lists 715 L/min (42.9 m\u00b3/h), 5.6 kW, max head 37 m.",
+      "sheet_region": "Lower left TENDER GARAGE boxed branch; upper GA aft near lazarette/tender garage with diesel fire-pump and backup-bilge labels."
+     }
+    ]
+   },
+   {
+    "target_node_id": "520-bilge-valves",
+    "equipment_name": "Bilge Valves \u2014 Burkert electric actuated set and manual isolations",
+    "placement_reasoning": "The sheet uses valves to select sump suction, isolate sections and prevent reverse flow. The established BOM mapping identifies the five electric-actuated DN50 bilge ball valves; the remaining drawn manual/check valves are retained by role without inventing actuator links.",
+    "functions": [
+     {
+      "function_id": "bilge-valve-lineup",
+      "label": "Select and isolate bilge-flow paths",
+      "what_it_does": "Opens the commanded pickup or pump route while isolating unused branches and preserving one-way discharge protection.",
+      "flow_scenarios": [
+       {
+        "state": "Normal indicated lineup",
+        "path": "Valves marked NO remain open on their drawn branches; valves marked NC remain closed and carry no flow; check valves permit only the arrowed pumping direction."
+       },
+       {
+        "state": "Selected branch commanded open",
+        "path": "Chosen sump/source \u2192 commanded Burkert or manual isolation opened \u2192 connected drawn main/manifold \u2192 operating pump; all unselected NC branches remain shut."
+       },
+       {
+        "state": "Fault/maintenance isolation",
+        "path": "Affected pickup, pump or main section \u2192 adjacent isolation closed \u2192 flow blocked at that valve while other independently piped open sections remain available."
+       }
+      ],
+      "key_components": [
+       "five electrically actuated 2-way DN50 ball valves",
+       "manual 2-way and 3-way selector valves",
+       "non-return/check valves on pump discharges",
+       "normally-open/normally-closed state markings"
+      ],
+      "dry_data": "BOM 016+017: Burkert electric rotary actuators on Burkert 2-way 316 stainless DN50 ball valves, quantity 5; 24 V supply is established elsewhere via Q14 10 A emergency-panel breaker.",
+      "sheet_region": "Distributed across the lower bilge main, pump branches and mast auxiliary suction manifold; motor-actuated-valve symbols are defined in the lower-left legend."
+     }
+    ]
+   },
+   {
+    "target_node_id": "520-vega-bilge-level-sensors",
+    "equipment_name": "Vega bilge level sensors / bilge alarm points",
+    "placement_reasoning": "Bilge alarm points are drawn in the lazarette, midship, engine-room, mast-area, ESS and sail-locker sump boxes and belong to the bilge monitoring equipment rather than to the pumps.",
+    "functions": [
+     {
+      "function_id": "bilge-high-level-detection",
+      "label": "Detect abnormal liquid level in local sumps",
+      "what_it_does": "Provides a local level/alarm input at each depicted bilge area so accumulation is indicated independently of pump operation.",
+      "flow_scenarios": [
+       {
+        "state": "Normal/dry",
+        "path": "Sump level below sensor trip point \u2192 sensor remains normal \u2192 no bilge alarm indication."
+       },
+       {
+        "state": "High liquid level",
+        "path": "Liquid rises at the local sump sensor \u2192 level switch changes state \u2192 associated bilge alarm indication shown for that compartment; no automatic pump-start relationship is asserted because this fluid sheet does not draw such control wiring."
+       }
+      ],
+      "key_components": [
+       "local sump level switches/alarm probes",
+       "bilge alarm annunciation points 007-01 through 007-06 as drawn",
+       "separate auxiliary-pump and coolant-leak alarm symbols where shown"
+      ],
+      "dry_data": "Vega bilge-level-sensor family; exact BOM quantity/model-to-each-alarm-point mapping is not cleanly legible on this image and is not inferred.",
+      "sheet_region": "Bottom sump boxes for LAZARETTE, MIDSHIP, ENGINE ROOM, MAST AREA, ESS ENCLOSURE and SAIL LOCKER."
+     }
+    ]
+   },
+   {
+    "target_node_id": "610-cummins-qsb4-5",
+    "equipment_name": "STBD Generator Cummins QSB4.5 raw-water pump / emergency bilge suction",
+    "placement_reasoning": "The boxed engine-room branch explicitly references sea-chest supply and wet-exhaust water separation and contains the established STBD generator Jabsco 43400 pump. It is a separate generator raw-water loop with an emergency bilge selector, not a branch merged into the fire main.",
+    "functions": [
+     {
+      "function_id": "generator-raw-water-circulation",
+      "label": "Supply raw water to the STBD generator wet-exhaust circuit",
+      "what_it_does": "Pumps seawater through the generator cooling/exhaust-water route during ordinary generator operation.",
+      "flow_scenarios": [
+       {
+        "state": "Normal generator cooling",
+        "path": "Main sea-chest supply referenced to drawing 108-01-515-003 \u2192 open normal suction route \u2192 STBD generator Jabsco 43400 raw-water pump \u2192 wet-exhaust water separator \u2192 overboard route referenced to drawing 108-01-515-001; emergency bilge suction valve remains NC."
+       },
+       {
+        "state": "Stopped",
+        "path": "Raw-water pump stopped \u2192 no pumped seawater circulation; emergency bilge suction remains closed."
+       }
+      ],
+      "key_components": [
+       "engine-mounted raw-water pump",
+       "normal sea-chest suction isolation",
+       "wet-exhaust water separator",
+       "overboard discharge isolation/check arrangement"
+      ],
+      "dry_data": "Jabsco 43400 engine-mounted raw-water pump on STBD Cummins QSB4.5 generator; sheet pump table lists 195 L/min (11.7 m\u00b3/h).",
+      "sheet_region": "Lower-center dashed ENGINE ROOM box, left side: FROM SEACHEST SUPPLY and STBD GENSET RAW WATER PUMP to overboard wet-exhaust reference."
+     },
+     {
+      "function_id": "emergency-engine-room-dewatering",
+      "label": "Use the generator raw-water pump as emergency bilge pump",
+      "what_it_does": "Allows the STBD generator pump to draw from the engine-room bilge instead of its normal sea-chest suction during flooding.",
+      "flow_scenarios": [
+       {
+        "state": "Normal/default",
+        "path": "Emergency engine-room sump suction \u2192 NC emergency selector closed \u2192 no bilge flow into generator raw-water pump."
+       },
+       {
+        "state": "Emergency suction selected",
+        "path": "Engine-room bilge pickup \u2192 emergency suction valve opened and normal sea-chest lineup isolated as required \u2192 STBD generator Jabsco 43400 raw-water pump \u2192 exhaust water separator \u2192 overboard; this is the established emergency engine-room flood-suction route."
+       }
+      ],
+      "key_components": [
+       "engine-room emergency pickup",
+       "normally closed emergency suction selector",
+       "Jabsco 43400 raw-water pump",
+       "wet-exhaust separator",
+       "overboard discharge"
+      ],
+      "dry_data": "Emergency alternate suction on the STBD generator raw-water pump; no independent gravity discharge is claimed.",
+      "sheet_region": "Lower-center ENGINE ROOM box around the STBD GENSET RAW WATER PUMP and emergency pickup branch."
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "Bilge & Fire System shared piping infrastructure",
+    "target_node_id": "520-bilge-system",
+    "facts": [
+     "The cyan metallic main bilge line and red metallic fire main are separate longitudinal networks; common vessel routing does not make them one pipe.",
+     "The bilge main is sectionalized across hull/fire boundaries and receives only pickups with a drawn branch: lazarette, midship, engine room, mast area and sail locker.",
+     "The auxiliary PVC/flex piping and mast suction manifold remain distinct from the metallic main except at explicitly drawn connections.",
+     "The fire main is sectionalized and supplies aft and forward hydrants; either electric or diesel fire pump can feed it through its own drawn check/isolation branch.",
+     "Aft and forward hose/nozzle stations are each shown with nominal 15 m plus 3 m hose arrangement; upper GA gives the coverage arcs.",
+     "Cross-sheet boundaries are explicit: fire line in port sheet and sea-chest supply refer to 108-01-515-003; fresh-water priming to 108-01-510-001; wet-exhaust overboard route to 108-01-515-001; thru-hull valve details to 108-01-504-002.",
+     "Shared roster on this sheet includes main bilge pump, two auxiliary bilge pumps, electric fire pump, diesel fire pump, sump pickups/alarms, oily-bilge filter, strainers, hydrants, valves/checks and anti-siphon manifold."
+    ]
+   }
+  ],
+  "discarded_as_clutter": [
+   "title-block approval/review signatures and dates",
+   "revision-history wording except the functional fact that Rev B added the ESS pickup",
+   "standard drafting notes such as DO NOT SCALE, dimensions and edge-breaking",
+   "upper-GA repeated pump/start labels already represented by the lower flow schematic",
+   "symbols-legend repetitions after applying the sheet\u2019s symbol meanings",
+   "pipe-detail and BOM weight columns that do not change operational function",
+   "zone letters, frame numbers, room furniture and hull outlines used only for drawing location",
+   "lazarette area value 12.8 m\u00b2",
+   "vendor material/weight details for hoses and minor fittings where they merely repeat the fire-hose specification",
+   "cross-reference arrows treated as off-sheet boundaries rather than invented connections"
+  ],
+  "uncertainties": [
+   "The main bilge pump\u2019s printed FEIT VA 408 row and its listed 300 L/min, 0.75 kW, 17 m performance conflict with the engineer-resolved Gianneschi ACB 431 B identity. Identity is closed; applicability of those three printed performance values after correction is not established, so they were not adopted.",
+   "The exact item/model and quantity mapping of each 007-series bilge alarm point to the Vega BOM row is not cleanly readable at this image resolution; six compartment alarm positions are drawn, but no quantity is guessed.",
+   "The auxiliary pump discharge endpoints are visibly connected into the depicted bilge piping, but some tiny valve/item identifiers and arrowheads are not legible enough to assign every tag; paths are therefore stated by functional branch rather than guessed tag number.",
+   "The precise valve sequence for the diesel pump\u2019s GA-labeled backup-bilge mode is not fully legible on this sheet; the scenario is limited to the drawn backup suction/overboard branch and does not assert flow through any valve marked NC unless explicitly opened.",
+   "The drawing refers to separate operating-modes sheet 108-01-520-002; any interlocks or mandatory sequencing shown only there are outside this sheet and are not inferred."
+  ],
+  "_model": "gpt-5.6-sol",
+  "_protocol_version": 3
+ },
+ "elapsed_s": 195.8
+}

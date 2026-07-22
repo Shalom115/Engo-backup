@@ -1,0 +1,187 @@
+{
+ "category": "4-electrical-relay-terminal-wiring",
+ "sheet": "GM-114a_bilge-system",
+ "vendor": "gemini",
+ "drawing_class": "electrical",
+ "composition": {
+  "serve_who": "This sheet serves the vessel's bilge management system, specifically detailing the control logic, valve actuation, and monitoring for the five main bilge compartments (Lazarette, Aft, Engine Room, Forward, Sail Locker) and the main bilge pump. The evidence is the drawing title 'BILGE SYSTEM', the repeating 'BILGE VALVE' loads, and the 'BILGE PUMP SW' control loops.",
+  "equipment_groups": [
+   {
+    "target_node_id": "520-bilge-valves",
+    "equipment_name": "Bilge Valves",
+    "placement_reasoning": "The sheet explicitly illustrates the control loops, relays, and limit switch feedback for the motorized bilge valves serving the vessel's five distinct bilge zones.",
+    "functions": [
+     {
+      "function_id": "lazarette_bilge_valve_control",
+      "label": "Lazarette Bilge Valve Control",
+      "what_it_does": "Opens or closes to connect the lazarette bilge to the main suction manifold, providing status feedback to the main panel and monitoring system.",
+      "flow_scenarios": [
+       {
+        "state": "command_open_close",
+        "path": "Commanded from MAIN PANEL switch S20 via PLUG C pin 1, activating relay Re1 (supplied by BILGE VALVES Q13 10A) to drive the valve motor (M) via T/S C terminals 9 and 10."
+       },
+       {
+        "state": "status_monitoring",
+        "path": "Limit switches send status feedback via T/S C terminals 7 (open) and 8 (closed) to MAIN PANEL indicators via PLUG D pins 1 and 2, and to the ONYX monitoring system via taps XA40 <14> and XA40 <12>."
+       }
+      ],
+      "key_components": [
+       "Re1 (control relay)",
+       "S20 (control switch)"
+      ],
+      "dry_data": "Burkert 2-way DN050 electric rotary actuators; 24V DC control.",
+      "sheet_region": "Relays Re1-Re6, Terminal Strip T/S C"
+     },
+     {
+      "function_id": "aft_bilge_valve_control",
+      "label": "Aft Bilge Valve Control",
+      "what_it_does": "Opens or closes to connect the aft bilge to the main suction manifold, providing status feedback to the main panel and monitoring system.",
+      "flow_scenarios": [
+       {
+        "state": "command_open_close",
+        "path": "Commanded from MAIN PANEL switch S21 via PLUG C pin 2, activating relay Re2 to drive the valve motor via T/S C terminals 18 and 19."
+       },
+       {
+        "state": "status_monitoring",
+        "path": "Status feedback routes from limit switches via T/S C terminals 16 and 17 to MAIN PANEL indicators via PLUG D pins 3 and 4, and to ONYX via tap XA40 <16>."
+       }
+      ],
+      "key_components": [
+       "Re2 (control relay)",
+       "S21 (control switch)"
+      ],
+      "dry_data": "Burkert 2-way DN050 electric rotary actuators; 24V DC control.",
+      "sheet_region": "Relays Re1-Re6, Terminal Strip T/S C"
+     },
+     {
+      "function_id": "eng_room_bilge_valve_control",
+      "label": "Engine Room Bilge Valve Control",
+      "what_it_does": "Opens or closes to connect the engine room bilge to the main suction manifold, providing status feedback to the main panel and monitoring system.",
+      "flow_scenarios": [
+       {
+        "state": "command_open_close",
+        "path": "Commanded from MAIN PANEL switch S22 via PLUG C pin 3, activating relay Re3 to drive the valve motor via T/S C terminals 26 and 27."
+       },
+       {
+        "state": "status_monitoring",
+        "path": "Status feedback routes from limit switches via T/S C terminals 24 and 25 to MAIN PANEL indicators via PLUG D pins 5 and 6, and to ONYX via tap XA10 <06>."
+       }
+      ],
+      "key_components": [
+       "Re3 (control relay)",
+       "S22 (control switch)"
+      ],
+      "dry_data": "Burkert 2-way DN050 electric rotary actuators; 24V DC control.",
+      "sheet_region": "Relays Re1-Re6, Terminal Strip T/S C"
+     },
+     {
+      "function_id": "fwd_bilge_valve_control",
+      "label": "Fwd Bilge Valve Control",
+      "what_it_does": "Opens or closes to connect the forward bilge to the main suction manifold, providing status feedback to the main panel and monitoring system.",
+      "flow_scenarios": [
+       {
+        "state": "command_open_close",
+        "path": "Commanded from MAIN PANEL switch S23 via PLUG C pin 4, activating relay Re4 to drive the valve motor via T/S C terminals 34 and 35."
+       },
+       {
+        "state": "status_monitoring",
+        "path": "Status feedback routes from limit switches via T/S C terminals 32 and 33 to MAIN PANEL indicators via PLUG D pins 7 and 8, and to ONYX via tap XA10 <04>."
+       }
+      ],
+      "key_components": [
+       "Re4 (control relay)",
+       "S23 (control switch)"
+      ],
+      "dry_data": "Burkert 2-way DN050 electric rotary actuators; 24V DC control.",
+      "sheet_region": "Relays Re1-Re6, Terminal Strip T/S C"
+     },
+     {
+      "function_id": "sail_locker_bilge_valve_control",
+      "label": "Sail Locker Bilge Valve Control",
+      "what_it_does": "Opens or closes to connect the sail locker bilge to the main suction manifold, providing status feedback to the main panel and monitoring system.",
+      "flow_scenarios": [
+       {
+        "state": "command_open_close",
+        "path": "Commanded from MAIN PANEL switch S24 via PLUG C pin 5, activating relay Re5 to drive the valve motor via T/S C terminals 42 and 43."
+       },
+       {
+        "state": "status_monitoring",
+        "path": "Status feedback routes from limit switches via T/S C terminals 40 and 41 to MAIN PANEL indicators via PLUG D pins 9 and 10, and to ONYX via tap XA10 <02>."
+       }
+      ],
+      "key_components": [
+       "Re5 (control relay)",
+       "S24 (control switch)"
+      ],
+      "dry_data": "Burkert 2-way DN050 electric rotary actuators; 24V DC control.",
+      "sheet_region": "Relays Re1-Re6, Terminal Strip T/S C"
+     }
+    ]
+   },
+   {
+    "target_node_id": "520-main-bilge-pump",
+    "equipment_name": "Main Bilge Pump",
+    "placement_reasoning": "The sheet details the multi-source activation control loop for the main bilge pump contactor/solenoid.",
+    "functions": [
+     {
+      "function_id": "pump_activation_control",
+      "label": "Pump Activation Control",
+      "what_it_does": "Closes the pump's power contactor based on local, remote, or automated commands.",
+      "flow_scenarios": [
+       {
+        "state": "activation",
+        "path": "Fed from +24V SERVICE BAT via breaker F3 60A and isolation switch SW8. The contactor coil circuit (via T/S S terminals 13 and 14) is closed by ANY of three parallel paths: (1) LOCAL PUMP SW via T/S C terminals 1 and 2; (2) MAIN PANEL switch S13 via PLUG C pins 6 and 7; or (3) ONYX automated remote command XA11 <32> switched through relay Re6 via T/S C terminal 50."
+       }
+      ],
+      "key_components": [
+       "Re6 (activation relay)",
+       "SW8 (isolation switch)",
+       "LOCAL PUMP SW (local control switch)"
+      ],
+      "dry_data": "Gianneschi ACB 431 B; 24V DC control loop.",
+      "sheet_region": "Top Left to Terminal Strip T/S C"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "Main Control Panel PC Card",
+    "target_node_id": "641-vessel-control-panel",
+    "facts": [
+     "Houses the Bilge System PC Card, interfacing with field wiring via multi-pin PLUG C and PLUG D.",
+     "Provides manual toggle switches (S20-S24) for individual operation of the five bilge valves, and switch S13 for the main bilge pump.",
+     "Contains local LED indicators for the open/closed status of each bilge valve (derived from PLUG D inputs 1-10).",
+     "Includes an AUX PLUG ON PC BOARD outputting from PLUG C pins 8-11."
+    ]
+   },
+   {
+    "system_name": "Bilge System Control Enclosure",
+    "target_node_id": "no fitting node",
+    "facts": [
+     "Contains the main control relay bank (Re1-Re6) used to switch power to the bilge valve motors and handle the ONYX remote pump command.",
+     "Houses terminal strips T/S B, T/S C (50 pins), and T/S S, consolidating all field wiring from valve limit switches, motors, and remote commands."
+    ]
+   }
+  ],
+  "discarded_as_clutter": [
+   "ann_main_panel",
+   "ann_plug_c",
+   "ann_plug_d",
+   "ann_pc_card",
+   "ann_24v",
+   "D1",
+   "D2",
+   "D3",
+   "D4",
+   "D5",
+   "IND_S13"
+  ],
+  "uncertainties": [
+   "The exact nature of component 'SO 6' located in the top-left pump supply line (between SW8 and T/S S) is unclear; it is drawn as a crossed box but lacks a definitive descriptive label."
+  ],
+  "_model": "gemini-3.1-pro-preview",
+  "_protocol_version": 3
+ },
+ "elapsed_s": 63.3
+}

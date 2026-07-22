@@ -1,0 +1,141 @@
+{
+ "category": "6-plc-io",
+ "sheet": "AFT-PLC-rev4-p21",
+ "vendor": "anthropic",
+ "drawing_class": "plc",
+ "composition": {
+  "discarded_as_clutter": [
+   "DIN 34 rights-reserved margin note",
+   "Revision history table (rev0/rev4 issue notes) - metadata",
+   "Title block fields (job no, drawn/checked/scale) - metadata",
+   "'CONNECTOR TYPE I (see sheet 4)' repeated 3x - cross-reference note, not function data",
+   "A1/A2 bus terminal labels - infrastructure, covered under rack node"
+  ],
+  "serve_who": "This sheet (AFT PLC, sheet 21/27) shows three WAGO 750-508 2-channel digital output modules at rack positions 13, 14, 15 (CPU 750-8213) in the AFT PLC I/O rack. Each module's two channels are individually labeled with the equipment and EV solenoid they drive: POS.13/DO-03 \u2192 transom door (EV 10.1A/B), POS.14/DO-04 \u2192 deck door (EV 10.2A/B), POS.15/DO-05 \u2192 mainsheet traveler (EV 10.3A/B). Per the mapping table these attach to 260-transom-door, 260-deck-door, and 840-cariboni-hydraulic-cylinders (mainsheet traveller) respectively. The rack/module hardware itself (WAGO 750-508 modules, CPU 750-8213, positions 13-15, A1/A2 bus terminals, Connector Type I wiring convention) is shared PLC infrastructure and is recorded against the AFT PLC rack node, not the equipment nodes.",
+  "equipment_groups": [
+   {
+    "equipment_name": "Transom Door",
+    "target_node_id": "260-transom-door",
+    "placement_reasoning": "Sheet explicitly labels DO-03 CH01/CH02 as 'transom door CLOSE (EV 10.1A)' and 'transom door OPEN (EV 10.1B)'. Mapping table confirms transom door -> 260-transom-door. Established facts already give EV-10.1 actuation type (PVEO) and relief settings (125/195 bar) for this node.",
+    "functions": [
+     {
+      "label": "Transom door hydraulic drive (CLOSE/OPEN) via PLC digital outputs",
+      "what_it_does": "The AFT PLC's 2DO module at rack position 13 (DO-03) issues the CLOSE and OPEN commands to the transom door's two PVEO on/off solenoid pilots (EV-10.1A/B), moving the door in the commanded direction; pressure relief on the A/B work ports (125/195 bar, established fact) protects the actuator against over-pressure in either direction.",
+      "function_id": "DO-03",
+      "sheet_region": "left column, rows B-E, module POS.13 labeled 2DO/DO-03",
+      "key_components": [
+       "EV-10.1A (PVEO solenoid, CLOSE pilot)",
+       "EV-10.1B (PVEO solenoid, OPEN pilot)",
+       "Connector Type I (4-pin circular field connector, see sheet 4)"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "CLOSE command",
+        "path": "PLC DO-03 CH01 (module POS.13, TYPE 750-508) energises solenoid EV-10.1A (PVEO ON/OFF, per hydraulic-sheet type) \u2192 pilots transom door cylinder A-port work section \u2192 door drives CLOSE; A/B relief valves (125/195 bar) dump excess back to tank via return line if pressure exceeds setting."
+       },
+       {
+        "state": "OPEN command",
+        "path": "PLC DO-03 CH02 (module POS.13) energises solenoid EV-10.1B (PVEO ON/OFF) \u2192 pilots transom door cylinder B-port work section \u2192 door drives OPEN; same relief protection applies on the B side."
+       },
+       {
+        "state": "Neutral / no command",
+        "path": "Both CH01 and CH02 de-energised \u2192 no pilot signal to EV-10.1A/B \u2192 door holds last position (no active drive)."
+       }
+      ],
+      "dry_data": "CH01 voltage relative to module common (M) of DO-03/POS.13 = CLOSE command; CH02 relative to same common = OPEN command. No local switches/fuses shown on this sheet; PLC-only control."
+     }
+    ]
+   },
+   {
+    "equipment_name": "Deck Door",
+    "target_node_id": "260-deck-door",
+    "placement_reasoning": "Sheet explicitly labels DO-04 CH01/CH02 as 'deck door OPEN (EV 10.2A)' and 'deck door CLOSE (EV 10.2B)'. No prior established facts exist for this node on other sheets; register has a dedicated 260-deck-door node.",
+    "functions": [
+     {
+      "label": "Deck door hydraulic drive (OPEN/CLOSE) via PLC digital outputs",
+      "what_it_does": "The AFT PLC's 2DO module at rack position 14 (DO-04) issues the OPEN and CLOSE commands to the deck door's solenoid pilots (EV-10.2A/B), driving the door in the commanded direction.",
+      "function_id": "DO-04",
+      "sheet_region": "middle column, rows B-E, module POS.14 labeled 2DO/DO-04",
+      "key_components": [
+       "EV-10.2A (solenoid pilot, OPEN)",
+       "EV-10.2B (solenoid pilot, CLOSE)",
+       "Connector Type I (4-pin circular field connector, see sheet 4)"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "OPEN command",
+        "path": "PLC DO-04 CH01 (module POS.14, TYPE 750-508) energises solenoid EV-10.2A \u2192 pilots deck door cylinder work port \u2192 door drives OPEN."
+       },
+       {
+        "state": "CLOSE command",
+        "path": "PLC DO-04 CH02 (module POS.14) energises solenoid EV-10.2B \u2192 pilots deck door cylinder opposite work port \u2192 door drives CLOSE."
+       },
+       {
+        "state": "Neutral / no command",
+        "path": "Both channels de-energised \u2192 no pilot signal \u2192 door holds last position."
+       }
+      ],
+      "dry_data": "CH01 voltage relative to module common (M) of DO-04/POS.14 = OPEN command; CH02 relative to same common = CLOSE command. No pressure relief values or actuation type (PVEO/PVED) legible on this sheet or established on prior sheets for this node."
+     }
+    ]
+   },
+   {
+    "equipment_name": "Mainsheet Traveler",
+    "target_node_id": "840-cariboni-hydraulic-cylinders",
+    "placement_reasoning": "Sheet explicitly labels DO-05 CH01/CH02 as 'mainsheet traveler TO PORT (EV 10.3A)' and 'mainsheet traveler TO STBD (EV 10.3B)'. Mapping table: mainsheet traveller -> 840-cariboni-hydraulic-cylinders.",
+    "functions": [
+     {
+      "label": "Mainsheet traveler hydraulic drive (TO PORT/TO STBD) via PLC digital outputs",
+      "what_it_does": "The AFT PLC's 2DO module at rack position 15 (DO-05) issues the TO-PORT and TO-STBD commands to the mainsheet traveler's solenoid pilots (EV-10.3A/B), sliding the traveler carriage across the track in the commanded direction.",
+      "function_id": "DO-05",
+      "sheet_region": "right column, rows B-E, module POS.15 labeled 2DO/DO-05",
+      "key_components": [
+       "EV-10.3A (solenoid pilot, TO PORT)",
+       "EV-10.3B (solenoid pilot, TO STBD)",
+       "Connector Type I (4-pin circular field connector, see sheet 4)"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "TO PORT command",
+        "path": "PLC DO-05 CH01 (module POS.15, TYPE 750-508) energises solenoid EV-10.3A \u2192 pilots traveler cylinder work port \u2192 carriage moves TO PORT."
+       },
+       {
+        "state": "TO STBD command",
+        "path": "PLC DO-05 CH02 (module POS.15) energises solenoid EV-10.3B \u2192 pilots traveler cylinder opposite work port \u2192 carriage moves TO STBD."
+       },
+       {
+        "state": "Neutral / no command",
+        "path": "Both channels de-energised \u2192 no pilot signal \u2192 traveler carriage holds last position."
+       }
+      ],
+      "dry_data": "CH01 voltage relative to module common (M) of DO-05/POS.15 = TO PORT command; CH02 relative to same common = TO STBD command. Actuation type of EV-10.3A/B not detailed on this sheet \u2014 keep as generic solenoid pilot per this sheet's evidence; consult hydraulic manifold sheet for PVEO/PVEU type if needed elsewhere."
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "AFT PLC I/O Rack (WAGO)",
+    "target_node_id": "570-plc-rack-aft",
+    "facts": [
+     "Rack inventory this sheet details: three 2-channel digital output modules, WAGO type 750-508, all under CPU 750-8213.",
+     "Module at rack position 13 = DO-03, driving transom door EV-10.1A/B.",
+     "Module at rack position 14 = DO-04, driving deck door EV-10.2A/B.",
+     "Module at rack position 15 = DO-05, driving mainsheet traveler EV-10.3A/B.",
+     "Each module has bus/supply terminals marked A1/A2 at the top, feeding into two independent output channels (CH01, CH02), each with +/- polarity terminals and an earth/ground terminal before the field wiring.",
+     "Each output channel connects to the field solenoid via a 4-pin circular 'Connector Type I' \u2014 full connector pinout is detailed on sheet 4, not this sheet.",
+     "Per-module common/reference: each 750-508 output module provides its own on-module common (M) terminal for its two channels \u2014 voltage on CH01/CH02 must be measured relative to that module's own common, not a shared rack-wide reference.",
+     "This sheet is a detail page (not the rack GA/index) \u2014 it documents modules at positions 13, 14, 15 only; positions 1-12 and any power-supply modules are documented elsewhere in the set.",
+     "No local switches, panel switches, or separate protective fuses/breakers shown for the individual valve output circuits on this sheet \u2014 control originates solely from the PLC digital outputs."
+    ]
+   }
+  ],
+  "uncertainties": [
+   "Deck door (260-deck-door) actuation type (PVEO vs PVED) and any pressure relief settings are not legible/present on this sheet and no established fact exists yet from other sheets \u2014 flag for hydraulic-sheet cross-check.",
+   "Mainsheet traveler EV-10.3A/B pilot device type (PVEO/PVEU) is not stated on this sheet; per cross-sheet consistency rule the type should be taken from the hydraulic manifold sheet, but that sheet's EV-10.3 entry was not present in the established facts provided \u2014 type left unspecified here rather than downgraded to generic solenoid."
+  ],
+  "_model": "claude-sonnet-5",
+  "_protocol_version": 3
+ },
+ "elapsed_s": 48.2
+}

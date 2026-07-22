@@ -1,0 +1,217 @@
+{
+ "category": "8-bae-interconnect-pinout",
+ "sheet": "bae-block-interconnect-p12",
+ "vendor": "openai",
+ "drawing_class": "interconnect",
+ "composition": {
+  "serve_who": "Sheet 2 of BAE drawing 1905D023 serves the two starboard BEL devices, BEL1-S and BEL2-S: the left and right sheet regions are explicitly headed BEL1-S and BEL2-S and give each device\u2019s I/O pin map, synchronization/return wiring, chain signals, and shielded CAN-A connection. The sheet is therefore a device-loop membership/interconnection view, while the repeated CAN-A and synchronization/chain cabling belongs to the shared BEL-system wiring infrastructure rather than to either converter\u2019s power-conversion function.",
+  "equipment_groups": [
+   {
+    "target_node_id": "629-bel1-s",
+    "equipment_name": "BEL1 STBD BAE (BEL1-S)",
+    "placement_reasoning": "The complete left-hand circuit is explicitly labelled BEL1-S, matching the dedicated BEL1 starboard register node; all G3-S3\u2026 signals and the upper BEL/RTN1, SYNC, and CAN-A connector continuations in that region attach to this device.",
+    "functions": [
+     {
+      "function_id": "bel1s-configuration-interface",
+      "label": "Set BEL1-S operating configuration",
+      "what_it_does": "Provides BEL1-S with its frequency-selection and address/enable configuration inputs; the drawing shows FREQ_SELECT referenced to the device return, while ENABLE, ADR_0, and ADR_1 are intentionally not connected at their shown far ends.",
+      "flow_scenarios": [
+       {
+        "state": "neutral / installed as drawn",
+        "path": "BEL1-S pin 7 VBATTERY RTN (G3-S3R1) \u2192 drawn strap to BEL1-S pin 2 FREQ_SELECT (G3-S3S1); BEL1-S pin 1 ENABLE (G3-S329), pin 8 ADR_0 (G3-S300a), and pin 9 ADR_1 (G3-S300b) \u2192 shown N/C ends, so no external command path exists on this sheet"
+       },
+       {
+        "state": "external command",
+        "path": "No external enable or address command scenario is drawn; the ENABLE, ADR_0, and ADR_1 conductors terminate N/C and must not be extended by inference"
+       }
+      ],
+      "key_components": [
+       "frequency-select configuration input at pin 2",
+       "return/reference connection at pin 7",
+       "enable input at pin 1, shown N/C",
+       "address inputs at pins 8 and 9, shown N/C"
+      ],
+      "dry_data": "Module: BEL1-S starboard BAE BEL; interface: discrete configuration I/O; pins: 2/7/1/8/9; electrical levels and ratings: not stated.",
+      "sheet_region": "Left half, lower BEL1-S I/O connector and G3-S3S1/G3-S3R1/G3-S329/G3-S300a/G3-S300b conductors."
+     },
+     {
+      "function_id": "bel1s-sync-chain-interface",
+      "label": "Exchange BEL1-S synchronization and chain signals",
+      "what_it_does": "Connects BEL1-S into its local synchronization/chain loop, with a dedicated synchronization conductor, synchronization return tied into the BEL return path, and exposed chain output/supply conductors.",
+      "flow_scenarios": [
+       {
+        "state": "neutral / synchronized connection present",
+        "path": "upper-left SYNC connector terminal 3 \u2192 twisted-pair synchronization route \u2192 G3-S3S2 SYNC \u2192 BEL1-S pin 3; return side: BEL1-S pin 7 / G3-S3R1 VBATTERY RTN \u2192 G3-S3R1 SYNC RTN branch \u2192 upper-left SYNC connector terminal 10 and BEL/RTN1 return connector"
+       },
+       {
+        "state": "chain signalling",
+        "path": "BEL1-S pin 11 \u2192 G3-S321 CHAIN_OUTPUT \u2192 drawn local conductor; G3-S3S3 CHAIN_SUPPLY \u2192 lower BEL1-S connector area at the printed 10/4 positions; ultimate chain neighbour/source is not identified on this sheet"
+       }
+      ],
+      "key_components": [
+       "SYNC twisted-pair connection",
+       "RTN1 return/terminator connector",
+       "chain-output interface at pin 11",
+       "chain-supply interface at the connector\u2019s 10/4 end positions"
+      ],
+      "dry_data": "Module: BEL1-S; interfaces: SYNC plus chain supply/output; SYNC connector terminals: 10 and 3; chain voltage, source, terminator type, and ratings: not stated.",
+      "sheet_region": "Left half, BEL1-S pin 11/pin 3/pin 7 and pin 10/4 area through the central twisted SYNC run to upper-left BEL/RTN1 and SYNC 10/3 blocks."
+     },
+     {
+      "function_id": "bel1s-can-a-interface",
+      "label": "Communicate on BEL1-S CAN-A",
+      "what_it_does": "Places BEL1-S on its local shielded CAN-A differential segment for BAE-system communications.",
+      "flow_scenarios": [
+       {
+        "state": "neutral / bus connected",
+        "path": "upper-left CAN-A HI \u2192 shielded twisted-pair route \u2192 G3-S3AH CANA_HI \u2192 BEL1-S pin 5; upper-left CAN-A LO \u2192 shielded twisted-pair route \u2192 G3-S3AL CANA_LO \u2192 BEL1-S pin 6; cable shield \u2192 G3-S3AS CANA_Shield \u2192 BEL1-S connector shield position marked N/C as a contact position"
+       },
+       {
+        "state": "CAN traffic in either direction",
+        "path": "BEL1-S pins 5/6 \u2194 G3-S3AH/G3-S3AL shielded differential pair \u2194 upper-left CAN-A HI/LO continuation \u2194 off-sheet CAN-A neighbours; no specific transmitter, receiver, or terminator is identified here"
+       }
+      ],
+      "key_components": [
+       "CAN-A differential pair at pins 5 and 6",
+       "separate CAN-A cable shield conductor",
+       "shielded twisted-pair cable/connector continuation"
+      ],
+      "dry_data": "Module: BEL1-S; bus: CAN-A; conductors: HI/LO plus separate shield; bitrate, termination resistance, cable rating, and neighbour identities: not stated.",
+      "sheet_region": "Left half, lower BEL1-S pins 5/6/shield through dashed shield boundary to upper-left CAN-A Shield/HI/LO block."
+     }
+    ]
+   },
+   {
+    "target_node_id": "629-bel2-s",
+    "equipment_name": "BEL2 STBD BAE (BEL2-S)",
+    "placement_reasoning": "The complete right-hand circuit is explicitly labelled BEL2-S, matching the dedicated BEL2 starboard register node; all G3-S4\u2026 signals and the upper BEL/RTN1, SYNC, and CAN-A continuations in that region attach to this device.",
+    "functions": [
+     {
+      "function_id": "bel2s-configuration-interface",
+      "label": "Set BEL2-S operating configuration",
+      "what_it_does": "Provides BEL2-S with its frequency-selection and address/enable configuration inputs; the drawing shows FREQ_SELECT referenced to the device return, while ENABLE, ADR_0, and ADR_1 are intentionally not connected at their shown far ends.",
+      "flow_scenarios": [
+       {
+        "state": "neutral / installed as drawn",
+        "path": "BEL2-S pin 7 VBATTERY RTN (G3-S4R1) \u2192 drawn strap to BEL2-S pin 2 FREQ_SELECT (G3-S4S1); BEL2-S pin 1 ENABLE (G3-S429), pin 8 ADR_0 (G3-S400a), and pin 9 ADR_1 (G3-S400b) \u2192 shown N/C ends, so no external command path exists on this sheet"
+       },
+       {
+        "state": "external command",
+        "path": "No external enable or address command scenario is drawn; the ENABLE, ADR_0, and ADR_1 conductors terminate N/C and must not be extended by inference"
+       }
+      ],
+      "key_components": [
+       "frequency-select configuration input at pin 2",
+       "return/reference connection at pin 7",
+       "enable input at pin 1, shown N/C",
+       "address inputs at pins 8 and 9, shown N/C"
+      ],
+      "dry_data": "Module: BEL2-S starboard BAE BEL; interface: discrete configuration I/O; pins: 2/7/1/8/9; electrical levels and ratings: not stated.",
+      "sheet_region": "Right half, lower BEL2-S I/O connector and G3-S4S1/G3-S4R1/G3-S429/G3-S400a/G3-S400b conductors."
+     },
+     {
+      "function_id": "bel2s-sync-chain-interface",
+      "label": "Exchange BEL2-S synchronization and chain signals",
+      "what_it_does": "Connects BEL2-S into its local synchronization/chain loop, with a dedicated synchronization conductor, synchronization return tied into the BEL return path, and exposed chain output/supply conductors.",
+      "flow_scenarios": [
+       {
+        "state": "neutral / synchronized connection present",
+        "path": "upper-right SYNC connector terminal 4 \u2192 twisted-pair synchronization route \u2192 G3-S4S2 SYNC \u2192 BEL2-S pin 3; return side: BEL2-S pin 7 / G3-S4R1 VBATTERY RTN \u2192 G3-S4R1 SYNC_RTN branch \u2192 upper-right SYNC connector terminal 9 and BEL/RTN1 return connector"
+       },
+       {
+        "state": "chain signalling",
+        "path": "BEL2-S pin 11 \u2192 G3-S421 CHAIN_OUTPUT \u2192 drawn local conductor; G3-S4S3 CHAIN_SUPPLY \u2192 lower BEL2-S connector area at the printed 10/4 positions; ultimate chain neighbour/source is not identified on this sheet"
+       }
+      ],
+      "key_components": [
+       "SYNC twisted-pair connection",
+       "RTN1 return/terminator connector",
+       "chain-output interface at pin 11",
+       "chain-supply interface at the connector\u2019s 10/4 end positions"
+      ],
+      "dry_data": "Module: BEL2-S; interfaces: SYNC plus chain supply/output; SYNC connector terminals: 9 and 4; chain voltage, source, terminator type, and ratings: not stated.",
+      "sheet_region": "Right half, BEL2-S pin 11/pin 3/pin 7 and pin 10/4 area through the central twisted SYNC run to upper-right BEL/RTN1 and SYNC 9/4 blocks."
+     },
+     {
+      "function_id": "bel2s-can-a-interface",
+      "label": "Communicate on BEL2-S CAN-A",
+      "what_it_does": "Places BEL2-S on its local shielded CAN-A differential segment for BAE-system communications.",
+      "flow_scenarios": [
+       {
+        "state": "neutral / bus connected",
+        "path": "upper-right CAN-A HI \u2192 shielded twisted-pair route \u2192 G3-S4AH CANA_HI \u2192 BEL2-S pin 5; upper-right CAN-A LO \u2192 shielded twisted-pair route \u2192 G3-S4AL CANA_LO \u2192 BEL2-S pin 6; cable shield \u2192 G3-S4AS CANA_Shield \u2192 BEL2-S connector shield position marked N/C as a contact position"
+       },
+       {
+        "state": "CAN traffic in either direction",
+        "path": "BEL2-S pins 5/6 \u2194 G3-S4AH/G3-S4AL shielded differential pair \u2194 upper-right CAN-A HI/LO continuation \u2194 off-sheet CAN-A neighbours; no specific transmitter, receiver, or terminator is identified here"
+       }
+      ],
+      "key_components": [
+       "CAN-A differential pair at pins 5 and 6",
+       "separate CAN-A cable shield conductor",
+       "shielded twisted-pair cable/connector continuation"
+      ],
+      "dry_data": "Module: BEL2-S; bus: CAN-A; conductors: HI/LO plus separate shield; bitrate, termination resistance, cable rating, and neighbour identities: not stated.",
+      "sheet_region": "Right half, lower BEL2-S pins 5/6/shield through dashed shield boundary to upper-right CAN-A Shield/HI/LO block."
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "BEL1-S local CAN-A segment",
+    "target_node_id": "629-bel",
+    "facts": [
+     "BEL1-S is connected by G3-S3AH CANA_HI and G3-S3AL CANA_LO as a shielded twisted differential pair.",
+     "G3-S3AS CANA_Shield is drawn separately from HI and LO.",
+     "The segment continues only to the upper-left CAN-A connector block on this sheet; no line joins it to the BEL2-S CAN-A segment and no neighbour or bus terminator is identified."
+    ]
+   },
+   {
+    "system_name": "BEL1-S synchronization and chain segment",
+    "target_node_id": "629-bel",
+    "facts": [
+     "The upper-left SYNC block is a two-wire continuation with terminals 10 and 3 and a twisted-pair route to BEL1-S synchronization/return wiring.",
+     "G3-S3R1 SYNC RTN is tied into BEL1-S VBATTERY RTN and the BEL/RTN1 continuation.",
+     "G3-S321 CHAIN_OUTPUT and G3-S3S3 CHAIN_SUPPLY are exposed at BEL1-S, but their ultimate source/next device is not shown."
+    ]
+   },
+   {
+    "system_name": "BEL2-S local CAN-A segment",
+    "target_node_id": "629-bel",
+    "facts": [
+     "BEL2-S is connected by G3-S4AH CANA_HI and G3-S4AL CANA_LO as a shielded twisted differential pair.",
+     "G3-S4AS CANA_Shield is drawn separately from HI and LO.",
+     "The segment continues only to the upper-right CAN-A connector block on this sheet; no line joins it to the BEL1-S CAN-A segment and no neighbour or bus terminator is identified."
+    ]
+   },
+   {
+    "system_name": "BEL2-S synchronization and chain segment",
+    "target_node_id": "629-bel",
+    "facts": [
+     "The upper-right SYNC block is a two-wire continuation with terminals 9 and 4 and a twisted-pair route to BEL2-S synchronization/return wiring.",
+     "G3-S4R1 SYNC_RTN is tied into BEL2-S VBATTERY RTN and the BEL/RTN1 continuation.",
+     "G3-S421 CHAIN_OUTPUT and G3-S4S3 CHAIN_SUPPLY are exposed at BEL2-S, but their ultimate source/next device is not shown."
+    ]
+   }
+  ],
+  "discarded_as_clutter": [
+   "Drawing border and zone letters/numbers",
+   "Revision table and revision D repeat",
+   "BAE proprietary/export-control warning",
+   "Contract/CAGE/title-block administrative fields",
+   "Drawing number 1905D023 and sheet 2 repeats",
+   "Duplicate connector headings and repeated pin-number transcription used only to establish the loop chains",
+   "N/C legend-like repeats retained only where they establish intentional absence of a connection"
+  ],
+  "uncertainties": [
+   "The ultimate off-sheet neighbours and terminators for both CAN-A segments are not identified; the two CAN-A regions are not joined by any drawn line on this sheet.",
+   "The upstream source and protective device for G3-S3S3 and G3-S4S3 CHAIN_SUPPLY are not shown; no voltage or protective rating can be assigned.",
+   "The exact allocation of each CHAIN_SUPPLY conductor to printed connector position 10 versus 4, and the ultimate endpoint of each CHAIN_OUTPUT conductor beyond the local drawn run, cannot be resolved cleanly from this sheet image; no inferred connection has been made.",
+   "No breaker, fuse, relay, switch, PLC output, alarm tap, CAN bitrate, or CAN termination value is shown."
+  ],
+  "_model": "gpt-5.6-sol",
+  "_protocol_version": 3
+ },
+ "elapsed_s": 86.3
+}

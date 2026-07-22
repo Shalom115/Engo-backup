@@ -1,0 +1,92 @@
+{
+ "category": "8-bae-interconnect-pinout",
+ "sheet": "bae-block-interconnect-p12",
+ "vendor": "anthropic",
+ "drawing_class": "interconnect",
+ "composition": {
+  "serve_who": "Sheet 12 of dwg 196D5023 (BAE Systems Controls harness/pinout series) shows two nearly identical wiring/pinout blocks, BEL1-S and BEL2-S, each terminating a chain-segment cable (S3 and S4 respectively) that feeds three connector groups: a BEL connector (RTN1 battery-return pin), a SYNC twisted-pair connector, and a CAN-A connector (Shield/HI/LO). The naming convention \"G3-S3xxx\" / \"G3-S4xxx\" and terminal-strip labels BEL1-S / BEL2-S match the established BAE BEL identity already on the vessel's electrical nodes (629-bel1-s, 629-bel2-s \u2014 \"BEL-1/BEL-2 converter, STBD\"), so this sheet's two chain segments are read as the internal signal/CAN/sync wiring for BEL1-S (chain S3) and BEL2-S (chain S4). No breakers, fuses, or control logic are drawn; this is purely point-to-point interconnect data (loop membership) for those two BEL units' sync/CAN daisy chain, consistent with rule set 629-bel's existing CAN-bus / SYNC protective-device facts (CBx4 CAN BUS ISOLATORS, CBx11 BEL-SYNC) already recorded upstream.",
+  "equipment_groups": [
+   {
+    "equipment_name": "BEL1-S (BEL-1 STBD chain segment S3)",
+    "target_node_id": "629-bel1-s",
+    "placement_reasoning": "Terminal strip explicitly labeled BEL1-S with net names prefixed G3-S3... matches the established BAE BEL1-S (STBD) converter node; this sheet supplies its internal SYNC/CAN/battery-return wiring, not a new device.",
+    "functions": [
+     {
+      "label": "BEL1-S chain wiring (S3 segment): battery return, sync, CAN-A bus, chain supply/output",
+      "what_it_does": "Carries the BEL1-S unit's chain-segment (S3) I/O between its terminal strip and its BEL/SYNC/CAN-A connector group: battery return to the BEL connector RTN1 pin, a sync twisted pair to the SYNC connector, and a CAN-A daisy-chain (Shield/HI/LO) to the CAN-A connector, plus chain-supply/chain-output and freq-select signals on the terminal strip.",
+      "flow_scenarios": [
+       {
+        "state": "battery return / sync loop",
+        "path": "G3-S3R1 VBATTERY RTN from BEL1-S terminal pin 7 via twisted/crossed wire pair to BEL connector pin RTN1; net also carries as G3-S3R1 SYNC_RTN to SYNC connector; SYNC connector pins 10 and 3 carry G3-S3S2 SYNC signal (terminal pin 3) \u2014 sync return path closes at BEL1-S terminal pin 7/3."
+       },
+       {
+        "state": "CAN-A daisy chain",
+        "path": "G3-S3AH CANA_HI (terminal pin 5) and G3-S3AL CANA_LO (terminal pin 6) route via crossed twisted-pair wiring to CAN-A connector HI/LO pins; G3-S3AS CANA_Shield (N/C terminal pin) routes to CAN-A Shield pin with a dashed-oval shield-drain/splice termination shown on the shield and LO lines."
+       },
+       {
+        "state": "chain supply/output and freq-select (unused address/enable lines)",
+        "path": "G3-S3S1 FREQ_SELECT (pin 2), G3-S321 CHAIN_OUTPUT (pin 11), G3-S3S3 CHAIN_SUPPLY (pin 10) terminate at the BEL1-S terminal strip; G3-S329 ENABLE (pin 1), G3-S300a ADR_0 (pin 8), G3-S300b ADR_1 (pin 9) are marked N/C (not connected/populated on this chain segment)."
+       }
+      ],
+      "key_components": [
+       "BEL connector (RTN1 pin)",
+       "SYNC connector (pins 10, 3)",
+       "CAN-A connector (Shield/HI/LO)",
+       "dashed-oval shield-drain/splice termination on CANA_Shield and CANA_LO run"
+      ],
+      "dry_data": "Terminal strip BEL1-S, I/O pins 2/7/11/3/1/8/9/5/6/N-C/10/4; no protective devices shown on this sheet (fuses/breakers reside upstream per established 629-bel facts: CBx4 CAN bus isolators, CBx11 BEL-SYNC, CBx.4 retractable CAN-bus fuse).",
+      "sheet_region": "Upper block, columns G-F rows 3-7 (BEL1-S terminal strip lower-left ~row7; BEL/SYNC/CAN-A connectors upper area ~row3)"
+     }
+    ]
+   },
+   {
+    "equipment_name": "BEL2-S (BEL-2 STBD chain segment S4)",
+    "target_node_id": "629-bel2-s",
+    "placement_reasoning": "Terminal strip explicitly labeled BEL2-S with net names prefixed G3-S4... mirrors the BEL1-S block and matches the established BAE BEL2-S (STBD) converter node.",
+    "functions": [
+     {
+      "label": "BEL2-S chain wiring (S4 segment): battery return, sync, CAN-A bus, chain supply/output",
+      "what_it_does": "Carries the BEL2-S unit's chain-segment (S4) I/O between its terminal strip and its BEL/SYNC/CAN-A connector group, mirroring BEL1-S's wiring pattern: battery return to BEL connector RTN1, sync twisted pair to SYNC connector, CAN-A daisy chain to CAN-A connector, plus chain-supply/chain-output/freq-select terminal signals.",
+      "flow_scenarios": [
+       {
+        "state": "battery return / sync loop",
+        "path": "G3-S4R1 VBATTERY RTN from BEL2-S terminal pin 7 via twisted/crossed wire pair to BEL connector pin RTN1; net also carries as G3-S4R1 SYNC_RTN to SYNC connector; SYNC connector pins 9 and 4 carry G3-S4S2 SYNC signal (terminal pin 3) \u2014 sync return path closes at BEL2-S terminal pin 7/3."
+       },
+       {
+        "state": "CAN-A daisy chain",
+        "path": "G3-S4AH CANA_HI (terminal pin 5) and G3-S4AL CANA_LO (terminal pin 6) route via crossed twisted-pair wiring to CAN-A connector HI/LO pins; G3-S4AS CANA_Shield (N/C terminal pin) routes to CAN-A Shield pin with a dashed-oval shield-drain/splice termination shown on shield and LO lines."
+       },
+       {
+        "state": "chain supply/output and freq-select (unused address/enable lines)",
+        "path": "G3-S4S1 FREQ_SELECT (pin 2), G3-S421 CHAIN_OUTPUT (pin 11), G3-S4S3 CHAIN_SUPPLY (pin 10) terminate at the BEL2-S terminal strip; G3-S429 ENABLE (pin 1), G3-S400a ADR_0 (pin 8), G3-S400b ADR_1 (pin 9) are marked N/C (not connected/populated on this chain segment)."
+       }
+      ],
+      "key_components": [
+       "BEL connector (RTN1 pin)",
+       "SYNC connector (pins 9, 4)",
+       "CAN-A connector (Shield/HI/LO)",
+       "dashed-oval shield-drain/splice termination on CANA_Shield and CANA_LO run"
+      ],
+      "dry_data": "Terminal strip BEL2-S, I/O pins 2/7/11/3/1/8/9/5/6/N-C/10/4; no protective devices shown on this sheet (fuses/breakers reside upstream per established 629-bel facts).",
+      "sheet_region": "Lower block, columns G-F rows 5-7 (BEL2-S terminal strip lower-left ~row7; BEL/SYNC/CAN-A connectors mid area ~row5)"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [],
+  "discarded_as_clutter": [
+   "Title block fields (SIZE D, CAGE 89954, DWG 196D5023, SHEET 12 OF 47, SCALE NONE, drawn by G. Zaleski) \u2014 extraction meta, not equipment data",
+   "Revisions block (blank REV/DESCRIPTION/DATE/APPROVED) \u2014 no content",
+   "Export-control/proprietary-information legal notice \u2014 boilerplate",
+   "'CONTR NO: NOT APPLICABLE' / 'SEE TITLE PAGE' cross-references \u2014 administrative, not equipment"
+  ],
+  "uncertainties": [
+   "Meaning of 'BEL' as a connector/chain designation on this sheet is assumed (per glossary) to be INVERTERS unit chain wiring, consistent with established 629-bel1-s/629-bel2-s nodes; sheet itself does not spell out 'BEL' expansion.",
+   "Purpose/target of the CHAIN_OUTPUT and CHAIN_SUPPLY nets (pins 10/11) is not shown \u2014 they leave the terminal strip but the downstream device/sheet they daisy-chain to is not depicted here (off-sheet dead-end).",
+   "N/C address (ADR_0/ADR_1) and ENABLE pins are marked not-connected on both chains; unclear if this is permanent design intent or simply unused in this vessel's configuration \u2014 flagged, not guessed."
+  ],
+  "_model": "claude-sonnet-5",
+  "_protocol_version": 3
+ },
+ "elapsed_s": 38.7
+}

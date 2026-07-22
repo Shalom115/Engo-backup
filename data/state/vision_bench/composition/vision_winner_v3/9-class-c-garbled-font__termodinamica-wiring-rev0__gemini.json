@@ -1,0 +1,344 @@
+{
+ "category": "9-class-c-garbled-font",
+ "sheet": "termodinamica-wiring-rev0",
+ "vendor": "gemini",
+ "drawing_class": "electrical",
+ "composition": {
+  "serve_who": "This sheet serves the Termodinamica marine inverter air conditioning system, comprising port and starboard compressor units (VRV18E1), their associated seawater pumps, and distributed fan coils throughout the vessel's cabins. The conclusion is evidenced by the sheet title 'TERMODINAMICA MARINE INVERTER AIR CONDITIONING SW 108-01 - Wiring Schematic' and the complete network topology of MRMAXI air handlers linked to the VRV18E1 compressors.",
+  "equipment_groups": [
+   {
+    "target_node_id": "590-aircon-compressor-1",
+    "equipment_name": "VRV18E1 ENGINE ROOM PORT",
+    "placement_reasoning": "Identified as the Port compressor unit ('VRV18E1 ENGINE ROOM PORT') alongside its TMD100 sea water pump, which matches the established fact for Aircon Unit 1.",
+    "functions": [
+     {
+      "function_id": "port-ac-supply",
+      "label": "Port AC Compressor & Seawater Cooling Supply",
+      "what_it_does": "Provides refrigeration capabilities and seawater heat exchange for the port-side air conditioning network.",
+      "flow_scenarios": [
+       {
+        "state": "power_supply",
+        "path": "Main Switchboard -> via 40 amp C or D curve breaker B1 -> VRV18E1 ENGINE ROOM PORT unit & SEA WATER PUMP TMD100"
+       }
+      ],
+      "key_components": [
+       "Breaker B1",
+       "SEA WATER PUMP TMD100"
+      ],
+      "dry_data": "Supply: 230VAC L+N+PE 3x6 mm2; Compressor ground to independent anode",
+      "sheet_region": "Left side, upper middle"
+     }
+    ]
+   },
+   {
+    "target_node_id": "590-aircon-compressor-2",
+    "equipment_name": "VRV18E1 ENGINE ROOM STBD",
+    "placement_reasoning": "Identified as the Starboard compressor unit ('VRV18E1 ENGINE ROOM STBD') alongside its TMD100 sea water pump, which matches the established fact for Aircon Unit 2.",
+    "functions": [
+     {
+      "function_id": "stbd-ac-supply",
+      "label": "Starboard AC Compressor & Seawater Cooling Supply",
+      "what_it_does": "Provides refrigeration capabilities and seawater heat exchange for the starboard-side air conditioning network.",
+      "flow_scenarios": [
+       {
+        "state": "power_supply",
+        "path": "Main Switchboard -> via 40 amp C or D curve breaker B1 -> VRV18E1 ENGINE ROOM STBD unit & SEA WATER PUMP TMD100"
+       }
+      ],
+      "key_components": [
+       "Breaker B1",
+       "SEA WATER PUMP TMD100"
+      ],
+      "dry_data": "Supply: 230VAC L+N+PE 3x6 mm2; Compressor ground to independent anode",
+      "sheet_region": "Left side, lower middle"
+     }
+    ]
+   },
+   {
+    "target_node_id": "590-aircon-fancoil-fwd-guest",
+    "equipment_name": "MRMAXI18i Fwd Guest Cabin",
+    "placement_reasoning": "Designated as Fwd Guest cabin air handler on the port bus network.",
+    "functions": [
+     {
+      "function_id": "fancoil-fwd-guest",
+      "label": "Fwd Guest Cabin Climate Control",
+      "what_it_does": "Provides local air conditioning and temperature regulation for the Forward Guest cabin.",
+      "flow_scenarios": [
+       {
+        "state": "operation",
+        "path": "230VAC power supply -> unit; control signal from Port VRV18E1 network bus (RS485) -> unit at Addr.2 -> return status to network"
+       }
+      ],
+      "key_components": [],
+      "dry_data": "Termodinamica MRMAXI18i, 90 W @ 230 VAC, Bus Addr.2",
+      "sheet_region": "Center top, Port loop"
+     }
+    ]
+   },
+   {
+    "target_node_id": "590-aircon-fancoil-saloon-port",
+    "equipment_name": "MRMAXI30i Salon Port",
+    "placement_reasoning": "Designated as the Salon port air handler on the port bus network.",
+    "functions": [
+     {
+      "function_id": "fancoil-salon-port",
+      "label": "Salon Port Climate Control",
+      "what_it_does": "Provides local air conditioning and temperature regulation for the port side of the Salon.",
+      "flow_scenarios": [
+       {
+        "state": "operation",
+        "path": "230VAC power supply -> unit; control signal from Port VRV18E1 network bus (RS485) -> unit at Addr.3 -> return status to network"
+       }
+      ],
+      "key_components": [],
+      "dry_data": "Termodinamica MRMAXI30i, 170 W @ 230 VAC, Bus Addr.3",
+      "sheet_region": "Center top, Port loop"
+     }
+    ]
+   },
+   {
+    "target_node_id": "590-aircon-fancoil-aft-guest-port",
+    "equipment_name": "MRMAXI18i Aft Guest Cabin Port",
+    "placement_reasoning": "Designated as the Aft Guest cabin port air handler on the port bus network.",
+    "functions": [
+     {
+      "function_id": "fancoil-aft-guest-port",
+      "label": "Aft Guest Port Climate Control",
+      "what_it_does": "Provides local air conditioning and temperature regulation for the port Aft Guest cabin.",
+      "flow_scenarios": [
+       {
+        "state": "operation",
+        "path": "230VAC power supply -> unit; control signal from Port VRV18E1 network bus (RS485) -> unit at Addr.4 -> return status to network"
+       }
+      ],
+      "key_components": [],
+      "dry_data": "Termodinamica MRMAXI18i, 90 W @ 230 VAC, Bus Addr.4",
+      "sheet_region": "Center top, Port loop"
+     }
+    ]
+   },
+   {
+    "target_node_id": "590-aircon-fancoil-galley",
+    "equipment_name": "MRMAXI30i Galley Air Handlers",
+    "placement_reasoning": "The drawing shows two units ('Fwd Galley' and 'Aft Galley') serving the galley space, mapped to the single fancoil-galley node in the index.",
+    "functions": [
+     {
+      "function_id": "fancoil-galley-fwd",
+      "label": "Forward Galley Climate Control",
+      "what_it_does": "Provides local air conditioning and temperature regulation for the forward section of the galley.",
+      "flow_scenarios": [
+       {
+        "state": "operation",
+        "path": "230VAC power supply -> unit; control signal from Port VRV18E1 network bus (RS485) -> unit at Addr.5.0 -> return status to network"
+       }
+      ],
+      "key_components": [],
+      "dry_data": "Termodinamica MRMAXI30i, 170 W @ 230 VAC, Bus Addr.5.0",
+      "sheet_region": "Center top, Port loop"
+     },
+     {
+      "function_id": "fancoil-galley-aft",
+      "label": "Aft Galley Climate Control",
+      "what_it_does": "Provides local air conditioning and temperature regulation for the aft section of the galley.",
+      "flow_scenarios": [
+       {
+        "state": "operation",
+        "path": "230VAC power supply -> unit; control signal from Port VRV18E1 network bus (RS485) -> unit at Addr.5.1 -> return status to network"
+       }
+      ],
+      "key_components": [],
+      "dry_data": "Termodinamica MRMAXI30i, 170 W @ 230 VAC, Bus Addr.5.1",
+      "sheet_region": "Center top, Port loop"
+     }
+    ]
+   },
+   {
+    "target_node_id": "590-aircon-fancoil-aft-crew-port",
+    "equipment_name": "MRMAXI18i Aft Crew Cabin Port",
+    "placement_reasoning": "Designated as the Aft Crew cabin port air handler on the port bus network.",
+    "functions": [
+     {
+      "function_id": "fancoil-aft-crew-port",
+      "label": "Aft Crew Port Climate Control",
+      "what_it_does": "Provides local air conditioning and temperature regulation for the port Aft Crew cabin.",
+      "flow_scenarios": [
+       {
+        "state": "operation",
+        "path": "230VAC power supply -> unit; control signal from Port VRV18E1 network bus (RS485) -> unit at Addr.6 -> return status to network"
+       }
+      ],
+      "key_components": [],
+      "dry_data": "Termodinamica MRMAXI18i, 90 W @ 230 VAC, Bus Addr.6",
+      "sheet_region": "Center top, Port loop"
+     }
+    ]
+   },
+   {
+    "target_node_id": "590-aircon-fancoil-aft-crew-stbd",
+    "equipment_name": "MRMAXI18i Aft Crew Cabin Stbd",
+    "placement_reasoning": "Designated as the Aft Crew cabin stbd air handler on the stbd bus network.",
+    "functions": [
+     {
+      "function_id": "fancoil-aft-crew-stbd",
+      "label": "Aft Crew Stbd Climate Control",
+      "what_it_does": "Provides local air conditioning and temperature regulation for the starboard Aft Crew cabin.",
+      "flow_scenarios": [
+       {
+        "state": "operation",
+        "path": "230VAC power supply -> unit; control signal from Stbd VRV18E1 network bus (RS485) -> unit at Addr.7 -> return status to network"
+       }
+      ],
+      "key_components": [],
+      "dry_data": "Termodinamica MRMAXI18i, 90 W @ 230 VAC, Bus Addr.7",
+      "sheet_region": "Center bottom, Stbd loop"
+     }
+    ]
+   },
+   {
+    "target_node_id": "590-aircon-fancoil-fwd-crew-stbd",
+    "equipment_name": "MRMAXI18i Fwd Crew Cabin Stbd",
+    "placement_reasoning": "Designated as the Fwd Crew cabin stbd air handler on the stbd bus network.",
+    "functions": [
+     {
+      "function_id": "fancoil-fwd-crew-stbd",
+      "label": "Fwd Crew Stbd Climate Control",
+      "what_it_does": "Provides local air conditioning and temperature regulation for the starboard Fwd Crew cabin.",
+      "flow_scenarios": [
+       {
+        "state": "operation",
+        "path": "230VAC power supply -> unit; control signal from Stbd VRV18E1 network bus (RS485) -> unit at Addr.8 -> return status to network"
+       }
+      ],
+      "key_components": [],
+      "dry_data": "Termodinamica MRMAXI18i, 90 W @ 230 VAC, Bus Addr.8",
+      "sheet_region": "Center bottom, Stbd loop"
+     }
+    ]
+   },
+   {
+    "target_node_id": "590-aircon-fancoil-aft-guest-stbd",
+    "equipment_name": "MRMAXI18i Aft Guest Cabin Stbd",
+    "placement_reasoning": "Designated as the Aft Guest cabin stbd air handler on the stbd bus network.",
+    "functions": [
+     {
+      "function_id": "fancoil-aft-guest-stbd",
+      "label": "Aft Guest Stbd Climate Control",
+      "what_it_does": "Provides local air conditioning and temperature regulation for the starboard Aft Guest cabin.",
+      "flow_scenarios": [
+       {
+        "state": "operation",
+        "path": "230VAC power supply -> unit; control signal from Stbd VRV18E1 network bus (RS485) -> unit at Addr.9 -> return status to network"
+       }
+      ],
+      "key_components": [],
+      "dry_data": "Termodinamica MRMAXI18i, 90 W @ 230 VAC, Bus Addr.9",
+      "sheet_region": "Center bottom, Stbd loop"
+     }
+    ]
+   },
+   {
+    "target_node_id": "590-aircon-fancoil-saloon-stbd",
+    "equipment_name": "MRMAXI30i Salon Stbd",
+    "placement_reasoning": "Designated as the Salon stbd air handler on the stbd bus network.",
+    "functions": [
+     {
+      "function_id": "fancoil-salon-stbd",
+      "label": "Salon Stbd Climate Control",
+      "what_it_does": "Provides local air conditioning and temperature regulation for the starboard side of the Salon.",
+      "flow_scenarios": [
+       {
+        "state": "operation",
+        "path": "230VAC power supply -> unit; control signal from Stbd VRV18E1 network bus (RS485) -> unit at Addr.10 -> return status to network"
+       }
+      ],
+      "key_components": [],
+      "dry_data": "Termodinamica MRMAXI30i, 170 W @ 230 VAC, Bus Addr.10",
+      "sheet_region": "Center bottom, Stbd loop"
+     }
+    ]
+   },
+   {
+    "target_node_id": "590-aircon-fancoil-master",
+    "equipment_name": "MRMAXI30i Owner's Cabin",
+    "placement_reasoning": "Designated as Owner's cabin air handler on the stbd bus network, matching the master fancoil established fact.",
+    "functions": [
+     {
+      "function_id": "fancoil-owners",
+      "label": "Owner's Cabin Climate Control",
+      "what_it_does": "Provides local air conditioning and temperature regulation for the Owner's cabin.",
+      "flow_scenarios": [
+       {
+        "state": "operation",
+        "path": "230VAC power supply -> unit; control signal from Stbd VRV18E1 network bus (RS485) -> unit at Addr.11 -> return status to network"
+       }
+      ],
+      "key_components": [],
+      "dry_data": "Termodinamica MRMAXI30i, 170 W @ 230 VAC, Bus Addr.11",
+      "sheet_region": "Center bottom, Stbd loop"
+     }
+    ]
+   },
+   {
+    "target_node_id": "590-aircon-system",
+    "equipment_name": "Aircon Network & System Control",
+    "placement_reasoning": "Overall system integration devices, network bridges, internet interfaces, and touch screens managing the unified Termodinamica network.",
+    "functions": [
+     {
+      "function_id": "system-network-bridge",
+      "label": "Aircon Network Bridging & External Comm",
+      "what_it_does": "Links the port and starboard air conditioning networks for unified control and provides internet connectivity for remote monitoring.",
+      "flow_scenarios": [
+       {
+        "state": "network_linking",
+        "path": "Port network bus -> via Switch BUS Box Connection -> Stbd network bus"
+       },
+       {
+        "state": "external_comm",
+        "path": "Internet Router -> Ethernet LAN -> TMD Internet Interface -> Port network bus"
+       }
+      ],
+      "key_components": [
+       "Switch BUS Box Connection",
+       "TMD Internet Interface",
+       "TMD Bridge",
+       "Touch Screen Interface"
+      ],
+      "dry_data": "Modbus RTU over RS485; 24VDC system control power",
+      "sheet_region": "Spanning central and left sections"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "Main AC Switchboard",
+    "target_node_id": "694-main-ac-panel",
+    "facts": [
+     "Supplies 230VAC power to the Port VRV18E1 compressor and TMD100 seawater pump via a 40 amp C or D curve breaker (B1).",
+     "Supplies 230VAC power to the Starboard VRV18E1 compressor and TMD100 seawater pump via a 40 amp C or D curve breaker (B1).",
+     "Distributes 230VAC power to all MRMAXI fan coil units throughout the vessel."
+    ]
+   }
+  ],
+  "discarded_as_clutter": [
+   "KEY LINE",
+   "BUS CABLE SPECIFICATIONS / NOTES",
+   "FANCOIL NOTES",
+   "SW 108-01 - Wiring Schematic",
+   "TERMODINAMICA MARINE INVERTER AIR CONDITIONING",
+   "REV.0 N.M. S.P. FIRST REVISION 28/05/2022",
+   "VRV18E1 Terminal Block Connection",
+   "SyxthSense Touch Screen Connection",
+   "Air Handler Wiring",
+   "Syxthsense Touch Screen & SubSlave Air Handler Connection",
+   "Air Handler Port and Stbd Connection",
+   "Air Handler Master and Slave Air Handler Connection",
+   "TS7E 7\" Exor Touch Screen & Dual Touch Screen Interfaces Connection",
+   "AC/DC Current Sensor TRMS mod. QI-50-V-485 detail block"
+  ],
+  "uncertainties": [],
+  "_model": "gemini-3.1-pro-preview",
+  "_protocol_version": 3
+ },
+ "elapsed_s": 81.1
+}

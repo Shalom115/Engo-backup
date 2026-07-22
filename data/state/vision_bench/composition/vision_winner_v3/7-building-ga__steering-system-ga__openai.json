@@ -1,0 +1,133 @@
+{
+ "category": "7-building-ga",
+ "sheet": "steering-system-ga",
+ "vendor": "openai",
+ "drawing_class": "building_ga",
+ "composition": {
+  "serve_who": "This is a BUILDING/STRUCTURAL GA, not a schematic GA: the title is \u201cSteering System GA,\u201d and the perspective, plan, sections, dimensions, mounting details, mirrored port/starboard geometry, toe-in/Ackermann tables, and structural callouts define the stern installation of the twin-rudder steering system. The central track/car, rod links, steering ropes and lower sheave boxes serve the overall steering system; blade/stock geometry serves the mirrored rudder blades; the specifically labelled autopilot ram and its support serve the autopilot system. No hydraulic, electrical, or other schematic connectivity is shown.",
+  "equipment_groups": [
+   {
+    "target_node_id": "150-steering-system",
+    "equipment_name": "Steering System",
+    "placement_reasoning": "Primary served equipment: the sheet title is \u201cSteering System GA,\u201d and most views locate and dimension the mechanical steering arrangement across the stern, including the central car/track, rod links, rope/sheave runs, steering cylinders/arms, and port/starboard symmetry.",
+    "functions": [
+     {
+      "function_id": "mechanically-command-twin-rudders",
+      "label": "Mechanically command both rudders",
+      "what_it_does": "Transfers helm or pilot steering movement through the stern-mounted steering mechanism to turn the port and starboard rudders with the designed Ackermann relationship; the port and starboard arrangements are mirrored about vessel centerline.",
+      "flow_scenarios": [],
+      "key_components": [
+       "central movable steering car and track",
+       "port and starboard rod links",
+       "port and starboard rudder arms",
+       "steering rope runs serving the wheel inputs",
+       "port and starboard lower sheave boxes",
+       "steering cylinders/actuators shown at each rudder stock"
+      ],
+      "dry_data": "Building/structural GA; twin-rudder stern installation; neutral toe-in 1.8\u00b0 with 2044 mm rod links; toe-in adjustment table spans 2025\u20132056 mm rod length for 0\u20133\u00b0; car travel/race \u00b1365 mm from CL; Ackermann table: car position 0/98/212/316.5/364.3 mm corresponds to inside rudder 1.8/10/20/30/35\u00b0 and outside rudder \u22121.8/6.3/16.0/25.3/30.0\u00b0.",
+      "sheet_region": "Whole sheet, especially upper-left perspective, upper-right plan, lower-right transverse arrangement, and system/Ackermann notes."
+     },
+     {
+      "function_id": "retain-steering-after-single-path-failures",
+      "label": "Provide steering-path redundancy",
+      "what_it_does": "Provides three independent steering inputs\u2014two wheel paths plus pilot\u2014so stated single-path failures do not remove all rudder control.",
+      "flow_scenarios": [],
+      "key_components": [
+       "two independent wheel steering paths",
+       "pilot steering path",
+       "independent port and starboard rod/link arrangements"
+      ],
+      "dry_data": "Safety basis stated on sheet: no separate emergency steering system required; one rod failure leaves one rudder active; one wheel failure leaves the second wheel controlling both rudders; failure of both wheels leaves the pilot controlling the rudders.",
+      "sheet_region": "Bottom-center SAFETY NOTES, supported by the mirrored arrangement in the perspective and plan views."
+     },
+     {
+      "function_id": "fit-steering-mechanism-in-stern",
+      "label": "Locate and accommodate steering mechanism",
+      "what_it_does": "Defines the physical envelope, clearances, penetrations, and local support arrangement required for steering mechanism movement and installation at the stern.",
+      "flow_scenarios": [],
+      "key_components": [
+       "central track support with 16 mm tapping-plate insert",
+       "G10 spacers",
+       "bonded lower sheave boxes",
+       "tri-beam penetration for pilot rod movement"
+      ],
+      "dry_data": "Track support references DWG 108-01-150-004; sheave boxes are to be bonded horizontally; dimensions are in millimetres unless otherwise indicated.",
+      "sheet_region": "Lower-center Section B-B and Detail E, upper-center Detail A, upper-right port lower sheave-box detail, and lower-right transverse view."
+     }
+    ]
+   },
+   {
+    "target_node_id": "150-rudder-blades",
+    "equipment_name": "Rudder Blades (port and starboard, mirrored)",
+    "placement_reasoning": "The transverse arrangement and Section C-C explicitly show the port and starboard rudder stocks/blades, their bearing locations, neutral toe-in geometry, and linkage attachment. This builds on the established mirrored-blade identity rather than treating each side as unrelated equipment.",
+    "functions": [
+     {
+      "function_id": "generate-directional-control",
+      "label": "Generate directional control",
+      "what_it_does": "The mirrored port and starboard blades rotate about their stocks to create the vessel\u2019s commanded steering response, with designed neutral toe-in and differential inside/outside angles.",
+      "flow_scenarios": [],
+      "key_components": [
+       "port and starboard rudder blades",
+       "rudder stocks",
+       "upper bearing interfaces",
+       "lower bearing interfaces",
+       "rudder-arm connections"
+      ],
+      "dry_data": "Twin mirrored rudders; neutral toe-in 1.8\u00b0 at 2044 mm rod-link length; Section C-C through rudder blade is shown rotated 26\u00b0; installation spans the hull shell and the stated upper/lower bearing structures.",
+      "sheet_region": "Lower-left Section C-C and Detail D, lower-right transverse arrangement and toe-in/Ackermann notes, upper-left perspective."
+     }
+    ]
+   },
+   {
+    "target_node_id": "150-autopilot-system",
+    "equipment_name": "Autopilot System",
+    "placement_reasoning": "A dedicated section labels the autopilot ram support, its bulkhead attachment, and the penetration needed for pilot-rod movement; the safety notes identify the pilot as the third independent steering path.",
+    "functions": [
+     {
+      "function_id": "actuate-rudders-without-wheel-input",
+      "label": "Actuate steering through the pilot path",
+      "what_it_does": "Moves the steering mechanism through the dedicated autopilot ram/rod arrangement so the pilot can remain in control if both wheel steering paths fail.",
+      "flow_scenarios": [],
+      "key_components": [
+       "autopilot ram",
+       "pilot rod",
+       "ram support bolted through bulkhead L",
+       "forward-face bonded tapping plates"
+      ],
+      "dry_data": "Mechanical installation only; ram support is bolted through BHD L; tapping plates are bonded on the forward face; tri-beam penetration is sized to suit pilot-rod movement. Actuator make, stroke, force, and control details are not given on this GA.",
+      "sheet_region": "Lower-center Section B-B and adjacent note; bottom-center SAFETY NOTES."
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "Stern steering structural interfaces",
+    "target_node_id": "310-general-drawings",
+    "facts": [
+     "The steering installation interfaces with the hull shell, deck inner skin, hull outer skin, TRI-BEAM 11, PARTITION LM1, PARTITION LM2, and bulkhead L.",
+     "Upper bearing structure is referenced to DWG 108-05-151-001; lower bearing structure is referenced to DWG 108-05-151-002.",
+     "A penetration is required in the tri-beam to suit pilot-rod movement.",
+     "The autopilot ram support is bolted through bulkhead L with tapping plates bonded on the forward face.",
+     "The central track support uses a 16 mm tapping-plate insert and references DWG 108-01-150-004.",
+     "Design waterline, datum 0, hull inner/outer skins, and stern framing are shown as installation references rather than steering connectivity."
+    ]
+   }
+  ],
+  "discarded_as_clutter": [
+   "Bill-of-materials item-number balloons and repeated BOM rows; component functions and positions are retained without duplicating procurement metadata.",
+   "Repeated port/starboard callouts where the sheet establishes a mirrored arrangement.",
+   "View titles, scales, centerline/DWL repeats, section letters, detail bubbles, projection note, general tolerances, edge-breaking note, approval/review signatures, dates, revision history, sheet format, and title-block administration.",
+   "Drawing-number repeats except structural reference drawings needed to locate installation interfaces.",
+   "Decorative/rendered hull geometry not carrying a dimension, equipment callout, or installation fact."
+  ],
+  "uncertainties": [
+   "The GA depicts two wheel steering paths as mechanical rope/cable runs, but the wheel stations and complete off-sheet routing are not shown; their remote endpoints and rope lengths cannot be established from this sheet.",
+   "The drawing does not provide actuator make/model, ram stroke/force, rope specification, or bearing ratings; these must not be inferred from the GA.",
+   "Some small BOM manufacturer/part-number text is not cleanly legible; the identified component roles are sufficient, and part numbers should be captured at inspection only if ever needed."
+  ],
+  "_model": "gpt-5.6-sol",
+  "_protocol_version": 3
+ },
+ "elapsed_s": 49.8
+}

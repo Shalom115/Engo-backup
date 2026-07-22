@@ -1,0 +1,176 @@
+{
+ "category": "3-electrical-one-line",
+ "sheet": "GM-110a_24V-service-supply",
+ "vendor": "gemini",
+ "drawing_class": "electrical",
+ "composition": {
+  "serve_who": "This sheet illustrates the primary 24V DC Service Supply generation and distribution architecture. It details the conversion of 600V DC to 24V DC via PORT and STBD MAPS converters, the central +24V SERVICE BUS, its buffering by the AUX SERVICE BATTERY, and the primary high-current distribution feeders serving the FWD/AFT DC panels, Bilge Pump, and Fire Pump.",
+  "equipment_groups": [
+   {
+    "equipment_name": "PORT MAPS",
+    "placement_reasoning": "Sheet explicitly labels 'PORT MAPS-1/2 2x5KW' converting 600V DC to 24V DC.",
+    "functions": [
+     {
+      "label": "24V DC Power Generation (Port)",
+      "what_it_does": "Converts high-voltage DC from the Port HVPDU into 24V DC to supply the main service bus.",
+      "flow_scenarios": [
+       {
+        "state": "Active",
+        "path": "PORT HVPDU 600V DC BUS -> Q4 32A breaker -> PORT MAPS-1/2 -> F1/F2 250A fuses -> CT1/CT2 current transformers -> SW1/SW2 isolators -> +24V SERVICE BUS"
+       }
+      ],
+      "key_components": [
+       "Q4 (32A breaker)",
+       "F1 (250A fuse)",
+       "F2 (250A fuse)",
+       "CT1 (Current Transformer)",
+       "CT2 (Current Transformer)",
+       "SW1 (Isolator)",
+       "SW2 (Isolator)"
+      ],
+      "dry_data": "600V DC to 24V DC; 2x5kW; protected for over-current and electronically fused",
+      "sheet_region": "MAPS Power Converters (Left/Center)"
+     }
+    ]
+   },
+   {
+    "target_node_id": "626-maps-s",
+    "equipment_name": "STBD MAPS",
+    "placement_reasoning": "Sheet explicitly labels 'STBD MAPS-1/2 2x5KW' converting 600V DC to 24V DC.",
+    "functions": [
+     {
+      "label": "24V DC Power Generation (Stbd)",
+      "what_it_does": "Converts high-voltage DC from the Starboard HVPDU into 24V DC to supply the main service bus.",
+      "flow_scenarios": [
+       {
+        "state": "Active",
+        "path": "STBD HVPDU 600V DC BUS -> Q4 32A breaker -> STBD MAPS-1/2 -> F3/F4 250A fuses -> CT3/CT4 current transformers -> SW3/SW4 isolators -> +24V SERVICE BUS"
+       }
+      ],
+      "key_components": [
+       "Q4 (32A breaker)",
+       "F3 (250A fuse)",
+       "F4 (250A fuse)",
+       "CT3 (Current Transformer)",
+       "CT4 (Current Transformer)",
+       "SW3 (Isolator)",
+       "SW4 (Isolator)"
+      ],
+      "dry_data": "600V DC to 24V DC; 2x5kW; protected for over-current and electronically fused",
+      "sheet_region": "MAPS Power Converters (Left/Center)"
+     }
+    ]
+   },
+   {
+    "target_node_id": "634-battery-aux-service",
+    "equipment_name": "Aux Service Battery Bank",
+    "placement_reasoning": "Explicitly drawn as 'AUX SERVICE BAT. 200Ah 24V' feeding into the +24V Service Bus.",
+    "functions": [
+     {
+      "label": "Service Bus Buffer/Storage",
+      "what_it_does": "Provides 24V DC energy storage and buffer capacity to the main service bus.",
+      "flow_scenarios": [
+       {
+        "state": "Connected",
+        "path": "AUX SERVICE BAT. -> F16 250A fuse -> SW11 switch -> Shunt #1 (500A/50mV) -> +24V SERVICE BUS (return via NEGATIVE BUS)"
+       }
+      ],
+      "key_components": [
+       "F16 (250A fuse)",
+       "SW11 (Switch)",
+       "Shunt #1 (500A/50mV sensor)"
+      ],
+      "dry_data": "200Ah, 24V DC",
+      "sheet_region": "Top Right (+24V SERVICE BUS Distribution)"
+     }
+    ]
+   },
+   {
+    "target_node_id": "520-main-bilge-pump",
+    "equipment_name": "Main Bilge Pump",
+    "placement_reasoning": "Identified as 'BILGE PUMP' branching off the SO 6 line from the +24V Service Bus.",
+    "functions": [
+     {
+      "label": "Primary Power Supply",
+      "what_it_does": "Receives high-current 24V DC power from the central service bus to drive the bilge pump.",
+      "flow_scenarios": [
+       {
+        "state": "Active",
+        "path": "+24V SERVICE BUS -> F7 60A fuse -> SW8 switch -> SO 6 branch -> BILGE PUMP -> NEGATIVE BUS"
+       }
+      ],
+      "key_components": [
+       "F7 (60A fuse)",
+       "SW8 (Switch)"
+      ],
+      "dry_data": "Fed via 60A fuse",
+      "sheet_region": "Bottom Right (Panel Distribution)"
+     }
+    ]
+   },
+   {
+    "target_node_id": "520-fire-pump",
+    "equipment_name": "Fire Pump",
+    "placement_reasoning": "Identified as 'FIRE PUMP' branching off the SO 7 line from the +24V Service Bus.",
+    "functions": [
+     {
+      "label": "Primary Power Supply",
+      "what_it_does": "Receives high-current 24V DC power from the central service bus to drive the fire pump.",
+      "flow_scenarios": [
+       {
+        "state": "Active",
+        "path": "+24V SERVICE BUS -> F8 60A fuse -> SW9 switch -> SO 7 branch -> FIRE PUMP -> NEGATIVE BUS"
+       }
+      ],
+      "key_components": [
+       "F8 (60A fuse)",
+       "SW9 (Switch)"
+      ],
+      "dry_data": "Fed via 60A fuse",
+      "sheet_region": "Bottom Right (Panel Distribution)"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "24V DC Service Distribution",
+    "target_node_id": "640-dc-distribution",
+    "facts": [
+     "The central +24V SERVICE BUS aggregates power from PORT MAPS (via SW1/SW2), STBD MAPS (via SW3/SW4), a 24V 110A AC-DC converter (via SW5), and the AUX SERVICE BAT. (via SW11 and Shunt #1).",
+     "It distributes heavy loads via fused branches: FWD DC PANEL (F5 100A, SW6), AFT DC PANEL (F6 200A, SW7), SO 6 / BILGE PUMP (F7 60A, SW8), SO 7 / FIRE PUMP (F8 60A, SW9), and SO 8 (F9 125A, SW10).",
+     "A central NEGATIVE BUS collects returns from the FWD/AFT DC PANELS, BILGE PUMP, FIRE PUMP, and battery banks (GEN START, EMERGENCY, AUX SERVICE), and ties directly to '230V AC GROUND (= SHIPS GROUND)'.",
+     "Isolators SW1 through SW5 are controlled via terminal strip T/S S and relays Re1/Re2. Relay Re2 coil is fed by the 'BAE START KEY SW (Service Mode)' (via Re 2a).",
+     "A dedicated 'PC CARD' acts as a control logic module, receiving status/command lines including NEG, BAE, AUX, and +EM, and interfacing with 'BEL-1/4 230V AC CONTROL' on pins 1-3."
+    ]
+   },
+   {
+    "system_name": "High Voltage DC Distribution",
+    "target_node_id": "620-hvpdu",
+    "facts": [
+     "The PORT 600V DC BUS supplies the PORT MAPS-1/2 converters via Q4 (32A) breakers.",
+     "The STBD 600V DC BUS supplies the STBD MAPS-1/2 converters via Q4 (32A) breakers.",
+     "The HVPDU buses are heavily protected upstream, shown with F1 and F2 500A fuses on the Port side before distributing to the breakers."
+    ]
+   }
+  ],
+  "discarded_as_clutter": [
+   "_ CTB 1 = QI-POWER-485-300-LV",
+   "_ CTB 2 = QI-POWER-485-300-LV",
+   "_ CTB 3 = QI-POWER-485-300-LV",
+   "_ CTB 4 = QI-POWER-485-300-LV",
+   "_ CTB 5 = QI-POWER-485-300-LV",
+   "_ CTB 6 = QI-POWER-485-300-LV",
+   "_ CTB 7 = QI-POWER-485-300-LV ( EMERGENCY BAT. )",
+   "HVPDU: | HIGH VOLTAGE DC LINK",
+   "MAPS: | MODULAR AUXILARY POWER SYSTEM 600V DC/24V DC",
+   "THESE CONVERTERS ARE PROTECTED FOR OVER-CURRENT AND ELECTRONICALLY FUSED."
+  ],
+  "uncertainties": [
+   "The specific equipment identity of the '24V 110A' AC-to-DC converter (fed by 230V AC and outputting through F18 125A to SW5) is not named beyond its electrical rating."
+  ],
+  "_model": "gemini-3.1-pro-preview",
+  "_protocol_version": 3
+ },
+ "elapsed_s": 78.8
+}
