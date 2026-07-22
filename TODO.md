@@ -229,6 +229,12 @@ the engineer queue, Register integrity 0 issues.
 1. Real-dispatcher rule: tests exercise the path a real run uses.
 2. Counts reconcile exactly or the gap is itemized. No silent gaps.
 3. Zero-fabrication: values printed-on-sheet or `<UNKNOWN>`; spot-verify against renders.
+   CONTENT-LEVEL, not id-level: before presenting any composition to the engineer, RENDER
+   the sheet and verify N>=3 scenario/connection claims against the drawn lines. "No
+   fabricated node ids" is NOT "no fabrication" — a made-up pipe with real node ids is
+   still fabrication (the blackwater lesson: an invented toilet-overboard line passed an
+   id-only check and the engineer caught it on first glance). Never claim "no fabrication"
+   without stating exactly what was checked.
 4. Integrity check after every Register write; backup before.
 5. Idempotency: re-run same input → 0 new facts.
 6. Engineer grades every new protocol/class before scale. Gold values live only in

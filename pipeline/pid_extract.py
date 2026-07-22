@@ -85,12 +85,20 @@ _TOPOLOGY_PROMPT = (
     "valve type), strainers/filters, heat exchangers, tanks, sea "
     "chests/intakes, overboard/discharge points, sensors/alarms, manifolds. "
     "Record: component_type, item_tag (as printed, '<UNKNOWN>' if none), "
-    "label text near it, and bbox.\n"
-    "CONNECTIONS — every pipe line as DRAWN: from which component to which "
-    "component, with any printed line label / pipe size / medium annotation. "
+    "label text near it, and bbox. VALVE STATE: if the legend or the valve "
+    "symbol marks it NO (normally open) or NC (normally closed), record "
+    "valve_state — these states define which paths carry flow in the normal "
+    "lineup; missing them makes every scenario wrong.\n"
+    "CONNECTIONS — every pipe line as DRAWN. FLOW ARROWS ARE THE AUTHORITY: "
+    "the arrowheads printed on lines define the flow direction — from_component "
+    "-> to_component MUST follow the arrow, never your reading order. If a "
+    "line has no arrow, set direction_unconfirmed=true instead of guessing. "
+    "PUMP SIDES: the suction side and discharge side of a pump are fixed by "
+    "the arrows (and check valves); record which side each connection meets. "
     "A line drawn INTO a component supplies that component; lines join ONLY "
     "where the drawing shows them meeting. Separate intakes/sources are "
-    "SEPARATE — never bridge two lines that do not touch.\n"
+    "SEPARATE — never bridge two lines that do not touch: a connection that "
+    "is not a drawn pipe is the worst possible failure of this pass.\n"
     "Read only what is drawn/printed; '<UNKNOWN>' for illegible; mark "
     "ambiguous=true rather than guess."
 )
@@ -104,6 +112,8 @@ _TOPOLOGY_TOOL = {
                 "component_type": {"type": "string"},
                 "item_tag": {"type": "string"},
                 "label": {"type": "string"},
+                "valve_state": {"type": "string",
+                                "enum": ["NO", "NC", "unknown"]},
                 "bbox": {"type": "array", "items": {"type": "number"},
                          "minItems": 4, "maxItems": 4},
                 "ambiguous": {"type": "boolean"}},
@@ -113,6 +123,10 @@ _TOPOLOGY_TOOL = {
                 "to_component": {"type": "string"},
                 "line_label": {"type": "string"},
                 "pipe_size": {"type": "string"},
+                "direction_unconfirmed": {"type": "boolean",
+                    "description": "true when the line carries NO printed arrow"},
+                "pump_side": {"type": "string",
+                              "enum": ["suction", "discharge", "n/a"]},
                 "ambiguous": {"type": "boolean"}},
                 "required": ["from_component", "to_component"]}},
         },

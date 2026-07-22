@@ -4132,7 +4132,21 @@
    "doc_subfolders": {},
    "file_count": 5,
    "flags": [],
-   "confidence": "Confirmed"
+   "confidence": "Confirmed",
+   "parent_id": "540-blackwater-system",
+   "cross_links": [
+    {
+     "relation": "part_of",
+     "target": "540-blackwater-system",
+     "source": {
+      "source_doc": "engineer red-pen WP3 gates",
+      "file": "data/state/redpen_wp3gates_20260720.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
+    }
+   ]
   },
   {
    "equipment_id": "540-toilet",
@@ -4157,7 +4171,21 @@
    "doc_subfolders": {},
    "file_count": 1,
    "flags": [],
-   "confidence": "Confirmed"
+   "confidence": "Confirmed",
+   "parent_id": "540-blackwater-system",
+   "cross_links": [
+    {
+     "relation": "part_of",
+     "target": "540-blackwater-system",
+     "source": {
+      "source_doc": "engineer red-pen WP3 gates",
+      "file": "data/state/redpen_wp3gates_20260720.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
+    }
+   ]
   },
   {
    "equipment_id": "550-fuel-pump",
@@ -4725,6 +4753,39 @@
       "source_type": "engineer_redpen",
       "authority": "engineer",
       "as_of": "2026-07-11"
+     }
+    },
+    {
+     "relation": "comprises",
+     "target": "570-plc-rack-mast",
+     "source": {
+      "source_doc": "engineer red-pen WP3 gates",
+      "file": "data/state/redpen_wp3gates_20260720.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
+    },
+    {
+     "relation": "comprises",
+     "target": "570-plc-rack-er",
+     "source": {
+      "source_doc": "engineer red-pen WP3 gates",
+      "file": "data/state/redpen_wp3gates_20260720.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
+    },
+    {
+     "relation": "comprises",
+     "target": "570-plc-rack-aft",
+     "source": {
+      "source_doc": "engineer red-pen WP3 gates",
+      "file": "data/state/redpen_wp3gates_20260720.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
      }
     }
    ]
@@ -19028,9 +19089,21 @@
    "file_count": 0,
    "flags": [],
    "confidence": "Flagged",
-   "parent_id": null,
+   "parent_id": "540-blackwater-system",
    "children": [],
-   "cross_links": [],
+   "cross_links": [
+    {
+     "relation": "part_of",
+     "target": "540-blackwater-system",
+     "source": {
+      "source_doc": "engineer red-pen WP3 gates",
+      "file": "data/state/redpen_wp3gates_20260720.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
+    }
+   ],
    "expected_fact_classes": [
     "electrical_supply",
     "manual",
@@ -19207,9 +19280,21 @@
    "file_count": 0,
    "flags": [],
    "confidence": "Flagged",
-   "parent_id": null,
+   "parent_id": "540-blackwater-system",
    "children": [],
-   "cross_links": [],
+   "cross_links": [
+    {
+     "relation": "part_of",
+     "target": "540-blackwater-system",
+     "source": {
+      "source_doc": "engineer red-pen WP3 gates",
+      "file": "data/state/redpen_wp3gates_20260720.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
+    }
+   ],
    "expected_fact_classes": [
     "electrical_supply",
     "manual",
@@ -40644,6 +40729,205 @@
       "source_doc": "Engo reasoning over GM book manifest (engineer-requested test)",
       "source_type": "engo_reasoning",
       "authority": "proposed",
+      "as_of": "2026-07-20"
+     }
+    },
+    {
+     "kind": "authoritative_source",
+     "value": "ENGINEER CORRECTION (2026-07-20): the card's sources must ALSO include GM-112 (MAIN PANEL SCHEMATIC A, book p16) and GM-112a (MAIN PANEL A/B, p17) \u2014 overruling Engo's 'naming trap' reasoning that excluded them. Full source set: GM-102 (p4, 230V distribution) + p3 (supply one-line) + GM-112/112a.",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen WP3 gates",
+      "file": "data/state/redpen_wp3gates_20260720.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
+    }
+   ]
+  },
+  {
+   "equipment_id": "540-blackwater-system",
+   "name": "Black Water System (system card)",
+   "confidence": "Confirmed",
+   "origin": "engineer_redpen_wp3_20260720",
+   "node_provenance": {
+    "source_doc": "engineer red-pen WP3 gates",
+    "file": "data/state/redpen_wp3gates_20260720.txt",
+    "source_type": "engineer_redpen",
+    "authority": "engineer",
+    "as_of": "2026-07-20"
+   },
+   "region_code": "500",
+   "subsystem_code": "540",
+   "subsystem_label": "Black water",
+   "category": "system",
+   "children": [
+    "540-gianneschi-pumps",
+    "540-toilet",
+    "540-black-water-pumps",
+    "540-wc-toilets"
+   ],
+   "cross_links": [
+    {
+     "relation": "comprises",
+     "target": "540-gianneschi-pumps",
+     "source": {
+      "source_doc": "engineer red-pen WP3 gates",
+      "file": "data/state/redpen_wp3gates_20260720.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
+    },
+    {
+     "relation": "comprises",
+     "target": "540-toilet",
+     "source": {
+      "source_doc": "engineer red-pen WP3 gates",
+      "file": "data/state/redpen_wp3gates_20260720.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
+    },
+    {
+     "relation": "comprises",
+     "target": "540-black-water-pumps",
+     "source": {
+      "source_doc": "engineer red-pen WP3 gates",
+      "file": "data/state/redpen_wp3gates_20260720.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
+    },
+    {
+     "relation": "comprises",
+     "target": "540-wc-toilets",
+     "source": {
+      "source_doc": "engineer red-pen WP3 gates",
+      "file": "data/state/redpen_wp3gates_20260720.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "kind": "flow_scenario",
+     "value": "AUTHORITATIVE SYSTEM DESCRIPTION (engineer 2026-07-20, replacing a rejected machine read): Two identical 24V DC motor-driven Gianneschi MV44G pumps in the engine room, in PARALLEL with manual ball valves on either side of each \u2014 either pump can suck from each tank (FWD/AFT), and they can be isolated/connected so each pump works individually and can suck from both tanks. Each pump draws from the COMMON BLACK SUCTION MANIFOLD (fed by AFT tank suction + FWD tank suction; the manifold can also T off to a dockside truck pump-out \u2014 this connection is on the SUCTION side). Each pump discharges through the fire-rated overboard discharge line via the anti-siphon manifold \u2014 the pumps can ONLY pump overboard. There is NO direct toilet-to-overboard line. NO/NC valves referenced are on the suction side, not the discharge.",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen WP3 gates",
+      "file": "data/state/redpen_wp3gates_20260720.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
+    }
+   ]
+  },
+  {
+   "equipment_id": "570-plc-rack-mast",
+   "name": "MAST PLC I/O Rack (WAGO)",
+   "confidence": "Confirmed",
+   "origin": "engineer_redpen_wp3_20260720",
+   "node_provenance": {
+    "source_doc": "engineer red-pen WP3 gates",
+    "file": "data/state/redpen_wp3gates_20260720.txt",
+    "source_type": "engineer_redpen",
+    "authority": "engineer",
+    "as_of": "2026-07-20"
+   },
+   "region_code": "500",
+   "subsystem_code": "570",
+   "subsystem_label": "Hydraulic control",
+   "parent_id": "570-myt-systems-hydraulics",
+   "cross_links": [
+    {
+     "relation": "part_of",
+     "target": "570-myt-systems-hydraulics",
+     "source": {
+      "source_doc": "engineer red-pen WP3 gates",
+      "file": "data/state/redpen_wp3gates_20260720.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "kind": "rack_inventory",
+     "value": "MAST rack (engineer-corrected 2026-07-20): position 00 = CAN GATEWAY (not a DI); positions 01-04 = digital input modules 750-1405. X7 = POWER SUPPLY module 750-602, feeding the DO22-DO25 group and AO1. The rack-layout page is the INDEX of the PLC sheet set (whole-rack GA; following pages detail one module each). Commons: per OUTPUT module, marked 'M' on WAGO.",
+     "confidence": "high",
+     "provenance": {
+      "source_doc": "engineer red-pen WP3 gates",
+      "file": "data/state/redpen_wp3gates_20260720.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
+    }
+   ]
+  },
+  {
+   "equipment_id": "570-plc-rack-er",
+   "name": "ENGINE ROOM PLC I/O Rack (WAGO)",
+   "confidence": "Confirmed",
+   "origin": "engineer_redpen_wp3_20260720",
+   "node_provenance": {
+    "source_doc": "engineer red-pen WP3 gates",
+    "file": "data/state/redpen_wp3gates_20260720.txt",
+    "source_type": "engineer_redpen",
+    "authority": "engineer",
+    "as_of": "2026-07-20"
+   },
+   "region_code": "500",
+   "subsystem_code": "570",
+   "subsystem_label": "Hydraulic control",
+   "parent_id": "570-myt-systems-hydraulics",
+   "cross_links": [
+    {
+     "relation": "part_of",
+     "target": "570-myt-systems-hydraulics",
+     "source": {
+      "source_doc": "engineer red-pen WP3 gates",
+      "file": "data/state/redpen_wp3gates_20260720.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
+      "as_of": "2026-07-20"
+     }
+    }
+   ]
+  },
+  {
+   "equipment_id": "570-plc-rack-aft",
+   "name": "AFT PLC I/O Rack (WAGO)",
+   "confidence": "Confirmed",
+   "origin": "engineer_redpen_wp3_20260720",
+   "node_provenance": {
+    "source_doc": "engineer red-pen WP3 gates",
+    "file": "data/state/redpen_wp3gates_20260720.txt",
+    "source_type": "engineer_redpen",
+    "authority": "engineer",
+    "as_of": "2026-07-20"
+   },
+   "region_code": "500",
+   "subsystem_code": "570",
+   "subsystem_label": "Hydraulic control",
+   "parent_id": "570-myt-systems-hydraulics",
+   "cross_links": [
+    {
+     "relation": "part_of",
+     "target": "570-myt-systems-hydraulics",
+     "source": {
+      "source_doc": "engineer red-pen WP3 gates",
+      "file": "data/state/redpen_wp3gates_20260720.txt",
+      "source_type": "engineer_redpen",
+      "authority": "engineer",
       "as_of": "2026-07-20"
      }
     }
