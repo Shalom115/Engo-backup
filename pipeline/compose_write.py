@@ -106,6 +106,12 @@ class ComposeWriter:
         for g in comp.get("equipment_groups", []):
             tgt = g.get("target_node_id")
             gname = g.get("equipment_name", "?")
+            # Field-slip recovery (2026-07-22): some composes put the resolved
+            # node id in equipment_name and leave target_node_id empty (GM-111:
+            # all 50 loads). Promote ONLY when the name is a real active node
+            # id — a human name still flags. Never invents a target.
+            if not tgt and gname in self.by_id and not self.by_id[gname].get("retired"):
+                tgt = gname
             if not tgt:
                 self.confirmation_flags.append(
                     {"issue": "no_fitting_node", "equipment_name": gname,
