@@ -1,0 +1,111 @@
+{
+ "category": "8-bae-interconnect-pinout",
+ "sheet": "bae-block-interconnect-p12",
+ "vendor": "anthropic",
+ "drawing_class": "interconnect",
+ "composition": {
+  "serve_who": "Sheet 12 of 196D5023 is a BAE Systems Controls harness/pinout drawing for two BEL (Battery Eliminator/Inverter) chain segments \u2014 BEL1-S (chain S3) and BEL2-S (chain S4) \u2014 each terminating into a BEL connector (RTN1), a SYNC twisted-pair connector, and a CAN-A (Shield/HI/LO) connector. Given the established facts that BEL nodes 629-bel1-s and 629-bel2-s are STBD BEL converters (BAE System logical 629, GMMS 110d/e), and the pin labels G3-S3xxx / G3-S4xxx map directly to the BEL1-S / BEL2-S terminal strips shown here, this sheet's two device groups attach to node 629-bel1-s (S3 chain) and node 629-bel2-s (S4 chain) respectively as their internal wiring/loop-membership detail. No breakers/fuses/switches are shown; this is a pure point-to-point CAN/sync/battery-return wiring diagram, so no separate infrastructure (bus) node facts are needed beyond noting the shared BEL CAN-bus daisy-chain topology already captured at 629-bel.",
+  "equipment_groups": [
+   {
+    "equipment_name": "BEL1-S (STBD BEL converter, chain segment S3)",
+    "target_node_id": "629-bel1-s",
+    "placement_reasoning": "Terminal strip labeled BEL1-S with net names prefixed G3-S3... matches the established 629-bel1-s STBD BEL converter node; this sheet documents its internal chain wiring (BEL/SYNC/CAN-A connectors) rather than a new system.",
+    "functions": [
+     {
+      "function_id": "bel1s-chain-wiring",
+      "label": "S3 chain harness wiring (BEL/SYNC/CAN-A)",
+      "sheet_region": "upper-left quadrant, grid ~G3-H7",
+      "what_it_does": "Carries battery return, frequency-select, sync, address, enable, CAN-bus and chain supply/output signals between the BEL1-S terminal strip and the BEL, SYNC and CAN-A connector blocks that daisy-chain this BEL unit into the sensor/control chain.",
+      "flow_scenarios": [
+       {
+        "state": "default/neutral wiring path",
+        "path": "BEL1-S terminal strip pin 7 (G3-S3R1 VBATTERY RTN) via crossed twisted-pair wire to BEL connector pin RTN1, and to SYNC connector (labeled G3-S3R1 SYNC_RTN) \u2014 providing the battery-return reference for both the BEL power return and the SYNC circuit return."
+       },
+       {
+        "state": "SYNC signal path",
+        "path": "BEL1-S pin 3 (G3-S3S2 SYNC) routes via crossed wiring to SYNC connector pin 3; SYNC connector pin 10 is the mating chain-sync line \u2014 pins 10/3 form the twisted sync pair between this BEL unit and its neighbour in the S3 chain."
+       },
+       {
+        "state": "CAN bus path",
+        "path": "BEL1-S pin 5 (G3-S3AH CANA_HI) and pin 6 (G3-S3AL CANA_LO) route via crossed twisted-pair wiring to CAN-A connector HI/LO pins; CANA_Shield net (N/C on terminal strip) routes to CAN-A Shield pin, with a dashed-oval splice/drain termination shown on the shield and LO lines mid-run."
+       },
+       {
+        "state": "unused/reserved pins",
+        "path": "Pins 1 (G3-S329 ENABLE), 8 (G3-S300a ADR_0), 9 (G3-S300b ADR_1) are marked N/C \u2014 enable and address-select lines are not populated on this chain segment."
+       },
+       {
+        "state": "chain supply/output",
+        "path": "BEL1-S pin 11 (G3-S321 CHAIN_OUTPUT) and pin 10 (G3-S3S3 CHAIN_SUPPLY) carry the daisy-chain output/supply signals onward to/from the next chain segment (off-sheet continuation, e.g. toward BEL2-S/S4 or further chain link); pin 2 (G3-S3S1 FREQ_SELECT) sets the unit's frequency-select input."
+       }
+      ],
+      "key_components": [
+       "BEL1-S terminal/I-O strip (pinout source)",
+       "BEL connector (RTN1) \u2014 battery return terminator",
+       "SYNC connector (pins 10, 3) \u2014 chain sync twisted pair",
+       "CAN-A connector (Shield/HI/LO) \u2014 CAN bus daisy-chain terminator",
+       "dashed-oval splice/shield-drain point on CANA_Shield and LO run"
+      ],
+      "dry_data": "Point-to-point harness, no protective devices on sheet; net prefix G3-S3xxx; pins 2,7,11,3,1,8,9,5,6,N/C,10,4 per BEL1-S strip; part numbers not called out \u2014 capture at inspection if ever needed."
+     }
+    ]
+   },
+   {
+    "equipment_name": "BEL2-S (STBD BEL converter, chain segment S4)",
+    "target_node_id": "629-bel2-s",
+    "placement_reasoning": "Terminal strip labeled BEL2-S with net names prefixed G3-S4... mirrors BEL1-S and matches the established 629-bel2-s STBD BEL converter node; documents its internal chain wiring as the S4 segment.",
+    "functions": [
+     {
+      "function_id": "bel2s-chain-wiring",
+      "label": "S4 chain harness wiring (BEL/SYNC/CAN-A)",
+      "sheet_region": "lower-left quadrant, grid ~G3-H7 (below BEL1-S block)",
+      "what_it_does": "Carries battery return, frequency-select, sync, address, enable, CAN-bus and chain supply/output signals between the BEL2-S terminal strip and its BEL, SYNC and CAN-A connector blocks, daisy-chaining this BEL unit as the S4 segment.",
+      "flow_scenarios": [
+       {
+        "state": "default/neutral wiring path",
+        "path": "BEL2-S terminal strip pin 7 (G3-S4R1 VBATTERY RTN) via crossed twisted-pair wire to BEL connector pin RTN1, and to SYNC connector (labeled G3-S4R1 SYNC_RTN) \u2014 providing battery-return reference for BEL power return and SYNC circuit return."
+       },
+       {
+        "state": "SYNC signal path",
+        "path": "BEL2-S pin 3 (G3-S4S2 SYNC) routes via crossed wiring to SYNC connector pin 4; SYNC connector pin 9 is the mating chain-sync line \u2014 pins 9/4 form the twisted sync pair for this BEL unit's position in the S4 chain."
+       },
+       {
+        "state": "CAN bus path",
+        "path": "BEL2-S pin 5 (G3-S4AH CANA_HI) and pin 6 (G3-S4AL CANA_LO) route via crossed twisted-pair wiring to CAN-A connector HI/LO pins; CANA_Shield net (N/C on terminal strip) routes to CAN-A Shield pin, with a dashed-oval splice/drain termination shown on shield and LO lines mid-run."
+       },
+       {
+        "state": "unused/reserved pins",
+        "path": "Pins 1 (G3-S429 ENABLE), 8 (G3-S400a ADR_0), 9 (G3-S400b ADR_1) are marked N/C \u2014 enable and address-select lines not populated on this chain segment."
+       },
+       {
+        "state": "chain supply/output",
+        "path": "BEL2-S pin 11 (G3-S421 CHAIN_OUTPUT) and pin 10 (G3-S4S3 CHAIN_SUPPLY) carry daisy-chain output/supply signals onward (off-sheet continuation); pin 2 (G3-S4S1 FREQ_SELECT) sets frequency-select input."
+       }
+      ],
+      "key_components": [
+       "BEL2-S terminal/I-O strip (pinout source)",
+       "BEL connector (RTN1) \u2014 battery return terminator",
+       "SYNC connector (pins 9, 4) \u2014 chain sync twisted pair",
+       "CAN-A connector (Shield/HI/LO) \u2014 CAN bus daisy-chain terminator",
+       "dashed-oval splice/shield-drain point on CANA_Shield and LO run"
+      ],
+      "dry_data": "Point-to-point harness, no protective devices on sheet; net prefix G3-S4xxx; pins 2,7,11,3,1,8,9,5,6,N/C,10,4 per BEL2-S strip; part numbers not called out \u2014 capture at inspection if ever needed."
+     }
+    ]
+   }
+  ],
+  "infrastructure": [],
+  "uncertainties": [
+   "Where CHAIN_OUTPUT (pin 11) and CHAIN_SUPPLY (pin 10) physically continue to (next chain segment or another sheet) is not shown on this sheet \u2014 dead-ends off-sheet.",
+   "The exact purpose of the dashed-oval symbol on the CANA_Shield/LO run (splice, twist marker, or shield-drain termination) is not explicitly labeled \u2014 inferred from convention, not confirmed on sheet.",
+   "BEL and CAN-A connector part numbers are not printed \u2014 capture at inspection if ever needed."
+  ],
+  "discarded_as_clutter": [
+   "Title block fields (CAGE code, DWG NO, SHEET 12 OF 47, SCALE NONE, revision block blank)",
+   "Export-control/proprietary warning boilerplate",
+   "Drawn-by/checked-by administrative fields",
+   "Component bounding-box duplicate list from extraction (BEL1-S/BEL2-S bbox repeats, connector bbox entries) \u2014 restates pinout already captured in functions"
+  ],
+  "_model": "claude-sonnet-5"
+ },
+ "elapsed_s": 40.3
+}

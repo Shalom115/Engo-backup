@@ -1,0 +1,319 @@
+{
+ "category": "9-class-c-garbled-font",
+ "sheet": "termodinamica-wiring-rev0",
+ "vendor": "openai",
+ "drawing_class": "electrical",
+ "composition": {
+  "serve_who": "This sheet (\"SW 108-01 - Wiring Schematic\", Termodinamica) is the dedicated wiring/interconnection diagram for the ships' AIRCON SYSTEM (590-aircon-system). It shows the two engine-room VRV18E1 compressor units (PORT and STBD, each = 590-aircon-compressor-1/2), their seawater cooling pumps (595-grundfos-main-seawater-cooling-pumps, per established alias TMD100 sea water pump), and the full set of distributed fan-coil/air-handler units per cabin (each -> its own 590-aircon-fancoil-* node per the register), tied together by BUS MASTER/SLAVE control lines, touch-screen interfaces, and an internet/Modbus bridge. All labelled loads on this sheet are named for aircon zones (Fwd/Aft Guest, Salon, Galley, Crew cabins, Owner's cabin) confirming this whole sheet serves 590-aircon-system and its children exclusively. The BUS/switch/network infrastructure (Switch BUS Box, Bus Master/Slave lines, Ethernet LAN, TMD Internet Interface, TMD Bridge, AC/DC Current Sensor) is shared control/monitoring infrastructure for the aircon system as a whole, not a piece of any single fancoil.",
+  "equipment_groups": [
+   {
+    "equipment_name": "VRV18E1 Engine Room Port (Aircon Compressor Unit 1)",
+    "target_node_id": "590-aircon-compressor-1",
+    "placement_reasoning": "Labelled 'VRV18E1 ENGINE ROOM PORT' box, fed from Main Switchboard breaker B1 40A, drives its own sea water pump and is BUS MASTER for the port-side distributed fancoil chain \u2014 matches register's per-unit compressor node.",
+    "functions": [
+     {
+      "label": "Compressor power supply & ground",
+      "what_it_does": "Supplies 230VAC compressor power to the PORT VRV18E1 unit from the main switchboard, with an independent compressor ground/anode (never shared with other devices per warning note).",
+      "flow_scenarios": [
+       {
+        "state": "normal run",
+        "path": "Main Switchboard -> Breaker B1 (40A, C or D curve) -> L+N+PE 3x6mm2 -> VRV18E1 Engine Room Port compressor; compressor ground wire -> independent anode/zinc (must not connect to any other device, else warranty void)"
+       }
+      ],
+      "dry_data": "230VAC L+N+PE 3x6mm\u00b2, breaker B1 40A C/D curve"
+     },
+     {
+      "label": "Sea water cooling pump drive",
+      "what_it_does": "Powers the dedicated seawater cooling pump for heat rejection from this compressor unit.",
+      "flow_scenarios": [
+       {
+        "state": "normal run",
+        "path": "VRV18E1 Engine Room Port -> Sea Water Pump TMD100 (port), L+N+PE 3x1.5mm\u00b2 supply"
+       }
+      ],
+      "dry_data": "230VAC L+N+PE 3x1.5mm\u00b2"
+     },
+     {
+      "label": "BUS Master control link to port distributed fancoils",
+      "what_it_does": "Acts as bus master for the port-side chain of touch screens, fan-coils, current sensor and bridge; also connects into the Switch BUS Box joining port and stbd control networks.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "VRV18E1 Engine Room Port terminal block -> BUS MASTER LINE 1 (2x2x0.75mm\u00b2 <10m, or per-length spec) -> Touch Screen Interface Addr.1, fancoils Addr.2-6, AC/DC Current Sensor Addr.31, TMD Bridge Addr.32 -> also to Switch BUS Box Connection joining STBD side via Bus Master Line 2"
+       }
+      ],
+      "dry_data": "RS485-style twisted pair bus, see BUS CABLE SPECIFICATIONS note (0.5-1.0mm\u00b2, 100-120 ohm impedance, 50-60pF/m capacitance)"
+     }
+    ]
+   },
+   {
+    "equipment_name": "VRV18E1 Engine Room Stbd (Aircon Compressor Unit 2)",
+    "target_node_id": "590-aircon-compressor-2",
+    "placement_reasoning": "Labelled 'VRV18E1 ENGINE ROOM STBD' box, mirror of the port unit, fed from its own Main Switchboard breaker B1, drives its own sea water pump, BUS MASTER for the stbd-side distributed fancoil chain.",
+    "functions": [
+     {
+      "label": "Compressor power supply & ground",
+      "what_it_does": "Supplies 230VAC compressor power to the STBD VRV18E1 unit from the main switchboard, with an independent compressor ground/anode.",
+      "flow_scenarios": [
+       {
+        "state": "normal run",
+        "path": "Main Switchboard -> Breaker B1 (40A, C or D curve) -> L+N+PE 3x6mm2 -> VRV18E1 Engine Room Stbd compressor; compressor ground wire -> independent anode/zinc"
+       }
+      ],
+      "dry_data": "230VAC L+N+PE 3x6mm\u00b2, breaker B1 40A C/D curve"
+     },
+     {
+      "label": "Sea water cooling pump drive",
+      "what_it_does": "Powers the dedicated seawater cooling pump for heat rejection from this compressor unit.",
+      "flow_scenarios": [
+       {
+        "state": "normal run",
+        "path": "VRV18E1 Engine Room Stbd -> Sea Water Pump TMD100 (stbd), L+N+PE 3x1.5mm\u00b2 supply"
+       }
+      ],
+      "dry_data": "230VAC L+N+PE 3x1.5mm\u00b2"
+     },
+     {
+      "label": "BUS Master control link to stbd distributed fancoils",
+      "what_it_does": "Acts as bus master for the stbd-side chain of touch screen, fan-coils, current sensor and bridge; connects into the Switch BUS Box joining port and stbd control networks.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "VRV18E1 Engine Room Stbd terminal block -> BUS MASTER LINE 2 -> Touch Screen Interface Addr.1 (stbd), fancoils Addr.7-11, AC/DC Current Sensor Addr.31, TMD Bridge Addr.32 -> Switch BUS Box Connection joining PORT side via Bus Master Line 1"
+       }
+      ],
+      "dry_data": "RS485-style twisted pair bus per BUS CABLE SPECIFICATIONS note"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Fancoil - Fwd Guest Cabin (port loop, Addr.2)",
+    "target_node_id": "590-aircon-fancoil-fwd-guest",
+    "placement_reasoning": "Directly labelled MRMAXI18i 'Fwd Guest cabin' Addr.2 on the port-side chain; matches established identity fact for this node.",
+    "functions": [
+     {
+      "label": "Zone air-handling with thermostat control",
+      "what_it_does": "Provides conditioned air to the Fwd Guest cabin, locally thermostat-controlled and slaved to the port VRV18E1 bus.",
+      "flow_scenarios": [
+       {
+        "state": "normal run",
+        "path": "230VAC supply -> MRMAXI18i Fwd Guest cabin (Addr.2); Therm thermostat sets local demand; BUS SLAVE LINE reports/receives commands from VRV18E1 Port bus master"
+       }
+      ],
+      "dry_data": "MRMAXI18i, 90 W @ 230VAC, BUS Addr.2, 24VDC bus slave"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Fancoil - Salon Port (Addr.3)",
+    "target_node_id": "590-aircon-fancoil-saloon-port",
+    "placement_reasoning": "Labelled MRMAXI30i 'Salon port' Addr.3 in the port-side chain.",
+    "functions": [
+     {
+      "label": "Zone air-handling with thermostat control",
+      "what_it_does": "Provides conditioned air to the Salon Port zone, thermostat-controlled, slaved to port VRV18E1 bus.",
+      "flow_scenarios": [
+       {
+        "state": "normal run",
+        "path": "230VAC supply -> MRMAXI30i Salon port (Addr.3); Therm sets demand; BUS SLAVE LINE to VRV18E1 Port bus master"
+       }
+      ],
+      "dry_data": "MRMAXI30i, 170 W @ 230VAC, BUS Addr.3"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Fancoil - Aft Guest Cabin Port (Addr.4)",
+    "target_node_id": "590-aircon-fancoil-aft-guest-port",
+    "placement_reasoning": "Labelled MRMAXI18i 'Aft Guest cabin port' Addr.4 in the port-side chain.",
+    "functions": [
+     {
+      "label": "Zone air-handling with thermostat control",
+      "what_it_does": "Provides conditioned air to the Aft Guest cabin (port side), thermostat-controlled, slaved to port VRV18E1 bus.",
+      "flow_scenarios": [
+       {
+        "state": "normal run",
+        "path": "230VAC supply -> MRMAXI18i Aft Guest cabin port (Addr.4); Therm sets demand; BUS SLAVE LINE to VRV18E1 Port bus master"
+       }
+      ],
+      "dry_data": "MRMAXI18i, 90 W @ 230VAC, BUS Addr.4"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Fancoil - Fwd Galley (Addr.5.0)",
+    "target_node_id": "590-aircon-fancoil-galley",
+    "placement_reasoning": "Labelled MRMAXI30i 'Fwd Galley' Addr.5.0 in the port-side chain; Galley fancoil node exists in register.",
+    "functions": [
+     {
+      "label": "Zone air-handling with thermostat control",
+      "what_it_does": "Provides conditioned air to the Fwd Galley zone, thermostat-controlled, slaved to port VRV18E1 bus.",
+      "flow_scenarios": [
+       {
+        "state": "normal run",
+        "path": "230VAC supply -> MRMAXI30i Fwd Galley (Addr.5.0); Therm sets demand; BUS SLAVE LINE to VRV18E1 Port bus master"
+       }
+      ],
+      "dry_data": "MRMAXI30i, 170 W @ 230VAC, BUS Addr.5.0"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Fancoil - Aft Galley (Addr.5.1)",
+    "target_node_id": "590-aircon-fancoil-galley",
+    "placement_reasoning": "Labelled MRMAXI30i 'Aft Galley' Addr.5.1 in the port-side chain; only one Galley fancoil node exists in register, so both Fwd and Aft Galley units are grouped there.",
+    "functions": [
+     {
+      "label": "Zone air-handling with thermostat control",
+      "what_it_does": "Provides conditioned air to the Aft Galley zone, thermostat-controlled, slaved to port VRV18E1 bus.",
+      "flow_scenarios": [
+       {
+        "state": "normal run",
+        "path": "230VAC supply -> MRMAXI30i Aft Galley (Addr.5.1); Therm sets demand; BUS SLAVE LINE to VRV18E1 Port bus master"
+       }
+      ],
+      "dry_data": "MRMAXI30i, 170 W @ 230VAC, BUS Addr.5.1"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Fancoil - Aft Crew Cabin Port (Addr.6)",
+    "target_node_id": "590-aircon-fancoil-aft-crew-port",
+    "placement_reasoning": "Labelled MRMAXI18i 'Aft Crew cabin port' Addr.6 in the port-side chain.",
+    "functions": [
+     {
+      "label": "Zone air-handling with thermostat control",
+      "what_it_does": "Provides conditioned air to the Aft Crew cabin (port side), thermostat-controlled, slaved to port VRV18E1 bus.",
+      "flow_scenarios": [
+       {
+        "state": "normal run",
+        "path": "230VAC supply -> MRMAXI18i Aft Crew cabin port (Addr.6); Therm sets demand; BUS SLAVE LINE to VRV18E1 Port bus master"
+       }
+      ],
+      "dry_data": "MRMAXI18i, 90 W @ 230VAC, BUS Addr.6"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Fancoil - Aft Crew Cabin Stbd (Addr.7)",
+    "target_node_id": "590-aircon-fancoil-aft-crew-stbd",
+    "placement_reasoning": "Labelled MRMAXI18i 'Aft Crew cabin stbd' Addr.7 in the stbd-side chain.",
+    "functions": [
+     {
+      "label": "Zone air-handling with thermostat control",
+      "what_it_does": "Provides conditioned air to the Aft Crew cabin (stbd side), thermostat-controlled, slaved to stbd VRV18E1 bus.",
+      "flow_scenarios": [
+       {
+        "state": "normal run",
+        "path": "230VAC supply -> MRMAXI18i Aft Crew cabin stbd (Addr.7); Therm sets demand; BUS SLAVE LINE to VRV18E1 Stbd bus master"
+       }
+      ],
+      "dry_data": "MRMAXI18i, 90 W @ 230VAC, BUS Addr.7"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Fancoil - Fwd Crew Cabin Stbd (Addr.8)",
+    "target_node_id": "590-aircon-fancoil-fwd-crew-stbd",
+    "placement_reasoning": "Labelled MRMAXI18i 'Fwd Crew cabin stbd' Addr.8 in the stbd-side chain.",
+    "functions": [
+     {
+      "label": "Zone air-handling with thermostat control",
+      "what_it_does": "Provides conditioned air to the Fwd Crew cabin (stbd side), thermostat-controlled, slaved to stbd VRV18E1 bus.",
+      "flow_scenarios": [
+       {
+        "state": "normal run",
+        "path": "230VAC supply -> MRMAXI18i Fwd Crew cabin stbd (Addr.8); Therm sets demand; BUS SLAVE LINE to VRV18E1 Stbd bus master"
+       }
+      ],
+      "dry_data": "MRMAXI18i, 90 W @ 230VAC, BUS Addr.8"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Fancoil - Aft Guest Cabin Stbd (Addr.9)",
+    "target_node_id": "590-aircon-fancoil-aft-guest-stbd",
+    "placement_reasoning": "Labelled MRMAXI18i 'Aft Guest cabin stbd' Addr.9 in the stbd-side chain.",
+    "functions": [
+     {
+      "label": "Zone air-handling with thermostat control",
+      "what_it_does": "Provides conditioned air to the Aft Guest cabin (stbd side), thermostat-controlled, slaved to stbd VRV18E1 bus.",
+      "flow_scenarios": [
+       {
+        "state": "normal run",
+        "path": "230VAC supply -> MRMAXI18i Aft Guest cabin stbd (Addr.9); Therm sets demand; BUS SLAVE LINE to VRV18E1 Stbd bus master"
+       }
+      ],
+      "dry_data": "MRMAXI18i, 90 W @ 230VAC, BUS Addr.9"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Fancoil - Salon Stbd (Addr.10)",
+    "target_node_id": "590-aircon-fancoil-saloon-stbd",
+    "placement_reasoning": "Labelled MRMAXI30i 'Salon stbd' Addr.10 in the stbd-side chain.",
+    "functions": [
+     {
+      "label": "Zone air-handling with thermostat control",
+      "what_it_does": "Provides conditioned air to the Salon Stbd zone, thermostat-controlled, slaved to stbd VRV18E1 bus.",
+      "flow_scenarios": [
+       {
+        "state": "normal run",
+        "path": "230VAC supply -> MRMAXI30i Salon stbd (Addr.10); Therm sets demand; BUS SLAVE LINE to VRV18E1 Stbd bus master"
+       }
+      ],
+      "dry_data": "MRMAXI30i, 170 W @ 230VAC, BUS Addr.10"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Fancoil - Owner's Cabin (Addr.11)",
+    "target_node_id": "590-aircon-fancoil-master",
+    "placement_reasoning": "Labelled MRMAXI30i 'Owner's cabin' Addr.11; established alias_note confirms 590-aircon-fancoil-master = Owner's cabin fancoil (BUS Addr.11, MRMAXI30i).",
+    "functions": [
+     {
+      "label": "Zone air-handling with thermostat control",
+      "what_it_does": "Provides conditioned air to the Owner's cabin, thermostat-controlled, slaved to stbd VRV18E1 bus.",
+      "flow_scenarios": [
+       {
+        "state": "normal run",
+        "path": "230VAC supply -> MRMAXI30i Owner's cabin (Addr.11); Therm sets demand; BUS SLAVE LINE to VRV18E1 Stbd bus master"
+       }
+      ],
+      "dry_data": "MRMAXI30i, 170 W @ 230VAC, BUS Addr.11"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "Termodinamica Aircon BUS/Network Infrastructure",
+    "target_node_id": "590-aircon-system",
+    "facts": [
+     "Two independent bus trees (Port via BUS MASTER LINE 1, Stbd via BUS MASTER LINE 2) join at the Switch BUS Box Connection, forming a single control network across both VRV18E1 units and all fancoils.",
+     "BUS SLAVE LINE (magenta, 2x2x0.75mm\u00b2 <10m / +1.5mm\u00b2 <20m / +2.5mm\u00b2 20-40m) daisy-chains each fancoil's Therm/control interface back to its side's Touch Screen Interface Addr.1 and bus master.",
+     "INTERNET ROUTER supplies Ethernet LAN (UTP CAT.5) to the TMD Internet Interface (80 W @ 24VDC) and to Touch Screen 7 (TS7E 7\" Exor touch screen), enabling remote/network monitoring of the whole aircon system.",
+     "Each side carries an AC/DC Current Sensor TRMS (mod. QI-50-V-485, Addr.31, 5W@24VDC) and a TMD Bridge (Addr.32, RS485 Modbus RTU, 5W@24VDC) \u2014 shared monitoring/gateway devices for that side's bus, not attached to any single fancoil.",
+     "BUS cable specification notes: min 0.5mm\u00b2/max 1.0mm\u00b2 section, 100-120 ohm impedance, 50-60pF/m capacitance max, twisted pair with shield grounded only at compressor box side (not at air handler electronic panel); DC power supply (24VDC/GND) must be run as a single line from one source, not mixed sources.",
+     "To enter the PCB (air handler electronic panel) use wire 2x2x0.75mm\u00b2 at any time (installation note).",
+     "Touch Screen Interface Addr.1 appears once per side (port and stbd), each 10W @ 24VDC, providing local HMI for that side's zone group.",
+     "Inset detail drawings (right of sheet) document internal wiring for: SyxthSense Touch Screen Connection, VRV18E1 Terminal Block Connection, SyxthSense Touch Screen & SubSlave Air Handler Connection, Air Handler Wiring, Air Handler Port/Stbd Connection, Air Handler Master/Slave Connection, TS7E 7\" Exor Touch Screen & Dual Touch Screen Interfaces Connection, AC/DC Current Sensor TRMS wiring, and Switch BUS Box Connection internals \u2014 these are wiring detail views of the same infrastructure, not separate systems."
+    ]
+   }
+  ],
+  "discarded_as_clutter": [
+   "KEY LINE legend box (restates wire colors/gauges already captured in infrastructure facts)",
+   "BUS CABLE SPECIFICATIONS / NOTES box (folded into infrastructure facts)",
+   "FANCOIL NOTES box (empty/no content beyond heading)",
+   "Title block / revision table (REV.0, N.M., S.P., 28/09/2022) - meta only",
+   "Title 'SW 108-01 - Wiring Schematic' - meta",
+   "Sheet number '1/1' rev '0' - meta"
+  ],
+  "uncertainties": [
+   "The right-side inset detail drawings (SyxthSense Touch Screen Connection, VRV18E1 Terminal Block Connection, etc.) contain internal terminal-level wiring that is largely illegible at this resolution \u2014 recorded at a summary level only; exact terminal numbers not captured.",
+   "Exact BUS cable length/gauge selection actually used on this vessel (which of the three length/gauge options applies) is not determinable from the sheet alone \u2014 depends on as-built cable run lengths."
+  ],
+  "_model": "claude-sonnet-5"
+ },
+ "elapsed_s": 64.0
+}

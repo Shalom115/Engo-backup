@@ -1,0 +1,185 @@
+{
+ "category": "8-bae-interconnect-pinout",
+ "sheet": "bae-block-interconnect-p12",
+ "vendor": "openai",
+ "drawing_class": "interconnect",
+ "composition": {
+  "serve_who": "Sheet 12 (GMMS drawing 1905D023, sheet 2) is a BAE-system wiring/pin-mapping sheet for two BEL (inverter) converter units on the STBD side: BEL1-S and BEL2-S connector groups. Both groups' pin tables (I/O, FREQ_SELECT, VBATTERY RTN, CHAIN_OUTPUT, SYNC, ENABLE, ADR_0/1, CANA_HI/LO/Shield, CHAIN_SUPPLY) plus the associated BEL/RTN1, SYNC, and CAN-A connector blocks all name G3-S3xx nets for the left group and G3-S4xx nets for the right group \u2014 matching established BEL1-S / BEL2-S converter nodes (629-bel1-s, 629-bel2-s) already on the vessel's BAE system. No other equipment is named on this sheet.",
+  "equipment_groups": [
+   {
+    "equipment_name": "BEL1-S (STBD BEL converter #1)",
+    "target_node_id": "629-bel1-s",
+    "placement_reasoning": "All pin labels in the left connector group are prefixed G3-S3xx and terminate in a BEL/RTN1, SYNC, and CAN-A connector block explicitly drawn above BEL1-S \u2014 matching the established BEL1-S converter node.",
+    "functions": [
+     {
+      "function_id": "bel1s-sync-loop",
+      "label": "Chain synchronization link (SYNC)",
+      "sheet_region": "upper-left (BEL/RTN1, SYNC 10/3 connector) and lower-left BEL1-S pin table",
+      "what_it_does": "Carries the twisted-pair synchronization signal between BEL1-S and the adjacent BEL unit in its inverter chain, keeping the paralleled inverters phase-locked; the paired return conductor closes the loop.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/default",
+        "path": "BEL1-S pin 3 (G3-S3S2 SYNC) \u2192 SYNC connector terminal 3 \u2192 twisted pair (crossed on sheet) \u2192 SYNC connector terminal 10 \u2192 BEL/RTN1 connector pin 10; return via G3-S3R1 SYNC RTN wire-run from BEL1-S pin 7 (VBATTERY RTN) back to RTN1 connector"
+       }
+      ],
+      "key_components": [
+       "SYNC twisted-pair connector (terminals 10/3)",
+       "BEL/RTN1 return connector"
+      ],
+      "dry_data": "Signal-level twisted pair, no protective device shown; module: BEL1-S I/O connector, pins 3/7/10."
+     },
+     {
+      "function_id": "bel1s-canbus-loop",
+      "label": "CAN-A bus interconnect",
+      "sheet_region": "upper-left CAN-A connector and lower-left BEL1-S pin table",
+      "what_it_does": "Provides BEL1-S's differential CAN data link (HI/LO) with shield, used for monitoring/control communication on the BAE CAN-A bus.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/default",
+        "path": "BEL1-S pin 5 (G3-S3AH CANA_HI) and pin 6 (G3-S3AL CANA_LO) \u2192 twisted shielded pair (crossed on sheet) \u2192 CAN-A connector HI/LO terminals; shield via G3-S3AS CANA_Shield to CAN-A connector Shield terminal"
+       }
+      ],
+      "key_components": [
+       "CAN-A shielded twisted-pair connector"
+      ],
+      "dry_data": "CAN differential bus, shielded pair; pins 5/6 + shield pin (marked N/C on lower connector position but routed to CAN-A Shield terminal)."
+     },
+     {
+      "function_id": "bel1s-config",
+      "label": "Chain configuration / addressing / enable",
+      "sheet_region": "lower-left BEL1-S connector, pins 1/2/8/9/11",
+      "what_it_does": "Sets BEL1-S's operating configuration for the inverter chain: frequency selection, unit enable, and binary chain address, plus provides the chain output signal onward.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/default",
+        "path": "BEL1-S pin 2 (G3-S3S1 FREQ_SELECT) \u2014 configuration input, far end not traced beyond connector"
+       },
+       {
+        "state": "enable (far end not connected)",
+        "path": "BEL1-S pin 1 (G3-S329 ENABLE) \u2014 far end marked N/C"
+       },
+       {
+        "state": "address bits (far end not connected)",
+        "path": "BEL1-S pin 8 (G3-S300a ADR_0) and pin 9 (G3-S300b ADR_1) \u2014 far ends marked N/C"
+       },
+       {
+        "state": "chain output",
+        "path": "BEL1-S pin 11 (G3-S321 CHAIN_OUTPUT) \u2014 onward chain signal, destination off-sheet"
+       }
+      ],
+      "key_components": [],
+      "dry_data": "Configuration/address pins on BEL1-S I/O connector; ENABLE/ADR_0/ADR_1 far ends terminate N/C on this sheet."
+     },
+     {
+      "function_id": "bel1s-supply",
+      "label": "Chain supply feed",
+      "sheet_region": "lower-left BEL1-S connector, pins 10/4",
+      "what_it_does": "Provides the BEL1-S chain supply connection; upstream source/protective device not shown on this sheet.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/default",
+        "path": "BEL1-S pins 10/4 \u2192 G3-S3S3 CHAIN_SUPPLY net \u2014 upstream source not identified on this sheet"
+       }
+      ],
+      "key_components": [],
+      "dry_data": "Supply net label only; no breaker/fuse/rating shown."
+     }
+    ]
+   },
+   {
+    "equipment_name": "BEL2-S (STBD BEL converter #2)",
+    "target_node_id": "629-bel2-s",
+    "placement_reasoning": "All pin labels in the right connector group are prefixed G3-S4xx and terminate in a BEL/RTN1, SYNC (9/4), and CAN-A connector block explicitly drawn above BEL2-S \u2014 matching the established BEL2-S converter node.",
+    "functions": [
+     {
+      "function_id": "bel2s-sync-loop",
+      "label": "Chain synchronization link (SYNC)",
+      "sheet_region": "upper-right (BEL/RTN1, SYNC 9/4 connector) and lower-right BEL2-S pin table",
+      "what_it_does": "Carries the twisted-pair synchronization signal between BEL2-S and the adjacent BEL unit in its inverter chain, keeping the paralleled inverters phase-locked; the paired return conductor closes the loop.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/default",
+        "path": "BEL2-S pin 3 (G3-S4S2 SYNC) \u2192 SYNC connector terminal 4 \u2192 twisted pair (crossed on sheet) \u2192 SYNC connector terminal 9 \u2192 BEL/RTN1 connector pin 9; return via G3-S4R1 SYNC_RTN wire-run from BEL2-S pin 7 (VBATTERY RTN) back to RTN1 connector"
+       }
+      ],
+      "key_components": [
+       "SYNC twisted-pair connector (terminals 9/4)",
+       "BEL/RTN1 return connector"
+      ],
+      "dry_data": "Signal-level twisted pair, no protective device shown; module: BEL2-S I/O connector, pins 3/7/9."
+     },
+     {
+      "function_id": "bel2s-canbus-loop",
+      "label": "CAN-A bus interconnect",
+      "sheet_region": "upper-right CAN-A connector and lower-right BEL2-S pin table",
+      "what_it_does": "Provides BEL2-S's differential CAN data link (HI/LO) with shield, used for monitoring/control communication on the BAE CAN-A bus.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/default",
+        "path": "BEL2-S pin 5 (G3-S4AH CANA_HI) and pin 6 (G3-S4AL CANA_LO) \u2192 twisted shielded pair (crossed on sheet) \u2192 CAN-A connector HI/LO terminals; shield via G3-S4AS CANA_Shield to CAN-A connector Shield terminal"
+       }
+      ],
+      "key_components": [
+       "CAN-A shielded twisted-pair connector"
+      ],
+      "dry_data": "CAN differential bus, shielded pair; pins 5/6 + shield."
+     },
+     {
+      "function_id": "bel2s-config",
+      "label": "Chain configuration / addressing / enable",
+      "sheet_region": "lower-right BEL2-S connector, pins 1/2/8/9/11",
+      "what_it_does": "Sets BEL2-S's operating configuration for the inverter chain: frequency selection, unit enable, and binary chain address, plus provides the chain output signal onward.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/default",
+        "path": "BEL2-S pin 2 (G3-S4S1 FREQ_SELECT) \u2014 configuration input, far end not traced beyond connector"
+       },
+       {
+        "state": "enable (far end not connected)",
+        "path": "BEL2-S pin 1 (G3-S429 ENABLE) \u2014 far end marked N/C"
+       },
+       {
+        "state": "address bits (far end not connected)",
+        "path": "BEL2-S pin 8 (G3-S400a ADR_0) and pin 9 (G3-S400b ADR_1) \u2014 far ends marked N/C"
+       },
+       {
+        "state": "chain output",
+        "path": "BEL2-S pin 11 (G3-S421 CHAIN_OUTPUT) \u2014 onward chain signal, destination off-sheet"
+       }
+      ],
+      "key_components": [],
+      "dry_data": "Configuration/address pins on BEL2-S I/O connector; ENABLE/ADR_0/ADR_1 far ends terminate N/C on this sheet."
+     },
+     {
+      "function_id": "bel2s-supply",
+      "label": "Chain supply feed",
+      "sheet_region": "lower-right BEL2-S connector, pins 10/4",
+      "what_it_does": "Provides the BEL2-S chain supply connection; upstream source/protective device not shown on this sheet.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/default",
+        "path": "BEL2-S pins 10/4 \u2192 G3-S4S3 CHAIN_SUPPLY net \u2014 upstream source not identified on this sheet"
+       }
+      ],
+      "key_components": [],
+      "dry_data": "Supply net label only; no breaker/fuse/rating shown."
+     }
+    ]
+   }
+  ],
+  "infrastructure": [],
+  "uncertainties": [
+   "Upstream source/protective device for G3-S3S3 CHAIN_SUPPLY (BEL1-S) and G3-S4S3 CHAIN_SUPPLY (BEL2-S) is not shown on this sheet \u2014 cannot identify breaker/fuse feeding these chain supplies.",
+   "Far-end destination of ENABLE, ADR_0, and ADR_1 lines for both BEL1-S and BEL2-S are marked N/C on this sheet \u2014 no active connection to trace.",
+   "Onward destination of CHAIN_OUTPUT (G3-S321 / G3-S421) beyond the connector pin is not shown on this sheet \u2014 likely continues to the next BEL unit in the chain but not drawn here."
+  ],
+  "discarded_as_clutter": [
+   "Title block / revision block (REV, DESCRIPTION, DATE, APPROVED \u2014 all blank placeholders)",
+   "BAE Systems proprietary information / export control warning boilerplate",
+   "Drawing number/sheet number/cage code footer (1905D023, sheet 2 of 12, CAGE 89954) \u2014 meta only",
+   "Duplicate 'N/C' connector position labels already captured as far-end states within functions"
+  ],
+  "_model": "claude-sonnet-5"
+ },
+ "elapsed_s": 42.1
+}

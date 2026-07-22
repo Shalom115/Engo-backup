@@ -1,0 +1,155 @@
+{
+ "category": "4-electrical-relay-terminal-wiring",
+ "sheet": "GM-114a_bilge-system",
+ "vendor": "gemini",
+ "drawing_class": "electrical",
+ "composition": {
+  "serve_who": "The sheet details the control and monitoring circuits for the vessel's bilge system, specifically the main bilge pump, the motorized bilge zone valves, and the bilge level float switches. Evidence includes the sheet title 'BILGE SYSTEM', the labeling of the 'MAIN BILGE PUMP', and the sequential listing of bilge zones (Lazarette, Aft, Engine Room, Fwd, Sail Locker) with corresponding valve and switch connections routing to the MAIN PANEL PC CARD.",
+  "equipment_groups": [
+   {
+    "target_node_id": "520-main-bilge-pump",
+    "equipment_name": "Main Bilge Pump",
+    "placement_reasoning": "The pump is explicitly named 'MAIN BILGE PUMP' on the top left circuit, tracing back to the +24V SERVICE BAT via breaker F3, matching established engineer facts for multi-switch activation.",
+    "functions": [
+     {
+      "function_id": "main_pump_control",
+      "label": "Main Pump Power & Control Loop",
+      "what_it_does": "Supplies 24V DC power to the main bilge pump motor and provides multi-point control activation (local, main panel, and remote).",
+      "flow_scenarios": [
+       {
+        "state": "pump activation (power path)",
+        "path": "fed from +24V SERVICE BAT via breaker F3 60A \u2192 switch SW8 \u2192 contactor SO 6 \u2192 MAIN BILGE PUMP motor"
+       },
+       {
+        "state": "control loop (main panel / remote)",
+        "path": "contactor SO 6 coil (terminals 13/14/15 on T/S S) closed by either: (a) local pump switch; (b) ONYX remote via XA11 terminal 32; or (c) MAIN PANEL switch S13 (BILGE PUMP SW) via PLUG C pin 7 \u2192 T/S C terminal 50 \u2192 relay Re6"
+       },
+       {
+        "state": "status indication",
+        "path": "switch S13 closed status illuminates indicator via MAIN PANEL PLUG C pin 6"
+       }
+      ],
+      "key_components": [
+       "breaker F3 60A",
+       "switch SW8",
+       "contactor SO 6",
+       "switch S13",
+       "relay Re6"
+      ],
+      "dry_data": "24V DC / 60A breaker protection",
+      "sheet_region": "top left and bottom right (MAIN PANEL)"
+     }
+    ]
+   },
+   {
+    "target_node_id": "520-bilge-valves",
+    "equipment_name": "Motorized Bilge Valves",
+    "placement_reasoning": "The sheet displays a bank of five motorized valve circuits (Re1 through Re5) corresponding to the five bilge zones, powered collectively by the 'BILGE VALVES Q13' breaker.",
+    "functions": [
+     {
+      "function_id": "valve_actuation_status",
+      "label": "Motorized Bilge Valve Actuation & Status",
+      "what_it_does": "Provides relay-driven open/close actuation for the bilge valves across all zones and returns limit-switch position feedback to the main panel indicators.",
+      "flow_scenarios": [
+       {
+        "state": "Port Lazarette actuation & status",
+        "path": "+24V supply via breaker Q13 10A \u2192 relay Re1 \u2192 T/S C block \u2192 PORT LAZARETTE BILGE valve motor. Valve limit switches return status via T/S C to PLUG D pins 1/2 (MAIN PANEL open/closed indicators)."
+       },
+       {
+        "state": "Aft Bilge actuation & status",
+        "path": "+24V supply via breaker Q13 10A \u2192 relay Re2 \u2192 T/S C block \u2192 AFT BILGE valve motor. Valve limit switches return status via T/S C to PLUG D pins 3/4 (MAIN PANEL open/closed indicators)."
+       },
+       {
+        "state": "Engine Room actuation & status",
+        "path": "+24V supply via breaker Q13 10A \u2192 relay Re3 \u2192 T/S C block \u2192 ENG. ROOM BILGE valve motor. Valve limit switches return status via T/S C to PLUG D pins 5/6 (MAIN PANEL open/closed indicators)."
+       },
+       {
+        "state": "Fwd Bilge actuation & status",
+        "path": "+24V supply via breaker Q13 10A \u2192 relay Re4 \u2192 T/S C block \u2192 FWD BILGE valve motor. Valve limit switches return status via T/S C to PLUG D pins 7/8 (MAIN PANEL open/closed indicators)."
+       },
+       {
+        "state": "Sail Locker actuation & status",
+        "path": "+24V supply via breaker Q13 10A \u2192 relay Re5 \u2192 T/S C block \u2192 SAIL LOCKER bilge valve motor. Valve limit switches return status via T/S C to PLUG D pins 9/10 (MAIN PANEL open/closed indicators)."
+       }
+      ],
+      "key_components": [
+       "breaker Q13 10A",
+       "relays Re1, Re2, Re3, Re4, Re5",
+       "MAIN PANEL indicators (L1-L10)"
+      ],
+      "dry_data": "24V DC / shared 10A breaker protection",
+      "sheet_region": "relay/terminal bank (left/center) and PLUG D table (bottom right)"
+     }
+    ]
+   },
+   {
+    "target_node_id": "520-vega-bilge-level-sensors",
+    "equipment_name": "Bilge Level Switches",
+    "placement_reasoning": "The wiring diagrams show 'BILGE SW' lines for each zone running through the T/S C block alongside the valve wiring, with taps going out to the ONYX monitoring system.",
+    "functions": [
+     {
+      "function_id": "bilge_level_monitoring",
+      "label": "Bilge Level Monitoring (Float Switches)",
+      "what_it_does": "Routes high-water float switch signals from each bilge zone to the monitoring systems.",
+      "flow_scenarios": [
+       {
+        "state": "Port Lazarette level status",
+        "path": "PORT LAZARETTE BILGE SW routes through T/S C block, tapping to ONYX monitoring via XA40 terminals 14 and 12"
+       },
+       {
+        "state": "Stbd Lazarette level status",
+        "path": "STBD LAZARETTE BILGE SW routes through T/S C block (routing bundle presumed off-sheet/system control)"
+       },
+       {
+        "state": "Aft Bilge level status",
+        "path": "AFT BILGE SW routes through T/S C block, tapping to ONYX monitoring via XA40 terminal 16"
+       },
+       {
+        "state": "Engine Room level status",
+        "path": "ENG. ROOM BILGE SW routes through T/S C block, tapping to ONYX monitoring via XA10 terminal 06"
+       },
+       {
+        "state": "Fwd Bilge level status",
+        "path": "FWD BILGE SW routes through T/S C block, tapping to ONYX monitoring via XA10 terminal 04"
+       },
+       {
+        "state": "Sail Locker level status",
+        "path": "SAIL LOCKER SW routes through T/S C block, tapping to ONYX monitoring via XA10 terminal 02"
+       }
+      ],
+      "key_components": [
+       "bilge level switches (all zones)",
+       "XA monitoring taps"
+      ],
+      "dry_data": "Discrete contact switches",
+      "sheet_region": "center (T/S C block outputs to the right)"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "Vessel Control Panel (MAIN PANEL)",
+    "target_node_id": "641-vessel-control-panel",
+    "facts": [
+     "Hosts PLUG C and PLUG D connectors for bilge system harness integration.",
+     "Contains the PC CARD handling valve open/closed indicator logic and auxiliary alarm plug connections (PEDESTAL ALARM + MUTE / ALARM MOD via PLUG C pins 8-11).",
+     "Provides physical switches S20-S24 for bilge valve command and S13 for main bilge pump control.",
+     "The drawn wiring for valve command switches S20-S24 dead-ends at PLUG C pins 1-5, indicating off-sheet logic routing to the actuation relays (T/S B 8-12)."
+    ]
+   }
+  ],
+  "discarded_as_clutter": [
+   "Duplicate 'BILGE VALVE ENG. ROOM BILGE' text next to every valve motor symbol (drafting copy-paste error, overridden by the actual zone labels further right)",
+   "Unattached diodes D1-D5 on the MAIN PANEL PC CARD",
+   "Redundant extracted terminal numbers that duplicate the sequential T/S C layout without adding connectivity context"
+  ],
+  "uncertainties": [
+   "The exact pin numbering within the T/S C block is heavily compressed and visually ambiguous in several places; flow scenarios describe the functional blocks rather than guessing individual pin numbers.",
+   "The drawn lines for PLUG C pins 1-5 (from valve switches S20-S24) dead-end at the edge of the MAIN PANEL PC CARD block; there is no drawn line connecting them to the T/S B inputs (8-12) that command the valve relays. Routing is assumed to be off-sheet."
+  ],
+  "_model": "gemini-3.1-pro-preview"
+ },
+ "elapsed_s": 122.6,
+ "note": "TRUE per-vendor: this vendor's model both extracted AND composed"
+}

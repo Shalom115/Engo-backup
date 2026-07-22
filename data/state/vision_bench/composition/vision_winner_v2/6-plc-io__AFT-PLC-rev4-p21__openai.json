@@ -1,0 +1,188 @@
+{
+ "category": "6-plc-io",
+ "sheet": "AFT-PLC-rev4-p21",
+ "vendor": "openai",
+ "drawing_class": "plc",
+ "composition": {
+  "serve_who": "Sheet 21 of 27 (SWS_108-1_AFT PLC.dwg, section AFT) documents three 2-channel digital-output modules (750-508) at PLC positions 13,14,15 in the AFT rack, each channel driving one hydraulic directional-valve solenoid coil named on the sheet. The functions serve three named pieces of equipment: transom door (EV 10.1A/B), deck door (EV 10.2A/B), and mainsheet traveller (EV 10.3A/B). Per the engineer-confirmed mapping, transom door -> 260-transom-door, deck door -> 260-deck-door, mainsheet traveller -> 840-cariboni-hydraulic-cylinders. The rack layout/module inventory itself (positions 13-15, CPU 750-8213, coupler) is infrastructure of the AFT PLC I/O rack, node 570-plc-rack-aft, per the RACK/INDEX rule; the pilot valve type for each EV-x.y is established on the hydraulic sheets (PVEO/PVEU) and must be kept, not downgraded to 'solenoid'.",
+  "equipment_groups": [
+   {
+    "equipment_name": "Transom Door",
+    "target_node_id": "260-transom-door",
+    "placement_reasoning": "Sheet labels 'transom door CLOSE (EV 10.1A)' and 'transom door OPEN (EV 10.1B)' driven by DO-03 CH01/CH02 on the POS.13 module; engineer mapping ties 'transom door' directly to node 260-transom-door.",
+    "functions": [
+     {
+      "function_id": "EV-10.1A",
+      "label": "Transom door CLOSE actuation",
+      "sheet_region": "top-left module block (POS.13), left channel, connector pins 1/2",
+      "what_it_does": "Energising this PLC output drives the CLOSE-side pilot valve of the transom door hydraulic cylinder, closing the door.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/de-energised",
+        "path": "DO-03 CH01 output = 0V -> no drive current to EV 10.1A pilot -> door hydraulic circuit holds last position (no motion)."
+       },
+       {
+        "state": "CLOSE command",
+        "path": "PLC digital output DO-03 CH01 (module POS.13, 750-508) energises -> switched conductor to CONNECTOR TYPE I pin 1 -> continues off-sheet (see sheet 4) to EV 10.1A pilot valve coil on the transom door hydraulic manifold -> pilot shifts spool to CLOSE flow path -> transom door cylinder retracts/closes; return conductor from module's '-' field terminal to connector pin 2 completes the loop, measured relative to the module's own '-' (common) terminal for that channel."
+       }
+      ],
+      "key_components": [
+       "PLC digital output channel (DO-03 CH01)",
+       "pilot valve coil EV 10.1A (type per hydraulic sheet: PVEO/PVEU, not downgraded to bare solenoid)",
+       "CONNECTOR TYPE I pins 1/2"
+      ],
+      "dry_data": "Module 750-508 (2DO), CPU 750-8213, rack position 13; channel DO-03 CH01; digital on/off output; voltage measured relative to module common '-' terminal (A2/'-' field terminal for that channel pair)."
+     },
+     {
+      "function_id": "EV-10.1B",
+      "label": "Transom door OPEN actuation",
+      "sheet_region": "top-left module block (POS.13), right channel, connector pins 4/3",
+      "what_it_does": "Energising this PLC output drives the OPEN-side pilot valve of the transom door hydraulic cylinder, opening the door.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/de-energised",
+        "path": "DO-03 CH02 output = 0V -> no drive to EV 10.1B pilot -> no motion commanded on OPEN side."
+       },
+       {
+        "state": "OPEN command",
+        "path": "PLC digital output DO-03 CH02 (module POS.13) energises -> switched conductor to CONNECTOR TYPE I pin 4 -> continues off-sheet (see sheet 4) to EV 10.1B pilot valve coil -> pilot shifts spool to OPEN flow path -> transom door cylinder extends/opens; return conductor to connector pin 3, voltage measured relative to module's '-' common terminal."
+       }
+      ],
+      "key_components": [
+       "PLC digital output channel (DO-03 CH02)",
+       "pilot valve coil EV 10.1B",
+       "CONNECTOR TYPE I pins 4/3"
+      ],
+      "dry_data": "Module 750-508 (2DO), CPU 750-8213, rack position 13; channel DO-03 CH02; digital on/off output; common reference = module '-' terminal."
+     }
+    ]
+   },
+   {
+    "equipment_name": "Deck Door",
+    "target_node_id": "260-deck-door",
+    "placement_reasoning": "Sheet labels 'deck door OPEN (EV 10.2A)' and 'deck door CLOSE (EV 10.2B)' driven by DO-04 CH01/CH02 on the POS.14 module; engineer mapping ties 'deck door' to node 260-deck-door.",
+    "functions": [
+     {
+      "function_id": "EV-10.2A",
+      "label": "Deck door OPEN actuation",
+      "sheet_region": "middle module block (POS.14), left channel, connector pins 1/2",
+      "what_it_does": "Energising this PLC output drives the OPEN-side pilot valve of the deck door hydraulic cylinder, opening the door.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/de-energised",
+        "path": "DO-04 CH01 output = 0V -> no drive to EV 10.2A pilot -> no motion commanded."
+       },
+       {
+        "state": "OPEN command",
+        "path": "PLC digital output DO-04 CH01 (module POS.14) energises -> switched conductor to CONNECTOR TYPE I pin 1 -> continues off-sheet (see sheet 4) to EV 10.2A pilot valve coil -> pilot shifts spool to OPEN flow path -> deck door cylinder opens the door; return conductor to connector pin 2, voltage measured relative to the module's '-' common terminal."
+       }
+      ],
+      "key_components": [
+       "PLC digital output channel (DO-04 CH01)",
+       "pilot valve coil EV 10.2A",
+       "CONNECTOR TYPE I pins 1/2"
+      ],
+      "dry_data": "Module 750-508 (2DO), CPU 750-8213, rack position 14; channel DO-04 CH01; digital on/off output; common reference = module '-' terminal."
+     },
+     {
+      "function_id": "EV-10.2B",
+      "label": "Deck door CLOSE actuation",
+      "sheet_region": "middle module block (POS.14), right channel, connector pins 4/3",
+      "what_it_does": "Energising this PLC output drives the CLOSE-side pilot valve of the deck door hydraulic cylinder, closing the door.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/de-energised",
+        "path": "DO-04 CH02 output = 0V -> no drive to EV 10.2B pilot -> no motion commanded."
+       },
+       {
+        "state": "CLOSE command",
+        "path": "PLC digital output DO-04 CH02 (module POS.14) energises -> switched conductor to CONNECTOR TYPE I pin 4 -> continues off-sheet (see sheet 4) to EV 10.2B pilot valve coil -> pilot shifts spool to CLOSE flow path -> deck door cylinder closes the door; return conductor to connector pin 3, voltage measured relative to module's '-' common terminal."
+       }
+      ],
+      "key_components": [
+       "PLC digital output channel (DO-04 CH02)",
+       "pilot valve coil EV 10.2B",
+       "CONNECTOR TYPE I pins 4/3"
+      ],
+      "dry_data": "Module 750-508 (2DO), CPU 750-8213, rack position 14; channel DO-04 CH02; digital on/off output; common reference = module '-' terminal."
+     }
+    ]
+   },
+   {
+    "equipment_name": "Mainsheet Traveller (Cariboni hydraulic cylinders group)",
+    "target_node_id": "840-cariboni-hydraulic-cylinders",
+    "placement_reasoning": "Sheet labels 'mainsheet traveler TO PORT (EV 10.3A)' and 'mainsheet traveler TO STBD (EV 10.3B)' driven by DO-05 CH01/CH02 on the POS.15 module; engineer mapping routes 'mainsheet traveller' function to the shared Cariboni hydraulic cylinders node.",
+    "functions": [
+     {
+      "function_id": "EV-10.3A",
+      "label": "Mainsheet traveller shift TO PORT",
+      "sheet_region": "right module block (POS.15), left channel, connector pins 1/2",
+      "what_it_does": "Energising this PLC output drives the TO-PORT pilot valve of the mainsheet traveller hydraulic cylinder, shifting the traveller car to port.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/de-energised",
+        "path": "DO-05 CH01 output = 0V -> no drive to EV 10.3A pilot -> traveller holds position."
+       },
+       {
+        "state": "TO PORT command",
+        "path": "PLC digital output DO-05 CH01 (module POS.15) energises -> switched conductor to CONNECTOR TYPE I pin 1 -> continues off-sheet (see sheet 4) to EV 10.3A pilot valve coil on the traveller manifold -> pilot shifts spool to feed the port-side cylinder chamber -> mainsheet traveller car moves to port; return conductor to connector pin 2, voltage measured relative to module's '-' common terminal."
+       }
+      ],
+      "key_components": [
+       "PLC digital output channel (DO-05 CH01)",
+       "pilot valve coil EV 10.3A",
+       "CONNECTOR TYPE I pins 1/2"
+      ],
+      "dry_data": "Module 750-508 (2DO), CPU 750-8213, rack position 15; channel DO-05 CH01; digital on/off output; common reference = module '-' terminal."
+     },
+     {
+      "function_id": "EV-10.3B",
+      "label": "Mainsheet traveller shift TO STBD",
+      "sheet_region": "right module block (POS.15), right channel, connector pins 4/3",
+      "what_it_does": "Energising this PLC output drives the TO-STBD pilot valve of the mainsheet traveller hydraulic cylinder, shifting the traveller car to starboard.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/de-energised",
+        "path": "DO-05 CH02 output = 0V -> no drive to EV 10.3B pilot -> traveller holds position."
+       },
+       {
+        "state": "TO STBD command",
+        "path": "PLC digital output DO-05 CH02 (module POS.15) energises -> switched conductor to CONNECTOR TYPE I pin 4 -> continues off-sheet (see sheet 4) to EV 10.3B pilot valve coil -> pilot shifts spool to feed the starboard-side cylinder chamber -> mainsheet traveller car moves to starboard; return conductor to connector pin 3, voltage measured relative to module's '-' common terminal."
+       }
+      ],
+      "key_components": [
+       "PLC digital output channel (DO-05 CH02)",
+       "pilot valve coil EV 10.3B",
+       "CONNECTOR TYPE I pins 4/3"
+      ],
+      "dry_data": "Module 750-508 (2DO), CPU 750-8213, rack position 15; channel DO-05 CH02; digital on/off output; common reference = module '-' terminal."
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "AFT PLC I/O Rack (WAGO) \u2014 DO module inventory positions 13-15",
+    "target_node_id": "570-plc-rack-aft",
+    "facts": [
+     "Rack inventory continues with three 2-channel digital-output modules: 750-508 at position 13 (DO-03), position 14 (DO-04), position 15 (DO-05), all sharing CPU 750-8213.",
+     "Each module has two channels with dedicated +/- field-power terminal pairs per channel and an A1/A2 marking above the channel pair; no on-sheet upstream branch protective device (breaker/fuse) or supply rating is shown for the field power feeding these modules.",
+     "Each channel's switched output and paired return route to a 4-pin CONNECTOR TYPE I (pins 1/2 for CH01, pins 4/3 for CH02); the connector's downstream continuation is documented on sheet 4.",
+     "This is page 21 of 27 in the AFT PLC rack index/detail series (SWS_108-1_AFT PLC.dwg); it is a module-detail page following the rack GA/index page, per the RACK/INDEX convention.",
+     "No local switch, interposing relay, contactor, or monitoring/alarm tap is drawn on this sheet; the only control points shown are the PLC digital outputs themselves."
+    ]
+   }
+  ],
+  "uncertainties": [
+   "No upstream branch protective device (breaker/fuse), incoming supply identifier, or voltage rating for the field power feeding the three 750-508 modules is shown on this sheet \u2014 cannot be determined from sheet 21 alone.",
+   "The exact common/reference terminal designation (whether module has a distinct 'M' common rail vs. per-channel '-' terminal only) is not explicitly labelled beyond '+'/'-' pairs per channel; assumed per-channel '-' terminal serves as the local reference since no separate 'M' terminal is shown on this module type."
+  ],
+  "discarded_as_clutter": [
+   "Title block metadata (job no., client, project, revision history, drafting company address) \u2014 administrative, not equipment data.",
+   "DIN 34 rights-reserved vertical text \u2014 legal boilerplate, no technical content.",
+   "Repeated '2 DO MODULE (POS.x) 750-508 DO-0y' header lines at top of sheet \u2014 these are index/legend restatements of the module inventory already captured once in infrastructure; not repeated per equipment function."
+  ],
+  "_model": "claude-sonnet-5"
+ },
+ "elapsed_s": 52.8
+}

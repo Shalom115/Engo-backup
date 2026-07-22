@@ -3,42 +3,39 @@
  "sheet": "harken-spares-photo-3325",
  "drawing_class": "photos",
  "composition": {
-  "serve_who": "This sheet is a photo of a spare parts bag from Harken, labeled with part number A72931800, described as \"Needle Roller Bearing 120x126x19\", QTY 2, tied to PO Number SWS108#1 ID13398. The label itself provides no explicit equipment name/model to disambiguate which specific Harken unit (winch, furler, tensioner, etc.) this bearing set belongs to - Harken supplies bearings across their winch and captive winch lines. Given the generic \"Harken\" branding and lack of a specific model callout on the label, and that this is clearly a spares/stock item rather tied to a specific installed unit drawing, the safest placement is under the general Spares register node rather than forcing an attachment to a specific winch or furler node.",
+  "serve_who": "This is a photo of a spare-parts bag with a Harken supplier packing label. The description \"Needle Roller Bearing 120x126x19\" and PO reference \"SWS108#1 ID13398\" indicate this is a spare/replacement bearing for a Harken winch component aboard SWS108. No specific winch model is named on the label itself, so the part cannot be confidently attached to one particular Harken winch node; it is recorded as spares stock relevant to the Harken winches/deck gear family in general.",
   "equipment_groups": [
    {
-    "equipment_name": "Harken spare part - Needle Roller Bearing (A72931800)",
+    "equipment_name": "Harken spare part - Needle Roller Bearing (120x126x19)",
     "target_node_id": "500-spares-recomended-by-sws",
-    "placement_reasoning": "The label identifies this as a Harken spare part (needle roller bearing, 120x126x19mm, qty 2) with PO reference SWS108#1 ID13398, indicating it was ordered/stocked as a recommended spare by SWS (the yard). No specific winch, furler, or captive winch model is named on the label itself to justify attaching it to one particular equipment node (e.g. mast winch, primary winch, captive winch, or tensioner) - Harken needle roller bearings of this size could serve multiple drum/sheave assemblies across their range. Absent an explicit model/equipment callout, this is best captured as a generic recommended spare part rather than forced onto a specific winch node.",
     "functions": [
      {
       "label": "Spare part identity record",
-      "what_it_does": "Documents a stocked spare part (needle roller bearing) intended for maintenance/replacement use on an unspecified Harken deck equipment unit (winch/furler family) aboard the vessel.",
-      "flow_scenarios": [
-       {
-        "state": "neutral/in-stock",
-        "path": "Part received from Harken via PO SWS108#1 (ID13398) \u2192 bagged and labeled with part number A72931800 \u2192 stored as onboard spare stock, not yet installed"
-       }
-      ],
-      "dry_data": "Part No. A72931800; Description: Needle Roller Bearing 120x126x19mm; Qty: 2; Manufacturer: Harken; PO Number: SWS108#1 ID13398",
+      "what_it_does": "Documents a Harken-supplied spare needle roller bearing held in ship's spares stock, intended for maintenance/replacement use in a Harken winch or deck hardware assembly.",
+      "sheet_region": "Full frame - photo of packing label on plastic parts bag",
       "key_components": [
-       "Needle roller bearing (spare, uninstalled)"
+       "Needle Roller Bearing, size 120x126x19, Qty 2"
       ],
-      "sheet_region": "Full frame - photo of packing label on plastic parts bag"
+      "flow_scenarios": [],
+      "dry_data": "Part Number/Customer Reference: A72931800; Description: Needle Roller Bearing 120x126x19; Qty: 2; PO Number: SWS108#1 ID13398; Supplier: Harken (www.harken.com)"
      }
-    ]
+    ],
+    "placement_reasoning": "The label identifies this as a Harken spare part tied to PO 'SWS108#1', consistent with vessel spares stock. No specific Harken winch model or serial is named on the label, so it cannot be attached to an individual winch node (e.g. mast/primary/secondary/captive winches); it is recorded under the general spares register node as the best-fit destination without forcing an unsupported equipment-specific attachment."
    }
   ],
+  "infrastructure": [],
   "discarded_as_clutter": [
-   "Barcode/Code field (blank, no printed code value)",
-   "Customer Reference field (duplicate of Part Number A72931800)",
-   "www.harken.com website footer text",
-   "Red vertical line graphic elements on label (label formatting, no data)"
+   "Code field (blank/illegible)",
+   "Customer Reference (duplicate of Part Number A72931800)",
+   "Barcode graphic (restates Part Number, no new data)",
+   "www.harken.com URL (marketing footer)"
   ],
   "uncertainties": [
-   "No specific equipment model (e.g. which winch, furler, or captive winch) is named on the label, so the exact destination unit for this bearing cannot be determined from this sheet alone - attached to general spares node instead of a specific winch/furler equipment node.",
-   "The 'Code' field on the label appears blank/unreadable - no value could be transcribed."
+   "The specific Harken winch/equipment this bearing is intended for is not stated on the label - only a generic PO/ID reference (SWS108#1 ID13398) is given, so exact equipment attachment (e.g., which mast/primary/secondary/captive winch) cannot be determined from this sheet alone."
   ],
-  "_model": "claude-sonnet-5"
+  "_model": "claude-sonnet-5",
+  "_protocol_version": 3
  },
- "elapsed_s": 18.7
+ "elapsed_s": 22.2,
+ "note": "RE-COMPOSED v3 protocol 2026-07-22"
 }

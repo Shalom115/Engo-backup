@@ -1,0 +1,91 @@
+{
+ "category": "7-building-ga",
+ "sheet": "steering-system-ga",
+ "vendor": "openai",
+ "drawing_class": "building_ga",
+ "composition": {
+  "serve_who": "This is a BUILDING/STRUCTURAL GA (positions, dimensions, structural details \u2014 perspective, plan, sections, details, dimension tables \u2014 no flow/loop connectivity of a control system). It serves the twin rudder/steering system: rudder blades (port + stbd, mirrored), their bearing structures, the central sheave/car linkage that mechanically couples the two rudder arms to the wheel-driven track, and the autopilot ram/rod support. Evidence: title block \"Steering System GA\" 108-01-150-001; leaders naming \"UPPER/LOWER BEARING STRUCTURE\", \"TRI-BEAM 11\", \"PARTITION LM1/LM2\", \"BHD L\", \"AUTOPILOT RAM SUPPORT ... BOLTED THROUGH BHD L\", rudder blade sections, and the toe-in/Ackermann tables and safety notes describing the 3-independent-path (2 wheels + pilot) steering redundancy. The mechanical structure (bearing housings, sheaves, tri-beams, partitions, track/car) is shared infrastructure supporting both rudder blades and the autopilot ram \u2014 captured under infrastructure, not duplicated per rudder.",
+  "equipment_groups": [
+   {
+    "equipment_name": "Rudder Blades (Port + Stbd, mirrored)",
+    "target_node_id": "150-rudder-blades",
+    "placement_reasoning": "Sheet shows twin rudder stocks/blades, mirrored port/stbd about CL, each with its own bearing structure, arm, and rod link to the central car \u2014 matches established node 150-rudder-blades which already carries toe-in/Ackermann/redundancy facts from this same drawing.",
+    "functions": [
+     {
+      "label": "Independent rudder actuation via steering cylinder + rudder arm",
+      "sheet_region": "Perspective view (top-left), Plan view (center-right), Section C-C (bottom-left)",
+      "what_it_does": "Each rudder stock is turned by its own steering cylinder acting on a rudder arm; a rod link from the arm connects to the central movable car so both rudders move together while each stock/arm/cylinder set stays mechanically independent (no cross-linkage line drawn between the two arms except via the shared car).",
+      "key_components": [
+       "Rudder stock \u2014 port and starboard, mirrored",
+       "Rudder arm \u2014 one per stock, drives/receives rod link",
+       "Steering cylinder \u2014 one per rudder stock",
+       "Rod link (2044mm nominal at neutral) \u2014 arm-to-car connection",
+       "Upper bearing structure (ref DWG 108-05-151-001) \u2014 top rudder bearing/housing",
+       "Lower bearing structure (ref DWG 108-05-151-002) \u2014 bottom rudder bearing/housing",
+       "Water-tight system neoprene tube (item 6, D=305mm) \u2014 hull penetration seal"
+      ],
+      "dry_data": "Rod link 2044mm long at neutral gives 1.8\u00b0 toe-in; toe-in variation table 2025-2056mm rod length -> 0-3\u00b0 toe-in. Rudder BOM: 180mm/220mm aluminium sheaves, GRP bearing housings, GRP rudder assembly (item 18, ~107.5kg/215kg total mass for 2)."
+     },
+     {
+      "label": "Steering position sensing/coordination for autopilot per Ackermann table",
+      "sheet_region": "Lower-right (Ackermann effect table + system notes)",
+      "what_it_does": "Defines the geometric relationship between the central car's position and each rudder's angle (inside vs outside rudder), so the rudder set produces correct differential (Ackermann) steering as the car/track moves off centerline.",
+      "key_components": [
+       "Central car/track (shared infrastructure)",
+       "Rod links from each rudder arm"
+      ],
+      "dry_data": "Car position 0/98/212/316.5/364.3mm from CL -> inside rudder angle 1.8/10/20/30/35\u00b0, outside rudder angle -1.8/6.3/16.0/25.3/30.0\u00b0. Car race \u00b1365mm from CL."
+     }
+    ]
+   },
+   {
+    "equipment_name": "Autopilot System (steering ram)",
+    "target_node_id": "150-autopilot-system",
+    "placement_reasoning": "A distinct pilot rod/ram is called out separately from the two wheel-driven rudder linkages: 'AUTOPILOT RAM SUPPORT IS BOLTED THROUGH BHD L' and 'MAKE PENETRATION IN TRI-BEAM TO SUIT PILOT ROD MOVEMENT' are unique callouts naming the autopilot path, distinct from the wheel/car/sheave mechanism used by the two wheels.",
+    "functions": [
+     {
+      "label": "Autopilot ram drives rudder linkage independently of the wheel/cable path",
+      "sheet_region": "Section B-B / plan view center, callouts 'AUTOPILOT RAM SUPPORT...' and 'MAKE PENETRATION IN TRI-BEAM...'",
+      "what_it_does": "An autopilot ram, structurally supported by bolting through Bulkhead L (with tapping plates bonded on the fwd face), pushes/pulls a pilot rod that passes through a purpose-made penetration in Tri-beam 11 to move the rudder linkage \u2014 providing the third of the three independent steering paths (2 wheels + pilot) per the safety notes.",
+      "key_components": [
+       "Autopilot ram \u2014 300mm stroke (item 19, MARSILI, ~40kg)",
+       "BHD L \u2014 structural support point, bolted through with bonded tapping plates on fwd face",
+       "Tri-beam 11 \u2014 penetrated to allow pilot rod travel"
+      ],
+      "dry_data": "Autopilot ram: 300mm stroke, metal, qty 1, ~40kg total mass (item 19 BOM)."
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "Sheave/Track/Car steering linkage (wheel-driven wire-rope coupling)",
+    "target_node_id": "150-steering-system",
+    "facts": [
+     "Central track/car (item 13, ASSEMBLED CAR CAR190) rides on a 1100mm track (item 11, JP3, GRP) mounted on centerline; car race travel is \u00b1365mm from CL.",
+     "Wire ropes/Vectran line (item 14, 20mm) run from the central car outboard to port and stbd lower sheave boxes, passing around 180mm/220mm aluminium sheaves (items 1 supported by items 2-5 bearing housings) \u2014 mechanically coordinates both rudders from wheel input while each rudder retains its independent arm/cylinder.",
+     "Upper sheave box (item 8, LAM/FRP) and lower sheave box (item 9, LAM-108-01-150-004 & 108-01-150-006, FRP) house the sheave/cable interface \u2014 see Detail A and Port Lower Sheave Box Detail.",
+     "Sheave boxes to be bonded horizontally per note 'BOND SHEAVE BOXES HORIZONTALLY' (plan view, right side).",
+     "E-glass wedge stops (item 12) limit travel; rod-link carbon tube + end fittings + M16 ball joints (item 15) connect car to rudder arms (item 16/17, port/stbd, filler-arm assemblies with autopilot connector, ~40kg each).",
+     "Track support uses a 16mm tapping plate insert per Detail E, ref DWG 108-01-150-004.",
+     "Structural mounting: upper bearing structure ref DWG 108-05-151-001; lower bearing structure ref DWG 108-05-151-002; longitudinal Tri-beam 11 (both port and stbd, i.e. items 6 & 7 per beam callout 'TRI-BEAM 11, 6, 7'); transverse Partitions LM1 (port) and LM2 (stbd) support the mid structure; hull shell is the outer boundary with G10 spacers (30mm) isolating rudder tube penetrations (Section B-B).",
+     "Datum 0 / DWL (design waterline) reference lines used for vertical positioning of bearings/sheave boxes (Section C-C, Section B-B)."
+    ]
+   }
+  ],
+  "discarded_as_clutter": [
+   "Standard notes (do not scale, projection 1st angle, dimension tolerances, break sharp edges, weights to be noted) \u2014 generic drafting boilerplate",
+   "Title block revision history (First Issue 23 Sep 2022, DIMS ADDED 13 Dec 2022) \u2014 administrative metadata",
+   "Approved/Reviewed signature blocks with names/dates \u2014 administrative metadata",
+   "Southern Wind logo/company contact info \u2014 administrative metadata",
+   "Sheet number/format/scale/drawn-by fields \u2014 administrative metadata",
+   "BOM item numbers already folded into component descriptions above (e.g. item 10 sheave pins set, item 11 track) \u2014 restated as components not separate facts"
+  ],
+  "uncertainties": [
+   "Items 6 and 7 in the BOM legend both reference '3WS-180-003' (sheave pins) but the perspective view also labels 'TRI-BEAM 11, 6, 7' as if 6/7 were beam identifiers \u2014 ambiguous whether 6/7 in the perspective callout refer to BOM items or are independent beam-numbering; not resolved from sheet alone.",
+   "Exact BOM item correspondence for 'upper bearing structure' and 'lower bearing structure' assemblies (which of items 2-5 map to upper vs lower) is not fully disambiguated on this sheet \u2014 cross-reference to DWG 108-05-151-001/002 would confirm."
+  ],
+  "_model": "claude-sonnet-5"
+ },
+ "elapsed_s": 43.1
+}

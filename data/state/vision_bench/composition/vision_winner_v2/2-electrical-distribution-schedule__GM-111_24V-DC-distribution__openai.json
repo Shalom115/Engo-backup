@@ -1,0 +1,1584 @@
+{
+ "category": "2-electrical-distribution-schedule",
+ "sheet": "GM-111_24V-DC-distribution",
+ "vendor": "openai",
+ "drawing_class": "electrical",
+ "composition": {
+  "serve_who": "GMMS 108\u2019-111 is the vessel\u2019s +24 V DC distribution schedule. Its four titled distribution sections\u2014AFT PANEL DC BREAKERS, FWD PANEL DC BREAKERS, EMERGENCY POWER SUPPLY, and EMERGENCY PANEL\u2014serve the named equipment loads through individually drawn breakers; the left region additionally shows direct fused/switched service-supply feeders for the main bilge pump, fire pump, and tender winch. Panel buses, CT7/CT8/CT9/CT10 metering, emergency inter-panel feeders, and terminal strip T/S E belong to DC-distribution infrastructure rather than to the loads.",
+  "equipment_groups": [
+   {
+    "target_node_id": "520-main-bilge-pump",
+    "equipment_name": "Main bilge pump",
+    "placement_reasoning": "The direct 24 V service branch is explicitly labelled BILGE PUMP and the authoritative mapping assigns that label here.",
+    "functions": [
+     {
+      "function_id": "main-bilge-pump-24v-supply",
+      "label": "Provides protected switched power to the main bilge pump",
+      "what_it_does": "Makes or removes the high-current 24 V feed that permits the main bilge pump to run.",
+      "flow_scenarios": [
+       {
+        "state": "isolated/default",
+        "path": "24 V service supply \u2192 fuse F7 60A \u2192 open SW8/SO6 switching path \u2192 bilge pump de-energised; negative return is not drawn on this sheet."
+       },
+       {
+        "state": "enabled",
+        "path": "24 V service supply \u2192 fuse F7 60A \u2192 closed SW8 \u2192 closed coil-operated contact SO6 \u2192 BILGE PUMP; negative return is not drawn on this sheet."
+       }
+      ],
+      "key_components": [
+       "branch overcurrent protection: fuse F7, 60A",
+       "manual switching/isolation: SW8",
+       "coil-operated power contact: SO6"
+      ],
+      "dry_data": "24 V DC direct service feeder; fused 60A; switched/contactor controlled.",
+      "sheet_region": "Left-side 24 V SERVICE SUPPLY branches, upper-left."
+     }
+    ]
+   },
+   {
+    "target_node_id": "520-fire-pump",
+    "equipment_name": "Fire pump",
+    "placement_reasoning": "The direct 24 V service branch is explicitly labelled FIRE PUMP and maps to the fire-pump node.",
+    "functions": [
+     {
+      "function_id": "fire-pump-24v-supply",
+      "label": "Provides protected switched power to the fire pump",
+      "what_it_does": "Makes or removes the high-current DC feed that permits the electric fire pump to run.",
+      "flow_scenarios": [
+       {
+        "state": "isolated/default",
+        "path": "24 V service supply \u2192 fuse F8 60A \u2192 open SW9/SO7 switching path \u2192 fire pump de-energised; negative return is not drawn."
+       },
+       {
+        "state": "enabled",
+        "path": "24 V service supply \u2192 fuse F8 60A \u2192 closed SW9 \u2192 closed coil-operated contact SO7 \u2192 FIRE PUMP; negative return is not drawn."
+       }
+      ],
+      "key_components": [
+       "branch overcurrent protection: fuse F8, 60A",
+       "manual switching/isolation: SW9",
+       "coil-operated power contact: SO7"
+      ],
+      "dry_data": "24 V DC direct service feeder; fused 60A; switched/contactor controlled.",
+      "sheet_region": "Left-side 24 V SERVICE SUPPLY branches, mid-left."
+     }
+    ]
+   },
+   {
+    "target_node_id": "270-tender-winch-warn-hy2000",
+    "equipment_name": "Tender winch",
+    "placement_reasoning": "The direct feeder is labelled TENDER WINCH and the engineer-confirmed mapping assigns it to the WARN HY2000 tender winch.",
+    "functions": [
+     {
+      "function_id": "tender-winch-24v-supply",
+      "label": "Provides protected switched power to the tender winch",
+      "what_it_does": "Enables or isolates the winch\u2019s 24 V electrical supply.",
+      "flow_scenarios": [
+       {
+        "state": "isolated/default",
+        "path": "24 V service supply \u2192 fuse F? 50A \u2192 open SW? \u2192 tender winch de-energised; negative return is not drawn."
+       },
+       {
+        "state": "enabled",
+        "path": "24 V service supply \u2192 fuse F? 50A \u2192 closed SW? \u2192 TENDER WINCH; negative return is not drawn."
+       }
+      ],
+      "key_components": [
+       "branch overcurrent protection: fuse F?, 50A",
+       "manual switching/isolation: SW? (identifier illegible)"
+      ],
+      "dry_data": "24 V DC direct service feeder; 50A fuse; switch identifiers partly illegible.",
+      "sheet_region": "Left-side 24 V SERVICE SUPPLY branches, lower-left."
+     }
+    ]
+   },
+   {
+    "target_node_id": "530-grey-water-pumps",
+    "equipment_name": "Grey-water pumps",
+    "placement_reasoning": "AFT and FWD panel rows explicitly name the aft and forward grey-water pumps.",
+    "functions": [
+     {
+      "function_id": "grey-water-pump-supplies",
+      "label": "Distributes protected 24 V power to the grey-water pumps",
+      "what_it_does": "Separately energises or isolates the aft and forward grey-water pumps.",
+      "flow_scenarios": [
+       {
+        "state": "branches open/tripped",
+        "path": "Owning panel bus \u2192 open/tripped branch breaker \u2192 corresponding grey-water pump isolated; negative returns are not drawn."
+       },
+       {
+        "state": "aft pump supplied",
+        "path": "AFT panel bus \u2192 breaker Q1 10A \u2192 AFT GREY WATER PUMP; negative return not drawn."
+       },
+       {
+        "state": "forward pump supplied",
+        "path": "FWD panel bus \u2192 breaker Q1 10A \u2192 FWD GREY WATER PUMP; negative return not drawn."
+       }
+      ],
+      "key_components": [
+       "aft branch protection: AFT Q1, 10A",
+       "forward branch protection: FWD Q1, 10A"
+      ],
+      "dry_data": "Two independent 24 V DC branches, each 10A.",
+      "sheet_region": "AFT panel left bank Q1 and FWD panel Q1."
+     }
+    ]
+   },
+   {
+    "target_node_id": "530-sump-pumps",
+    "equipment_name": "Grey-water and manual sump pumps",
+    "placement_reasoning": "Seven breaker rows explicitly name guest, crew, aircon, owners, and manual sump pumps and map to this node.",
+    "functions": [
+     {
+      "function_id": "sump-pump-supplies",
+      "label": "Distributes protected 24 V power to individual sump pumps",
+      "what_it_does": "Provides separately protected feeds so each sump pump can operate without sharing a branch.",
+      "flow_scenarios": [
+       {
+        "state": "branch open/tripped",
+        "path": "Owning panel bus \u2192 open/tripped breaker \u2192 named sump pump isolated; negative return not drawn."
+       },
+       {
+        "state": "aft sump branches supplied",
+        "path": "AFT panel bus \u2192 Q2 20A \u2192 PORT AFT GREY GUEST SUMP; or \u2192 Q3 20A \u2192 STBD AFT GREY GUEST SUMP; or \u2192 Q4 10A \u2192 AFT CREW SUMP PUMP; or \u2192 Q5 10A \u2192 FWD CREW SUMP PUMP; or \u2192 Q6 20A \u2192 AFT AIRCON SUMP PUMP; respective negative returns not drawn."
+       },
+       {
+        "state": "forward sump branches supplied",
+        "path": "FWD panel bus \u2192 Q4 20A \u2192 OWNERS SUMP PUMP; or \u2192 Q5 20A \u2192 FWD GUEST SUMP PUMP; or \u2192 Q15 10A \u2192 FWD MAN. SUMP PUMP; respective negative returns not drawn."
+       }
+      ],
+      "key_components": [
+       "branch breakers: AFT Q2 20A, Q3 20A, Q4 10A, Q5 10A, Q6 20A",
+       "branch breakers: FWD Q4 20A, Q5 20A, Q15 10A"
+      ],
+      "dry_data": "Eight independent 24 V DC sump-pump branches; ratings 10A or 20A.",
+      "sheet_region": "AFT panel Q2\u2013Q6 and FWD panel Q4\u2013Q5/Q15."
+     }
+    ]
+   },
+   {
+    "target_node_id": "540-wc-toilets",
+    "equipment_name": "WC / toilets",
+    "placement_reasoning": "Six AFT/FWD panel rows explicitly name individual guest, crew, and owners WCs.",
+    "functions": [
+     {
+      "function_id": "wc-supplies",
+      "label": "Distributes protected 24 V power to individual WCs",
+      "what_it_does": "Separately supplies each electric toilet circuit.",
+      "flow_scenarios": [
+       {
+        "state": "branch open/tripped",
+        "path": "Owning panel bus \u2192 open/tripped breaker \u2192 named WC isolated; negative return not drawn."
+       },
+       {
+        "state": "aft-area WCs supplied",
+        "path": "AFT panel bus \u2192 Q7/Q8/Q9/Q10, each 20A \u2192 respectively PORT AFT GUEST WC / STBD AFT GUEST WC / PORT CREW HEAD WC / STBD CREW HEAD WC; negative returns not drawn."
+       },
+       {
+        "state": "forward-area WCs supplied",
+        "path": "FWD panel bus \u2192 Q7 20A \u2192 OWNERS WC; or \u2192 Q8 20A \u2192 FWD GUEST WC; negative returns not drawn."
+       }
+      ],
+      "key_components": [
+       "AFT WC branch protection: Q7\u2013Q10, 20A each",
+       "FWD WC branch protection: Q7\u2013Q8, 20A each"
+      ],
+      "dry_data": "Six independent 24 V DC branches; 20A each.",
+      "sheet_region": "AFT panel Q7\u2013Q10 and FWD panel Q7\u2013Q8."
+     }
+    ]
+   },
+   {
+    "target_node_id": "540-black-water-pumps",
+    "equipment_name": "Black-water pumps",
+    "placement_reasoning": "AFT panel rows explicitly name the forward and aft black-water pumps.",
+    "functions": [
+     {
+      "function_id": "black-water-pump-supplies",
+      "label": "Distributes protected 24 V power to both black-water pumps",
+      "what_it_does": "Allows either parallel black-water pump to be electrically supplied on its own branch.",
+      "flow_scenarios": [
+       {
+        "state": "branch open/tripped",
+        "path": "AFT panel bus \u2192 open/tripped Q11 or Q12 \u2192 corresponding pump isolated; negative return not drawn."
+       },
+       {
+        "state": "forward pump supplied",
+        "path": "AFT panel bus \u2192 Q11 32A \u2192 FWD BLACK WATER PUMP; negative return not drawn."
+       },
+       {
+        "state": "aft pump supplied",
+        "path": "AFT panel bus \u2192 Q12 32A \u2192 AFT BLACK WATER PUMP; negative return not drawn."
+       }
+      ],
+      "key_components": [
+       "forward pump breaker: Q11, 32A",
+       "aft pump breaker: Q12, 32A"
+      ],
+      "dry_data": "Two independent 24 V DC pump feeds; 32A each.",
+      "sheet_region": "AFT panel Q11\u2013Q12."
+     }
+    ]
+   },
+   {
+    "target_node_id": "510-water-transfer-valves",
+    "equipment_name": "Water-transfer valves",
+    "placement_reasoning": "AFT Q13 is explicitly labelled WATER TRANSFER VALVES.",
+    "functions": [
+     {
+      "function_id": "water-transfer-valves-supply",
+      "label": "Powers the water-transfer valve controls/actuators",
+      "what_it_does": "Provides protected DC power for changing water-transfer valve positions.",
+      "flow_scenarios": [
+       {
+        "state": "isolated/default",
+        "path": "AFT panel bus \u2192 open/tripped Q13 \u2192 water-transfer valves unpowered; negative return not drawn."
+       },
+       {
+        "state": "supplied",
+        "path": "AFT panel bus \u2192 breaker Q13 6A \u2192 WATER TRANSFER VALVES; downstream command/return wiring is off-sheet."
+       }
+      ],
+      "key_components": [
+       "branch breaker: Q13, 6A"
+      ],
+      "dry_data": "24 V DC; 6A protected control/actuator feed.",
+      "sheet_region": "AFT panel Q13."
+     }
+    ]
+   },
+   {
+    "target_node_id": "520-bilge-valves",
+    "equipment_name": "Bilge valves",
+    "placement_reasoning": "AFT Q14 is explicitly labelled BILGE VALVES.",
+    "functions": [
+     {
+      "function_id": "bilge-valves-supply",
+      "label": "Powers the bilge-valve controls/actuators",
+      "what_it_does": "Provides protected DC power for selecting bilge flow paths.",
+      "flow_scenarios": [
+       {
+        "state": "isolated/default",
+        "path": "AFT panel bus \u2192 open/tripped Q14 \u2192 bilge valves unpowered; negative return not drawn."
+       },
+       {
+        "state": "supplied",
+        "path": "AFT panel bus \u2192 breaker Q14 10A \u2192 BILGE VALVES; downstream command/return wiring is off-sheet."
+       }
+      ],
+      "key_components": [
+       "branch breaker: Q14, 10A"
+      ],
+      "dry_data": "24 V DC; 10A protected valve feed.",
+      "sheet_region": "AFT panel Q14."
+     }
+    ]
+   },
+   {
+    "target_node_id": "550-fuel-transfer",
+    "equipment_name": "Fuel-transfer equipment",
+    "placement_reasoning": "The sheet names MANUAL FUEL PUMP, ONYX (AUTO FUEL TRANSFER PUMP), and TENDER REFUELING PUMP; all map to the fuel-transfer node.",
+    "functions": [
+     {
+      "function_id": "fuel-transfer-supplies",
+      "label": "Distributes protected 24 V power to fuel-transfer pumps",
+      "what_it_does": "Separately enables the manual, ONYX automatic, and tender-refuelling pump circuits.",
+      "flow_scenarios": [
+       {
+        "state": "branch open/tripped",
+        "path": "AFT panel bus \u2192 open/tripped branch breaker \u2192 named fuel-transfer pump isolated; negative return not drawn."
+       },
+       {
+        "state": "manual transfer pump supplied",
+        "path": "AFT panel bus \u2192 Q15 20A \u2192 MANUAL FUEL PUMP; negative return not drawn."
+       },
+       {
+        "state": "ONYX automatic transfer pump supplied",
+        "path": "AFT panel bus \u2192 Q23 25A \u2192 ONYX (AUTO FUEL TRANSFER PUMP); ONYX command logic is not drawn here."
+       },
+       {
+        "state": "tender refuelling pump supplied",
+        "path": "AFT panel bus \u2192 Q35 32A \u2192 TENDER REFUELING PUMP; negative return not drawn."
+       }
+      ],
+      "key_components": [
+       "manual pump breaker: Q15, 20A",
+       "automatic pump breaker: Q23, 25A",
+       "tender-refuelling pump breaker: Q35, 32A"
+      ],
+      "dry_data": "Three independent 24 V DC pump branches; 20A/25A/32A.",
+      "sheet_region": "AFT panel Q15, Q23, and Q35."
+     }
+    ]
+   },
+   {
+    "target_node_id": "599-ventilation-fans",
+    "equipment_name": "Ventilation fans",
+    "placement_reasoning": "AFT Q16 names fuel/engine ventilation and emergency-supply QE4 names service-battery ventilation.",
+    "functions": [
+     {
+      "function_id": "ventilation-supplies",
+      "label": "Provides protected power to machinery and battery ventilation",
+      "what_it_does": "Separately feeds fuel/engine-space ventilation and service-battery ventilation, with the latter retained on emergency power.",
+      "flow_scenarios": [
+       {
+        "state": "branch open/tripped",
+        "path": "Owning distribution bus \u2192 open/tripped breaker \u2192 named ventilation load isolated; negative return not drawn."
+       },
+       {
+        "state": "fuel/engine ventilation supplied",
+        "path": "AFT panel bus \u2192 Q16 10A \u2192 FUEL / ENG. VENTILATION; negative return not drawn."
+       },
+       {
+        "state": "service-battery ventilation supplied",
+        "path": "+24 V emergency battery feeder via CT7 \u2192 EMERGENCY POWER SUPPLY bus \u2192 QE4 10A \u2192 SERVICE BAT. VENTILATION; negative return not drawn."
+       }
+      ],
+      "key_components": [
+       "normal branch breaker: AFT Q16, 10A",
+       "emergency branch breaker: QE4, 10A",
+       "emergency feeder current sensing: CT7 (infrastructure)"
+      ],
+      "dry_data": "24 V DC; normal and emergency-fed ventilation branches, 10A each.",
+      "sheet_region": "AFT panel Q16 and EMERGENCY POWER SUPPLY QE4."
+     }
+    ]
+   },
+   {
+    "target_node_id": "654-emergency-stops",
+    "equipment_name": "Emergency-stop system",
+    "placement_reasoning": "AFT Q17 is explicitly labelled EMERGENCY STOP.",
+    "functions": [
+     {
+      "function_id": "emergency-stop-supply",
+      "label": "Powers the emergency-stop control circuit",
+      "what_it_does": "Maintains the electrical supply required by the vessel emergency-stop chain.",
+      "flow_scenarios": [
+       {
+        "state": "isolated/tripped",
+        "path": "AFT panel bus \u2192 open/tripped Q17 \u2192 EMERGENCY STOP circuit unpowered; downstream fail-safe action is not shown."
+       },
+       {
+        "state": "supplied",
+        "path": "AFT panel bus \u2192 Q17 6A \u2192 EMERGENCY STOP circuit; downstream contacts and controlled machinery are off-sheet."
+       }
+      ],
+      "key_components": [
+       "control-circuit breaker: Q17, 6A"
+      ],
+      "dry_data": "24 V DC emergency-stop control supply; 6A.",
+      "sheet_region": "AFT panel Q17."
+     }
+    ]
+   },
+   {
+    "target_node_id": "695-fire-alarm",
+    "equipment_name": "Fire alarm",
+    "placement_reasoning": "AFT Q18 is FIRE ALARM and emergency QE2 is ENG.ROOM GAS RELEASE ALARM, which the authoritative mapping assigns to this node.",
+    "functions": [
+     {
+      "function_id": "fire-alarm-supplies",
+      "label": "Provides normal and emergency protected feeds to fire-alarm functions",
+      "what_it_does": "Powers general fire detection/alarm and retains the engine-room gas-release alarm from the emergency source.",
+      "flow_scenarios": [
+       {
+        "state": "branch open/tripped",
+        "path": "Owning bus \u2192 open/tripped breaker \u2192 corresponding alarm function unpowered; negative return not drawn."
+       },
+       {
+        "state": "general fire alarm supplied",
+        "path": "AFT panel bus \u2192 Q18 6A \u2192 FIRE ALARM; return and detector loops are off-sheet."
+       },
+       {
+        "state": "engine-room gas-release alarm supplied",
+        "path": "+24 V emergency battery feeder via CT7 \u2192 EMERGENCY POWER SUPPLY bus \u2192 QE2 6A \u2192 ENG.ROOM GAS RELEASE ALARM; return and release-system interface are off-sheet."
+       }
+      ],
+      "key_components": [
+       "general alarm breaker: AFT Q18, 6A",
+       "gas-release alarm breaker: emergency QE2, 6A"
+      ],
+      "dry_data": "24 V DC alarm feeds; two 6A branches, one emergency-fed.",
+      "sheet_region": "AFT panel Q18 and EMERGENCY POWER SUPPLY QE2."
+     }
+    ]
+   },
+   {
+    "target_node_id": "696-gas-alarms",
+    "equipment_name": "Gas and vapour alarms",
+    "placement_reasoning": "AFT Q19/Q20 and emergency QE3 explicitly name petrol-vapour and gas/CO/CO2 alarm functions.",
+    "functions": [
+     {
+      "function_id": "gas-vapour-alarm-supplies",
+      "label": "Provides protected normal and emergency power to gas/vapour alarms",
+      "what_it_does": "Feeds the separate normal alarm circuits and an emergency-backed combined gas/CO2/petrol-vapour alarm circuit.",
+      "flow_scenarios": [
+       {
+        "state": "branch open/tripped",
+        "path": "Owning bus \u2192 open/tripped breaker \u2192 corresponding alarm circuit unpowered; negative return not drawn."
+       },
+       {
+        "state": "normal alarm branches supplied",
+        "path": "AFT panel bus \u2192 Q19 10A \u2192 PETROL VAPOUR ALARM; or \u2192 Q20 10A \u2192 GAS / CO ALARM; returns and sensing loops are off-sheet."
+       },
+       {
+        "state": "combined emergency alarm supplied",
+        "path": "+24 V emergency battery feeder via CT7 \u2192 EMERGENCY POWER SUPPLY bus \u2192 QE3 10A \u2192 GAS/CO2/PETROL VAPOUR ALARM; return and sensing loops are off-sheet."
+       }
+      ],
+      "key_components": [
+       "normal alarm breakers: Q19 and Q20, 10A each",
+       "emergency alarm breaker: QE3, 10A"
+      ],
+      "dry_data": "24 V DC; three 10A alarm branches, one emergency-backed.",
+      "sheet_region": "AFT panel Q19\u2013Q20 and EMERGENCY POWER SUPPLY QE3."
+     }
+    ]
+   },
+   {
+    "target_node_id": "570-myt-systems-hydraulics",
+    "equipment_name": "MYT hydraulic system",
+    "placement_reasoning": "AFT Q21 is explicitly labelled MYT HYDRAULICS and matches the authoritative mapping.",
+    "functions": [
+     {
+      "function_id": "myt-hydraulics-control-supply",
+      "label": "Powers the MYT hydraulic electrical system",
+      "what_it_does": "Provides the protected 24 V feed required by MYT hydraulic controls/equipment.",
+      "flow_scenarios": [
+       {
+        "state": "isolated/default",
+        "path": "AFT panel bus \u2192 open/tripped Q21 \u2192 MYT HYDRAULICS unpowered; negative return not drawn."
+       },
+       {
+        "state": "supplied",
+        "path": "AFT panel bus \u2192 Q21 20A \u2192 MYT HYDRAULICS; downstream hydraulic-control distribution is off-sheet."
+       }
+      ],
+      "key_components": [
+       "branch breaker: Q21, 20A"
+      ],
+      "dry_data": "24 V DC; 20A protected feed.",
+      "sheet_region": "AFT panel Q21."
+     }
+    ]
+   },
+   {
+    "target_node_id": "652-onyx-monitoring",
+    "equipment_name": "ONYX monitoring and control",
+    "placement_reasoning": "Two AFT branches are explicitly labelled ONYX CONTROL, while CT8 and the emergency-battery feeder continue to ONYX for monitoring.",
+    "functions": [
+     {
+      "function_id": "onyx-control-supplies",
+      "label": "Powers ONYX control electronics and provides drawn monitoring continuations",
+      "what_it_does": "Supplies ONYX from two protected panel branches and carries current-sensing/emergency-battery conductors toward the ONYX system.",
+      "flow_scenarios": [
+       {
+        "state": "control branch open/tripped",
+        "path": "AFT panel bus \u2192 open/tripped Q22 or Q24 \u2192 associated ONYX CONTROL feed isolated; negative return not drawn."
+       },
+       {
+        "state": "ONYX control feeds supplied",
+        "path": "AFT panel bus \u2192 Q22 6A \u2192 ONYX CONTROL; independently AFT panel bus \u2192 Q24 6A \u2192 ONYX CONTROL; downstream returns are off-sheet."
+       },
+       {
+        "state": "service-feed monitoring continuation",
+        "path": "Drawn service-supply conductor \u2192 CT8 \u2192 off-sheet continuation marked \u2018to ONYX\u2019; signal interpretation is off-sheet."
+       },
+       {
+        "state": "emergency-battery continuation",
+        "path": "+24 V emergency battery conductor at CT7 area \u2192 drawn off-sheet continuation marked \u2018to ONYX\u2019; exact monitored quantity/interface is off-sheet."
+       }
+      ],
+      "key_components": [
+       "control-feed breakers: Q22 and Q24, 6A each",
+       "current transformer/toroid: CT8 on service conductor",
+       "emergency feeder sensing/location marker: CT7"
+      ],
+      "dry_data": "24 V DC monitoring/control; two 6A supplies plus drawn ONYX continuations.",
+      "sheet_region": "AFT panel Q22/Q24, CT8 top-left of AFT panel, and bottom emergency-battery feeder."
+     }
+    ]
+   },
+   {
+    "target_node_id": "260-passerelle",
+    "equipment_name": "Passerelle",
+    "placement_reasoning": "AFT Q25 is explicitly labelled PASSARELLE LIGHT and maps to the passerelle node.",
+    "functions": [
+     {
+      "function_id": "passerelle-light-supply",
+      "label": "Powers the passerelle light",
+      "what_it_does": "Provides protected DC power for illumination at the passerelle.",
+      "flow_scenarios": [
+       {
+        "state": "isolated/default",
+        "path": "AFT panel bus \u2192 open/tripped Q25 \u2192 passerelle light off; negative return not drawn."
+       },
+       {
+        "state": "supplied",
+        "path": "AFT panel bus \u2192 Q25 10A \u2192 PASSARELLE LIGHT; downstream light switching/return is off-sheet."
+       }
+      ],
+      "key_components": [
+       "lighting branch breaker: Q25, 10A"
+      ],
+      "dry_data": "24 V DC lighting feed; 10A.",
+      "sheet_region": "AFT panel Q25."
+     }
+    ]
+   },
+   {
+    "target_node_id": "510-watermaker-24v",
+    "equipment_name": "Watermaker 24 V DC equipment",
+    "placement_reasoning": "AFT Q26 is explicitly labelled WATER MAKER; the register contains a dedicated 24 V watermaker node.",
+    "functions": [
+     {
+      "function_id": "watermaker-24v-supply",
+      "label": "Powers the watermaker\u2019s 24 V circuit",
+      "what_it_does": "Provides protected DC power to the watermaker load shown on this DC schedule.",
+      "flow_scenarios": [
+       {
+        "state": "isolated/default",
+        "path": "AFT panel bus \u2192 open/tripped Q26 \u2192 WATER MAKER unpowered; negative return not drawn."
+       },
+       {
+        "state": "supplied",
+        "path": "AFT panel bus \u2192 Q26 32A, conductor passes through CT9 \u2192 WATER MAKER; negative return not drawn."
+       }
+      ],
+      "key_components": [
+       "branch breaker: Q26, 32A",
+       "branch current transformer/toroid: CT9"
+      ],
+      "dry_data": "24 V DC watermaker branch; 32A; CT9 current sensing.",
+      "sheet_region": "AFT panel Q26, mid-right bank."
+     }
+    ]
+   },
+   {
+    "target_node_id": "575-pneumatic-system",
+    "equipment_name": "Pneumatic companionway system",
+    "placement_reasoning": "AFT Q27 and Q28 explicitly name the aft and saloon companionways and map to the pneumatic-system node.",
+    "functions": [
+     {
+      "function_id": "companionway-control-supplies",
+      "label": "Powers the companionway systems",
+      "what_it_does": "Separately provides protected power for aft and saloon companionway operation/control.",
+      "flow_scenarios": [
+       {
+        "state": "branch open/tripped",
+        "path": "AFT panel bus \u2192 open/tripped Q27 or Q28 \u2192 corresponding companionway system unpowered; negative return not drawn."
+       },
+       {
+        "state": "aft companionway supplied",
+        "path": "AFT panel bus \u2192 Q27 6A \u2192 AFT COMPANION WAY; downstream pneumatic controls are off-sheet."
+       },
+       {
+        "state": "saloon companionway supplied",
+        "path": "AFT panel bus \u2192 Q28 6A \u2192 SALOON COMPANION WAY; downstream pneumatic controls are off-sheet."
+       }
+      ],
+      "key_components": [
+       "aft companionway breaker: Q27, 6A",
+       "saloon companionway breaker: Q28, 6A"
+      ],
+      "dry_data": "Two independent 24 V DC control branches; 6A each.",
+      "sheet_region": "AFT panel Q27\u2013Q28."
+     }
+    ]
+   },
+   {
+    "target_node_id": "551-dirty-oil-transfer",
+    "equipment_name": "Dirty-oil transfer pump",
+    "placement_reasoning": "AFT Q29 is explicitly labelled OIL TRANSFER PUMP and maps to this node.",
+    "functions": [
+     {
+      "function_id": "oil-transfer-pump-supply",
+      "label": "Powers the oil-transfer pump",
+      "what_it_does": "Provides protected DC power for dirty-oil transfer.",
+      "flow_scenarios": [
+       {
+        "state": "isolated/default",
+        "path": "AFT panel bus \u2192 open/tripped Q29 \u2192 oil-transfer pump de-energised; negative return not drawn."
+       },
+       {
+        "state": "supplied",
+        "path": "AFT panel bus \u2192 Q29 16A \u2192 OIL TRANSFER PUMP; negative return not drawn."
+       }
+      ],
+      "key_components": [
+       "pump branch breaker: Q29, 16A"
+      ],
+      "dry_data": "24 V DC pump feed; 16A.",
+      "sheet_region": "AFT panel Q29."
+     }
+    ]
+   },
+   {
+    "target_node_id": "692-dc-sockets",
+    "equipment_name": "DC sockets",
+    "placement_reasoning": "AFT Q30 and FWD Q13 explicitly name aft DC socket and DC socket circuits.",
+    "functions": [
+     {
+      "function_id": "dc-socket-supplies",
+      "label": "Distributes protected power to aft and forward DC sockets",
+      "what_it_does": "Provides separate DC receptacle circuits in the aft and forward distribution areas.",
+      "flow_scenarios": [
+       {
+        "state": "branch open/tripped",
+        "path": "Owning panel bus \u2192 open/tripped breaker \u2192 associated sockets dead; negative return not drawn."
+       },
+       {
+        "state": "aft sockets supplied",
+        "path": "AFT panel bus \u2192 Q30 10A \u2192 AFT DC SOCKET; negative return not drawn."
+       },
+       {
+        "state": "forward sockets supplied",
+        "path": "FWD panel bus \u2192 Q13 10A \u2192 DC SOCKETS; negative return not drawn."
+       }
+      ],
+      "key_components": [
+       "aft socket breaker: AFT Q30, 10A",
+       "forward socket breaker: FWD Q13, 10A"
+      ],
+      "dry_data": "Two independent 24 V DC socket branches; 10A each.",
+      "sheet_region": "AFT panel Q30 and FWD panel Q13."
+     }
+    ]
+   },
+   {
+    "target_node_id": "150-marsili-autopilot",
+    "equipment_name": "Marsili autopilot / autopilot pump",
+    "placement_reasoning": "AFT Q31 is AUTOPILOT PUMP and upper AFT Q49 is AUTO PILOT; both authoritative labels map here.",
+    "functions": [
+     {
+      "function_id": "autopilot-supplies",
+      "label": "Provides separate protected feeds to autopilot electronics and pump",
+      "what_it_does": "Powers the autopilot control system and its hydraulic pump on independent branches.",
+      "flow_scenarios": [
+       {
+        "state": "branch open/tripped",
+        "path": "AFT panel bus \u2192 open/tripped Q31 or Q49 \u2192 corresponding autopilot load isolated; negative return not drawn."
+       },
+       {
+        "state": "autopilot pump supplied",
+        "path": "AFT panel bus \u2192 Q31 40A, conductor passes through CT10 \u2192 AUTOPILOT PUMP; negative return not drawn."
+       },
+       {
+        "state": "autopilot electronics supplied",
+        "path": "Upper AFT panel bus \u2192 Q49 10A \u2192 AUTO PILOT; negative return not drawn."
+       }
+      ],
+      "key_components": [
+       "pump breaker: Q31, 40A",
+       "pump branch current transformer/toroid: CT10",
+       "autopilot electronics breaker: Q49, 10A"
+      ],
+      "dry_data": "24 V DC; 40A pump branch with CT10 plus 10A control/electronics branch.",
+      "sheet_region": "AFT panel Q31 and upper auxiliary bank Q49."
+     }
+    ]
+   },
+   {
+    "target_node_id": "670-galvanic-control",
+    "equipment_name": "Galvanic control",
+    "placement_reasoning": "AFT Q32 is explicitly labelled GALVANIC CONTROL.",
+    "functions": [
+     {
+      "function_id": "galvanic-control-supply",
+      "label": "Powers the galvanic-control equipment",
+      "what_it_does": "Provides protected DC power for the vessel\u2019s galvanic protection controls.",
+      "flow_scenarios": [
+       {
+        "state": "isolated/default",
+        "path": "AFT panel bus \u2192 open/tripped Q32 \u2192 galvanic control unpowered; negative return not drawn."
+       },
+       {
+        "state": "supplied",
+        "path": "AFT panel bus \u2192 Q32 10A \u2192 GALVANIC CONTROL; downstream control/return wiring is off-sheet."
+       }
+      ],
+      "key_components": [
+       "control branch breaker: Q32, 10A"
+      ],
+      "dry_data": "24 V DC control feed; 10A.",
+      "sheet_region": "AFT panel Q32."
+     }
+    ]
+   },
+   {
+    "target_node_id": "690-lts-navigation",
+    "equipment_name": "Navigation-lighting normal supply",
+    "placement_reasoning": "AFT Q36 is labelled NAVIGATION LTS and maps to the normal navigation-lighting circuit node.",
+    "functions": [
+     {
+      "function_id": "normal-navigation-lighting-supply",
+      "label": "Powers the normal navigation-light circuit",
+      "what_it_does": "Provides the normal-panel DC feed for navigation lighting.",
+      "flow_scenarios": [
+       {
+        "state": "isolated/default",
+        "path": "AFT panel bus \u2192 open/tripped Q36 \u2192 normal navigation-light circuit unpowered; negative return not drawn."
+       },
+       {
+        "state": "supplied",
+        "path": "AFT panel bus \u2192 Q36 6A \u2192 NAVIGATION LTS; downstream lamp selection is off-sheet."
+       }
+      ],
+      "key_components": [
+       "lighting branch breaker: Q36, 6A"
+      ],
+      "dry_data": "24 V DC normal navigation-light feed; 6A.",
+      "sheet_region": "AFT panel Q36."
+     }
+    ]
+   },
+   {
+    "target_node_id": "690-lts-courtesy",
+    "equipment_name": "Courtesy lights",
+    "placement_reasoning": "AFT Q37 is explicitly labelled COURTESY LTS.",
+    "functions": [
+     {
+      "function_id": "courtesy-light-supply",
+      "label": "Powers courtesy lighting",
+      "what_it_does": "Provides protected DC power to the courtesy-light circuit.",
+      "flow_scenarios": [
+       {
+        "state": "isolated/default",
+        "path": "AFT panel bus \u2192 open/tripped Q37 \u2192 courtesy lights off; negative return not drawn."
+       },
+       {
+        "state": "supplied",
+        "path": "AFT panel bus \u2192 Q37 6A \u2192 COURTESY LTS; downstream switching/return is off-sheet."
+       }
+      ],
+      "key_components": [
+       "lighting branch breaker: Q37, 6A"
+      ],
+      "dry_data": "24 V DC lighting feed; 6A.",
+      "sheet_region": "AFT panel Q37."
+     }
+    ]
+   },
+   {
+    "target_node_id": "690-lts-engroom-laz-transom",
+    "equipment_name": "Engine-room, lazarette, and transom lights",
+    "placement_reasoning": "AFT Q38 explicitly names this combined lighting branch; established facts preserve its identity while noting separate downstream circuits elsewhere.",
+    "functions": [
+     {
+      "function_id": "engroom-laz-transom-light-supply",
+      "label": "Powers the engine-room/lazarette/transom lighting feed",
+      "what_it_does": "Provides the shared upstream protected feed named for these lighting areas on this schedule.",
+      "flow_scenarios": [
+       {
+        "state": "isolated/default",
+        "path": "AFT panel bus \u2192 open/tripped Q38 \u2192 named lighting feed unpowered; negative return not drawn."
+       },
+       {
+        "state": "supplied",
+        "path": "AFT panel bus \u2192 Q38 10A \u2192 ENG. ROOM / LAZ. / TRANSOM LTS; downstream separation among lighting circuits is off-sheet and must not be inferred here."
+       }
+      ],
+      "key_components": [
+       "upstream lighting breaker: Q38, 10A"
+      ],
+      "dry_data": "24 V DC upstream lighting feed; 10A.",
+      "sheet_region": "AFT panel Q38."
+     }
+    ]
+   },
+   {
+    "target_node_id": "691-yachtica-lighting-control",
+    "equipment_name": "Yachtica lighting-control system",
+    "placement_reasoning": "AFT Q39 is explicitly labelled YACHTICA SYSTEM.",
+    "functions": [
+     {
+      "function_id": "yachtica-system-supply",
+      "label": "Powers the Yachtica lighting-control system",
+      "what_it_does": "Provides protected DC power to the lighting automation/control equipment.",
+      "flow_scenarios": [
+       {
+        "state": "isolated/default",
+        "path": "AFT panel bus \u2192 open/tripped Q39 \u2192 Yachtica system unpowered; negative return not drawn."
+       },
+       {
+        "state": "supplied",
+        "path": "AFT panel bus \u2192 Q39 10A \u2192 YACHTICA SYSTEM; downstream lighting-control buses are off-sheet."
+       }
+      ],
+      "key_components": [
+       "control-system breaker: Q39, 10A"
+      ],
+      "dry_data": "24 V DC lighting-control feed; 10A.",
+      "sheet_region": "AFT panel Q39."
+     }
+    ]
+   },
+   {
+    "target_node_id": "690-lts-galley",
+    "equipment_name": "Galley lights",
+    "placement_reasoning": "AFT Q40 is explicitly labelled GALLEY LIGHTS.",
+    "functions": [
+     {
+      "function_id": "galley-light-supply",
+      "label": "Powers galley lighting",
+      "what_it_does": "Provides protected power to the galley lighting circuit.",
+      "flow_scenarios": [
+       {
+        "state": "isolated/default",
+        "path": "AFT panel bus \u2192 open/tripped Q40 \u2192 galley lights off; negative return not drawn."
+       },
+       {
+        "state": "supplied",
+        "path": "AFT panel bus \u2192 Q40 40A \u2192 GALLEY LIGHTS; downstream switching/return is off-sheet."
+       }
+      ],
+      "key_components": [
+       "lighting branch breaker: Q40, 40A"
+      ],
+      "dry_data": "24 V DC lighting feed; 40A.",
+      "sheet_region": "AFT panel Q40."
+     }
+    ]
+   },
+   {
+    "target_node_id": "690-lts-crew",
+    "equipment_name": "Crew-area lights",
+    "placement_reasoning": "AFT Q41/Q42 explicitly name port/starboard crew and starboard crew lighting branches and map to this node.",
+    "functions": [
+     {
+      "function_id": "crew-light-supplies",
+      "label": "Distributes protected power to crew lighting branches",
+      "what_it_does": "Separately feeds the crew-area lighting circuits shown on the aft panel.",
+      "flow_scenarios": [
+       {
+        "state": "branch open/tripped",
+        "path": "AFT panel bus \u2192 open/tripped Q41 or Q42 \u2192 corresponding crew-light branch off; negative return not drawn."
+       },
+       {
+        "state": "crew lighting supplied",
+        "path": "AFT panel bus \u2192 Q41 40A \u2192 PORT/STBD CREW LTS; independently \u2192 Q42 40A \u2192 STBD CREW LIGHTS; downstream relationship between these named circuits is not shown."
+       }
+      ],
+      "key_components": [
+       "crew-light breakers: Q41 and Q42, 40A each"
+      ],
+      "dry_data": "Two 24 V DC lighting branches; 40A each.",
+      "sheet_region": "AFT panel Q41\u2013Q42."
+     }
+    ]
+   },
+   {
+    "target_node_id": "690-lts-guest-aft",
+    "equipment_name": "Aft guest lights",
+    "placement_reasoning": "AFT Q43/Q44 explicitly name port and starboard aft guest lighting.",
+    "functions": [
+     {
+      "function_id": "aft-guest-light-supplies",
+      "label": "Powers port and starboard aft guest lighting",
+      "what_it_does": "Provides separately protected feeds for each aft guest lighting side.",
+      "flow_scenarios": [
+       {
+        "state": "branch open/tripped",
+        "path": "AFT panel bus \u2192 open/tripped Q43 or Q44 \u2192 corresponding guest-light branch off; negative return not drawn."
+       },
+       {
+        "state": "port aft guest lights supplied",
+        "path": "AFT panel bus \u2192 Q43 40A \u2192 PORT AFT GUEST LIGHTS; negative return not drawn."
+       },
+       {
+        "state": "starboard aft guest lights supplied",
+        "path": "AFT panel bus \u2192 Q44 40A \u2192 STBD AFT GUEST LIGHTS; negative return not drawn."
+       }
+      ],
+      "key_components": [
+       "port branch breaker: Q43, 40A",
+       "starboard branch breaker: Q44, 40A"
+      ],
+      "dry_data": "Two independent 24 V DC lighting branches; 40A each.",
+      "sheet_region": "AFT panel Q43\u2013Q44."
+     }
+    ]
+   },
+   {
+    "target_node_id": "710-radar-furuno",
+    "equipment_name": "Furuno radar system",
+    "placement_reasoning": "Upper AFT Q45 is explicitly labelled RADAR SYSTEM.",
+    "functions": [
+     {
+      "function_id": "radar-supply",
+      "label": "Powers the radar system",
+      "what_it_does": "Provides protected DC power to the vessel radar equipment.",
+      "flow_scenarios": [
+       {
+        "state": "isolated/default",
+        "path": "Upper AFT panel bus \u2192 open/tripped Q45 \u2192 radar system unpowered; negative return not drawn."
+       },
+       {
+        "state": "supplied",
+        "path": "Upper AFT panel bus \u2192 Q45 10A \u2192 RADAR SYSTEM; downstream distribution is off-sheet."
+       }
+      ],
+      "key_components": [
+       "radar branch breaker: Q45, 10A"
+      ],
+      "dry_data": "24 V DC electronics feed; 10A.",
+      "sheet_region": "Upper AFT auxiliary breaker bank Q45."
+     }
+    ]
+   },
+   {
+    "target_node_id": "713-external-screens",
+    "equipment_name": "External screens",
+    "placement_reasoning": "Upper AFT Q46 is explicitly labelled EXT. SCREENS.",
+    "functions": [
+     {
+      "function_id": "external-screens-supply",
+      "label": "Powers the external display screens",
+      "what_it_does": "Provides protected DC power to the exterior/navigation display screens.",
+      "flow_scenarios": [
+       {
+        "state": "isolated/default",
+        "path": "Upper AFT panel bus \u2192 open/tripped Q46 \u2192 external screens unpowered; negative return not drawn."
+       },
+       {
+        "state": "supplied",
+        "path": "Upper AFT panel bus \u2192 Q46 10A \u2192 EXT. SCREENS; downstream distribution is off-sheet."
+       }
+      ],
+      "key_components": [
+       "screen branch breaker: Q46, 10A"
+      ],
+      "dry_data": "24 V DC electronics feed; 10A.",
+      "sheet_region": "Upper AFT auxiliary breaker bank Q46."
+     }
+    ]
+   },
+   {
+    "target_node_id": "711-bg-instruments",
+    "equipment_name": "B&G instruments",
+    "placement_reasoning": "Upper AFT Q47 is B&G; emergency QE8 is AUX 1 / B&G, and both labels map to this instrument node.",
+    "functions": [
+     {
+      "function_id": "bg-instrument-supplies",
+      "label": "Provides normal and emergency-backed feeds to B&G instrumentation",
+      "what_it_does": "Powers B&G electronics from the aft panel and provides an additional emergency-supply branch labelled AUX 1 / B&G.",
+      "flow_scenarios": [
+       {
+        "state": "branch open/tripped",
+        "path": "Owning bus \u2192 open/tripped Q47 or QE8 \u2192 corresponding B&G feed isolated; negative return not drawn."
+       },
+       {
+        "state": "normal B&G feed supplied",
+        "path": "Upper AFT panel bus \u2192 Q47 10A \u2192 B&G; negative return not drawn."
+       },
+       {
+        "state": "emergency auxiliary/B&G feed supplied",
+        "path": "+24 V emergency battery feeder via CT7 \u2192 EMERGENCY POWER SUPPLY bus \u2192 QE8 10A \u2192 AUX 1 / B&G; downstream split between AUX 1 and B&G is not drawn."
+       }
+      ],
+      "key_components": [
+       "normal breaker: AFT Q47, 10A",
+       "emergency breaker: QE8, 10A"
+      ],
+      "dry_data": "24 V DC instrument feeds; normal 10A plus emergency 10A auxiliary/B&G branch.",
+      "sheet_region": "Upper AFT bank Q47 and EMERGENCY POWER SUPPLY QE8."
+     }
+    ]
+   },
+   {
+    "target_node_id": "712-nav-station",
+    "equipment_name": "Navigation station PC and chart-table light",
+    "placement_reasoning": "Upper AFT Q48 names NAVIGATION PC and emergency-panel CB8 names CHART TABLE LT; both map to the nav-station node.",
+    "functions": [
+     {
+      "function_id": "nav-station-supplies",
+      "label": "Powers the navigation PC and emergency-panel chart-table light",
+      "what_it_does": "Provides separate protected DC feeds to the navigation computer and chart-table illumination.",
+      "flow_scenarios": [
+       {
+        "state": "branch open/tripped",
+        "path": "Owning panel bus \u2192 open/tripped Q48 or CB8 \u2192 corresponding nav-station load off; negative return not drawn."
+       },
+       {
+        "state": "navigation PC supplied",
+        "path": "Upper AFT panel bus \u2192 Q48 10A \u2192 NAVIGATION PC; negative return not drawn."
+       },
+       {
+        "state": "chart-table light supplied",
+        "path": "+24 V emergency battery feeder via CT7 \u2192 EMERGENCY POWER SUPPLY QE1 32A \u2192 EMERGENCY PANEL bus \u2192 CB8 6A \u2192 CHART TABLE LT; negative return not drawn."
+       }
+      ],
+      "key_components": [
+       "navigation-PC breaker: AFT Q48, 10A",
+       "emergency-panel main feeder breaker: QE1, 32A",
+       "chart-table-light breaker: CB8, 6A"
+      ],
+      "dry_data": "24 V DC; 10A PC branch and 6A emergency-panel light branch.",
+      "sheet_region": "Upper AFT bank Q48 and EMERGENCY PANEL CB8."
+     }
+    ]
+   },
+   {
+    "target_node_id": "732-network",
+    "equipment_name": "Network / LAN",
+    "placement_reasoning": "Upper AFT Q50 is explicitly labelled NETWORK.",
+    "functions": [
+     {
+      "function_id": "network-supply",
+      "label": "Powers vessel network equipment",
+      "what_it_does": "Provides protected DC power to the network/LAN system.",
+      "flow_scenarios": [
+       {
+        "state": "isolated/default",
+        "path": "Upper AFT panel bus \u2192 open/tripped Q50 \u2192 network equipment unpowered; negative return not drawn."
+       },
+       {
+        "state": "supplied",
+        "path": "Upper AFT panel bus \u2192 Q50 10A \u2192 NETWORK; downstream network devices are off-sheet."
+       }
+      ],
+      "key_components": [
+       "network branch breaker: Q50, 10A"
+      ],
+      "dry_data": "24 V DC network feed; 10A.",
+      "sheet_region": "Upper AFT auxiliary breaker bank Q50."
+     }
+    ]
+   },
+   {
+    "target_node_id": "730-vhf",
+    "equipment_name": "Auxiliary VHF",
+    "placement_reasoning": "Upper AFT Q51 is explicitly labelled AUX VHF.",
+    "functions": [
+     {
+      "function_id": "aux-vhf-supply",
+      "label": "Powers the auxiliary VHF radio",
+      "what_it_does": "Provides protected DC power to the auxiliary VHF communications equipment.",
+      "flow_scenarios": [
+       {
+        "state": "isolated/default",
+        "path": "Upper AFT panel bus \u2192 open/tripped Q51 \u2192 auxiliary VHF unpowered; negative return not drawn."
+       },
+       {
+        "state": "supplied",
+        "path": "Upper AFT panel bus \u2192 Q51 10A \u2192 AUX VHF; negative return not drawn."
+       }
+      ],
+      "key_components": [
+       "VHF branch breaker: Q51, 10A"
+      ],
+      "dry_data": "24 V DC communications feed; 10A.",
+      "sheet_region": "Upper AFT auxiliary breaker bank Q51."
+     }
+    ]
+   },
+   {
+    "target_node_id": "720-cctv",
+    "equipment_name": "CCTV system",
+    "placement_reasoning": "Upper AFT Q52 is explicitly labelled CCTV.",
+    "functions": [
+     {
+      "function_id": "cctv-supply",
+      "label": "Powers the CCTV system",
+      "what_it_does": "Provides protected DC power for vessel video surveillance.",
+      "flow_scenarios": [
+       {
+        "state": "isolated/default",
+        "path": "Upper AFT panel bus \u2192 open/tripped Q52 \u2192 CCTV unpowered; negative return not drawn."
+       },
+       {
+        "state": "supplied",
+        "path": "Upper AFT panel bus \u2192 Q52 10A \u2192 CCTV; downstream cameras/recorders are off-sheet."
+       }
+      ],
+      "key_components": [
+       "CCTV branch breaker: Q52, 10A"
+      ],
+      "dry_data": "24 V DC CCTV feed; 10A.",
+      "sheet_region": "Upper AFT auxiliary breaker bank Q52."
+     }
+    ]
+   },
+   {
+    "target_node_id": "520-aux-bilge-pumps",
+    "equipment_name": "Auxiliary bilge pumps",
+    "placement_reasoning": "FWD Q2/Q3 explicitly name the mast bilge pump and auxiliary engine-room bilge pump.",
+    "functions": [
+     {
+      "function_id": "aux-bilge-pump-supplies",
+      "label": "Powers the mast and engine-room auxiliary bilge pumps",
+      "what_it_does": "Provides separately protected DC feeds to the two auxiliary bilge pumps.",
+      "flow_scenarios": [
+       {
+        "state": "branch open/tripped",
+        "path": "FWD panel bus \u2192 open/tripped Q2 or Q3 \u2192 corresponding auxiliary bilge pump de-energised; negative return not drawn."
+       },
+       {
+        "state": "mast bilge pump supplied",
+        "path": "FWD panel bus \u2192 Q2 10A \u2192 MAST BILGE PUMP; negative return not drawn."
+       },
+       {
+        "state": "engine-room auxiliary bilge pump supplied",
+        "path": "FWD panel bus \u2192 Q3 10A \u2192 AUX BILGE PUMP ENG. ROOM; negative return not drawn."
+       }
+      ],
+      "key_components": [
+       "mast pump breaker: Q2, 10A",
+       "engine-room auxiliary pump breaker: Q3, 10A"
+      ],
+      "dry_data": "Two independent 24 V DC pump feeds; 10A each.",
+      "sheet_region": "FWD panel Q2\u2013Q3."
+     }
+    ]
+   },
+   {
+    "target_node_id": "580-frigomar-refrigerator",
+    "equipment_name": "Saloon fridge / refrigeration load",
+    "placement_reasoning": "FWD Q6 is explicitly labelled SALOON FRIDGE; the register has no saloon-fridge-specific node, and the fitting refrigeration equipment node is used rather than a galley-construction node.",
+    "functions": [
+     {
+      "function_id": "saloon-fridge-supply",
+      "label": "Powers the saloon refrigerator circuit",
+      "what_it_does": "Provides protected DC power to the saloon fridge load.",
+      "flow_scenarios": [
+       {
+        "state": "isolated/default",
+        "path": "FWD panel bus \u2192 open/tripped Q6 \u2192 SALOON FRIDGE unpowered; negative return not drawn."
+       },
+       {
+        "state": "supplied",
+        "path": "FWD panel bus \u2192 Q6 20A \u2192 SALOON FRIDGE; negative return not drawn."
+       }
+      ],
+      "key_components": [
+       "refrigeration branch breaker: Q6, 20A"
+      ],
+      "dry_data": "24 V DC refrigeration feed; 20A; exact fridge model not identified here.",
+      "sheet_region": "FWD panel Q6."
+     }
+    ]
+   },
+   {
+    "target_node_id": "690-lts-saloon-locker",
+    "equipment_name": "Saloon locker light",
+    "placement_reasoning": "FWD Q9 is explicitly labelled SALOON LKR LT. and has an authoritative node mapping.",
+    "functions": [
+     {
+      "function_id": "saloon-locker-light-supply",
+      "label": "Powers the saloon locker light",
+      "what_it_does": "Provides protected DC power to the locker-light circuit.",
+      "flow_scenarios": [
+       {
+        "state": "isolated/default",
+        "path": "FWD panel bus \u2192 open/tripped Q9 \u2192 saloon locker light off; negative return not drawn."
+       },
+       {
+        "state": "supplied",
+        "path": "FWD panel bus \u2192 Q9 10A \u2192 SALOON LKR LT.; downstream switching/return is off-sheet."
+       }
+      ],
+      "key_components": [
+       "lighting branch breaker: Q9, 10A"
+      ],
+      "dry_data": "24 V DC lighting feed; 10A.",
+      "sheet_region": "FWD panel Q9."
+     }
+    ]
+   },
+   {
+    "target_node_id": "690-lts-sail-locker",
+    "equipment_name": "Sail-locker lights",
+    "placement_reasoning": "FWD Q10 is explicitly labelled SAIL LKR LTS.",
+    "functions": [
+     {
+      "function_id": "sail-locker-light-supply",
+      "label": "Powers sail-locker lighting",
+      "what_it_does": "Provides protected DC power to the sail-locker light circuit.",
+      "flow_scenarios": [
+       {
+        "state": "isolated/default",
+        "path": "FWD panel bus \u2192 open/tripped Q10 \u2192 sail-locker lights off; negative return not drawn."
+       },
+       {
+        "state": "supplied",
+        "path": "FWD panel bus \u2192 Q10 10A \u2192 SAIL LKR LTS; downstream switching/return is off-sheet."
+       }
+      ],
+      "key_components": [
+       "lighting branch breaker: Q10, 10A"
+      ],
+      "dry_data": "24 V DC lighting feed; 10A.",
+      "sheet_region": "FWD panel Q10."
+     }
+    ]
+   },
+   {
+    "target_node_id": "690-lts-mast",
+    "equipment_name": "Mast lights",
+    "placement_reasoning": "FWD Q11 is explicitly labelled MAST LTS.",
+    "functions": [
+     {
+      "function_id": "mast-light-supply",
+      "label": "Powers mast lighting",
+      "what_it_does": "Provides protected DC power to the mast-light circuit.",
+      "flow_scenarios": [
+       {
+        "state": "isolated/default",
+        "path": "FWD panel bus \u2192 open/tripped Q11 \u2192 mast lights off; negative return not drawn."
+       },
+       {
+        "state": "supplied",
+        "path": "FWD panel bus \u2192 Q11 10A \u2192 MAST LTS; downstream switching/return is off-sheet."
+       }
+      ],
+      "key_components": [
+       "lighting branch breaker: Q11, 10A"
+      ],
+      "dry_data": "24 V DC lighting feed; 10A.",
+      "sheet_region": "FWD panel Q11."
+     }
+    ]
+   },
+   {
+    "target_node_id": "690-lts-boom",
+    "equipment_name": "Boom lights",
+    "placement_reasoning": "FWD Q12 is explicitly labelled BOOM LTS.",
+    "functions": [
+     {
+      "function_id": "boom-light-supply",
+      "label": "Powers boom lighting",
+      "what_it_does": "Provides protected DC power to the boom-light circuit.",
+      "flow_scenarios": [
+       {
+        "state": "isolated/default",
+        "path": "FWD panel bus \u2192 open/tripped Q12 \u2192 boom lights off; negative return not drawn."
+       },
+       {
+        "state": "supplied",
+        "path": "FWD panel bus \u2192 Q12 6A \u2192 BOOM LTS; downstream switching/return is off-sheet."
+       }
+      ],
+      "key_components": [
+       "lighting branch breaker: Q12, 6A"
+      ],
+      "dry_data": "24 V DC lighting feed; 6A.",
+      "sheet_region": "FWD panel Q12."
+     }
+    ]
+   },
+   {
+    "target_node_id": "733-fog-horn",
+    "equipment_name": "Fog horn",
+    "placement_reasoning": "FWD Q14 is explicitly labelled FOG HORN.",
+    "functions": [
+     {
+      "function_id": "fog-horn-supply",
+      "label": "Powers the fog horn circuit",
+      "what_it_does": "Provides protected DC power so the acoustic signalling horn can be operated.",
+      "flow_scenarios": [
+       {
+        "state": "isolated/default",
+        "path": "FWD panel bus \u2192 open/tripped Q14 \u2192 fog horn unavailable; negative return not drawn."
+       },
+       {
+        "state": "supplied",
+        "path": "FWD panel bus \u2192 Q14 16A \u2192 FOG HORN; command switch and return are off-sheet."
+       }
+      ],
+      "key_components": [
+       "horn branch breaker: Q14, 16A"
+      ],
+      "dry_data": "24 V DC horn feed; 16A.",
+      "sheet_region": "FWD panel Q14."
+     }
+    ]
+   },
+   {
+    "target_node_id": "690-lts-deck",
+    "equipment_name": "Deck lights",
+    "placement_reasoning": "FWD Q16 is explicitly labelled DECK LTS.",
+    "functions": [
+     {
+      "function_id": "deck-light-supply",
+      "label": "Powers deck lighting",
+      "what_it_does": "Provides protected DC power to the deck-light circuit.",
+      "flow_scenarios": [
+       {
+        "state": "isolated/default",
+        "path": "FWD panel bus \u2192 open/tripped Q16 \u2192 deck lights off; negative return not drawn."
+       },
+       {
+        "state": "supplied",
+        "path": "FWD panel bus \u2192 Q16 10A \u2192 DECK LTS; downstream switching/return is off-sheet."
+       }
+      ],
+      "key_components": [
+       "lighting branch breaker: Q16, 10A"
+      ],
+      "dry_data": "24 V DC lighting feed; 10A.",
+      "sheet_region": "FWD panel Q16."
+     }
+    ]
+   },
+   {
+    "target_node_id": "690-lts-saloon",
+    "equipment_name": "Saloon and studio lights",
+    "placement_reasoning": "FWD Q17/Q18 explicitly name SALOON LTS and SALOON/STUDIO LTS.",
+    "functions": [
+     {
+      "function_id": "saloon-studio-light-supplies",
+      "label": "Powers saloon and saloon/studio lighting branches",
+      "what_it_does": "Provides two separately protected high-capacity lighting feeds for saloon and studio areas.",
+      "flow_scenarios": [
+       {
+        "state": "branch open/tripped",
+        "path": "FWD panel bus \u2192 open/tripped Q17 or Q18 \u2192 corresponding lighting branch off; negative return not drawn."
+       },
+       {
+        "state": "saloon branch supplied",
+        "path": "FWD panel bus \u2192 Q17 40A \u2192 SALOON LTS; negative return not drawn."
+       },
+       {
+        "state": "saloon/studio branch supplied",
+        "path": "FWD panel bus \u2192 Q18 40A \u2192 SALOON/STUDIO LTS; downstream area split is off-sheet."
+       }
+      ],
+      "key_components": [
+       "saloon breaker: Q17, 40A",
+       "saloon/studio breaker: Q18, 40A"
+      ],
+      "dry_data": "Two 24 V DC lighting branches; 40A each.",
+      "sheet_region": "FWD panel Q17\u2013Q18."
+     }
+    ]
+   },
+   {
+    "target_node_id": "690-lts-owners",
+    "equipment_name": "Owners-area lights",
+    "placement_reasoning": "FWD Q19 is explicitly labelled OWNERS LTS.",
+    "functions": [
+     {
+      "function_id": "owners-light-supply",
+      "label": "Powers owners-area lighting",
+      "what_it_does": "Provides protected DC power to the owners lighting circuit.",
+      "flow_scenarios": [
+       {
+        "state": "isolated/default",
+        "path": "FWD panel bus \u2192 open/tripped Q19 \u2192 owners lights off; negative return not drawn."
+       },
+       {
+        "state": "supplied",
+        "path": "FWD panel bus \u2192 Q19 40A \u2192 OWNERS LTS; downstream switching/return is off-sheet."
+       }
+      ],
+      "key_components": [
+       "lighting branch breaker: Q19, 40A"
+      ],
+      "dry_data": "24 V DC lighting feed; 40A.",
+      "sheet_region": "FWD panel Q19."
+     }
+    ]
+   },
+   {
+    "target_node_id": "690-lts-guest-fwd",
+    "equipment_name": "Forward guest lights",
+    "placement_reasoning": "FWD Q20 is explicitly labelled PORT FWD GUEST LTS.",
+    "functions": [
+     {
+      "function_id": "forward-guest-light-supply",
+      "label": "Powers port forward guest lighting",
+      "what_it_does": "Provides protected DC power to the port forward guest lighting circuit.",
+      "flow_scenarios": [
+       {
+        "state": "isolated/default",
+        "path": "FWD panel bus \u2192 open/tripped Q20 \u2192 port forward guest lights off; negative return not drawn."
+       },
+       {
+        "state": "supplied",
+        "path": "FWD panel bus \u2192 Q20 40A \u2192 PORT FWD GUEST LTS; downstream switching/return is off-sheet."
+       }
+      ],
+      "key_components": [
+       "lighting branch breaker: Q20, 40A"
+      ],
+      "dry_data": "24 V DC lighting feed; 40A.",
+      "sheet_region": "FWD panel Q20."
+     }
+    ]
+   },
+   {
+    "target_node_id": "693-emergency-lighting",
+    "equipment_name": "Emergency lighting and forward emergency supply",
+    "placement_reasoning": "Emergency-supply QE1, emergency-panel CB6, and FWD emergency QE1 explicitly form the drawn emergency-lighting supply chain; QE6 separately feeds the forward panel emergency bus.",
+    "functions": [
+     {
+      "function_id": "emergency-lighting-distribution",
+      "label": "Distributes emergency-battery power to emergency lighting and the forward emergency branch",
+      "what_it_does": "Keeps emergency lighting circuits available from the emergency battery through the dedicated emergency boards and forward emergency section.",
+      "flow_scenarios": [
+       {
+        "state": "upstream isolated/tripped",
+        "path": "+24 V emergency battery feeder via CT7 \u2192 open/tripped emergency-supply QE1 32A or QE6 20A \u2192 downstream emergency panel/FWD emergency section de-energised; negative return not drawn."
+       },
+       {
+        "state": "central emergency lights supplied",
+        "path": "+24 V emergency battery feeder via CT7 \u2192 EMERGENCY POWER SUPPLY bus \u2192 QE1 32A \u2192 EMERGENCY PANEL bus \u2192 CB6 15A \u2192 EMERGENCY LTS \u2192 terminal strip T/S E terminal 5 \u2192 drawn continuation toward the forward emergency-lighting path; negative return not drawn."
+       },
+       {
+        "state": "forward panel emergency bus supplied",
+        "path": "+24 V emergency battery feeder via CT7 \u2192 EMERGENCY POWER SUPPLY bus \u2192 QE6 20A \u2192 FWD PANEL EM SUPPLY conductor \u2192 FWD emergency breaker bus; negative return not drawn."
+       },
+       {
+        "state": "forward emergency lights/hatch branch supplied",
+        "path": "FWD emergency breaker bus \u2192 QE1 10A \u2192 FWD EMERGENCY LTS/HATCH SUPPLY; downstream split between lights and hatch supply is off-sheet."
+       }
+      ],
+      "key_components": [
+       "emergency-panel feeder breaker: emergency-supply QE1, 32A",
+       "forward emergency-bus feeder breaker: emergency-supply QE6, 20A",
+       "central emergency-light breaker: CB6, 15A",
+       "forward emergency lights/hatch breaker: FWD QE1, 10A",
+       "interconnection terminal: T/S E terminal 5"
+      ],
+      "dry_data": "24 V DC emergency distribution; 32A and 20A feeders, 15A central-light branch, 10A forward lights/hatch branch.",
+      "sheet_region": "Bottom EMERGENCY POWER SUPPLY/EMERGENCY PANEL network and lower FWD panel QE1."
+     }
+    ]
+   },
+   {
+    "target_node_id": "641-vessel-control-panel",
+    "equipment_name": "Vessel control panel / main panel",
+    "placement_reasoning": "Emergency-supply QE7 is explicitly labelled MAIN PANEL and established facts identify it as powering the main GM panel indicators.",
+    "functions": [
+     {
+      "function_id": "main-panel-emergency-supply",
+      "label": "Provides emergency-backed power to the main vessel control panel",
+      "what_it_does": "Maintains the main panel\u2019s protected 24 V indicator/control supply from the emergency battery distribution.",
+      "flow_scenarios": [
+       {
+        "state": "isolated/default",
+        "path": "+24 V emergency battery feeder via CT7 \u2192 EMERGENCY POWER SUPPLY bus \u2192 open/tripped QE7 \u2192 MAIN PANEL supply isolated; negative return not drawn."
+       },
+       {
+        "state": "supplied",
+        "path": "+24 V emergency battery feeder via CT7 \u2192 EMERGENCY POWER SUPPLY bus \u2192 QE7 10A \u2192 MAIN PANEL; downstream indicator circuits are off-sheet."
+       }
+      ],
+      "key_components": [
+       "main-panel emergency breaker: QE7, 10A"
+      ],
+      "dry_data": "24 V DC emergency-backed panel feed; 10A.",
+      "sheet_region": "EMERGENCY POWER SUPPLY QE7, bottom-centre."
+     }
+    ]
+   },
+   {
+    "target_node_id": "690-lts-nav-em",
+    "equipment_name": "Emergency navigation lights",
+    "placement_reasoning": "EMERGENCY PANEL CB5 is explicitly labelled NAV. LIGHTS and the authoritative mapping assigns this emergency-panel wording to the emergency navigation-light node.",
+    "functions": [
+     {
+      "function_id": "emergency-navigation-light-supply",
+      "label": "Powers navigation lights from the emergency panel",
+      "what_it_does": "Provides an emergency-battery-backed navigation-light feed.",
+      "flow_scenarios": [
+       {
+        "state": "isolated/default",
+        "path": "+24 V emergency battery feeder via CT7 \u2192 emergency-supply QE1 32A \u2192 EMERGENCY PANEL bus \u2192 open/tripped CB5 \u2192 emergency navigation lights unpowered; negative return not drawn."
+       },
+       {
+        "state": "supplied",
+        "path": "+24 V emergency battery feeder via CT7 \u2192 EMERGENCY POWER SUPPLY bus \u2192 QE1 32A \u2192 EMERGENCY PANEL bus \u2192 CB5 10A \u2192 NAV. LIGHTS; downstream lamp circuits are off-sheet."
+       }
+      ],
+      "key_components": [
+       "emergency-panel feeder breaker: QE1, 32A",
+       "navigation-light breaker: CB5, 10A"
+      ],
+      "dry_data": "24 V DC emergency-backed navigation-light branch; 10A downstream of 32A panel feeder.",
+      "sheet_region": "EMERGENCY PANEL CB5, bottom-centre."
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "AFT PANEL DC BREAKERS",
+    "target_node_id": "640-dc-distribution",
+    "facts": [
+     "Distinct titled 24 V DC distribution section with main breaker banks Q1\u2013Q44 and upper auxiliary bank Q45\u2013Q54.",
+     "Its drawn bus supplies only the branches connected to it; no return/negative bus is shown.",
+     "Q33, Q34, Q53, and Q54 are shown as spare \u2018/\u2019 rows, each 10A.",
+     "CT9 is drawn around the Q26 WATER MAKER branch; CT10 is drawn around the Q31 AUTOPILOT PUMP branch.",
+     "CT8 is drawn on a service conductor continuing off-sheet to ONYX.",
+     "A relay/contact arrangement adjacent to the B&G upper branch is drawn, but its exact functional relationship is not sufficiently explicit on this distribution sheet to assign beyond infrastructure."
+    ]
+   },
+   {
+    "system_name": "FWD PANEL DC BREAKERS",
+    "target_node_id": "640-dc-distribution",
+    "facts": [
+     "Distinct titled 24 V DC distribution section with normal breakers Q1\u2013Q20 and emergency extension QE1\u2013QE4.",
+     "The normal FWD bus is fed by a drawn long conductor from the left-side service-supply region.",
+     "The emergency extension is separately fed by the drawn FWD PANEL EM SUPPLY path from emergency-supply QE6; commodity sharing does not merge the normal and emergency bus sections.",
+     "QE2\u2013QE4 are spare \u2018/\u2019 rows, 10A each."
+    ]
+   },
+   {
+    "system_name": "EMERGENCY POWER SUPPLY",
+    "target_node_id": "640-dc-distribution",
+    "facts": [
+     "Distinct titled emergency distribution unit fed from the +24 V emergency battery continuation shown through CT7, with source cross-reference \u2018see DWG 111a\u2019.",
+     "Breaker QE1 32A feeds the separately titled EMERGENCY PANEL.",
+     "Breaker QE6 20A feeds the FWD panel emergency section; QE7 10A feeds MAIN PANEL; QE2/QE3/QE4/QE8 feed named emergency loads.",
+     "QE5 is a spare \u2018/\u2019 row rated 20A.",
+     "CT7 and the off-sheet ONYX continuation are infrastructure/monitoring topology; the precise CT7 signal interface is not shown here."
+    ]
+   },
+   {
+    "system_name": "EMERGENCY PANEL",
+    "target_node_id": "640-dc-distribution",
+    "facts": [
+     "Distinct titled panel downstream of EMERGENCY POWER SUPPLY breaker QE1 32A.",
+     "Its bus feeds CB5 10A NAV. LIGHTS, CB6 15A EMERGENCY LTS, and CB8 6A CHART TABLE LT.",
+     "The dotted GMDSS box encloses CB7/CB8 area; CB7 6A itself feeds a \u2018/\u2019 spare row, while CB8 feeds CHART TABLE LT.",
+     "The CB6 emergency-light conductor reaches terminal strip T/S E at terminal 5 before its drawn continuation."
+    ]
+   },
+   {
+    "system_name": "24 V SERVICE SUPPLY direct feeder section",
+    "target_node_id": "640-dc-distribution",
+    "facts": [
+     "Left-side supply topology is owned by the vessel DC distribution system and is not a separate equipment system.",
+     "Direct branches shown are F5 100A via SW6 to an unlabelled continuation, F6 200A via SW7 to a drawn distribution conductor/bus, F7 60A via SW8/SO6 to BILGE PUMP, F8 60A via SW9/SO7 to FIRE PUMP, and F? 50A via SW? to TENDER WINCH.",
+     "Diamond values 70, 95, and 35 are conductor-size callouts, not devices.",
+     "No fused-terminal symbol appears on this sheet; T/S E is a plain terminal strip, not a built-in replaceable-fuse terminal."
+    ]
+   }
+  ],
+  "discarded_as_clutter": [
+   "Title block, drawing metadata, drafter/date/customer/project text.",
+   "Coordinate border and zone numbers.",
+   "CTB7\u2013CTB10 QI-POWER-485 notes: communications-device legend/reference data, not separate load functions on this distribution schedule.",
+   "Repeated breaker rows duplicated between the schedule extraction and the oneline extraction.",
+   "Spare rows AFT Q33/Q34/Q53/Q54, FWD QE2/QE3/QE4, emergency-supply QE5, and emergency-panel CB7 (\u2018/\u2019).",
+   "Unlabelled F5/SW6 continuation and F6/SW7 destination as equipment functions; retained only as DC-distribution infrastructure because no named load is drawn.",
+   "Diamond conductor-size callouts 70/95/35/4/6, which are not protective devices or terminals.",
+   "Prior-extraction unknown placeholders corrected from the image: AFT Q23 ONYX auto fuel transfer pump; Q24 ONYX control; Q25 passerelle light; Q26 water maker; Q27/Q28 companionways; Q29 oil transfer pump; Q30 aft DC socket; Q31 autopilot pump; Q32 galvanic control; Q35 tender refuelling pump; Q36\u2013Q44 named lighting loads; Q50 network; Q51 aux VHF.",
+   "GMDSS text treated as the dotted emergency-panel subsection label, not as the load of CB7; the drawn CB7 branch ends at \u2018/\u2019.",
+   "Slash placeholders and orphan extraction fragments."
+  ],
+  "uncertainties": [
+   "Tender-winch feeder identifiers are illegible: fuse is F? (rating clearly 50A) and switch is SW?.",
+   "The destinations/functions of the F5 100A/SW6 branch and F6 200A/SW7 branch are not labelled on-sheet; no equipment attachment is made.",
+   "AFT upper-bank B&G-adjacent relay/contact wiring is visible, but its exact role and off-sheet endpoint are not explicit enough here to compose an equipment control scenario.",
+   "The precise electrical meaning of CT7/CT8/CT9/CT10 signals and their secondary wiring is not shown; only their physical placement on drawn conductors is recorded.",
+   "The emergency-light line clearly reaches T/S E terminal 5; the internal relationship, if any, among terminals 5/6/7 is not sufficiently explicit to claim additional paths.",
+   "SALOON FRIDGE has no exact authoritative mapping; it is attached to the fitting refrigeration node, but the specific appliance identity/model is not established by this sheet.",
+   "No negative/return conductors are drawn for the outgoing load branches, so scenarios stop at the named load and explicitly note the omitted return."
+  ],
+  "_model": "gpt-5.6-sol"
+ },
+ "elapsed_s": 221.0,
+ "note": "TRUE per-vendor: this vendor's model both extracted AND composed"
+}

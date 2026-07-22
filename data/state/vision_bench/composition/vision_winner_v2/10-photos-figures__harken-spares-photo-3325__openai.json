@@ -1,0 +1,45 @@
+{
+ "category": "10-photos-figures",
+ "sheet": "harken-spares-photo-3325",
+ "vendor": "openai",
+ "drawing_class": "photos",
+ "composition": {
+  "serve_who": "This is an equipment photograph of a spare-parts bag containing Harken needle roller bearings (P/N A72931800, 120x126x19mm, QTY 2). The PO reference \"SWS108#1 ID13398\" ties this directly to the vessel project SWS108. No specific winch/equipment name is printed on the label \u2014 bearings of this size (120x126x19) are consistent with Harken's larger self-tailing/captive winch drive assemblies. Given the register lists several distinct Harken winch nodes (mast, primary, secondary, captive) without a definitive match callout on this label, and no drawn/printed line ties it to one specific unit, this spare part record is best attached to the general Harken winch spares pool. Since the register offers a captive winch node explicitly (220-captive-mainsheet-9t, Harken Air Captive 9T) which is the largest winch aboard and the most likely candidate for a bearing of this size, but the label gives no explicit equipment callout, this is recorded as an uncertainty rather than forced onto one specific winch node.",
+  "equipment_groups": [
+   {
+    "equipment_name": "Harken Needle Roller Bearing (spare part, P/N A72931800)",
+    "target_node_id": "220-captive-mainsheet-9t",
+    "placement_reasoning": "The label carries no drawn connection or explicit equipment name identifying which winch this bearing spare belongs to. Its size (120x126x19mm) is large relative to typical winch bearing kits, most consistent with the largest captive winch aboard (Harken Air Captive 9T mainsheet winch), which already has established make/model facts on this node. Attached here as the best-supported candidate while flagging the uncertainty explicitly \u2014 this is NOT a drawn/confirmed connection, only a size/scale inference.",
+    "functions": [
+     {
+      "label": "Spare part record \u2014 Needle Roller Bearing",
+      "what_it_does": "Documents a spare parts bag supplied under the SWS108 project for a needle roller bearing intended for use in a Harken winch drive/gearbox assembly; provides identity and quantity data for spares inventory/inspection.",
+      "flow_scenarios": [
+       {
+        "state": "as-supplied (spare, not installed)",
+        "path": "Harken supplier \u2192 packaged spare part bag \u2192 vessel spares inventory (SWS108#1 ID13398) \u2192 held for future winch bearing replacement/service"
+       }
+      ],
+      "key_components": [
+       "Needle roller bearing 120x126x19mm (qty 2)"
+      ],
+      "dry_data": "Part Number/Code: A72931800; Description: Needle Roller Bearing; Dimensions: 120x126x19mm; QTY: 2; PO Number: SWS108#1 ID13398; Supplier: Harken",
+      "sheet_region": "Full frame \u2014 photo of parts bag with printed label, label rotated in source image"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [],
+  "uncertainties": [
+   "The parts label does not state which specific winch (mast, primary, secondary, or captive mainsheet) this needle roller bearing spare belongs to; attached to the captive mainsheet winch node (220-captive-mainsheet-9t) as the best-supported candidate given bearing size, but this is an inference, not a drawn/labeled fact \u2014 confirm against winch drive assembly BOM at inspection if traceability is required.",
+   "Part number A72931800 is clearly legible; no other data on the label is illegible."
+  ],
+  "discarded_as_clutter": [
+   "www.harken.com footer text (marketing/meta, no equipment data)",
+   "Customer Reference field (blank/not filled)",
+   "Repeated 'Code' vs 'Part Number' fields \u2014 both show identical value A72931800, treated as one identity fact"
+  ],
+  "_model": "claude-sonnet-5"
+ },
+ "elapsed_s": 25.0
+}

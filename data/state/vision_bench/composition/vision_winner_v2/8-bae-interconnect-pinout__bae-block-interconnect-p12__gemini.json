@@ -1,0 +1,165 @@
+{
+ "category": "8-bae-interconnect-pinout",
+ "sheet": "bae-block-interconnect-p12",
+ "vendor": "gemini",
+ "drawing_class": "interconnect",
+ "composition": {
+  "serve_who": "Sheet 12 (196D5023, GMMS-series BAE electrical wiring) shows two BEL SYNC/CAN-A/chain-connector modules \u2014 BEL1-S and BEL2-S \u2014 each a terminal-block interface for one BEL (inverter) unit's synchronization, CAN-bus, chain, and battery-return wiring. The \"-S\" suffix and mirrored pinout (identical to a \"-P\" pattern seen elsewhere in this drawing set) indicate these are the STBD-side BEL sync/CAN interfaces, i.e. BEL1 STBD and BEL2 STBD, matching register nodes 629-bel1-s and 629-bel2-s. The BEL, SYNC, and CAN-A boxes drawn beside each terminal block are the actual inverter unit and its onboard sync/CAN connector pins that the terminal block wires to.",
+  "equipment_groups": [
+   {
+    "equipment_name": "BEL1 STBD (Inverter #1, STBD sync/CAN interface)",
+    "target_node_id": "629-bel1-s",
+    "placement_reasoning": "Terminal block labeled BEL1-S wires directly into a BEL unit's RTN1 and SYNC pins and a CAN-A connector; per established facts BEL1-S is already identified as a BEL converter node, so this sheet's loop data attaches there.",
+    "functions": [
+     {
+      "function_id": "bel1s-sync-loop",
+      "label": "BEL1-S SYNC / chain loop",
+      "what_it_does": "Carries the BEL1 chain-output/sync signal from the BEL1-S terminal block to the BEL unit's onboard SYNC connector, establishing the inverter's synchronization chain link with its return.",
+      "flow_scenarios": [
+       {
+        "state": "neutral chain link",
+        "path": "G3-S321 CHAIN_OUTPUT from BEL1-S pin 11 via wire to BEL SYNC connector pin 10; G3-S3S2 SYNC from BEL1-S pin 3 via wire to BEL SYNC connector pin 3 (wires cross/twist per drawn X-routing between terminal block and SYNC connector)"
+       },
+       {
+        "state": "return path",
+        "path": "G3-S3R1 SYNC_RTN routes from BEL1-S pin 7 (VBATTERY RTN / RTN1) to BEL RTN1 pin, closing the sync-chain return loop"
+       }
+      ],
+      "key_components": [
+       "BEL1-S terminal block (I/O)",
+       "BEL onboard SYNC connector (pins 3,10)",
+       "BEL RTN1 pin"
+      ],
+      "sheet_region": "top-left quadrant, columns F-H, rows 3-7",
+      "dry_data": "Terminal block BEL1-S, pins 3/7/10/11; wire ids G3-S321, G3-S3S2, G3-S3R1, G3-S3S1."
+     },
+     {
+      "function_id": "bel1s-can-bus",
+      "label": "BEL1-S CAN-A bus interface",
+      "what_it_does": "Connects BEL1's CAN-A differential pair and shield from the terminal block to the BEL unit's CAN-A connector for bus communication (address/enable lines present but not wired).",
+      "flow_scenarios": [
+       {
+        "state": "CAN bus wired (crossed HI/LO)",
+        "path": "G3-S3AH CANA_HI from BEL1-S pin 5 via crossed wire to CAN-A connector HI; G3-S3AL CANA_LO from BEL1-S pin 6 via crossed wire to CAN-A connector LO; G3-S3AS CANA_Shield from BEL1-S (N/C pin) via wire to CAN-A connector Shield"
+       },
+       {
+        "state": "unused control lines",
+        "path": "ENABLE (pin1), ADR_0 (pin8), ADR_1 (pin9) all terminate N/C at BEL1-S \u2014 no drawn connection onward"
+       }
+      ],
+      "key_components": [
+       "BEL1-S terminal block",
+       "CAN-A connector (Shield/HI/LO)"
+      ],
+      "sheet_region": "top-left quadrant, columns E-F, rows 3-7",
+      "dry_data": "Pins 5/6/N/C on BEL1-S wired to CAN-A HI/LO/Shield; ENABLE/ADR_0/ADR_1 not connected."
+     },
+     {
+      "function_id": "bel1s-supply-chain",
+      "label": "BEL1-S FREQ_SELECT and CHAIN_SUPPLY",
+      "what_it_does": "Provides frequency-select command line and chain-supply feed pins for BEL1's chain synchronization scheme.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/off-sheet",
+        "path": "G3-S3S1 FREQ_SELECT at BEL1-S pin 2 \u2014 no drawn destination on this sheet (dead-ends off-sheet)"
+       },
+       {
+        "state": "neutral/off-sheet",
+        "path": "G3-S3S3 CHAIN_SUPPLY at BEL1-S pin 10 \u2014 no drawn destination on this sheet (dead-ends off-sheet)"
+       }
+      ],
+      "key_components": [
+       "BEL1-S terminal block"
+      ],
+      "sheet_region": "top-left quadrant, column H/E, rows 6-7",
+      "dry_data": "Pins 2 and 10 on BEL1-S; wire ids G3-S3S1, G3-S3S3 \u2014 routing continues on another sheet."
+     }
+    ]
+   },
+   {
+    "equipment_name": "BEL2 STBD (Inverter #2, STBD sync/CAN interface)",
+    "target_node_id": "629-bel2-s",
+    "placement_reasoning": "Terminal block labeled BEL2-S wires directly into a second BEL unit's RTN1 and SYNC pins (pins 9/4 rather than 10/3) and a second CAN-A connector; matches established BEL2-S converter node.",
+    "functions": [
+     {
+      "function_id": "bel2s-sync-loop",
+      "label": "BEL2-S SYNC / chain loop",
+      "what_it_does": "Carries the BEL2 chain-output/sync signal from the BEL2-S terminal block to the BEL unit's onboard SYNC connector, establishing the inverter's synchronization chain link with its return.",
+      "flow_scenarios": [
+       {
+        "state": "neutral chain link",
+        "path": "G3-S421 CHAIN_OUTPUT from BEL2-S pin 11 via wire to BEL SYNC connector pin 9; G3-S4S2 SYNC from BEL2-S pin 3 via wire to BEL SYNC connector pin 4 (wires cross/twist per drawn X-routing between terminal block and SYNC connector)"
+       },
+       {
+        "state": "return path",
+        "path": "G3-S4R1 SYNC_RTN routes from BEL2-S pin 7 (VBATTERY RTN / RTN1) to BEL RTN1 pin, closing the sync-chain return loop"
+       }
+      ],
+      "key_components": [
+       "BEL2-S terminal block (I/O)",
+       "BEL onboard SYNC connector (pins 4,9)",
+       "BEL RTN1 pin"
+      ],
+      "sheet_region": "bottom-left quadrant, columns F-H, rows 3-7",
+      "dry_data": "Terminal block BEL2-S, pins 3/7/10/11; wire ids G3-S421, G3-S4S2, G3-S4R1, G3-S4S1."
+     },
+     {
+      "function_id": "bel2s-can-bus",
+      "label": "BEL2-S CAN-A bus interface",
+      "what_it_does": "Connects BEL2's CAN-A differential pair and shield from the terminal block to the BEL unit's second CAN-A connector for bus communication (address/enable lines present but not wired).",
+      "flow_scenarios": [
+       {
+        "state": "CAN bus wired (crossed HI/LO)",
+        "path": "G3-S4AH CANA_HI from BEL2-S pin 5 via crossed wire to CAN-A connector HI; G3-S4AL CANA_LO from BEL2-S pin 6 via crossed wire to CAN-A connector LO; G3-S4AS CANA_Shield from BEL2-S (N/C pin) via wire to CAN-A connector Shield"
+       },
+       {
+        "state": "unused control lines",
+        "path": "ENABLE (pin1), ADR_0 (pin8), ADR_1 (pin9) all terminate N/C at BEL2-S \u2014 no drawn connection onward"
+       }
+      ],
+      "key_components": [
+       "BEL2-S terminal block",
+       "CAN-A connector (Shield/HI/LO)"
+      ],
+      "sheet_region": "bottom-left quadrant, columns E-F, rows 3-7",
+      "dry_data": "Pins 5/6/N/C on BEL2-S wired to CAN-A HI/LO/Shield; ENABLE/ADR_0/ADR_1 not connected."
+     },
+     {
+      "function_id": "bel2s-supply-chain",
+      "label": "BEL2-S FREQ_SELECT and CHAIN_SUPPLY",
+      "what_it_does": "Provides frequency-select command line and chain-supply feed pins for BEL2's chain synchronization scheme.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/off-sheet",
+        "path": "G3-S4S1 FREQ_SELECT at BEL2-S pin 2 \u2014 no drawn destination on this sheet (dead-ends off-sheet)"
+       },
+       {
+        "state": "neutral/off-sheet",
+        "path": "G3-S4S3 CHAIN_SUPPLY at BEL2-S pin 10 \u2014 no drawn destination on this sheet (dead-ends off-sheet)"
+       }
+      ],
+      "key_components": [
+       "BEL2-S terminal block"
+      ],
+      "sheet_region": "bottom-left quadrant, column H/E, rows 6-7",
+      "dry_data": "Pins 2 and 10 on BEL2-S; wire ids G3-S4S1, G3-S4S3 \u2014 routing continues on another sheet."
+     }
+    ]
+   }
+  ],
+  "infrastructure": [],
+  "uncertainties": [
+   "FREQ_SELECT (pin 2) and CHAIN_SUPPLY (pin 10) on both BEL1-S and BEL2-S have no drawn onward connection on this sheet \u2014 likely continue to another BAE electrical sheet not provided here; not guessed.",
+   "Sheet does not explicitly label BEL1-S/BEL2-S as PORT or STBD; assignment to the -s (STBD) register nodes is inferred from naming convention and prior established facts pattern (BEL1-P/BEL2-P elsewhere), not from an explicit PORT/STBD callout on this sheet itself."
+  ],
+  "discarded_as_clutter": [
+   "Title block / revision table (REV, DESCRIPTION, DATE, APPROVED \u2014 blank)",
+   "CONTR NO / WARNING export-control boilerplate",
+   "Drawing number, size, scale, sheet-of-count meta (196D5023, size D, 89954, sheet 12 of 47)",
+   "Company/drafter identification (BAE SYSTEMS, ENDICOTT NY, C. Zaleski)",
+   "Repeated 'N/C' legend entries beyond first mention per pin"
+  ],
+  "_model": "claude-sonnet-5"
+ },
+ "elapsed_s": 44.7
+}

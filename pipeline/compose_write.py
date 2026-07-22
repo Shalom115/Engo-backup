@@ -91,6 +91,13 @@ class ComposeWriter:
     def write_composition(self, comp: Dict[str, Any],
                           sheet_ref: Dict[str, Any]) -> Dict[str, int]:
         """Write one composition. Returns summary counts."""
+        from pipeline.compose import PROTOCOL_VERSION
+        got = comp.get("_protocol_version")
+        if got != PROTOCOL_VERSION:
+            self._note(action="refused_stale_protocol",
+                       sheet=sheet_ref.get("sheet"),
+                       composed_under=got, current=PROTOCOL_VERSION)
+            return {"refused_stale_protocol": 1}
         fid = sheet_ref.get("drive_file_id")
         if fid and fid in self.superseded:
             self._note(action="refused_superseded", sheet=sheet_ref.get("sheet"))

@@ -1,0 +1,187 @@
+{
+ "category": "6-plc-io",
+ "sheet": "AFT-PLC-rev4-p21",
+ "vendor": "anthropic",
+ "drawing_class": "plc",
+ "composition": {
+  "serve_who": "This sheet (21 of 27, section AFT, SWS_108-1_AFT PLC.dwg) details three WAGO 750-508 2-channel digital output modules in the AFT PLC rack (positions 13, 14, 15 under CPU 750-8213). Each module's two channels drive a pair of solenoid coils identified as EV-10.x A/B pairs, each pair named for a specific piece of equipment: EV-10.1A/B = transom door, EV-10.2A/B = deck door, EV-10.3A/B = mainsheet traveler. Per the mapping table, transom door -> 260-transom-door, deck door -> 260-deck-door, mainsheet traveller -> 840-cariboni-hydraulic-cylinders. The EV-10.x identifiers are hydraulic-manifold pilot functions (PVEO/PVEU type established on hydraulic sheets, e.g. AFT sailing/AFT mast sailing manifolds) \u2014 this sheet only shows the PLC-side wiring driving them via a Connector Type I field connector (detailed on sheet 4). The rack layout itself (module positions, CPU, coupler) is infrastructure belonging to the AFT PLC rack node.",
+  "equipment_groups": [
+   {
+    "equipment_name": "Transom Door",
+    "target_node_id": "260-transom-door",
+    "placement_reasoning": "DO-03 module (POS.13) channels are explicitly labeled 'transom door CLOSE (EV 10.1A)' and 'transom door OPEN (EV 10.1B)', a direct name match to the transom door node. EV-10.1 pilot type (PVED ON/OFF) is established on the AFT_blockC hydraulic sheet and is retained here, not downgraded to a bare solenoid.",
+    "functions": [
+     {
+      "label": "Door close command",
+      "function_id": "DO-03-CH01",
+      "sheet_region": "left column, module POS.13, CH01 (upper output pair)",
+      "what_it_does": "Digital output channel 1 of the DO-03 module energises the transom door CLOSE pilot solenoid (EV 10.1A), driving the hydraulic actuator to close the transom door.",
+      "key_components": [
+       "PVED ON/OFF pilot solenoid EV-10.1A (established type, hydraulic sheet)",
+       "module common/reference terminal A1/A2 (module supply) \u2014 voltage on CH01 output measured relative to the module's own common (A2) terminal, per WAGO 750-508 module wiring"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "de-energised (neutral)",
+        "path": "PLC DO-03 CH01 output off \u2192 EV-10.1A pilot un-energised \u2192 transom door hydraulic circuit holds last position (no close command)"
+       },
+       {
+        "state": "energised (CLOSE command)",
+        "path": "PLC DO-03 CH01 output on (24V relative to module common) \u2192 wired down through DO-03 terminal block \u2192 Connector Type I pin (see sheet 4) \u2192 field cable \u2192 EV-10.1A pilot solenoid coil \u2192 hydraulic manifold shifts spool \u2192 transom door cylinder drives CLOSE"
+       }
+      ],
+      "dry_data": "WAGO 750-508 2DO module, POS.13, CPU 750-8213; channel output pair with +/- terminals over ground/earth terminal before 4-pin circular Connector Type I to field."
+     },
+     {
+      "label": "Door open command",
+      "function_id": "DO-03-CH02",
+      "sheet_region": "left column, module POS.13, CH02 (lower output pair)",
+      "what_it_does": "Digital output channel 2 of the DO-03 module energises the transom door OPEN pilot solenoid (EV 10.1B), driving the hydraulic actuator to open the transom door.",
+      "key_components": [
+       "PVED ON/OFF pilot solenoid EV-10.1B (established type, hydraulic sheet)",
+       "module common/reference terminal \u2014 CH02 output measured relative to the module's common (same module reference as CH01)"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "de-energised (neutral)",
+        "path": "PLC DO-03 CH02 output off \u2192 EV-10.1B pilot un-energised \u2192 no open command to transom door"
+       },
+       {
+        "state": "energised (OPEN command)",
+        "path": "PLC DO-03 CH02 output on (24V relative to module common) \u2192 DO-03 terminal block \u2192 Connector Type I pin \u2192 field cable \u2192 EV-10.1B pilot solenoid coil \u2192 hydraulic manifold shifts spool \u2192 transom door cylinder drives OPEN"
+       }
+      ],
+      "dry_data": "WAGO 750-508 2DO module, POS.13, CPU 750-8213; channel output pair with +/- terminals over ground/earth terminal before 4-pin circular Connector Type I to field."
+     }
+    ]
+   },
+   {
+    "equipment_name": "Deck Door",
+    "target_node_id": "260-deck-door",
+    "placement_reasoning": "DO-04 module (POS.14) channels are explicitly labeled 'deck door OPEN (EV 10.2A)' and 'deck door CLOSE (EV 10.2B)', a direct name match to the deck door node (distinct from transom door per mapping table).",
+    "functions": [
+     {
+      "label": "Door open command",
+      "function_id": "DO-04-CH01",
+      "sheet_region": "middle column, module POS.14, CH01 (upper output pair)",
+      "what_it_does": "Digital output channel 1 of the DO-04 module energises the deck door OPEN pilot solenoid (EV 10.2A), driving the hydraulic actuator to open the deck door.",
+      "key_components": [
+       "Pilot solenoid EV-10.2A (type per hydraulic sheet convention)",
+       "module common/reference terminal \u2014 CH01 output voltage measured relative to module's common"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "de-energised (neutral)",
+        "path": "PLC DO-04 CH01 output off \u2192 EV-10.2A pilot un-energised \u2192 no open command to deck door"
+       },
+       {
+        "state": "energised (OPEN command)",
+        "path": "PLC DO-04 CH01 output on (24V relative to module common) \u2192 DO-04 terminal block \u2192 Connector Type I pin (see sheet 4) \u2192 field cable \u2192 EV-10.2A pilot solenoid coil \u2192 hydraulic manifold shifts spool \u2192 deck door cylinder drives OPEN"
+       }
+      ],
+      "dry_data": "WAGO 750-508 2DO module, POS.14, CPU 750-8213; channel output pair with +/- terminals over ground/earth terminal before 4-pin circular Connector Type I to field."
+     },
+     {
+      "label": "Door close command",
+      "function_id": "DO-04-CH02",
+      "sheet_region": "middle column, module POS.14, CH02 (lower output pair)",
+      "what_it_does": "Digital output channel 2 of the DO-04 module energises the deck door CLOSE pilot solenoid (EV 10.2B), driving the hydraulic actuator to close the deck door.",
+      "key_components": [
+       "Pilot solenoid EV-10.2B (type per hydraulic sheet convention)",
+       "module common/reference terminal \u2014 CH02 output voltage measured relative to module's common"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "de-energised (neutral)",
+        "path": "PLC DO-04 CH02 output off \u2192 EV-10.2B pilot un-energised \u2192 no close command to deck door"
+       },
+       {
+        "state": "energised (CLOSE command)",
+        "path": "PLC DO-04 CH02 output on (24V relative to module common) \u2192 DO-04 terminal block \u2192 Connector Type I pin \u2192 field cable \u2192 EV-10.2B pilot solenoid coil \u2192 hydraulic manifold shifts spool \u2192 deck door cylinder drives CLOSE"
+       }
+      ],
+      "dry_data": "WAGO 750-508 2DO module, POS.14, CPU 750-8213; channel output pair with +/- terminals over ground/earth terminal before 4-pin circular Connector Type I to field."
+     }
+    ]
+   },
+   {
+    "equipment_name": "Mainsheet Traveler (Cariboni hydraulic cylinders group)",
+    "target_node_id": "840-cariboni-hydraulic-cylinders",
+    "placement_reasoning": "DO-05 module (POS.15) channels are labeled 'mainsheet traveler TO PORT (EV 10.3A)' and 'mainsheet traveler TO STBD (EV 10.3B)'. Per the engineer-confirmed mapping, mainsheet traveller functions attach to the Cariboni sailing hydraulic cylinders node.",
+    "functions": [
+     {
+      "label": "Traveler to port command",
+      "function_id": "DO-05-CH01",
+      "sheet_region": "right column, module POS.15, CH01 (upper output pair)",
+      "what_it_does": "Digital output channel 1 of the DO-05 module energises the mainsheet traveler TO PORT pilot solenoid (EV 10.3A), driving the traveler car hydraulic cylinder to move to port.",
+      "key_components": [
+       "Pilot solenoid EV-10.3A (type per hydraulic/sailing manifold sheet)",
+       "module common/reference terminal \u2014 CH01 output voltage measured relative to module's common"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "de-energised (neutral)",
+        "path": "PLC DO-05 CH01 output off \u2192 EV-10.3A pilot un-energised \u2192 no port command to mainsheet traveler"
+       },
+       {
+        "state": "energised (TO PORT command)",
+        "path": "PLC DO-05 CH01 output on (24V relative to module common) \u2192 DO-05 terminal block \u2192 Connector Type I pin (see sheet 4) \u2192 field cable \u2192 EV-10.3A pilot solenoid coil \u2192 sailing hydraulic manifold shifts spool \u2192 traveler cylinder drives car TO PORT"
+       }
+      ],
+      "dry_data": "WAGO 750-508 2DO module, POS.15, CPU 750-8213; channel output pair with +/- terminals over ground/earth terminal before 4-pin circular Connector Type I to field."
+     },
+     {
+      "label": "Traveler to starboard command",
+      "function_id": "DO-05-CH02",
+      "sheet_region": "right column, module POS.15, CH02 (lower output pair)",
+      "what_it_does": "Digital output channel 2 of the DO-05 module energises the mainsheet traveler TO STBD pilot solenoid (EV 10.3B), driving the traveler car hydraulic cylinder to move to starboard.",
+      "key_components": [
+       "Pilot solenoid EV-10.3B (type per hydraulic/sailing manifold sheet)",
+       "module common/reference terminal \u2014 CH02 output voltage measured relative to module's common"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "de-energised (neutral)",
+        "path": "PLC DO-05 CH02 output off \u2192 EV-10.3B pilot un-energised \u2192 no starboard command to mainsheet traveler"
+       },
+       {
+        "state": "energised (TO STBD command)",
+        "path": "PLC DO-05 CH02 output on (24V relative to module common) \u2192 DO-05 terminal block \u2192 Connector Type I pin \u2192 field cable \u2192 EV-10.3B pilot solenoid coil \u2192 sailing hydraulic manifold shifts spool \u2192 traveler cylinder drives car TO STBD"
+       }
+      ],
+      "dry_data": "WAGO 750-508 2DO module, POS.15, CPU 750-8213; channel output pair with +/- terminals over ground/earth terminal before 4-pin circular Connector Type I to field."
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "AFT PLC I/O Rack (WAGO) \u2014 DO module positions 13-15",
+    "target_node_id": "570-plc-rack-aft",
+    "facts": [
+     "Rack CPU: 750-8213",
+     "Position 13: WAGO 750-508 2-channel digital output module, tag DO-03",
+     "Position 14: WAGO 750-508 2-channel digital output module, tag DO-04",
+     "Position 15: WAGO 750-508 2-channel digital output module, tag DO-05",
+     "Each module has A1/A2 bus/power terminals feeding the rack backplane; A1/A2 are module supply/bus terminals, not field I/O",
+     "Field wiring from each module's channel pair routes to earth/ground terminal then to a dedicated 4-pin circular 'Connector Type I' plug (pinout/mating detail on sheet 4)",
+     "No local switches, panel switches, alarm taps, or separate protective fuses/breakers shown for these output circuits on this sheet \u2014 control originates purely from PLC DO channels",
+     "Rev history: Rev 0 (21/03/2023 first issue); Rev 4 (05/05/2026) 'SUBSTITUTE WINCHES MODULES FROM DIGITAL TO ANALOG' \u2014 note this revision note pertains to winch modules elsewhere in the set, not to these three door/traveler modules shown here"
+    ]
+   }
+  ],
+  "discarded_as_clutter": [
+   "Title block metadata (Job N\u00b0, Client, Project, Sheet number, Rev/Date) \u2014 administrative, not equipment data",
+   "DIN 34 rights-reserved margin note \u2014 legal boilerplate, irrelevant",
+   "Revision history rows (Rev 0 first issue, Rev 4 winches digital-to-analog note) \u2014 administrative log, not applicable to the door/traveler modules on this sheet",
+   "'2 DO MODULE (POS.13/14/15) 750-508 DO-0x' header lines at top \u2014 duplicate restatement of module identity already captured in the module blocks themselves",
+   "MYT-Systems company contact block (address, tel, email) \u2014 administrative, not equipment data"
+  ],
+  "uncertainties": [
+   "Exact pilot valve device type (PVEO vs PVED vs PVEU) for EV-10.1, EV-10.2, EV-10.3 could not be independently confirmed from this sheet alone; type is inherited from cross-sheet convention only where an equivalent EV was matched on the hydraulic sheets. For EV-10.2 (deck door) and EV-10.3 (mainsheet traveler) no direct hydraulic-sheet pilot-type record was found in the established facts provided, so 'PLED/PVEU' cannot be asserted with certainty for those two \u2014 recorded generically as 'per hydraulic/sailing manifold sheet' pending confirmation.",
+   "Whether the module 'common' reference is a per-module M terminal (WAGO-style) or the vessel's 24V negative rail could not be confirmed from this sheet's terminal labeling (only A1/A2 supply terminals and +/- channel pairs are shown, no explicit 'M' common terminal marked) \u2014 flagged rather than assumed."
+  ],
+  "_model": "claude-sonnet-5"
+ },
+ "elapsed_s": 54.4
+}

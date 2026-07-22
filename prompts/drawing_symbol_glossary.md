@@ -115,3 +115,8 @@ changed and when — this ties drawn elements to design history.
 The ")(" symbol in a hydraulic line is a FLOW REDUCTOR (restrictor). When it
 carries NO number, it needs no fact and no flag — disregard it. Only a numbered
 reductor (a set value) is worth recording, inline in the scenario it affects.
+
+## PRESSURE RELIEF VALVE SETTING (hydraulic sheets) — engineer-taught 2026-07-22
+A NUMBER inside a SQUARE with an ARROW under the number and a SPRING drawn next
+to it = a PRESSURE RELIEF VALVE set to that number, in BAR. Always read it as a
+relief setting — never an unknown marking, orifice value, or coil parameter.

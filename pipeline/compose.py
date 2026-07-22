@@ -21,6 +21,13 @@ from typing import Any, Dict, Optional
 
 import config
 
+# PROTOCOL VERSION — bump on EVERY rule/schema/red-pen change. Compositions are
+# stamped with this; pipeline/compose_write.py REFUSES compositions stamped
+# with an older version (the stale-composition failure of 2026-07-22: a write
+# set built from pre-red-pen compositions re-presented every answered
+# uncertainty to the engineer). Airtight by construction, not by memory.
+PROTOCOL_VERSION = 3
+
 # ---------------------------------------------------------------------------
 # Per-class composition rules. The GENERAL RULE is shared; these add the
 # class-specific reading of "function", "scenario" and "infrastructure".
@@ -46,7 +53,14 @@ CLASS_RULES: Dict[str, str] = {
         "element was added/changed in that revision-table row; cross-read "
         "the revision table, never call it an unknown component. The pilot "
         "module on a slice (PVEO/PVEU) is the device that directs the spool "
-        "— call it the pilot module, not a valve block."),
+        "— call it the pilot module, not a valve block. "
+        "PRESSURE-RELIEF SYMBOL (engineer rule): a NUMBER IN A SQUARE with "
+        "an ARROW under the number and a SPRING drawn next to it is a "
+        "PRESSURE RELIEF VALVE set to that number, in bar — state it as "
+        "such, never as an unknown setting or orifice. "
+        "SPOOL CONTROL PRESSURE: the standalone reduced-pressure valve in "
+        "the block inlet section supplies the SPOOL CONTROL (pilot) "
+        "pressure for the slices — that is its role."),
     "electrical": (
         "Each load/row/branch serves the equipment the LOAD NAME names. The "
         "scenario is the SUPPLY or CONTROL LOOP in words: 'fed from <panel> "
@@ -167,8 +181,10 @@ CLASS_RULES: Dict[str, str] = {
     "photos": (
         "Labels and part photos yield IDENTITY facts: part number, "
         "description, quantity, order reference — attached to the equipment "
-        "the part belongs to. Investigation figures yield evidence facts on "
-        "the implicated system node."),
+        "the part belongs to, as dry_data + key_components. A photo has NO "
+        "flow scenarios — leave flow_scenarios EMPTY, never invent one. "
+        "Investigation figures yield evidence facts on the implicated "
+        "system node."),
 }
 
 
@@ -215,8 +231,7 @@ _COMPOSE_TOOL = {
                                     "dry_data": {"type": "string"},
                                     "sheet_region": {"type": "string"},
                                 },
-                                "required": ["label", "what_it_does",
-                                             "flow_scenarios", "dry_data"],
+                                "required": ["label", "what_it_does"],
                             }},
                     },
                     "required": ["equipment_name", "functions",
@@ -390,5 +405,8 @@ def compose(image_png: bytes, extraction: Dict[str, Any],
         extraction=ext_json,
         index=vessel_context.register_index())
     vp = get_vision_provider(vision_kind)
-    return vp.extract(image_png, "image/png", prompt, _COMPOSE_TOOL,
-                      max_tokens=max_tokens)
+    result = vp.extract(image_png, "image/png", prompt, _COMPOSE_TOOL,
+                        max_tokens=max_tokens)
+    if isinstance(result, dict):
+        result["_protocol_version"] = PROTOCOL_VERSION
+    return result

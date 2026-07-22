@@ -1,0 +1,233 @@
+{
+ "category": "1-hydraulic-manifold",
+ "sheet": "mast_block",
+ "vendor": "gemini",
+ "drawing_class": "hydraulic",
+ "composition": {
+  "serve_who": "The sheet details the Mast Block hydraulic manifold (Danfoss PVG 32) and its 6 individual functional slices. The specific slice labels clearly establish that this manifold serves the lifting keel system (up/down and locks) and the four mast winches (forward port, forward stbd, aft port, aft stbd).",
+  "equipment_groups": [
+   {
+    "target_node_id": "130-apm-lifting-keel",
+    "equipment_name": "Lifting Keel",
+    "placement_reasoning": "The first two manifold slices are explicitly labelled 'LIFTING KEEL UP/DOWN' (EV-6.1) and 'LIFTING KEEL LOCKS' (EV-6.2).",
+    "functions": [
+     {
+      "function_id": "EV-6.1",
+      "label": "LIFTING KEEL UP/DOWN",
+      "what_it_does": "Directs hydraulic fluid to the main actuator to raise or lower the lifting keel.",
+      "flow_scenarios": [
+       {
+        "state": "neutral",
+        "path": "Spool is in the open neutral position; P rail is blocked, A and B work lines bleed to the T rail via small orifices, and the LS line drains to the T rail."
+       },
+       {
+        "state": "DOWN (<5V = A)",
+        "path": "Spool shifts to connect the P rail to port A; pressured fluid flows upwards through the double pilot-operated (PO) check valve to the actuator. Return fluid from the actuator provides pilot pressure to open the port B PO check valve and returns via port B to the T rail. Port A maximum pressure is limited to 60 bar by an inline port relief valve."
+       },
+       {
+        "state": "UP (>5V = B)",
+        "path": "Spool shifts to connect the P rail to port B; pressured fluid flows upwards through the double PO check valve to the actuator. Return fluid from the actuator provides pilot pressure to open the port A PO check valve and returns via port A to the T rail. Port B maximum pressure is limited to 220 bar by an inline port relief valve."
+       }
+      ],
+      "key_components": [
+       "Main directional control spool (proportional)",
+       "Double pilot-operated (PO) check valve block",
+       "Port A relief/anti-cavitation valve (60 bar)",
+       "Port B relief/anti-cavitation valve (220 bar)"
+      ],
+      "dry_data": "Actuation: PVEU - 0-10 V (proportional electric); Rating: spool 40 lt/min",
+      "sheet_region": "Slice 1 (left side of main block)"
+     },
+     {
+      "function_id": "EV-6.2",
+      "label": "LIFTING KEEL LOCKS",
+      "what_it_does": "Controls hydraulic fluid to engage or disengage the lifting keel locking mechanisms.",
+      "flow_scenarios": [
+       {
+        "state": "neutral",
+        "path": "Spool is in the closed neutral position; P, A, and B ports are blocked; the load-sense (LS) signal is vented to tank."
+       },
+       {
+        "state": "IN (IN=A)",
+        "path": "Spool shifts to connect the P rail to port A; pressured fluid flows to the actuator lock. Return fluid from the actuator enters port B and flows to the T rail. Port A pressure is limited to 100 bar by an inline relief valve."
+       },
+       {
+        "state": "OUT (OUT=B)",
+        "path": "Spool shifts to connect the P rail to port B; pressured fluid flows to the actuator unlock. Return fluid from the actuator enters port A and flows to the T rail. Port B pressure is limited to 100 bar by an inline relief valve."
+       }
+      ],
+      "key_components": [
+       "Main directional spool valve (3-position, closed center)",
+       "PVEO pilot module (ON/OFF electrical)",
+       "Pressure compensator (piloted by LS signal)",
+       "Port A relief valve (100 bar)",
+       "Port B relief valve (100 bar)"
+      ],
+      "dry_data": "Actuation: PVEO - ON/OFF; Rating: spool 5 lt/min",
+      "sheet_region": "Slice 2"
+     }
+    ]
+   },
+   {
+    "target_node_id": "220-mast-winch-aft-port",
+    "equipment_name": "Mast Winch Aft Port",
+    "placement_reasoning": "Slice EV-6.3 is explicitly labelled 'MAST WINCH AFT PORT'.",
+    "functions": [
+     {
+      "function_id": "EV-6.3",
+      "label": "MAST WINCH AFT PORT",
+      "what_it_does": "Drives the portside aft mast winch motor via hydraulic flow.",
+      "flow_scenarios": [
+       {
+        "state": "neutral",
+        "path": "Spool is in the open neutral position; P rail is blocked, A and B ports are open and connected to the T rail."
+       },
+       {
+        "state": "actuated 1\u00b0&3\u00b0 (=A)",
+        "path": "Spool shifts to direct flow from the P rail through the upstream compensator to work port A. Return flow from the winch enters port B and is directed to the T rail. Anti-cavitation check valves draw makeup fluid from T if pressure drops below tank line pressure. Maximum pressure on port A is limited to 250 bar by the shock relief valve."
+       },
+       {
+        "state": "actuated 2\u00b0 (=B)",
+        "path": "Spool shifts to direct flow from the P rail through the upstream compensator to work port B. Return flow from the winch enters port A and is directed to the T rail. Anti-cavitation check valves draw makeup fluid from T if pressure drops below tank line pressure. Maximum pressure on port B is limited to 225 bar by the shock relief valve."
+       }
+      ],
+      "key_components": [
+       "Main directional control spool (3-position, open neutral)",
+       "PVED pilot module",
+       "Pre-spool pressure compensator",
+       "Port A shock/anti-cavitation valve (250 bar)",
+       "Port B shock/anti-cavitation valve (225 bar)"
+      ],
+      "dry_data": "Actuation: PVED - ON/OFF; Rating: spool 65 lt/min",
+      "sheet_region": "Slice 3"
+     }
+    ]
+   },
+   {
+    "target_node_id": "220-mast-winch-fwd-port",
+    "equipment_name": "Mast Winch Fwd Port",
+    "placement_reasoning": "Slice EV-6.4 is explicitly labelled 'MAST WINCH FWD PORT'.",
+    "functions": [
+     {
+      "function_id": "EV-6.4",
+      "label": "MAST WINCH FWD PORT",
+      "what_it_does": "Drives the portside forward mast winch motor via hydraulic flow.",
+      "flow_scenarios": [
+       {
+        "state": "neutral",
+        "path": "Spool is in the open neutral position; P rail is blocked, A and B ports are open and connected to the T rail."
+       },
+       {
+        "state": "actuated 1\u00b0&3\u00b0 (=A)",
+        "path": "Spool shifts to direct flow from the P rail to work port A. Return flow from the winch enters port B and is directed to the T rail. Port A overpressure dumps to the T rail at 250 bar via shock relief valve."
+       },
+       {
+        "state": "actuated 2\u00b0 (=B)",
+        "path": "Spool shifts to direct flow from the P rail to work port B. Return flow from the winch enters port A and is directed to the T rail. Port B overpressure dumps to the T rail at 225 bar via shock relief valve."
+       }
+      ],
+      "key_components": [
+       "Main directional control spool",
+       "PVED pilot module",
+       "Port A shock/anti-cavitation valve (250 bar)",
+       "Port B shock/anti-cavitation valve (225 bar)"
+      ],
+      "dry_data": "Actuation: PVED - ON/OFF; Rating: spool 65 lt/min",
+      "sheet_region": "Slice 4"
+     }
+    ]
+   },
+   {
+    "target_node_id": "220-mast-winch-aft-stbd",
+    "equipment_name": "Mast Winch Aft Stbd",
+    "placement_reasoning": "Slice EV-6.5 is explicitly labelled 'MAST WINCH AFT STBD'.",
+    "functions": [
+     {
+      "function_id": "EV-6.5",
+      "label": "MAST WINCH AFT STBD",
+      "what_it_does": "Drives the starboard aft mast winch motor via hydraulic flow.",
+      "flow_scenarios": [
+       {
+        "state": "neutral",
+        "path": "Spool is in the open neutral position; P rail is blocked, A and B ports are open and connected to the T rail."
+       },
+       {
+        "state": "actuated 1\u00b0&3\u00b0 (=A)",
+        "path": "Spool shifts to direct flow from the P rail through the compensator to work port A. Return flow from the winch enters port B and is directed to the T rail. Shock relief valve opens to vent fluid to the T rail if port A exceeds 250 bar."
+       },
+       {
+        "state": "actuated 2\u00b0 (=B)",
+        "path": "Spool shifts to direct flow from the P rail through the compensator to work port B. Return flow from the winch enters port A and is directed to the T rail. Shock relief valve opens to vent fluid to the T rail if port B exceeds 225 bar."
+       }
+      ],
+      "key_components": [
+       "Main directional control spool",
+       "PVED pilot module",
+       "Pre-spool pressure compensator",
+       "Port A shock/anti-cavitation valve (250 bar)",
+       "Port B shock/anti-cavitation valve (225 bar)"
+      ],
+      "dry_data": "Actuation: PVED - ON/OFF; Rating: spool 65 lt/min",
+      "sheet_region": "Slice 5"
+     }
+    ]
+   },
+   {
+    "target_node_id": "220-mast-winch-fwd-stbd",
+    "equipment_name": "Mast Winch Fwd Stbd",
+    "placement_reasoning": "Slice EV-6.6 is explicitly labelled 'MAST WINCH FWD STBD'.",
+    "functions": [
+     {
+      "function_id": "EV-6.6",
+      "label": "MAST WINCH FWD STBD",
+      "what_it_does": "Drives the starboard forward mast winch motor via hydraulic flow.",
+      "flow_scenarios": [
+       {
+        "state": "neutral",
+        "path": "Spool is in the open neutral position; P rail and LS line are connected to the T rail."
+       },
+       {
+        "state": "actuated 1\u00b0&3\u00b0 (=A)",
+        "path": "Spool shifts to direct flow from the P rail to work port A. Return flow from the winch enters port B and is directed to the T rail. A port pressure is limited by a relief valve set to 230 bar dumping to the T rail."
+       },
+       {
+        "state": "actuated 2\u00b0 (=B)",
+        "path": "Spool shifts to direct flow from the P rail to work port B. Return flow from the winch enters port A and is directed to the T rail. B port pressure is limited by a relief valve set to 225 bar dumping to the T rail."
+       }
+      ],
+      "key_components": [
+       "Main directional spool",
+       "PVED pilot module",
+       "Solenoid operated LS unloading valve",
+       "Port A relief valve (230 bar)",
+       "Port B relief valve (225 bar)"
+      ],
+      "dry_data": "Actuation: PVED - ON/OFF; Rating: spool 65 lt/min",
+      "sheet_region": "Slice 6"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "Mast Block (Danfoss PVG 32)",
+    "target_node_id": "570-danfoss-pvg-32-mast-block",
+    "facts": [
+     "Inlet section at the far left provides main pressure supply (P), return (T), load sense (LS) line connections, a pressure relief circuit, a standalone auxiliary valve, and a gauge port (M).",
+     "The block unifies six active manifold slices sharing common P (Pressure), T (Tank), and LS_A/LS_B (Load Sense) galleries.",
+     "Contains proportional control sections for lifting keel and mast winches."
+    ]
+   }
+  ],
+  "discarded_as_clutter": [
+   "Part numbers extracted from cartridges (e.g., 157B7122, 11166838, 11130982, 157B6203, ENE8E63) mapped out in favor of functional roles.",
+   "Revisions table from 2022 to 2026 (rows 0 through 10) in the bottom right corner, as it provides administrative history rather than operational component specs."
+  ],
+  "uncertainties": [
+   "Exact internal connections of the uppermost spool envelope on EV-6.5 (appears to be a float position tying A and B to tank, but lines are too dense/small to confirm 100%)."
+  ],
+  "_model": "gemini-3.1-pro-preview"
+ },
+ "elapsed_s": 57.0,
+ "note": "TRUE per-vendor: this vendor's model both extracted AND composed"
+}

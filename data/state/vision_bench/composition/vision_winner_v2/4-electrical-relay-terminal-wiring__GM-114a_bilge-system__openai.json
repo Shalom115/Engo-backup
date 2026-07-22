@@ -1,0 +1,192 @@
+{
+ "category": "4-electrical-relay-terminal-wiring",
+ "sheet": "GM-114a_bilge-system",
+ "vendor": "openai",
+ "drawing_class": "electrical",
+ "composition": {
+  "serve_who": "Drawing GMMS 108\u2019-114a is the +24 V control, actuation and indication sheet for the main bilge pump and five electrically actuated bilge-valve channels. The top row is explicitly labelled MAIN BILGE PUMP; the repeated centre rows are labelled BILGE VALVE and terminate at compartment bilge switches; the lower-right boxed regions are explicitly MAIN PANEL and MAIN PANEL PC CARD. Accordingly, pump-specific loops attach to the main-pump node, valve actuation/position loops attach to the bilge-valves node, and the common service-battery feeder, terminal/relay architecture, main-panel connectors and ONYX cross-references remain infrastructure/interface facts.",
+  "equipment_groups": [
+   {
+    "target_node_id": "520-main-bilge-pump",
+    "equipment_name": "Main Bilge Pump \u2014 Gianneschi ACB 431 B",
+    "placement_reasoning": "The upper sheet region explicitly names the motor load MAIN BILGE PUMP, while the lower MAIN PANEL row names S13 as BILGE PUMP SW. This is the engineer-confirmed BILGE PUMP mapping and does not include the separate fire pump.",
+    "functions": [
+     {
+      "function_id": "main_bilge_pump_run_control",
+      "label": "Run and stop the main bilge pump from local, main-panel or ONYX control",
+      "what_it_does": "Supplies the main bilge-pump motor and closes its solenoid contactor when any drawn/established run-command path is selected; releasing all run commands opens the control loop and stops the motor.",
+      "flow_scenarios": [
+       {
+        "state": "Neutral / stopped",
+        "path": "+24 V service-battery source \u2192 feeder protection \u2192 F3 60 A pump fuse \u2192 SW8 and normally open solenoid main contact \u2192 open contact blocks power to MAIN BILGE PUMP motor; motor return is shown to the return/chassis symbol."
+       },
+       {
+        "state": "Local run command",
+        "path": "+24 V control supply \u2192 local pump switch through the drawn pump-control terminal group \u2192 solenoid contactor coil; established loop closure is at terminals 13/14, with T/S control conductors 12/14/15 \u2192 solenoid main contact closes \u2192 +24 V service-battery source \u2192 F2 200 A feeder fuse \u2192 F3 60 A \u2192 SW8 \u2192 closed solenoid contact \u2192 MAIN BILGE PUMP motor \u2192 shown motor return."
+       },
+       {
+        "state": "Main-panel run command",
+        "path": "MAIN PANEL S13 BILGE PUMP SW \u2192 Plug C pins 6/7 and the drawn pump-control conductors \u2192 T/S control loop, with established closure at terminals 13/14 and control conductors 12/14/15 \u2192 solenoid contactor coil \u2192 contact closes \u2192 +24 V service-battery source \u2192 F2 200 A \u2192 F3 60 A \u2192 SW8 \u2192 MAIN BILGE PUMP motor \u2192 shown return; the lamp branch at Plug C pin 6 provides panel run indication."
+       },
+       {
+        "state": "ONYX remote run command",
+        "path": "ONYX remote command \u2192 drawn off-sheet ONYX interface/control conductor \u2192 same established T/S pump-control loop, closing the solenoid coil circuit at terminals 13/14 \u2192 contact closes \u2192 +24 V service-battery source \u2192 F2 200 A \u2192 F3 60 A \u2192 SW8 \u2192 MAIN BILGE PUMP motor \u2192 shown return."
+       }
+      ],
+      "key_components": [
+       "load protection \u2014 pump fuse F3, 60 A",
+       "main feeder protection \u2014 F2, 200 A, upstream shared service-battery feeder",
+       "isolation/manual series switch \u2014 SW8",
+       "motor switching \u2014 solenoid-operated contact/contactor SO6",
+       "local command \u2014 LOCAL PUMP SW",
+       "remote command \u2014 main-panel switch S13 through Plug C pins 6/7",
+       "remote command interface \u2014 drawn continuation to ONYX",
+       "run indication \u2014 lamp branch in the S13 circuit"
+      ],
+      "dry_data": "24 V DC motor branch; solenoid-contactor actuation; sheet protection F3 60 A with upstream shared F2 200 A; local + main-panel + ONYX command capability.",
+      "sheet_region": "Top horizontal motor circuit (approximately upper 15% of sheet), plus S13/Plug C in the lower-right MAIN PANEL region and the central/off-sheet ONYX continuation."
+     }
+    ]
+   },
+   {
+    "target_node_id": "520-bilge-valves",
+    "equipment_name": "Bilge Valves \u2014 five Burkert electric DN050 ball-valve assemblies",
+    "placement_reasoning": "The five repeated centre groups each show OPEN/CLOSE position contacts, a motor-operated BILGE VALVE, a compartment bilge switch endpoint and a corresponding relay/terminal channel. Established identity confirms five Burkert electric rotary actuators on DN050 two-way ball valves.",
+    "functions": [
+     {
+      "function_id": "bilge_valve_selection_actuation",
+      "label": "Open or close the selected bilge suction valve",
+      "what_it_does": "Operates one of five motorised ball valves so the bilge system can select the lazarette, aft, engine-room, forward or sail-locker bilge branch; each channel is driven through its own relay and replaceable fused terminal.",
+      "flow_scenarios": [
+       {
+        "state": "Neutral / no movement",
+        "path": "+24 V BILGE VALVES supply remains available through Q13 10 A, but the selected channel relay is not commanded \u2192 neither actuator direction is energised \u2192 valve remains at its last position; its OPEN/CLOSE limit contacts independently report actual position."
+       },
+       {
+        "state": "Lazarette channel command",
+        "path": "Main-panel S20 LAZARETTE BILGE via Plug C pin 1, or the drawn remote channel interface at XA40:14/XA40:12 \u2192 Re1 control \u2192 replaceable fused terminal T/S B:8 \u2192 T/S C channel terminals 7\u201315 \u2192 lazarette-associated bilge-valve actuator direction lead \u2192 actuator motor \u2192 common return; OPEN/CLOSE contacts return through T/S C 7/8 and Plug D pins 1/2 to the PC-card indicators. The field bilge-switch wiring includes both PORT LAZARETTE BILGE and STBD LAZARETTE BILGE on this channel group."
+       },
+       {
+        "state": "Aft channel command",
+        "path": "Main-panel S21 AFT BILGE via Plug C pin 2, or drawn remote interface XA40:16 \u2192 Re2 control \u2192 replaceable fused terminal T/S B:9 \u2192 T/S C terminals 16\u201323 \u2192 aft-associated bilge-valve actuator direction lead \u2192 actuator motor \u2192 common return; OPEN/CLOSE contacts return through T/S C 16/17 and Plug D pins 3/4 to the PC-card indicators."
+       },
+       {
+        "state": "Engine-room channel command",
+        "path": "Main-panel S22 ENG. ROOM BILGE via Plug C pin 3, or drawn remote interface XA10:06 \u2192 Re3 control \u2192 replaceable fused terminal T/S B:10 \u2192 T/S C terminals 24\u201331 \u2192 engine-room bilge-valve actuator direction lead \u2192 actuator motor \u2192 common return; OPEN/CLOSE contacts return through T/S C 24/25 and Plug D pins 5/6 to the PC-card indicators."
+       },
+       {
+        "state": "Forward channel command",
+        "path": "Main-panel S23 FWD BILGE via Plug C pin 4, or drawn remote interface XA10:04 \u2192 Re4 control \u2192 replaceable fused terminal T/S B:11 \u2192 T/S C terminals 32\u201339 \u2192 forward bilge-valve actuator direction lead \u2192 actuator motor \u2192 common return; OPEN/CLOSE contacts return through T/S C 32/33 and Plug D pins 7/8 to the PC-card indicators."
+       },
+       {
+        "state": "Sail-locker channel command",
+        "path": "Main-panel S24 SAIL LOCKER via Plug C pin 5, or drawn remote interface XA10:02 \u2192 Re5 control \u2192 replaceable fused terminal T/S B:12 \u2192 T/S C terminals 40\u201347 \u2192 sail-locker bilge-valve actuator direction lead \u2192 actuator motor \u2192 common return; OPEN/CLOSE contacts return through T/S C 40/41 and Plug D pins 9/10 to the PC-card indicators."
+       }
+      ],
+      "key_components": [
+       "branch overcurrent protection \u2014 Q13, 10 A, labelled BILGE VALVES",
+       "direction/control relays \u2014 Re1 through Re5, one per active valve channel",
+       "replaceable fused terminals \u2014 T/S B:8, :9, :10, :11 and :12, exact channel protection and primary troubleshooting points",
+       "position sensors \u2014 paired OPEN and CLOSE actuator limit contacts for each valve",
+       "actuators \u2014 five motorised Burkert rotary actuators on DN050 two-way ball valves",
+       "operator controls \u2014 main-panel switches S20\u2013S24 through Plug C pins 1\u20135",
+       "field demand inputs \u2014 port/stbd lazarette, aft, engine-room, forward and sail-locker BILGE SW endpoints",
+       "remote interfaces \u2014 XA40:14/:12/:16 and XA10:06/:04/:02 as drawn into the corresponding relay circuits"
+      ],
+      "dry_data": "Five 24 V DC electrically actuated channels; Burkert rotary actuators on DN050 two-way ball valves; common branch protected by Q13 10 A; individual replaceable fused terminals T/S B:8\u201312.",
+      "sheet_region": "Repeated valve circuits across the middle of the sheet: relay bank Re1\u2013Re5 at left-centre, T/S C terminals 7\u201347 centrally, and five actuator/field-switch groups at right-centre."
+     },
+     {
+      "function_id": "bilge_valve_position_indication_alarm",
+      "label": "Display each valve\u2019s open/closed position and raise the common bilge alarm indication",
+      "what_it_does": "Returns each actuator\u2019s OPEN and CLOSED limit state to the main-panel PC card, lights the corresponding position lamp, and diode-combines the five open-state lines for the drawn pedestal alarm/mute interface.",
+      "flow_scenarios": [
+       {
+        "state": "Valve between limits / no confirmed state",
+        "path": "Neither OPEN nor CLOSED limit contact made \u2192 associated T/S C status conductors \u2192 Plug D channel pair \u2192 neither corresponding main-panel position input is asserted; no inferred valve position is permitted."
+       },
+       {
+        "state": "Valve confirmed open",
+        "path": "Selected valve OPEN limit contact \u2192 its T/S C status pair \u2192 Plug D odd-numbered input (lazarette 1, aft 3, engine room 5, forward 7, sail locker 9) \u2192 matching MAIN PANEL PC CARD open lamp against the card\u2019s +24 V lamp common; the five odd-numbered open lines also feed the drawn diode network \u2192 Plug D line 11/common alarm route \u2192 Plug C/AUX plug alarm interface \u2192 pedestal ALARM MOD and mute circuit."
+       },
+       {
+        "state": "Valve confirmed closed",
+        "path": "Selected valve CLOSED limit contact \u2192 its T/S C status pair \u2192 Plug D even-numbered input (lazarette 2, aft 4, engine room 6, forward 8, sail locker 10) \u2192 matching MAIN PANEL PC CARD closed lamp against the card\u2019s +24 V lamp common."
+       },
+       {
+        "state": "Alarm muted",
+        "path": "Open-state diode-combined alarm signal \u2192 Plug D line 11 and main-panel auxiliary interface \u2192 Plug C pins 8\u201311 / AUX PLUG ON PC BOARD pins 1\u20134 \u2192 pedestal ALARM MOD; operation of the drawn mute contact between Plug C pin 11 and common pin 12 silences/acknowledges the audible branch while the position indication remains driven by the limit-contact path."
+       }
+      ],
+      "key_components": [
+       "position sensing \u2014 ten actuator limit contacts, OPEN and CLOSED for five valves",
+       "visual indication \u2014 ten main-panel PC-card lamps, open/closed per channel",
+       "alarm isolation/OR logic \u2014 five diodes combining open-state lines 1, 3, 5, 7 and 9 onto line 11",
+       "audible/acknowledge interface \u2014 pedestal ALARM MOD, alarm lamp and mute contact",
+       "connectors \u2014 Plug D pins 1\u201311 and Plug C pins 8\u201312 / four-pin auxiliary PC-board plug",
+       "indicator supply \u2014 PC-card +24 V lamp common"
+      ],
+      "dry_data": "Main-panel PC-card indication: 5 \u00d7 OPEN plus 5 \u00d7 CLOSED lamps; diode-combined common open-state alarm; pedestal alarm/mute interface on Plug C/AUX plug.",
+      "sheet_region": "Lower-right dotted MAIN PANEL PC CARD box with Plug D, plus the MAIN PANEL Plug C and PEDESTAL ALARM + MUTE region immediately above."
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "+24 V DC service-battery distribution serving this bilge sheet",
+    "target_node_id": "640-dc-distribution",
+    "facts": [
+     "The drawn source is labelled +24V SERVICE BAT.",
+     "Shared incoming protection is F2 200 A before the vertical distribution conductor.",
+     "The drawn conductor branches separately to the main-pump fuse F3 60 A and to the BILGE VALVES breaker Q13 10 A; shared voltage does not merge the pump and valve systems.",
+     "F2 and the common supply topology are infrastructure; F3 and Q13 remain load-specific protection in their respective equipment loops."
+    ]
+   },
+   {
+    "system_name": "Vessel Control Panel / MAIN PANEL bilge control and indication infrastructure",
+    "target_node_id": "641-vessel-control-panel",
+    "facts": [
+     "The sheet explicitly boxes MAIN PANEL and MAIN PANEL PC CARD regions.",
+     "Plug C is a 12-pin control/alarm connector: pins 1\u20135 serve S20\u2013S24 valve selectors, pins 6/7 serve pump indication/control S13, pins 8\u201311 interface the alarm module through the four-pin auxiliary PC-board plug, and pin 12 is the shown switch/alarm common.",
+     "Plug D carries five OPEN/CLOSED position pairs on pins 1\u201310; pin 11 is the diode-combined open-state alarm node; pin 12 has no further internal connection drawn on this sheet.",
+     "T/S C terminals 7\u201350, the repeated relay bank and shared internal commons are panel wiring infrastructure; T/S B:8\u201313 are replaceable fused terminals, not ordinary terminals.",
+     "Re6 through fused terminal T/S B:13 is shown at the bottom of the relay bank, but its adjacent conductor/position is marked not used and no sixth valve actuator is drawn."
+    ]
+   },
+   {
+    "system_name": "ONYX bilge control/monitoring interface",
+    "target_node_id": "652-onyx-monitoring",
+    "facts": [
+     "A conductor is explicitly continued off-sheet 'to ONYX'.",
+     "XA40:14/:12/:16, XA10:06/:04/:02 and XA11:32 are drawn cross-reference/interface tags in the relay/control wiring; only the links physically drawn on this sheet are retained.",
+     "The established main-pump loop confirms ONYX as an alternative remote pump-run command source.",
+     "The exact ONYX I/O point semantics beyond the drawn relay destinations are off-sheet and are not inferred from proximity."
+    ]
+   }
+  ],
+  "discarded_as_clutter": [
+   "Title-block company, project, customer, date and copyright text",
+   "Repeated MAIN PANEL captions",
+   "Duplicate terminal-side conductor numerals that only restate terminal-strip pin numbering",
+   "Extraction placeholders such as '<UNKNOWN> switch' where the image resolves the device as the pedestal mute contact or a normal drawn switch symbol",
+   "Repeated open/closed lamp rows after composing them as one five-channel indication function",
+   "Re6 adjacent 'not used' position as an active valve function; retained only as an infrastructure fact",
+   "Protective-earth/enclosure-boundary symbol as a separate equipment item",
+   "Drawing cross-reference arrows treated as metadata where their off-sheet destination is not shown"
+  ],
+  "uncertainties": [
+   "The sheet reads the pump branch fuse as F3 60 A, while an established distribution-sheet fact records F7 60 A for the main bilge pump. Both source-specific identifiers are retained; whether F3 is a local downstream fuse or a drafting/renumbering difference requires cross-sheet or onboard verification.",
+   "The exact upstream panel/enclosure containing F2, F3 and Q13 is not named on this sheet; it is therefore recorded only as +24 V service-battery/DC-distribution infrastructure.",
+   "For each motorised valve, the drawing clearly shows OPEN and CLOSE command/limit conductors but does not label actuator polarity or which motor terminal is the open versus close drive; no polarity has been guessed.",
+   "The first field group contains separate PORT LAZARETTE BILGE and STBD LAZARETTE BILGE switches around one repeated actuator channel. The exact hydraulic branch arrangement is not shown on this electrical sheet, so the composition does not invent separate valves or fluid connections.",
+   "The repeated actuator text appears as BILGE VALVE / ENG. ROOM BILGE in several rows despite the associated compartment labels AFT, ENG. ROOM, FWD and SAIL LOCKER. Channel identity is taken from the unambiguous main-panel/field labels; the exact physical valve naming should be checked against the bilge piping schematic.",
+   "The XA-style interface lines reach relay/control wiring, but their exact ONYX signal names, active polarity and whether every point is command, enable or feedback are defined off-sheet; only their channel destinations are stated.",
+   "Plug D pin 12 has no further internal connection drawn, and XA11:32/Re6 does not reach a sixth actuator on this sheet; no function is assigned beyond the shown unused/spare wiring.",
+   "The precise electrical behavior of the pedestal mute contact\u2014momentary silence versus latched acknowledge\u2014is not stated; the scenario records only that it acts in the drawn alarm branch without suppressing valve-position indication."
+  ],
+  "_model": "gpt-5.6-sol"
+ },
+ "elapsed_s": 101.9,
+ "note": "TRUE per-vendor: this vendor's model both extracted AND composed"
+}

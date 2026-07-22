@@ -1,0 +1,305 @@
+{
+ "category": "3-electrical-one-line",
+ "sheet": "GM-110a_24V-service-supply",
+ "vendor": "gemini",
+ "drawing_class": "electrical",
+ "composition": {
+  "serve_who": "This sheet details the primary 24V DC Service Supply distribution network. The drawing's title '24V DC SERVICE SUPPLY' and the central topology of high-voltage MAPS converters feeding a '+24V SERVICE BUS' and 'NEGATIVE BUS' demonstrate that this system acts as the main hub distributing 24V DC power to vital ship equipment, including main DC panels, bilge and fire pumps, and backup battery banks.",
+  "equipment_groups": [
+   {
+    "target_node_id": "626-maps-p",
+    "equipment_name": "PORT MAPS Converters",
+    "placement_reasoning": "Labeled 'PORT MAPS-1/2 2x5KW' converting 600V DC to 24V DC.",
+    "functions": [
+     {
+      "function_id": "power_conversion_port",
+      "label": "600V DC to 24V DC Conversion",
+      "what_it_does": "Steps down high-voltage DC from the port HVPDU to supply the vessel's 24V DC service bus.",
+      "flow_scenarios": [
+       {
+        "state": "active",
+        "path": "Power flows from PORT HVPDU 600V DC BUS via Q1/Q4 (32A breakers) and F1/F2 (500A fuses) into two 5KW converter units. The 24V DC output passes through F1/F2 (250A fuses) and a fused terminal, is monitored by CT1/CT2, and routes through isolator switches SW1/SW2 to the +24V SERVICE BUS."
+       }
+      ],
+      "key_components": [
+       "Q1",
+       "Q2",
+       "Q3",
+       "Q4",
+       "F1",
+       "F2",
+       "CT1",
+       "CT2",
+       "SW1",
+       "SW2"
+      ],
+      "dry_data": "600V DC to 24V DC; 2x5KW rating.",
+      "sheet_region": "MAPS Power Converters / PORT HVPDU Bus"
+     }
+    ]
+   },
+   {
+    "target_node_id": "626-maps-s",
+    "equipment_name": "STBD MAPS Converters",
+    "placement_reasoning": "Labeled 'STBD MAPS-1/2 2x5KW' converting 600V DC to 24V DC.",
+    "functions": [
+     {
+      "function_id": "power_conversion_stbd",
+      "label": "600V DC to 24V DC Conversion",
+      "what_it_does": "Steps down high-voltage DC from the starboard HVPDU to supply the vessel's 24V DC service bus.",
+      "flow_scenarios": [
+       {
+        "state": "active",
+        "path": "Power flows from STBD HVPDU 600V DC BUS via Q1-Q4 (32A breakers) into two 5KW converter units. The 24V DC output passes through F3/F4 (250A fuses) and a fused terminal, is monitored by CT3/CT4, and routes through isolator switches SW3/SW4 to the +24V SERVICE BUS."
+       }
+      ],
+      "key_components": [
+       "Q1",
+       "Q2",
+       "Q3",
+       "Q4",
+       "F3",
+       "F4",
+       "CT3",
+       "CT4",
+       "SW3",
+       "SW4"
+      ],
+      "dry_data": "600V DC to 24V DC; 2x5KW rating.",
+      "sheet_region": "MAPS Power Converters / STBD HVPDU Bus"
+     }
+    ]
+   },
+   {
+    "target_node_id": "620-hvpdu",
+    "equipment_name": "High Voltage DC Distribution (HVPDU)",
+    "placement_reasoning": "The 600V DC bus sections on the port and starboard sides that distribute high voltage to the MAPS converters.",
+    "functions": [
+     {
+      "function_id": "hv_distribution",
+      "label": "High Voltage Link",
+      "what_it_does": "Provides the 600V DC backbone supply to the modular auxiliary power systems.",
+      "flow_scenarios": [
+       {
+        "state": "neutral",
+        "path": "The PORT and STBD 600V DC BUS bars sit energized, distributing power directly into their respective MAPS-1/2 converter branches via integrated 32A Q-breakers and 500A F-fuses."
+       }
+      ],
+      "key_components": [
+       "600V DC BUS (PORT)",
+       "600V DC BUS (STBD)"
+      ],
+      "dry_data": "600V DC.",
+      "sheet_region": "PORT HVPDU Bus / STBD HVPDU Bus"
+     }
+    ]
+   },
+   {
+    "target_node_id": "520-main-bilge-pump",
+    "equipment_name": "Main Bilge Pump",
+    "placement_reasoning": "Labeled directly as 'BILGE PUMP' receiving dedicated power from the service bus.",
+    "functions": [
+     {
+      "function_id": "bilge_power_supply",
+      "label": "24V DC Supply",
+      "what_it_does": "Receives primary operating power from the main DC service bus.",
+      "flow_scenarios": [
+       {
+        "state": "active",
+        "path": "Fed from the +24V SERVICE BUS via fuse F7 (60A), a fused terminal on wire 35, and switch SW8 to the BILGE PUMP load; return path grounds at the main NEGATIVE BUS."
+       }
+      ],
+      "key_components": [
+       "F7",
+       "SW8",
+       "fused terminal"
+      ],
+      "dry_data": "24V DC; 60A fused.",
+      "sheet_region": "+24V SERVICE BUS Distribution / NEGATIVE BUS"
+     }
+    ]
+   },
+   {
+    "target_node_id": "520-fire-pump",
+    "equipment_name": "Fire Pump",
+    "placement_reasoning": "Labeled directly as 'FIRE PUMP' receiving dedicated power from the service bus.",
+    "functions": [
+     {
+      "function_id": "fire_power_supply",
+      "label": "24V DC Supply",
+      "what_it_does": "Receives primary operating power from the main DC service bus.",
+      "flow_scenarios": [
+       {
+        "state": "active",
+        "path": "Fed from the +24V SERVICE BUS via fuse F8 (60A), a fused terminal on wire 35, and switch SW9 to the FIRE PUMP load; return path grounds at the main NEGATIVE BUS."
+       }
+      ],
+      "key_components": [
+       "F8",
+       "SW9",
+       "fused terminal"
+      ],
+      "dry_data": "24V DC; 60A fused.",
+      "sheet_region": "+24V SERVICE BUS Distribution / NEGATIVE BUS"
+     }
+    ]
+   },
+   {
+    "target_node_id": "633-battery-gen-start",
+    "equipment_name": "Generator Start Battery",
+    "placement_reasoning": "Labeled 'GEN START BAT.' feeding into the service network and grounding at the negative bus.",
+    "functions": [
+     {
+      "function_id": "gen_bat_integration",
+      "label": "Service Bus Integration",
+      "what_it_does": "Interfaces with the 24V DC service topology for charging or isolated supply.",
+      "flow_scenarios": [
+       {
+        "state": "neutral",
+        "path": "Connected to the isolation bank (SO 2) via switch SW2, with its return line permanently tied to the main NEGATIVE BUS."
+       }
+      ],
+      "key_components": [
+       "SW2"
+      ],
+      "dry_data": "24V DC.",
+      "sheet_region": "ISOLATORS (SW1-SW5) / NEGATIVE BUS"
+     }
+    ]
+   },
+   {
+    "target_node_id": "634-battery-aux-service",
+    "equipment_name": "Aux Service Battery",
+    "placement_reasoning": "Labeled 'AUX SERVICE BAT. 200Ah 24V' integrating directly into the main +24V service bus.",
+    "functions": [
+     {
+      "function_id": "aux_bat_integration",
+      "label": "Main Bus Supply/Charge",
+      "what_it_does": "Acts as an auxiliary power store directly attached to the main 24V service bus.",
+      "flow_scenarios": [
+       {
+        "state": "active",
+        "path": "Power flows between the AUX SERVICE BAT. and the +24V SERVICE BUS via a 250A fuse (F16), a fused terminal on wire 70, and isolation switch SW11; the negative terminal returns directly to the NEGATIVE BUS."
+       }
+      ],
+      "key_components": [
+       "F16",
+       "SW11",
+       "fused terminal"
+      ],
+      "dry_data": "200Ah; 24V; 250A fused.",
+      "sheet_region": "ISOLATORS (SW1-SW5) / NEGATIVE BUS"
+     }
+    ]
+   },
+   {
+    "target_node_id": "652-onyx-monitoring",
+    "equipment_name": "ONYX Monitoring",
+    "placement_reasoning": "Multiple current transformers (CT1-CT6) specifically labeled as routing 'to ONYX'.",
+    "functions": [
+     {
+      "function_id": "current_sensing",
+      "label": "Service Network Current Sensing",
+      "what_it_does": "Monitors the power output of the MAPS converters and key distribution lines.",
+      "flow_scenarios": [
+       {
+        "state": "monitoring",
+        "path": "Current transformers CT1, CT2, CT3, CT4 clamp onto the four MAPS 24V DC output lines; CT5 clamps onto the 230V AC converter's DC output; CT6 clamps onto the LV. BAE PANEL feed. All CTs send telemetry signals out 'to ONYX'."
+       }
+      ],
+      "key_components": [
+       "CT1",
+       "CT2",
+       "CT3",
+       "CT4",
+       "CT5",
+       "CT6"
+      ],
+      "dry_data": "Telemetry feeds.",
+      "sheet_region": "MAPS Power Converters / +24V SERVICE BUS Distribution"
+     }
+    ]
+   },
+   {
+    "target_node_id": "629-bel",
+    "equipment_name": "BEL AC Control",
+    "placement_reasoning": "The control module is labeled 'BEL-1/4 230V AC CONTROL' on a PC CARD.",
+    "functions": [
+     {
+      "function_id": "bel_ac_control",
+      "label": "BEL AC Control Logic",
+      "what_it_does": "Provides control signaling and auxiliary power mapping for the BEL units.",
+      "flow_scenarios": [
+       {
+        "state": "active",
+        "path": "The PC CARD interfaces through a 10-pin output block. Pin 8 (AUX) routes through the T/S E terminal strip, through a 6A breaker (QE7), and terminates at '+24V EMERGENCY POWER'. Pins 6, 7, and 9 route to NEG, BAE, and +EM respectively."
+       }
+      ],
+      "key_components": [
+       "PC CARD",
+       "T/S E",
+       "QE7"
+      ],
+      "dry_data": "230V AC control / 24V DC aux.",
+      "sheet_region": "PC CARD"
+     }
+    ]
+   },
+   {
+    "target_node_id": "625-bae-system",
+    "equipment_name": "BAE System Sensors",
+    "placement_reasoning": "Voltage sensing tap labeled 'BAE VOLTAGE SENCE' and key switch 'BAE START KEY SW'.",
+    "functions": [
+     {
+      "function_id": "bae_voltage_monitoring",
+      "label": "BAE Bus Voltage Sense",
+      "what_it_does": "Samples the primary FWD DC PANEL feed for BAE system voltage status.",
+      "flow_scenarios": [
+       {
+        "state": "monitoring",
+        "path": "The BAE VOLTAGE SENCE line taps into the FWD DC PANEL supply circuit via T/S S terminals 1-3 to monitor the primary 24V bus state."
+       }
+      ],
+      "key_components": [
+       "T/S S"
+      ],
+      "dry_data": "Voltage telemetry tap.",
+      "sheet_region": "T/S S (Pins 1-3)"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "+24V DC Service & Negative Bus Structure",
+    "target_node_id": "640-dc-distribution",
+    "facts": [
+     "A central '+24V SERVICE BUS' consolidates incoming 24V DC power from PORT and STBD MAPS converters, a '24V 110A' AC/DC converter, and the Aux Service Battery.",
+     "The bus distributes primary load power outwards: feeding the FWD DC PANEL via a fused terminal on wire 70, SW6, and F5 (100A); and the AFT DC PANEL via a fused terminal on wire 95, SW7, and F6 (200A).",
+     "A centralized 'NEGATIVE BUS' acts as the common return path for the FWD/AFT DC PANELS, Bilge/Fire pumps, and the Gen/Aux/Emergency battery banks.",
+     "A standalone 230V AC to 24V DC 110A converter injects supplementary power into the service bus via an F18 (125A) fuse and the SW5 isolator."
+    ]
+   }
+  ],
+  "discarded_as_clutter": [
+   "HVPDU: | HIGH VOLTAGE DC LINK",
+   "MAPS: | MODULAR AUXILARY POWER SYSTEM 600V DC/24V DC",
+   "THESE CONVERTERS ARE PROTECTED FOR OVER-CURRENT AND ELECTRONICALLY FUSED.",
+   "_ CTB 1 = QI-POWER-485-300-LV",
+   "_ CTB 2 = QI-POWER-485-300-LV",
+   "_ CTB 3 = QI-POWER-485-300-LV",
+   "_ CTB 4 = QI-POWER-485-300-LV",
+   "_ CTB 5 = QI-POWER-485-300-LV",
+   "_ CTB 6 = QI-POWER-485-300-LV",
+   "_ CTB 7 = QI-POWER-485-300-LV ( EMERGENCY BAT. )"
+  ],
+  "uncertainties": [
+   "The AC supply source for the '24V 110A' AC/DC converter is not specified beyond 'L N 230V AC'.",
+   "The origin and logic of the control signals connected to T/S S terminals 8-12 (which actuate Relays Re1 and Re2) are off-sheet and not explicitly labelled.",
+   "The specific load for 'SO 8' (fed via the fused terminal on wire 50, F9 125A, and SW10) is unspecified, referencing only 'see DWG 110b'."
+  ],
+  "_model": "gemini-3.1-pro-preview"
+ },
+ "elapsed_s": 107.2,
+ "note": "TRUE per-vendor: this vendor's model both extracted AND composed"
+}

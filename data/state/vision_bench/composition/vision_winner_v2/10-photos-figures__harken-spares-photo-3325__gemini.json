@@ -1,0 +1,44 @@
+{
+ "category": "10-photos-figures",
+ "sheet": "harken-spares-photo-3325",
+ "vendor": "gemini",
+ "drawing_class": "photos",
+ "composition": {
+  "serve_who": "This is a spare-parts photo of a Harken needle roller bearing (part A72931800, qty 2, dimensions 20x26x19), packaged in a labeled bag referencing PO Number \"SWS108#1 ID13398\" and order code SWS108. The bearing is a generic Harken winch service spare \u2014 no specific winch unit is named on the label, so it cannot be attributed to a single specific winch node. Given the Harken brand and winch context of the register (multiple Harken B1111.3/B1235.3 winches and Harken Captive/CT1 items exist on this vessel), the most fitting general destination is the winches/deck gear category; since no specific winch is named, this is recorded as a general Harken spares item without forcing attachment to one specific winch unit.",
+  "equipment_groups": [
+   {
+    "equipment_name": "Harken Needle Roller Bearing (spare part, generic winch service item)",
+    "target_node_id": "230-sailing-items",
+    "placement_reasoning": "Label identifies a Harken-branded needle roller bearing spare part (20x26x19mm) tied to PO SWS108#1, but does not name a specific winch or equipment unit it belongs to. No specific winch model is referenced on the label itself, so it cannot be safely attached to any one of the individual Harken winch nodes (mast/primary/secondary/captive) in the register without guessing. Placed under general sailing/deck items as the closest fitting category for an unattributed Harken deck-gear spare; if the destination winch is later confirmed, this should be moved to that specific node.",
+    "functions": [
+     {
+      "label": "Spare part identity record",
+      "what_it_does": "Documents a Harken needle roller bearing spare part held for the vessel's winch/deck gear maintenance stock.",
+      "flow_scenarios": [
+       {
+        "state": "as-supplied",
+        "path": "Harken (manufacturer) \u2192 packaged spare part \u2192 vessel spares inventory (PO SWS108#1) \u2192 available for installation into a Harken winch bearing seat when required"
+       }
+      ],
+      "dry_data": "Part Number: A72931800; Description: Needle Roller Bearing, dimensions 20 x 26 x 19 mm; Quantity: 2; PO Number: SWS108#1 ID13398; part number: capture exact winch fitment at inspection if ever needed",
+      "key_components": [
+       "Needle roller bearing (A72931800)"
+      ],
+      "sheet_region": "Full frame \u2014 photo of packaged Harken spare part label"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [],
+  "uncertainties": [
+   "Label does not specify which winch or piece of equipment this needle roller bearing is intended to be fitted into \u2014 cannot attribute to a specific Harken winch node (e.g. mast, primary, secondary, captive) without guessing."
+  ],
+  "discarded_as_clutter": [
+   "Customer Reference barcode placeholder (*0000000000*) \u2014 non-informative barcode field",
+   "www.harken.com \u2014 website footer, no equipment data",
+   "Duplicate 'A72931800' Code/Part Number repeat \u2014 same value restated twice on label"
+  ],
+  "_model": "claude-sonnet-5"
+ },
+ "elapsed_s": 24.1
+}

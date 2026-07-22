@@ -1,0 +1,199 @@
+{
+ "category": "7-building-ga",
+ "sheet": "steering-system-ga",
+ "vendor": "anthropic",
+ "drawing_class": "building_ga",
+ "composition": {
+  "serve_who": "This is a BUILDING/STRUCTURAL GA (Steering System GA, dwg 108-01-150-001) \u2014 perspective, plan, section, and detail views showing the twin-rudder steering mechanism installation: bearing structures, sheave boxes, tiller arms, rod links, autopilot ram, and wheel/track drive. It serves the established [150-rudder-blades] (rudder blade structure, already on register) and introduces the steering mechanism itself which belongs to [150-steering-system] (wheel/car/track/sheave/tiller drive train) and [150-autopilot-system] (autopilot ram and its support/mounting). BOM table (items 1-19) cross-references all balloons on the views. Structural facts (positions, dimensions, SWL-type data) attach to these nodes; no flow scenarios per class rules (mechanical linkage, not fluid/electrical schematic) \u2014 though the steering system's mechanical \"flow\" (wheel to rudder) is described qualitatively as a mechanism path per established facts, not a new scenario set.",
+  "equipment_groups": [
+   {
+    "equipment_name": "Steering System (wheel/track/car/sheave/rod-link/tiller drive train)",
+    "target_node_id": "150-steering-system",
+    "placement_reasoning": "The plan view, sections B-B/C-C, and details A/D/E/E all show the mechanical drive train from steering wheel input (implied via track/car item 11/13) through sheave boxes (items 8,9,10), Vectran line (14), rod link (15), to tiller arms (16,17) that rotate the rudder stocks. This is the steering mechanism proper, distinct from the rudder blades themselves and from the autopilot ram, matching node 150-steering-system.",
+    "functions": [
+     {
+      "label": "Wheel-to-rudder mechanical linkage (track/car/sheave/Vectran line/rod link/tiller arm)",
+      "what_it_does": "Converts helm wheel rotation (via track item 11 and assembled car item 13) into a pull on the Vectran line (item 14, 20mm) routed through upper and lower aluminium sheave boxes (items 8, 9) over 100mm aluminium sheaves (item 1) on sheave pin sets (item 10); the line motion is transferred through the carbon-tube rod link with BHD fittings and M16 ball joints (item 15) to the port and stbd assembled racing tiller arms (items 16, 17, 1400mm arm, 600/240 configuration) which rotate the rudder stocks. E-glass wedge stops (item 12) limit travel at the sheave box ends.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/centered helm",
+        "path": "Track (11) + car (13) centered -> Vectran line (14) tension balanced through port and stbd sheave boxes (8,9) -> rod link (15) length set to 2044mm -> tiller arms (16,17) hold rudders at 1.8\u00b0 toe-in (per established fact 150-rudder-blades)"
+       },
+       {
+        "state": "helm turned (wheel input)",
+        "path": "Car (13) moves along track (11) -> pulls Vectran line (14) over sheaves (1) in upper/lower sheave boxes (8,9) -> rod link (15) transmits force via ball joints -> tiller arms (16,17) rotate rudder stocks -> E-glass wedge stops (12) arrest over-travel at the sheave box"
+       },
+       {
+        "state": "toe-in adjustment (fine-tune)",
+        "path": "Rod link (15) length varied 2025mm-2056mm -> toe-in angle at neutral varies 0\u00b0 to 3\u00b0 per table -> length set at build/commissioning, not adjustable underway"
+       }
+      ],
+      "dry_data": "Track item 11: 1100mm long (JP3-00060292, TRIC4510-1100); assembled car item 13; 100mm aluminium sheaves item 1 (qty 10) on sheave pin sets item 10; Vectran line 20mm item 14; rod link carbon tube + BHD fittings + M16 ball joints item 15; tiller arms items 16/17, 1400mm arm, arm 600/240mm, PORT (16) mirrors STBD (17)",
+      "key_components": [
+       "Track (guide rail for car)",
+       "Assembled car (traveling slider, wheel-driven)",
+       "Sheave (line-guide pulley)",
+       "Sheave box upper/lower (housing for sheave)",
+       "Vectran line (tension transmission line)",
+       "Rod link (mechanical push/pull linkage, length-adjustable for toe-in)",
+       "Tiller arm P/S (rudder stock lever arm)",
+       "E-glass wedge stops (mechanical travel limiter)"
+      ],
+      "sheet_region": "Plan view (mid-right, scale 1:20), Section B-B (center), Detail A, Port Lower Sheave Box Detail (top), Details D/E (lower left)"
+     },
+     {
+      "label": "Track support structure",
+      "what_it_does": "Structural mounting of the steering track to the hull/deck structure via a 16mm tapping plate insert, per referenced drawing 108-01-150-006.",
+      "flow_scenarios": [
+       {
+        "state": "installed",
+        "path": "Track (11) -> bolted to 16mm tapping plate insert -> hull/deck structure (see Detail E, dwg 108-01-150-006)"
+       }
+      ],
+      "dry_data": "Tapping plate insert: 16mm, referenced dwg 108-01-150-006",
+      "key_components": [
+       "Tapping plate insert (structural fastening interface)"
+      ],
+      "sheet_region": "Detail E, bottom-left area"
+     },
+     {
+      "label": "Ackermann steering geometry",
+      "what_it_does": "Provides differential (Ackermann) steering angles between inside and outside rudder as car position moves off centerline, per the Ackermann Effect table.",
+      "flow_scenarios": [
+       {
+        "state": "car centered (0mm from CL)",
+        "path": "Inside rudder 1.8\u00b0, Outside rudder -1.8\u00b0"
+       },
+       {
+        "state": "car at 98mm from CL",
+        "path": "Inside rudder 10\u00b0, Outside rudder 6.3\u00b0"
+       },
+       {
+        "state": "car at 212mm from CL",
+        "path": "Inside rudder 20\u00b0, Outside rudder 16.0\u00b0"
+       },
+       {
+        "state": "car at 316.5mm from CL",
+        "path": "Inside rudder 30\u00b0, Outside rudder 25.3\u00b0"
+       },
+       {
+        "state": "car at max 364.3mm from CL (design limit, \u00b1365mm per system notes)",
+        "path": "Inside rudder 35\u00b0, Outside rudder 30.0\u00b0"
+       }
+      ],
+      "dry_data": "Car race travel: \u00b1365mm from CL (system note); geometry table per Ackermann Effect box, bottom right of sheet",
+      "key_components": [
+       "Car race track (defines max lateral travel)"
+      ],
+      "sheet_region": "Bottom-right, Ackermann Effect table and System Notes"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Autopilot System (ram and mounting)",
+    "target_node_id": "150-autopilot-system",
+    "placement_reasoning": "Item 19 (autopilot ram, 300mm stroke) appears in plan and perspective views with a distinct callout 'AUTOPILOT RAM SUPPORT IS BOLTED THROUGH BHD L' and a separate penetration instruction in the tri-beam for pilot rod movement, indicating it is a separate actuation path from the manual wheel/tiller drive train (per established safety notes: 3 independent systems = 2 wheels + pilot).",
+    "functions": [
+     {
+      "label": "Autopilot ram actuation of rudder",
+      "what_it_does": "Provides powered rudder actuation independent of the two steering wheels, per the vessel's 3-independent-systems steering philosophy (established fact on 150-rudder-blades): 2 wheels + autopilot ram, each capable of controlling the rudders if the others fail.",
+      "flow_scenarios": [
+       {
+        "state": "autopilot engaged",
+        "path": "Autopilot ram (19, 300mm stroke) extends/retracts -> pilot rod passes through penetration made in tri-beam (sized to suit pilot rod movement) -> acts on rudder linkage independently of wheel-driven Vectran/rod-link path"
+       },
+       {
+        "state": "single-system failure (per established safety notes)",
+        "path": "If both wheels fail, pilot ram remains in control of rudders (per 150-rudder-blades established fact); if a rod fails, one rudder remains active"
+       }
+      ],
+      "dry_data": "Item 19: Autopilot ram, 300mm stroke, model reference M.arsili-00014326/7/8; qty 1",
+      "key_components": [
+       "Autopilot ram (linear actuator, 300mm stroke)",
+       "Ram support bracket (bolted through BHD L)",
+       "Tri-beam penetration (clearance for pilot rod travel)"
+      ],
+      "sheet_region": "Plan view center-right (item 19 balloon), Section B-B (autopilot ram support callout)"
+     },
+     {
+      "label": "Autopilot ram mounting/support",
+      "what_it_does": "Structurally supports the autopilot ram against bulkhead BHD L, with reinforcement plates.",
+      "flow_scenarios": [
+       {
+        "state": "installed",
+        "path": "Ram support bracket -> bolted through BHD L -> bond tapping plates on forward face of BHD L for reinforcement"
+       }
+      ],
+      "dry_data": "Mounting: bolted through BHD L; bond tapping plates on FWD face",
+      "key_components": [
+       "Bond tapping plates (reinforcement doubler at bolt-through location)"
+      ],
+      "sheet_region": "Section B-B area, callout 'AUTOPILOT RAM SUPPORT IS BOLTED THROUGH BHD L / BOND TAPPING PLATES ON FWD FACE'"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Rudder Blades (P+S, mirrored) \u2014 bearing/mounting hardware update",
+    "target_node_id": "150-rudder-blades",
+    "placement_reasoning": "This sheet adds the bearing structure hardware (upper/lower bearing housings, water-tight neoprene tube, rudder retainer) that mount and seal each rudder stock, supplementing the already-established rudder blade facts (toe-in, Ackermann, 3-system safety) with the physical bearing/seal hardware positions.",
+    "functions": [
+     {
+      "label": "Rudder stock bearing and watertight seal assembly",
+      "what_it_does": "Supports and seals each rudder stock at two points (upper 180mm bearing, lower 220mm bearing) inside GRP bearing housings, with a neoprene watertight tube sealing the shaft penetration through the hull, retained by an aluminium rudder retainer at the top.",
+      "flow_scenarios": [
+       {
+        "state": "installed (per rudder, P and S mirrored)",
+        "path": "Rudder stock -> 220mm bottom rudder bearing (item 2) in GRP housing (item 3) at hull bottom -> 180mm top rudder bearing (item 4) in GRP housing (item 5) at upper structure -> neoprene watertight tube (item 6, \u2300305mm) seals shaft through hull shell -> aluminium rudder retainer (item 7) caps/retains stock at top"
+       }
+      ],
+      "dry_data": "Item 2: 220mm bottom rudder bearing (Solimar-00014986, 8030L220-01), qty 2; Item 3: 220mm bearing housing GRP (8038G220), qty 2; Item 4: 180mm top rudder bearing (Solimar-00014984, 8030P180-01), qty 2; Item 5: 180mm bearing housing GRP (8038P180), qty 2; Item 6: neoprene watertight tube \u2300305mm (SIP0L305), qty 2; Item 7: aluminium rudder retainer (SWS Rudderretainer), qty 2",
+      "key_components": [
+       "Bottom rudder bearing (main thrust/radial bearing)",
+       "Top rudder bearing (upper guide bearing)",
+       "GRP bearing housings (structural mounting for bearings)",
+       "Neoprene watertight tube (shaft seal, dynamic)",
+       "Aluminium rudder retainer (axial retention cap)"
+      ],
+      "sheet_region": "Perspective view upper-left (Upper Bearing Structure dwg 108-05-151-001, Lower Bearing Structure dwg 108-05-151-002), Section C-C (bottom-left)"
+     },
+     {
+      "label": "Rudder blade structural mounting (hull penetration)",
+      "what_it_does": "Physical positioning of each rudder stock penetration through the hull shell, referenced to station and waterline datums.",
+      "flow_scenarios": [],
+      "dry_data": "Rudder blade item 18 (108-01-140-00042978, ISOTOP/FRP), qty 2, unit mass 107.5kg; hull penetration on outer skin at 2130mm/2722mm/2750mm from CL (per plan view dims); DATUM 0 / DWL waterline references in Section C-C",
+      "key_components": [
+       "Hull shell penetration (rudder tube location)"
+      ],
+      "sheet_region": "Plan view, Section C-C, DWL/DATUM 0 references"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "Hull/structural framing at steering installation (tri-beams, bulkheads, partitions)",
+    "target_node_id": "no fitting node",
+    "facts": [
+     "Tri-beam 11, 6+7 provide structural support crossing the steering compartment; tri-beam 11 has a penetration made to suit pilot rod movement (autopilot ram clearance).",
+     "BHD L is the bulkhead through which the autopilot ram support is bolted, reinforced with bond tapping plates on its forward face.",
+     "Partition LM1 (port) and Partition LM2 (stbd) are bulkhead partitions adjacent to each rudder stock, hidden in Section B-B view.",
+     "STN 10 station line and DWL (design waterline) are structural/dimensional reference datums used throughout the plan and section views.",
+     "This is shared vessel structure (hull shell, bulkheads, tri-beams) supporting the steering system installation, not itself an item of equipment \u2014 no equipment node fits; retained as infrastructure context only."
+    ]
+   }
+  ],
+  "uncertainties": [
+   "Item BOM part numbers for several bearing/housing components (e.g., Solimar-00014986, 8038G220) are legible in the table but their supplier/manufacturer detail beyond 'Solimar' is not further specified on sheet \u2014 part number capture at inspection if ever needed, not a functional uncertainty.",
+   "Exact material/weight breakdown for items 15-17 (rod link, tiller arms) shows FRP/ALU(AG) material codes that are abbreviated on sheet; full material spec not decoded beyond what is legibly stated.",
+   "Whether the steering wheel/helm station itself (upstream of the track/car) is shown on this sheet is unclear \u2014 the track/car mechanism is shown but the wheel pedestal itself is not depicted in the extracted views; sheet may be cut off before the helm station."
+  ],
+  "discarded_as_clutter": [
+   "Standard drawing notes (do not scale, projection angle, dimension tolerances, break sharp edges) \u2014 administrative/legend boilerplate",
+   "Title block fields (approved/reviewed by, dates, drawing number, revision history A/B) \u2014 record-keeping metadata, not equipment fact",
+   "Detail/Section/View scale and orientation labels (Detail A 1:10, Section B-B 1:20, etc.) already captured as sheet_region citations rather than standalone facts",
+   "BOM header row and 'TOTAL' mass row \u2014 table formatting, not equipment fact"
+  ],
+  "_model": "claude-sonnet-5"
+ },
+ "elapsed_s": 66.7
+}

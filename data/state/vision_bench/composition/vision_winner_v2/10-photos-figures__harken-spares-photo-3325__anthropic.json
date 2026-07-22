@@ -1,0 +1,36 @@
+{
+ "category": "10-photos-figures",
+ "sheet": "harken-spares-photo-3325",
+ "vendor": "anthropic",
+ "drawing_class": "photos",
+ "composition": {
+  "serve_who": "This is a photo of a Harken spare-parts bag (packing slip stapled to a sealed clear plastic bag) documenting a spares order for a Harken component: Needle Roller Bearing, 120x126x19, Qty 2, Part Number A72931800, PO Number SWS108#1 ID13398. The label itself does not name which Harken winch/furler/tensioner the bearings are for \u2014 Harken supplies many distinct pieces of equipment on this vessel (mast winches, primary/secondary winches, captive winch, captive tensioner). Since no equipment name, model, or system tag appears on the label to disambiguate among these, this identity fact cannot be safely attached to any single Harken node under the drawn-line law (no drawn/printed link ties it to one specific unit). It is recorded here as an unattached spares/identity fact pending inspection to confirm fitment.",
+  "equipment_groups": [],
+  "infrastructure": [
+   {
+    "system_name": "Harken spare parts / spares stock (unassigned to specific Harken unit)",
+    "facts": [
+     "Part Number: A72931800",
+     "Description: Needle Roller Bearing, dimension 120x126x19 (mm, presumed)",
+     "Quantity: 2",
+     "PO Number: SWS108#1 ID13398",
+     "Customer Reference: A72931800 (same as part number)",
+     "Source: Harken (www.harken.com) official parts packaging with printed packing slip",
+     "No equipment name, winch model, or location printed on the label to identify which specific Harken unit (mast winch, primary/secondary winch, captive winch, captive tensioner, furler) this bearing set belongs to"
+    ],
+    "target_node_id": "500-spares-recomended-by-sws"
+   }
+  ],
+  "uncertainties": [
+   "The label does not specify which Harken equipment (mast winch B1111.3, primary/secondary winch B1235.3, captive winch/tensioner, or a Bamar furler drive) the Needle Roller Bearing 120x126x19 (Qty 2) is intended for. Multiple Harken-branded winches/components exist in the register; attaching this spares record to any single one would be an invented connection. Recommend confirming fitment against the specific winch/furler service manual at inspection."
+  ],
+  "discarded_as_clutter": [
+   "Barcode graphic (*000000000000*) - non-informational placeholder barcode",
+   "\"Code\" field - left blank on label, no value present",
+   "Repeated part number under both 'Part Number' and 'Customer Reference' fields - same value, not a distinct fact",
+   "www.harken.com footer - vendor branding, not equipment data"
+  ],
+  "_model": "claude-sonnet-5"
+ },
+ "elapsed_s": 20.3
+}

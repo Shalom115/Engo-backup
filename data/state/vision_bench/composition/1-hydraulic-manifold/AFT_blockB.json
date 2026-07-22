@@ -1,139 +1,132 @@
 {
- "category": "1-hydraulic-manifold",
  "sheet": "AFT_blockB",
  "drawing_class": "hydraulic",
  "composition": {
-  "serve_who": "This sheet is a Danfoss PVG 32/16 hydraulic manifold (\"AFT BLOCK B\") providing 3 functions all explicitly labelled/legended for the STERN THRUSTER: STERN THRUSTER (main proportional drive, PVG32/EV-9.1), S.T. UP/DOWN (lift, PVG16/EV-9.2), and S.T. LOCK (locking cylinder, PVG16/EV-9.3). All three slices share the same title-block heading and are grouped under a single legend block naming the stern thruster repeatedly, so per the class rule they all serve equipment 461-stern-thruster-oms-h250. The manifold body itself (P/T/M/LS/LS_A/LS_B rails, inlet section, common relief/limiter cartridges on the shared rail) is shared block infrastructure and is attached to the block node 570-danfoss-pvg-32-16-aft-blockb rather than to the thruster.",
+  "serve_who": "This sheet (AFT BLOCK B, Danfoss PVG 32/16 - 3 functions) serves two established equipment nodes: the stern thruster (461-stern-thruster-oms-h250) via all three labelled slices \u2014 STERN THRUSTER (EV-9.1, lift/rotation), S.T. UP/DOWN (EV-9.2, lift up/down), and S.T. LOCK (EV-9.3, lock in/out) \u2014 since all three headings explicitly name the stern thruster function set (thrust, lift, lock), and the engineer's confirmed mapping and pressure_settings fact already attach EV-9.1/9.2/9.3 to 461-stern-thruster-oms-h250. The block's own inlet/relief/rail infrastructure serves the manifold node 570-danfoss-pvg-32-16-aft-blockb.",
   "equipment_groups": [
    {
-    "equipment_name": "Stern Thruster (OMS H-250)",
+    "equipment_name": "461-stern-thruster-oms-h250",
+    "placement_reasoning": "All three function slices on this sheet are labelled STERN THRUSTER / S.T. UP/DOWN / S.T. LOCK, matching the engineer-confirmed mapping for stern thruster, stern thruster lift, and stern thruster lock to node 461-stern-thruster-oms-h250. Engineer pressure_settings fact already ties EV-9.1/9.2/9.3 and their bar values to this node.",
     "target_node_id": "461-stern-thruster-oms-h250",
-    "placement_reasoning": "All three function slices on this sheet are labelled STERN THRUSTER, S.T. UP/DOWN, and S.T. LOCK, and the shared legend block ties EV-9.1/9.2/9.3 together under one heading naming the stern thruster. Per engineer-confirmed mapping and class rule, all slices sharing this label set attach to the stern thruster node.",
     "functions": [
      {
-      "label": "STERN THRUSTER (azimuth/pitch drive, EV-9.1)",
       "function_id": "EV-9.1",
-      "sheet_region": "left third of sheet, ~x 0.33-0.47, PVG32 module column under 'STERN THRUSTER' heading",
-      "what_it_does": "Proportionally drives the stern thruster's main directional actuator toward STBD or PORT in proportion to a 0-10V command, using an open-center spool so oil flows freely to tank when no command is present.",
-      "key_components": [
-       "PVEU proportional pilot actuator (main directional control, part 11166832)",
-       "Main proportional spool (open-neutral center, part 157B7123)",
-       "Work-port relief cartridges A and B (part 157B2280 x2, protect A/B lines)",
-       "LS_A / LS_B pressure limiter cartridges (load-sense signal cap)",
-       "Inlet anti-cavitation check on P line"
-      ],
+      "label": "STERN THRUSTER (rotation/thrust)",
+      "sheet_region": "left third of sheet, ~x0.33-0.47",
+      "what_it_does": "Proportionally drives the stern thruster's directional actuator toward STBD or PORT depending on a 0-10V analog command, with the spool resting open-center at no-signal so pump flow free-circulates to tank when the thruster is idle.",
       "flow_scenarios": [
        {
-        "state": "Neutral (no command / signal at center)",
-        "path": "P enters module bottom, passes through open-center main spool 157B7123 directly to T return rail; A and B work ports are blocked from load; LS_A/LS_B see no pressure signal."
+        "state": "Neutral (no/mid signal)",
+        "path": "Spool 157B7123 sits open-neutral: pressure rail P flows straight through the open spool center to tank return T; A and B work ports are not pressurised; LS lines relax to tank via the LS_A/LS_B limiter cartridges (both set to 250 bar)."
        },
        {
-        "state": "Signal <5V (command TO STBD)",
-        "path": "P \u2192 main spool shifted by PVEU pilot \u2192 A port \u2192 off-sheet to STBD-side thruster actuator; return oil from B port \u2192 spool \u2192 T rail; LS signal taken from A side, capped at 250 (assumed bar) by LS_A limiter cartridge."
+        "state": "Signal <5V \u2014 TO STBD",
+        "path": "PVEU pilot module shifts spool so P feeds work port A, routed off-sheet to the STBD-side thruster actuator; return oil comes back on port B through the spool to T; LS signal is taken from the A-side path, capped at 250 bar by the LS_A limiter cartridge."
        },
        {
-        "state": "Signal >5V (command TO PORT)",
-        "path": "P \u2192 main spool shifted opposite \u2192 B port \u2192 off-sheet to PORT-side thruster actuator; return oil from A port \u2192 spool \u2192 T rail; LS signal taken from B side, capped at 250 (assumed bar) by LS_B limiter cartridge."
+        "state": "Signal >5V \u2014 TO PORT",
+        "path": "PVEU pilot module shifts spool the other way so P feeds work port B, routed off-sheet to the PORT-side thruster actuator; return oil comes back on port A through the spool to T; LS signal is taken from the B-side path, capped at 250 bar by the LS_B limiter cartridge."
        },
        {
-        "state": "Over-pressure protection, A port",
-        "path": "If A-side load pressure exceeds 280 (assumed bar) relief setting, cartridge 157B2280 opens dumping A port oil to the common P/T rail, protecting the STBD actuator/hose."
+        "state": "Over-pressure protection, A side",
+        "path": "If A-port load pressure exceeds 280 bar, the A work-port relief cartridge opens and dumps A-port oil to the common P/T rail, protecting the STBD actuator/hose."
        },
        {
-        "state": "Over-pressure protection, B port",
-        "path": "If B-side load pressure exceeds 280 (assumed bar) relief setting, cartridge 157B2280 opens dumping B port oil to the common P/T rail, protecting the PORT actuator/hose."
+        "state": "Over-pressure protection, B side",
+        "path": "If B-port load pressure exceeds 280 bar, the B work-port relief cartridge opens and dumps B-port oil to the common P/T rail, protecting the PORT actuator/hose."
        }
       ],
-      "dry_data": "PVG32 module, spool rated 65 lt/min, PVEU proportional actuation 0-10V (<5V=A/to STBD, >5V=B/to PORT), open-neutral center position, work-port reliefs 280 (assumed bar) x2, LS limiters 250 (assumed bar) x2"
+      "key_components": [
+       "PVEU proportional pilot module \u2014 directs the main spool per 0-10V signal",
+       "Main directional proportional spool (open-neutral center) \u2014 part 157B7123",
+       "Work-port relief, A side \u2014 set 280 bar (part 157B2280)",
+       "Work-port relief, B side \u2014 set 280 bar (part 157B2280)",
+       "LS limiter cartridge, A side \u2014 set 250 bar (per engineer pressure_settings fact)",
+       "LS limiter cartridge, B side \u2014 set 250 bar (per engineer pressure_settings fact)"
+      ],
+      "dry_data": "PVG 32 module, spool 65 l/min, PVEU 0-10V proportional actuation, <5V=A(STBD)/>5V=B(PORT), open-neutral position"
      },
      {
-      "label": "S.T. UP/DOWN (lift function, EV-9.2)",
       "function_id": "EV-9.2",
-      "sheet_region": "middle third of sheet, ~x 0.47-0.63, PVG16 module column under 'S.T. UP/DOWN' heading",
-      "what_it_does": "Raises or lowers the retractable stern thruster unit on solenoid ON/OFF command; a closed-center spool holds the thruster in position when no command is active.",
-      "key_components": [
-       "PVG16 directional spool with PVEO solenoid pilot stage (part 11166838)",
-       "Work-port relief/anti-cavitation cartridges on A and B lines (settings not legible)",
-       "Orifice/restrictor labeled 100 in return branch"
-      ],
+      "label": "S.T. UP/DOWN (thruster lift)",
+      "sheet_region": "center of sheet, ~x0.47-0.63",
+      "what_it_does": "On/off drive that raises (UP) or lowers (DOWN) the stern thruster unit into or out of its housing; spool is closed-center at rest so the thruster stays locked in position with no command.",
       "flow_scenarios": [
        {
         "state": "Neutral (de-energized)",
-        "path": "Closed-center spool blocks P from both A and B work ports; thruster lift stays locked in position, no flow to either port."
+        "path": "Spool closed-center: P is blocked, both A and B work ports isolated \u2014 thruster lift actuator holds its current up/down position with no flow either way."
        },
        {
         "state": "Energized UP (A)",
-        "path": "Solenoid pilot shifts spool: P \u2192 A port \u2192 thruster lift cylinder (raises unit); return flow from B port \u2192 spool \u2192 T return rail."
+        "path": "PVEO pilot module shifts spool so P feeds work port A (UP), driving the lift actuator upward; return oil from the opposite side returns via the spool to the common T rail; load-sensing pressure relief on this circuit limits to 100 bar."
        },
        {
         "state": "Energized DOWN (B)",
-        "path": "Solenoid pilot shifts spool opposite direction: P \u2192 B port \u2192 thruster lift cylinder (lowers unit); return flow from A port \u2192 spool \u2192 T return rail."
-       },
-       {
-        "state": "Work-port over-pressure protection",
-        "path": "If pressure spike occurs on the active work line beyond the relief cartridge setting (value not legible), the cartridge on that port opens, dumping excess oil to the common T return rail."
+        "path": "PVEO pilot module shifts spool the other way so P feeds work port B (DOWN), driving the lift actuator downward; return oil comes back through the spool to T; load-sensing pressure relief limits to 100 bar."
        }
       ],
-      "dry_data": "PVG16 module, spool rated 5 lt/min, PVEO ON/OFF solenoid actuation, closed-neutral center position (UP=A / DOWN=B)"
+      "key_components": [
+       "PVEO ON/OFF pilot module \u2014 solenoid-actuated pilot stage on top of main spool",
+       "Main directional spool (closed-center neutral)",
+       "Load-sensing pressure relief \u2014 set 100 bar (per engineer pressure_settings fact)"
+      ],
+      "dry_data": "PVG 16 module, spool 5 l/min, PVEO ON/OFF actuation, UP=A / DOWN=B, closed-neutral position"
      },
      {
-      "label": "S.T. LOCK (locking cylinder, EV-9.3)",
       "function_id": "EV-9.3",
-      "sheet_region": "right third of sheet, ~x 0.63-0.8, PVG16 module column under 'S.T. LOCK' heading",
-      "what_it_does": "Engages or releases the mechanical lock securing the stern thruster in its lowered/deployed position, via ON/OFF solenoid command; closed-center neutral holds the lock state when not commanded.",
-      "key_components": [
-       "PVG16 directional spool with PVEO solenoid pilot stage (shared part family 11166838 per legend)",
-       "Pilot-operated check/shuttle element on sensing branch (part 11105532)",
-       "Solenoid coil (marked '70', likely a coil parameter not a hydraulic setting)"
-      ],
+      "label": "S.T. LOCK (thruster lock)",
+      "sheet_region": "right of sheet, ~x0.63-0.80",
+      "what_it_does": "On/off drive that locks (IN) or unlocks (OUT) the stern thruster's mechanical lock, securing the unit once positioned by the S.T. UP/DOWN function; closed-center at rest so the lock holds its state without continuous flow.",
       "flow_scenarios": [
        {
         "state": "Neutral (de-energized)",
-        "path": "Closed-center spool blocks flow to A and B ports; lock cylinder holds its current state (locked or unlocked) with no oil movement."
+        "path": "Spool closed-center: P blocked, both A (IN) and B (OUT) work ports isolated \u2014 lock actuator holds its last commanded state."
        },
        {
         "state": "Energized IN (A)",
-        "path": "Solenoid pilot shifts spool: P \u2192 A port \u2192 lock cylinder (drives lock IN/engaged); return flow from B port \u2192 spool \u2192 T return rail (exact downstream routing beyond this crop not fully traceable)."
+        "path": "PVEO pilot module shifts spool so P feeds work port A (IN), driving the lock actuator to engage; return oil comes back via the spool to T; load-sensing pressure relief on this circuit limits to 70 bar."
        },
        {
         "state": "Energized OUT (B)",
-        "path": "Solenoid pilot shifts spool opposite direction: P \u2192 B port \u2192 lock cylinder (drives lock OUT/released); return flow from A port \u2192 spool \u2192 T return rail (exact downstream routing beyond this crop not fully traceable)."
+        "path": "PVEO pilot module shifts spool the other way so P feeds work port B (OUT), driving the lock actuator to disengage; return oil comes back via the spool to T; load-sensing pressure relief limits to 70 bar."
        }
       ],
-      "dry_data": "PVG16 module, spool rated 5 lt/min (per sheet legend for ON/OFF functions), PVEO ON/OFF solenoid actuation, closed-neutral center position (IN=A / OUT=B)"
+      "key_components": [
+       "PVEO ON/OFF pilot module",
+       "Main directional spool (closed-center neutral)",
+       "Load-sensing pressure relief \u2014 set 70 bar (per engineer pressure_settings fact)"
+      ],
+      "dry_data": "PVG 16 module, spool 5 l/min, PVEO ON/OFF actuation, IN=A / OUT=B, closed-neutral position"
      }
     ]
    }
   ],
-  "infrastructure": {
-   "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
-   "facts": [
-    "Block designation: AFT BLOCK B, Danfoss PVG 32/16, 3 functions (STERN THRUSTER, S.T. UP/DOWN, S.T. LOCK), sheet 7 of 12, rev 10.",
-    "Shared rails along bottom of sheet: P (pressure inlet), T (tank return), M (measurement/gauge port), LS (load-sense main), LS_A and LS_B (load-sense A/B taps) \u2014 common to all three modules.",
-    "Common inlet/relief section at far left (near M/LS rails) contains a standalone PVEU 65 lt/min inlet valve assembly (part 11166832) with work-port reliefs, LS shuttle/check network, and an LS margin relief/limiter set at 300 (units illegible, assumed bar) \u2014 this is block inlet infrastructure feeding the STERN THRUSTER module, not a separate function.",
-    "Line identifiers along the shared rail: 157B5111, 157B6233, 11130982, 157B2014 label rail/bus segments between modules.",
-    "Multiple red warning-triangle markers appear at valve tops across EV-9.2 and EV-9.3 sections; meaning not confirmed at this resolution.",
-    "Revision 10 (16/04/2026) modification note for this sheet: 'PROPORTIONAL AFT WINCHES' \u2014 relevance to this specific block unclear, included for traceability."
-   ]
-  },
+  "infrastructure": [
+   {
+    "system_name": "Danfoss PVG 32/16 AFT block B manifold",
+    "target_node_id": "570-danfoss-pvg-32-16-aft-blockb",
+    "facts": [
+     "Common rails run along the sheet bottom: P (pressure inlet), T (tank return), M (measurement/gauge port), LS (load-sense), LS_A and LS_B (load-sense A/B taps) \u2014 shared by all three stern-thruster function slices.",
+     "Inlet section (bottom-left, part 11166832/157B5111 area) hosts the block-level standalone pressure valve; per engineer convention this reduced-pressure valve supplies SPOOL CONTROL (pilot) pressure to the slices.",
+     "Block main relief present in the inlet section, protecting the whole AFT block B manifold (per engineer block_relief convention: inlet-section relief = main block pressure relief, in bar); numeric value not legible on this crop.",
+     "Red warning triangles appear at several valve positions on EV-9.1/EV-9.2/EV-9.3 \u2014 these are revision markers tied to rev.10 row 'PROPORTIONAL AFT WINCHES' per the sheet's own revision table, not unidentified components."
+    ]
+   }
+  ],
   "uncertainties": [
-   "Units on the 280 (work-port relief) and 250 (LS limiter) settings on EV-9.1 not printed \u2014 assumed bar but unconfirmed.",
-   "Units and exact identity of the 300 setting on the inlet-section LS margin relief \u2014 assumed bar but unconfirmed.",
-   "Exact pressure/flow settings on EV-9.2 work-port relief cartridges (A and B sides) not legible.",
-   "Units on the '100' labeled orifice/restrictor in EV-9.2 not confirmed (bar vs l/min).",
-   "Meaning of the number '70' near the EV-9.3 solenoid coil not confirmed \u2014 may be a coil electrical parameter rather than a hydraulic setting.",
-   "Role/identity of small valve block with red warning triangle at bottom-left of EV-9.1 crop not fully traceable.",
-   "Full downstream A/B port routing for EV-9.3 (S.T. LOCK) beyond the bottom crop edge not traceable \u2014 destination of ports unconfirmed.",
-   "Function of several small check/shuttle/parallel-bar symbols )( in EV-9.2 and EV-9.3 not confirmed.",
-   "Part numbers on many small internal cartridges too small to confirm at this resolution; a high-res re-read would be needed to verify."
+   "Exact bar value of the standalone block-inlet pressure-reducing/relief valve near the M/LS rails is not legibly printed in this crop.",
+   "Part numbers on several internal check/shuttle symbols (e.g. small diamond checks under the pilot modules) are present but too small to confirm at this resolution; function is understood (LS signal shuttle/check network) even though the exact part ID is unconfirmed.",
+   "The routing of hoses from EV-9.1's A/B work ports off-sheet to the STBD/PORT thruster actuator halves is per the printed A/B legend mapping (TO STBD <5V=A / TO PORT >5V=B); the physical hose destination beyond the sheet edge is not itself drawn, so it is taken from the legend, not traced pixel-by-pixel."
   ],
   "discarded_as_clutter": [
-   "Legend notes_block (duplicate restatement of EV-9.1/9.2/9.3 spec text already captured in function entries)",
-   "Full revision history table rows 0-9 (administrative modification log, not equipment data; only most recent row noted for traceability)",
-   "Title block company/contact info (MYT Systems address, job number, drawn/checked names) - drawing meta, not equipment data",
-   "'Inlet section / standalone valve (unlabeled, near M/LS rails)' extraction slice - this is block inlet infrastructure duplicating EV-9.1 detail, moved to infrastructure node instead of a 4th function"
+   "Revision table rows 0-9 (superseded modification history, not relevant to current equipment function)",
+   "Title block company/contact details (MYT Systems address, phone, email)",
+   "Duplicate part-number legend restating spool/actuation specs already captured in slice specs",
+   "Illegible small circle/arrow (\u27e8o\u27e9) symbols near bottom of EV-9.2/EV-9.3 whose function could not be resolved beyond speculation \u2014 omitted rather than force-labeled"
   ],
-  "_model": "claude-sonnet-5"
+  "_model": "claude-sonnet-5",
+  "_protocol_version": 3
  },
- "elapsed_s": 41.2
+ "elapsed_s": 40.8,
+ "note": "RE-COMPOSED v3 2026-07-22 proof"
 }

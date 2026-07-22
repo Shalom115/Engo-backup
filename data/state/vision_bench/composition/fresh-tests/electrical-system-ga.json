@@ -1,270 +1,445 @@
 {
- "sheet": "108-01-600-001b Electrical System GA",
+ "sheet": "electrical-system-ga",
  "drawing_class": "building_ga",
  "composition": {
-  "serve_who": "This is the vessel's overall ELECTRICAL SYSTEM GA (108-01-600-001), showing interior/technical-space plan views for equipment location context plus a full single-line electrical schematic. The schematic's own titled boxes define distinct DC bus/board systems (24V Service/Vessel LVPDU, 24V Backup Generator Start Board, 24V Emergency Board, 24V GMDSS Board), the BAE Hybrid propulsion/energy system (ISG port+stbd, MAPS P/S, BEL inverters, EDN chargers, HVPDU, 600V DC bus), the Shore Power system, the 230V AC Main Panel/bus, the BAE cooling circulation pump group, and the steering helm stations. Each named box/system is attached to its own node per the sheet's own section titles; equipment named directly on the schematic (batteries, chargers, pumps, HVPDU) is attached to its established node, while generic bus/board/rail infrastructure with no equipment identity of its own is logged under infrastructure.",
+  "serve_who": "This sheet is the vessel's Electrical System GA (108-01-600-001, SW 108). It comprises two views: (1) an interior plan (deck plan with cabin/compartment layout and frame stations) whose only electrical content is a set of location callouts for battery banks (GMDSS, Emergency, Engine Start) near the engine room/tech room, and a technical-spaces plan view showing the physical arrangement of BAE hybrid-drive equipment (ISG-P/S, MPCS-P/S, BEL1/2-P/S, MAPS-P/S, EDN-P/S, ESS1-3) in the engine room; and (2) a full one-line electrical schematic covering shore power intake, the 24V DC bus structure (Service/vessel LVPDU, Backup Generator Start, Emergency, GMDSS boards), the BAE Systems hybrid propulsion/energy system (ISG, MPCS, HVPDU, MAPS, BEL inverters, EDN chargers, ESS), the 230V AC bus and Main AC Panel, and the various pump/consumer groups (liquid cooling circulation pumps, steering helm stations) fed from these buses. Evidence: title block reads 'ELECTRICAL SYSTEM GA'; the legend defines AC/DC line colors, contactors, switches, solenoids; boxed sections are explicitly labelled (24V SERVICE BOARD, 24V BACKUP GENERATOR START BOARD, 24V EMERGENCY BOARD, 24V GMDSS BOARD, MAIN AC PANEL, BAE SYSTEMS SUPPLY, LIQUID COOLING CIRCULATION PUMPS, STEERING HELM STATIONS).",
   "equipment_groups": [
    {
-    "equipment_name": "Generator Start Battery Bank (24V)",
-    "target_node_id": "633-battery-gen-start",
-    "placement_reasoning": "Labelled 'BACKUP GENERATOR START BATTERIES (x2)' feeding the '24V BACKUP GENERATOR START BOARD' bus box directly below it via drawn red/black lines.",
+    "equipment_name": "BAE Hybrid System (hub) / Integrated Starter Generators (ISG Port & Stbd)",
+    "target_node_id": "625-bae-system",
+    "placement_reasoning": "The two 'BAE SYSTEMS SUPPLY' boxes each show an engine driving an alternator/'INTEGRATED STARTER GENERATOR' feeding an MPCS, matching the ISG nodes; the overall hybrid drive/energy hub is the BAE system node.",
     "functions": [
      {
-      "label": "Supplies starting power to backup generator start circuit",
-      "what_it_does": "Two 24V oil/water-resistant batteries connected to the 24V Backup Generator Start Board bus; note states generators are usually started directly off this board via MAPS start motors, with the board itself as an additional start method.",
+      "label": "Engine-driven starter/generator supplies propulsion power system",
+      "what_it_does": "Each main engine (port and stbd, labelled 'INTEGRATED STARTER GENERATOR PROPULSION SYSTEM ISG') drives an alternator that feeds its Modular Propulsion Control System (MPCS), which in turn connects to the 600V DC bus for hybrid propulsion.",
       "flow_scenarios": [
        {
-        "state": "normal (engine crank)",
-        "path": "Gen-start battery bank (x2) \u2192 +24V DC bus (Backup Gen Start Board) \u2192 link to 24V Service Board (NEG bus link, NC solenoid) \u2192 MAPS start motors"
-       },
-       {
-        "state": "NC solenoid interlock",
-        "path": "solenoid between Service Board and Backup Gen Start Board only closes to prevent additional start method in listed engine modes (1. service, 2. ignition, 3. aux)"
+        "state": "normal generation",
+        "path": "Engine (port or stbd) \u2192 ISG/alternator \u2192 MPCS-P/-S \u2192 600V DC bus (magenta line) \u2192 HVPDU / drive-train consumers"
        }
       ],
-      "dry_data": "2x 24V lead-acid batteries, board linked to Service Board via NC solenoid and link bus bars",
-      "sheet_region": "top-center schematic, above '24V BACKUP GENERATOR START BOARD'"
-     }
-    ]
-   },
-   {
-    "equipment_name": "Emergency Battery Bank (24V)",
-    "target_node_id": "632-battery-emergency",
-    "placement_reasoning": "Labelled 'EMERGENCY BATTERIES (x2)' feeding the '24V EMERGENCY BOARD' bus box, with dedicated NC solenoid and 'EMERGENCY USERS' output.",
-    "functions": [
+      "key_components": [
+       "ISG alternator",
+       "MPCS controller",
+       "Hydraulic motor \u2014 port/stbd steering pump (ancillary, driven off same shaft per diagram note)"
+      ],
+      "dry_data": "600V DC bus, engine-mounted starter/generator, per-side (port/stbd) mirrored installation",
+      "sheet_region": "Lower-left of schematic, two 'BAE SYSTEMS SUPPLY' boxes with engine icons"
+     },
      {
-      "label": "Supplies emergency 24V users",
-      "what_it_does": "Two 24V batteries maintain the Emergency Board bus, powering emergency users; NC solenoid to the backup gen-start link only closes on loss of backup generator start batteries.",
+      "label": "Emergency backup switch / shaft-driven emergency supply",
+      "what_it_does": "A dedicated 'EMERGENCY BACKUP SWITCH' box with its own BAE Systems supply feeds into the 24V control/monitor and 600V DC bus network, providing a backup path independent of the main ISG drive.",
       "flow_scenarios": [
        {
-        "state": "normal standby",
-        "path": "Emergency battery bank \u2192 +24V DC bus (Emergency Board) \u2192 Emergency Users output"
-       },
-       {
-        "state": "backup interlock closure",
-        "path": "NC solenoid between Backup Gen Start Board link and Emergency Board closes only in the event of loss of backup generator start batteries"
+        "state": "backup activated",
+        "path": "Shaft-driven backup unit \u2192 Emergency Backup Switch \u2192 BAE Systems Supply \u2192 24V/600V bus network"
        }
       ],
-      "dry_data": "2x 24V batteries, NC solenoid interlock, dedicated Emergency Users feed",
-      "sheet_region": "top-center schematic, '24V EMERGENCY BOARD' box"
-     }
-    ]
-   },
-   {
-    "equipment_name": "GMDSS Battery Bank (24V)",
-    "target_node_id": "631-battery-gmdss",
-    "placement_reasoning": "Labelled 'COMMS/GMDSS BATTERIES (x2)' feeding the '24V GMDSS BOARD' with dedicated 'COMMS USERS' output.",
-    "functions": [
-     {
-      "label": "Supplies comms/GMDSS users",
-      "what_it_does": "Two 24V batteries maintain the GMDSS Board bus feeding dedicated comms users, linked to Emergency Board via link bus.",
-      "flow_scenarios": [
-       {
-        "state": "normal standby",
-        "path": "GMDSS battery bank \u2192 +24V DC bus (GMDSS Board) \u2192 Comms Users output"
-       }
+      "key_components": [
+       "Emergency backup switch"
       ],
-      "dry_data": "2x 24V batteries, board linked to Emergency Board",
-      "sheet_region": "top-center schematic, '24V GMDSS BOARD' box"
-     }
-    ]
-   },
-   {
-    "equipment_name": "Mastervolt Battery Chargers (Gen-Start / Emergency / GMDSS)",
-    "target_node_id": "621-mastervolt-chargers",
-    "placement_reasoning": "Three charger icons ('DIESEL MOTORS CHARGER' labelled units) drawn below the three battery boards, each fed from the blue 230V AC bus and outputting to the respective DC board \u2014 matches Mastervolt charger group per node index (gen-start/emergency/GMDSS individual chargers).",
-    "functions": [
-     {
-      "label": "Charges backup generator start, emergency, and GMDSS battery banks from AC bus",
-      "what_it_does": "Three separate battery chargers, each wired from the 230V AC bus up to their respective 24V board (Backup Gen Start, Emergency, GMDSS), maintaining charge on each isolated battery bank.",
-      "flow_scenarios": [
-       {
-        "state": "normal charging",
-        "path": "230V AC Bus (Main AC Panel) \u2192 charger unit \u2192 +24V DC bus of respective board (Backup Gen Start / Emergency / GMDSS)"
-       }
-      ],
-      "dry_data": "3x diesel-motor-style charger units, 230V AC input / 24V DC output, one per board",
-      "sheet_region": "mid schematic, three charger icons below the battery boards feeding down toward AC bus"
-     }
-    ]
-   },
-   {
-    "equipment_name": "BAE Hybrid System \u2014 ISG Port",
-    "target_node_id": "625-isg-port",
-    "placement_reasoning": "Port engine block labelled 'INTEGRATED STARTER GENERATOR - BAE SYSTEMS' with 'BAE SYSTEMS SUPPLY' box, feeding MPCP/pink 600V DC bus; mirrors stbd unit lower on sheet.",
-    "functions": [
-     {
-      "label": "Integrated starter-generator drive for port engine",
-      "what_it_does": "Port diesel engine with integrated starter/generator supplies the 600V DC bus (pink) through the BAE Systems Supply/MPCP interface; also drives hydraulic pump for hydraulic motor (port).",
-      "flow_scenarios": [
-       {
-        "state": "generating",
-        "path": "Port ISG engine \u2192 BAE Systems Supply (MPCP) \u2192 +600V DC bus \u2192 HVPDU / propulsion loads"
-       },
-       {
-        "state": "hydraulic drive",
-        "path": "Port ISG engine \u2192 hydraulic pump \u2192 hydraulic motor (port) [200bar/33cm3, 1800rpm]"
-       }
-      ],
-      "dry_data": "Diesel engine + ISG, MPCP interface, hydraulic pump output ~200bar",
-      "sheet_region": "left-mid schematic, upper engine block ('BAE SYSTEMS SUPPLY' top)"
-     }
-    ]
-   },
-   {
-    "equipment_name": "BAE Hybrid System \u2014 ISG Stbd",
-    "target_node_id": "625-isg-stbd",
-    "placement_reasoning": "Lower engine block mirrors the port ISG block; labelled identically 'INTEGRATED STARTER GENERATOR - BAE SYSTEMS', feeding same 600V/NEG buses lower on sheet.",
-    "functions": [
-     {
-      "label": "Integrated starter-generator drive for stbd engine",
-      "what_it_does": "Stbd diesel engine with integrated starter/generator supplies the 600V DC bus through its own BAE Systems Supply/MPCP interface; mirrors port unit. Also drives hydraulic motor (stbd).",
-      "flow_scenarios": [
-       {
-        "state": "generating",
-        "path": "Stbd ISG engine \u2192 BAE Systems Supply (MPCP) \u2192 +600V DC bus \u2192 HVPDU / propulsion loads"
-       },
-       {
-        "state": "hydraulic drive",
-        "path": "Stbd ISG engine \u2192 hydraulic pump \u2192 hydraulic motor (stbd) [200bar/33cm3, 1800rpm]"
-       }
-      ],
-      "dry_data": "port mirrors stbd; diesel engine + ISG, MPCP interface, hydraulic pump output ~200bar",
-      "sheet_region": "left-lower schematic, lower engine block ('BAE SYSTEMS SUPPLY' bottom)"
-     }
-    ]
-   },
-   {
-    "equipment_name": "MAPS-P / MAPS-S (Modular Auxiliary Power System)",
-    "target_node_id": "626-maps",
-    "placement_reasoning": "Boxes labelled 'MODULAR AUX POWER SYSTEM' (MAPS-P/MAPS-S tags visible on bus feeds MAP51-S, MAPS2L-S, MAPS1-P, MAPS2L-P) sit centrally in the DC control column, feeding start motors and 24V board control lines.",
-    "functions": [
-     {
-      "label": "Provides modular auxiliary DC power distribution/control for start & board functions",
-      "what_it_does": "MAPS-P and MAPS-S modules distribute 24V control/start power lines (MAPS1-S, MAPS2L-S, MAPS1-P, MAPS2L-P) from the vessel Service Board down to engine start motors and BAE control racks.",
-      "flow_scenarios": [
-       {
-        "state": "normal",
-        "path": "24V Service Board (+24V DC bus) \u2192 MAPS1-S/MAPS2L-S/MAPS1-P/MAPS2L-P feeder lines \u2192 BAE control rack / start motors"
-       }
-      ],
-      "dry_data": "Modular DC power units, 24V rated, port+stbd pair",
-      "sheet_region": "center schematic, vertical control column between engine blocks"
-     }
-    ]
-   },
-   {
-    "equipment_name": "BEL Inverters (Port/Stbd pairs)",
-    "target_node_id": "629-bel",
-    "placement_reasoning": "Icons labelled 'BEL1-P', 'BEL2-P' etc ('AC/DC INVERTER - BAE TECHNOLOGY BAE') stacked in the central DC column feeding 230V AC bus and pink 600V bus.",
-    "functions": [
-     {
-      "label": "Converts 600V DC bus power to 230V AC for hotel loads",
-      "what_it_does": "BEL inverter modules tap the 600V DC bus (pink) and NEG bus (green) and output to the 230V AC bus feeding Main AC Panel loads.",
-      "flow_scenarios": [
-       {
-        "state": "normal inversion",
-        "path": "+600V DC bus / NEG bus \u2192 BEL1/BEL2 inverter (P&S) \u2192 230V AC bus \u2192 Main AC Panel loads"
-       }
-      ],
-      "dry_data": "BAE-technology AC/DC inverters, paired P/S, 600VDC in / 230VAC out",
-      "sheet_region": "center schematic column, 'BEL1-P/BEL2-P' etc labelled icons"
-     }
-    ]
-   },
-   {
-    "equipment_name": "EDN Shore Charger (P+S)",
-    "target_node_id": "627-edn",
-    "placement_reasoning": "Icon labelled 'EDN-S CHARGER - BAE TECHNOLOGY' in the central DC column, connected to shore power lines (blue) feeding the 600V DC bus.",
-    "functions": [
-     {
-      "label": "Converts shore/AC power to charge the 600V DC bus",
-      "what_it_does": "EDN charger module takes 230V AC (shore power / hotel bus) and charges the 600V DC bus and NEG bus for the hybrid propulsion/energy system.",
-      "flow_scenarios": [
-       {
-        "state": "shore charging",
-        "path": "Shore Power 1/2 (backup) or 230V AC bus \u2192 EDN-S charger \u2192 +600V DC bus / NEG bus"
-       }
-      ],
-      "dry_data": "BAE EDN-S charger module, AC-DC, rated per BAE spec",
-      "sheet_region": "center schematic column, 'EDN-S' labelled icon"
+      "dry_data": "Location: bottom-left of schematic, near port engine box",
+      "sheet_region": "Bottom-left of schematic"
      }
     ]
    },
    {
     "equipment_name": "HV Power Distribution Unit (HVPDU, port + stbd)",
     "target_node_id": "620-hvpdu",
-    "placement_reasoning": "Called out at right-side of schematic as 'LVPDU LOW VOLTAGE POWER DISTRIBUTION PANEL' feed line labelled toward technical-space inset diagram showing ISG-P/S, MPCS-P/S, BEL-P/S, EDN-P/S, MAPS-P/S laid out around engine room; sheet explicitly cross-references 'PLAN VIEW - TECHNICAL SPACES' inset.",
+    "placement_reasoning": "The technical-spaces plan view explicitly labels HVPDU-P and HVPDU-S at the engine room center, receiving from ISG/MPCS/BEL/MAPS/EDN groups; schematic shows 600V DC bus (magenta) running the length of the diagram tying these together.",
     "functions": [
      {
-      "label": "Distributes low-voltage 24V power within technical spaces per plan inset",
-      "what_it_does": "The technical-spaces plan inset (frames 4-6, H-G-F) shows physical arrangement of MAPS-P/S, EDN-P/S, MPCS-P/S, ISG-P/S, BEL-P/S/BEL1-S/BEL2-S around the engine room, and ESS1/ESS2/ESS3 battery packs, all served by the LVPDU feed line drawn down from the main schematic.",
+      "label": "Distributes 600V DC hybrid propulsion power",
+      "what_it_does": "Collects and distributes the 600V DC bus among ISG, MPCS, BEL inverters, MAPS, EDN chargers and ESS units shown in the engine room technical layout.",
       "flow_scenarios": [
        {
-        "state": "normal distribution",
-        "path": "Main schematic +24V/+600V DC lines \u2192 labelled 'LVPDU LOW VOLTAGE POWER DISTRIBUTION PANEL' \u2192 technical space equipment (ISG, MPCS, BEL, EDN, MAPS per inset)"
+        "state": "normal",
+        "path": "ISG-P/S & MPCS \u2192 HVPDU-P/-S \u2192 BEL inverters / MAPS / EDN chargers / ESS on 600V DC bus"
        }
       ],
-      "dry_data": "Physical layout only shown in inset; ratings per BAE system components already captured elsewhere",
-      "sheet_region": "bottom-right main schematic (LVPDU label) and full technical-spaces inset (top right)"
+      "key_components": [
+       "HVPDU-P",
+       "HVPDU-S"
+      ],
+      "dry_data": "600V DC line (magenta), located centrally between port and stbd equipment racks",
+      "sheet_region": "Technical-spaces plan view inset (top right), center of engine room"
      }
     ]
    },
    {
-    "equipment_name": "BAE Cooling Circulation Pumps",
-    "target_node_id": "635-bae-cooling-pumps",
-    "placement_reasoning": "Labelled block 'LIQUID COOLING CIRCULATION PUMPS' listing Battery/Motor/Electrical-system cooling pumps (BCP, ECP1-4, MCP, HCP) with icons, fed by 24V DC line (pink) from the schematic's DC bus column and by 'SYSTEM CONTROL UNIT (SCU) BAE SYSTEMS (BACKUP)' box.",
-    "placement_reasoning2": "n/a",
+    "equipment_name": "BELs (Inverters) \u2014 BEL1/BEL2 Port & Stbd",
+    "target_node_id": "629-bel",
+    "placement_reasoning": "Schematic explicitly labels BEL1-P, BEL2-P (and mirrored stbd) blocks with 'RELAY MASTER SLAVE REL TORQUING WGB' annotations, connected off the 600V DC and 24V control buses.",
     "functions": [
      {
-      "label": "Circulates coolant for battery, motor, and electrical system cooling",
-      "what_it_does": "A bank of pumps (battery cooling pump, electrical system cooling pumps x4, motor cooling pump) circulate liquid coolant, powered from the 24V DC control line and monitored/controlled by the BAE backup SCU.",
+      "label": "Inverts/converts DC bus power for propulsion torque control",
+      "what_it_does": "BEL1 and BEL2 units (port and stbd, mirrored) sit on the 600V DC bus and 24V control/monitor bus, acting as master/slave relay-torquing inverter pairs feeding the drive system.",
       "flow_scenarios": [
        {
-        "state": "normal operation",
-        "path": "24V DC control line (pink, from DC bus column) \u2192 SCU (BAE, backup) \u2192 cooling pump bank (BCP/ECP1-4/MCP) \u2192 liquid cooling circuit"
+        "state": "normal",
+        "path": "600V DC bus \u2192 BEL1/BEL2 (master/slave relay torquing) \u2192 drive-train / MAPS"
        }
       ],
-      "dry_data": "Pump bank: 1x battery cooling pump, 4x electrical system cooling pumps, 1x motor cooling pump, 24V DC actuation",
-      "sheet_region": "right side of main schematic, 'LIQUID COOLING CIRCULATION PUMPS' box"
+      "key_components": [
+       "BEL1 (master relay)",
+       "BEL2 (slave relay)"
+      ],
+      "dry_data": "Mirrored port/stbd pairs; 24V control/monitor line (pink) supervises each BEL",
+      "sheet_region": "Mid-schematic column of stacked BEL/MAPS/EDN blocks"
+     }
+    ]
+   },
+   {
+    "equipment_name": "MAPS (Modular Auxiliary Power System) Port & Stbd",
+    "target_node_id": "626-maps",
+    "placement_reasoning": "Schematic labels MAPS1-P/-S, MAPS2-P/-S as start-line feeds off the 24V Backup Generator Start Board and 600V DC bus; also shown in technical-spaces plan.",
+    "functions": [
+     {
+      "label": "Provides auxiliary/start power distribution to ISG and DC boards",
+      "what_it_does": "MAPS units draw from the 24V Backup Generator Start Board (labelled MAPS1-S, MAPS2-L-S, MAPS1-P, MAPS2-L-P feed lines) and interface with the 600V DC bus, distributing auxiliary power to the propulsion/energy racks.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "24V Backup Generator Start Board +24V DC bus \u2192 MAPS1/2-P/-S feed lines \u2192 MAPS module \u2192 600V DC bus / ISG start circuit"
+       }
+      ],
+      "key_components": [
+       "MAPS1-P/-S",
+       "MAPS2-P/-S"
+      ],
+      "dry_data": "Note on sheet: generators are usually started directly from 24V service board (LVPDU); MAPS start-lines are 'an additional method' of starting the engines",
+      "sheet_region": "Top of schematic, 24V Backup Generator Start Board section; mirrored in mid-schematic MAPS blocks"
+     }
+    ]
+   },
+   {
+    "equipment_name": "EDN Shore Charger (P+S)",
+    "target_node_id": "627-edn",
+    "placement_reasoning": "Schematic labels 'EDN-P' / 'EDN-S charger CONTROL 24V' blocks in the stacked column, fed from 600V DC and 24V control bus; matches EDN acronym = CHARGERS.",
+    "functions": [
+     {
+      "label": "Charges batteries from DC bus under 24V control",
+      "what_it_does": "EDN charger modules (port/stbd) sit on the 600V DC bus with 24V control supervision, charging associated battery banks.",
+      "flow_scenarios": [
+       {
+        "state": "charging",
+        "path": "600V DC bus \u2192 EDN-P/-S charger (24V control) \u2192 battery bank"
+       }
+      ],
+      "key_components": [
+       "EDN-P charger",
+       "EDN-S charger"
+      ],
+      "dry_data": "24V control line (pink) supervises charger operation",
+      "sheet_region": "Mid-schematic stacked column, below BEL blocks"
+     }
+    ]
+   },
+   {
+    "equipment_name": "SCU3 (System Control Unit)",
+    "target_node_id": "628-scu3",
+    "placement_reasoning": "Not explicitly labelled by name on this sheet but the 24V control/monitor bus (pink) running through all BAE blocks implies a supervising control unit per register; no direct sheet callout found \u2014 retained as infrastructure/uncertain attach.",
+    "functions": []
+   },
+   {
+    "equipment_name": "Akasol ESS (Energy Storage System) \u2014 ESS1/2/3",
+    "target_node_id": "630-akasol-ess",
+    "placement_reasoning": "Technical-spaces plan view explicitly labels ESS1, ESS2, ESS3 blocks amidships next to the HVPDU racks.",
+    "functions": [
+     {
+      "label": "Stores/supplies 600V DC energy for hybrid propulsion",
+      "what_it_does": "Three ESS battery modules (ESS1-3) sit alongside the HVPDU in the engine room, buffering the 600V DC bus.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "600V DC bus \u2194 ESS1/2/3 modules \u2194 HVPDU"
+       }
+      ],
+      "key_components": [
+       "ESS1",
+       "ESS2",
+       "ESS3"
+      ],
+      "dry_data": "Located amidships engine room, aft of ISG racks",
+      "sheet_region": "Technical-spaces plan view inset, center-right"
+     }
+    ]
+   },
+   {
+    "equipment_name": "BAE Cooling Circulation Pumps (BCP/MCP/ECP/HCP\u2026)",
+    "target_node_id": "635-bae-cooling-pumps",
+    "placement_reasoning": "Sheet has a dedicated 'LIQUID COOLING CIRCULATION PUMPS' box listing Battery Cooling Pump, Electronic Cooling Pump \u00d72, Motor Cooling Pump, Electronic Cooling Pump #2, plus a 'BAE SYSTEMS SYSTEM CONTROL UNIT (SCU) BACKUP' unit, all fed from the 24V control/monitor (pink) bus.",
+    "functions": [
+     {
+      "label": "Circulates coolant for battery/electronics/motor cooling loops",
+      "what_it_does": "A stack of pumps (Battery Cooling Pump, Electronic Cooling Pump #1, Motor Cooling Pump, Electronic Cooling Pump #2, and an additional Electronic Cooling Pump) circulate liquid coolant for the hybrid-drive electronics and battery packs, each individually fed on the 24V DC control/monitor line.",
+      "flow_scenarios": [
+       {
+        "state": "normal running",
+        "path": "24V DC control/monitor bus (pink, from LVPDU) \u2192 individual pump (BCP/ECP/MCP) \u2192 cooling circuit \u2192 return"
+       }
+      ],
+      "key_components": [
+       "Battery Cooling Pump",
+       "Electronic Cooling Pump #1",
+       "Motor Cooling Pump",
+       "Electronic Cooling Pump #2"
+      ],
+      "dry_data": "24V DC line (control & monitor, pink); pumps stacked vertically on right side of schematic",
+      "sheet_region": "Right side of schematic, 'LIQUID COOLING CIRCULATION PUMPS' box"
+     },
+     {
+      "label": "Backup system control unit for BAE cooling",
+      "what_it_does": "A 'BAE SYSTEMS SYSTEM CONTROL UNIT (SCU) BACKUP' module supervises/backs up the cooling pump control, also fed from the same 24V control bus.",
+      "flow_scenarios": [
+       {
+        "state": "backup",
+        "path": "24V DC control/monitor bus \u2192 SCU backup module \u2192 cooling pump group"
+       }
+      ],
+      "key_components": [
+       "SCU backup unit"
+      ],
+      "dry_data": "Located directly below the cooling pump stack",
+      "sheet_region": "Right side of schematic, below cooling pumps box"
+     }
+    ]
+   },
+   {
+    "equipment_name": "GMDSS Battery Bank (200Ah 24V)",
+    "target_node_id": "631-battery-gmdss",
+    "placement_reasoning": "Sheet explicitly labels 'COMMS/GMDSS BATTERIES [x2]' feeding the '24V GMDSS BOARD' with dedicated NEG/+24V bus, and interior plan callout 'GMDSS BATTERIES' near engine room.",
+    "functions": [
+     {
+      "label": "Supplies backup 24V power to GMDSS/comms users",
+      "what_it_does": "Two GMDSS/comms batteries feed the 24V GMDSS Board bus, which supplies 'COMMS USERS' loads.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "GMDSS/Comms batteries (x2) \u2192 24V GMDSS Board (+24V DC bus / NEG bus) \u2192 COMMS USERS loads"
+       },
+       {
+        "state": "board link fault",
+        "path": "24V GMDSS Board \u2194 (LINK) \u2194 24V Emergency Board \u2014 link normally closed, isolated on fault"
+       }
+      ],
+      "key_components": [
+       "GMDSS battery x2",
+       "board link/interlock"
+      ],
+      "dry_data": "24V DC bus; location per interior plan near Tech Room / Engine Room (frame ~G-H)",
+      "sheet_region": "Top schematic, '24V GMDSS BOARD' box; interior plan callout at frame G/H"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Emergency Battery Bank (200Ah 24V)",
+    "target_node_id": "632-battery-emergency",
+    "placement_reasoning": "Sheet explicitly labels 'EMERGENCY BATTERIES [x2]' feeding '24V EMERGENCY BOARD', with note on solenoid closing only in emergency scenarios; interior plan callout 'EMERGENCY BATTERIES'.",
+    "functions": [
+     {
+      "label": "Supplies backup 24V power to emergency users on loss of other sources",
+      "what_it_does": "Two emergency batteries feed the 24V Emergency Board, which supplies 'EMERGENCY USERS' loads and can bridge via solenoid to the Backup Generator Start Board if backup generator start batteries are lost.",
+      "flow_scenarios": [
+       {
+        "state": "normal standby",
+        "path": "Emergency batteries (x2) \u2192 24V Emergency Board (+24V DC bus) \u2192 EMERGENCY USERS"
+       },
+       {
+        "state": "backup generator start battery loss",
+        "path": "24V Emergency Board \u2192 normally-open solenoid ('will only be closed in event of emergency due to loss of backup generator start batteries') \u2192 24V Backup Generator Start Board"
+       }
+      ],
+      "key_components": [
+       "Emergency battery x2",
+       "interlocked solenoid (NO, closes only on backup-start-battery loss)"
+      ],
+      "dry_data": "24V DC bus; interior plan callout near frame H",
+      "sheet_region": "Top schematic, '24V EMERGENCY BOARD' box; interior plan callout"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Generator Start Battery Bank",
+    "target_node_id": "633-battery-gen-start",
+    "placement_reasoning": "Sheet labels 'BACKUP GENERATOR START BATTERIES [x2]' feeding '24V BACKUP GENERATOR START BOARD'; note clarifies generators normally start off the 24V Service Board (LVPDU) directly via MAPS1/2 lines, with this board as an additional method.",
+    "functions": [
+     {
+      "label": "Provides dedicated start power for generators (additional/backup method)",
+      "what_it_does": "Two backup generator start batteries feed the 24V Backup Generator Start Board, an additional method for starting engines beyond the normal direct feed from the 24V Service Board via MAPS1/2 lines.",
+      "flow_scenarios": [
+       {
+        "state": "additional start method",
+        "path": "Backup Gen Start batteries (x2) \u2192 24V Backup Generator Start Board (+24V DC bus) \u2192 MAPS1-P/-S, MAPS2-P/-S start feed lines \u2192 ISG start circuits"
+       },
+       {
+        "state": "board link (normal)",
+        "path": "24V Service Board (Vessel LVPDU) \u2194 (LINK) \u2194 24V Backup Generator Start Board"
+       }
+      ],
+      "key_components": [
+       "Backup generator start battery x2",
+       "LINK interlock to Service Board"
+      ],
+      "dry_data": "24V DC bus; note: 'Generators are usually started directly from 24V Service Board via MAPS start; batteries operating on start batteries are an additional method'",
+      "sheet_region": "Top schematic, '24V Backup Generator Start Board' box; interior plan callout 'ENGINE START BATTERIES'"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Aux Service Battery Bank",
+    "target_node_id": "634-battery-aux-service",
+    "placement_reasoning": "No distinctly separate 'Aux Service' battery bank is drawn on this sheet; the 24V Service Board (Vessel LVPDU) is fed by the alternator/BAE supply chain rather than a dedicated aux battery box \u2014 flagged as no direct equipment callout found.",
+    "functions": []
+   },
+   {
+    "equipment_name": "Mastervolt Battery Chargers (Gen-Start / Emergency / GMDSS)",
+    "target_node_id": "621-mastervolt-chargers",
+    "placement_reasoning": "Three charger icons drawn directly above the Backup Generator Start, Emergency, and GMDSS battery banks respectively, each labelled generically as battery chargers with mains/battery leads.",
+    "functions": [
+     {
+      "label": "Charges the three standby 24V battery banks",
+      "what_it_does": "Three individual charger units, one per battery bank (backup generator start, emergency, GMDSS/comms), maintain charge on their respective banks.",
+      "flow_scenarios": [
+       {
+        "state": "normal charging",
+        "path": "230V AC bus / shore power \u2192 charger unit \u2192 respective battery bank (gen-start / emergency / GMDSS)"
+       }
+      ],
+      "key_components": [
+       "Gen-start battery charger",
+       "Emergency battery charger",
+       "GMDSS battery charger"
+      ],
+      "dry_data": "Located directly above each respective battery bank at top of schematic",
+      "sheet_region": "Top schematic, above each of the three top-right battery bank icons"
      }
     ]
    },
    {
     "equipment_name": "Emergency Inverter",
     "target_node_id": "622-emergency-inverter",
-    "placement_reasoning": "Icon set '24V EMERGENCY BACKUP SWITCH' feeding the emergency backup hydraulic/shaft drive path near bottom-left of schematic, drawn distinct from main ISG blocks with its own 'EMERGENCY BACKUP SWITCH' and hydraulic motor.",
+    "placement_reasoning": "No dedicated inverter box distinct from BEL inverters is labelled on this sheet for emergency use; not directly evidenced \u2014 no fitting scenario composed.",
+    "functions": []
+   },
+   {
+    "equipment_name": "DC Distribution Panels (AFT/Engine Room/FWD)",
+    "target_node_id": "640-dc-distribution",
+    "placement_reasoning": "Schematic explicitly shows three boxes 'AFT DC DISTRIBUTION BOARD', 'ENGINE ROOM DC DISTRIBUTION BOARD', 'FWD DC DISTRIBUTION BOARD' fed off the 24V Service Board with '...DC USERS' labels beneath each.",
     "functions": [
      {
-      "label": "Provides emergency backup drive path via shaft/hydraulic coupling",
-      "what_it_does": "An emergency backup switch engages an alternate drive path (shaft-driven) bypassing the normal ISG/hydraulic motor path shown at bottom-left, feeding the same hydraulic motor circuit.",
+      "label": "Distributes 24V DC service power to aft, engine room, and forward user groups",
+      "what_it_does": "Three DC distribution boards tap the 24V Service Board (Vessel LVPDU) +24V/NEG bus and feed their respective zone's DC users (AFT DC USERS, ER DC USERS, FWD DC USERS).",
       "flow_scenarios": [
        {
-        "state": "emergency backup engaged",
-        "path": "shaft drive \u2192 Emergency Backup Switch \u2192 hydraulic coupling \u2192 hydraulic motor (stbd path)"
+        "state": "normal",
+        "path": "24V Service Board (Vessel LVPDU) +24V DC bus \u2192 AFT / Engine Room / FWD DC Distribution Board \u2192 zone DC users"
        }
       ],
-      "dry_data": "Mechanical/electrical backup switch, engages emergency drive path",
-      "sheet_region": "bottom-left schematic, 'EMERGENCY BACKUP SWITCH' icon"
+      "key_components": [
+       "AFT DC Distribution Board",
+       "Engine Room DC Distribution Board",
+       "FWD DC Distribution Board"
+      ],
+      "dry_data": "24V DC line; three parallel drops off the Service Board bus",
+      "sheet_region": "Top-left schematic, directly below '24V Service Board' box"
      }
     ]
    },
    {
-    "equipment_name": "Steering Helm Stations",
-    "target_node_id": "150-steering-system",
-    "placement_reasoning": "Labelled box 'STEERING HELM STATIONS' with 'HMI THROTTLES ALARM etc.' listed, fed by 24V DC control line from the schematic \u2014 matches steering/HMI system.",
+    "equipment_name": "Shore Power System",
+    "target_node_id": "660-shore-power",
+    "placement_reasoning": "Sheet shows 'DOCK CONNECTION OPTIONS' box, 'SHORE POWER GALVANIC ISOLATOR (DEFAULT NO)', breaker panel, and labelled Shore Power 1 (Backup)/Shore Power 2 (Backup)/Shore Power \u2013 STBD/PORT lines feeding into the AC/charger network.",
     "functions": [
      {
-      "label": "Provides helm HMI control/alarm interface",
-      "what_it_does": "Helm stations present HMI, throttle control, and alarm indications, powered/monitored via the 24V DC control & monitor line running from the main DC bus column.",
+      "label": "Provides external AC shore power intake and galvanic isolation to vessel AC systems",
+      "what_it_does": "Dock connection (230V 1-ph / 400V 3-ph selectable) passes through a shore power breaker panel and galvanic isolator (default off) then splits into four labelled feeds: Shore Power 1 (Backup), Shore Power 2 (Backup), Shore Power STBD, Shore Power PORT.",
       "flow_scenarios": [
        {
-        "state": "normal monitoring",
-        "path": "24V DC control & monitor line (pink) \u2192 Steering Helm Station HMI/throttle/alarm panel"
+        "state": "normal shore connection",
+        "path": "Dock connection (230V/400V selectable) \u2192 Shore Power Breaker Panel \u2192 Galvanic Isolator (default NO/off) \u2192 Shore Power 1/2 (Backup) & Shore Power STBD/PORT feeds \u2192 EDN chargers / diesel motor chargers"
+       },
+       {
+        "state": "interlock",
+        "path": "Switches between Shore Power 2 (Backup) and Chargers are electrically interlocked so only one type can be activated at a time"
        }
       ],
-      "dry_data": "HMI panel with throttle and alarm indicators, 24V DC control/monitor feed",
-      "sheet_region": "right side of main schematic, below cooling pumps box"
+      "key_components": [
+       "Shore power breaker panel",
+       "Galvanic isolator (default OFF)",
+       "interlocked selector switches"
+      ],
+      "dry_data": "230V 1-ph / 400V 3-ph selectable dock input; green ground line bonded to 'in contact with water'",
+      "sheet_region": "Left side of schematic, 'DOCK CONNECTION OPTIONS' / 'SHORE POWER BREAKER PANEL' box"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Diesel Motors Charger (Diesel Motors Charger x3)",
+    "target_node_id": "621-mastervolt-chargers",
+    "placement_reasoning": "Three 'DIESEL MOTORS CHARGER' icons are drawn fed from Shore Power lines (blue 230V AC), grouped near the emergency users box.",
+    "functions": [
+     {
+      "label": "Charges diesel engine start systems from shore/AC power",
+      "what_it_does": "Three diesel motor charger units receive 230V AC from the shore power backup feeds, charging diesel engine electrical start systems.",
+      "flow_scenarios": [
+       {
+        "state": "shore-connected",
+        "path": "Shore Power 1/2 (Backup) 230V AC \u2192 Diesel Motors Charger (x3) \u2192 engine start battery / start circuit"
+       }
+      ],
+      "key_components": [
+       "Diesel Motors Charger x3"
+      ],
+      "dry_data": "230V, 1-ph AC line (blue)",
+      "sheet_region": "Mid-upper schematic, three charger icons right of Emergency Users box"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Steering Helm Stations / HMI",
+    "target_node_id": "150-steering-system",
+    "placement_reasoning": "Sheet has a dedicated box 'STEERING HELM STATIONS' with 'HMI THROTTLES ALARM etc.' fed from the 24V DC control/monitor bus, at the far right of the schematic.",
+    "functions": [
+     {
+      "label": "Provides helm control/monitoring interface for steering and throttle commands",
+      "what_it_does": "A steering helm station box (HMI, throttles, alarms) is supplied by the 24V DC control & monitor bus, giving the operator control/feedback interface tied into the BAE control network.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "24V DC control/monitor bus (pink) \u2192 Steering Helm Station (HMI/throttles/alarm) \u2192 BAE control network"
+       }
+      ],
+      "key_components": [
+       "HMI panel",
+       "Throttle controls",
+       "Alarm indicators"
+      ],
+      "dry_data": "24V DC control & monitor line (pink)",
+      "sheet_region": "Far right of schematic, 'STEERING HELM STATIONS' box"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Main AC Panel (230V distribution hub)",
+    "target_node_id": "694-main-ac-panel",
+    "placement_reasoning": "Bottom of schematic explicitly labelled 'MAIN AC PANEL' feeding a '230V AC BUS' with a row of consumer drops.",
+    "functions": [
+     {
+      "label": "Distributes 230V AC to hotel/house consumer circuits",
+      "what_it_does": "The Main AC Panel feeds the 230V AC bus (blue) at the bottom of the sheet, which drops to several consumer circuits shown as small boxes along the bus (illegible detail labels).",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "Main AC Panel \u2192 230V AC Bus (blue) \u2192 consumer drop circuits (labels illegible)"
+       }
+      ],
+      "key_components": [
+       "Main AC Panel",
+       "230V AC bus"
+      ],
+      "dry_data": "230V, 1-ph AC line (blue); ground bonded via green line to 'in contact with water'",
+      "sheet_region": "Bottom of schematic"
      }
     ]
    }
@@ -272,56 +447,67 @@
   "infrastructure": [
    {
     "system_name": "24V Service Board (Vessel LVPDU)",
-    "target_node_id": "640-dc-distribution",
+    "target_node_id": "620-hvpdu",
     "facts": [
-     "Top bus bar box labelled '24V SERVICE BOARD (VESSEL LVPDU)' with NEG bus and +24V DC bus rails.",
-     "Feeds Aft DC Distribution Board, Engine Room DC Distribution Board, Fwd DC Distribution Board directly below it.",
-     "Linked via NC solenoid/link bus to 24V Backup Generator Start Board, which links onward to 24V Emergency Board, which links onward to 24V GMDSS Board \u2014 a daisy-chain of four distinct board sections.",
-     "Also outputs MAPS1-S, MAPS2L-S, MAPS1-P, MAPS2L-P, and 'Anchor & Control' feeder lines down the sheet.",
-     "Note on sheet: generators normally started directly off MAPS start motors on start batteries; board method is an additional means."
+     "Titled box '24V SERVICE BOARD (VESSEL LVPDU)' with its own NEG bus and +24V DC bus rails",
+     "Linked (LINK) to the 24V Backup Generator Start Board, which links further to 24V Emergency Board, which links to 24V GMDSS Board \u2014 a daisy-chained bus arrangement",
+     "Feeds AFT/Engine Room/FWD DC Distribution Boards directly off its +24V bus",
+     "Feeds MAPS1-S, MAPS2-L-S, MAPS1-P, MAPS2-L-P start lines and an 'Anchor & Control' feed"
     ]
    },
    {
-    "system_name": "Shore Power System",
+    "system_name": "600V DC Bus (BAE hybrid propulsion)",
+    "target_node_id": "620-hvpdu",
+    "facts": [
+     "Drawn as magenta '600V DC LINE (HYBRIGEN)' running the full height of the lower schematic",
+     "Connects ISG/MPCS supply blocks, HVPDU, BEL1/2 P&S, MAPS, EDN chargers",
+     "Ground line (green) bonded in parallel down the same run, tied to 'IN CONTACT WITH WATER' bonding point at bottom"
+    ]
+   },
+   {
+    "system_name": "24V DC Control & Monitor Bus",
+    "target_node_id": "620-hvpdu",
+    "facts": [
+     "Drawn as pink '24V DC LINE (CONTROL & MONITOR)' running parallel to the 600V bus",
+     "Supervises BEL, MAPS, EDN modules and extends to Liquid Cooling Circulation Pumps and Steering Helm Stations"
+    ]
+   },
+   {
+    "system_name": "230V AC Bus / Main AC Panel distribution",
+    "target_node_id": "694-main-ac-panel",
+    "facts": [
+     "Blue '230V, 1-PH AC LINE (HOTEL)' bus fed from Main AC Panel at bottom of sheet",
+     "Also used for Shore Power backup feeds and Diesel Motors Charger supply"
+    ]
+   },
+   {
+    "system_name": "Shore Power Intake / Galvanic Isolation",
     "target_node_id": "660-shore-power",
     "facts": [
-     "Dock Connection Options box (230V 1-ph, 230V 3-ph, 400V 3-ph options) feeding a Galvanic Isolator (Dinnteco), then splitting to 'Shore Power 1 (Backup)' and 'Shore Power 2 (Backup)' blue AC lines and 'Shore Power - Stbd' / 'Shore Power - Port' feeder lines.",
-     "Interlock note: switches between Shore Power 2 (backup) and electrical/hybrid system are interlocked so only one type can be activated at a time.",
-     "Interlock note: switches between Shore Power 1 (backup) and shore power 2 are interlocked to ensure only one source can be activated at a time."
-    ]
-   },
-   {
-    "system_name": "Main AC Panel / 230V AC Bus",
-    "target_node_id": "<UNKNOWN>",
-    "facts": [
-     "Labelled '230V AC BUS' (blue) with green GROUND line running along bottom of schematic, feeding labelled loads (illegible small tags near bottom: appear to be pump/appliance names) and connecting up to BEL inverters, EDN charger, and chargers group.",
-     "No dedicated 'Main AC Panel' equipment node exists in register index; logged as infrastructure bus only."
-    ]
-   },
-   {
-    "system_name": "600V DC Bus / NEG Bus (BAE Hybrid backbone)",
-    "target_node_id": "<UNKNOWN>",
-    "facts": [
-     "Vertical pink '+600V DC BUS' and black 'NEG BUS' bus bars run the full height of the central schematic column, linking ISG port/stbd, MAPS, BEL inverters, EDN charger, and HVPDU/cooling pumps.",
-     "Labelled note: 'On diesel-electric system, grounding of the 24V system happens from NEG bus through the MAPS.'",
-     "No single equipment node fits this backbone; it is shared BAE-system infrastructure feeding multiple already-captured BAE equipment nodes."
+     "Dock connection options: 230V 1-ph or 400V 3-ph selectable",
+     "Shore Power Breaker Panel feeds a Galvanic Isolator (default NO/off)",
+     "Splits to Shore Power 1 (Backup), Shore Power 2 (Backup), Shore Power STBD, Shore Power PORT",
+     "Green ground line bonded to 'IN CONTACT WITH WATER' bonding point"
     ]
    }
   ],
   "uncertainties": [
-   "Small AC load tags at bottom of schematic near '230V AC BUS' (appliance/pump names feeding ground) are too small/illegible to read cleanly \u2014 cannot identify which specific equipment they represent.",
-   "Exact identity of 'Main AC Panel' as a standalone node is unclear; no register node fits precisely so it is logged as infrastructure only.",
-   "Hydraulic motor pressure/flow labels (e.g. '200bar (33cm3) 1800rpm') on port/stbd hydraulic motors are partly small and should be confirmed at inspection.",
-   "The 600V/NEG DC bus backbone has no distinct equipment node in the register \u2014 flagged as infrastructure with no fitting node rather than forced onto a sibling BAE node."
+   "230V AC bus consumer drop labels at the bottom of the sheet are too small/illegible to identify individual loads.",
+   "No explicit sheet label found for SCU3 (System Control Unit) or Emergency Inverter as distinct boxes; the 24V control/monitor bus implies their presence but no direct callout was legible \u2014 not composed to avoid inventing a connection.",
+   "Aux Service Battery Bank (634) has no distinct box on this sheet; the 24V Service Board appears alternator/BAE-fed rather than from a separate labelled aux battery \u2014 flagged as no equipment evidence found on this sheet.",
+   "Individual part numbers/model callouts on charger and pump icons are not legible; function and role are recorded per rule 11, part numbers to be captured at inspection if ever needed.",
+   "Interior plan battery location callouts (GMDSS/Emergency/Engine Start Batteries) are given only as frame-adjacent labels (~frame G-H); exact frame/compartment boundary not fully certain from image resolution."
   ],
   "discarded_as_clutter": [
-   "Standard title-block notes (do not scale, dimensions in mm, approvals/reviewed signatures, revision history rows)",
-   "Legend box (line color/type key) \u2014 restates line meanings already used correctly in scenarios",
-   "Plan view interior room labels (cabins, heads, galley, lazarettes) \u2014 structural GA content not tied to this electrical schematic's equipment",
-   "Frame/grid reference letters and numbers (A-M, 1-11) \u2014 sheet coordinate system, not equipment"
+   "Standard title-block notes (do not scale, dimensions in mm, approval/review stamps)",
+   "Revision history rows (First Issue, Multiple Updates)",
+   "Legend box entries restating line-color definitions already used consistently (AC/DC line types, contactor/switch/solenoid symbols)",
+   "Frame/station letter-number grid labels on interior plan (M\u2013A, 11\u20131) \u2014 navigation aid only, not equipment",
+   "Compartment name labels on interior plan not related to electrical system (e.g. Galley, Heads, Cabins) \u2014 general layout, not sheet's electrical scope"
   ],
-  "_model": "claude-sonnet-5"
+  "_model": "claude-sonnet-5",
+  "_protocol_version": 3
  },
- "elapsed_s": 77.1,
- "note": "engineer-attached sheet; sub-type classification test (building vs schematic GA)"
+ "elapsed_s": 108.5,
+ "note": "RE-COMPOSED v3 2026-07-22 proof"
 }

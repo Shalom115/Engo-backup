@@ -158,25 +158,30 @@ def resolve_candidates(text: str, max_nodes: int = 150) -> List[str]:
     return out
 
 
-def facts_for_nodes(node_ids: List[str], per_node: int = 3,
-                    max_facts: int = 45) -> str:
-    """Established facts of the given nodes, engineer-authority first."""
+def facts_for_nodes(node_ids: List[str], per_node: int = 4,
+                    max_facts: int = 60) -> str:
+    """Established facts of the given nodes, engineer-authority first.
+
+    Fix (2026-07-22, the recurring truncation class): sort a node's OWN facts
+    engineer-authority-first BEFORE the per_node cut, so a red-pen fact (e.g.
+    the EV-9.3 '70 bar LS relief' answer) is never dropped because it happened
+    to be the 4th fact written on the node."""
     wanted = set(node_ids)
     hits: List[tuple] = []
     for e in _reg()["entries"]:
         if e["equipment_id"] not in wanted or e.get("retired"):
             continue
-        n = 0
+        node_facts = []
         for f in e.get("facts") or []:
-            val = str(f.get("value", ""))
             prov = f.get("provenance") or {}
             pri = 0 if prov.get("authority") == "engineer" else 1
-            src = prov.get("source_doc", "")
+            node_facts.append((pri, f))
+        node_facts.sort(key=lambda x: x[0])   # engineer facts first WITHIN node
+        for pri, f in node_facts[:per_node]:
+            val = str(f.get("value", ""))
+            src = (f.get("provenance") or {}).get("source_doc", "")
             hits.append((pri, f"[{e['equipment_id']}] {f.get('kind','fact')}: "
-                              f"{val[:300]}" + (f"  (source: {src})" if src else "")))
-            n += 1
-            if n >= per_node:
-                break
+                              f"{val[:400]}" + (f"  (source: {src})" if src else "")))
     hits.sort(key=lambda h: h[0])
     return "\n".join(line for _, line in hits[:max_facts]) or "(none)"
 

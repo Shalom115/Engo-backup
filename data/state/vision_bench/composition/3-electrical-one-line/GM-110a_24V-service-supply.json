@@ -3,279 +3,324 @@
  "sheet": "GM-110a_24V-service-supply",
  "drawing_class": "electrical",
  "composition": {
-  "serve_who": "This sheet (\"24V DC SERVICE SUPPLY\", GMMS 108'-110a) is a power one-line showing PORT/STBD 600V DC HVPDU buses stepped down via MAPS-1/2 converters to 24V DC, distributed through an isolator/contactor bank (SW1-5/SO1-5) and a +24V Service Bus (fused F5-F9) to named loads: FWD DC PANEL, AFT DC PANEL, BILGE PUMP, FIRE PUMP, GEN START BAT., AUX SERVICE BAT., plus a 230VAC-to-24VDC 110A supply feeding BAE start-key/service-mode logic (Re1/Re2 relays) tied to ONYX monitoring and a PC CARD controller (BEL-1/4 230V AC control, see DWG 401a/114). The named load rows attach to their respective equipment nodes per the engineer-confirmed mapping; the HVPDU/MAPS/bus/breaker/terminal-strip/relay structure itself is shared distribution infrastructure serving the vessel's 24V DC service system as a whole (attached to 640-dc-distribution).",
+  "serve_who": "This sheet (GMMS 108'-110a, \"24V DC SERVICE SUPPLY\") is the PORT/STBD HVPDU \u2192 MAPS \u2192 24V DC service-bus one-line: it shows the 600V DC HVPDU buses (both sides) feeding MAPS-1/2 converters that step down to 24V DC, monitored via CT1-CT5 to ONYX, then routed through an isolator/contactor (SW/SO) bank onto the +24V SERVICE BUS which fuses out to FWD/AFT DC panels, BILGE PUMP, FIRE PUMP, AUX SERVICE BAT., and (via SW11/F16) toward GEN START BAT charging. A separate 230VAC/24VDC 110A supply plus Re1/Re2 relay logic drives BAE START KEY SW / Service Mode signalling into a PC CARD that also carries BEL-1/4 230V AC CONTROL indicators. The sheet therefore serves: 620-hvpdu (both HVPDU buses + Q1-Q4/F1-F2 breakers, established fact), 626-maps-p / 626-maps-s (the two MAPS-1/2 converter pairs), 640-dc-distribution (the +24V service bus, FWD/AFT DC panel taps), 520-main-bilge-pump and 520-fire-pump (named load taps off the bus), 634-battery-aux-service (AUX SERVICE BAT 200Ah 24V with SW11/F16 \u2014 matches established F16 fact), 633-battery-gen-start (to GEN START BAT tap), 652-onyx-monitoring (all CT1-CT6 taps 'to ONYX'), 625-bae-system (BAE START KEY SW / Service Mode / BAE VOLTAGE SENCE cross-ref to DWG 413), and 629-bel1-p (BEL-1/4 230V AC CONTROL, cross-ref DWG 401a, consistent with established BEL-1 PORT node).",
   "equipment_groups": [
    {
-    "equipment_name": "Main Bilge Pump",
-    "target_node_id": "520-main-bilge-pump",
-    "placement_reasoning": "Load row explicitly labeled BILGE PUMP on the +24V Service Bus fuse/switch schedule; engineer mapping BILGE PUMP -> 520-main-bilge-pump.",
+    "equipment_name": "HVPDU (Port + Stbd)",
+    "target_node_id": "620-hvpdu",
+    "placement_reasoning": "Sheet shows both PORT and STBD 600V DC HVPDU buses with Q1-Q4 32A breakers and F1/F2 500A fuses, matching the established HVPDU identity fact (Q1-4 32A breakers, F1/F2 500A fuses per side). These buses ARE the HVPDU per established fact \u2014 not a separate backbone.",
     "functions": [
      {
-      "label": "24V DC power feed to Bilge Pump",
-      "what_it_does": "Supplies 24V DC operating power to the bilge pump from the vessel's dual-redundant 24V service bus.",
-      "sheet_region": "+24V Service Bus fuse/switch column, right side of sheet (~0.75-0.98, 0.32-0.55)",
+      "label": "600V DC bus distribution to MAPS converters (both sides)",
+      "what_it_does": "Distributes 600V DC from each HVPDU bus through four 32A breakers (Q1-Q4) into the respective PORT/STBD MAPS-1/2 converters, protected upstream by F1/F2 500A fuses per side.",
       "flow_scenarios": [
        {
-        "state": "normal supply",
-        "path": "PORT/STBD HVPDU 600V DC bus -> MAPS-1/2 converter (600V DC/24V DC) -> fuse F1/F2 (250A) -> CT monitored feeder -> isolator SW/SO bank -> +24V Service Bus (via SHUNT #1 500A/50mV) -> fuse F7 60A -> SW8 switch -> BILGE PUMP"
-       },
-       {
-        "state": "status monitoring",
-        "path": "bilge pump feeder tapped by negative bus / ground bar drop tag -> to monitoring reference (negative bus)"
+        "state": "normal",
+        "path": "PORT/STBD 600V DC bus -> Q1-Q4 32A breakers -> feed to MAPS-1/2 2x5KW converter inputs (600V DC side)"
        }
       ],
-      "dry_data": "Fed via F7 60A fuse, SW8 isolating switch, off +24V Service Bus; bus fed from PORT/STBD MAPS-1/2 2x5kW converters via 250A fuses."
+      "dry_data": "Q1-Q4: 32A breakers; F1/F2: 500A fuses; bus: 600V DC (per side)",
+      "sheet_region": "PORT HVPDU top-left (bbox ~0-0.13,0.04-0.29) and STBD HVPDU bottom-left (bbox ~0-0.13,0.48-0.72)",
+      "key_components": [
+       "breaker Q1-Q4 32A (x2 sides)",
+       "fuse F1/F2 500A (x2 sides)"
+      ]
+     }
+    ]
+   },
+   {
+    "equipment_name": "MAPS-P / MAPS-S (Modular Auxiliary Power System converters)",
+    "target_node_id": "626-maps-p",
+    "placement_reasoning": "PORT MAPS-1/2 2x5KW converter pair shown converting 600V DC to 24V DC, feeding fused outputs (F1/F2 250A) into CT1/CT2 monitoring toward the isolator bank. Engineer mapping: MAPS-1/2 -> 626-maps; PORT MAPS-1/2 -> 626-maps-p.",
+    "functions": [
+     {
+      "label": "600V DC to 24V DC conversion, PORT side",
+      "what_it_does": "Converts 600V DC from PORT HVPDU bus to 24V DC service power, output fused and current-monitored before reaching the isolator/contactor bank.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "PORT HVPDU 600V DC bus -> PORT MAPS-1/2 converter (600V DC in / 24V DC out) -> fuse F1 250A -> CT1 (to ONYX) -> isolator SW1/SO1 -> +24V service bus"
+       },
+       {
+        "state": "normal (2nd module)",
+        "path": "PORT HVPDU 600V DC bus -> PORT MAPS-1/2 (2nd converter) -> fuse F2 250A -> CT2 (to ONYX) -> isolator SW2/SO2 -> +24V service bus"
+       }
+      ],
+      "dry_data": "MAPS-1/2 2x5KW, 600V DC / 24V DC, electronically fused & over-current protected per notes; output fuses F1/F2 250A",
+      "sheet_region": "bbox ~0.24-0.33, 0.13-0.22",
+      "key_components": [
+       "fuse F1 250A",
+       "fuse F2 250A",
+       "CT1, CT2 current transformers (monitoring, not protective)"
+      ]
+     }
+    ]
+   },
+   {
+    "equipment_name": "MAPS-P / MAPS-S (Modular Auxiliary Power System converters)",
+    "target_node_id": "626-maps-s",
+    "placement_reasoning": "STBD MAPS-1/2 2x5KW converter pair, mirror of PORT, feeding F3/F4 250A fuses and CT3/CT4.",
+    "functions": [
+     {
+      "label": "600V DC to 24V DC conversion, STBD side",
+      "what_it_does": "Converts 600V DC from STBD HVPDU bus to 24V DC service power, output fused and current-monitored before reaching the isolator/contactor bank.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "STBD HVPDU 600V DC bus -> STBD MAPS-1/2 converter -> fuse F3 250A -> CT3 (to ONYX) -> isolator SW3/SO3 -> +24V service bus"
+       },
+       {
+        "state": "normal (2nd module)",
+        "path": "STBD HVPDU 600V DC bus -> STBD MAPS-1/2 (2nd converter) -> fuse F4 250A -> CT4 (to ONYX) -> isolator SW4/SO4 -> +24V service bus"
+       }
+      ],
+      "dry_data": "MAPS-1/2 2x5KW, 600V DC / 24V DC, electronically fused & over-current protected per notes; output fuses F3/F4 250A",
+      "sheet_region": "bbox ~0.24-0.33, 0.48-0.57",
+      "key_components": [
+       "fuse F3 250A",
+       "fuse F4 250A",
+       "CT3, CT4 current transformers"
+      ]
+     }
+    ]
+   },
+   {
+    "equipment_name": "Bilge Pump (Main)",
+    "target_node_id": "520-main-bilge-pump",
+    "placement_reasoning": "BILGE PUMP is a named tap directly off the +24V Service Bus (fused terminal group) per T/S S terminal strip drop-tags and the schedule row 'F7 60A -> SW8' in the +24V bus fuse list, consistent with established F7 60A electrical_supply fact for 520-main-bilge-pump.",
+    "functions": [
+     {
+      "label": "24V DC supply to bilge pump from service bus",
+      "what_it_does": "Feeds the main bilge pump from the +24V service bus through a fused branch and isolator switch, with status monitored to ONYX via CT6.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "+24V SERVICE BUS -> fuse F7 60A -> isolator SW8 -> SO 8 contactor -> BILGE PUMP (see DWG 110b); CT6 taps output to ONYX"
+       }
+      ],
+      "dry_data": "Fuse F7 60A; isolator switch SW8; contactor SO8; matches established fact F7 60A electrical_supply",
+      "sheet_region": "+24V Service Bus column, bbox ~0.75-0.98,0.32-0.55",
+      "key_components": [
+       "fuse F7 60A",
+       "switch SW8",
+       "contactor SO8",
+       "CT6 current transformer (status to ONYX)"
+      ]
      }
     ]
    },
    {
     "equipment_name": "Fire Pump",
     "target_node_id": "520-fire-pump",
-    "placement_reasoning": "Load row explicitly labeled FIRE PUMP on +24V Service Bus schedule; engineer mapping FIRE PUMP -> 520-fire-pump.",
+    "placement_reasoning": "FIRE PUMP is a named tap off the +24V service bus per terminal-strip drop tags (bus -> FIRE PUMP) and the fuse/switch schedule (F8 60A -> SW9).",
     "functions": [
      {
-      "label": "24V DC power feed to Fire Pump",
-      "what_it_does": "Supplies 24V DC operating power to the fire pump from the vessel's 24V service bus.",
-      "sheet_region": "+24V Service Bus fuse/switch column, right side of sheet (~0.75-0.98, 0.32-0.55)",
+      "label": "24V DC supply to fire pump from service bus",
+      "what_it_does": "Feeds the fire pump from the +24V service bus through a fused branch and isolator switch.",
       "flow_scenarios": [
        {
-        "state": "normal supply",
-        "path": "PORT/STBD HVPDU 600V DC bus -> MAPS-1/2 converter -> fuse (250A) -> isolator SW/SO bank -> +24V Service Bus -> fuse F8 60A -> SW9 switch -> FIRE PUMP"
-       },
-       {
-        "state": "status monitoring",
-        "path": "fire pump feeder tapped by negative bus / ground bar drop tag -> to monitoring reference (negative bus)"
+        "state": "normal",
+        "path": "+24V SERVICE BUS -> fuse F8 60A -> isolator SW9 -> SO 9-equivalent contactor -> FIRE PUMP (see DWG 110b)"
        }
       ],
-      "dry_data": "Fed via F8 60A fuse, SW9 isolating switch, off +24V Service Bus."
-     }
-    ]
-   },
-   {
-    "equipment_name": "DC Distribution Panels (FWD/AFT)",
-    "target_node_id": "640-dc-distribution",
-    "placement_reasoning": "FWD DC PANEL and AFT DC PANEL are listed as loads/panels fed from the +24V Service Bus fuse bank; mapped per engineer vocabulary FWD PANEL EM SUPPLY -> 640-dc-distribution, treated as the downstream distribution panel equipment.",
-    "functions": [
-     {
-      "label": "24V DC power feed to FWD DC Panel",
-      "what_it_does": "Supplies 24V DC power from the service bus to the forward DC distribution panel.",
-      "sheet_region": "+24V Service Bus fuse/switch column (~0.75-0.98, 0.32-0.55); also referenced in negative bus drop tags (~0.3-0.98, 0.85-0.92)",
-      "flow_scenarios": [
-       {
-        "state": "normal supply",
-        "path": "+24V Service Bus -> fuse F5 100A -> SW6 switch -> FWD DC PANEL (see DWG 110b)"
-       },
-       {
-        "state": "negative return",
-        "path": "FWD DC PANEL -> negative bus / 230V AC ground bar (=SHIPS GROUND) drop tag -> negative bus"
-       }
-      ],
-      "dry_data": "Fed via F5 100A fuse, SW6 switch."
-     },
-     {
-      "label": "24V DC power feed to AFT DC Panel",
-      "what_it_does": "Supplies 24V DC power from the service bus to the aft DC distribution panel.",
-      "sheet_region": "+24V Service Bus fuse/switch column (~0.75-0.98, 0.32-0.55)",
-      "flow_scenarios": [
-       {
-        "state": "normal supply",
-        "path": "+24V Service Bus -> fuse F6 200A -> SW7 switch -> AFT DC PANEL (see DWG 110b)"
-       },
-       {
-        "state": "negative return",
-        "path": "AFT DC PANEL -> negative bus / 230V AC ground bar drop tag -> negative bus"
-       }
-      ],
-      "dry_data": "Fed via F6 200A fuse, SW7 switch."
+      "dry_data": "Fuse F8 60A; isolator switch SW9",
+      "sheet_region": "+24V Service Bus column, bbox ~0.75-0.98,0.32-0.55",
+      "key_components": [
+       "fuse F8 60A",
+       "switch SW9"
+      ]
      }
     ]
    },
    {
     "equipment_name": "Aux Service Battery Bank",
     "target_node_id": "634-battery-aux-service",
-    "placement_reasoning": "Battery block explicitly labeled AUX SERVICE BAT. 200Ah 24V with its own switch/fuse; matches register node 634-battery-aux-service.",
+    "placement_reasoning": "AUX SERVICE BAT. 200Ah 24V block with SW11 and fuse F16 250A shown feeding from/into the +24V service bus, matching established fact [634-battery-aux-service] protective_device F16 battery fuse.",
     "functions": [
      {
-      "label": "Charge/supply connection for Aux Service Battery",
-      "what_it_does": "Connects the +24V service bus to the auxiliary service battery bank for charging and standby supply duty.",
-      "sheet_region": "Right side of sheet near title area, ~0.82-0.95, 0.24-0.34",
+      "label": "Aux service battery charge/supply link to service bus",
+      "what_it_does": "Connects the 200Ah/24V aux service battery to the +24V service bus through switch SW11 and fuse F16, providing buffered 24V capacity.",
       "flow_scenarios": [
        {
-        "state": "normal connection",
-        "path": "+24V Service Bus -> SW11 switch -> fuse F16 250A -> AUX SERVICE BAT. (200Ah 24V)"
-       },
-       {
-        "state": "negative return",
-        "path": "AUX SERVICE BAT. -> negative bus / 230V AC ground bar drop tag -> negative bus"
+        "state": "normal",
+        "path": "+24V SERVICE BUS -> switch SW11 -> breaker/current tap '70' -> fuse F16 250A -> AUX SERVICE BAT. (200Ah, 24V)"
        }
       ],
-      "dry_data": "200Ah 24V battery bank; protected by SW11 isolating switch and F16 250A fuse."
+      "dry_data": "Fuse F16 250A; battery 200Ah 24V; matches established F16 battery fuse fact",
+      "sheet_region": "bbox ~0.82-0.95,0.24-0.34",
+      "key_components": [
+       "switch SW11",
+       "fuse F16 250A",
+       "current tap '70'"
+      ]
      }
     ]
    },
    {
     "equipment_name": "Generator Start Battery Bank",
     "target_node_id": "633-battery-gen-start",
-    "placement_reasoning": "Drop tag 'to GEN. START BAT.' and negative bus drop labeled GEN START BAT.; matches register node 633-battery-gen-start.",
+    "placement_reasoning": "SO9 contactor line from the isolator bank is labeled 'to GEN. START BAT.' \u2014 a drawn output path from the service supply toward the gen-start battery, distinct from the AUX SERVICE BAT branch.",
     "functions": [
      {
-      "label": "24V DC feed to Generator Start Battery",
-      "what_it_does": "Provides a 24V DC connection path (via SO9 solenoid switch) toward the generator start battery bank, plus a negative return reference.",
-      "sheet_region": "Right of sheet near AUX SERVICE BAT block (~0.85-0.98, 0.28-0.36); negative bus drop tags (~0.3-0.98, 0.85-0.92)",
+      "label": "Charge/link path to generator start battery",
+      "what_it_does": "Routes a switched 24V DC path from the isolator/contactor bank (SO9) to the generator start battery bank.",
       "flow_scenarios": [
        {
-        "state": "normal connection",
-        "path": "+24V Service Bus / isolator SO bank -> SO9 switch -> to GEN. START BAT."
-       },
-       {
-        "state": "negative return",
-        "path": "GEN START BAT. -> negative bus / 230V AC ground bar drop tag -> negative bus"
+        "state": "normal",
+        "path": "isolator bank output -> SO 9 contactor -> to GEN. START BAT."
        }
       ],
-      "dry_data": "Connected via SO9 solenoid switch; no explicit fuse rating visible for this branch."
+      "dry_data": "Contactor SO9 (rating not legible on this sheet)",
+      "sheet_region": "bbox ~0.75-0.9,0.24-0.32",
+      "key_components": [
+       "contactor SO9"
+      ]
      }
-    ]
-   },
-   {
-    "equipment_name": "Emergency Battery Bank",
-    "target_node_id": "632-battery-emergency",
-    "placement_reasoning": "Negative bus drop tag labeled EMERGENCY BAT.; also CTB 7 legend explicitly notes '(EMERGENCY BAT.)' as one of the QI-POWER-485-300-LV converter modules feeding this bank; matches register node 632-battery-emergency.",
-    "functions": [
-     {
-      "label": "Negative/ground reference for Emergency Battery",
-      "what_it_does": "Provides negative bus / ground reference tie for the emergency battery bank as part of the DC service supply system.",
-      "sheet_region": "Negative bus drop tags row (~0.3-0.98, 0.85-0.92)",
-      "flow_scenarios": [
-       {
-        "state": "negative return",
-        "path": "EMERGENCY BAT. -> negative bus / 230V AC ground bar (=SHIPS GROUND) drop tag -> negative bus"
-       }
-      ],
-      "dry_data": "CTB 7 (QI-POWER-485-300-LV) module dedicated to Emergency Bat. per legend; converter details not detailed further on this sheet."
-     }
-    ]
+    ],
+    "placement_note": "part number/rating for SO9: capture at inspection if ever needed"
    },
    {
     "equipment_name": "ONYX Monitoring & Control",
     "target_node_id": "652-onyx-monitoring",
-    "placement_reasoning": "Multiple CT outputs (CT1-CT6) explicitly labeled 'to ONYX', plus BAE voltage sense reference (see DWG 413) and start-key relay signalling routed 'to ONYX' \u2014 all current/voltage monitoring taps on this sheet feed the ONYX monitoring system.",
+    "placement_reasoning": "CT1-CT6 current transformer status taps are all explicitly labeled 'to ONYX' on the sheet \u2014 these are status signals into ONYX monitoring, consistent with established Q22 6A ONYX electrical_supply fact (different sheet) but here the CTs are the monitoring taps for this circuit.",
     "functions": [
      {
-      "label": "Current monitoring of PORT/STBD 24V DC feeders via CTs",
-      "what_it_does": "Monitors current draw on the four main 24V DC feeder legs (from MAPS converters) and reports to ONYX.",
-      "sheet_region": "CT1-CT4 current transformer bank, ~0.38-0.48, 0.13-0.32",
+      "label": "Current monitoring taps from HVPDU/MAPS/service-bus circuits",
+      "what_it_does": "Provides ONYX with current-sense status signals from each MAPS output leg (CT1-CT4), the BAE-related 24V 110A supply leg (CT5), and the bilge pump output leg (CT6).",
       "flow_scenarios": [
        {
-        "state": "monitoring signal",
-        "path": "24V DC feeder line (through 70A breaker) -> CT1/CT2/CT3/CT4 current transformer -> signal wire -> to ONYX"
-       }
-      ],
-      "dry_data": "CT1-CT4, each behind a 70A breaker on its monitored leg."
-     },
-     {
-      "label": "Additional feeder/battery current monitoring (CT5, CT6)",
-      "what_it_does": "Monitors current on additional 24V DC branch circuits and reports to ONYX.",
-      "sheet_region": "CT5 near BAE start key area (~0.5,0.44); CT6 near LV BAE panel (~0.88,0.53)",
-      "flow_scenarios": [
-       {
-        "state": "monitoring signal",
-        "path": "monitored branch line -> CT5 -> to ONYX"
+        "state": "status",
+        "path": "CT1 (PORT MAPS leg1) -> to ONYX"
        },
        {
-        "state": "monitoring signal",
-        "path": "monitored branch line -> CT6 -> to ONYX -> LV. BAE PANEL"
-       }
-      ],
-      "dry_data": "CT5, CT6 current transformers, no rating specified on this sheet."
-     },
-     {
-      "label": "BAE voltage sense reference",
-      "what_it_does": "Provides a voltage sense tap from the +24V service bus to the BAE system monitoring, cross-referenced to another drawing.",
-      "sheet_region": "Near T/S S terminal strip, ~0.62-0.75, 0.28-0.35",
-      "flow_scenarios": [
+        "state": "status",
+        "path": "CT2 (PORT MAPS leg2) -> to ONYX"
+       },
        {
-        "state": "monitoring signal",
-        "path": "+24V Service Bus -> T/S S terminal strip tap -> BAE VOLTAGE SENCE signal -> see DWG 413"
+        "state": "status",
+        "path": "CT3 (STBD MAPS leg1) -> to ONYX"
+       },
+       {
+        "state": "status",
+        "path": "CT4 (STBD MAPS leg2) -> to ONYX"
+       },
+       {
+        "state": "status",
+        "path": "CT5 (24V 110A AC/DC supply output) -> to ONYX"
+       },
+       {
+        "state": "status",
+        "path": "CT6 (bilge pump output leg) -> to ONYX"
        }
       ],
-      "dry_data": "Signal tap only, cross-referenced to DWG 413."
+      "dry_data": "Six current transformers CT1-CT6, all status taps (not protective devices)",
+      "sheet_region": "scattered: CT1-4 bbox ~0.38-0.48,0.13-0.32; CT5 bbox ~0.5,0.42; CT6 bbox ~0.87,0.62"
      }
     ]
    },
    {
-    "equipment_name": "BAE Hybrid System (hub) \u2014 Start Key / Service Mode logic",
+    "equipment_name": "BAE Hybrid System (hub) \u2014 start-key / service-mode signalling",
     "target_node_id": "625-bae-system",
-    "placement_reasoning": "BAE START KEY SW (Service Mode) label directly names BAE; the 230VAC-24VDC 110A supply, relay bank (Re1/Re2) and terminal strip feed the BAE start-key/service-mode control loop and LV BAE Panel.",
+    "placement_reasoning": "The 24V 110A/230VAC power supply feeds a relay/terminal-strip logic block (Re1/Re2, T/S S) explicitly labeled 'BAE START KEY SW (Service Mode)' with a cross-reference 'to Re 2a (see DWG 113)' and 'BAE VOLTAGE SENCE (see DWG 413)' \u2014 this is BAE hybrid system control signalling, not the DC distribution panel itself.",
     "functions": [
      {
-      "label": "BAE start-key / service-mode control supply",
-      "what_it_does": "Provides a dedicated 24V DC control supply and relay-switched signal path for the BAE start-key switch in service mode, and a link to the LV BAE Panel.",
-      "sheet_region": "230VAC-24VDC 110A supply block and T/S S relay bank, ~0.41-0.62, 0.44-0.86",
+      "label": "BAE start-key / service-mode signal generation",
+      "what_it_does": "A dedicated 24V 110A AC/DC supply (230VAC in, 24VDC/125A fused out via F18) powers a relay bank (Re1, Re2) switched via terminal strip contacts (T/S S terminals 1-7 and 5-12), producing the BAE START KEY SW (Service Mode) signal and continuing off-sheet to Re2a (DWG 113).",
       "flow_scenarios": [
        {
-        "state": "control supply",
-        "path": "230V AC (L/N) -> 24V 110A AC/DC power supply -> fuse F18 125A -> T/S S terminal strip -> BAE START KEY SW (Service Mode) contact -> Re1/Re2 relay -> to Re 2a (see DWG 113) / LV. BAE PANEL"
+        "state": "service mode command",
+        "path": "230V AC (L/N) -> 24V 110A supply -> fuse F18 125A -> 24V DC out -> switches 1-4 on T/S S terminals 1-4/4-7 -> relay bank (Re1 top, Re2 lower, plus two more relay positions) -> BAE START KEY SW (Service Mode) output -> onward to Re 2a (see DWG 113)"
        },
        {
-        "state": "status signal",
-        "path": "T/S S terminal strip tap -> CT5 -> to ONYX"
+        "state": "voltage sense status",
+        "path": "T/S S terminal group (terminals 5-12) -> BAE VOLTAGE SENCE tap -> see DWG 413"
        }
       ],
-      "dry_data": "24V 110A supply from 230VAC in, fused F18 125A; relays Re1, Re2 switch start-key/service-mode contacts."
+      "dry_data": "24V 110A / 230VAC / 185A supply; output fuse F18 125A; relay pair Re1/Re2 plus two further relay positions in the same bank",
+      "sheet_region": "bbox ~0.41-0.62, 0.44-0.86",
+      "key_components": [
+       "fuse F18 125A",
+       "relay Re1",
+       "relay Re2",
+       "terminal strip T/S S (1-7 and 5-12)"
+      ]
      }
+    ],
+    "part_number_note": "Exact device part number on the 24V 110A supply: capture at inspection if ever needed"
+   },
+   {
+    "equipment_name": "BEL1 PORT (BAE converter) \u2014 230V AC control indicator panel",
+    "target_node_id": "629-bel1-p",
+    "placement_reasoning": "The PC CARD enclosure's output is explicitly labeled 'BEL-1/4 230V AC CONTROL (see DWG 401a)', matching the established PORT BEL-1 identity node for this vessel's BEL naming convention.",
+    "functions": [
+     {
+      "label": "BEL-1/4 230V AC control indicator relay via PC card",
+      "what_it_does": "PC CARD (numbered I/O 1-10, dual terminal strips) drives a 5-lamp indicator bank and a BAE/AUX rotary selector switch, outputting the 'BEL-1/4 230V AC CONTROL' signal referenced onward on DWG 401a.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "PC CARD terminals (AUX/BAE/NEG/+EM, left strip terminals 6-9) -> internal wiring through diode (terminal 6) and BAE/AUX rotary selector -> 5-lamp indicator bank -> BEL-1/4 230V AC CONTROL output (see DWG 401a)"
+       }
+      ],
+      "dry_data": "PC card I/O 1-10 dual terminal strips; inline diode on AUX line (terminal 6); rotary BAE/AUX selector switch",
+      "sheet_region": "bbox ~0.04-0.22, 0.79-0.99",
+      "key_components": [
+       "diode (AUX line protection, terminal 6)",
+       "BAE/AUX rotary selector switch",
+       "5-lamp indicator bank"
+      ]
+     }
+    ],
+    "uncertainty_note": "PC CARD terminal-to-lamp internal wiring is only partially traceable; exact lamp-to-terminal assignment not legible."
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "+24V Service Bus (DC distribution)",
+    "target_node_id": "640-dc-distribution",
+    "facts": [
+     "Fed from SHUNT #1 (500A/50mV) after the isolator/contactor bank (SW1-5/SO1-5)",
+     "Fuse F5 100A -> switch SW6 -> FWD DC PANEL",
+     "Fuse F6 200A -> switch SW7 -> AFT DC PANEL",
+     "Fuse F7 60A -> switch SW8 -> BILGE PUMP branch (see 520-main-bilge-pump)",
+     "Fuse F8 60A -> switch SW9 -> FIRE PUMP branch (see 520-fire-pump)",
+     "Fuse F9 125A -> switch SW10 -> CT6 -> to ONYX / LV. BAE PANEL",
+     "T/S S terminal strip cross-references DWG 413 for BAE VOLTAGE SENCE tap",
+     "Negative bus / 230V AC ground bar runs along the bottom of the sheet with drop tags to FWD DC PANEL, AFT DC PANEL, BILGE PUMP, FIRE PUMP, GEN START BAT., EMERGENCY BAT., AUX SERVICE BAT."
     ]
    },
    {
-    "equipment_name": "PC Card Controller (BEL-1/4 230V AC Control)",
-    "target_node_id": "629-bel1-p",
-    "placement_reasoning": "PC CARD enclosure explicitly drives 'BEL-1/4 230V AC CONTROL' output (see DWG 401a), with BAE/AUX/NEG/+EM terminal inputs; PORT BEL-1 maps to 629-bel1-p per engineer vocabulary as the closest matching BEL control node for this control output.",
-    "functions": [
-     {
-      "label": "BEL-1/4 230V AC control signal generation",
-      "what_it_does": "Generates/relays a 230V AC control command from the PC Card logic (BAE/AUX selector, indicator lamps) out to the BEL-1/4 control circuit.",
-      "sheet_region": "PC CARD enclosure, bottom-left of sheet (~0.04-0.22, 0.79-0.99)",
-      "flow_scenarios": [
-       {
-        "state": "command output",
-        "path": "PC CARD internal terminals (AUX/BAE/NEG/+EM selector + lamp bank) -> terminal 1 -> BEL-1/4 230V AC CONTROL output -> see DWG 401a"
-       },
-       {
-        "state": "command input reference",
-        "path": "ON/OFF SW (see DWG 114) -> PC CARD input terminals -> internal selector/lamp logic"
-       }
-      ],
-      "dry_data": "10-way terminal strip (AUX/BAE/NEG/+EM plus spares), inline diode on AUX line, 5-lamp indicator bank, cross-ref DWG 114 and DWG 401a."
-     }
+    "system_name": "Isolator / Contactor Bank (SW1-5 / SO1-5)",
+    "target_node_id": "640-dc-distribution",
+    "facts": [
+     "Five switch/contactor pairs (SW1/SO1 ... SW5/SO5) sit between the MAPS+24V outputs (via CT1-CT5) and the +24V SERVICE BUS / SHUNT #1",
+     "Acts as the routing/isolation stage from MAPS converter outputs into the service bus \u2014 infrastructure of the 24V distribution, not a distinct equipment"
+    ]
+   },
+   {
+    "system_name": "PC CARD controller enclosure (BEL-1/4 control card)",
+    "target_node_id": "640-dc-distribution",
+    "facts": [
+     "Dotted-boundary enclosure with dual 10-terminal strips (left AUX/BAE/NEG/+EM; right mirror), 5-lamp bank, rotary BAE/AUX selector \u2014 cross-referenced to DWG 114 (ON/OFF SW) and DWG 401a (BEL-1/4 230V AC CONTROL)",
+     "Functionally attached to BEL1-P equipment output per above, but the card itself and its terminal numbering are DC distribution infrastructure"
     ]
    }
   ],
-  "infrastructure": {
-   "target_node_id": "640-dc-distribution",
-   "facts": [
-    "PORT and STBD HVPDU each provide a 600V DC bus, protected by breakers Q1-Q4 (32A each) and main fuses F1/F2 500A (Aux/Bat.), feeding PORT and STBD MAPS-1/2 2x5kW converters (600V DC/24V DC, electronically fused, over-current protected per CTB1-7 = QI-POWER-485-300-LV legend, CTB7 dedicated to Emergency Bat.)",
-    "MAPS-1/2 24V DC outputs are individually fused F1-F4 250A and monitored by CT1-CT4 (each behind a 70A breaker) before reaching an isolator/contactor bank of SW1-5 switches paired with SO1-5 solenoid contactors",
-    "Isolator bank outputs consolidate onto the +24V Service Bus via SHUNT #1 (500A/50mV) for current measurement",
-    "+24V Service Bus is fused out to five branches: F5 100A (SW6, FWD DC PANEL), F6 200A (SW7, AFT DC PANEL), F7 60A (SW8, BILGE PUMP), F8 60A (SW9, FIRE PUMP), F9 125A (SW10, see DWG 110b)",
-    "Separate AUX SERVICE BAT. (200Ah 24V) branch via SW11 and F16 250A fuse, with SO9 switch tapping toward GEN. START BAT.",
-    "Separate 230VAC-fed 24V/110A power supply (F18 125A) feeds BAE start-key/service-mode terminal strip (T/S S) and relay bank (Re1/Re2), cross-referenced to DWG 113 and DWG 413",
-    "Negative bus / 230V AC ground bar (=SHIPS GROUND) ties together return/reference drops for FWD DC PANEL, AFT DC PANEL, BILGE PUMP, FIRE PUMP, GEN START BAT., EMERGENCY BAT., AUX SERVICE BAT.",
-    "T/S E terminal strip with QE7 6A breaker routes to +24V EMERGENCY POWER",
-    "PC CARD enclosure (bottom-left) provides BAE/AUX/NEG/+EM selector logic feeding BEL-1/4 230V AC CONTROL output (see DWG 401a) and links to ON/OFF SW (see DWG 114)"
-   ]
-  },
   "uncertainties": [
-   "Exact rating/fuse values for the SO9 branch toward GEN. START BAT. are not printed on the sheet.",
-   "Fine terminal numbering inside the T/S S groups (1-7 and 5-12) is small and partly ambiguous per prior extraction; exact relay coil/contact assignments (Re1 vs Re2 to which terminal) not fully legible.",
-   "CT5 and CT6 monitored circuit identities (which specific feeder each CT clamps) are not explicitly labeled beyond their position near the BAE start-key logic and LV BAE Panel run respectively.",
-   "The PC CARD's BEL-1/4 230V AC CONTROL output is mapped here to 629-bel1-p as the closest matching engineer vocabulary entry, but the sheet does not distinguish BEL-1 vs BEL-2 vs BEL-4 exactly \u2014 could plausibly also relate to 629-bel2-p or a combined BEL node; flagged as uncertain attachment.",
-   "Small print in the PORT/STBD MAPS-1/2 wiring boxes (partially illegible fuse IDs per prior extraction) limits full DRY DATA precision for the MAPS converter internal wiring."
+   "Exact SO9 contactor rating (to GEN. START BAT. path) not legible on this sheet.",
+   "T/S S / T/S E terminal numbering in the relay bank overlaps between two adjacent terminal-strip groups (terminals 1-7 vs 5-12) and could not be fully disambiguated from the extraction; walked as best-effort per drawn connections.",
+   "PC CARD internal lamp-to-terminal wiring (which lamp corresponds to which of terminals 6-9) is not clearly traceable at this resolution.",
+   "Fuse/breaker rating on the isolator bank SW1-SW5 switches themselves (only the SO/contactor labels are legible, no amp rating shown) \u2014 part number/rating: capture at inspection if ever needed.",
+   "The small diode near PC card terminal 6 \u2014 function assumed as reverse-polarity/isolation protection for AUX line based on position, not explicitly labeled."
   ],
   "discarded_as_clutter": [
-   "CTB 1-7 = QI-POWER-485-300-LV text tag legend (restates MAPS/HVPDU module type already captured in infrastructure facts)",
-   "HVPDU/MAPS notes_block (generic acronym definitions, non-operational)",
-   "Title block (DWG No., TITLE, DATE, DRAWN, PROJECT, CUSTOMER, copyright notice) \u2014 administrative metadata"
+   "CTB 1-7 = QI-POWER-485-300-LV text tag legend (restates HVPDU/MAPS module part number already captured in equipment dry_data, not a distinct scenario)",
+   "HVPDU/MAPS notes_block definitions (glossary text, already reflected in established facts and functions)",
+   "Title block metadata (DWG No., date, drawn-by, customer \u2014 administrative, not equipment data)",
+   "Copyright notice"
   ],
   "_model": "claude-sonnet-5"
  },
- "elapsed_s": 66.2
+ "elapsed_s": 75.1,
+ "note": "RE-COMPOSE under current protocol (loop-prepass+WP1+bus rules+glossary) for the WP2 write set"
 }

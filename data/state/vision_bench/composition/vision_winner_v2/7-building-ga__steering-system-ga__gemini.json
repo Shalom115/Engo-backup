@@ -1,0 +1,169 @@
+{
+ "category": "7-building-ga",
+ "sheet": "steering-system-ga",
+ "vendor": "gemini",
+ "drawing_class": "building_ga",
+ "composition": {
+  "serve_who": "This is a Steering System GA (108-01-150-001, Southern Wind SWS 108), a BUILDING/STRUCTURAL GA showing the physical arrangement of the twin-rudder mechanical steering gear: rudder blades, rudder stocks, bearing structures, sheave/cable steering from the wheels, tie-rod (Ackermann) linkage, and the autopilot ram. Sheet evidence: title block \"Steering System GA\", perspective/plan/section views of paired rudder posts, bearing housings, sheave boxes, tie-rod linkage bar, and an autopilot ram bolted to BHD L, plus a system-notes block covering toe-in/Ackermann geometry and a safety-notes block describing the 3 independent steering paths (2 wheels + autopilot). This sheet serves three related but distinct nodes: 150-rudder-blades (the rudder blades/stocks/bearings/tie-rod linkage structure, port+stbd mirrored), 150-steering-system (the overall wheel/cable/sheave steering system incl. tracks, cars, wedge stops), and 150-autopilot-system / 150-marsili-autopilot (the autopilot ram and its mounting). The BOM table (items 1-19) lists parts for all of these and is treated as supporting fact data, not a separate function.",
+  "equipment_groups": [
+   {
+    "equipment_name": "Rudder Blades & Stocks (Port + Stbd, mirrored)",
+    "target_node_id": "150-rudder-blades",
+    "placement_reasoning": "Perspective view, Section C-C through rudder blade, Section B-B, and Details A/D/E all show the rudder stock, bearing housings, and blade geometry; matches established node 150-rudder-blades which already carries toe-in/Ackermann facts from this same sheet.",
+    "functions": [
+     {
+      "label": "Rudder stock support & rotation",
+      "what_it_does": "Carries each rudder stock through the hull via upper and lower bearing structures, allowing the blade to rotate about its axis while sealing the hull penetration.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/installed",
+        "path": "Rudder blade stock \u2192 passes through hull shell watertight tube (D.35mm neoprene) \u2192 upper bearing housing (180mm, GRP) near deck level, G10 spacers (2x30mm) either side \u2192 lower bearing housing (220mm, GRP) near hull bottom \u2192 aluminium rudder retainer caps stock at bearing \u2192 stock connects at top to tiller arm/tie-rod linkage"
+       }
+      ],
+      "dry_data": "Upper bearing: 180mm GRP housing (8038P-180) with 180mm top rudder bearing (Solimar 8038P-180); Lower bearing: 220mm GRP housing (8038-220) with 220mm bottom rudder bearing (Solimar 8038-220); watertight tube neoprene D.35mm; aluminium rudder retainer (SWS-standard); G10 spacers 30mm x2 per stock.",
+      "sheet_region": "Perspective view (upper-left); Section B-B (mid-right); Detail D and Detail E (lower-left); Section C-C (lower-left)",
+      "key_components": [
+       "upper bearing housing (GRP)",
+       "lower bearing housing (GRP)",
+       "top/bottom rudder bearings (Solimar)",
+       "aluminium rudder retainer (locking cap)",
+       "watertight neoprene tube (seal)",
+       "G10 spacers"
+      ]
+     },
+     {
+      "label": "Rudder toe-in / Ackermann linkage geometry",
+      "what_it_does": "Sets the mirrored port/stbd rudder blades to a fixed 1.8\u00b0 toe-in at neutral via the tie-rod link length, and defines how outer/inner rudder angles diverge (Ackermann effect) as the wheel/car position moves off centreline.",
+      "flow_scenarios": [
+       {
+        "state": "neutral position",
+        "path": "Rod link at 2044mm length \u2192 1.8\u00b0 toe-in at both rudders simultaneously (mirrored port/stbd)"
+       },
+       {
+        "state": "car position 0mm from CL",
+        "path": "inside rudder 1.8\u00b0 / outside rudder -1.8\u00b0"
+       },
+       {
+        "state": "car position 98mm from CL",
+        "path": "inside rudder 10\u00b0 / outside rudder 6.3\u00b0"
+       },
+       {
+        "state": "car position 212mm from CL",
+        "path": "inside rudder 20\u00b0 / outside rudder 16.0\u00b0"
+       },
+       {
+        "state": "car position 316.5mm from CL",
+        "path": "inside rudder 30\u00b0 / outside rudder 25.3\u00b0"
+       },
+       {
+        "state": "car position 364.3mm from CL (max, \u00b1365mm from CL)",
+        "path": "inside rudder 35\u00b0 / outside rudder 30.0\u00b0"
+       },
+       {
+        "state": "toe-in fine-tuning",
+        "path": "changing rod link length (2025mm\u21920\u00b0 toe-in ... 2056mm\u21923\u00b0 toe-in) shifts the neutral toe-in angle"
+       }
+      ],
+      "dry_data": "Rod link nominal 2044mm = 1.8\u00b0 toe-in; car race travel \u00b1365mm from CL; tie-rod carbon fibre construction with rod-end ball joints.",
+      "sheet_region": "Plan view and System Notes / Ackermann Effect table / Variation-of-toe-in table (bottom centre-right)",
+      "key_components": [
+       "carbon fibre tie-rod link (adjustable length)",
+       "rod-end ball joint fittings",
+       "tiller arm at stock head"
+      ]
+     }
+    ]
+   },
+   {
+    "equipment_name": "Wheel Steering System (cable/sheave/track/car)",
+    "target_node_id": "150-steering-system",
+    "placement_reasoning": "Detail A (sheave arrangement), Port Lower Sheave Box Detail, Plan view showing track/car/vectran line running to the tiller arms, and BOM items for sheaves, sheave boxes, tracks, cars and Vectran line all describe the mechanical wheel-to-rudder cable steering path, distinct from the rudder blade structure and from the autopilot ram.",
+    "functions": [
+     {
+      "label": "Wheel-to-rudder cable steering run",
+      "what_it_does": "Transmits helm wheel input mechanically via a Vectran line running over aluminium sheaves through upper and lower sheave boxes to a car riding on a track, which pulls the tiller arms of both rudder stocks together through the tie-rod linkage, keeping both rudders working in unison from either wheel.",
+      "flow_scenarios": [
+       {
+        "state": "normal helm operation (either wheel)",
+        "path": "Helm wheel (off-sheet) \u2192 Vectran line (20mm) \u2192 upper sheave box (180mm aluminium sheaves, upper bearing area) \u2192 routed along tri-beam 11 \u2192 lower sheave box (port/stbd, bonded horizontally to structure) \u2192 assembled car on track (\u00d816mm track, ~1100mm, e-glass wedge stops limiting travel) \u2192 tiller arm at rudder stock \u2192 tie-rod linkage transmits motion to the opposite rudder"
+       },
+       {
+        "state": "single wheel failure",
+        "path": "failed wheel's line path isolated \u2192 second wheel remains in control of both rudders via the same car/track/tie-rod linkage (per Safety Notes)"
+       },
+       {
+        "state": "single rod (tie-rod) failure",
+        "path": "one tie-rod link fails \u2192 corresponding rudder loses linked drive but the other rudder remains independently actuated and active (per Safety Notes)"
+       }
+      ],
+      "dry_data": "180mm aluminium sheave (Solimar 180PCRSW) x10; sheave pins (SWS-180-03) x4; track 1100mm dia.16mm (JP3, TRC4510-1100); e-glass wedge stops x2; assembled car (JP3); Vectran line 20mm continuous run; upper/lower sheave boxes in FRP (laminated, SWS-standard/SWS-108-01-150-004).",
+      "sheet_region": "Detail A (top), Port Lower Sheave Box Detail (top), Plan view (mid-sheet), BOM items 1,10,11,12,13,14",
+      "key_components": [
+       "Vectran steering line",
+       "aluminium sheaves (upper/lower)",
+       "sheave boxes (upper/lower, FRP)",
+       "track & car assembly",
+       "e-glass wedge stops (travel limiters)"
+      ]
+     }
+    ]
+   },
+   {
+    "equipment_name": "Autopilot Ram / Autopilot Steering Path",
+    "target_node_id": "150-autopilot-system",
+    "placement_reasoning": "Sheet shows a dedicated autopilot ram (300mm stroke, MARSILI) with its own support bolted through BHD L, connected into the tie-rod linkage at the rudder head \u2014 a third, independent steering path per the Safety Notes, distinct from the wheel/cable system and from the rudder blade structure itself.",
+    "functions": [
+     {
+      "label": "Autopilot ram actuation of rudder linkage",
+      "what_it_does": "Provides a third, independent means of steering the rudders (alongside the two wheels) by driving the tie-rod linkage directly from a hydraulic/electric ram mounted on bulkhead BHD L, ensuring rudder control is retained even if both wheels fail.",
+      "flow_scenarios": [
+       {
+        "state": "autopilot engaged",
+        "path": "Autopilot ram (300mm stroke) mounted/bolted through BHD L (support plate bonded to fwd face of BHD L) \u2192 ram rod extends/retracts \u2192 drives tie-rod/tiller arm linkage at rudder head \u2192 both rudders move in unison per Ackermann geometry"
+       },
+       {
+        "state": "both-wheel failure",
+        "path": "wheel steering path inoperative \u2192 pilot/autopilot ram remains in control of both rudders via the same tie-rod linkage (per Safety Notes: '3 independent systems: 2 wheels + pilot')"
+       }
+      ],
+      "dry_data": "Autopilot ram: MARSILI 00014326/7/8, 300mm stroke (CLO-75N rating), metal, qty 1, mass 40kg.",
+      "sheet_region": "Perspective view (ram between bearing structures), Section B-B, 'Autopilot ram support' callout near BHD L (mid-right)",
+      "key_components": [
+       "autopilot ram (300mm stroke)",
+       "ram support plate bolted through BHD L",
+       "tapping plates bonded on fwd face of BHD L",
+       "tie-rod linkage (shared with wheel steering)"
+      ]
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "Hull/Structural Support (Tri-beams, Bulkheads, Partitions)",
+    "target_node_id": "no fitting node",
+    "facts": [
+     "Tri-beam 11 spans hull at rudder area, provides structural mounting/penetration point for sheave line ('MAKE PENETRATION IN TRI-BEAM TO SUIT PILOT ROD MOVEMENT')",
+     "Bulkhead 'BHD L' provides mounting for autopilot ram support (bolted through, tapping plates bonded fwd face)",
+     "Partitions LM1 and LM2 divide the steering compartment area, shown in perspective view",
+     "Deck inner skin reference dimensions: 651mm and 1551mm at STN 10 for sheave/track positioning",
+     "Hull outer skin reference dimensions: 2130mm, 2722mm, 2750mm, 980mm, 882mm, 120mm, 1685mm, 1493mm for rudder stock/bearing positioning",
+     "Datum 0 / DWL (design waterline) reference lines used for vertical positioning of bearings"
+    ]
+   }
+  ],
+  "discarded_as_clutter": [
+   "Standard notes (do not scale, projection 1st angle, dimensions \u00b10.5mm, break sharp edges, weights noted) \u2014 boilerplate drafting notes, not equipment data",
+   "Title block / approval-review signatures / drawing number / revision history \u2014 administrative metadata",
+   "Southern Wind company logo \u2014 branding, not equipment",
+   "BOM header columns (ITEM NO, QTY, PART NO, SUP NO, MADE BY, FITTED BY, MATERIAL, IND MASS, TOT MASS) \u2014 table structure, not a component fact"
+  ],
+  "uncertainties": [
+   "Exact routing of the Vectran line from the helm wheel(s) to the upper sheave box is not shown on this sheet (wheel/pedestal location off-sheet) \u2014 cannot compose the full flow origin, only from the sheave boxes onward.",
+   "BOM item 9 'LOWER SHEAVE BOX' references drawing 108-01-150-004 and item 7 references SWS-standard drawing \u2014 these are cross-references only, not read as separate equipment on this sheet.",
+   "Whether the autopilot ram is hydraulically or electrically actuated is not stated on this sheet (only stroke length and rating CLO-75N given) \u2014 actuation type left as stated on the part description, not inferred."
+  ],
+  "_model": "claude-sonnet-5"
+ },
+ "elapsed_s": 56.4
+}
