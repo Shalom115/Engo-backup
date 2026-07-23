@@ -1,0 +1,93 @@
+ENGINEER RED-PEN — WP2 v3 facts page (2026-07-22, verbatim). PROTOCOL-LEVEL demanded.
+
+=== AFT PLC uncertainties ===
+1+2. good call — run a CROSS-REF CHECK when the referenced hydraulic block page is
+   ingested. QUESTION: does the protocol have a cross-ref check at start/end of each
+   relevant ingestion — for EVERYTHING, not just hydraulic? If not, build one.
+
+=== AFT block B ===
+1. exact press-relief value if not printed → quietly flag (good-to-have for troubleshoot,
+   NOT a red-pen must). v2.0: nice if available, not required.
+2. same — good to have, not a must, as long as function understood + written.
+3. already answered: hose+equipment not in the drawing; as long as function is clear and
+   we know which port is activation + what function → happy.
+
+=== GM110a ===
+1. MASS CHARGER: the 185A is an INVENTION. It converts 230V→24VDC at max 110A on the DC
+   side; fuse correctly noted 125A. Investigate where 185A came from (NOT on the sheet).
+   Across the GM book the symbol for inverter/charger/converter is nearly identical: a
+   rectangle with a sideways cross, one voltage each side (always says AC or DC + voltage),
+   usually rating/amperage on top. FIND what in the protocol made it invent 185A.
+2. INCORRECT flag: the 2 relays and their exact lines are very traceable. Follow the lines
+   one by one → easy to see triggers. All lines in the drawing EXCEPT T/S terminal 9's
+   second line that goes to the key switch. What at the PROTOCOL level made it miss it?
+   Find the intrinsic truth.
+3. Missed: clearly 5 lamps for the 230VAC line + 5 for the 24VDC line. AC 5 = one per BEL
+   + one for aux shore power. DC 5 = one per MAPS + one for the 110A charger (same as #1).
+   Each lamp indicates the equipment engaged/functioning by closing a circuit. What at the
+   PROTOCOL level made it miss it? Intrinsic truth.
+4. not resolved on this sheet → NOTE to cross-reference the mentioned sheet when whole book
+   is ingested.
+
+=== GM111 ===
+1. CT8 measures ONLY the navigation side of the aft distribution panel.
+2. why flagged if it resolved it alone into the correct node?
+3. QE4 clear; QE5 empty = SPARE breaker for future installs; same for CB7.
+4. PROTOCOL CHECK: clear as day SW6+F5 = FWD panel, SW7+F6 = AFT distribution panel. What
+   in the protocol was not clear enough → made this mistake, and how to fix?
+5. truly illegible → good flag.
+6. correct — this sheet doesn't show B&G distribution, only 2 breakers activate the system
+   (service bank normal, emergency if service depleted).
+
+=== GM114a === (READ IS GOOD BUT:)
+FIRST: the sweep MISSED that Re1,2,3,4,5 get their + from T/S B FUSED terminals 8,9,10,11,12
+respectively — this is what activates the valves when the command from plug C comes in.
+KEY TEACHING: every relay has 2 ACTIVATION LINES — DC: + and -, AC: L and N. The rectangle
+with sideways divider is the COIL; on top of it is the activated function. E.g. Re1: + from
+T/S B fused terminal 8 (gives + to relay, valve, switch level); - from T/S C terminal 11 →
+wire 1 in multi-core → plug C pin 1; when S20 closed it gets its - from terminal 12 in plug C.
+DEMAND: can Engo follow that line? If not, why did the protocol miss it? Need a general
+SKILL/PROTOCOL so Engo reads POWER FLOW SIDE-TO-SIDE (both + and - of every coil) for all
+valves and in general — "teach Engo to read the electricity flow from side to side better."
+uncertainties:
+1. good flag → confirmed Q13 bilge valves, Q14 water transfer valves.
+2. nothing like what was described in the drawing → looks like INVENTION. investigate.
+3. part number/rating can wait; the fuse RATING is on the fuse + engineer knows — but he
+   needs to KNOW there's a fuse to look for it. Record presence, not rating.
+4. BIG MISTAKE: pin 11 is the - for ALL indicators and the main pump switch relay Re6.
+   pin 12 not used (correct) but pin 11 is clear. Why did this flag happen? Protocol/skill
+   level — what made it not notice pin 11 is so important?
+
+=== BILGE AND FIRE (READ IS 40-50%, MISSING A LOT) ===
+1. "Remote start command (FIRE PUMP REMOTE START/MAIN BILGE PUMP panel tap, per established
+   control_loop) closes same contactor coil" = CONFUSING + INCORRECT. This drawing doesn't
+   show it — cross from another sheet or invention? Either way: there are 2 DIFFERENT remote
+   switches — fire pump (one by each hydrant in anchor locker/port laz) and bilge pump (per
+   114a). System is 1 but must distinguish the 2. Local was done well; remote got messed up.
+2. Diesel fire pump loop correct EXCEPT NC valves (drawing mistake, forgiven). MISSED: the
+   option to send to the TENDER LAZ SPRINKLER, and the separate option to use this pump to
+   SUCK BILGE and pump overboard through the 3-way valve. Why the miss? FLUID-LOOP PROTOCOL
+   level — address it. ALSO the remote start is a COMPLETE INVENTION — the diesel pump is a
+   PULL-START. Why invent a remote start? How to ensure it knows without being told?
+   Scenarios (all previously red-penned): diesel pump sucks BOTH bilge and fire; electric
+   fire pump = fire only; bilge pump = bilge only; aux pumps; dedicated ER emergency suction
+   through STB gen. FILE "Bilge and Fire System Operating Modes" explains it — cross-ref it.
+   Most Gelliceaux P&IDs have an operating-modes doc (v1 mention it; v2.0 optional to look).
+3. Electric fire pump recorded well BUT missing the TENDER GARAGE SUPPRESSION SPRAY HEAD
+   option as a flow scenario; remote-start switch locations not mentioned → note to look
+   when cross-referencing electrical diagrams.
+4. Aux bilge pump: "Bilge and Fire System Operating Modes" scenario = INVENTION. Mast area
+   invented. "Sail locker area auxiliary bilge pump-out" = COMPLETELY INVENTED — sail locker
+   is part of the MAIN bilge system, NOT an auxiliary; it even has its own Burkert bilge valve.
+5. valves right.
+6. uncertainties:
+   - main bilge pump: been through it, don't flag again — we built a mechanism to flag with
+     the authority of the data source.
+   - routing/direction arrows very clear: 2 valves supply the pump — NO (sea chest) + NC
+     (emergency suction); for emergency you REVERSE the valves so the pump sucks from the
+     engine room. Why not read? What is missing in the protocol??
+   - ok.
+   - part numbers irrelevant as long as function understood.
+
+SUMMARY: bilge+fire read is 40-50%, missing a lot. WORK ON THE P&ID PROTOCOL and show the
+improvements. Correct ALL of the above, make a list, THEN we talk about the rest + ingesting.
