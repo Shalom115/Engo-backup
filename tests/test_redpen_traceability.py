@@ -71,6 +71,18 @@ CHECKS = [
     ("wp2", "photos = identity no scenario", r"leave flow_scenarios EMPTY", "code"),
     ("wp2", "protocol version gate", r"PROTOCOL_VERSION|refused_stale_protocol", "code"),
     ("wp2", "engineer-facts-first within node", r"engineer facts first WITHIN node|engineer-authority-first", "code"),
+    ("wp2v3", "cross-class fact scoping (no weave)", r"never generate a new scenario, control path", "code"),
+    ("wp2v3", "coil dual-line read (+/-)", r"READ ELECTRICITY SIDE-TO-SIDE|TWO POWER SIDES", "code"),
+    ("wp2v3", "indicator lamp mapping", r"INDICATOR LAMPS", "code"),
+    ("wp2v3", "converter/charger symbol read", r"CONVERTER/CHARGER/INVERTER SYMBOL", "code"),
+    ("wp2v3", "spare way rule", r"SPARE WAYS", "code"),
+    ("wp2v3", "valve-lineup enumeration", r"ENUMERATE VALVE-LINEUP SCENARIOS|LINEUP \(one scenario\)|def _enumerate", "code"),
+    ("wp2v3", "scenarios from topology only", r"SCENARIOS COME ONLY FROM THE WALKED TOPOLOGY", "code"),
+    ("wp2v3", "no invented controls / pull-start", r"NO INVENTED CONTROLS|pull-start / manual-start", "code"),
+    ("wp2v3", "operating-modes cross-ref", r"OPERATING-MODES DOC", "code"),
+    ("wp2v3", "uncertainty vs good-to-have tiering", r"UNCERTAINTY vs GOOD-TO-HAVE|good_to_have", "code"),
+    ("wp2v3", "cross-reference channel", r"CROSS-REFERENCE, DO NOT IMPORT|cross_references", "code"),
+    ("wp2v3", "resolved-not-flagged", r"DO NOT FLAG WHAT YOU RESOLVED", "code"),
 ]
 
 
