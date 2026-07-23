@@ -108,8 +108,9 @@ def established_facts_for(text: str, max_facts: int = 40) -> str:
                 prov = f.get("provenance") or {}
                 src = prov.get("source_doc", "")
                 pri = 0 if prov.get("authority") == "engineer" else 1
+                dclass = prov.get("drawing_class") or prov.get("source_type") or "?"
                 hits.append((pri,
-                             f"[{e['equipment_id']}] {f.get('kind','fact')}: "
+                             f"[{e['equipment_id']}] [{dclass}] {f.get('kind','fact')}: "
                              f"{val[:300]}" + (f"  (source: {src})" if src else "")))
                 per_node += 1
                 if per_node >= 3:   # up to 3 facts per node, not 1
@@ -179,8 +180,13 @@ def facts_for_nodes(node_ids: List[str], per_node: int = 4,
         node_facts.sort(key=lambda x: x[0])   # engineer facts first WITHIN node
         for pri, f in node_facts[:per_node]:
             val = str(f.get("value", ""))
-            src = (f.get("provenance") or {}).get("source_doc", "")
-            hits.append((pri, f"[{e['equipment_id']}] {f.get('kind','fact')}: "
+            prov = f.get("provenance") or {}
+            src = prov.get("source_doc", "")
+            # tag the source CLASS so composition never weaves a different-class
+            # fact into a new scenario (the fire-pump remote-start invention:
+            # an [electrical] control_loop got woven into a fluid P&ID scenario)
+            dclass = prov.get("drawing_class") or prov.get("source_type") or "?"
+            hits.append((pri, f"[{e['equipment_id']}] [{dclass}] {f.get('kind','fact')}: "
                               f"{val[:400]}" + (f"  (source: {src})" if src else "")))
     hits.sort(key=lambda h: h[0])
     return "\n".join(line for _, line in hits[:max_facts]) or "(none)"

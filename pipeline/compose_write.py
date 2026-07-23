@@ -51,6 +51,8 @@ class ComposeWriter:
         self.decisions: List[Dict[str, Any]] = []
         self.uncertainties: List[Dict[str, Any]] = []
         self.confirmation_flags: List[Dict[str, Any]] = []
+        self.cross_refs: List[Dict[str, Any]] = []
+        self.good_to_have: List[Dict[str, Any]] = []
 
     # ------------------------------------------------------------------
     def _note(self, **kw) -> None:
@@ -157,6 +159,20 @@ class ComposeWriter:
             self._attach(tgt, "infrastructure_facts",
                          {"system": sysname, "facts": inf["facts"]},
                          sheet_ref, sysname, None, confidence="high")
+
+        # CROSS-REFERENCES (general, all classes): record what this sheet
+        # points to another sheet for, so it resolves when that sheet lands.
+        for xr in comp.get("cross_references") or []:
+            if isinstance(xr, dict) and xr.get("what"):
+                self.cross_refs.append({
+                    "sheet": sheet_ref.get("sheet"),
+                    "what": xr.get("what"),
+                    "referenced_sheet_hint": xr.get("referenced_sheet_hint"),
+                    "status": "open"})
+        # GOOD-TO-HAVE: present-but-unread detail — a durable low-priority
+        # note, NOT the engineer red-pen queue.
+        for g in comp.get("good_to_have") or []:
+            self.good_to_have.append({"sheet": sheet_ref.get("sheet"), "note": g})
 
         uncs = comp.get("uncertainties") or []
         if isinstance(uncs, str):          # string-vs-list trap (GM-111 case):

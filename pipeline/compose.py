@@ -26,7 +26,7 @@ import config
 # with an older version (the stale-composition failure of 2026-07-22: a write
 # set built from pre-red-pen compositions re-presented every answered
 # uncertainty to the engineer). Airtight by construction, not by memory.
-PROTOCOL_VERSION = 3
+PROTOCOL_VERSION = 4
 
 # ---------------------------------------------------------------------------
 # Per-class composition rules. The GENERAL RULE is shared; these add the
@@ -80,7 +80,29 @@ CLASS_RULES: Dict[str, str] = {
         "SIGNAL DIRECTION: monitoring-system taps (XA-style) can be STATUS "
         "taps out of the circuit OR ACTIVATION commands into it — derive "
         "the direction from the drawn wiring (what the line reaches), never "
-        "assume all taps are status."),
+        "assume all taps are status. "
+        "READ ELECTRICITY SIDE-TO-SIDE (engineer rule): a relay/contactor "
+        "coil is energised only when BOTH its power sides are made — the "
+        "positive/L feed AND the negative/N return. Compose each coil's loop "
+        "with BOTH: where the + comes from (e.g. a fused terminal on a "
+        "terminal strip) and how the - returns (e.g. terminal strip -> "
+        "multi-core wire -> plug pin, closed by a switch). A relay whose + "
+        "feed OR - return you cannot trace is INCOMPLETE — say which side is "
+        "missing, do not present it as fully understood. The function the coil "
+        "activates is labelled on top of the coil; the relay energises that "
+        "function (valve/pump/lamp). "
+        "INDICATOR LAMPS: a bank of lamps on a supply line each indicates one "
+        "equipment engaged by closing its circuit — map each lamp to the "
+        "equipment it monitors (e.g. one lamp per BEL/MAPS/charger), do not "
+        "leave them as an undifferentiated bank. "
+        "CONVERTER/CHARGER/INVERTER SYMBOL: a rectangle with a sideways cross, "
+        "a voltage on each side (each marked AC or DC), rating usually on top. "
+        "Read the two voltages and which side is AC vs DC; if a rating digit "
+        "is ambiguous or conflicts, record it as good-to-have and flag low "
+        "confidence — never present a doubtful rating as fact. "
+        "SPARE WAYS: an empty/unlabelled breaker way (e.g. 'QE5' with no load) "
+        "is a SPARE for future installation — record it as spare, not as an "
+        "uncertainty."),
     "pid": (
         "The sheet describes a fluid SYSTEM. The system node gets the flow "
         "scenarios ('suction from X via strainer to pump, discharge overboard "
@@ -123,6 +145,31 @@ CLASS_RULES: Dict[str, str] = {
         "THE DRAWN-PIPE LAW: a fixture or tank connects to a manifold ONLY "
         "via a pipe that is actually drawn. Inventing a connection that is "
         "not on the sheet is the worst possible failure of this pass. "
+        "SCENARIOS COME ONLY FROM THE WALKED TOPOLOGY: every flow scenario "
+        "must correspond to a path in the WALKED FLUID LOOPS block below (or "
+        "a path you can point to on the drawing). If the walk did not reach "
+        "a destination, do NOT narrate a flow to it. Never invent a pump-out, "
+        "a suction source, or a discharge route that is not drawn (the "
+        "'sail-locker auxiliary pump-out' and 'operating-modes' inventions). "
+        "ENUMERATE VALVE-LINEUP SCENARIOS: a pump with multiple valved "
+        "sources or destinations has ONE scenario PER lineup — e.g. a fire "
+        "pump that can reach fire hydrants, a tender/laz sprinkler, AND (via "
+        "a 3-way valve) bilge suction-to-overboard = THREE separate scenarios; "
+        "a pump fed by a normally-open sea-chest valve and a normally-closed "
+        "emergency-suction valve = a normal lineup AND an emergency lineup "
+        "(reverse the valves). Walk every valve branch to its end and list "
+        "each reachable lineup. "
+        "NO INVENTED CONTROLS: do NOT add a 'remote start' or any electrical "
+        "control to a pump unless it is DRAWN on THIS fluid sheet. A "
+        "pull-start / manual-start pump has no remote start — never give it "
+        "one. Electrical control of a pump lives on the electrical sheets; if "
+        "this P&ID does not draw the control, note 'control on electrical "
+        "sheet — cross-ref' and move on. Distinguish separate remote inputs "
+        "(a fire-pump remote vs a bilge-pump remote are different devices in "
+        "different places) — never merge them. "
+        "OPERATING-MODES DOC: if the vessel has an operating-modes companion "
+        "document for this system, its lineups are the authority for the "
+        "scenario set — cross-reference it; on Gelliceaux most P&IDs have one. "
         "SANITY: a tank empties only through a pump or gravity line the "
         "sheet shows — a 'direct discharge with no pump' claim demands a "
         "drawn gravity path, otherwise re-read. "
@@ -259,9 +306,36 @@ _COMPOSE_TOOL = {
                                "audit trail of the relevance filter."},
             "uncertainties": {
                 "type": "array",
-                "items": {"type": "string"},
-                "description": "Anything illegible/ambiguous that limits a "
-                               "scenario — never guess a value."},
+                "description": "Only MUST-level items: an ambiguous "
+                               "FUNCTION/IDENTITY/CONNECTION that changes the "
+                               "meaning and needs the engineer. NOT exact "
+                               "pressure-relief values, part numbers, or fuse "
+                               "ratings — those are good_to_have (below), not "
+                               "uncertainties. Never guess a value.",
+                "items": {"type": "string"}},
+            "good_to_have": {
+                "type": "array",
+                "description": "Present-but-unread detail that does NOT block "
+                               "understanding: an exact relief bar value, a "
+                               "part number, a fuse rating. Record the item "
+                               "and that its value is available on the drawing "
+                               "/ at inspection — the function is understood "
+                               "without it. These are notes, not red-pen "
+                               "musts.",
+                "items": {"type": "string"}},
+            "cross_references": {
+                "type": "array",
+                "description": "Things this sheet points to another sheet for: "
+                               "an EV-x.y that lives on a hydraulic block, a "
+                               "CT/CB/wire continuing on another drawing, a "
+                               "'see DWG N', a control/remote whose wiring is "
+                               "on an electrical sheet, an operating-modes doc. "
+                               "Each = {what, referenced_sheet_hint} so it is "
+                               "resolved when that sheet is ingested.",
+                "items": {"type": "object", "properties": {
+                    "what": {"type": "string"},
+                    "referenced_sheet_hint": {"type": "string"}},
+                    "required": ["what"]}},
         },
         "required": ["serve_who", "equipment_groups", "discarded_as_clutter"],
     },
@@ -316,12 +390,31 @@ THE GENERAL RULE — a drawing is a view onto equipment, never the destination:
 10. UNCERTAINTY DISCIPLINE: an uncertainty is about MEANING — a value, a
    role, a connection. Never flag orphan letters/fragments from the
    extraction: resolve them from context, or discard them as clutter with
-   the corrected reading noted.
+   the corrected reading noted. DO NOT FLAG WHAT YOU RESOLVED: if an item
+   was placed on a node (via the load/control map, a name match, or the
+   drawn wiring), it is NOT an uncertainty — a resolved item and an
+   uncertainty are mutually exclusive. A short downstream link you can
+   follow (a switch/fuse feeding the panel drawn right next to it) must be
+   TRACED, not flagged as 'no downstream label'.
 11. FUNCTION OVER PART NUMBER: the presence and FUNCTION of a device is the
    critical fact. An unreadable part number on an identified device is NOT
    an uncertainty — record the function, note 'part number: capture at
    inspection if ever needed'. Data that changes routinely (dates of
    record-keeping, live values) is irrelevant.
+12. UNCERTAINTY vs GOOD-TO-HAVE (severity discipline): an UNCERTAINTY is a
+   MUST — an ambiguous function / identity / connection that changes meaning
+   and needs the engineer. An exact pressure-relief bar value, a part number
+   or a fuse rating that is simply not legible is NOT an uncertainty — it is
+   good_to_have: record the ITEM (there is a relief here / there is a fuse
+   here) so a troubleshooter knows to look, and note the value is on the
+   drawing or read at inspection. The function being understood is what
+   matters; do not flag a good-to-have as a red-pen must.
+13. CROSS-REFERENCE, DO NOT IMPORT: when this sheet points to another (an
+   EV-x.y detailed on a hydraulic block, a wire/CT/CB continuing elsewhere,
+   a control whose wiring is on an electrical sheet, an operating-modes doc),
+   record it under cross_references — do NOT pull the other sheet's content
+   in and narrate it here as if drawn. Resolution happens when that sheet is
+   ingested.
 
 CLASS-SPECIFIC RULES for this sheet:
 {class_rules}
@@ -330,8 +423,15 @@ VESSEL ACRONYM GLOSSARY (authoritative — never call one of these unknown):
 {glossary}
 
 ESTABLISHED FACTS (already on the vessel's nodes from previously ingested
-sheets — identifiers on THIS sheet that these facts cover keep their
-established identity/type; build on them, never re-derive or downgrade them):
+sheets). USE AS REFERENCE ONLY — to stay consistent with what is already
+known and to NOT re-derive or downgrade an established identity/type. HARD
+RULE: never generate a new scenario, control path, or connection FROM these
+facts. A fact carries its own drawing class in [brackets]; a fact from a
+DIFFERENT class than THIS sheet is background only — e.g. an [electrical]
+control_loop fact must NEVER become a fluid flow line on a P&ID, and a
+[hydraulic] fact must never become an electrical scenario. If a control or
+remote input is not DRAWN on THIS sheet, it does not exist on this sheet —
+do not import it from another node's fact:
 {established}
 
 ENGINEER-CONFIRMED MAPPINGS (authoritative vocabulary → node; use when a
@@ -421,7 +521,7 @@ def _repair_stringified(result: Any) -> Any:
     if not isinstance(result, dict):
         return result
     for key in ("equipment_groups", "infrastructure", "uncertainties",
-                "discarded_as_clutter"):
+                "discarded_as_clutter", "good_to_have", "cross_references"):
         v = result.get(key)
         if isinstance(v, str) and v.strip().startswith(("[", "{")):
             try:

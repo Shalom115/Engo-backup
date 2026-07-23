@@ -203,6 +203,36 @@ def fluid_loops(extraction: Dict[str, Any]) -> List[Dict[str, Any]]:
     sources = [k for k, c in comps.items()
                if any(w in k or w in _key(c.get("component_type"))
                       for w in _SOURCE_WORDS)]
+    # terminal sinks: consumers / discharge / overboard / sprinkler ends
+    _SINK_WORDS = ("overboard", "discharge", "hydrant", "sprinkler", "spray",
+                   "sea", "consumer", "outlet", "tank")
+
+    def _is_sink(name: str) -> bool:
+        c = comps.get(name, {})
+        blob = name + " " + _key(c.get("component_type"))
+        return (not adj.get(name)) or any(w in blob for w in _SINK_WORDS)
+
+    def _enumerate(src: str, max_paths: int = 12, max_len: int = 12):
+        """Distinct source->sink LINEUPS (the engineer's per-scenario paths:
+        fire pump -> hydrants / sprinkler / bilge-overboard = 3 lineups).
+        Bounded simple-path DFS."""
+        paths: List[List[str]] = []
+        stack = [(src, [src])]
+        while stack and len(paths) < max_paths:
+            node, path = stack.pop()
+            outs = adj.get(node, [])
+            if (_is_sink(node) and len(path) > 1) or not outs:
+                if len(path) > 1:
+                    paths.append(path)
+                continue
+            if len(path) >= max_len:
+                paths.append(path)
+                continue
+            for ed in outs:
+                if ed["to"] not in path:
+                    stack.append((ed["to"], path + [ed["to"]]))
+        return paths
+
     loops: List[Dict[str, Any]] = []
     for src in sources:
         visited = {src}
@@ -222,8 +252,9 @@ def fluid_loops(extraction: Dict[str, Any]) -> List[Dict[str, Any]]:
                                     + (f"  [{ann}]" if ann else ""))
                     nxt.append(ed["to"])
             frontier = nxt
+        lineups = [" -> ".join(p) for p in _enumerate(src)]
         loops.append({"source": src, "reached": sorted(visited - {src}),
-                      "segments": segments})
+                      "segments": segments, "lineups": lineups})
     return loops
 
 
@@ -237,8 +268,10 @@ def loops_digest(extraction: Dict[str, Any]) -> str:
            "same):"]
     for lp in loops:
         out.append(f"\n• SOURCE: {lp['source']}")
-        for seg in lp["segments"][:30]:
-            out.append(f"  {seg}")
-        if len(lp["segments"]) > 30:
-            out.append(f"  …(+{len(lp['segments'])-30} more segments)")
+        for lu in lp.get("lineups", [])[:12]:
+            out.append(f"  LINEUP (one scenario): {lu}")
+        for seg in lp["segments"][:20]:
+            out.append(f"  seg: {seg}")
+        if len(lp["segments"]) > 20:
+            out.append(f"  …(+{len(lp['segments'])-20} more segments)")
     return "\n".join(out)
