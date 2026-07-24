@@ -75,6 +75,73 @@ def build(pdf_bytes: bytes, page_index: int = 0, *,
                       "unbound": len(unbound)}}
 
 
+def bind_devices(netlist: Dict[str, Any],
+                 devices: Sequence[Dict[str, Any]],
+                 *, page_size: Optional[Tuple[float, float]] = None,
+                 max_dist: float = 14.0) -> Dict[str, Any]:
+    """
+    LAYER 3 BINDING: attach vision-identified DEVICES (relay, valve motor,
+    fuse, switch, terminal strip...) to the nets their symbol touches.
+
+    This is what makes "which valve does this terminal drive?" answerable:
+    once a valve-motor symbol owns a set of nets, any terminal on those nets
+    is wired to that valve. Without it the netlist knows the wires but not
+    what sits on their ends.
+
+    `devices`: [{"label":..., "kind":..., "bbox":[x0,y0,x1,y1]}]; bbox may be
+    normalized (pass page_size) or already in points.
+    """
+    nets = netlist["_nets_full"]
+    placed: List[Dict[str, Any]] = []
+    for dv in devices:
+        bx = dv.get("bbox")
+        if not bx or len(bx) != 4:
+            continue
+        if page_size and max(bx) <= 1.0:
+            W, H = page_size
+            bx = [bx[0] * W, bx[1] * H, bx[2] * W, bx[3] * H]
+        touching = []
+        for n in nets:
+            if n.get("kind") == "glyph":
+                continue
+            x0, y0, x1, y1 = n["bbox"]
+            # symbol box overlapping (or nearly touching) the net's ink
+            if (x0 - max_dist <= bx[2] and x1 + max_dist >= bx[0] and
+                    y0 - max_dist <= bx[3] and y1 + max_dist >= bx[1]):
+                d = min((math.dist(((bx[0] + bx[2]) / 2, (bx[1] + bx[3]) / 2), p)
+                         for p in n["points"]), default=float("inf"))
+                if d <= max(max_dist, (bx[2] - bx[0] + bx[3] - bx[1]) / 2):
+                    touching.append(n["net_id"])
+        rec = {"label": dv.get("label", ""), "kind": dv.get("kind", ""),
+               "bbox": [round(v, 1) for v in bx], "nets": touching[:12]}
+        placed.append(rec)
+        for nid in touching:
+            for n in nets:
+                if n["net_id"] == nid:
+                    n.setdefault("devices", []).append(rec["label"] or rec["kind"])
+    netlist["placed_devices"] = placed
+    return netlist
+
+
+def what_drives(netlist: Dict[str, Any], terminal_label: str,
+                near_point: Optional[Point] = None) -> List[str]:
+    """
+    Devices reachable from a terminal, by geometry. When a label is ambiguous
+    (many '9's on a sheet) pass `near_point` to pick the right instance —
+    ambiguity is resolved by POSITION, never by guessing.
+    """
+    nets = netlist["_nets_full"]
+    cands = [n for n in nets
+             if any(l["text"].strip() == terminal_label.strip() for l in n["labels"])]
+    if near_point and cands:
+        cands = [min(cands,
+                     key=lambda n: min(math.dist(near_point, p) for p in n["points"]))]
+    out: List[str] = []
+    for n in cands:
+        out.extend(n.get("devices", []))
+    return sorted(set(out))
+
+
 def connected(netlist: Dict[str, Any], a: str, b: str) -> Dict[str, Any]:
     """THE finger test, by name: are two labelled points on the same conductor?"""
     nets = netlist["_nets_full"]

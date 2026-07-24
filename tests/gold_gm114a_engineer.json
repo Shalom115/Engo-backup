@@ -1,0 +1,18 @@
+{
+  "comment": "ENGINEER-STATED GOLD FACTS for GM-114a (bilge system). These live ONLY in tests/ — never in any pipeline prompt or code (gold-blind rule). Source: engineer red-pen 2026-07-22.",
+  "sheet": "GM-114a_bilge-system",
+  "facts": [
+    {"id": "g1", "claim": "Local pump switch: cables 1 and 2 of a multi-core lead to T/S C terminals 48 and 49 (they are CABLES, not pins), and are part of the remote switches",
+     "probe_labels": ["48", "49"], "expect": "48 and 49 on T/S C reachable from the local switch multicore"},
+    {"id": "g2", "claim": "ONYX remote switch is XA11 terminal 32",
+     "probe_labels": ["XA11", "32"], "expect": "XA11 associated with terminal 32"},
+    {"id": "g3", "claim": "Valve MOTOR activation terminals come from plug C: 9/10 lazarette, 18/19 aft, 26/27 engine room, 34/35 fwd, 42/43 sail locker (the T/S C terminals previously named were plug D signal lights)",
+     "probe_labels": ["9","10","18","19","26","27","34","35","42","43"], "expect": "these pairs drive the valve motors, from plug C"},
+    {"id": "g4", "claim": "Re1-Re5 take their + from T/S B FUSED terminals 8,9,10,11,12 respectively",
+     "probe_labels": ["Re1","Re2","Re3","Re4","Re5","8","9","10","11","12"], "expect": "each relay coil + from its T/S B fused terminal"},
+    {"id": "g5", "claim": "Re1 negative: T/S C terminal 11 -> wire 1 of the multi-core -> plug C pin 1; with S20 closed the - comes from plug C terminal 12",
+     "probe_labels": ["Re1","11","S20","12"], "expect": "coil negative path traced"},
+    {"id": "g6", "claim": "Plug C pin 11 is the NEGATIVE for all indicators and for the main pump switch relay Re6; pin 12 is not used",
+     "probe_labels": ["11","12","Re6"], "expect": "pin 11 = common negative; pin 12 unused"}
+  ]
+}
