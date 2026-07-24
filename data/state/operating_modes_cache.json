@@ -44,5 +44,51 @@
   ],
   "_model": "claude-sonnet-5",
   "_doc_name": "Bilge and Fire System Operating Modes.pdf"
+ },
+ "1itWVXbsmSCQrx2U0arPP3bl6jsCPa_tc": {
+  "modes": [
+   {
+    "mode_name": "OPERATING MODE 1 - NORMAL OPERATION",
+    "suction_from": "Raw water seachest supply (ref DWG 108-01-515-001) / Cold line supply, Dedicated line supply, Anchor wash line supply / Watermakers (x2) integral freshwater tank feed",
+    "discharge_to": "Port Fresh Water Tank 1500L and/or Stbd Fresh Water Tank 1500L (any combination possible)",
+    "pumps": "'Dedicated' pump & pressure switch unit; Freshwater pump & pressure switch set",
+    "valve_positions": "In this example, valves set for watermaker to fill port tank & freshwater system being fed from stbd tank. Any combination, however, is possible.",
+    "notes": "Normal operation with fresh water / sea water / watermaker product (per table: Line = Watermakers feeding into integral freshwater tanks, Water type in dedicated line = Fresh Water)"
+   },
+   {
+    "mode_name": "OPERATING MODE 2 - TANK WATER TRANSFER",
+    "suction_from": "Port Fresh Water Tank (in example) / From Fresh Water Tanks",
+    "discharge_to": "Stbd Fresh Water Tank (in example)",
+    "pumps": "Freshwater pump & pressure switch set ('Dedicated' pump turned off at breaker)",
+    "valve_positions": "In this example, valves set for tank transfer from port tank to stbd tank. Swap states of all these valves to do other way round. Close shutoff valve (turn off pump at breaker).",
+    "notes": "CAUTION: Tank transfer operation needs to be done with caution to prevent over-pressurizing the receiving tank. Refer to owners manual for further information. Line = N/A, Water type in dedicated line = N/A"
+   },
+   {
+    "mode_name": "OPERATING MODE 3 - DOCKSIDE WATER CONNECTION",
+    "suction_from": "Dock bunker line supply (fresh water) via Silver Ion Sterilizer and Bunker Line Distribution Manifold",
+    "discharge_to": "Port Fresh Water Tank 1500L and/or Stbd Fresh Water Tank 1500L",
+    "pumps": "Both 'Dedicated' pump and Freshwater pump to be turned off at breaker",
+    "valve_positions": "In this example, valves set for stbd tank to be filled, this is to be monitored to ensure tank does not overflow. Swap both valve states to fill port tank.",
+    "notes": "Dockside operation with fresh water / sea water; Line = Dock water, Water type in dedicated line = Fresh Water"
+   },
+   {
+    "mode_name": "OPERATING MODE 4 - ECONOMICAL FRESHWATER USAGE",
+    "suction_from": "Raw water seachest supply (ref DWG 108-01-515-001); Cold line supply, Dedicated line supply, Anchor wash line supply (sea water)",
+    "discharge_to": "Port Tank and/or Stbd Tank",
+    "pumps": "'Dedicated' pump & pressure switch unit; Freshwater pump & pressure switch set",
+    "valve_positions": "Freshwater system being fed from stbd tank in this example. To draw from port tank, change valve actuators at main control panel.",
+    "notes": "Remainder of system same as per Operation Mode 1. Economical operation with fresh water / sea water; Line = Watermakers feeding into integral freshwater tanks, Water type in dedicated line = Sea Water"
+   },
+   {
+    "mode_name": "OPERATING MODE 5 - PUMP BACKUP",
+    "suction_from": "From raw water seachest supply (ref DWG 108-01-515-001); From fresh water tanks",
+    "discharge_to": "Freshwater pump & pressure switch set (via dedicated pump acting as backup)",
+    "pumps": "'Dedicated' pump & pressure switch unit used as freshwater backup; both freshwater pumps are not operational",
+    "valve_positions": "Close shutoff valve at seachest.",
+    "notes": "Using dedicated pump as freshwater backup; Line = N/A, Water type in dedicated line = N/A"
+   }
+  ],
+  "_model": "claude-sonnet-5",
+  "_doc_name": "Fresh Water System Operating Modes.pdf"
  }
 }

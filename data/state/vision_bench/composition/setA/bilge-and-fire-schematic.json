@@ -1,0 +1,4404 @@
+{
+ "sheet": "bilge-and-fire-schematic",
+ "drawing_class": "pid",
+ "extraction": {
+  "survey": {
+   "drawing_no": "108-01-520-001",
+   "revision": "B",
+   "title": "BILGE & FIRE SYSTEM SCHEMATIC",
+   "regions": [
+    {
+     "kind": "diagram",
+     "label": "Deck/hull layout plan view (frame stations 11 to 1, compartments and fire/bilge pump locations)",
+     "bbox": [
+      0.0,
+      0.02,
+      1.0,
+      0.32
+     ]
+    },
+    {
+     "kind": "bom_table",
+     "label": "PIPING DETAILS table (pipe codes, SWS code, OEM/supplier, model, details, rating, material, description, weight)",
+     "bbox": [
+      0.795,
+      0.02,
+      1.0,
+      0.1
+     ]
+    },
+    {
+     "kind": "bom_table",
+     "label": "BILL OF MATERIALS table (item no., qty, class, make/supplier, description, SWS code, weight)",
+     "bbox": [
+      0.795,
+      0.1,
+      1.0,
+      0.4
+     ]
+    },
+    {
+     "kind": "diagram",
+     "label": "Main bilge/fire line schematic with sump stations (Lazarette, Midship, Engine Room, Mast Area, ESS Enclosure, Sail Locker sumps), pumps, valves, strainers",
+     "bbox": [
+      0.0,
+      0.33,
+      1.0,
+      0.87
+     ]
+    },
+    {
+     "kind": "legend",
+     "label": "SYMBOLS LEGEND (electrical motor driven pump, ICE driven pump, ball valves, fire hydrant, filter/strainer, bilge sump strum box, fire suppression spray head, control panel, local switch)",
+     "bbox": [
+      0.0,
+      0.86,
+      0.1,
+      0.98
+     ]
+    },
+    {
+     "kind": "legend",
+     "label": "TEXT LEGEND (BOM number, pipe code, flow direction, NO/NC, LT, LI, M, S, PI, ESS)",
+     "bbox": [
+      0.115,
+      0.9,
+      0.24,
+      0.99
+     ]
+    },
+    {
+     "kind": "legend",
+     "label": "PIPE LEGEND (main bilge line - metallic, fireline - metallic, aux bilge line - PVC/flex, freshwater supply - flex)",
+     "bbox": [
+      0.3,
+      0.93,
+      0.4,
+      0.99
+     ]
+    },
+    {
+     "kind": "other",
+     "label": "PUMP DATA table (pump type, details, flow rate, power, max head)",
+     "bbox": [
+      0.17,
+      0.9,
+      0.3,
+      0.99
+     ]
+    },
+    {
+     "kind": "notes",
+     "label": "DRAWING-SPECIFIC NOTES box",
+     "bbox": [
+      0.44,
+      0.94,
+      0.58,
+      0.99
+     ]
+    },
+    {
+     "kind": "notes",
+     "label": "STANDARD NOTES box",
+     "bbox": [
+      0.585,
+      0.94,
+      0.73,
+      0.99
+     ]
+    },
+    {
+     "kind": "title_block",
+     "label": "Title block with drawing no., revision, title, company (Southern Wind), design, client, drawn by, sheet, approvals",
+     "bbox": [
+      0.73,
+      0.9,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "_model": "claude-sonnet-5"
+  },
+  "tables": [
+   {
+    "rows": [
+     {
+      "raw": "38mm 1-1/2\", 50mm OD | ISO 7840 MARINE FUEL A2 | NBR RUBBER, STEEL SPIRAL | FUEL 7840 A2 38MM VETUS | 1.1",
+      "description": "FUEL 7840 A2 38MM VETUS",
+      "make_model": "ISO 7840 MARINE FUEL A2",
+      "qty": "1.1"
+     },
+     {
+      "raw": "51mm 2\", 63mm OD | ISO 7840 MARINE FUEL A2 | NBR RUBBER, STEEL SPIRAL | FUEL 7840 A2  51MM VETUS | 1.5",
+      "description": "FUEL 7840 A2  51MM VETUS",
+      "make_model": "ISO 7840 MARINE FUEL A2",
+      "qty": "1.5"
+     },
+     {
+      "raw": "25mm 1\", 34mm OD. |  | EPDM RUBBER, STEEL SPRIAL | MARINE WATER 25MM VETUS | 0.51",
+      "description": "MARINE WATER 25MM VETUS",
+      "make_model": "",
+      "qty": "0.51"
+     },
+     {
+      "raw": "25mm 1\", 21.4mm ID |  | PVC | 25MM PVC PIPE/MTR | 0.15",
+      "description": "25MM PVC PIPE/MTR",
+      "make_model": "",
+      "qty": "0.15"
+     },
+     {
+      "raw": "01.5 DN40 42x1.5mm |  | CuNiFe 90/10 | PIPE 42MM SEAPRESS | 1.68",
+      "item_tag": "01.5",
+      "description": "PIPE 42MM SEAPRESS",
+      "make_model": "",
+      "qty": "1.68"
+     },
+     {
+      "raw": "6019 DN50 54x1.5mm |  | CuNiFe 90/10 | PIPE 54MM SEAPRESS | 2.17",
+      "item_tag": "6019",
+      "description": "PIPE 54MM SEAPRESS",
+      "make_model": "",
+      "qty": "2.17"
+     },
+     {
+      "raw": "15 x 3 mm |  | PEX | 15MM S/F PIPE | ",
+      "description": "15MM S/F PIPE",
+      "make_model": "",
+      "qty": ""
+     },
+     {
+      "raw": "50mm 2\" | ISO 15540 FIRE RESISTANT | RUBBER, FIBRE-REINFORCED | EASYFLEX 51mm Hose | 2.2",
+      "description": "EASYFLEX 51mm Hose",
+      "make_model": "ISO 15540 FIRE RESISTANT",
+      "qty": "2.2"
+     }
+    ],
+    "_model": "claude-sonnet-5",
+    "bbox": [
+     0.795,
+     0.02,
+     1.0,
+     0.1
+    ]
+   },
+   {
+    "rows": [
+     {
+      "item_tag": "001",
+      "qty": "01 ea.",
+      "make_model": "FEIT PUMPS / VA 40B",
+      "description": "Centrifugal Pump, Bronze, 24V DC",
+      "raw": "001 | 01 ea. | MAIN BILGE PUMP | FEIT PUMPS | - | Centrifugal Pump, Bronze, 24V DC | 22 | 22\nVA 40B"
+     },
+     {
+      "item_tag": "002",
+      "qty": "01 ea.",
+      "make_model": "AUSTRALIAN PUMP / RSEBUV/L48 NF 2\"",
+      "description": "YANMAR L48 Diesel Pump",
+      "raw": "002 | 01 ea. | DIESEL FIRE PUMP | AUSTRALIAN PUMP | YAN002 | YANMAR L48 Diesel Pump | 22 | 22\nRSEBUV/L48 NF 2\""
+     },
+     {
+      "item_tag": "003",
+      "qty": "01 ea.",
+      "make_model": "CENTRAL BOATING",
+      "description": "WHALE 2054 GULPER 320 24V PUMP",
+      "raw": "003 | 01 ea. | AUXILARY BILGE PUMP | CENTRAL BOATING | SPA290 | WHALE 2054 GULPER 320 24V PUMP | 1.6 | 1.6"
+     },
+     {
+      "item_tag": "004",
+      "qty": "01 ea.",
+      "make_model": "WAVESTREAM / #N/A",
+      "description": "#N/A",
+      "raw": "004 | 01 ea. | OIL REMOVAL CARTRIDGE FILTER | WAVESTREAM | - | #N/A | 1.2 | 1.2\n#N/A"
+     },
+     {
+      "item_tag": "005",
+      "qty": "03 ea.",
+      "make_model": "GUIDI SRL / 1162",
+      "description": "ART 1162 STRAINER WATER 2.0'",
+      "raw": "005 | 03 ea. | SEAWATER/BILGE STRAINER | GUIDI SRL | GDI0053 | ART 1162 STRAINER WATER 2.0' | 7.8 | 23.4\n1162"
+     },
+     {
+      "item_tag": "006",
+      "qty": "08 ea.",
+      "make_model": "CENTRAL BOATING / 29290-0010",
+      "description": "40MM JABSCO AMAZONE STRUMBOX",
+      "raw": "006 | 08 ea. | BILGE PICKUP STRUMBOX | CENTRAL BOATING | INT002 | 40MM JABSCO AMAZONE STRUMBOX | 0.16 | 1.28\n29290-0010"
+     },
+     {
+      "item_tag": "007",
+      "qty": "05 ea.",
+      "make_model": "VEGA / VEGAPOINT 21",
+      "description": "Capacitive level switch. Transistor with IO-Link",
+      "raw": "007 | 05 ea. | HIGH LEVEL BILGE ALARM SWITCH | VEGA | - | Capacitive level switch. Transistor with IO-Link | 0.25 | 1.25\nVEGAPOINT 21"
+     },
+     {
+      "item_tag": "008",
+      "qty": "01 ea.",
+      "make_model": "G I TRADE OPTIONS / S10T",
+      "description": "3bar SET PRESSURE",
+      "raw": "008 | 01 ea. | PRESSURE RELIEF VALVE | G I TRADE OPTIONS | - | 3bar SET PRESSURE | 1.5 | 1.5\nS10T"
+     },
+     {
+      "item_tag": "009",
+      "qty": "05 ea.",
+      "make_model": "GUIDI SRL / ART1532",
+      "description": "ART 1532 2\u00bd\" NON RETURN VALVE",
+      "raw": "009 | 05 ea. | NON RETURN VALVE 2\u00bd\" | GUIDI SRL | GDI100 | ART 1532 2\u00bd\" NON RETURN VALVE | 1.5 | 7.5\nART1532"
+     },
+     {
+      "item_tag": "010",
+      "qty": "02 ea.",
+      "make_model": "GUIDI SRL / 2070",
+      "description": "ART 2070 BALLVALVE 1 1/2'",
+      "raw": "010 | 02 ea. | BALL VALVE 1\u00bd\" | GUIDI SRL | GDI0312 | ART 2070 BALLVALVE 1 1/2' | 1.32 | 2.64\n2070"
+     },
+     {
+      "item_tag": "011",
+      "qty": "05 ea.",
+      "make_model": "GUIDI SRL / 2070",
+      "description": "ART 2070 BALLVALVE 2'",
+      "raw": "011 | 05 ea. | BALL VALVE 2\" | GUIDI SRL | GDI032 | ART 2070 BALLVALVE 2' | 1.98 | 9.9\n2070"
+     },
+     {
+      "item_tag": "012",
+      "qty": "01 ea.",
+      "make_model": "SWS CUSTOM / #N/A",
+      "description": "316/L S/STEEL",
+      "raw": "012 | 01 ea. | ANTI-SIPHON MANIFOLD | SWS CUSTOM | - | 316/L S/STEEL | 2.5 | 2.5\n#N/A"
+     },
+     {
+      "item_tag": "013",
+      "qty": "01 ea.",
+      "make_model": "GUIDI SRL / ART 1250",
+      "description": "ART 1250 SIPHON BREAK VALVE",
+      "raw": "013 | 01 ea. | SIPHONBREAK VALVE | GUIDI SRL | GDI095 | ART 1250 SIPHON BREAK VALVE | 0.18 | 0.18\nART 1250"
+     },
+     {
+      "item_tag": "014",
+      "qty": "03 ea.",
+      "make_model": "G I TRADE OPTIONS",
+      "description": "1\" 3 WAY S/S BALLVALVES",
+      "raw": "014 | 03 ea. | BALL VALVE 3-WAY 'L' PORT 1\" | G I TRADE OPTIONS | BAL023 | 1\" 3 WAY S/S BALLVALVES | 1 | 3"
+     },
+     {
+      "item_tag": "015",
+      "qty": "01 ea.",
+      "make_model": "G I TRADE OPTIONS",
+      "description": "2\" L-Port 3 way ball Valve",
+      "raw": "015 | 01 ea. | BALL VALVE 3-WAY 'L' PORT 2\" | G I TRADE OPTIONS | GIT136 | 2\" L-Port 3 way ball Valve | 3.5 | 3.5"
+     },
+     {
+      "item_tag": "016",
+      "qty": "05 ea.",
+      "make_model": "BURKERT FLUID CONTROL SYS / 00189199",
+      "description": "Motorized rotary Actuator",
+      "raw": "016 | 05 ea. | ELECTRIC ROTARY ACTUATOR | BURKERT FLUID CONTROL SYS | BURK005 | Motorized rotary Actuator | 5.6 | 28\n00189199"
+     },
+     {
+      "item_tag": "017",
+      "qty": "05 ea.",
+      "make_model": "BURKERT FLUID CONTROL SYS / 96702091",
+      "description": "Ball Valve -DN050",
+      "raw": "017 | 05 ea. | BALL VALVE, 2 WAY, 316 SS, 2\" | BURKERT FLUID CONTROL SYS | BURK002 | Ball Valve -DN050 | 3.5 | 17.5\n96702091"
+     },
+     {
+      "item_tag": "018",
+      "qty": "02 ea.",
+      "make_model": "#N/A",
+      "description": "#N/A",
+      "raw": "018 | 02 ea. | FIRE HYDRANT VALVE | #N/A | | #N/A | 2.2 | 4.4\n#N/A"
+     },
+     {
+      "item_tag": "019",
+      "qty": "02 ea.",
+      "make_model": "#N/A",
+      "description": "#N/A",
+      "raw": "019 | 02 ea. | FIRE HOSE | #N/A | | #N/A | 7 | 14\n#N/A"
+     },
+     {
+      "item_tag": "020",
+      "qty": "02 ea.",
+      "make_model": "#N/A",
+      "description": "#N/A",
+      "raw": "020 | 02 ea. | FIRE HOSE NOZZLE | #N/A | | #N/A | 4 | 8\n#N/A"
+     },
+     {
+      "item_tag": "021",
+      "qty": "04 ea.",
+      "make_model": "AFRICAN PRESSING EXPERTS",
+      "description": "1/2\" GARDENA S/S FITTINGS",
+      "raw": "021 | 04 ea. | GARDENA-TYPE TAP CONNECTOR | AFRICAN PRESSING EXPERTS | U00771 | 1/2\" GARDENA S/S FITTINGS | 0.2 | 0.8"
+     },
+     {
+      "item_tag": "022",
+      "qty": "01 ea.",
+      "make_model": "#N/A",
+      "description": "#N/A",
+      "raw": "022 | 01 ea. | WATER MIST SPRAY HEAD | #N/A | | #N/A | 0.3 | 0.3\n#N/A"
+     },
+     {
+      "item_tag": "023",
+      "qty": "03 ea.",
+      "make_model": "G I TRADE OPTIONS",
+      "description": "1/2\" CAD MINI BALLVALVES",
+      "raw": "023 | 03 ea. | BALL VALVE - MINI 1/2\" | G I TRADE OPTIONS | BAL004 | 1/2\" CAD MINI BALLVALVES | 0.25 | 0.75"
+     },
+     {
+      "item_tag": "024",
+      "qty": "01 ea.",
+      "make_model": "GIANNESCHI SRL / 01AAC9991",
+      "description": "ACB 431 B 24V CC 1.5KW 1500rpm",
+      "raw": "024 | 01 ea. | ELECTRIC FIRE PUMP | GIANNESCHI SRL | GIA-01AAC9991 | ACB 431 B 24V CC 1.5KW 1500rpm | 50 | 50\n01AAC9991"
+     },
+     {
+      "item_tag": "025",
+      "qty": "04",
+      "make_model": "GEMS SENSORS",
+      "description": "Float switch, S/Steel",
+      "raw": "025 | 04 | AUXILLARY BILGE ALARM SWITCH | GEMS SENSORS | | Float switch, S/Steel | 0.25 | 1 (row cut off)"
+     }
+    ],
+    "_model": "claude-sonnet-5",
+    "bbox": [
+     0.795,
+     0.1,
+     1.0,
+     0.4
+    ]
+   }
+  ],
+  "topology": {
+   "components": [
+    {
+     "component_type": "pump",
+     "item_tag": "001",
+     "label": "MAIN BILGE PUMP",
+     "bbox": [
+      213,
+      32,
+      236,
+      50
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "002",
+     "label": "DIESEL FIRE PUMP / DIESEL BACKUP BILGE PUMP",
+     "bbox": [
+      273,
+      32,
+      296,
+      50
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "003",
+     "label": "AUXILARY BILGE PUMP / AUX BILGE PUMP",
+     "bbox": [
+      1102,
+      86,
+      1124,
+      104
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "012",
+     "label": "ELECTRIC FIRE PUMP",
+     "bbox": [
+      1391,
+      111,
+      1414,
+      129
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "unknown",
+     "label": "MAST AREA AUX BILGE PUMP",
+     "bbox": [
+      1327,
+      111,
+      1350,
+      129
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "unknown",
+     "label": "FWD BILGE PUMP",
+     "bbox": [
+      1602,
+      146,
+      1624,
+      164
+     ]
+    },
+    {
+     "component_type": "alarm",
+     "item_tag": "007",
+     "label": "HIGH LEVEL BILGE ALARM SWITCH / MAIN BILGE PUMP LOCAL START",
+     "bbox": [
+      1608,
+      101,
+      1631,
+      119
+     ]
+    },
+    {
+     "component_type": "alarm",
+     "item_tag": "unknown",
+     "label": "MAIN BILGE PUMP REMOTE START",
+     "bbox": [
+      172,
+      32,
+      195,
+      50
+     ]
+    },
+    {
+     "component_type": "strainer",
+     "item_tag": "005",
+     "label": "SEAWATER/BILGE STRAINER",
+     "bbox": [
+      865,
+      278,
+      895,
+      300
+     ]
+    },
+    {
+     "component_type": "filter",
+     "item_tag": "004",
+     "label": "OIL REMOVAL CARTRIDGE FILTER",
+     "bbox": [
+      192,
+      255,
+      225,
+      278
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "008",
+     "label": "PRESSURE RELIEF VALVE / 3bar SET PRESSURE",
+     "bbox": [
+      240,
+      300,
+      260,
+      320
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "009",
+     "label": "NON RETURN VALVE 2 1/2\"",
+     "bbox": [
+      240,
+      315,
+      260,
+      335
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "010",
+     "label": "BALL VALVE 1 1/2\"",
+     "bbox": [
+      240,
+      355,
+      260,
+      375
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "011",
+     "label": "BALL VALVE 2\"",
+     "bbox": [
+      240,
+      385,
+      260,
+      405
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "manifold",
+     "item_tag": "unknown",
+     "label": "ANTI-SIPHON MANIFOLD",
+     "bbox": [
+      1225,
+      275,
+      1260,
+      300
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "013",
+     "label": "SIPHONBREAK VALVE",
+     "bbox": [
+      240,
+      415,
+      260,
+      435
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "014",
+     "label": "BALL VALVE 3-WAY 'L' PORT 1\" (AFT CABIN PORT)",
+     "bbox": [
+      240,
+      445,
+      260,
+      465
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "015",
+     "label": "BALL VALVE 3-WAY 'L' (AFT CABIN STBD)",
+     "bbox": [
+      240,
+      475,
+      260,
+      495
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "016",
+     "label": "ELECTRIC ROTARY ACTUATOR / MOTOR-ACTUATED VALVE (FOR AFT LAZARETTE AREA)",
+     "bbox": [
+      240,
+      505,
+      260,
+      525
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "unknown",
+     "label": "MOTOR-ACTUATED VALVE (FOR MAST AREA)",
+     "bbox": [
+      1145,
+      240,
+      1175,
+      260
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "unknown",
+     "label": "MOTOR-ACTUATED VALVE (FOR SAIL LOCKER AREA)",
+     "bbox": [
+      1350,
+      255,
+      1380,
+      275
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "unknown",
+     "label": "MOTOR-ACTUATED VALVE 2\" (FOR E-R)",
+     "bbox": [
+      970,
+      240,
+      1000,
+      260
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "tank/space",
+     "item_tag": "unknown",
+     "label": "SAIL LOCKER",
+     "bbox": [
+      1608,
+      305,
+      1650,
+      330
+     ]
+    },
+    {
+     "component_type": "overboard",
+     "item_tag": "unknown",
+     "label": "BILGE OVERBOARD",
+     "bbox": [
+      268,
+      285,
+      300,
+      305
+     ]
+    },
+    {
+     "component_type": "overboard",
+     "item_tag": "unknown",
+     "label": "BILGE OVERBOARD (near BILGE SEAWATER PICKUP)",
+     "bbox": [
+      1240,
+      240,
+      1270,
+      260
+     ]
+    },
+    {
+     "component_type": "hydrant",
+     "item_tag": "unknown",
+     "label": "AFT FIRE HYDRANT",
+     "bbox": [
+      142,
+      60,
+      180,
+      90
+     ]
+    },
+    {
+     "component_type": "hydrant",
+     "item_tag": "unknown",
+     "label": "FWD FIRE HYDRANT",
+     "bbox": [
+      1800,
+      180,
+      1840,
+      210
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "unknown",
+     "label": "FIRE HYDRANT VALVE",
+     "bbox": [
+      240,
+      545,
+      260,
+      560
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "symbol",
+     "item_tag": "unknown",
+     "label": "FIRELINE IN SHEER (marker)",
+     "bbox": [
+      695,
+      120,
+      720,
+      140
+     ],
+     "ambiguous": true
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "<UNKNOWN>",
+     "label": "ENGINE ROOM AUX BILGE PUMP",
+     "bbox": [
+      787,
+      246,
+      850,
+      297
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "<UNKNOWN>",
+     "label": "MAST AREA AUX BILGE PUMP",
+     "bbox": [
+      1319,
+      297,
+      1379,
+      346
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "<UNKNOWN>",
+     "label": "ELECTRIC FIRE PUMP",
+     "bbox": [
+      1467,
+      322,
+      1530,
+      373
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "<UNKNOWN>",
+     "label": "MAIN BILGE PUMP LOCAL START",
+     "bbox": [
+      1724,
+      305,
+      1786,
+      355
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "<UNKNOWN>",
+     "label": "MAIN BILGE PUMP",
+     "bbox": [
+      1724,
+      380,
+      1786,
+      431
+     ]
+    },
+    {
+     "component_type": "motor_actuated_valve",
+     "item_tag": "<UNKNOWN>",
+     "label": "MOTOR-ACTUATED VALVE (FOR AFT AREA)",
+     "valve_state": "unknown",
+     "bbox": [
+      388,
+      726,
+      445,
+      763
+     ]
+    },
+    {
+     "component_type": "motor_actuated_valve",
+     "item_tag": "<UNKNOWN>",
+     "label": "MOTOR-ACTUATED VALVE (FOR E-R)",
+     "valve_state": "unknown",
+     "bbox": [
+      925,
+      700,
+      975,
+      738
+     ]
+    },
+    {
+     "component_type": "motor_actuated_valve",
+     "item_tag": "<UNKNOWN>",
+     "label": "MOTOR-ACTUATED VALVE (FOR MAST AREA)",
+     "valve_state": "unknown",
+     "bbox": [
+      1270,
+      700,
+      1320,
+      738
+     ]
+    },
+    {
+     "component_type": "motor_actuated_valve",
+     "item_tag": "<UNKNOWN>",
+     "label": "MOTOR-ACTUATED VALVE (FOR SAIL LOCKER AREA)",
+     "valve_state": "unknown",
+     "bbox": [
+      2210,
+      775,
+      2255,
+      810
+     ]
+    },
+    {
+     "component_type": "engine",
+     "item_tag": "STBD GENSET",
+     "label": "STBD GENSET (upper engine)",
+     "bbox": [
+      610,
+      620,
+      770,
+      730
+     ]
+    },
+    {
+     "component_type": "engine",
+     "item_tag": "<UNKNOWN>",
+     "label": "Engine/genset (lower)",
+     "bbox": [
+      605,
+      875,
+      765,
+      985
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "<UNKNOWN>",
+     "label": "STBD GENSET WATER PUMP",
+     "bbox": [
+      770,
+      815,
+      830,
+      850
+     ]
+    },
+    {
+     "component_type": "manifold",
+     "item_tag": "<UNKNOWN>",
+     "label": "ANTI-SIPHON MANIFOLD",
+     "bbox": [
+      1400,
+      800,
+      1470,
+      900
+     ]
+    },
+    {
+     "component_type": "strainer",
+     "item_tag": "<UNKNOWN>",
+     "label": "FIRE PUMP SEAWATER PICKUP",
+     "bbox": [
+      1390,
+      620,
+      1450,
+      660
+     ]
+    },
+    {
+     "component_type": "sea_chest",
+     "item_tag": "<UNKNOWN>",
+     "label": "BILGE OVERBOARD",
+     "bbox": [
+      1560,
+      645,
+      1620,
+      700
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "<UNKNOWN>",
+     "label": "Bilge overboard check valve (red arrow icon)",
+     "valve_state": "unknown",
+     "bbox": [
+      1385,
+      680,
+      1410,
+      705
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "<UNKNOWN>",
+     "label": "Bilge overboard check valve (red arrow icon 2)",
+     "valve_state": "unknown",
+     "bbox": [
+      1515,
+      690,
+      1540,
+      715
+     ]
+    },
+    {
+     "component_type": "strainer",
+     "item_tag": "<UNKNOWN>",
+     "label": "Fire pump strainer near seawater pickup",
+     "bbox": [
+      1480,
+      660,
+      1520,
+      690
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "<UNKNOWN>",
+     "label": "Main bilge line valve near saloon",
+     "valve_state": "unknown",
+     "bbox": [
+      510,
+      730,
+      545,
+      760
+     ]
+    },
+    {
+     "component_type": "sensor",
+     "item_tag": "<UNKNOWN>",
+     "label": "Bilge alarm/sensor (green box near AFT area valve)",
+     "bbox": [
+      403,
+      745,
+      425,
+      765
+     ]
+    },
+    {
+     "component_type": "sensor",
+     "item_tag": "<UNKNOWN>",
+     "label": "Bilge alarm/sensor (green box mid-ship)",
+     "bbox": [
+      715,
+      785,
+      745,
+      810
+     ]
+    },
+    {
+     "component_type": "sensor",
+     "item_tag": "<UNKNOWN>",
+     "label": "Bilge alarm/sensor (green box near mast valve area)",
+     "bbox": [
+      1300,
+      800,
+      1330,
+      825
+     ]
+    },
+    {
+     "component_type": "sensor",
+     "item_tag": "<UNKNOWN>",
+     "label": "Bilge alarm/sensor near ESS enclosure",
+     "bbox": [
+      1105,
+      860,
+      1130,
+      880
+     ]
+    },
+    {
+     "component_type": "sensor",
+     "item_tag": "<UNKNOWN>",
+     "label": "Bilge alarm/sensor near sail locker",
+     "bbox": [
+      2240,
+      785,
+      2265,
+      810
+     ]
+    },
+    {
+     "component_type": "enclosure",
+     "item_tag": "<UNKNOWN>",
+     "label": "ESS ENCLOSURE",
+     "bbox": [
+      1100,
+      880,
+      1370,
+      935
+     ]
+    },
+    {
+     "component_type": "pump/fire_pump_symbol",
+     "item_tag": "<UNKNOWN>",
+     "label": "FIRE PUMP REMOTE START",
+     "bbox": [
+      730,
+      470,
+      820,
+      560
+     ]
+    },
+    {
+     "component_type": "fire_hydrant_valve",
+     "item_tag": "<UNKNOWN>",
+     "label": "FWD FIRE HYDRANT",
+     "bbox": [
+      745,
+      560,
+      830,
+      635
+     ]
+    },
+    {
+     "component_type": "strainer",
+     "item_tag": "<UNKNOWN>",
+     "label": "strainer symbol near owners head pipe",
+     "bbox": [
+      410,
+      830,
+      460,
+      880
+     ]
+    },
+    {
+     "component_type": "sensor/alarm",
+     "item_tag": "<UNKNOWN>",
+     "label": "level sensor at end of pipe run (red circle icon)",
+     "bbox": [
+      760,
+      780,
+      800,
+      820
+     ]
+    },
+    {
+     "component_type": "room_label/space",
+     "item_tag": "OWNERS HEAD",
+     "label": "OWNERS HEAD",
+     "bbox": [
+      240,
+      880,
+      320,
+      920
+     ]
+    },
+    {
+     "component_type": "room_label/space",
+     "item_tag": "SAIL LOCKER",
+     "label": "SAIL LOCKER",
+     "bbox": [
+      480,
+      850,
+      560,
+      890
+     ]
+    },
+    {
+     "component_type": "room_label/space",
+     "item_tag": "ANCHOR BAY",
+     "label": "ANCHOR BAY",
+     "bbox": [
+      770,
+      850,
+      850,
+      890
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "018-01",
+     "label": "Fire line seawater supply valve",
+     "bbox": [
+      175,
+      780,
+      240,
+      850
+     ],
+     "valve_state": "NC"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "010-02",
+     "label": "Tender garage sprinkler supply valve",
+     "bbox": [
+      700,
+      855,
+      770,
+      905
+     ],
+     "valve_state": "NC"
+    },
+    {
+     "component_type": "sprinkler/nozzle",
+     "item_tag": "022-01",
+     "label": "Tender garage fire sprinkler head",
+     "bbox": [
+      700,
+      940,
+      790,
+      1010
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "011-03",
+     "label": "Partition KL2 crossover valve",
+     "bbox": [
+      1130,
+      1010,
+      1195,
+      1060
+     ],
+     "valve_state": "NO"
+    },
+    {
+     "component_type": "check_valve",
+     "item_tag": "009-05",
+     "label": "Check valve near 011-03",
+     "bbox": [
+      1200,
+      1010,
+      1275,
+      1060
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "hose_reel",
+     "item_tag": "019-01",
+     "label": "Fire hose reel in aft stowage",
+     "bbox": [
+      125,
+      950,
+      280,
+      1060
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "nozzle",
+     "item_tag": "020-01",
+     "label": "Fire hose nozzle in aft stowage",
+     "bbox": [
+      140,
+      1180,
+      260,
+      1300
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "check_valve",
+     "item_tag": "009-01",
+     "label": "Check valve on fire main riser",
+     "bbox": [
+      400,
+      1130,
+      460,
+      1220
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "015-01",
+     "label": "Diesel fire pump discharge valve",
+     "bbox": [
+      385,
+      1330,
+      460,
+      1400
+     ],
+     "valve_state": "NO"
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "002-01",
+     "label": "Diesel fire pump",
+     "bbox": [
+      520,
+      1290,
+      630,
+      1400
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "strainer",
+     "item_tag": "005-01",
+     "label": "Seawater strainer",
+     "bbox": [
+      730,
+      1320,
+      830,
+      1420
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "011-01",
+     "label": "Strainer inlet valve (main)",
+     "bbox": [
+      890,
+      1330,
+      960,
+      1400
+     ],
+     "valve_state": "NC"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "011-02",
+     "label": "Strainer inlet valve (secondary/priming)",
+     "bbox": [
+      890,
+      1420,
+      960,
+      1490
+     ],
+     "valve_state": "NC"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "023-03",
+     "label": "Priming line valve from fresh water supply",
+     "bbox": [
+      610,
+      1440,
+      680,
+      1510
+     ],
+     "valve_state": "NC"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "seawater_pickup_valve",
+     "label": "Seawater pickup valve",
+     "bbox": [
+      1195,
+      1500,
+      1265,
+      1570
+     ],
+     "valve_state": "NO"
+    },
+    {
+     "component_type": "sea_chest",
+     "item_tag": "<UNKNOWN>",
+     "label": "Seawater pickup",
+     "bbox": [
+      1170,
+      1580,
+      1260,
+      1650
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "016-01/017-01",
+     "label": "Overboard via exhaust water separator valve (upper)",
+     "bbox": [
+      1290,
+      1360,
+      1360,
+      1440
+     ],
+     "valve_state": "NC"
+    },
+    {
+     "component_type": "check_valve",
+     "item_tag": "CP-1",
+     "label": "Check valve (CP) upper",
+     "bbox": [
+      1400,
+      1330,
+      1460,
+      1390
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "016-02/017-02",
+     "label": "Overboard via exhaust water separator valve (lower)",
+     "bbox": [
+      1290,
+      1550,
+      1360,
+      1620
+     ],
+     "valve_state": "NC"
+    },
+    {
+     "component_type": "check_valve",
+     "item_tag": "CP-2",
+     "label": "Check valve (CP) lower",
+     "bbox": [
+      1400,
+      1520,
+      1460,
+      1580
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "bilge_overboard_valve",
+     "label": "Bilge overboard discharge valve",
+     "bbox": [
+      400,
+      1780,
+      470,
+      1850
+     ],
+     "valve_state": "NO"
+    },
+    {
+     "component_type": "overboard_discharge",
+     "item_tag": "<UNKNOWN>",
+     "label": "Bilge overboard",
+     "bbox": [
+      390,
+      1870,
+      470,
+      1930
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "<UNKNOWN>",
+     "label": "STBD Genset raw water pump",
+     "bbox": [
+      1850,
+      1370,
+      1970,
+      1480
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "<UNKNOWN>",
+     "label": "Seachest supply NO valve to genset",
+     "bbox": [
+      1940,
+      1200,
+      2010,
+      1270
+     ],
+     "valve_state": "NO"
+    },
+    {
+     "component_type": "check_valve",
+     "item_tag": "009-03",
+     "label": "Check valve on genset raw water line",
+     "bbox": [
+      1960,
+      1580,
+      2020,
+      1660
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "genset",
+     "item_tag": "STBD GENSET",
+     "label": "STBD GENSET",
+     "bbox": [
+      305,
+      1230,
+      425,
+      1330
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "<UNKNOWN>",
+     "label": "RAW WATER PUMP",
+     "bbox": [
+      325,
+      1330,
+      420,
+      1410
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "016-02/017-02",
+     "label": "NC valve near motor symbol left",
+     "bbox": [
+      55,
+      1690,
+      130,
+      1770
+     ],
+     "valve_state": "NC"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "009-03/009-04",
+     "label": "valve at bottom of overboard exhaust line",
+     "bbox": [
+      440,
+      1500,
+      500,
+      1580
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "<UNKNOWN>",
+     "label": "NO valve from seachest supply dashed box",
+     "bbox": [
+      440,
+      1150,
+      510,
+      1220
+     ],
+     "valve_state": "NO"
+    },
+    {
+     "component_type": "fitting",
+     "item_tag": "021-02",
+     "label": "TO PORTABLE OIL STORAGE TANK hose connection",
+     "bbox": [
+      670,
+      1200,
+      730,
+      1250
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "014-02",
+     "label": "NC/NO valve to E-R AUX BILGE PUMP",
+     "bbox": [
+      760,
+      1280,
+      830,
+      1350
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "003-02",
+     "label": "E-R AUX BILGE PUMP",
+     "bbox": [
+      760,
+      1400,
+      850,
+      1480
+     ]
+    },
+    {
+     "component_type": "sensor",
+     "item_tag": "<UNKNOWN>",
+     "label": "CP indicator near E-R Aux Bilge Pump",
+     "bbox": [
+      920,
+      1390,
+      1000,
+      1440
+     ]
+    },
+    {
+     "component_type": "alarm",
+     "item_tag": "<UNKNOWN>",
+     "label": "red alarm light near E-R Aux Bilge Pump",
+     "bbox": [
+      935,
+      1390,
+      990,
+      1440
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "014-03",
+     "label": "NO/NC valve at Flex Suction Hose Connection lower",
+     "bbox": [
+      770,
+      1560,
+      840,
+      1630
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "fitting",
+     "item_tag": "021-01",
+     "label": "FLEX SUCTION HOSE CONNECTION lower",
+     "bbox": [
+      980,
+      1560,
+      1050,
+      1620
+     ]
+    },
+    {
+     "component_type": "filter",
+     "item_tag": "004-01",
+     "label": "OILY BILGE FILTER",
+     "bbox": [
+      1050,
+      1250,
+      1160,
+      1350
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "016-03/017-03",
+     "label": "NC valve with motor operator",
+     "bbox": [
+      1290,
+      1000,
+      1360,
+      1080
+     ],
+     "valve_state": "NC"
+    },
+    {
+     "component_type": "sensor",
+     "item_tag": "<UNKNOWN>",
+     "label": "CP indicator top",
+     "bbox": [
+      1300,
+      890,
+      1360,
+      940
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "016-04/017-04",
+     "label": "NC valve with motor operator right",
+     "bbox": [
+      1530,
+      1000,
+      1610,
+      1080
+     ],
+     "valve_state": "NC"
+    },
+    {
+     "component_type": "sensor",
+     "item_tag": "<UNKNOWN>",
+     "label": "CP indicator right",
+     "bbox": [
+      1610,
+      950,
+      1670,
+      1000
+     ]
+    },
+    {
+     "component_type": "drain",
+     "item_tag": "<UNKNOWN>",
+     "label": "FWD DECK LOCKER DRAIN",
+     "bbox": [
+      1520,
+      1130,
+      1560,
+      1550
+     ]
+    },
+    {
+     "component_type": "junction",
+     "item_tag": "<UNKNOWN>",
+     "label": "purple junction node top on drain pipe",
+     "bbox": [
+      1530,
+      1350,
+      1560,
+      1380
+     ]
+    },
+    {
+     "component_type": "junction",
+     "item_tag": "<UNKNOWN>",
+     "label": "purple junction node bottom on drain pipe",
+     "bbox": [
+      1530,
+      1400,
+      1560,
+      1430
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "014-01",
+     "label": "NO/NC valve near right Flex Suction Hose Connection",
+     "bbox": [
+      1740,
+      1250,
+      1810,
+      1330
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "fitting",
+     "item_tag": "021-03",
+     "label": "TO PORTABLE OIL STORAGE TANK right side",
+     "bbox": [
+      1930,
+      1230,
+      1990,
+      1280
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "003-01",
+     "label": "MAST AUX BILGE PUMP",
+     "bbox": [
+      1740,
+      1420,
+      1830,
+      1500
+     ]
+    },
+    {
+     "component_type": "sensor",
+     "item_tag": "<UNKNOWN>",
+     "label": "CP indicator near Mast Aux Bilge Pump",
+     "bbox": [
+      1970,
+      1390,
+      2030,
+      1440
+     ]
+    },
+    {
+     "component_type": "manifold",
+     "item_tag": "<UNKNOWN>",
+     "label": "MAST AUX BILGE PUMP SUCTION MANIFOLD",
+     "bbox": [
+      1800,
+      1500,
+      1950,
+      1560
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "026-03",
+     "label": "NC valve at Flex Suction Hose Connection far right",
+     "bbox": [
+      2080,
+      1400,
+      2150,
+      1470
+     ],
+     "valve_state": "NC"
+    },
+    {
+     "component_type": "fitting",
+     "item_tag": "021-04",
+     "label": "FLEX SUCTION HOSE CONNECTION far right",
+     "bbox": [
+      2150,
+      1400,
+      2220,
+      1460
+     ]
+    },
+    {
+     "component_type": "hull_penetration",
+     "item_tag": "G (watertight)",
+     "label": "watertight bulkhead penetration G",
+     "bbox": [
+      420,
+      0,
+      440,
+      340
+     ]
+    },
+    {
+     "component_type": "hull_penetration",
+     "item_tag": "F (watertight)",
+     "label": "watertight bulkhead penetration F",
+     "bbox": [
+      800,
+      0,
+      820,
+      340
+     ]
+    },
+    {
+     "component_type": "bulkhead",
+     "item_tag": "G",
+     "label": "bulkhead G on fire line",
+     "bbox": [
+      250,
+      630,
+      280,
+      720
+     ]
+    },
+    {
+     "component_type": "bulkhead",
+     "item_tag": "F",
+     "label": "bulkhead F on fire line",
+     "bbox": [
+      1225,
+      630,
+      1255,
+      720
+     ]
+    },
+    {
+     "component_type": "bulkhead",
+     "item_tag": "G",
+     "label": "bulkhead G on sea54 line",
+     "bbox": [
+      130,
+      950,
+      160,
+      1030
+     ]
+    },
+    {
+     "component_type": "bulkhead",
+     "item_tag": "F",
+     "label": "bulkhead F on sea54 line",
+     "bbox": [
+      1225,
+      950,
+      1255,
+      1030
+     ]
+    },
+    {
+     "component_type": "check valve",
+     "item_tag": "008-01",
+     "label": "Check valve at fire line to port sheer",
+     "bbox": [
+      1940,
+      690,
+      2010,
+      750
+     ]
+    },
+    {
+     "component_type": "ball valve",
+     "item_tag": "018-02",
+     "label": "Fire hydrant valve, NC, overboard/hydrant",
+     "bbox": [
+      1895,
+      800,
+      1975,
+      880
+     ]
+    },
+    {
+     "component_type": "motorized ball valve (actuated)",
+     "item_tag": "016-05/017-05",
+     "label": "Electric rotary actuator + ball valve, NC",
+     "bbox": [
+      1440,
+      990,
+      1500,
+      1060
+     ]
+    },
+    {
+     "component_type": "ball valve",
+     "item_tag": "010-01",
+     "label": "Ball valve NO",
+     "bbox": [
+      1660,
+      1010,
+      1720,
+      1060
+     ]
+    },
+    {
+     "component_type": "sensor",
+     "item_tag": "CP",
+     "label": "CP sensor above motorized valve",
+     "bbox": [
+      1440,
+      850,
+      1500,
+      900
+     ]
+    },
+    {
+     "component_type": "check valve",
+     "item_tag": "009-02",
+     "label": "Check valve on seawater riser to fire main",
+     "bbox": [
+      740,
+      1230,
+      800,
+      1290
+     ]
+    },
+    {
+     "component_type": "ball valve",
+     "item_tag": "011-05",
+     "label": "Ball valve NO",
+     "bbox": [
+      730,
+      1370,
+      800,
+      1420
+     ]
+    },
+    {
+     "component_type": "check valve",
+     "item_tag": "009-04",
+     "label": "Check valve on main bilge line riser",
+     "bbox": [
+      1210,
+      1230,
+      1270,
+      1290
+     ]
+    },
+    {
+     "component_type": "strainer",
+     "item_tag": "005-03",
+     "label": "Seawater strainer",
+     "bbox": [
+      1200,
+      1330,
+      1280,
+      1400
+     ]
+    },
+    {
+     "component_type": "ball valve",
+     "item_tag": "023-02",
+     "label": "Ball valve NC on priming line",
+     "bbox": [
+      1130,
+      1450,
+      1190,
+      1500
+     ]
+    },
+    {
+     "component_type": "ball valve",
+     "item_tag": "014-01",
+     "label": "Ball valve NO/NC 3-way to portable oil storage tank",
+     "bbox": [
+      90,
+      1400,
+      160,
+      1450
+     ]
+    },
+    {
+     "component_type": "hose connector",
+     "item_tag": "021-03",
+     "label": "Gardena-type tap connector to portable oil storage tank",
+     "bbox": [
+      250,
+      1400,
+      320,
+      1450
+     ]
+    },
+    {
+     "component_type": "sensor",
+     "item_tag": "CP",
+     "label": "CP sensor near mast aux bilge pump",
+     "bbox": [
+      355,
+      1490,
+      415,
+      1540
+     ]
+    },
+    {
+     "component_type": "alarm",
+     "item_tag": "unknown",
+     "label": "Red alarm indicator near flex suction hose",
+     "bbox": [
+      290,
+      1500,
+      340,
+      1550
+     ]
+    },
+    {
+     "component_type": "hose connector",
+     "item_tag": "021-04",
+     "label": "Flex suction hose connection",
+     "bbox": [
+      460,
+      1530,
+      530,
+      1580
+     ]
+    },
+    {
+     "component_type": "ball valve",
+     "item_tag": "026-03",
+     "label": "Ball valve NC at mast aux bilge pump suction manifold",
+     "bbox": [
+      440,
+      1620,
+      500,
+      1670
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "024-01",
+     "label": "Electric Fire Pump",
+     "bbox": [
+      720,
+      1580,
+      800,
+      1660
+     ]
+    },
+    {
+     "component_type": "alarm",
+     "item_tag": "unknown",
+     "label": "Red alarm indicator near electric fire pump",
+     "bbox": [
+      880,
+      1520,
+      930,
+      1570
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "001-01",
+     "label": "Main Bilge Pump",
+     "bbox": [
+      1150,
+      1580,
+      1230,
+      1660
+     ]
+    },
+    {
+     "component_type": "alarm",
+     "item_tag": "unknown",
+     "label": "Red alarm indicator near main bilge pump",
+     "bbox": [
+      1050,
+      1520,
+      1100,
+      1570
+     ]
+    },
+    {
+     "component_type": "ball valve",
+     "item_tag": "013-01",
+     "label": "Ball valve at anti-siphon manifold",
+     "bbox": [
+      1340,
+      1690,
+      1400,
+      1740
+     ]
+    },
+    {
+     "component_type": "manifold",
+     "item_tag": "unknown",
+     "label": "Anti-siphon manifold, 700mm above DWL",
+     "bbox": [
+      1300,
+      1650,
+      1500,
+      1720
+     ]
+    },
+    {
+     "component_type": "spray head assembly",
+     "item_tag": "019-02/020-02",
+     "label": "Water mist spray head assembly in FWD stowage (location TBC)",
+     "bbox": [
+      1870,
+      940,
+      2050,
+      1400
+     ]
+    },
+    {
+     "component_type": "valve 2-way ball",
+     "item_tag": "020-01",
+     "label": "IN AFT STOWAGE (LOCATION TBC)",
+     "bbox": [
+      130,
+      0,
+      280,
+      20
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "pump electrical motor driven",
+     "item_tag": "<UNKNOWN>",
+     "label": "pump top left (red)",
+     "bbox": [
+      130,
+      0,
+      240,
+      90
+     ]
+    },
+    {
+     "component_type": "valve 2-way ball",
+     "item_tag": "015-01",
+     "label": "NO/NC valve to fire pump suction",
+     "bbox": [
+      435,
+      40,
+      500,
+      140
+     ],
+     "valve_state": "NC"
+    },
+    {
+     "component_type": "valve 2-way ball",
+     "item_tag": "023-03",
+     "label": "priming line valve",
+     "bbox": [
+      655,
+      170,
+      715,
+      230
+     ],
+     "valve_state": "NC"
+    },
+    {
+     "component_type": "valve 2-way ball",
+     "item_tag": "NO",
+     "label": "Bilge Overboard valve",
+     "bbox": [
+      440,
+      340,
+      505,
+      400
+     ],
+     "valve_state": "NO"
+    },
+    {
+     "component_type": "overboard discharge",
+     "item_tag": "<UNKNOWN>",
+     "label": "BILGE OVERBOARD",
+     "bbox": [
+      430,
+      410,
+      530,
+      460
+     ]
+    },
+    {
+     "component_type": "pump ICE driven",
+     "item_tag": "002-01",
+     "label": "DIESEL FIRE PUMP",
+     "bbox": [
+      555,
+      0,
+      660,
+      140
+     ]
+    },
+    {
+     "component_type": "strainer/filter",
+     "item_tag": "005-01",
+     "label": "SEAWATER STRAINER",
+     "bbox": [
+      760,
+      10,
+      900,
+      140
+     ]
+    },
+    {
+     "component_type": "valve 2-way ball",
+     "item_tag": "011-01",
+     "label": "valve near strainer top",
+     "bbox": [
+      935,
+      60,
+      1010,
+      130
+     ],
+     "valve_state": "NC"
+    },
+    {
+     "component_type": "valve 2-way ball",
+     "item_tag": "011-02",
+     "label": "valve below 011-01",
+     "bbox": [
+      935,
+      160,
+      1010,
+      230
+     ],
+     "valve_state": "NC"
+    },
+    {
+     "component_type": "seawater pickup",
+     "item_tag": "<UNKNOWN>",
+     "label": "SEAWATER PICKUP BELOW DWL",
+     "bbox": [
+      1250,
+      190,
+      1400,
+      340
+     ]
+    },
+    {
+     "component_type": "valve 2-way ball",
+     "item_tag": "<UNKNOWN>",
+     "label": "valve NO near seawater pickup line",
+     "bbox": [
+      1250,
+      220,
+      1330,
+      300
+     ],
+     "valve_state": "NO"
+    },
+    {
+     "component_type": "sensor/alarm CP",
+     "item_tag": "CP",
+     "label": "CP near 016-01/017-01",
+     "bbox": [
+      1490,
+      50,
+      1560,
+      90
+     ]
+    },
+    {
+     "component_type": "valve motor actuated ball",
+     "item_tag": "016-01/017-01",
+     "label": "motor actuated valve top right",
+     "bbox": [
+      1390,
+      60,
+      1490,
+      140
+     ],
+     "valve_state": "NC"
+    },
+    {
+     "component_type": "sensor/alarm CP",
+     "item_tag": "CP",
+     "label": "CP near 016-02/017-02",
+     "bbox": [
+      1490,
+      290,
+      1560,
+      330
+     ]
+    },
+    {
+     "component_type": "valve motor actuated ball",
+     "item_tag": "016-02/017-02",
+     "label": "motor actuated valve mid right",
+     "bbox": [
+      1600,
+      270,
+      1700,
+      350
+     ],
+     "valve_state": "NC"
+    },
+    {
+     "component_type": "valve 2-way ball",
+     "item_tag": "010-01",
+     "label": "PART. valve to lazarette/midship sump line",
+     "bbox": [
+      1180,
+      540,
+      1260,
+      600
+     ],
+     "valve_state": "NO"
+    },
+    {
+     "component_type": "sensor/alarm CP",
+     "item_tag": "CP",
+     "label": "CP lazarette sump",
+     "bbox": [
+      975,
+      555,
+      1035,
+      595
+     ]
+    },
+    {
+     "component_type": "level indicator/alarm",
+     "item_tag": "007-01",
+     "label": "Bilge Alarm Lazarette",
+     "bbox": [
+      985,
+      690,
+      1035,
+      740
+     ]
+    },
+    {
+     "component_type": "bilge sump strum box",
+     "item_tag": "006-01",
+     "label": "Lazarette sump strum box",
+     "bbox": [
+      1080,
+      820,
+      1160,
+      900
+     ]
+    },
+    {
+     "component_type": "tank/sump",
+     "item_tag": "<UNKNOWN>",
+     "label": "LAZARETTE SUMP",
+     "bbox": [
+      875,
+      600,
+      1180,
+      950
+     ]
+    },
+    {
+     "component_type": "sensor/alarm CP",
+     "item_tag": "CP",
+     "label": "CP midship sump",
+     "bbox": [
+      1585,
+      555,
+      1645,
+      595
+     ]
+    },
+    {
+     "component_type": "level indicator/alarm",
+     "item_tag": "007-02",
+     "label": "Bilge Alarm Midship",
+     "bbox": [
+      1560,
+      690,
+      1610,
+      740
+     ]
+    },
+    {
+     "component_type": "bilge sump strum box",
+     "item_tag": "006-02",
+     "label": "Midship sump strum box 1",
+     "bbox": [
+      1540,
+      820,
+      1620,
+      900
+     ]
+    },
+    {
+     "component_type": "bilge sump strum box",
+     "item_tag": "006-03",
+     "label": "Midship sump strum box 2",
+     "bbox": [
+      1650,
+      820,
+      1730,
+      900
+     ]
+    },
+    {
+     "component_type": "tank/sump",
+     "item_tag": "<UNKNOWN>",
+     "label": "MIDSHIP SUMP",
+     "bbox": [
+      1460,
+      600,
+      1780,
+      950
+     ]
+    },
+    {
+     "component_type": "bilge sump strum box",
+     "item_tag": "006-04",
+     "label": "strum box far right",
+     "bbox": [
+      2180,
+      820,
+      2260,
+      900
+     ]
+    },
+    {
+     "component_type": "pump electrical motor driven",
+     "item_tag": "<UNKNOWN>",
+     "label": "RAW WATER PUMP STBD GENSET",
+     "bbox": [
+      1900,
+      20,
+      2050,
+      120
+     ]
+    },
+    {
+     "component_type": "generator ICE",
+     "item_tag": "<UNKNOWN>",
+     "label": "STBD GENSET",
+     "bbox": [
+      1980,
+      0,
+      2070,
+      50
+     ]
+    },
+    {
+     "component_type": "heat exchanger",
+     "item_tag": "<UNKNOWN>",
+     "label": "HX symbol top right",
+     "bbox": [
+      2100,
+      0,
+      2160,
+      60
+     ]
+    },
+    {
+     "component_type": "valve 2-way ball",
+     "item_tag": "009-03",
+     "label": "valve near overboard exhaust",
+     "bbox": [
+      2130,
+      180,
+      2200,
+      260
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "valve 2-way ball",
+     "item_tag": "011-04",
+     "label": "valve near overboard exhaust bottom",
+     "bbox": [
+      2130,
+      260,
+      2200,
+      340
+     ],
+     "valve_state": "NC"
+    },
+    {
+     "component_type": "overboard discharge",
+     "item_tag": "<UNKNOWN>",
+     "label": "OVERBOARD VIA EXHAUST WATER SEPARATOR",
+     "bbox": [
+      1830,
+      350,
+      2100,
+      480
+     ]
+    },
+    {
+     "component_type": "local switch/sensor",
+     "item_tag": "025-01",
+     "label": "Bilge Alarm switch",
+     "bbox": [
+      1900,
+      700,
+      1960,
+      780
+     ]
+    },
+    {
+     "component_type": "sensor/alarm CP",
+     "item_tag": "CP",
+     "label": "CP far right",
+     "bbox": [
+      1900,
+      555,
+      1960,
+      595
+     ]
+    },
+    {
+     "component_type": "generator/genset",
+     "item_tag": "<UNKNOWN>",
+     "label": "STBD GENSET",
+     "bbox": [
+      345,
+      60,
+      460,
+      180
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "016-02/017-02",
+     "label": "",
+     "bbox": [
+      55,
+      325,
+      95,
+      370
+     ],
+     "valve_state": "NC"
+    },
+    {
+     "component_type": "motor",
+     "item_tag": "<UNKNOWN>",
+     "label": "M motor for valve 016-02",
+     "bbox": [
+      10,
+      325,
+      55,
+      365
+     ]
+    },
+    {
+     "component_type": "strainer",
+     "item_tag": "009-03",
+     "label": "strainer",
+     "bbox": [
+      480,
+      320,
+      530,
+      395
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "011-04",
+     "label": "",
+     "bbox": [
+      480,
+      415,
+      525,
+      460
+     ],
+     "valve_state": "NC"
+    },
+    {
+     "component_type": "water_separator",
+     "item_tag": "<UNKNOWN>",
+     "label": "OVERBOARD VIA EXHAUST WATER SEPARATOR REF: DWG 108-01-515-001",
+     "bbox": [
+      225,
+      390,
+      410,
+      440
+     ]
+    },
+    {
+     "component_type": "sensor_cp",
+     "item_tag": "CP",
+     "label": "CP",
+     "bbox": [
+      0,
+      520,
+      30,
+      555
+     ]
+    },
+    {
+     "component_type": "bilge_alarm_sensor",
+     "item_tag": "025-01",
+     "label": "Bilge Alarm",
+     "bbox": [
+      270,
+      650,
+      335,
+      730
+     ]
+    },
+    {
+     "component_type": "strainer",
+     "item_tag": "006-03",
+     "label": "SUMP strainer",
+     "bbox": [
+      45,
+      760,
+      110,
+      830
+     ]
+    },
+    {
+     "component_type": "hydraulic_connector",
+     "item_tag": "021-02",
+     "label": "",
+     "bbox": [
+      730,
+      10,
+      775,
+      60
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "014-02",
+     "label": "",
+     "bbox": [
+      810,
+      140,
+      880,
+      195
+     ],
+     "valve_state": "NC/NO"
+    },
+    {
+     "component_type": "alarm_light",
+     "item_tag": "<UNKNOWN>",
+     "label": "red light",
+     "bbox": [
+      1020,
+      215,
+      1060,
+      250
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "014-03",
+     "label": "",
+     "bbox": [
+      810,
+      395,
+      880,
+      450
+     ],
+     "valve_state": "NO/NC"
+    },
+    {
+     "component_type": "hose_connector",
+     "item_tag": "021-01",
+     "label": "FLEX SUCTION HOSE CONNECTION",
+     "bbox": [
+      1060,
+      395,
+      1130,
+      445
+     ]
+    },
+    {
+     "component_type": "bilge_alarm_sensor",
+     "item_tag": "007-03/025-02",
+     "label": "Bilge Alarm / Aux Pump",
+     "bbox": [
+      980,
+      610,
+      1050,
+      730
+     ]
+    },
+    {
+     "component_type": "bilge_alarm_sensor",
+     "item_tag": "025-03",
+     "label": "Bilge Alarm",
+     "bbox": [
+      1190,
+      610,
+      1250,
+      730
+     ]
+    },
+    {
+     "component_type": "strainer",
+     "item_tag": "006-04",
+     "label": "ENGINE ROOM SUMP strainer",
+     "bbox": [
+      565,
+      760,
+      630,
+      835
+     ]
+    },
+    {
+     "component_type": "strainer",
+     "item_tag": "006-05",
+     "label": "ENGINE ROOM SUMP strainer",
+     "bbox": [
+      680,
+      760,
+      745,
+      835
+     ]
+    },
+    {
+     "component_type": "deck_locker_drain",
+     "item_tag": "<UNKNOWN>",
+     "label": "FWD DECK LOCKER DRAIN",
+     "bbox": [
+      1610,
+      10,
+      1680,
+      470
+     ]
+    },
+    {
+     "component_type": "hull_penetration",
+     "item_tag": "<UNKNOWN>",
+     "label": "MIN. 800mm ABOVE DWL (left)",
+     "bbox": [
+      1470,
+      10,
+      1610,
+      200
+     ]
+    },
+    {
+     "component_type": "hull_penetration",
+     "item_tag": "<UNKNOWN>",
+     "label": "MIN. 800mm ABOVE DWL (right)",
+     "bbox": [
+      1690,
+      10,
+      1830,
+      200
+     ]
+    },
+    {
+     "component_type": "junction",
+     "item_tag": "<UNKNOWN>",
+     "label": "purple junction dot upper",
+     "bbox": [
+      1610,
+      225,
+      1660,
+      255
+     ]
+    },
+    {
+     "component_type": "junction",
+     "item_tag": "<UNKNOWN>",
+     "label": "purple junction dot lower",
+     "bbox": [
+      1610,
+      265,
+      1660,
+      295
+     ]
+    },
+    {
+     "component_type": "bilge_alarm_sensor",
+     "item_tag": "007-04/025-04",
+     "label": "Bilge Alarm / Aux Pump",
+     "bbox": [
+      1540,
+      610,
+      1610,
+      730
+     ]
+    },
+    {
+     "component_type": "strainer",
+     "item_tag": "006-06",
+     "label": "MAST AREA SUMP strainer",
+     "bbox": [
+      1385,
+      760,
+      1450,
+      835
+     ]
+    },
+    {
+     "component_type": "strainer",
+     "item_tag": "006-07",
+     "label": "MAST AREA SUMP strainer",
+     "bbox": [
+      1790,
+      760,
+      1855,
+      835
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "021-03",
+     "label": "",
+     "bbox": [
+      1935,
+      105,
+      2000,
+      165
+     ],
+     "valve_state": "NO/NC"
+    },
+    {
+     "component_type": "hose_connector",
+     "item_tag": "014-01",
+     "label": "TO PORTABLE OIL STORAGE TANK",
+     "bbox": [
+      2050,
+      115,
+      2130,
+      165
+     ]
+    },
+    {
+     "component_type": "hose_connector",
+     "item_tag": "021-04",
+     "label": "FLEX SUCTION HOSE CONNECTION",
+     "bbox": [
+      2270,
+      260,
+      2350,
+      310
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "026-03",
+     "label": "MAST AUX BILGE PUMP SUCTION MANIFOLD valve",
+     "bbox": [
+      2220,
+      370,
+      2290,
+      420
+     ],
+     "valve_state": "NC"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "026-01",
+     "label": "",
+     "bbox": [
+      2020,
+      540,
+      2085,
+      590
+     ],
+     "valve_state": "NO"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "026-02",
+     "label": "",
+     "bbox": [
+      2135,
+      540,
+      2200,
+      590
+     ],
+     "valve_state": "NC"
+    },
+    {
+     "component_type": "coolant_leak_alarm_sensor",
+     "item_tag": "007-0x",
+     "label": "Coolant Leak Alarm",
+     "bbox": [
+      2330,
+      730,
+      2400,
+      800
+     ]
+    },
+    {
+     "component_type": "strainer",
+     "item_tag": "006-0X",
+     "label": "ESS ENCLOSURE strainer",
+     "bbox": [
+      2170,
+      760,
+      2235,
+      835
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "014-01",
+     "label": "NO/NC valve to portable oil storage tank",
+     "bbox": [
+      92,
+      120,
+      150,
+      180
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "hose connection",
+     "item_tag": "021-03",
+     "label": "TO PORTABLE OIL STORAGE TANK",
+     "bbox": [
+      270,
+      130,
+      340,
+      190
+     ]
+    },
+    {
+     "component_type": "alarm/sensor",
+     "item_tag": "<UNKNOWN>",
+     "label": "CP alarm near mast aux bilge pump",
+     "bbox": [
+      320,
+      225,
+      420,
+      270
+     ]
+    },
+    {
+     "component_type": "hose connection",
+     "item_tag": "021-04",
+     "label": "FLEX SUCTION HOSE CONNECTION",
+     "bbox": [
+      500,
+      270,
+      600,
+      320
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "026-03",
+     "label": "NC valve",
+     "bbox": [
+      480,
+      410,
+      540,
+      470
+     ],
+     "valve_state": "NC"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "026-01",
+     "label": "NO valve",
+     "bbox": [
+      240,
+      570,
+      300,
+      630
+     ],
+     "valve_state": "NO"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "026-02",
+     "label": "NC valve",
+     "bbox": [
+      360,
+      570,
+      420,
+      630
+     ],
+     "valve_state": "NC"
+    },
+    {
+     "component_type": "strainer",
+     "item_tag": "<UNKNOWN>",
+     "label": "strainer symbol left of frame (partial)",
+     "bbox": [
+      0,
+      600,
+      40,
+      700
+     ],
+     "ambiguous": true
+    },
+    {
+     "component_type": "sea chest/intake",
+     "item_tag": "006-07",
+     "label": "intake symbol lower left",
+     "bbox": [
+      0,
+      800,
+      60,
+      900
+     ]
+    },
+    {
+     "component_type": "sensor/alarm",
+     "item_tag": "007-0x",
+     "label": "Coolant Leak Alarm",
+     "bbox": [
+      530,
+      780,
+      610,
+      830
+     ]
+    },
+    {
+     "component_type": "enclosure",
+     "item_tag": "006-0X",
+     "label": "ESS ENCLOSURE box",
+     "bbox": [
+      340,
+      750,
+      650,
+      930
+     ]
+    },
+    {
+     "component_type": "sea chest/intake",
+     "item_tag": "006-0X",
+     "label": "intake symbol below ESS enclosure",
+     "bbox": [
+      350,
+      850,
+      420,
+      930
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "011-05",
+     "label": "NO valve top",
+     "bbox": [
+      790,
+      90,
+      850,
+      150
+     ],
+     "valve_state": "NO"
+    },
+    {
+     "component_type": "alarm/sensor",
+     "item_tag": "<UNKNOWN>",
+     "label": "CP alarm near electric fire pump",
+     "bbox": [
+      960,
+      270,
+      1010,
+      320
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "023-01",
+     "label": "NC valve sf15 branch",
+     "bbox": [
+      910,
+      440,
+      970,
+      500
+     ],
+     "valve_state": "NC"
+    },
+    {
+     "component_type": "strainer",
+     "item_tag": "005-02",
+     "label": "SEAWATER STRAINER",
+     "bbox": [
+      770,
+      600,
+      860,
+      680
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "<UNKNOWN>",
+     "label": "NO valve at seawater pickup",
+     "bbox": [
+      790,
+      820,
+      850,
+      880
+     ],
+     "valve_state": "NO"
+    },
+    {
+     "component_type": "sea chest/intake",
+     "item_tag": "<UNKNOWN>",
+     "label": "SEAWATER PICKUP below DWL",
+     "bbox": [
+      770,
+      880,
+      860,
+      930
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "023-02",
+     "label": "NC valve sf15 branch",
+     "bbox": [
+      1210,
+      190,
+      1270,
+      250
+     ],
+     "valve_state": "NC"
+    },
+    {
+     "component_type": "alarm/sensor",
+     "item_tag": "<UNKNOWN>",
+     "label": "CP alarm near main bilge pump",
+     "bbox": [
+      1150,
+      270,
+      1200,
+      320
+     ]
+    },
+    {
+     "component_type": "manifold",
+     "item_tag": "013-01/012-01",
+     "label": "ANTI-SIPHON MANIFOLD 700mm ABOVE DWL",
+     "bbox": [
+      1390,
+      440,
+      1720,
+      570
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "<UNKNOWN>",
+     "label": "NO valve bilge overboard",
+     "bbox": [
+      1550,
+      820,
+      1610,
+      880
+     ],
+     "valve_state": "NO"
+    },
+    {
+     "component_type": "overboard discharge",
+     "item_tag": "<UNKNOWN>",
+     "label": "BILGE OVERBOARD below DWL",
+     "bbox": [
+      1530,
+      880,
+      1620,
+      930
+     ]
+    },
+    {
+     "component_type": "alarm/sensor",
+     "item_tag": "<UNKNOWN>",
+     "label": "CP alarm near sail locker sump",
+     "bbox": [
+      2000,
+      570,
+      2050,
+      620
+     ]
+    },
+    {
+     "component_type": "sensor/alarm",
+     "item_tag": "007-05",
+     "label": "Bilge Alarm",
+     "bbox": [
+      2020,
+      680,
+      2100,
+      730
+     ]
+    },
+    {
+     "component_type": "sea chest/intake",
+     "item_tag": "006-08",
+     "label": "SAIL LOCKER SUMP intake",
+     "bbox": [
+      1900,
+      850,
+      1970,
+      930
+     ]
+    },
+    {
+     "component_type": "enclosure",
+     "item_tag": "<UNKNOWN>",
+     "label": "SAIL LOCKER SUMP box",
+     "bbox": [
+      1880,
+      600,
+      2200,
+      930
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "020-0",
+     "label": "top right partial valve",
+     "bbox": [
+      2080,
+      0,
+      2160,
+      40
+     ],
+     "ambiguous": true
+    }
+   ],
+   "connections": [
+    {
+     "from_component": "MAIN BILGE PUMP (001)",
+     "to_component": "OIL REMOVAL CARTRIDGE FILTER (004)",
+     "direction_unconfirmed": true,
+     "pump_side": "discharge"
+    },
+    {
+     "from_component": "OIL REMOVAL CARTRIDGE FILTER (004)",
+     "to_component": "BILGE OVERBOARD",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "DIESEL BACKUP BILGE PUMP (002)",
+     "to_component": "MAIN BILGE LINE",
+     "direction_unconfirmed": true,
+     "pump_side": "discharge"
+    },
+    {
+     "from_component": "MAIN BILGE LINE",
+     "to_component": "NON RETURN VALVE 2 1/2\" (009)",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "NON RETURN VALVE 2 1/2\" (009)",
+     "to_component": "BALL VALVE 1 1/2\" (010)",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "BALL VALVE 1 1/2\" (010)",
+     "to_component": "BALL VALVE 2\" (011)",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "BALL VALVE 2\" (011)",
+     "to_component": "SIPHONBREAK VALVE (013)",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "SIPHONBREAK VALVE (013)",
+     "to_component": "BALL VALVE 3-WAY 'L' PORT 1\" (014)",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "BALL VALVE 3-WAY 'L' PORT 1\" (014)",
+     "to_component": "BALL VALVE 3-WAY 'L' STBD (015)",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "BALL VALVE 3-WAY 'L' STBD (015)",
+     "to_component": "ELECTRIC ROTARY ACTUATOR (016)",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "ELECTRIC ROTARY ACTUATOR (016)",
+     "to_component": "AFT LAZARETTE BILGE",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "SEAWATER/BILGE STRAINER (005)",
+     "to_component": "AUXILARY BILGE PUMP (003)",
+     "direction_unconfirmed": true,
+     "pump_side": "suction"
+    },
+    {
+     "from_component": "AUXILARY BILGE PUMP (003)",
+     "to_component": "MOTOR-ACTUATED VALVE 2\" (FOR E-R)",
+     "direction_unconfirmed": true,
+     "pump_side": "discharge"
+    },
+    {
+     "from_component": "MOTOR-ACTUATED VALVE 2\" (FOR E-R)",
+     "to_component": "BILGE OVERBOARD (near seawater pickup)",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "MOTOR-ACTUATED VALVE (FOR MAST AREA)",
+     "to_component": "MAST AREA AUX BILGE PUMP",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "MOTOR-ACTUATED VALVE (FOR SAIL LOCKER AREA)",
+     "to_component": "SAIL LOCKER",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "ANTI-SIPHON MANIFOLD",
+     "to_component": "MOTOR-ACTUATED VALVE (FOR MAST AREA)",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "ANTI-SIPHON MANIFOLD",
+     "to_component": "MOTOR-ACTUATED VALVE (FOR SAIL LOCKER AREA)",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "AFT FIRE HYDRANT",
+     "to_component": "MAIN BILGE PUMP REMOTE START area",
+     "direction_unconfirmed": true,
+     "ambiguous": true
+    },
+    {
+     "from_component": "FWD FIRE HYDRANT",
+     "to_component": "FWD BILGE PUMP",
+     "direction_unconfirmed": true,
+     "ambiguous": true
+    },
+    {
+     "from_component": "FIRE HYDRANT VALVE",
+     "to_component": "FIRE MAIN LINE",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "engine/machinery block near bilge pump inlet",
+     "to_component": "strainer/filter symbol in bilge line",
+     "line_label": "<UNKNOWN>",
+     "pipe_size": "<UNKNOWN>",
+     "direction_unconfirmed": true,
+     "pump_side": "n/a"
+    },
+    {
+     "from_component": "strainer/filter symbol in bilge line",
+     "to_component": "BILGE OVERBOARD valve",
+     "line_label": "<UNKNOWN>",
+     "pipe_size": "<UNKNOWN>",
+     "direction_unconfirmed": true,
+     "pump_side": "n/a"
+    },
+    {
+     "from_component": "BILGE OVERBOARD valve",
+     "to_component": "BILGE OVERBOARD discharge",
+     "line_label": "<UNKNOWN>",
+     "pipe_size": "<UNKNOWN>",
+     "direction_unconfirmed": true,
+     "pump_side": "n/a"
+    },
+    {
+     "from_component": "valve near manifold in engine room area (green highlighted)",
+     "to_component": "valve symbol near diesel pump seawater pickup",
+     "line_label": "<UNKNOWN>",
+     "pipe_size": "<UNKNOWN>",
+     "direction_unconfirmed": true,
+     "pump_side": "n/a"
+    },
+    {
+     "from_component": "valve symbol near diesel pump seawater pickup",
+     "to_component": "DIESEL PUMP SEAWATER PICKUP",
+     "line_label": "<UNKNOWN>",
+     "pipe_size": "<UNKNOWN>",
+     "direction_unconfirmed": true,
+     "pump_side": "n/a"
+    },
+    {
+     "from_component": "valve near manifold in engine room area (green highlighted)",
+     "to_component": "MOTOR-ACTUATED VALVE (FOR LAZARETTE AREA)",
+     "line_label": "<UNKNOWN>",
+     "pipe_size": "<UNKNOWN>",
+     "direction_unconfirmed": true,
+     "pump_side": "n/a"
+    },
+    {
+     "from_component": "valve near manifold in engine room area (green highlighted)",
+     "to_component": "MOTOR-ACTUATED VALVE (FOR AFT AREA)",
+     "line_label": "MAIN BILGE LINE",
+     "pipe_size": "<UNKNOWN>",
+     "direction_unconfirmed": true,
+     "pump_side": "n/a"
+    },
+    {
+     "from_component": "MOTOR-ACTUATED VALVE (FOR AFT AREA)",
+     "to_component": "manifold near frame H",
+     "line_label": "MAIN BILGE LINE",
+     "pipe_size": "<UNKNOWN>",
+     "direction_unconfirmed": true,
+     "pump_side": "n/a"
+    },
+    {
+     "from_component": "manifold near frame H",
+     "to_component": "strainer near frame H manifold",
+     "line_label": "<UNKNOWN>",
+     "pipe_size": "<UNKNOWN>",
+     "direction_unconfirmed": true,
+     "pump_side": "n/a"
+    },
+    {
+     "from_component": "MOTOR-ACTUATED VALVE (FOR AFT AREA)",
+     "to_component": "Main Bilge Line",
+     "line_label": "mw25",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "Main Bilge Line",
+     "to_component": "MOTOR-ACTUATED VALVE (FOR E-R)",
+     "line_label": "mw25",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "MOTOR-ACTUATED VALVE (FOR E-R)",
+     "to_component": "MOTOR-ACTUATED VALVE (FOR MAST AREA)",
+     "line_label": "mw25",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "MOTOR-ACTUATED VALVE (FOR MAST AREA)",
+     "to_component": "Anti-siphon manifold area",
+     "line_label": "mw25",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "Anti-siphon manifold area",
+     "to_component": "MOTOR-ACTUATED VALVE (FOR SAIL LOCKER AREA)",
+     "line_label": "mw25",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "Fire pump seawater pickup",
+     "to_component": "Electric Fire Pump",
+     "line_label": "sea42",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "Bilge overboard check valve (red arrow icon)",
+     "to_component": "Bilge Overboard",
+     "line_label": "sea54",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "Bilge overboard check valve (red arrow icon 2)",
+     "to_component": "Bilge Overboard",
+     "line_label": "sea54",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "STBD GENSET WATER PUMP",
+     "to_component": "Anti-siphon manifold area",
+     "line_label": "sea42",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "Main Bilge Pump Local Start",
+     "to_component": "Main Bilge Pump",
+     "line_label": "n/a",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "Main Bilge Line",
+     "to_component": "Sail Locker area valve line",
+     "line_label": "mw25",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "strainer",
+     "to_component": "sensor/alarm",
+     "line_label": "pipe running through Sail Locker Bilge Area",
+     "direction_unconfirmed": true,
+     "ambiguous": true
+    },
+    {
+     "from_component": "sea42_main_line",
+     "to_component": "018-01",
+     "line_label": "sea42 (metallic)",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "sea42_main_line",
+     "to_component": "010-02",
+     "line_label": "sea42 (metallic)",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "010-02",
+     "to_component": "022-01",
+     "line_label": "sea42 (metallic)",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "018-01",
+     "to_component": "009-01",
+     "line_label": "sea54 (metallic)",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "009-01",
+     "to_component": "015-01",
+     "line_label": "sea54 (metallic)",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "002-01",
+     "to_component": "015-01",
+     "line_label": "sea54 (metallic)",
+     "direction_unconfirmed": false,
+     "pump_side": "discharge"
+    },
+    {
+     "from_component": "005-01",
+     "to_component": "002-01",
+     "line_label": "sea54 (metallic)",
+     "direction_unconfirmed": false,
+     "pump_side": "suction"
+    },
+    {
+     "from_component": "011-01",
+     "to_component": "005-01",
+     "line_label": "sea54",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "011-02",
+     "to_component": "005-01",
+     "line_label": "sea54",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "023-03",
+     "to_component": "011-02",
+     "line_label": "sf15 priming line",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "009-01",
+     "to_component": "019-01",
+     "line_label": "sea54 (metallic)",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "019-01",
+     "to_component": "020-01",
+     "line_label": "internal hose reel line",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "015-01",
+     "to_component": "bilge_overboard_valve",
+     "line_label": "sea54 (metallic)",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "bilge_overboard_valve",
+     "to_component": "overboard_discharge",
+     "line_label": "sea54",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "011-01",
+     "to_component": "011-03",
+     "line_label": "sea54 (metallic) partition KL2",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "011-03",
+     "to_component": "009-05",
+     "line_label": "sea54 (metallic)",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "009-05",
+     "to_component": "engine_room_line_G",
+     "line_label": "sea54 (metallic)",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "seawater_pickup_valve",
+     "to_component": "016-01/017-01",
+     "line_label": "sea54 (metallic) partition KL2",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "016-01/017-01",
+     "to_component": "CP-1",
+     "line_label": "sea54",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "seawater_pickup_valve",
+     "to_component": "016-02/017-02",
+     "line_label": "sea54 (metallic) partition KL2",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "016-02/017-02",
+     "to_component": "CP-2",
+     "line_label": "sea54",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "seachest_supply_valve",
+     "to_component": "1850_1370_pump",
+     "line_label": "sea54 from seachest supply ref 108-01-515-003",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "1850_1370_pump",
+     "to_component": "th51_line",
+     "line_label": "th51",
+     "direction_unconfirmed": false,
+     "pump_side": "discharge"
+    },
+    {
+     "from_component": "th51_line",
+     "to_component": "009-03",
+     "line_label": "th51",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "sea42 (metallic) line left",
+     "to_component": "sea42 (metallic) line right",
+     "line_label": "sea42 (metallic)",
+     "direction_unconfirmed": true,
+     "ambiguous": true
+    },
+    {
+     "from_component": "sea54 (metallic) main line left",
+     "to_component": "sea54 (metallic) main line right",
+     "line_label": "sea54 (metallic)",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "sea54 main line",
+     "to_component": "016-02/017-02 NC valve",
+     "line_label": "sea54 (metallic)",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "FROM SEACHEST SUPPLY (ref dwg 108-01-515-003)",
+     "to_component": "NO valve dashed box",
+     "line_label": "sea54",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "NO valve dashed box",
+     "to_component": "sea54 main line",
+     "line_label": "sea54 (metallic)",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "sea54 main line",
+     "to_component": "STBD GENSET raw water pump",
+     "line_label": "sea54",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "STBD GENSET raw water pump",
+     "to_component": "OVERBOARD VIA EXHAUST WATER SEPARATOR (ref dwg 108-01-515-001)",
+     "line_label": "th51",
+     "pump_side": "discharge",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "sea54 main line",
+     "to_component": "016-03/017-03 NC valve (motor)",
+     "line_label": "sea54 (metallic)",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "016-03/017-03 NC valve",
+     "to_component": "016-04/017-04 NC valve",
+     "line_label": "sea54 (metallic)",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "TO PORTABLE OIL STORAGE TANK (021-02)",
+     "to_component": "014-02 valve",
+     "line_label": "mw25",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "014-02 valve",
+     "to_component": "004-01 OILY BILGE FILTER",
+     "line_label": "mw25",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "014-02 valve",
+     "to_component": "003-02 E-R AUX BILGE PUMP",
+     "line_label": "mw25",
+     "pump_side": "suction",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "014-03 valve",
+     "to_component": "003-02 E-R AUX BILGE PUMP",
+     "line_label": "mw25",
+     "pump_side": "suction",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "FLEX SUCTION HOSE CONNECTION (021-01)",
+     "to_component": "014-03 valve",
+     "line_label": "mw25",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "004-01 OILY BILGE FILTER",
+     "to_component": "FWD DECK LOCKER DRAIN junction top",
+     "line_label": "mw25",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "FWD DECK LOCKER DRAIN junction top",
+     "to_component": "FWD DECK LOCKER DRAIN junction bottom",
+     "line_label": "<UNKNOWN>",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "FWD DECK LOCKER DRAIN junction bottom",
+     "to_component": "014-01 valve",
+     "line_label": "mw25",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "014-01 valve",
+     "to_component": "TO PORTABLE OIL STORAGE TANK (021-03)",
+     "line_label": "mw25",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "MAST AUX BILGE PUMP SUCTION MANIFOLD",
+     "to_component": "003-01 MAST AUX BILGE PUMP",
+     "line_label": "mw25",
+     "pump_side": "suction",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "026-03 NC valve",
+     "to_component": "MAST AUX BILGE PUMP SUCTION MANIFOLD",
+     "line_label": "mw25",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "FLEX SUCTION HOSE CONNECTION (021-04)",
+     "to_component": "026-03 NC valve",
+     "line_label": "<UNKNOWN>",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "sea42 (metallic) line left",
+     "to_component": "008-01",
+     "line_label": "sea42 (metallic)",
+     "pipe_size": "unknown",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "008-01",
+     "to_component": "018-02",
+     "line_label": "unknown",
+     "pipe_size": "unknown",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "sea42 junction",
+     "to_component": "009-02",
+     "line_label": "sea54 (metallic)",
+     "pipe_size": "unknown",
+     "direction_unconfirmed": false,
+     "ambiguous": true
+    },
+    {
+     "from_component": "009-02",
+     "to_component": "011-05",
+     "line_label": "sea54 (metallic)",
+     "pipe_size": "unknown",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "011-05",
+     "to_component": "024-01",
+     "line_label": "unknown",
+     "pipe_size": "unknown",
+     "direction_unconfirmed": false,
+     "pump_side": "suction"
+    },
+    {
+     "from_component": "sea54 (metallic) main line",
+     "to_component": "016-05/017-05",
+     "line_label": "sea54 (metallic)",
+     "pipe_size": "unknown",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "016-05/017-05",
+     "to_component": "010-01",
+     "line_label": "unknown",
+     "pipe_size": "unknown",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "sea54 (metallic) main line",
+     "to_component": "009-04",
+     "line_label": "sea54 (metallic)",
+     "pipe_size": "unknown",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "009-04",
+     "to_component": "005-03",
+     "line_label": "unknown",
+     "pipe_size": "unknown",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "005-03",
+     "to_component": "001-01",
+     "line_label": "unknown",
+     "pipe_size": "unknown",
+     "direction_unconfirmed": false,
+     "pump_side": "suction"
+    },
+    {
+     "from_component": "sf15 line",
+     "to_component": "023-02",
+     "line_label": "sf15",
+     "pipe_size": "unknown",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "023-02",
+     "to_component": "005-03 area junction",
+     "line_label": "sf15",
+     "pipe_size": "unknown",
+     "direction_unconfirmed": true,
+     "ambiguous": true
+    },
+    {
+     "from_component": "sf15 line lower",
+     "to_component": "013-01",
+     "line_label": "sf15",
+     "pipe_size": "unknown",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "mw25 line",
+     "to_component": "014-01",
+     "line_label": "mw25",
+     "pipe_size": "unknown",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "014-01",
+     "to_component": "021-03",
+     "line_label": "mw25",
+     "pipe_size": "unknown",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "003-01",
+     "to_component": "014-01",
+     "line_label": "mw25",
+     "pipe_size": "unknown",
+     "direction_unconfirmed": false,
+     "pump_side": "discharge"
+    },
+    {
+     "from_component": "026-03",
+     "to_component": "003-01",
+     "line_label": "mw25",
+     "pipe_size": "unknown",
+     "direction_unconfirmed": true,
+     "pump_side": "suction"
+    },
+    {
+     "from_component": "021-04",
+     "to_component": "026-03",
+     "line_label": "unknown",
+     "pipe_size": "unknown",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "024-01",
+     "to_component": "009-02 area / fire main junction",
+     "line_label": "unknown",
+     "pipe_size": "unknown",
+     "direction_unconfirmed": true,
+     "pump_side": "discharge"
+    },
+    {
+     "from_component": "001-01",
+     "to_component": "013-01 anti-siphon manifold",
+     "line_label": "unknown",
+     "pipe_size": "unknown",
+     "direction_unconfirmed": true,
+     "pump_side": "discharge"
+    },
+    {
+     "from_component": "016-05/017-05",
+     "to_component": "019-02/020-02",
+     "line_label": "unknown",
+     "pipe_size": "unknown",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "pump top left (red)",
+     "to_component": "015-01",
+     "line_label": "",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "015-01",
+     "to_component": "Bilge Overboard valve",
+     "line_label": "sea54 (metallic)",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "Bilge Overboard valve",
+     "to_component": "BILGE OVERBOARD",
+     "line_label": "",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "002-01",
+     "to_component": "005-01",
+     "line_label": "sea54 (metallic)",
+     "direction_unconfirmed": false,
+     "pump_side": "discharge"
+    },
+    {
+     "from_component": "005-01",
+     "to_component": "011-01",
+     "line_label": "sea54",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "005-01",
+     "to_component": "011-02",
+     "line_label": "sea54",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "023-03",
+     "to_component": "002-01",
+     "line_label": "",
+     "direction_unconfirmed": true,
+     "pump_side": "suction"
+    },
+    {
+     "from_component": "sf15 priming line",
+     "to_component": "023-03",
+     "line_label": "sf15",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "011-02",
+     "to_component": "L (fitting)",
+     "line_label": "",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "L (fitting)",
+     "to_component": "PART. KL2 line",
+     "line_label": "PART. KL2",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "seawater pickup valve NO",
+     "to_component": "seawater pickup",
+     "line_label": "",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "016-01/017-01",
+     "to_component": "CP near 016-01/017-01",
+     "line_label": "",
+     "direction_unconfirmed": true,
+     "ambiguous": true
+    },
+    {
+     "from_component": "016-02/017-02",
+     "to_component": "CP near 016-02/017-02",
+     "line_label": "",
+     "direction_unconfirmed": true,
+     "ambiguous": true
+    },
+    {
+     "from_component": "PART. KL2 line",
+     "to_component": "010-01",
+     "line_label": "PART. KL2",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "010-01",
+     "to_component": "006-01",
+     "line_label": "sea42",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "006-01",
+     "to_component": "007-01",
+     "line_label": "sea42",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "010-01",
+     "to_component": "006-02",
+     "line_label": "",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "006-02",
+     "to_component": "006-03",
+     "line_label": "",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "006-03",
+     "to_component": "007-02",
+     "line_label": "sea54 (metallic)",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "006-04",
+     "to_component": "sea54 line right",
+     "line_label": "sea54",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "RAW WATER PUMP",
+     "to_component": "HX symbol top right",
+     "line_label": "th51",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "HX symbol top right",
+     "to_component": "009-03",
+     "line_label": "sea54",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "009-03",
+     "to_component": "011-04",
+     "line_label": "",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "011-04",
+     "to_component": "OVERBOARD VIA EXHAUST WATER SEPARATOR",
+     "line_label": "sea54",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "025-01",
+     "to_component": "CP far right",
+     "line_label": "Bilge Alarm",
+     "direction_unconfirmed": true,
+     "ambiguous": true
+    },
+    {
+     "from_component": "manifold (mast aux suction)",
+     "to_component": "003-01",
+     "line_label": "mw25",
+     "direction_unconfirmed": true,
+     "pump_side": "suction"
+    },
+    {
+     "from_component": "021-04",
+     "to_component": "manifold (mast aux suction)",
+     "line_label": "<UNKNOWN>",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "026-03",
+     "to_component": "021-04",
+     "line_label": "<UNKNOWN>",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "manifold (mast aux suction)",
+     "to_component": "026-01",
+     "line_label": "<UNKNOWN>",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "manifold (mast aux suction)",
+     "to_component": "026-02",
+     "line_label": "<UNKNOWN>",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "026-01",
+     "to_component": "006-07 intake",
+     "line_label": "pvc25",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "026-02",
+     "to_component": "006-0X intake (ESS enclosure)",
+     "line_label": "pvc25",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "seawater pickup",
+     "to_component": "005-02",
+     "line_label": "<UNKNOWN>",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "005-02",
+     "to_component": "024-01",
+     "line_label": "<UNKNOWN>",
+     "direction_unconfirmed": false,
+     "pump_side": "suction"
+    },
+    {
+     "from_component": "024-01",
+     "to_component": "011-05",
+     "line_label": "<UNKNOWN>",
+     "direction_unconfirmed": true,
+     "pump_side": "discharge"
+    },
+    {
+     "from_component": "011-05",
+     "to_component": "top of drawing (continues off-frame)",
+     "line_label": "<UNKNOWN>",
+     "direction_unconfirmed": true,
+     "ambiguous": true
+    },
+    {
+     "from_component": "023-01",
+     "to_component": "024-01 suction line",
+     "line_label": "sf15",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "sf15 vertical branch",
+     "to_component": "023-02",
+     "line_label": "sf15",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "023-02",
+     "to_component": "seawater strainer 005-03 line junction",
+     "line_label": "sf15",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "005-03",
+     "to_component": "top of drawing (continues off-frame)",
+     "line_label": "<UNKNOWN>",
+     "direction_unconfirmed": true,
+     "ambiguous": true
+    },
+    {
+     "from_component": "013-01",
+     "to_component": "012-01 branch left",
+     "line_label": "<UNKNOWN>",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "012-01 branch left",
+     "to_component": "1550,820 valve (overboard)",
+     "line_label": "<UNKNOWN>",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "1550,820 valve (overboard)",
+     "to_component": "bilge overboard discharge",
+     "line_label": "<UNKNOWN>",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "013-01",
+     "to_component": "012-01 branch right (up arrow)",
+     "line_label": "<UNKNOWN>",
+     "direction_unconfirmed": false,
+     "ambiguous": true
+    },
+    {
+     "from_component": "seq42 line top right",
+     "to_component": "sail locker sump enclosure",
+     "line_label": "seq42",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "006-08 intake",
+     "to_component": "seq42 vertical line",
+     "line_label": "seq42",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "007-05",
+     "to_component": "sail locker sump enclosure",
+     "line_label": "<UNKNOWN>",
+     "direction_unconfirmed": true
+    }
+   ]
+  }
+ },
+ "composition": {
+  "serve_who": "This sheet (108-01-520-001 rev B, \"BILGE & FIRE SYSTEM SCHEMATIC\") is the master P&ID for the vessel's combined bilge and fire main system, serving both the 520-bilge-system card and the individual pump/valve equipment nodes it enumerates: 520-main-bilge-pump, 520-fire-pump, 520-diesel-fire-pump, 520-aux-bilge-pumps, 520-bilge-valves, 520-feit-bilge-pump, 520-whale-pumps, 520-vega-bilge-level-sensors. Evidence: title block names the system; deck plan labels pump stations (MAIN BILGE PUMP, ELECTRIC FIRE PUMP, DIESEL BACKUP BILGE PUMP, AUX BILGE PUMPS at engine room and mast) matching the BOM item tags 001-025; sump boxes (Lazarette, Midship, Engine Room, Mast Area, ESS Enclosure, Sail Locker) all feed the same bilge main; fire hydrants/hose stations and tender garage sprinkler all feed the same fire main. The authoritative Operating Modes doc supplies the four named lineups (Normal, Aux-bilge-overboard/to-storage, Fire backup, Bilge backup) which are reconciled below against the walked topology.",
+  "equipment_groups": [
+   {
+    "equipment_name": "520-bilge-system",
+    "target_node_id": "520-bilge-system",
+    "placement_reasoning": "This is the system-card node for the combined bilge & fire schematic \u2014 the sheet's own title and the operating-modes doc describe system-level lineups (not single-pump behaviour) that belong here.",
+    "functions": [
+     {
+      "function_id": "mode1-normal",
+      "label": "Normal operation \u2014 Main Bilge // Main Fire",
+      "what_it_does": "Main Bilge Pump (electric, 001) draws from any of the five sumps (Lazarette, Midship, Engine Room, Mast Area, Sail Locker) via their strum boxes and NC isolation valves \u2014 only the valve(s) for the flooded sump are opened \u2014 and discharges overboard via the anti-siphon manifold, with a breather line running into the STBD E-R vent box. In parallel, the Electric Fire Pump (024) and Diesel Fire Pump (002) draw seawater via the seawater strainer and pressurise the fire line running in the port sheer to the fire hydrant/hose stations and the tender garage sprinkler head.",
+      "flow_scenarios": [
+       {
+        "state": "normal bilge lineup",
+        "path": "flooded sump -> strum box -> open NC branch valve for that sump -> main bilge line (metallic) -> Main Bilge Pump (001) -> anti-siphon manifold (breather to STBD E-R vent box) -> overboard; all OTHER sump branch valves remain NC/closed"
+       },
+       {
+        "state": "normal fire lineup",
+        "path": "seawater pickup -> seawater strainer (005) -> Electric Fire Pump (024) or Diesel Fire Pump (002) -> fire line in port sheer -> fire hydrant valves (018) / hose stations (019/020) and tender garage sprinkler head (022)"
+       }
+      ],
+      "key_components": [
+       "NC sump isolation valves (open only the relevant one)",
+       "anti-siphon manifold with breather to STBD E-R vent box",
+       "seawater strainer upstream of fire pumps"
+      ],
+      "dry_data": "Blue = main bilge line (metallic); Red = main fire line (metallic) per pipe legend.",
+      "sheet_region": "main schematic, full width (bilge/fire main runs) [0.0,0.33]-[1.0,0.87]"
+     },
+     {
+      "function_id": "mode2-aux-overboard",
+      "label": "Auxiliary bilge operation \u2014 aux pump overboard (where regulations allow)",
+      "what_it_does": "E-R Aux Bilge Pump (003-02) and Mast Aux Bilge Pump (003-01) each draw from their local sump suction manifold and discharge through the oily bilge filter (004) then via flex suction hose connections either overboard through the FWD deck locker drain (min. 800mm above DWL) or to the portable oil storage tank.",
+      "flow_scenarios": [
+       {
+        "state": "aux overboard lineup",
+        "path": "Engine Room Sump / Mast Area Sump -> aux bilge pump suction manifold -> E-R Aux Bilge Pump (003-02) or Mast Aux Bilge Pump (003-01) -> oily bilge filter (004) -> flex suction hose connection -> FWD deck locker drain, min. 800mm above DWL -> overboard"
+       }
+      ],
+      "key_components": [
+       "oily bilge filter inline before discharge",
+       "flex suction hose connections at each discharge option"
+      ],
+      "dry_data": "Purple line = aux bilge line (PVC/flex) per pipe legend; overboard route only permitted 'when regulations allow' per operating-modes doc.",
+      "sheet_region": "engine room / mast area sump area, mid-lower schematic"
+     },
+     {
+      "function_id": "mode2-aux-to-storage",
+      "label": "Auxiliary bilge operation \u2014 aux pump to portable storage containers",
+      "what_it_does": "Same two aux bilge pumps, same suction and oily-bilge-filter path, but routed via flex suction hose connection to a portable oil storage tank instead of overboard; the FWD deck locker drain route remains available for reference.",
+      "flow_scenarios": [
+       {
+        "state": "to-storage lineup",
+        "path": "Engine Room Sump / Mast Area Sump -> aux suction manifold -> aux bilge pump (003-01/003-02) -> oily bilge filter (004) -> flex suction hose connection -> portable oil storage tank (via Gardena-type tap connector, 021)"
+       }
+      ],
+      "key_components": [
+       "oily bilge filter",
+       "Gardena-type tap connector to portable tank"
+      ],
+      "dry_data": "Purple line path; alternate destination selected by which flex hose is connected, not by a fixed valve per sheet.",
+      "sheet_region": "engine room / mast area / FWD deck locker drain area"
+     },
+     {
+      "function_id": "mode3-fire-backup",
+      "label": "Emergency operation \u2014 fire backup (diesel fire pump only)",
+      "what_it_does": "With the electric fire pump marked NOT OPERATIONAL, the Diesel Fire Pump (002) alone draws seawater via the seawater strainer and supplies both fore and aft sections of the fire line in the port sheer for hydrant/hose use. A priming line from the fresh water supply (ref dwg 108-01-510-001) is used to prime the diesel pump before start.",
+      "flow_scenarios": [
+       {
+        "state": "emergency fire backup",
+        "path": "priming line from fresh water supply (ref 108-01-510-001) -> Diesel Fire Pump (002) primed -> seawater pickup -> seawater strainer -> Diesel Fire Pump discharge -> fire line port sheer (fore + aft) -> hydrants/hose stations"
+       }
+      ],
+      "key_components": [
+       "priming line valve (NC) from fresh water supply",
+       "seawater strainer"
+      ],
+      "dry_data": "Orange line = emergency fire backup path per operating-modes doc; electric fire pump shown with red X (not operational) in this mode.",
+      "sheet_region": "aft area near diesel fire pump station, frames K-J"
+     },
+     {
+      "function_id": "mode4-bilge-backup",
+      "label": "Emergency operation \u2014 bilge backup",
+      "what_it_does": "With the Main Bilge Pump marked NOT OPERATIONAL, the Diesel Fire Pump (driven via its priming line) and the STBD Genset's raw water pump serve as backup bilge suction: sumps drain via the same NC branch valves (only the flooded sump's valve opened) to the anti-siphon manifold and overboard, while the raw water pump draws additionally from the seachest supply (ref dwg 108-01-515-003) and discharges overboard via the exhaust water separator (ref dwg 108-01-515-001).",
+      "flow_scenarios": [
+       {
+        "state": "emergency bilge backup",
+        "path": "flooded sump -> strum box -> open NC branch valve -> Diesel Fire Pump (via priming line) -> anti-siphon manifold (breather to STBD E-R vent box) -> overboard"
+       },
+       {
+        "state": "genset raw-water assist",
+        "path": "seachest supply (ref 108-01-515-003) -> STBD Genset raw water pump -> exhaust water separator (ref 108-01-515-001) -> overboard"
+       }
+      ],
+      "key_components": [
+       "NC sump branch valves (open only relevant one)",
+       "exhaust water separator (cross-ref)"
+      ],
+      "dry_data": "Green line = emergency bilge backup path per operating-modes doc; Main Bilge Pump shown with red X (not operational) in this mode.",
+      "sheet_region": "full schematic, engine room genset area for raw-water assist branch"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Main Bilge Pump",
+    "target_node_id": "520-main-bilge-pump",
+    "placement_reasoning": "BOM item 001, deck-plan symbol 'MAIN BILGE PUMP', already identified on the register as Gianneschi ACB 431 B (engineer-corrected from printed FEIT VA 40B).",
+    "functions": [
+     {
+      "label": "Main bilge suction and overboard discharge",
+      "what_it_does": "Electric centrifugal pump drawing from whichever sump's NC branch valve is opened, discharging through the anti-siphon manifold to overboard; local start switch and remote start point drawn on deck plan.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "opened sump branch -> main bilge line -> Main Bilge Pump -> anti-siphon manifold -> overboard"
+       }
+      ],
+      "key_components": [
+       "anti-siphon manifold (protective, prevents back-siphon)"
+      ],
+      "dry_data": "BOM 001: bronze centrifugal pump, 24V DC; pump data table: 300 l/min, 0.75kW, 17m max head. Printed 'FEIT VA 40B' is a documentation error per engineer red-pen \u2014 actual make/model is Gianneschi ACB 431B.",
+      "sheet_region": "deck plan frame ~2-3, 'MAIN BILGE PUMP' label; schematic bottom, main bilge pump station"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Electric Fire Pump",
+    "target_node_id": "520-fire-pump",
+    "placement_reasoning": "BOM item 024, GIANNESCHI SRL ACB 431 B, matches register node 520-fire-pump identity already established.",
+    "functions": [
+     {
+      "label": "Fire main pressurisation",
+      "what_it_does": "Draws seawater via strainer and pressurises the fire line to hydrants, hose stations and tender garage sprinkler.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "seawater pickup -> strainer -> Electric Fire Pump -> fire line (port sheer) -> hydrants/hoses/sprinkler"
+       },
+       {
+        "state": "not operational (emergency mode 3)",
+        "path": "isolated \u2014 diesel fire pump takes over per mode 3"
+       }
+      ],
+      "key_components": [
+       "seawater strainer upstream"
+      ],
+      "dry_data": "BOM 024: 24V DC, 1.5kW, 1500rpm.",
+      "sheet_region": "deck plan frame ~1, 'FWD FIRE HYDRANT'/'ELECTRIC FIRE PUMP' area"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Diesel Fire Pump / Diesel Backup Bilge Pump",
+    "target_node_id": "520-diesel-fire-pump",
+    "placement_reasoning": "BOM item 002, deck plan label 'DIESEL BACKUP BILGE PUMP' / 'DIESEL FIRE PUMP', dual role confirmed by operating modes 1 (fire) and 4 (bilge backup).",
+    "functions": [
+     {
+      "label": "Dual-role fire pump and emergency bilge backup",
+      "what_it_does": "ICE-driven (Yanmar L48) pump normally used for fire main pressurisation; also serves as bilge backup pump when Main Bilge Pump is not operational, primed via a fresh-water priming line.",
+      "flow_scenarios": [
+       {
+        "state": "fire duty (mode1/mode3)",
+        "path": "seawater pickup -> strainer -> Diesel Fire Pump -> fire line"
+       },
+       {
+        "state": "bilge backup duty (mode4)",
+        "path": "priming line from fresh water supply -> Diesel Fire Pump -> flooded sump (via opened NC branch) -> anti-siphon manifold -> overboard"
+       }
+      ],
+      "key_components": [
+       "priming line NC valve from fresh water supply"
+      ],
+      "dry_data": "BOM 002: Australian Pump RSEBUV/L48 NF 2\" with Yanmar L48 diesel engine. Pump data: 715 l/min, 3.6kW, 37m max head.",
+      "sheet_region": "aft area near frame K-J, 'DIESEL FIRE PUMP' station"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Aux Bilge Pumps (mast + eng.room)",
+    "target_node_id": "520-aux-bilge-pumps",
+    "placement_reasoning": "BOM item 003, Whale 2054 Gulper 320, two instances drawn \u2014 'ENGINE ROOM AUX BILGE PUMP' and 'MAST AREA AUX BILGE PUMP' \u2014 both matching register node identity note.",
+    "functions": [
+     {
+      "label": "Local sump auxiliary drainage to overboard or portable storage",
+      "what_it_does": "Two Whale Gulper 320 pumps, one at engine room sump and one at mast area sump, each draw from their own suction manifold through an oily bilge filter and discharge via flex hose connections either overboard (FWD deck locker drain, min 800mm above DWL, where regulations allow) or to a portable oil storage tank.",
+      "flow_scenarios": [
+       {
+        "state": "overboard (mode2a)",
+        "path": "local sump -> suction manifold -> aux pump -> oily bilge filter -> flex hose -> FWD deck locker drain -> overboard"
+       },
+       {
+        "state": "to storage (mode2b)",
+        "path": "local sump -> suction manifold -> aux pump -> oily bilge filter -> flex hose -> Gardena tap connector -> portable oil storage tank"
+       }
+      ],
+      "key_components": [
+       "oily bilge filter (protective \u2014 oil removal before overboard/storage)",
+       "flex suction hose connections (selectable destination)"
+      ],
+      "dry_data": "BOM 003: Whale 2054 Gulper 320, 24V DC. Pump data: 19 l/min, 0.1kW, 3m max head.",
+      "sheet_region": "engine room sump area and mast area sump area, schematic mid-section"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Bilge Valves (electric-actuated)",
+    "target_node_id": "520-bilge-valves",
+    "placement_reasoning": "BOM items 016+017, Burkert electric rotary actuators + DN050 ball valves, matches register node identity note; deck plan shows 'MOTOR-ACTUATED VALVE' at aft lazarette, mast, sail locker, and E-R areas \u2014 five instances matching qty 05.",
+    "functions": [
+     {
+      "label": "Remote-actuated sump isolation for main bilge line",
+      "what_it_does": "Five motorised ball valves isolate each sump branch (Aft Lazarette, Engine Room, Mast Area, Sail Locker, plus one more) from the main bilge line; per operating modes, these valves are normally NC \u2014 only the valve for the sump being pumped is opened.",
+      "flow_scenarios": [
+       {
+        "state": "normal (isolated)",
+        "path": "sump branch valve NC \u2014 no flow to main bilge line"
+       },
+       {
+        "state": "active pump-out (valve opened)",
+        "path": "sump branch valve opened -> sump content joins main bilge line -> Main Bilge Pump"
+       }
+      ],
+      "key_components": [
+       "electric rotary actuator (Burkert 00189199) driving each ball valve"
+      ],
+      "dry_data": "BOM 016/017: Burkert Fluid Control Systems, motorized rotary actuator + DN050 2-way ball valve, \u00d75 sets.",
+      "sheet_region": "aft lazarette valve column (frame 8-9), mast area valve (frame 4), sail locker valve (frame 1-2), E-R valve (frame 5-6)"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Vega Bilge Level Sensors",
+    "target_node_id": "520-vega-bilge-level-sensors",
+    "placement_reasoning": "BOM item 007, VEGA VEGAPOINT 21 capacitive level switches \u2014 register node exists for this make.",
+    "functions": [
+     {
+      "label": "High-level bilge alarm sensing per sump",
+      "what_it_does": "Capacitive level switches (5 off) mounted in each sump (Lazarette, Midship, Engine Room, Mast Area, Sail Locker) trip a high-level bilge alarm when water rises, shown at deck plan as 'HIGH LEVEL BILGE ALARM SWITCH'.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "sump water level rises -> capacitive switch trips -> Bilge Alarm indication (per-sump)"
+       }
+      ],
+      "key_components": [
+       "capacitive level switch with IO-Link transistor output"
+      ],
+      "dry_data": "BOM 007: VEGA VEGAPOINT 21, capacitive level switch, IO-Link transistor output, \u00d75.",
+      "sheet_region": "each sump station (Lazarette, Midship, Engine Room, Mast Area, Sail Locker) \u2014 'Bilge Alarm' labels"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "Main Fire Line (metallic, port sheer run)",
+    "target_node_id": "520-bilge-system",
+    "facts": [
+     "Runs the full length of the vessel in the port sheer, ff38/ff51/sea42/sea54/sf15/th51 pipe codes per piping details table",
+     "Feeds fire hydrant valves (018), fire hose reels + nozzles (019/020) at multiple stations, tender garage sprinkler head (022), and water mist spray head",
+     "Max reach of 18m fire hose from both FWD and AFT hydrants marked with dashed red arc on deck plan"
+    ]
+   },
+   {
+    "system_name": "Main Bilge Line (metallic)",
+    "target_node_id": "520-bilge-system",
+    "facts": [
+     "Shown in blue per pipe legend, distinct pipeline from the fire main despite sharing bulkhead penetration points (F, G watertight)",
+     "Collects from strum boxes (006, \u00d78) in each sump via NC branch valves, feeds Main Bilge Pump, discharges via anti-siphon manifold"
+    ]
+   },
+   {
+    "system_name": "Auxiliary Bilge Line (PVC/flex, purple)",
+    "target_node_id": "520-bilge-system",
+    "facts": [
+     "Distinct commodity path (purple) from main bilge/fire lines per pipe legend, carries aux pump discharge only",
+     "Feeds oily bilge filter then flex hose connections to FWD deck locker drain or portable oil storage tank"
+    ]
+   }
+  ],
+  "cross_references": [
+   {
+    "what": "Priming line from fresh water supply feeding diesel fire pump",
+    "referenced_sheet_hint": "108-01-510-001"
+   },
+   {
+    "what": "Overboard via exhaust water separator (STBD genset raw water discharge)",
+    "referenced_sheet_hint": "108-01-515-001"
+   },
+   {
+    "what": "Seachest supply feeding STBD genset raw water pump",
+    "referenced_sheet_hint": "108-01-515-003"
+   },
+   {
+    "what": "Breather line running into STBD E-R vent box from anti-siphon manifold",
+    "referenced_sheet_hint": "108-01-508-001"
+   },
+   {
+    "what": "Thru-hull valve sizes detailed per drawing note",
+    "referenced_sheet_hint": "108-01-504-002 THRU-HULL BELOW DWL"
+   },
+   {
+    "what": "Operating modes lineups (authoritative for scenario set)",
+    "referenced_sheet_hint": "108-01-520-002 BILGE & FIRE SYSTEM OPERATING MODES"
+   }
+  ],
+  "good_to_have": [
+   "Pressure relief valve (008): 3 bar set pressure, G I Trade Options S10T \u2014 exact setting on drawing",
+   "Non-return valve (009), ball valves (010/011), siphonbreak valve (013), 3-way ball valves (014/015) \u2014 part numbers/models in BOM table",
+   "Fire hydrant valve, fire hose, fire hose nozzle, water mist spray head \u2014 no make/model listed (#N/A) at inspection",
+   "Gardena-type tap connector (021) \u2014 African Pressing Experts U00771, 1/2\" fittings",
+   "Mini ball valves (023) \u2014 G I Trade Options BAL004",
+   "Auxiliary bilge alarm switch (025) \u2014 Gems Sensors float switch, S/Steel",
+   "Piping details table gives exact pipe sizes/materials/weights for each code (ff38, ff51, mw25, pvc25, sea42, sea54, sf15, th51)"
+  ],
+  "uncertainties": [],
+  "discarded_as_clutter": [
+   "extraction meta (_model tags, bbox coordinates)",
+   "duplicate topology component entries for same pump/valve appearing at multiple bbox fragments (e.g. multiple 'MAIN BILGE PUMP' bbox entries, duplicate 016-01/017-01 style tags)",
+   "legend repeats (symbols legend, text legend, pipe legend \u2014 already encoded in scenario/dry_data fields)",
+   "orphan letter/frame markers (A-M station letters, watertight bulkhead labels) used only for navigation, not equipment",
+   "standard notes box (do not scale, break sharp edges, etc.) \u2014 administrative, not equipment function",
+   "approval/review signature block and revision history \u2014 administrative"
+  ],
+  "_model": "claude-sonnet-5",
+  "_protocol_version": 4
+ },
+ "elapsed_s": 410.3
+}

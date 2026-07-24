@@ -1,0 +1,174 @@
+{
+ "sheet": "Electrical Trunking Interior",
+ "drawing_class": "building_ga",
+ "extraction": null,
+ "composition": {
+  "serve_who": "This sheet is an electrical trunking/cable routing General Arrangement (schematic overlaid on hull outline) showing cable tray/trunking runs fore-to-aft through the vessel, plus deck-level and section details at the AFT DC Elec Panel, ONYX panel, A/C Contactor Panel, PMD & MID AC breakers, Galley Elec Connection Panel, and Galley Lights Panel. The trunking itself is shared vessel infrastructure (routing backbone) rather than belonging to any single piece of equipment; the panels named in the callouts are the equipment served by these runs.",
+  "equipment_groups": [
+   {
+    "equipment_name": "DC Distribution Panels (AFT DC Elec Panel)",
+    "target_node_id": "640-dc-distribution",
+    "functions": [
+     {
+      "label": "AFT DC Electrical Panel cable feed",
+      "what_it_does": "Receives trunked cable runs routed aft through the hull trunking system, distributing DC power/control wiring to the aft DC electrical panel (1220x950mm) shown in the mid-ship section view.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "Trunking backbone (100W x 140H custom alu trunking) \u2192 routed along hull side/deckhead \u2192 terminates at AFT DC ELEC PANEL enclosure"
+       }
+      ],
+      "key_components": [
+       "Custom aluminium trunking (3mm thk)",
+       "Panel enclosure 1220x950"
+      ],
+      "dry_data": "Panel size 1220x950mm; feed via 3mm custom alu trunking per BOM item 2/3",
+      "sheet_region": "Mid-sheet section view, 'AFT DC ELEC PANEL' labelled box"
+     }
+    ],
+    "placement_reasoning": "Labelled directly as 'AFT DC ELEC PANEL' in a titled box on the sheet; DC distribution panels node is the closest register match for a named DC panel."
+   },
+   {
+    "equipment_name": "ONYX Monitoring Panel",
+    "target_node_id": "652-onyx-monitoring",
+    "functions": [
+     {
+      "label": "ONYX panel cable feed",
+      "what_it_does": "Cable trunking run terminates at the ONYX panel (labelled 'ONYX PANEL 3W8.03') adjacent to the AFT DC panel, providing its monitoring system wiring routing.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "Trunking backbone \u2192 branch to ONYX PANEL enclosure (3W8.03)"
+       }
+      ],
+      "key_components": [
+       "Trunking branch"
+      ],
+      "dry_data": "Panel labelled ONYX PANEL 3W8.03",
+      "sheet_region": "Mid-sheet section view, adjacent to AFT DC ELEC PANEL box"
+     }
+    ],
+    "placement_reasoning": "Explicitly labelled 'ONYX PANEL' box on sheet, matches ONYX Monitoring & Control node."
+   },
+   {
+    "equipment_name": "AC Contactor Panel / PMD & MID AC Breakers",
+    "target_node_id": "694-main-ac-panel",
+    "functions": [
+     {
+      "label": "A/C contactor and breaker panel cable feed",
+      "what_it_does": "Trunking routes cabling to the 'A/C CONTACTOR PANEL - TOP' and adjacent 'PMD & MID AC BREAKERS' enclosures, serving AC distribution/contactor switching for the vessel's AC system.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "Trunking backbone \u2192 branch up to A/C CONTACTOR PANEL - TOP and PMD & MID AC BREAKERS boxes"
+       }
+      ],
+      "key_components": [
+       "Contactor panel enclosure",
+       "AC breaker panel enclosure"
+      ],
+      "dry_data": "Labelled boxes only; no ratings given on this sheet",
+      "sheet_region": "Mid-sheet section view, right-hand pair of labelled boxes"
+     }
+    ],
+    "placement_reasoning": "Labelled as AC contactor/breaker panels; best-fit is the main AC distribution panel node since no dedicated 'contactor panel' node exists."
+   },
+   {
+    "equipment_name": "Galley Electrical Connection Panel",
+    "target_node_id": "640-dc-distribution",
+    "functions": [
+     {
+      "label": "Galley connection panel feed",
+      "what_it_does": "Trunking run along the transom/aft section feeds the 'GALLEY ELEC CONNECTION PANEL' shown in the lower-left aft transverse section.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "Trunking backbone (aft transverse run) \u2192 GALLEY ELEC CONNECTION PANEL enclosure"
+       }
+      ],
+      "key_components": [
+       "Trunking run"
+      ],
+      "dry_data": "No electrical rating legible on this sheet",
+      "sheet_region": "Lower-left aft transverse hull section, yellow box labelled 'GALLEY ELEC CONNECTION PANEL'"
+     }
+    ],
+    "placement_reasoning": "Labelled panel box; treated as a distribution panel, closest node is DC/electric panel node since specific galley panel node does not exist."
+   },
+   {
+    "equipment_name": "Galley Lights Panel",
+    "target_node_id": "690-lts-galley",
+    "functions": [
+     {
+      "label": "Galley lighting panel feed",
+      "what_it_does": "Trunking branch feeds the 'GALLEY LIGHTS PANEL' box in the same aft transverse section, supplying the galley lighting circuit.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "Trunking backbone \u2192 branch to GALLEY LIGHTS PANEL enclosure"
+       }
+      ],
+      "key_components": [
+       "Trunking branch"
+      ],
+      "dry_data": "No rating legible on this sheet",
+      "sheet_region": "Lower-left aft transverse hull section, yellow box labelled 'GALLEY LIGHTS PANEL'"
+     }
+    ],
+    "placement_reasoning": "Directly labelled 'GALLEY LIGHTS PANEL', matches lights-galley circuit node."
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "Electrical Trunking / Cable Tray Backbone",
+    "target_node_id": "680-trunking",
+    "facts": [
+     "BOM table lists 6 trunking/tray items with profiles: Item1 100Wx100H Cabstrut Electric PVC Trunking 100x100 (ELE071), qty 5.5m, unit weight 1.4kg, total 7.7kg",
+     "Item2 100Wx140H Custom 3mm thk Alu Trunking, qty 7.5m, unit 3.5kg, total 26.3kg",
+     "Item3 150Wx100H Custom 3mm thk Alu Trunking (DSM005), qty 3.0m, unit 3.4kg, total 10.2kg",
+     "Item4 150Wx140H Custom 3mm thk Alu Trunking (KM13), qty 2.9m, unit 4.0kg, total 11.6kg",
+     "Item5 100Wx50H Custom Cable Tray 100x50, qty 3.0m, unit 1.8kg, total 5.5kg",
+     "Item6 75Wx75H Custom Electric PVC Trunking 75x75, qty 2.5m, unit 0.7kg, total 1.8kg",
+     "Total system weight 63.0kg",
+     "Multiple hull-outline plan/section views show pink/magenta highlighted trunking routes running fore-to-aft along topsides, through bulkheads, and down into aft/transom sections, plus a 3D isometric routing detail bottom-right showing bent trunking sections with dimensioned offsets",
+     "Cross-section details at multiple frame stations show trunking passing through structural members with dimensioned clearances (bend/offset details in circular blow-up details)"
+    ]
+   }
+  ],
+  "cross_references": [
+   {
+    "what": "AFT DC Elec Panel internal wiring/breaker schedule",
+    "referenced_sheet_hint": "640-dc-distribution electrical schematic sheet"
+   },
+   {
+    "what": "ONYX panel internal wiring",
+    "referenced_sheet_hint": "650/652 ONYX monitoring sheets"
+   },
+   {
+    "what": "A/C Contactor Panel and PMD/MID AC Breakers internal wiring",
+    "referenced_sheet_hint": "694 main AC panel / AC distribution schematic"
+   },
+   {
+    "what": "Galley Elec Connection Panel and Galley Lights Panel circuit details",
+    "referenced_sheet_hint": "690 lighting/galley electrical sheets"
+   }
+  ],
+  "good_to_have": [
+   "Trunking bend/offset dimensions shown at multiple detail circles - exact mm values legible on drawing, not critical to function",
+   "Individual cable identifiers (colour-coded pink/green/blue lines) - exact cable schedule reference codes for inspection",
+   "Frame/section reference numbers stamped on views for exact structural location"
+  ],
+  "uncertainties": [
+   "Several small circular detail call-outs and section labels contain heavily abbreviated/garbled text (e.g. combinations of letters/numbers) that could not be reliably resolved to specific frame or component identities beyond the general trunking routing function; these do not change the overall understanding that this sheet documents the cable trunking backbone and panel feed points."
+  ],
+  "discarded_as_clutter": [
+   "Repeated dimension/frame reference tick marks along hull outline (structural grid, not equipment)",
+   "Title block approval/review signatures and dates",
+   "Legend/BOM header repeats",
+   "Illegible micro-text scattered near section marks not tied to any named equipment"
+  ],
+  "_model": "claude-sonnet-5",
+  "_protocol_version": 4
+ },
+ "elapsed_s": 39.7
+}

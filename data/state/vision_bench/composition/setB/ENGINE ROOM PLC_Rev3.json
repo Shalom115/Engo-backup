@@ -1,0 +1,175 @@
+{
+ "sheet": "ENGINE ROOM PLC_Rev3",
+ "drawing_class": "plc",
+ "extraction": null,
+ "composition": {
+  "serve_who": "This sheet is page 09/12 of the ENGINE ROOM PLC set (SWS_108-1) and details module DI-01, a 750-1405 16-DI digital input module at rack position 00. The channel labels name EP1/EP2 (the engine-room hydraulic power packs / electric pumps of the ER hydraulic power supply) and a field power supply monitor, so this module's signals serve the Engine Room Hydraulic Power Pack node and the PLC rack infrastructure that hosts it. A sensor cross-reference (SENSOR TYPE D) points to sheet 4 for the oil-temperature sensor detail. Rack layout facts (coupler, module position, bus arrows 09.7F/10.1A/09.2B/6.4B) belong to the ENGINE ROOM PLC rack infrastructure node, not to the pump equipment.",
+  "equipment_groups": [
+   {
+    "equipment_name": "Engine Room Hydraulic Power Pack (EP1/EP2 pump status & suction valve monitoring)",
+    "target_node_id": "570-er-hydraulic-power-pack",
+    "placement_reasoning": "Channel labels explicitly name EP1 and EP2 (Engine-room hydraulic Power packs) power-available and oil-suction-valve status signals; these are digital inputs into the ENGINE ROOM PLC reporting the run/available state of the two hydraulic power packs supplying ship services.",
+    "functions": [
+     {
+      "function_id": "DI-01-CH02",
+      "label": "EP1 power available",
+      "what_it_does": "Channel 2 of module DI-01 (position 00, ENGINE ROOM rack) reads a dry contact signalling that EP1 (hydraulic power pack 1) electrical power is available/energised; wired back via reference 7/2:D.",
+      "flow_scenarios": [
+       {
+        "state": "EP1 supply energised",
+        "path": "EP1 power-available contact (ref 7/2:D) \u2192 DI-01 CH02 input \u2192 PLC logic reads EP1 available = true, relative to module common"
+       },
+       {
+        "state": "EP1 supply not energised",
+        "path": "contact open \u2192 DI-01 CH02 reads 0 = EP1 not available"
+       }
+      ],
+      "key_components": [
+       "dry contact input",
+       "module common reference"
+      ],
+      "dry_data": "750-1405 16DI module, ch.02, wire ref 03.7 RD 1,5, cross-ref 7/2:D",
+      "sheet_region": "row C, columns 4-6"
+     },
+     {
+      "function_id": "DI-01-CH03",
+      "label": "EP2 power available",
+      "what_it_does": "Channel 3 of DI-01 reads a dry contact signalling EP2 (hydraulic power pack 2) electrical power is available/energised; wired back via reference 7/4:D.",
+      "flow_scenarios": [
+       {
+        "state": "EP2 supply energised",
+        "path": "EP2 power-available contact (ref 7/4:D) \u2192 DI-01 CH03 input \u2192 PLC reads EP2 available = true, relative to module common"
+       },
+       {
+        "state": "EP2 supply not energised",
+        "path": "contact open \u2192 DI-01 CH03 reads 0"
+       }
+      ],
+      "key_components": [
+       "dry contact input",
+       "module common reference"
+      ],
+      "dry_data": "750-1405 16DI module, ch.03, wire ref 04.7 RD 1,5, cross-ref 7/4:D",
+      "sheet_region": "row C, columns 2-4"
+     },
+     {
+      "function_id": "DI-01-CH04",
+      "label": "EP1 oil suction valve",
+      "what_it_does": "Channel 4 of DI-01 monitors the status (open/closed feedback) of EP1's oil suction valve.",
+      "flow_scenarios": [
+       {
+        "state": "valve open/confirmed",
+        "path": "EP1 oil suction valve position switch \u2192 DI-01 CH04 \u2192 PLC reads valve state, relative to module common"
+       },
+       {
+        "state": "valve closed / no signal",
+        "path": "switch open \u2192 DI-01 CH04 reads 0"
+       }
+      ],
+      "key_components": [
+       "valve position switch"
+      ],
+      "dry_data": "750-1405 16DI module, ch.04",
+      "sheet_region": "row C, columns 5-7"
+     },
+     {
+      "function_id": "DI-01-CH05",
+      "label": "EP2 oil suction valve",
+      "what_it_does": "Channel 5 of DI-01 monitors the status of EP2's oil suction valve.",
+      "flow_scenarios": [
+       {
+        "state": "valve open/confirmed",
+        "path": "EP2 oil suction valve position switch \u2192 DI-01 CH05 \u2192 PLC reads valve state, relative to module common"
+       },
+       {
+        "state": "valve closed / no signal",
+        "path": "switch open \u2192 DI-01 CH05 reads 0"
+       }
+      ],
+      "key_components": [
+       "valve position switch"
+      ],
+      "dry_data": "750-1405 16DI module, ch.05",
+      "sheet_region": "row C-D, columns 2-4"
+     },
+     {
+      "function_id": "DI-01-CH01",
+      "label": "Oil temperature return section (Sensor Type D)",
+      "what_it_does": "Channel 1 of DI-01 reads a digital signal from a 'Sensor Type D' associated with the oil temperature of the return section, feeding the PLC. The sensor itself is detailed on sheet 4.",
+      "flow_scenarios": [
+       {
+        "state": "signal present",
+        "path": "Sensor Type D (see sheet 4) \u2192 DI-01 CH01 \u2192 PLC reads oil-return-temperature digital indication, relative to module common (ground symbol shown at CH01 side)"
+       }
+      ],
+      "key_components": [
+       "Sensor Type D (digital threshold sensor)"
+      ],
+      "dry_data": "750-1405 16DI module, ch.01",
+      "sheet_region": "row C, columns 1-4"
+     },
+     {
+      "function_id": "DI-01-CH16",
+      "label": "Field power supply monitor",
+      "what_it_does": "Channel 16 (last channel of module DI-01) monitors the +24Vdc field power supply feeding the rack's field devices, confirming field power presence.",
+      "flow_scenarios": [
+       {
+        "state": "field 24Vdc present",
+        "path": "+24Vdc field supply monitor tap (ref 05.6 RD 1, continuing to bus arrow 10.1A) \u2192 DI-01 CH16 \u2192 PLC reads field power OK, relative to module common"
+       },
+       {
+        "state": "field 24Vdc absent",
+        "path": "no voltage at tap \u2192 DI-01 CH16 reads 0 = field power fault"
+       }
+      ],
+      "key_components": [
+       "field 24Vdc supply monitor tap"
+      ],
+      "dry_data": "750-1405 16DI module, ch.16, wire ref 05.6 RD 1",
+      "sheet_region": "row E, columns 4-7"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "ENGINE ROOM PLC I/O Rack (WAGO) - DI-01 module infrastructure",
+    "target_node_id": "570-plc-rack-er",
+    "facts": [
+     "Module DI-01: WAGO 750-1405, 16-channel digital input module, rack position 00, CPU 750-8213",
+     "Sheet 09 of 12 of SWS_108-1_ENGINE ROOM PLC.dwg set",
+     "+24Vdc (field) rail runs vertically on left (bus ref 09.7F down to 6.4B) and right (bus ref 10.1A down to 09.2B) sides of sheet, feeding field devices/monitor",
+     "Channels 6-15 are shown terminated/unused (not labelled) on the module diagram",
+     "Ground symbol shown at CH01 terminal position"
+    ]
+   }
+  ],
+  "cross_references": [
+   {
+    "what": "SENSOR TYPE D used for oil temperature return section on DI-01 CH01",
+    "referenced_sheet_hint": "sheet 4"
+   },
+   {
+    "what": "EP1 power available signal source, ref 7/2:D",
+    "referenced_sheet_hint": "sheet 7 (likely EP1 power/control sheet)"
+   },
+   {
+    "what": "EP2 power available signal source, ref 7/4:D",
+    "referenced_sheet_hint": "sheet 7 (likely EP2 power/control sheet)"
+   }
+  ],
+  "good_to_have": [
+   "Wire references (03.7, 04.7, 05.6) with RD colour and gauge (1,5/1) are printed on sheet for tracing at inspection",
+   "CPU model 750-8213 printed on module label"
+  ],
+  "uncertainties": [],
+  "discarded_as_clutter": [
+   "Repeated DIN 34 rights-reserved legend text (left margin)",
+   "Title block administrative fields (drawn/checked/date/rev)",
+   "Blank/unlabelled channels 6-15 on module diagram"
+  ],
+  "_model": "claude-sonnet-5",
+  "_protocol_version": 4
+ },
+ "elapsed_s": 34.3
+}

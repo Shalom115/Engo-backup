@@ -1,0 +1,91 @@
+{
+ "sheet": "BAE Wiring Diagrams p20",
+ "drawing_class": "interconnect",
+ "extraction": null,
+ "composition": {
+  "serve_who": "Sheet 21 (dwg 196D5023) is an MPCS interconnect sheet documenting wiring from an ISG unit (labeled ISG-P, i.e. Port ISG) connector set P4/P3 through to the MPCS LV-1 connector (pins 30/31/13/14) plus a resistor-terminated line labeled \"G3-7100 R_Key\" landing on separate MPCS pins (11/12). All labeled signals (stator temperature sensor Hi/Lo, HVIL_IN/OUT) explicitly name ISG-P as the source device, so this sheet's content belongs to the Port ISG node (625-isg-port), with the far-end MPCS connector being infrastructure/cross-reference to the MPCS node.",
+  "equipment_groups": [
+   {
+    "equipment_name": "ISG Port (Integrated Starter Generator)",
+    "target_node_id": "625-isg-port",
+    "placement_reasoning": "Connector block explicitly labeled 'ISG-P' (P4 and P3) is the drawn source of all signal wires on this sheet; every signal name (stator temp, HVIL) is functionally tied to the ISG unit's internal sensors/safety loop, matching the established Port ISG node.",
+    "functions": [
+     {
+      "function_id": "stator-temp-sensor-loop",
+      "label": "Stator Temperature Sensor Signal to MPCS",
+      "what_it_does": "Carries the ISG stator temperature sensor's differential signal (Hi/Lo pair) from the generator's internal sensor out to the MPCS controller for monitoring/protection of the ISG windings.",
+      "flow_scenarios": [
+       {
+        "state": "normal monitoring",
+        "path": "ISG-P internal stator temperature sensor \u2192 connector P4 pin A (Hi, wire G3-7123) and pin B (Lo, wire G3-7124) \u2192 crossed/twisted wire pair (twist shown on sheet) \u2192 MPCS LV-1 connector pin 30 (Hi) and pin 31 (Lo) \u2192 MPCS analog input for stator temperature monitoring"
+       }
+      ],
+      "key_components": [
+       "Stator temperature sensor (internal to ISG, Hi/Lo differential output)",
+       "Twisted pair wiring G3-7123 (Hi) / G3-7124 (Lo)"
+      ],
+      "dry_data": "Differential analog signal pair, connector P4 pins A/B on ISG-P to MPCS LV-1 pins 30/31, wires twisted (shielded/twisted pair per drawn crossing symbol)",
+      "sheet_region": "center-left, rows 6-7, columns E-F"
+     },
+     {
+      "function_id": "hvil-loop",
+      "label": "HVIL (High Voltage Interlock Loop) In/Out",
+      "what_it_does": "Routes the high-voltage interlock loop signal through the ISG connector P3, allowing the MPCS to detect loop continuity (interlock closed) as a safety condition before/during high voltage operation involving the ISG.",
+      "flow_scenarios": [
+       {
+        "state": "interlock loop intact (normal)",
+        "path": "MPCS LV-1 pin 13 \u2192 wire G3-7120 (HVIL_IN) \u2192 ISG-P connector P3 pin 1 \u2192 internal loop continuity \u2192 ISG-P connector P3 pin 2 \u2192 wire G3-7121 (HVIL_OUT) \u2192 MPCS LV-1 pin 14, closing the loop back to MPCS"
+       },
+       {
+        "state": "interlock loop broken (fault)",
+        "path": "Loop open at ISG-P P3 (connector disconnected/damaged) \u2192 MPCS sees open HVIL loop on pins 13/14 \u2192 MPCS interprets as high-voltage interlock fault (fault handling/response is on MPCS, not detailed on this sheet)"
+       }
+      ],
+      "key_components": [
+       "HVIL loop conductors (in/out) through ISG-P connector P3"
+      ],
+      "dry_data": "Two-wire HVIL loop, ISG-P P3 pins 1/2, wires G3-7120/G3-7121, terminating at MPCS LV-1 pins 13/14",
+      "sheet_region": "center-left, rows 7, columns E-F"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "MPCS LV-1 connector (interconnect infrastructure)",
+    "facts": [
+     "LV-1 is a multi-pin connector block on the MPCS-P (Port Modular Propulsion Control System) receiving ISG signal wiring on this sheet",
+     "Pins 30/31 = stator temp Hi/Lo; pins 13/14 = HVIL in/out; pins 11/12 land a separate resistor-terminated wire labeled 'G3-7100 R_Key'",
+     "This sheet only shows the MPCS-side pin landing, not internal MPCS processing \u2014 full MPCS function is on the MPCS node/sheets"
+    ],
+    "target_node_id": "620-modular-propulsion-control-system-mpcs"
+   }
+  ],
+  "cross_references": [
+   {
+    "what": "MPCS LV-1 connector pins 30/31/13/14/11/12 and the internal processing of stator temperature and HVIL signals",
+    "referenced_sheet_hint": "MPCS-P (Modular Propulsion Control System, Port) detail sheet(s)"
+   },
+   {
+    "what": "Wire/resistor 'G3-7100 R_Key' landing on MPCS LV-1 pins 11/12 \u2014 identity/purpose of this key resistor line not detailed on this sheet",
+    "referenced_sheet_hint": "MPCS-P or ISG-P interconnect / key-resistor coding sheet"
+   }
+  ],
+  "uncertainties": [
+   "The function of the 'G3-7100 R_Key' resistor-terminated line into MPCS LV-1 pins 11/12 is not identified on this sheet (no source device drawn, only a resistor symbol) \u2014 its connection to ISG-P is not shown by a drawn line, so it cannot be attributed to ISG-P; role/identity unclear."
+  ],
+  "good_to_have": [
+   "Resistor value for 'G3-7100 R_Key' not given on this sheet \u2014 read at inspection if needed.",
+   "Wire gauge/part numbers for G3-7120/7121/7123/7124 not shown, available on full harness drawing."
+  ],
+  "discarded_as_clutter": [
+   "Title block fields (CAGE code 89954, size D, sheet 21 of 47, drawn/checked/approved names, dates '-')",
+   "Revision table (empty, all '-')",
+   "Export control / proprietary boilerplate notices",
+   "Grid reference letters/numbers (A-H, 1-8) \u2014 sheet coordinate frame only"
+  ],
+  "_model": "claude-sonnet-5",
+  "_protocol_version": 4
+ },
+ "elapsed_s": 29.5
+}

@@ -1,0 +1,4060 @@
+{
+ "sheet": "GM-116_fuel-fans",
+ "drawing_class": "electrical",
+ "extraction": {
+  "legends": [
+   {
+    "kind": "other_table",
+    "title_as_printed": "DWG No. / TITLE / DATE / DRAWN / PROJECT / CUSTOMER title block",
+    "bbox": [
+     0.31,
+     0.925,
+     1.0,
+     1.0
+    ],
+    "content": {
+     "entries": [
+      {
+       "label": "TITLE | AFT SERVICE PUMPS"
+      },
+      {
+       "label": "DATE | 4/10/2023 | PROJECT | SWS 108'-01 \" Gelliceaux \""
+      },
+      {
+       "label": "DRAWN | GM | CUSTOMER | SOUTHERN WIND SHIPYARD (PTY) LTD"
+      },
+      {
+       "label": "THE COPYRIGHT OF THIS DRAWING IS EXPRESSLY RESERVED AND NO PART OF IT MAY BE COPIED WITHOUT PRIOR PERMISSION."
+      }
+     ],
+     "title": "Title Block",
+     "_model": "claude-sonnet-5"
+    }
+   }
+  ],
+  "legend_context": "THIS SHEET'S OWN LEGENDS AND TABLES (read first; these definitions are AUTHORITATIVE for this sheet and override any generic symbol/line convention):\n- [other_table] DWG No. / TITLE / DATE / DRAWN / PROJECT / CUSTOMER title block:\n    * TITLE | AFT SERVICE PUMPS\n    * DATE | 4/10/2023 | PROJECT | SWS 108'-01 \" Gelliceaux \"\n    * DRAWN | GM | CUSTOMER | SOUTHERN WIND SHIPYARD (PTY) LTD\n    * THE COPYRIGHT OF THIS DRAWING IS EXPRESSLY RESERVED AND NO PART OF IT MAY BE COPIED WITHOUT PRIOR PERMISSION.",
+  "survey": {
+   "regions": [
+    {
+     "type": "panel_column",
+     "label": "DC MAIN PANEL / MAIN PANEL breaker row (Q1-Q6, Re12-Re14)",
+     "bbox": [
+      0.02,
+      0.11,
+      0.25,
+      0.72
+     ],
+     "approx_unit_count": 6
+    },
+    {
+     "type": "controller_module",
+     "label": "PC CARD terminal/interface column with RUN IND / ALARM columns",
+     "bbox": [
+      0.25,
+      0.13,
+      0.45,
+      0.75
+     ],
+     "approx_unit_count": 25
+    },
+    {
+     "type": "terminal_strip",
+     "label": "T/S C, T/S B, T/S E blocks along left/mid area",
+     "bbox": [
+      0.24,
+      0.14,
+      0.32,
+      0.65
+     ],
+     "approx_unit_count": 8
+    },
+    {
+     "type": "terminal_strip",
+     "label": "Numbered terminal group 92-105 (bilge/sump/backup status taps + FWD grey water block, XA61 taps)",
+     "bbox": [
+      0.24,
+      0.62,
+      0.45,
+      0.9
+     ],
+     "approx_unit_count": 14
+    },
+    {
+     "type": "other",
+     "label": "S17 / S18 ON-OFF-AUTO selector switches",
+     "bbox": [
+      0.42,
+      0.15,
+      0.5,
+      0.22
+     ],
+     "approx_unit_count": 2
+    },
+    {
+     "type": "other",
+     "label": "AFT/FWD Grey Water Sender (variable resistor sender) blocks",
+     "bbox": [
+      0.6,
+      0.19,
+      0.68,
+      0.24
+     ],
+     "approx_unit_count": 1
+    },
+    {
+     "type": "other",
+     "label": "Pump loads (AFT Grey Water, Port/Stbd Aft Guest Grey Sump, Fwd/Aft Crew Head Grey Sump, AFT A/C Sump) with fuses (1A) and reed sump switches / bypass contacts",
+     "bbox": [
+      0.68,
+      0.13,
+      0.95,
+      0.78
+     ],
+     "approx_unit_count": 7
+    },
+    {
+     "type": "terminal_strip",
+     "label": "T/S F terminal block (right side, feeding Emergency LTS SW, see DWG-120)",
+     "bbox": [
+      0.78,
+      0.85,
+      0.92,
+      0.93
+     ],
+     "approx_unit_count": 6
+    },
+    {
+     "type": "other",
+     "label": "MU4-12 multi-core cable link between local terminal group and T/S F",
+     "bbox": [
+      0.45,
+      0.87,
+      0.78,
+      0.9
+     ],
+     "approx_unit_count": 1
+    },
+    {
+     "type": "other",
+     "label": "Title block",
+     "bbox": [
+      0.32,
+      0.92,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "sub_type": "relay_terminal_wiring",
+   "sub_type_reason": "Sheet is dominated by terminal strips (T/S B, C, E, F), numbered terminal blocks (76-105), relays (Re12-Re14), a PC CARD controller with RUN IND./ALARM signal lines, and status taps routed to monitoring circuits, all joined by wiring to pump/sensor endpoints \u2014 matching relay/terminal wiring layout rather than a simple distribution schedule or one-line topology.",
+   "title_block": {
+    "drawing_no": "GMMS 108'-115",
+    "title": "AFT SERVICE PUMPS",
+    "drafter": "GM"
+   },
+   "cross_refs": [
+    "see DWG115a (FWD BLACK WATER TANK FULL SIGNAL)",
+    "see DWG-120 (T/S F, Emergency LTS SW)",
+    "XA61 taps (04,06,02,08,10,12,18) to external alarm/monitoring loom",
+    "XA70 taps (07,08) to SWB02/AFT",
+    "XA30 taps (01,02) to SWB01/FWD",
+    "MU4-12 multi-core cable"
+   ],
+   "notes": "Two selector switches (S17, S18) control AUTO/ON/OFF modes for AFT and FWD grey water pumps respectively, each with RUN IND. and ALARM outputs routed through a PC CARD interface region (dotted boundary) \u2014 this dotted region is an enclosure boundary, not a signal path itself. Numerous numbered terminal points (76-105) span multiple physical terminal strips (T/S B, C, E) feeding a common alarm/status collection area labeled with load names (MAST BILGE, ENGINE ROOM BILGE, OWNERS GREY SUMP, FWD GUEST GREY SUMP, AFT A/C SUMP, BACKUP EM POWER/GMDSS BACKUP) - these are status_signal taps to a monitoring bus, not power feeds. Reed sump switches and BY-PASS manual contacts sit near FWD/AFT crew head sump pumps. Some wire-gauge diamond callouts likely present on power lines (illegible at this resolution to confirm exact values). Fuses (1A) inline before several sump pumps. Text at far right of terminal group (7-12, T/S F) references DWG-120 and lists EMERGENCY LTS SW plus two 'not used' spares.",
+   "_model": "claude-sonnet-5",
+   "_pass1_dpi": 200
+  },
+  "sub_type": "relay_terminal_wiring",
+  "regions_read": [
+   {
+    "region": "DC MAIN PANEL / MAIN PANEL breaker row (Q1-Q6, Re12-Re14)",
+    "region_type": "panel_column",
+    "bbox": [
+     0.02,
+     0.11,
+     0.25,
+     0.72
+    ],
+    "reader": "schedule",
+    "panel_label": null,
+    "rows": [
+     {
+      "device_type": "breaker",
+      "device_id": "Q1",
+      "rating": "10A",
+      "load_name": "AFT GREY WATER P.",
+      "cross_ref": ""
+     },
+     {
+      "device_type": "breaker",
+      "device_id": "Q2",
+      "rating": "20A",
+      "load_name": "PORT AFT GREY GUEST SUMP",
+      "cross_ref": ""
+     },
+     {
+      "device_type": "breaker",
+      "device_id": "Q3",
+      "rating": "20A",
+      "load_name": "STBD AFT GREY GUEST SUMP",
+      "cross_ref": ""
+     },
+     {
+      "device_type": "breaker",
+      "device_id": "Q4",
+      "rating": "10A",
+      "load_name": "FWD CREW HEAD SUMP PUMP",
+      "cross_ref": ""
+     },
+     {
+      "device_type": "breaker",
+      "device_id": "Q5",
+      "rating": "10A",
+      "load_name": "AFT CREW HEAD SUMP PUMP",
+      "cross_ref": ""
+     },
+     {
+      "device_type": "breaker",
+      "device_id": "Q6",
+      "rating": "20A",
+      "load_name": "AFT A/C SUMP PUMP",
+      "cross_ref": ""
+     }
+    ]
+   },
+   {
+    "region": "ALL WIRING (coverage: survey regions + full-sheet grid)",
+    "region_type": "relay_terminal_wiring",
+    "bbox": [
+     0,
+     0,
+     1,
+     1
+    ],
+    "reader": "wiring_coverage",
+    "elements": [
+     {
+      "id": "77",
+      "element_type": "terminal",
+      "label": "RUN IND. (S17)",
+      "connections": [
+       "77 -> RUN IND. lamp",
+       "-> S17"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.25,
+       0.13,
+       0.45,
+       0.75
+      ]
+     },
+     {
+      "id": "78",
+      "element_type": "terminal",
+      "label": "",
+      "connections": [
+       "78 -> continues"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.25,
+       0.13,
+       0.45,
+       0.75
+      ]
+     },
+     {
+      "id": "79",
+      "element_type": "terminal",
+      "label": "",
+      "connections": [
+       "79 -> continues"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.25,
+       0.13,
+       0.45,
+       0.75
+      ]
+     },
+     {
+      "id": "80",
+      "element_type": "terminal",
+      "label": "ALARM",
+      "connections": [
+       "80 -> ALARM lamp"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.25,
+       0.13,
+       0.45,
+       0.75
+      ]
+     },
+     {
+      "id": "81",
+      "element_type": "terminal",
+      "label": "XA61 <08 cross-drawing ref",
+      "connections": [
+       "81 -> XA61 -> DWG 08"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.25,
+       0.13,
+       0.45,
+       0.75
+      ]
+     },
+     {
+      "id": "XA61",
+      "element_type": "status_signal",
+      "label": "XA61 (ref DWG 08)",
+      "connections": [
+       "81 -> XA61 -> DWG 08"
+      ],
+      "ambiguous": true,
+      "_via": "survey_region",
+      "_bbox": [
+       0.25,
+       0.13,
+       0.45,
+       0.75
+      ]
+     },
+     {
+      "id": "82",
+      "element_type": "terminal",
+      "label": "RUN IND.",
+      "connections": [
+       "82 -> RUN IND. lamp"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.25,
+       0.13,
+       0.45,
+       0.75
+      ]
+     },
+     {
+      "id": "83",
+      "element_type": "terminal",
+      "label": "RUN IND.",
+      "connections": [
+       "83 -> RUN IND. lamp"
+      ],
+      "has_builtin_fuse": true,
+      "_via": "survey_region",
+      "_bbox": [
+       0.25,
+       0.13,
+       0.45,
+       0.75
+      ]
+     },
+     {
+      "id": "84",
+      "element_type": "terminal",
+      "label": "RUN IND.",
+      "connections": [
+       "84 -> RUN IND. lamp"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.25,
+       0.13,
+       0.45,
+       0.75
+      ]
+     },
+     {
+      "id": "85",
+      "element_type": "terminal",
+      "label": "RUN IND.",
+      "connections": [
+       "85 -> RUN IND. lamp"
+      ],
+      "has_builtin_fuse": true,
+      "_via": "survey_region",
+      "_bbox": [
+       0.25,
+       0.13,
+       0.45,
+       0.75
+      ]
+     },
+     {
+      "id": "86",
+      "element_type": "terminal",
+      "label": "RUN IND.",
+      "connections": [
+       "86 -> RUN IND. lamp"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.25,
+       0.13,
+       0.45,
+       0.75
+      ]
+     },
+     {
+      "id": "87",
+      "element_type": "terminal",
+      "label": "RUN IND.",
+      "connections": [
+       "87 -> RUN IND. lamp"
+      ],
+      "has_builtin_fuse": true,
+      "_via": "survey_region",
+      "_bbox": [
+       0.25,
+       0.13,
+       0.45,
+       0.75
+      ]
+     },
+     {
+      "id": "88",
+      "element_type": "terminal",
+      "label": "",
+      "connections": [
+       "88 -> continues"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.25,
+       0.13,
+       0.45,
+       0.75
+      ]
+     },
+     {
+      "id": "89",
+      "element_type": "terminal",
+      "label": "RUN IND.",
+      "connections": [
+       "89 -> RUN IND. lamp"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.25,
+       0.13,
+       0.45,
+       0.75
+      ]
+     },
+     {
+      "id": "90",
+      "element_type": "terminal",
+      "label": "RUN IND.",
+      "connections": [
+       "90 -> RUN IND. lamp"
+      ],
+      "has_builtin_fuse": true,
+      "_via": "survey_region",
+      "_bbox": [
+       0.25,
+       0.13,
+       0.45,
+       0.75
+      ]
+     },
+     {
+      "id": "91",
+      "element_type": "terminal",
+      "label": "",
+      "connections": [
+       "91 -> continues"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.25,
+       0.13,
+       0.45,
+       0.75
+      ]
+     },
+     {
+      "id": "92",
+      "element_type": "status_signal",
+      "label": "MAST BILGE (tap 5)",
+      "connections": [
+       "5 -> 92 -> MAST BILGE monitoring loom"
+      ],
+      "has_builtin_fuse": true,
+      "_via": "survey_region",
+      "_bbox": [
+       0.25,
+       0.13,
+       0.45,
+       0.75
+      ]
+     },
+     {
+      "id": "93",
+      "element_type": "status_signal",
+      "label": "ENGINE ROOM (tap 6)",
+      "connections": [
+       "6 -> 93 -> ENGINE ROOM monitoring loom"
+      ],
+      "has_builtin_fuse": true,
+      "_via": "survey_region",
+      "_bbox": [
+       0.25,
+       0.13,
+       0.45,
+       0.75
+      ]
+     },
+     {
+      "id": "94",
+      "element_type": "status_signal",
+      "label": "OWNERS GRE... (tap 8)",
+      "connections": [
+       "8 -> 94 -> OWNERS GRE... monitoring loom"
+      ],
+      "has_builtin_fuse": true,
+      "_via": "survey_region",
+      "_bbox": [
+       0.25,
+       0.13,
+       0.45,
+       0.75
+      ]
+     },
+     {
+      "id": "95",
+      "element_type": "status_signal",
+      "label": "FWD GUEST (tap 9)",
+      "connections": [
+       "9 -> 95 -> FWD GUEST monitoring loom"
+      ],
+      "has_builtin_fuse": true,
+      "_via": "survey_region",
+      "_bbox": [
+       0.25,
+       0.13,
+       0.45,
+       0.75
+      ]
+     },
+     {
+      "id": "96",
+      "element_type": "status_signal",
+      "label": "AFT A/C SUP...",
+      "connections": [
+       "96 -> AFT A/C SUPPLY monitoring loom"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.25,
+       0.13,
+       0.45,
+       0.75
+      ]
+     },
+     {
+      "id": "96b",
+      "element_type": "status_signal",
+      "label": "BACKUP EM...",
+      "connections": [
+       "-> BACKUP EM monitoring loom"
+      ],
+      "ambiguous": true,
+      "_via": "survey_region",
+      "_bbox": [
+       0.25,
+       0.13,
+       0.45,
+       0.75
+      ]
+     },
+     {
+      "id": "96c",
+      "element_type": "status_signal",
+      "label": "(GMDSS BAC...)",
+      "connections": [
+       "-> GMDSS BACKUP monitoring loom"
+      ],
+      "ambiguous": true,
+      "_via": "survey_region",
+      "_bbox": [
+       0.25,
+       0.13,
+       0.45,
+       0.75
+      ]
+     },
+     {
+      "id": "97",
+      "element_type": "terminal",
+      "label": "RUN IND. (S18)",
+      "connections": [
+       "1 -> 97 -> RUN IND. lamp -> S18"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.25,
+       0.13,
+       0.45,
+       0.75
+      ]
+     },
+     {
+      "id": "98",
+      "element_type": "terminal",
+      "label": "",
+      "connections": [
+       "2 -> 98 -> continues"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.25,
+       0.13,
+       0.45,
+       0.75
+      ]
+     },
+     {
+      "id": "99",
+      "element_type": "status_signal",
+      "label": "XA99 (ref DWG 08)",
+      "connections": [
+       "3 -> XA99 -> DWG 08"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.25,
+       0.13,
+       0.45,
+       0.75
+      ]
+     },
+     {
+      "id": "100",
+      "element_type": "terminal",
+      "label": "ALARM",
+      "connections": [
+       "100 -> ALARM lamp"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.25,
+       0.13,
+       0.45,
+       0.75
+      ]
+     },
+     {
+      "id": "101",
+      "element_type": "terminal",
+      "label": "",
+      "connections": [
+       "4 -> 101 -> continues"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.25,
+       0.13,
+       0.45,
+       0.75
+      ]
+     },
+     {
+      "id": "102",
+      "element_type": "terminal",
+      "label": "FWD BLACK WATER TANK FULL SIGNAL (see DWG115a)",
+      "connections": [
+       "7 -> 102 -> FWD BLACK WATER TANK FULL SIGNAL",
+       "cross-reference -> DWG115a"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.25,
+       0.13,
+       0.45,
+       0.75
+      ]
+     },
+     {
+      "id": "103",
+      "element_type": "terminal",
+      "label": "EMERGENCY LTS SW Link",
+      "connections": [
+       "10 -> 103 -> EMERGENCY LTS SW Link"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.25,
+       0.13,
+       0.45,
+       0.75
+      ]
+     },
+     {
+      "id": "104",
+      "element_type": "terminal",
+      "label": "",
+      "connections": [
+       "11 -> 104"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.25,
+       0.13,
+       0.45,
+       0.75
+      ]
+     },
+     {
+      "id": "105",
+      "element_type": "terminal",
+      "label": "",
+      "connections": [
+       "12 -> 105"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.25,
+       0.13,
+       0.45,
+       0.75
+      ]
+     },
+     {
+      "id": "78",
+      "element_type": "terminal",
+      "label": "terminal 78",
+      "connections": [
+       "from left wire",
+       "to right wire"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "79",
+      "element_type": "terminal",
+      "label": "terminal 79",
+      "connections": [
+       "from left curved link",
+       "to right wire"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "80",
+      "element_type": "terminal",
+      "label": "terminal 80",
+      "connections": [
+       "from left wire",
+       "to 81 group"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "81",
+      "element_type": "terminal",
+      "label": "terminal 81",
+      "connections": [
+       "from 80",
+       "to XA61 <08 pointer"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "XA61",
+      "element_type": "plug_pin",
+      "label": "XA61 <08",
+      "connections": [
+       "terminal 81",
+       "cross-drawing ref 08"
+      ],
+      "ambiguous": true,
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "AFT_07",
+      "element_type": "terminal",
+      "label": "AFT 07 +",
+      "connections": [
+       "to right wire (+)"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "AFT_08",
+      "element_type": "terminal",
+      "label": "AFT 08 -",
+      "connections": [
+       "to right wire (-)"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "T/S_E_8",
+      "element_type": "terminal",
+      "label": "T/S E terminal 8",
+      "has_builtin_fuse": true,
+      "connections": [
+       "to right wire"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "82",
+      "element_type": "terminal",
+      "label": "terminal 82",
+      "connections": [
+       "from left wire",
+       "to right wire"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "83",
+      "element_type": "terminal",
+      "label": "terminal 83",
+      "has_builtin_fuse": true,
+      "connections": [
+       "linked to 82",
+       "to right wire"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "84",
+      "element_type": "terminal",
+      "label": "terminal 84",
+      "connections": [
+       "from left wire",
+       "to right wire"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "85",
+      "element_type": "terminal",
+      "label": "terminal 85",
+      "has_builtin_fuse": true,
+      "connections": [
+       "linked to 84",
+       "to right wire"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "86",
+      "element_type": "terminal",
+      "label": "terminal 86",
+      "connections": [
+       "from left wire (curved link)",
+       "to right wire"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "87",
+      "element_type": "terminal",
+      "label": "terminal 87",
+      "has_builtin_fuse": true,
+      "connections": [
+       "linked to 86",
+       "to right wire"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "88",
+      "element_type": "terminal",
+      "label": "terminal 88",
+      "connections": [
+       "from curved link",
+       "to right wire"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "89",
+      "element_type": "terminal",
+      "label": "terminal 89",
+      "connections": [
+       "from left wire (curved link)",
+       "to right wire"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "90",
+      "element_type": "terminal",
+      "label": "terminal 90",
+      "has_builtin_fuse": true,
+      "connections": [
+       "linked to 89",
+       "to right wire"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "91",
+      "element_type": "terminal",
+      "label": "terminal 91",
+      "connections": [
+       "from curved link",
+       "to right wire"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "92",
+      "element_type": "terminal",
+      "label": "terminal 92",
+      "has_builtin_fuse": true,
+      "connections": [
+       "from tap 5",
+       "to right wire"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "93",
+      "element_type": "terminal",
+      "label": "terminal 93",
+      "has_builtin_fuse": true,
+      "connections": [
+       "from tap 6",
+       "to right wire"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "94",
+      "element_type": "terminal",
+      "label": "terminal 94",
+      "has_builtin_fuse": true,
+      "connections": [
+       "from tap 8",
+       "to right wire"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "95",
+      "element_type": "terminal",
+      "label": "terminal 95",
+      "has_builtin_fuse": true,
+      "connections": [
+       "from tap 9",
+       "to right wire"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "96",
+      "element_type": "terminal",
+      "label": "terminal 96",
+      "connections": [
+       "from 80/81 block",
+       "to right wire"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "tap_5",
+      "element_type": "status_signal",
+      "label": "junction tap 5",
+      "connections": [
+       "to terminal 92"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "tap_6",
+      "element_type": "status_signal",
+      "label": "junction tap 6",
+      "connections": [
+       "to terminal 93"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "tap_8",
+      "element_type": "status_signal",
+      "label": "junction tap 8",
+      "connections": [
+       "to terminal 94"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "tap_9",
+      "element_type": "status_signal",
+      "label": "junction tap 9",
+      "connections": [
+       "to terminal 95"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "97",
+      "element_type": "terminal",
+      "label": "terminal 97",
+      "connections": [
+       "from tap 1",
+       "to right wire"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "98",
+      "element_type": "terminal",
+      "label": "terminal 98",
+      "connections": [
+       "from tap 2",
+       "to right wire"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "99",
+      "element_type": "terminal",
+      "label": "terminal 99",
+      "connections": [
+       "from tap 3",
+       "to right wire"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "100",
+      "element_type": "terminal",
+      "label": "terminal 100",
+      "connections": [
+       "to right wire"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "101",
+      "element_type": "terminal",
+      "label": "terminal 101",
+      "connections": [
+       "from tap 4",
+       "to right wire (curved link down)"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "tap_1",
+      "element_type": "status_signal",
+      "label": "junction tap 1",
+      "connections": [
+       "to terminal 97"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "tap_2",
+      "element_type": "status_signal",
+      "label": "junction tap 2",
+      "connections": [
+       "to terminal 98"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "tap_3",
+      "element_type": "status_signal",
+      "label": "junction tap 3",
+      "connections": [
+       "to terminal 99"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "tap_4",
+      "element_type": "status_signal",
+      "label": "junction tap 4",
+      "connections": [
+       "to terminal 101"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.14,
+       0.32,
+       0.65
+      ]
+     },
+     {
+      "id": "98",
+      "element_type": "terminal",
+      "label": "terminal 2 / 98",
+      "connections": [
+       "source 2",
+       "to right conductor"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.62,
+       0.45,
+       0.9
+      ]
+     },
+     {
+      "id": "99",
+      "element_type": "terminal",
+      "label": "terminal 3 / 99",
+      "connections": [
+       "source 3",
+       "to right conductor"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.62,
+       0.45,
+       0.9
+      ]
+     },
+     {
+      "id": "100",
+      "element_type": "terminal",
+      "label": "terminal (unlabeled)/100",
+      "connections": [
+       "source (unlabeled input)",
+       "to right conductor toward ALARM circuit"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.62,
+       0.45,
+       0.9
+      ]
+     },
+     {
+      "id": "101",
+      "element_type": "terminal",
+      "label": "terminal 4 / 101",
+      "connections": [
+       "source 4",
+       "looped back down to 101 area"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.62,
+       0.45,
+       0.9
+      ]
+     },
+     {
+      "id": "ALARM",
+      "element_type": "status_signal",
+      "label": "ALARM",
+      "connections": [
+       "from terminal 100 line",
+       "bell/lamp symbol circuit within dotted enclosure"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.62,
+       0.45,
+       0.9
+      ]
+     },
+     {
+      "id": "01_FWD",
+      "element_type": "terminal",
+      "label": "FWD 01 +",
+      "connections": [
+       "+ supply bus, horizontal run to right"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.62,
+       0.45,
+       0.9
+      ]
+     },
+     {
+      "id": "02_FWD",
+      "element_type": "terminal",
+      "label": "FWD 02 -",
+      "connections": [
+       "- return bus, horizontal run to right"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.62,
+       0.45,
+       0.9
+      ]
+     },
+     {
+      "id": "102",
+      "element_type": "terminal",
+      "label": "terminal 7 / 102 - FWD BLACK WATER TANK FULL SIGNAL (see DWG115a)",
+      "connections": [
+       "source (labelled B on left)",
+       "cross-reference to DWG115a"
+      ],
+      "ambiguous": false,
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.62,
+       0.45,
+       0.9
+      ]
+     },
+     {
+      "id": "103",
+      "element_type": "terminal",
+      "label": "terminal 10 / 103 - EMERGENCY LTS SW Link",
+      "connections": [
+       "source 10",
+       "to EMERGENCY LTS SW Link conductor to the right"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.62,
+       0.45,
+       0.9
+      ]
+     },
+     {
+      "id": "104",
+      "element_type": "terminal",
+      "label": "terminal 11 / 104",
+      "connections": [
+       "source 11"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.62,
+       0.45,
+       0.9
+      ]
+     },
+     {
+      "id": "105",
+      "element_type": "terminal",
+      "label": "terminal 12 / 105",
+      "connections": [
+       "source 12"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.24,
+       0.62,
+       0.45,
+       0.9
+      ]
+     },
+     {
+      "element_type": "annotation",
+      "id": "TITLE_BLOCK",
+      "label": "AFT SERVICE PUMPS | DATE 4/10/2023 | DRAWN GM | PROJECT SWS 108'-01 \"Gelliceaux\" | CUSTOMER SOUTHERN WIND SHIPYARD (PTY) LTD | Cell 083 298 3305 | goetz@telkom... | COPYRIGHT NOTICE",
+      "connections": [],
+      "_via": "survey_region",
+      "_bbox": [
+       0.78,
+       0.85,
+       0.92,
+       0.93
+      ]
+     },
+     {
+      "id": "Q1",
+      "element_type": "breaker",
+      "label": "AFT GREY WATER P. Q1 10A",
+      "connections": [
+       "DC MAIN PANEL bus -> switch contact (Re12 branch) -> T/S C terminal 76"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "Q2",
+      "element_type": "breaker",
+      "label": "PORT AFT GREY GUEST SUMP Q2 20A",
+      "connections": [
+       "DC MAIN PANEL bus -> terminal 82"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "Q3",
+      "element_type": "breaker",
+      "label": "STBD AFT GREY GUEST SUMP Q3 20A",
+      "connections": [
+       "DC MAIN PANEL bus -> terminal 84"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "SW-Q1",
+      "element_type": "switch",
+      "label": "manual switch after Q1 (2-position, feeds Re12 and T/S C 76)",
+      "connections": [
+       "Q1 -> contact -> T/S C terminal 76",
+       "Q1 -> contact -> Re12 coil"
+      ],
+      "ambiguous": true,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "Re12",
+      "element_type": "relay",
+      "label": "Re12",
+      "connections": [
+       "coil + from Q1 switch contact",
+       "coil - to T/S C terminal 78/79 area",
+       "contacts route to XA61 10 / XA61 12"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "T/S C-76",
+      "element_type": "terminal",
+      "label": "T/S C terminal 76",
+      "connections": [
+       "Q1 switch -> terminal 76",
+       "terminal 76 -> PC (dotted enclosure) line"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "T/S C-77",
+      "element_type": "terminal",
+      "label": "T/S C terminal 77",
+      "has_builtin_fuse": true,
+      "connections": [
+       "terminal 77 -> PC line labelled RUN"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "T/S C-78",
+      "element_type": "terminal",
+      "label": "T/S C terminal 78",
+      "connections": [
+       "Re12 -> terminal 78"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "T/S C-79",
+      "element_type": "terminal",
+      "label": "T/S C terminal 79",
+      "connections": [
+       "Re12 -> terminal 79 -> XA61 10 tap"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "XA61-10",
+      "element_type": "status_signal",
+      "label": "XA61 pin 10",
+      "connections": [
+       "terminal 79 -> XA61 10"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "XA61-12",
+      "element_type": "status_signal",
+      "label": "XA61 pin 12",
+      "connections": [
+       "XA61 12 -> terminal 80"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "T/S C-80",
+      "element_type": "terminal",
+      "label": "T/S C terminal 80",
+      "connections": [
+       "XA61 12 -> terminal 80 -> PC line labelled AL"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "T/S C-81",
+      "element_type": "terminal",
+      "label": "T/S C terminal 81",
+      "connections": [
+       "terminal 81 -> XA61 08"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "XA61-08",
+      "element_type": "status_signal",
+      "label": "XA61 pin 08",
+      "connections": [
+       "terminal 81 -> XA61 08"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "XA70-07",
+      "element_type": "status_signal",
+      "label": "SWB02/AFT -XA70 pin 07 (+)",
+      "connections": [
+       "-XA70 07 -> + supply line to PC region"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "XA70-08",
+      "element_type": "status_signal",
+      "label": "SWB02/AFT -XA70 pin 08 (-)",
+      "connections": [
+       "-XA70 08 -> - return line"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "T/S E-8",
+      "element_type": "terminal",
+      "label": "T/S E terminal 8 (EMERGENCY BAT +24V)",
+      "has_builtin_fuse": true,
+      "connections": [
+       "EMERGENCY BAT +24V <- terminal 8 <- PC line"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "T/S-82",
+      "element_type": "terminal",
+      "label": "terminal 82 (Q2 feed)",
+      "connections": [
+       "Q2 -> terminal 82"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "T/S-83",
+      "element_type": "terminal",
+      "label": "terminal 83",
+      "has_builtin_fuse": true,
+      "connections": [
+       "terminal 83 -> PC line labelled RUN"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "T/S-84",
+      "element_type": "terminal",
+      "label": "terminal 84 (Q3 feed)",
+      "connections": [
+       "Q3 -> terminal 84"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "T/S-85",
+      "element_type": "terminal",
+      "label": "terminal 85",
+      "has_builtin_fuse": true,
+      "connections": [
+       "terminal 85 -> PC line labelled RUN"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "PC-enclosure",
+      "element_type": "annotation",
+      "label": "PC (dotted enclosure boundary, cropped) - encloses controller/monitoring region",
+      "connections": [],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "SWB02-AFT",
+      "element_type": "terminal_strip",
+      "label": "SWB02/AFT terminal strip block for -XA70 07/08",
+      "connections": [
+       "feeds XA70 07 (+) and XA70 08 (-) lines"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "XA61-08",
+      "element_type": "status_signal",
+      "label": "XA61 <08> cross-drawing tag on wire to ALARM",
+      "connections": [
+       "circuit wire",
+       "ALARM indicator light"
+      ],
+      "ambiguous": false,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "RUN IND. (1)",
+      "element_type": "status_signal",
+      "label": "RUN IND. indicator lamp tap, top row",
+      "connections": [
+       "wire from left",
+       "lamp symbol"
+      ],
+      "ambiguous": false,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "ALARM",
+      "element_type": "status_signal",
+      "label": "ALARM indicator lamp tap",
+      "connections": [
+       "wire from XA61-08",
+       "lamp symbol"
+      ],
+      "ambiguous": false,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "S17",
+      "element_type": "switch",
+      "label": "S17 ON/OFF/AUTO selector switch",
+      "connections": [
+       "ON contact",
+       "OFF contact",
+       "AUTO contact",
+       "wire to RUN IND./ALARM circuit"
+      ],
+      "ambiguous": false,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "AFT GREY WATER SENDER",
+      "element_type": "device",
+      "label": "AFT GREY WATER SENDER (variable resistor/level sender)",
+      "connections": [
+       "horizontal supply/return line"
+      ],
+      "ambiguous": false,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "82/83",
+      "element_type": "relay",
+      "label": "Relay contact/coil terminals 82/83 feeding RUN IND.",
+      "connections": [
+       "82 to horizontal bus",
+       "83 to RUN IND. lamp tap",
+       "return to 1A fuse"
+      ],
+      "ambiguous": false,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "RUN IND. (2)",
+      "element_type": "status_signal",
+      "label": "RUN IND. indicator lamp tap, row 82/83",
+      "connections": [
+       "83 terminal",
+       "1A fuse"
+      ],
+      "ambiguous": false,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "1A (1)",
+      "element_type": "fuse",
+      "label": "1A fuse on RUN IND. circuit (row 82/83)",
+      "connections": [
+       "RUN IND. lamp return",
+       "downstream bus"
+      ],
+      "ambiguous": false,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "84/85",
+      "element_type": "relay",
+      "label": "Relay contact/coil terminals 84/85 feeding RUN IND.",
+      "connections": [
+       "84 to horizontal bus",
+       "85 to RUN IND. lamp tap",
+       "return to 1A fuse"
+      ],
+      "ambiguous": false,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "RUN IND. (3)",
+      "element_type": "status_signal",
+      "label": "RUN IND. indicator lamp tap, row 84/85",
+      "connections": [
+       "85 terminal",
+       "1A fuse"
+      ],
+      "ambiguous": false,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "1A (2)",
+      "element_type": "fuse",
+      "label": "1A fuse on RUN IND. circuit (row 84/85)",
+      "connections": [
+       "RUN IND. lamp return",
+       "downstream bus"
+      ],
+      "ambiguous": false,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "PC CARD boundary",
+      "element_type": "annotation",
+      "label": "PC CARD dotted enclosure boundary",
+      "connections": [],
+      "ambiguous": false,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "MAIN PANEL boundary",
+      "element_type": "annotation",
+      "label": "MAIN PANEL dashed enclosure boundary",
+      "connections": [],
+      "ambiguous": false,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "element_type": "device",
+      "id": "<UNKNOWN>",
+      "label": "AFT GREY WATER PUMP",
+      "connections": [
+       "incoming wire -> PUMP (+)",
+       "PUMP -> ground"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.0,
+       1.0,
+       0.3733333333333333
+      ]
+     },
+     {
+      "element_type": "device",
+      "id": "<UNKNOWN>",
+      "label": "GREY WATER SENDER",
+      "connections": [
+       "incoming wire -> variable resistor (sender)",
+       "sender -> outgoing wire"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.0,
+       1.0,
+       0.3733333333333333
+      ]
+     },
+     {
+      "element_type": "switch",
+      "id": "<UNKNOWN>",
+      "label": "PORT AFT GUEST GREY SUMP - pump switch",
+      "connections": [
+       "incoming wire -> switch contact",
+       "switch contact -> PUMP"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.0,
+       1.0,
+       0.3733333333333333
+      ]
+     },
+     {
+      "element_type": "fuse",
+      "id": "<UNKNOWN>",
+      "label": "1A",
+      "connections": [
+       "incoming wire -> fuse",
+       "fuse -> switch bypass junction -> PUMP"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.0,
+       1.0,
+       0.3733333333333333
+      ]
+     },
+     {
+      "element_type": "device",
+      "id": "<UNKNOWN>",
+      "label": "PORT AFT GUEST GREY SUMP PUMP",
+      "connections": [
+       "switch/fuse junction -> PUMP (+)",
+       "PUMP -> ground"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.0,
+       1.0,
+       0.3733333333333333
+      ]
+     },
+     {
+      "element_type": "switch",
+      "id": "<UNKNOWN>",
+      "label": "STBD AFT GUEST GREY SUMP - pump switch",
+      "connections": [
+       "incoming wire -> switch contact",
+       "switch contact -> PUMP"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.0,
+       1.0,
+       0.3733333333333333
+      ]
+     },
+     {
+      "element_type": "device",
+      "id": "<UNKNOWN>",
+      "label": "STBD AFT GUEST GREY SUMP PUMP",
+      "connections": [
+       "switch/fuse junction -> PUMP (+)",
+       "PUMP -> ground"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.0,
+       1.0,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "84/85",
+      "element_type": "terminal",
+      "label": "terminal block RUN",
+      "connections": [
+       "Q3 -> 84",
+       "85 -> RU(N) status line"
+      ],
+      "has_builtin_fuse": true,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "Q4",
+      "element_type": "breaker",
+      "label": "FWD CREW HEAD SUMP PUMP - Q4 10A",
+      "connections": [
+       "main bus -> switch -> Re13 coil"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "Re13",
+      "element_type": "relay",
+      "label": "Re13",
+      "connections": [
+       "switch contact -> coil",
+       "coil -> terminal 87"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "86/87/88",
+      "element_type": "terminal",
+      "label": "terminal block for Re13 output",
+      "connections": [
+       "Re13 -> 87",
+       "86 -> feed",
+       "88 -> RUN status line"
+      ],
+      "has_builtin_fuse": true,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "Q5",
+      "element_type": "breaker",
+      "label": "AFT CREW HEAD SUMP PUMP - Q5 10A",
+      "connections": [
+       "main bus -> switch -> Re14 coil"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "Re14",
+      "element_type": "relay",
+      "label": "Re14",
+      "connections": [
+       "switch contact -> coil",
+       "coil -> terminal 90"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "89/90/91",
+      "element_type": "terminal",
+      "label": "terminal block for Re14 output",
+      "connections": [
+       "Re14 -> 90",
+       "89 -> feed",
+       "91 -> RUN status line"
+      ],
+      "has_builtin_fuse": true,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "T/S B-19",
+      "element_type": "terminal",
+      "label": "T/S B terminal 19 - not used",
+      "connections": [],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "T/S B-20",
+      "element_type": "terminal",
+      "label": "T/S B terminal 20 - not used",
+      "connections": [],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "92",
+      "element_type": "status_signal",
+      "label": "junction 5 -> terminal 92",
+      "connections": [
+       "pin 5 -> 92",
+       "92 -> monitoring loom"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "93",
+      "element_type": "status_signal",
+      "label": "junction 6 -> terminal 93",
+      "connections": [
+       "pin 6 -> 93",
+       "93 -> monitoring loom"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "94",
+      "element_type": "status_signal",
+      "label": "junction 8 -> terminal 94",
+      "connections": [
+       "pin 8 -> 94",
+       "94 -> monitoring loom"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "95",
+      "element_type": "status_signal",
+      "label": "junction 9 -> terminal 95",
+      "connections": [
+       "pin 9 -> 95",
+       "95 -> monitoring loom"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "96",
+      "element_type": "status_signal",
+      "label": "terminal 96 tied to T/S E outputs",
+      "connections": [
+       "T/S E 19/20 -> 96",
+       "96 -> monitoring loom"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "T/S E-19",
+      "element_type": "terminal",
+      "label": "T/S E terminal 19",
+      "connections": [
+       "T/S E 19 -> 96 loop"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "T/S E-20",
+      "element_type": "terminal",
+      "label": "T/S E terminal 20",
+      "connections": [
+       "T/S E 20 -> 96 loop"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "Q6",
+      "element_type": "breaker",
+      "label": "AFT A/C SUMP PUMP - Q6 20A",
+      "connections": [
+       "main bus -> terminal 97"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "97",
+      "element_type": "terminal",
+      "label": "terminal block pin1 -> 97",
+      "connections": [
+       "pin 1 -> 97",
+       "97 -> RUN status line"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "98",
+      "element_type": "terminal",
+      "label": "terminal block pin2 -> 98",
+      "connections": [
+       "pin 2 -> 98",
+       "XA61 04 -> 98"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "99",
+      "element_type": "terminal",
+      "label": "terminal block pin3 -> 99",
+      "connections": [
+       "pin 3 -> 99",
+       "XA61 06 -> 99"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "100",
+      "element_type": "terminal",
+      "label": "terminal block -> 100",
+      "connections": [
+       "100 -> AL status line",
+       "XA61 02 -> 100"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "101",
+      "element_type": "terminal",
+      "label": "terminal block pin4 -> 101",
+      "connections": [
+       "pin 4 -> 101",
+       "101 loop back to 100 area"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "XA61-04",
+      "element_type": "plug_pin",
+      "label": "XA61 pin 04",
+      "connections": [
+       "XA61 04 -> terminal 98"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "XA61-06",
+      "element_type": "plug_pin",
+      "label": "XA61 pin 06",
+      "connections": [
+       "XA61 06 -> terminal 99"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "XA61-02",
+      "element_type": "plug_pin",
+      "label": "XA61 pin 02",
+      "connections": [
+       "XA61 02 -> terminal 100"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "XA61-18",
+      "element_type": "plug_pin",
+      "label": "XA61 pin 18",
+      "connections": [
+       "XA61 18 -> terminal 7/102"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "XA30-01",
+      "element_type": "plug_pin",
+      "label": "SWB01/FWD -XA30 pin 01 (+)",
+      "connections": [
+       "+ supply line"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "XA30-02",
+      "element_type": "plug_pin",
+      "label": "SWB01/FWD -XA30 pin 02 (-)",
+      "connections": [
+       "- return line"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "SWB01/FWD",
+      "element_type": "annotation",
+      "label": "SWB01/FWD caption over XA30 pins",
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "F-1A-1",
+      "element_type": "fuse",
+      "label": "1A",
+      "connections": [
+       "top bus",
+       "downstream circuit"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "88",
+      "element_type": "terminal",
+      "label": "BY-PASS / REED SUMP SW.",
+      "connections": [
+       "bus",
+       "BY-PASS switch",
+       "REED SUMP SW."
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "BY-PASS-SW1",
+      "element_type": "switch",
+      "label": "BY-PASS",
+      "connections": [
+       "terminal 88 bus",
+       "REED SUMP SW."
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "REED-SUMP-SW1",
+      "element_type": "switch",
+      "label": "REED SUMP SW.",
+      "connections": [
+       "BY-PASS switch contacts"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "91",
+      "element_type": "terminal",
+      "label": "BY-PASS / REED SUMP SW.",
+      "connections": [
+       "bus",
+       "BY-PASS switch",
+       "REED SUMP SW."
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "BY-PASS-SW2",
+      "element_type": "switch",
+      "label": "BY-PASS",
+      "connections": [
+       "terminal 91 bus",
+       "REED SUMP SW."
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "REED-SUMP-SW2",
+      "element_type": "switch",
+      "label": "REED SUMP SW.",
+      "connections": [
+       "BY-PASS switch contacts"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "92",
+      "element_type": "status_signal",
+      "label": "MAST BILGE",
+      "has_builtin_fuse": true,
+      "connections": [
+       "RUN IND. lamp",
+       "MAST BILGE tap"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "93",
+      "element_type": "status_signal",
+      "label": "ENGINE ROOM BILGE",
+      "has_builtin_fuse": true,
+      "connections": [
+       "RUN IND. lamp",
+       "ENGINE ROOM BILGE tap"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "94",
+      "element_type": "status_signal",
+      "label": "OWNERS GREY SUMP",
+      "has_builtin_fuse": true,
+      "connections": [
+       "RUN IND. lamp",
+       "OWNERS GREY SUMP tap"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "95",
+      "element_type": "status_signal",
+      "label": "FWD GUEST GREY SUMP",
+      "has_builtin_fuse": true,
+      "connections": [
+       "RUN IND. lamp",
+       "FWD GUEST GREY SUMP tap"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "96",
+      "element_type": "status_signal",
+      "label": "AFT A/C SUMP",
+      "connections": [
+       "RUN IND. lamp",
+       "AFT A/C SUMP tap"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "BACKUP-EM-POWER",
+      "element_type": "status_signal",
+      "label": "BACKUP EM POWER",
+      "connections": [
+       "RUN IND. lamp",
+       "backup power tap"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "GMDSS-BACKUP",
+      "element_type": "status_signal",
+      "label": "( GMDSS BACKUP )",
+      "connections": [
+       "RUN IND. lamp",
+       "GMDSS backup tap"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "F-1A-2",
+      "element_type": "fuse",
+      "label": "1A",
+      "connections": [
+       "bus",
+       "downstream circuit"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "97",
+      "element_type": "terminal",
+      "label": "RUN IND.",
+      "connections": [
+       "relay coil top",
+       "S18 ON contact"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "98",
+      "element_type": "terminal",
+      "label": "FWD GREY WATER control",
+      "connections": [
+       "S18 OFF/common"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "99",
+      "element_type": "terminal",
+      "label": "FWD GREY WATER control",
+      "connections": [
+       "S18 AUTO contact"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "101",
+      "element_type": "terminal",
+      "label": "<UNKNOWN>",
+      "connections": [
+       "bracket to enclosure"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "S18",
+      "element_type": "switch",
+      "label": "S18 ON/OFF/AUTO",
+      "connections": [
+       "terminal 97 (ON)",
+       "terminal 98 (OFF/common)",
+       "terminal 99 (AUTO)",
+       "ground symbol"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "FWD-GREY-WATER-SENDER",
+      "element_type": "device",
+      "label": "FWD GREY WATER SENDER",
+      "connections": [
+       "bus feed",
+       "sender variable resistor"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "102",
+      "element_type": "status_signal",
+      "label": "FWD BLACK WATER TANK FULL SIGNAL",
+      "connections": [
+       "see DWG115a"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "DWG115a-ref",
+      "element_type": "annotation",
+      "label": "( see DWG115a )",
+      "connections": [],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "TS-E",
+      "element_type": "terminal_strip",
+      "label": "T/S E",
+      "connections": [
+       "all terminals 84-102 region"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "RUN-IND-lamp-1",
+      "element_type": "device",
+      "label": "RUN IND. (indicator lamp)",
+      "connections": [
+       "terminal 84/85"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "RUN-IND-lamp-2",
+      "element_type": "device",
+      "label": "RUN IND. (indicator lamp)",
+      "connections": [
+       "terminal 86/87"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "RUN-IND-lamp-3",
+      "element_type": "device",
+      "label": "RUN IND. (indicator lamp)",
+      "connections": [
+       "terminal 89/90"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "RUN-IND-lamp-4",
+      "element_type": "device",
+      "label": "RUN IND. (indicator lamp)",
+      "connections": [
+       "terminal 97"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "ALARM-lamp",
+      "element_type": "device",
+      "label": "ALARM (indicator lamp)",
+      "connections": [
+       "terminal 100"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "STBD AFT GUEST GREY SUMP PUMP",
+      "element_type": "device",
+      "label": "PUMP - STBD AFT GUEST GREY SUMP",
+      "connections": [
+       "switch contact -> PUMP",
+       "fused line (1A) -> PUMP",
+       "PUMP -> earth/ground"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.29333333333333333,
+       1.0,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "SW-1",
+      "element_type": "switch",
+      "label": "unlabeled toggle switch feeding STBD AFT GUEST GREY SUMP pump",
+      "connections": [
+       "incoming line -> switch",
+       "switch -> PUMP"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.29333333333333333,
+       1.0,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "FWD CREW HEAD GREY SUMP PUMP",
+      "element_type": "device",
+      "label": "PUMP - FWD CREW HEAD GREY SUMP",
+      "connections": [
+       "incoming line -> PUMP",
+       "PUMP -> earth/ground"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.29333333333333333,
+       1.0,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "BY-PASS-1",
+      "element_type": "switch",
+      "label": "BY-PASS (push button, normally closed) - FWD CREW HEAD GREY SUMP circuit",
+      "connections": [
+       "incoming line -> BY-PASS junction",
+       "BY-PASS junction -> terminal stub"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.29333333333333333,
+       1.0,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "REED SUMP SW.-1",
+      "element_type": "switch",
+      "label": "REED SUMP SW. (float/reed switch, parallel with BY-PASS) - FWD CREW HEAD GREY SUMP",
+      "connections": [
+       "BY-PASS junction -> REED SUMP SW.",
+       "REED SUMP SW. -> BY-PASS junction (return)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.29333333333333333,
+       1.0,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "AFT CREW HEAD GREY SUMP PUMP",
+      "element_type": "device",
+      "label": "PUMP - AFT CREW HEAD GREY SUMP",
+      "connections": [
+       "incoming line -> PUMP",
+       "PUMP -> earth/ground"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.29333333333333333,
+       1.0,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "BY-PASS-2",
+      "element_type": "switch",
+      "label": "BY-PASS (push button, normally closed) - AFT CREW HEAD GREY SUMP circuit",
+      "connections": [
+       "incoming line -> BY-PASS junction",
+       "BY-PASS junction -> terminal stub"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.29333333333333333,
+       1.0,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "REED SUMP SW.-2",
+      "element_type": "switch",
+      "label": "REED SUMP SW. (float/reed switch, parallel with BY-PASS) - AFT CREW HEAD GREY SUMP",
+      "connections": [
+       "BY-PASS junction -> REED SUMP SW.",
+       "REED SUMP SW. -> BY-PASS junction (return)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.29333333333333333,
+       1.0,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "AFT A/C SUMP PUMP",
+      "element_type": "device",
+      "label": "AFT A/C SUMP PUMP",
+      "connections": [
+       "switch contact -> PUMP (+)",
+       "fused line (1A) -> PUMP",
+       "PUMP -> earth/ground"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.29333333333333333,
+       1.0,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "SW-2",
+      "element_type": "switch",
+      "label": "unlabeled toggle switch feeding AFT A/C SUMP PUMP",
+      "connections": [
+       "incoming line -> switch",
+       "switch -> PUMP"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.29333333333333333,
+       1.0,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "GREY WATER SENDER",
+      "element_type": "device",
+      "label": "GREY WATER SENDER (variable resistor / level sender)",
+      "connections": [
+       "incoming line -> sender element",
+       "sender -> incoming line return"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.29333333333333333,
+       1.0,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "XA61/04",
+      "element_type": "plug_pin",
+      "label": "XA61 04",
+      "connections": [
+       "XA61 04 -> pin 2/99 area"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.6266666666666666,
+       0.3733333333333333,
+       1.0
+      ]
+     },
+     {
+      "id": "XA61/06",
+      "element_type": "plug_pin",
+      "label": "XA61 06",
+      "connections": [
+       "XA61 06 -> pin 3/99"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.6266666666666666,
+       0.3733333333333333,
+       1.0
+      ]
+     },
+     {
+      "id": "XA61/02",
+      "element_type": "plug_pin",
+      "label": "XA61 02",
+      "connections": [
+       "XA61 02 -> pin 4/101"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.6266666666666666,
+       0.3733333333333333,
+       1.0
+      ]
+     },
+     {
+      "id": "SWB01/FWD-XA30-01",
+      "element_type": "plug_pin",
+      "label": "SWB01/FWD -XA30 01 (+)",
+      "connections": [
+       "-XA30 01 -> + line"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.6266666666666666,
+       0.3733333333333333,
+       1.0
+      ]
+     },
+     {
+      "id": "SWB01/FWD-XA30-02",
+      "element_type": "plug_pin",
+      "label": "SWB01/FWD -XA30 02 (-)",
+      "connections": [
+       "-XA30 02 -> - line"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.6266666666666666,
+       0.3733333333333333,
+       1.0
+      ]
+     },
+     {
+      "id": "XA61/18",
+      "element_type": "plug_pin",
+      "label": "XA61 18",
+      "connections": [
+       "XA61 18 -> 7 -> 102"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.6266666666666666,
+       0.3733333333333333,
+       1.0
+      ]
+     },
+     {
+      "id": "102",
+      "element_type": "status_signal",
+      "label": "FWD BLACK WATER TANK (see DWG115...)",
+      "connections": [
+       "7 -> 102 -> FWD BLACK WATER TANK monitoring loom"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.6266666666666666,
+       0.3733333333333333,
+       1.0
+      ]
+     },
+     {
+      "id": "103",
+      "element_type": "status_signal",
+      "label": "EMERGENCY (partial text)",
+      "connections": [
+       "10 -> 103 -> EMERGEN..."
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.6266666666666666,
+       0.3733333333333333,
+       1.0
+      ]
+     },
+     {
+      "id": "104",
+      "element_type": "status_signal",
+      "label": "104",
+      "connections": [
+       "11 -> 104"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.6266666666666666,
+       0.3733333333333333,
+       1.0
+      ]
+     },
+     {
+      "id": "105",
+      "element_type": "status_signal",
+      "label": "105",
+      "connections": [
+       "12 -> 105"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.6266666666666666,
+       0.3733333333333333,
+       1.0
+      ]
+     },
+     {
+      "id": "+24V_SERVICE_BAT",
+      "element_type": "terminal",
+      "label": "+24V SERVICE BAT.",
+      "connections": [
+       "+24V SERVICE BAT. -> vertical bus line"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.6266666666666666,
+       0.3733333333333333,
+       1.0
+      ]
+     },
+     {
+      "id": "cross_ref_DWG115",
+      "element_type": "annotation",
+      "label": "( see DWG115 ... FWD BLACK WATER TANK ...)",
+      "connections": [],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.6266666666666666,
+       0.3733333333333333,
+       1.0
+      ]
+     },
+     {
+      "element_type": "device",
+      "id": "ALARM",
+      "label": "ALARM",
+      "connections": [
+       "terminal 100/101 circuit via dotted enclosure"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "element_type": "annotation",
+      "id": "enclosure-alarm",
+      "label": "dotted rectangle enclosure boundary around ALARM device",
+      "connections": [],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "element_type": "switch",
+      "id": "OFF/AUTO",
+      "label": "OFF/AUTO selector switch",
+      "connections": [
+       "to ground/earth symbol"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "element_type": "terminal",
+      "id": "103",
+      "label": "EMERGENCY LTS SW Link -> T/S E terminal 57",
+      "connections": [
+       "EMERGENCY LTS SW Link",
+       "T/S E - 57"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "element_type": "terminal",
+      "id": "104",
+      "label": "terminal 104",
+      "connections": [],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "element_type": "terminal",
+      "id": "105",
+      "label": "terminal 105",
+      "connections": [],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "element_type": "terminal_strip",
+      "id": "T/S_E",
+      "label": "T/S E terminal 57",
+      "connections": [
+       "EMERGENCY LTS SW Link"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "element_type": "annotation",
+      "id": "MU4-12-label",
+      "label": "MU4-12 multi-core cable id label",
+      "connections": [],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "GREY WATER SENDER",
+      "element_type": "device",
+      "label": "GREY WATER SENDER",
+      "connections": [],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.6266666666666666,
+       1.0,
+       1.0
+      ]
+     },
+     {
+      "id": "T/S 7-12 / F19-24",
+      "element_type": "terminal_strip",
+      "label": "T/S F (see DWG-120)",
+      "connections": [
+       "7->19",
+       "8->20",
+       "9->21",
+       "10->22",
+       "11->23",
+       "12->24"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.6266666666666666,
+       1.0,
+       1.0
+      ]
+     },
+     {
+      "id": "T/S-7",
+      "element_type": "terminal",
+      "label": "7",
+      "connections": [
+       "GREY WATER SENDER"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.6266666666666666,
+       1.0,
+       1.0
+      ]
+     },
+     {
+      "id": "T/S-8",
+      "element_type": "terminal",
+      "label": "8",
+      "connections": [],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.6266666666666666,
+       1.0,
+       1.0
+      ]
+     },
+     {
+      "id": "T/S-9",
+      "element_type": "terminal",
+      "label": "9",
+      "connections": [],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.6266666666666666,
+       1.0,
+       1.0
+      ]
+     },
+     {
+      "id": "T/S-10",
+      "element_type": "terminal",
+      "label": "10",
+      "connections": [
+       "F22"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.6266666666666666,
+       1.0,
+       1.0
+      ]
+     },
+     {
+      "id": "T/S-11",
+      "element_type": "terminal",
+      "label": "11",
+      "connections": [
+       "F23 - not used"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.6266666666666666,
+       1.0,
+       1.0
+      ]
+     },
+     {
+      "id": "T/S-12",
+      "element_type": "terminal",
+      "label": "12",
+      "connections": [
+       "F24 - not used"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.6266666666666666,
+       1.0,
+       1.0
+      ]
+     },
+     {
+      "id": "F-19",
+      "element_type": "terminal",
+      "label": "19",
+      "connections": [],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.6266666666666666,
+       1.0,
+       1.0
+      ]
+     },
+     {
+      "id": "F-20",
+      "element_type": "terminal",
+      "label": "20",
+      "connections": [],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.6266666666666666,
+       1.0,
+       1.0
+      ]
+     },
+     {
+      "id": "F-21",
+      "element_type": "terminal",
+      "label": "21",
+      "connections": [],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.6266666666666666,
+       1.0,
+       1.0
+      ]
+     },
+     {
+      "id": "F-22",
+      "element_type": "terminal",
+      "label": "22 - EMERGENCY LTS SW",
+      "connections": [
+       "T/S-10"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.6266666666666666,
+       1.0,
+       1.0
+      ]
+     },
+     {
+      "id": "F-23",
+      "element_type": "terminal",
+      "label": "23 - not used",
+      "connections": [],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.6266666666666666,
+       1.0,
+       1.0
+      ]
+     },
+     {
+      "id": "F-24",
+      "element_type": "terminal",
+      "label": "24 - not used",
+      "connections": [],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.6266666666666666,
+       1.0,
+       1.0
+      ]
+     },
+     {
+      "id": "DWG-120-ref",
+      "element_type": "annotation",
+      "label": "see DWG-120",
+      "connections": [],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.6266666666666666,
+       1.0,
+       1.0
+      ]
+     }
+    ]
+   }
+  ],
+  "scoped_next": []
+ },
+ "composition": {
+  "serve_who": "This sheet (GMMS 108'-115 \"AFT SERVICE PUMPS\") serves two distinct commodity systems both fed from the DC MAIN PANEL / MAIN PANEL: the AFT GREY WATER PUMP (Q1, S17 AUTO/ON/OFF, level sender) which maps to node 530-grey-water-pumps; and a group of dedicated sump pumps (PORT/STBD AFT GUEST GREY SUMP Q2/Q3, FWD/AFT CREW HEAD SUMP Q4/Q5, AFT A/C SUMP Q6) which all map to node 530-sump-pumps per the engineer-confirmed mapping table. A partial FWD GREY WATER PUMP control block (S18 selector + FWD sender) also appears at the bottom of the sheet and belongs to 530-grey-water-pumps (its physical pump is drawn/detailed elsewhere \u2014 likely a FWD service pumps sheet). Status taps for MAST BILGE, ENGINE ROOM BILGE, OWNERS GREY SUMP, FWD GUEST GREY SUMP feed into the alarm/monitoring collection here but those pumps' control loops live on other sheets; they are cross-references only. The numbered terminal group (76-105), PC CARD dotted enclosure, T/S B/C/E strips, and XA61/XA70/XA30 plug interfaces are shared infrastructure belonging to the panel/monitoring backbone (641-vessel-control-panel / 652-onyx-monitoring), not to individual pump nodes.",
+  "equipment_groups": [
+   {
+    "equipment_name": "AFT Grey Water Pump",
+    "target_node_id": "530-grey-water-pumps",
+    "placement_reasoning": "Load name 'AFT GREY WATER P.' on breaker Q1, with dedicated S17 ON/OFF/AUTO selector, RUN IND./ALARM outputs, level sender, and pump symbol labelled 'AFT GREY WATER PUMP' \u2014 matches engineer mapping AFT GREY WATER PUMP -> 530-grey-water-pumps.",
+    "functions": [
+     {
+      "label": "Aft grey water tank pump-out",
+      "function_id": "aft-gw-pump",
+      "what_it_does": "Pumps grey water from the aft grey water tank overboard; can be run automatically on level, forced ON, or locked OFF from the main panel.",
+      "flow_scenarios": [
+       {
+        "state": "AUTO",
+        "path": "S17 selector set to AUTO -> level-sensing logic on PC CARD (via T/S C terminals 76-79) -> Re12 relay coil energised -> pump runs when tank level calls for it -> discharge to AFT GREY WATER outlet"
+       },
+       {
+        "state": "ON (manual)",
+        "path": "S17 selector forced ON -> pump runs continuously bypassing level control -> discharge to AFT GREY WATER outlet"
+       },
+       {
+        "state": "OFF",
+        "path": "S17 selector OFF -> pump de-energised, no discharge"
+       },
+       {
+        "state": "status/alarm",
+        "path": "RUN status and ALARM condition of this loop are tapped out via T/S C terminals 77 (RUN, fused) / 80-81 (ALARM) to XA61 pins 08/10/12 for onward monitoring (cross-reference, resolved on monitoring sheet)"
+       }
+      ],
+      "key_components": [
+       "S17 ON/OFF/AUTO selector switch",
+       "Re12 control relay",
+       "Q1 10A breaker (feed)",
+       "AFT GREY WATER SENDER (variable resistor level sender)"
+      ],
+      "dry_data": "Fed from DC MAIN PANEL via Q1 10A breaker; relay Re12 coil control; RUN IND./ALARM taps via T/S C terminals 76-81 (fused terminals 77/80 noted for troubleshooting).",
+      "sheet_region": "left column, DC MAIN PANEL / PC CARD area (top)"
+     },
+     {
+      "label": "Aft grey water tank level sending",
+      "function_id": "aft-gw-sender",
+      "what_it_does": "Provides tank level signal for the aft grey water tank to the main panel gauge/monitoring, feeding the pump's AUTO logic and a remote indicator.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "AFT GREY WATER SENDER (variable resistor) -> SWB02/AFT plug -XA70 pins 07(+)/08(-) -> onward to gauge/indicator (positive feed side not traced on this sheet)"
+       }
+      ],
+      "key_components": [
+       "AFT GREY WATER SENDER (variable resistor)",
+       "SWB02/AFT plug XA70 07/08"
+      ],
+      "dry_data": "Resistive level sender; two-wire loop via plug XA70 pins 07/08.",
+      "sheet_region": "right-center, near AFT GREY WATER pump symbol"
+     }
+    ]
+   },
+   {
+    "equipment_name": "FWD Grey Water Pump (control block only, partial)",
+    "target_node_id": "530-grey-water-pumps",
+    "placement_reasoning": "S18 ON/OFF/AUTO selector explicitly labelled 'FWD GREY WATER' with its own RUN IND./ALARM and FWD GREY WATER SENDER \u2014 same node as AFT grey water pump per engineer mapping, but the pump body itself is drawn on another (FWD) sheet.",
+    "functions": [
+     {
+      "label": "Fwd grey water control/status block",
+      "function_id": "fwd-gw-control",
+      "what_it_does": "Provides FWD grey water pump mode selection (AUTO/ON/OFF) and status/alarm collection point; the FWD pump body and its physical breaker are not drawn on this sheet.",
+      "flow_scenarios": [
+       {
+        "state": "AUTO/ON/OFF",
+        "path": "S18 selector (ON/OFF/AUTO) wired to terminals 97-101 in the numbered terminal group, RUN via terminal 97, ALARM via terminal 100/101 collection; onward connections to the FWD pump itself are off-sheet"
+       },
+       {
+        "state": "remote taps",
+        "path": "XA61 pins 04/06/02/18 tie into terminals 98/99/100/102 as monitoring/command taps for FWD grey water and the FWD black water tank full signal (cross-reference to DWG115a)"
+       }
+      ],
+      "key_components": [
+       "S18 ON/OFF/AUTO selector switch",
+       "FWD GREY WATER SENDER"
+      ],
+      "dry_data": "Terminal group pins 97-101; sender loop via SWB01/FWD plug XA30 pins 01(+)/02(-).",
+      "sheet_region": "bottom-center, below numbered terminal block 92-105"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Port Aft Guest Grey Sump Pump",
+    "target_node_id": "530-sump-pumps",
+    "placement_reasoning": "Load name 'PORT AFT GREY GUEST SUMP' on Q2 20A breaker, feeding a dedicated pump symbol labelled 'PORT AFT GUEST GREY SUMP' with local toggle switch and 1A fuse \u2014 matches engineer mapping PORT AFT GREY GUEST SUMP -> 530-sump-pumps.",
+    "functions": [
+     {
+      "label": "Port aft guest grey sump pump-out",
+      "function_id": "port-aft-sump",
+      "what_it_does": "Empties the port aft guest cabin grey water sump to the discharge point.",
+      "flow_scenarios": [
+       {
+        "state": "running",
+        "path": "DC MAIN PANEL bus -> Q2 20A breaker -> terminal 82/83 -> local toggle switch -> fused terminal (1A) -> PORT AFT GUEST GREY SUMP pump -> discharge; RUN status tapped from terminal 83 (fused) back to PC CARD monitoring"
+       }
+      ],
+      "key_components": [
+       "Q2 20A breaker",
+       "local toggle switch",
+       "1A fuse",
+       "PORT AFT GUEST GREY SUMP pump"
+      ],
+      "dry_data": "Fed via Q2 20A breaker; RUN IND. via fused terminal 83.",
+      "sheet_region": "second row, left panel column / right pump area"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Stbd Aft Guest Grey Sump Pump",
+    "target_node_id": "530-sump-pumps",
+    "placement_reasoning": "Load name 'STBD AFT GREY GUEST SUMP' on Q3 20A breaker, feeding pump symbol labelled 'STBD AFT GUEST GREY SUMP' with local toggle switch and 1A fuse \u2014 matches engineer mapping.",
+    "functions": [
+     {
+      "label": "Stbd aft guest grey sump pump-out",
+      "function_id": "stbd-aft-sump",
+      "what_it_does": "Empties the starboard aft guest cabin grey water sump to the discharge point.",
+      "flow_scenarios": [
+       {
+        "state": "running",
+        "path": "DC MAIN PANEL bus -> Q3 20A breaker -> terminal 84/85 -> local toggle switch -> fused terminal (1A) -> STBD AFT GUEST GREY SUMP pump -> discharge; RUN status tapped from terminal 85 (fused) back to PC CARD monitoring"
+       }
+      ],
+      "key_components": [
+       "Q3 20A breaker",
+       "local toggle switch",
+       "1A fuse",
+       "STBD AFT GUEST GREY SUMP pump"
+      ],
+      "dry_data": "Fed via Q3 20A breaker; RUN IND. via fused terminal 85.",
+      "sheet_region": "third row, left panel column / right pump area"
+     }
+    ]
+   },
+   {
+    "equipment_name": "FWD Crew Head Sump Pump",
+    "target_node_id": "530-sump-pumps",
+    "placement_reasoning": "Load name 'FWD CREW HEAD SUMP PUMP' on Q4 10A breaker with dedicated relay Re13, BY-PASS manual switch and REED SUMP SW., feeding 'FWD CREW HEAD GREY SUMP' pump \u2014 matches engineer mapping FWD CREW SUMP PUMP -> 530-sump-pumps.",
+    "functions": [
+     {
+      "label": "Fwd crew head sump pump-out",
+      "function_id": "fwd-crew-sump",
+      "what_it_does": "Empties the forward crew head grey sump; can run automatically on reed sump level switch or be manually forced via BY-PASS.",
+      "flow_scenarios": [
+       {
+        "state": "auto (reed switch)",
+        "path": "DC MAIN PANEL bus -> Q4 10A breaker -> Re13 relay coil -> terminal 86/87/88 -> REED SUMP SW. closes on level -> FWD CREW HEAD GREY SUMP pump runs -> discharge"
+       },
+       {
+        "state": "manual bypass",
+        "path": "BY-PASS switch closed (alongside REED SUMP SW.) -> forces pump run regardless of reed switch state -> discharge"
+       }
+      ],
+      "key_components": [
+       "Q4 10A breaker",
+       "Re13 relay",
+       "BY-PASS manual switch",
+       "REED SUMP SW.",
+       "fused terminal 87"
+      ],
+      "dry_data": "Fed via Q4 10A breaker through relay Re13; RUN IND. via fused terminal 87.",
+      "sheet_region": "fourth row, left panel column / right pump area with BY-PASS/REED SUMP SW."
+     }
+    ]
+   },
+   {
+    "equipment_name": "AFT Crew Head Sump Pump",
+    "target_node_id": "530-sump-pumps",
+    "placement_reasoning": "Load name 'AFT CREW HEAD SUMP PUMP' on Q5 10A breaker with dedicated relay Re14, BY-PASS manual switch and REED SUMP SW., feeding 'AFT CREW HEAD GREY SUMP' pump \u2014 matches engineer mapping AFT CREW SUMP PUMP -> 530-sump-pumps.",
+    "functions": [
+     {
+      "label": "Aft crew head sump pump-out",
+      "function_id": "aft-crew-sump",
+      "what_it_does": "Empties the aft crew head grey sump; can run automatically on reed sump level switch or be manually forced via BY-PASS.",
+      "flow_scenarios": [
+       {
+        "state": "auto (reed switch)",
+        "path": "DC MAIN PANEL bus -> Q5 10A breaker -> Re14 relay coil -> terminal 89/90/91 -> REED SUMP SW. closes on level -> AFT CREW HEAD GREY SUMP pump runs -> discharge"
+       },
+       {
+        "state": "manual bypass",
+        "path": "BY-PASS switch closed (alongside REED SUMP SW.) -> forces pump run regardless of reed switch state -> discharge"
+       }
+      ],
+      "key_components": [
+       "Q5 10A breaker",
+       "Re14 relay",
+       "BY-PASS manual switch",
+       "REED SUMP SW.",
+       "fused terminal 90"
+      ],
+      "dry_data": "Fed via Q5 10A breaker through relay Re14; RUN IND. via fused terminal 90.",
+      "sheet_region": "fifth row, left panel column / right pump area with BY-PASS/REED SUMP SW."
+     }
+    ]
+   },
+   {
+    "equipment_name": "AFT A/C Sump Pump",
+    "target_node_id": "530-sump-pumps",
+    "placement_reasoning": "Load name 'AFT A/C SUMP PUMP' on Q6 20A breaker feeding pump symbol labelled 'AFT A/C SUMP PUMP' with local toggle switch and 1A fuse; S18 selector nearby is labelled FWD GREY WATER (separate function) so not conflated here \u2014 matches engineer mapping AFT AIRCON SUMP PUMP -> 530-sump-pumps.",
+    "functions": [
+     {
+      "label": "Aft aircon condensate sump pump-out",
+      "function_id": "aft-ac-sump",
+      "what_it_does": "Empties the aft air-conditioning condensate sump to the discharge point.",
+      "flow_scenarios": [
+       {
+        "state": "running",
+        "path": "DC MAIN PANEL bus -> Q6 20A breaker -> terminal 97 -> local toggle switch -> fused terminal (1A) -> AFT A/C SUMP PUMP -> discharge; RUN status tapped from terminal 97 area back to PC CARD/S18 status line"
+       }
+      ],
+      "key_components": [
+       "Q6 20A breaker",
+       "local toggle switch",
+       "1A fuse",
+       "AFT A/C SUMP PUMP"
+      ],
+      "dry_data": "Fed via Q6 20A breaker; RUN status via terminal 97.",
+      "sheet_region": "bottom row, left panel column / right pump area"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "DC Main Panel / PC CARD monitoring backbone",
+    "target_node_id": "641-vessel-control-panel",
+    "facts": [
+     "PC CARD dotted enclosure and terminal numbering 76-105 form the local controller/terminal interface for this sheet's loads, feeding RUN IND./ALARM lamps and onward XA61/XA70/XA30 plug taps.",
+     "T/S B (terminals 19/20 not used - spares), T/S C (76-81), T/S E (terminal 8 EMERGENCY BAT +24V; terminals 19/20 tied to terminal 96 loop) are terminal strips belonging to the panel infrastructure, not to individual pump nodes.",
+     "Status taps for MAST BILGE (pin5/term92), ENGINE ROOM BILGE (pin6/term93), OWNERS GREY SUMP (pin8/term94), FWD GUEST GREY SUMP (pin9/term95), AFT A/C SUP(PLY)/BACKUP EM POWER/GMDSS BACKUP (term96) are monitoring collection points for equipment detailed on OTHER sheets; only pass through this sheet's terminal group.",
+     "T/S F terminal block (right side) links via MU4-12 multi-core cable to another terminal strip referencing 'see DWG-120', feeding EMERGENCY LTS SW plus two spare (not used) ways."
+    ]
+   }
+  ],
+  "cross_references": [
+   {
+    "what": "MAST BILGE status tap (terminal 92, pin 5)",
+    "referenced_sheet_hint": "sheet showing mast bilge pump control (520-aux-bilge-pumps)"
+   },
+   {
+    "what": "ENGINE ROOM BILGE status tap (terminal 93, pin 6)",
+    "referenced_sheet_hint": "sheet showing engine room bilge pump control (520-aux-bilge-pumps)"
+   },
+   {
+    "what": "OWNERS GREY SUMP status tap (terminal 94, pin 8)",
+    "referenced_sheet_hint": "sheet showing owners grey sump pump control (530-sump-pumps, likely a FWD/OWNERS service pumps sheet)"
+   },
+   {
+    "what": "FWD GUEST GREY SUMP status tap (terminal 95, pin 9)",
+    "referenced_sheet_hint": "sheet showing FWD guest sump pump control (530-sump-pumps, FWD service pumps sheet)"
+   },
+   {
+    "what": "FWD BLACK WATER TANK FULL SIGNAL (terminal 102, pin 7, XA61 pin 18)",
+    "referenced_sheet_hint": "DWG115a"
+   },
+   {
+    "what": "EMERGENCY LTS SW Link (terminal 103, pin 10) and T/S F terminal block via MU4-12 cable",
+    "referenced_sheet_hint": "DWG-120"
+   },
+   {
+    "what": "XA61 multi-pin plug (pins 02,04,06,08,10,12,18) \u2014 command/status loom to monitoring/control system",
+    "referenced_sheet_hint": "GMMS 108'-08 or ONYX monitoring sheet"
+   },
+   {
+    "what": "XA70 plug pins 07/08 (SWB02/AFT) feeding AFT GREY WATER SENDER indicator",
+    "referenced_sheet_hint": "main panel gauge sheet (GMMS 113 or similar)"
+   },
+   {
+    "what": "XA30 plug pins 01/02 (SWB01/FWD) feeding FWD GREY WATER SENDER indicator",
+    "referenced_sheet_hint": "main panel gauge sheet (FWD side)"
+   },
+   {
+    "what": "FWD Grey Water Pump physical breaker/pump body (only control block S18 present here)",
+    "referenced_sheet_hint": "FWD service pumps sheet"
+   }
+  ],
+  "good_to_have": [
+   "1A inline fuses precede several sump pumps (Port/Stbd Aft Guest, AFT A/C) \u2014 exact fuse holder part number not needed to understand function.",
+   "Fused terminals 77, 80, 83, 85, 87, 90 and terminal group 92-95 are built-in replaceable fuses on the terminal strip \u2014 exact fuse rating readable at inspection.",
+   "Reed sump switch exact part/model not captured \u2014 function (level-triggered reed switch) is clear.",
+   "Wire gauge diamond callouts on several power lines noted in survey but not legible at this resolution."
+  ],
+  "uncertainties": [],
+  "discarded_as_clutter": [
+   "Title block repeated fields (DWG No./TITLE/DATE/DRAWN/PROJECT/CUSTOMER, copyright notice) \u2014 administrative metadata, not equipment data.",
+   "Duplicate terminal listing entries for 78/79/80/81/82-105 appearing twice in extraction (once via survey_region, once via grid_tile) \u2014 same physical terminals, consolidated into single loop walks above.",
+   "PC CARD / MAIN PANEL dashed/dotted enclosure boundary annotations \u2014 drafting convention markers, not connections.",
+   "'not used' spares at T/S B terminals 19/20 and T/S F terminals 23/24 \u2014 recorded as spares, not uncertainties."
+  ],
+  "_model": "claude-sonnet-5",
+  "_protocol_version": 4
+ },
+ "elapsed_s": 243.9
+}

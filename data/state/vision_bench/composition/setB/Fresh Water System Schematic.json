@@ -1,0 +1,4547 @@
+{
+ "sheet": "Fresh Water System Schematic",
+ "drawing_class": "pid",
+ "extraction": {
+  "survey": {
+   "drawing_no": "108-01-510-001",
+   "title": "FRESHWATER SYSTEM SCHEMATIC",
+   "revision": "B",
+   "regions": [
+    {
+     "kind": "diagram",
+     "label": "General Arrangement / Deck Plan (upper sheet, frame stations 0-11, letters A-M)",
+     "bbox": [
+      0.01,
+      0.01,
+      0.99,
+      0.36
+     ]
+    },
+    {
+     "kind": "table",
+     "label": "Piping Details Table (pipe code, SWS code, density/supplier, model, details, rating, material, description, weight)",
+     "bbox": [
+      0.845,
+      0.005,
+      0.999,
+      0.035
+     ]
+    },
+    {
+     "kind": "diagram",
+     "label": "Detail view - Shower rose supply pipe routing from mixer (scale 1:2)",
+     "bbox": [
+      0.435,
+      0.375,
+      0.555,
+      0.475
+     ]
+    },
+    {
+     "kind": "diagram",
+     "label": "Main Freshwater System Schematic (lower sheet, engine room, tanks, cabin fixtures)",
+     "bbox": [
+      0.01,
+      0.38,
+      0.87,
+      0.905
+     ]
+    },
+    {
+     "kind": "legend",
+     "label": "Symbol Legend (ball valve, gardena hose fitting, diaphragm accumulator, filter, level transducer/indicator, motor, solenoid, pressure indicator)",
+     "bbox": [
+      0.86,
+      0.375,
+      0.94,
+      0.44
+     ]
+    },
+    {
+     "kind": "legend",
+     "label": "Text Legend (unique number, BOW number, pipe code, flow direction, LT, LI, M, S, PI abbreviations)",
+     "bbox": [
+      0.86,
+      0.375,
+      0.94,
+      0.41
+     ]
+    },
+    {
+     "kind": "legend",
+     "label": "Pipe Legend (hot water, mixed H/C water, dedicated, sterilized drinking water, sea water, bunker line, boiler heater line color codes)",
+     "bbox": [
+      0.86,
+      0.44,
+      0.94,
+      0.51
+     ]
+    },
+    {
+     "kind": "table",
+     "label": "Bill of Materials (item no, qty, unit/class, name/supplier, drawing no, SWS code, description, weight)",
+     "bbox": [
+      0.86,
+      0.515,
+      0.999,
+      0.83
+     ]
+    },
+    {
+     "kind": "table",
+     "label": "Tank Connections legend/table (horizontal/vertical entry symbols)",
+     "bbox": [
+      0.29,
+      0.905,
+      0.41,
+      0.955
+     ]
+    },
+    {
+     "kind": "table",
+     "label": "Pump Data table (pump type, details, flow rate, power)",
+     "bbox": [
+      0.44,
+      0.905,
+      0.63,
+      0.955
+     ]
+    },
+    {
+     "kind": "notes",
+     "label": "Drawing-Specific Notes",
+     "bbox": [
+      0.66,
+      0.905,
+      0.79,
+      0.93
+     ]
+    },
+    {
+     "kind": "notes",
+     "label": "Standard Notes (do not scale, dimensions, break sharp edges, etc.)",
+     "bbox": [
+      0.85,
+      0.905,
+      0.98,
+      0.94
+     ]
+    },
+    {
+     "kind": "title_block",
+     "label": "Title block with company (Southern Wind), drawing title, drawing no 108-01-510-001, scale NTS, revision B, approved/reviewed signatures",
+     "bbox": [
+      0.79,
+      0.94,
+      0.999,
+      0.999
+     ]
+    },
+    {
+     "kind": "other",
+     "label": "Document Revision / Status of Sheets table",
+     "bbox": [
+      0.63,
+      0.94,
+      0.79,
+      0.965
+     ]
+    }
+   ],
+   "_model": "claude-sonnet-5"
+  },
+  "tables": [],
+  "topology": {
+   "components": [
+    {
+     "component_type": "pump",
+     "item_tag": "<UNKNOWN>",
+     "label": "DIESEL FIRE PUMP (FOR PRIMING LINE)",
+     "bbox": [
+      295,
+      90,
+      340,
+      110
+     ]
+    },
+    {
+     "component_type": "tank",
+     "item_tag": "<UNKNOWN>",
+     "label": "WASHER & DRYER",
+     "bbox": [
+      578,
+      63,
+      620,
+      110
+     ]
+    },
+    {
+     "component_type": "tank",
+     "item_tag": "<UNKNOWN>",
+     "label": "MULTI-TYPE WATER DISPENSER",
+     "bbox": [
+      660,
+      60,
+      700,
+      105
+     ]
+    },
+    {
+     "component_type": "connection_point",
+     "item_tag": "<UNKNOWN>",
+     "label": "CABIN DISTRIBUTION POINT (SEE SCHEMATIC FOR MORE DETAILS)",
+     "bbox": [
+      610,
+      15,
+      670,
+      40
+     ]
+    },
+    {
+     "component_type": "connection_point",
+     "item_tag": "<UNKNOWN>",
+     "label": "DISHWASHER",
+     "bbox": [
+      765,
+      75,
+      800,
+      100
+     ]
+    },
+    {
+     "component_type": "connection_point",
+     "item_tag": "<UNKNOWN>",
+     "label": "DECK SHOWER CONNECTION",
+     "bbox": [
+      1100,
+      58,
+      1145,
+      80
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "<UNKNOWN>",
+     "label": "MAIN BILGE PUMP / MAIN FIRE PUMP",
+     "bbox": [
+      1810,
+      140,
+      1860,
+      160
+     ]
+    },
+    {
+     "component_type": "pipe_connection",
+     "item_tag": "<UNKNOWN>",
+     "label": "SALTWATER LINE (FOR PRIMING LINE)",
+     "bbox": [
+      2210,
+      110,
+      2260,
+      130
+     ]
+    },
+    {
+     "component_type": "pipe_connection",
+     "item_tag": "<UNKNOWN>",
+     "label": "HOT, COLD LINES RUNNING TO ANCHOR IN SHEER",
+     "bbox": [
+      2260,
+      180,
+      2320,
+      205
+     ]
+    },
+    {
+     "component_type": "mixer_valve",
+     "item_tag": "<UNKNOWN>",
+     "label": "ANCHOR BAY H/C MIXER CONNECTION",
+     "bbox": [
+      2330,
+      208,
+      2385,
+      240
+     ]
+    },
+    {
+     "component_type": "connection_point",
+     "item_tag": "<UNKNOWN>",
+     "label": "ANCHOR BAY CHAINWASH CONNECTION",
+     "bbox": [
+      2400,
+      205,
+      2460,
+      240
+     ]
+    },
+    {
+     "component_type": "heat_exchanger",
+     "item_tag": "<UNKNOWN>",
+     "label": "BOL BOILER",
+     "bbox": [
+      1795,
+      295,
+      1860,
+      330
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "<UNKNOWN>",
+     "label": "MAIN WATERMAKER 230V AC",
+     "bbox": [
+      1225,
+      405,
+      1275,
+      425
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "<UNKNOWN>",
+     "label": "BACKUP WATERMAKER 24V DC",
+     "bbox": [
+      1265,
+      495,
+      1315,
+      520
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "<UNKNOWN>",
+     "label": "WATER PUMP UNIT",
+     "bbox": [
+      1235,
+      500,
+      1280,
+      525
+     ]
+    },
+    {
+     "component_type": "tank",
+     "item_tag": "<UNKNOWN>",
+     "label": "PORT WATER TANK (1500 L)",
+     "bbox": [
+      1600,
+      260,
+      1690,
+      320
+     ]
+    },
+    {
+     "component_type": "tank",
+     "item_tag": "<UNKNOWN>",
+     "label": "STBD WATER TANK (1500 L)",
+     "bbox": [
+      1500,
+      450,
+      1590,
+      500
+     ]
+    },
+    {
+     "component_type": "generator",
+     "item_tag": "<UNKNOWN>",
+     "label": "PORT GENERATOR",
+     "bbox": [
+      1280,
+      260,
+      1370,
+      330
+     ]
+    },
+    {
+     "component_type": "generator",
+     "item_tag": "<UNKNOWN>",
+     "label": "STBD GENERATOR",
+     "bbox": [
+      1290,
+      415,
+      1380,
+      470
+     ]
+    },
+    {
+     "component_type": "shower_head",
+     "item_tag": "WX",
+     "label": "SHOWER ROSE SUPPLY PIPE ROUTING (SEE DETAIL VIEW)",
+     "bbox": [
+      1105,
+      315,
+      1160,
+      335
+     ]
+    },
+    {
+     "component_type": "shower",
+     "item_tag": "WX",
+     "label": "TRANSOM SHOWER",
+     "bbox": [
+      55,
+      440,
+      100,
+      465
+     ]
+    },
+    {
+     "component_type": "basin",
+     "item_tag": "WX",
+     "label": "PORT AFT GUEST HEAD",
+     "bbox": [
+      1105,
+      150,
+      1195,
+      200
+     ]
+    },
+    {
+     "component_type": "basin",
+     "item_tag": "WX",
+     "label": "STBD AFT GUEST HEAD",
+     "bbox": [
+      1105,
+      540,
+      1195,
+      600
+     ]
+    },
+    {
+     "component_type": "basin",
+     "item_tag": "WX",
+     "label": "FWD GUEST HEAD",
+     "bbox": [
+      1730,
+      220,
+      1810,
+      270
+     ]
+    },
+    {
+     "component_type": "basin",
+     "item_tag": "WX",
+     "label": "OWNERS HEAD",
+     "bbox": [
+      2160,
+      340,
+      2230,
+      400
+     ]
+    },
+    {
+     "component_type": "basin",
+     "item_tag": "WX",
+     "label": "AFT CREW HEAD",
+     "bbox": [
+      610,
+      470,
+      650,
+      520
+     ]
+    },
+    {
+     "component_type": "basin",
+     "item_tag": "WX",
+     "label": "FWD CREW HEAD",
+     "bbox": [
+      730,
+      430,
+      780,
+      480
+     ]
+    },
+    {
+     "component_type": "basin",
+     "item_tag": "WX",
+     "label": "AFT CREW SHOWER",
+     "bbox": [
+      665,
+      485,
+      720,
+      540
+     ]
+    },
+    {
+     "component_type": "basin",
+     "item_tag": "WX",
+     "label": "WORKING GALLEY",
+     "bbox": [
+      760,
+      190,
+      820,
+      240
+     ]
+    },
+    {
+     "component_type": "basin",
+     "item_tag": "WX",
+     "label": "CREW MESS",
+     "bbox": [
+      700,
+      330,
+      750,
+      360
+     ]
+    },
+    {
+     "component_type": "basin",
+     "item_tag": "WX",
+     "label": "CREW CABIN FWD",
+     "bbox": [
+      790,
+      470,
+      850,
+      520
+     ]
+    },
+    {
+     "component_type": "sail_locker",
+     "item_tag": "<UNKNOWN>",
+     "label": "SAIL LOCKER",
+     "bbox": [
+      2170,
+      340,
+      2225,
+      400
+     ]
+    },
+    {
+     "component_type": "anchor_bay",
+     "item_tag": "<UNKNOWN>",
+     "label": "ANCHOR BAY",
+     "bbox": [
+      2370,
+      340,
+      2430,
+      400
+     ]
+    },
+    {
+     "component_type": "pipe_penetration/insulated_pipe",
+     "item_tag": "<UNKNOWN>",
+     "label": "SPEEDFIT 15mm INSULATED PIPE, \u00d815",
+     "bbox": [
+      940,
+      1140,
+      1120,
+      1300
+     ]
+    },
+    {
+     "component_type": "room/compartment",
+     "item_tag": "<UNKNOWN>",
+     "label": "PORT LAZARETTE",
+     "bbox": [
+      695,
+      535,
+      785,
+      565
+     ]
+    },
+    {
+     "component_type": "room/compartment",
+     "item_tag": "<UNKNOWN>",
+     "label": "TRANSOM",
+     "bbox": [
+      455,
+      800,
+      525,
+      830
+     ]
+    },
+    {
+     "component_type": "room/compartment",
+     "item_tag": "<UNKNOWN>",
+     "label": "TENDER GARAGE",
+     "bbox": [
+      860,
+      800,
+      940,
+      830
+     ]
+    },
+    {
+     "component_type": "room/compartment",
+     "item_tag": "<UNKNOWN>",
+     "label": "STBD LAZARETTE",
+     "bbox": [
+      695,
+      1195,
+      785,
+      1225
+     ]
+    },
+    {
+     "component_type": "room/compartment",
+     "item_tag": "<UNKNOWN>",
+     "label": "AFT CREW CABIN STBD",
+     "bbox": [
+      1150,
+      1200,
+      1235,
+      1230
+     ]
+    },
+    {
+     "component_type": "room/compartment",
+     "item_tag": "<UNKNOWN>",
+     "label": "AFT CREW CABIN PORT",
+     "bbox": [
+      1145,
+      490,
+      1225,
+      520
+     ]
+    },
+    {
+     "component_type": "room/compartment",
+     "item_tag": "<UNKNOWN>",
+     "label": "AFT CREW HEAD",
+     "bbox": [
+      1450,
+      1150,
+      1530,
+      1180
+     ]
+    },
+    {
+     "component_type": "room/compartment",
+     "item_tag": "<UNKNOWN>",
+     "label": "AFT CREW SHOWER",
+     "bbox": [
+      1585,
+      1195,
+      1665,
+      1235
+     ]
+    },
+    {
+     "component_type": "room/compartment",
+     "item_tag": "<UNKNOWN>",
+     "label": "FWD CREW HEAD",
+     "bbox": [
+      1695,
+      1075,
+      1775,
+      1105
+     ]
+    },
+    {
+     "component_type": "room/compartment",
+     "item_tag": "<UNKNOWN>",
+     "label": "CREW CABIN FWD",
+     "bbox": [
+      1840,
+      1120,
+      1920,
+      1150
+     ]
+    },
+    {
+     "component_type": "room/compartment",
+     "item_tag": "<UNKNOWN>",
+     "label": "CREW MESS",
+     "bbox": [
+      1685,
+      785,
+      1765,
+      815
+     ]
+    },
+    {
+     "component_type": "room/compartment",
+     "item_tag": "<UNKNOWN>",
+     "label": "WORKING GALLEY",
+     "bbox": [
+      1765,
+      500,
+      1845,
+      530
+     ]
+    },
+    {
+     "component_type": "room/compartment",
+     "item_tag": "<UNKNOWN>",
+     "label": "PORT AFT GUEST CABIN",
+     "bbox": [
+      2145,
+      480,
+      2225,
+      510
+     ]
+    },
+    {
+     "component_type": "room/compartment",
+     "item_tag": "<UNKNOWN>",
+     "label": "STBD AFT GUEST CABIN",
+     "bbox": [
+      2140,
+      1225,
+      2230,
+      1255
+     ]
+    },
+    {
+     "component_type": "hot_water_heater/tank",
+     "item_tag": "80L",
+     "label": "80L BOILER",
+     "bbox": [
+      2255,
+      1080,
+      2320,
+      1105
+     ]
+    },
+    {
+     "component_type": "appliance",
+     "item_tag": "<UNKNOWN>",
+     "label": "DISHWASHER",
+     "bbox": [
+      1900,
+      500,
+      2005,
+      640
+     ]
+    },
+    {
+     "component_type": "appliance",
+     "item_tag": "<UNKNOWN>",
+     "label": "WASHER & DRYER",
+     "bbox": [
+      1235,
+      760,
+      1320,
+      865
+     ]
+    },
+    {
+     "component_type": "sensor/dispenser",
+     "item_tag": "<UNKNOWN>",
+     "label": "MULTI-TYPE WATER DISPENSER",
+     "bbox": [
+      1685,
+      630,
+      1740,
+      745
+     ]
+    },
+    {
+     "component_type": "mixing_valve",
+     "item_tag": "MIX",
+     "label": "MIX",
+     "bbox": [
+      1618,
+      595,
+      1655,
+      625
+     ]
+    },
+    {
+     "component_type": "shower_fixture",
+     "item_tag": "<UNKNOWN>",
+     "label": "TRANSOM SHOWER",
+     "bbox": [
+      190,
+      1035,
+      300,
+      1065
+     ]
+    },
+    {
+     "component_type": "manifold/cabin_distribution_point",
+     "item_tag": "<UNKNOWN>",
+     "label": "CABIN DISTRIBUTION POINT (top right)",
+     "bbox": [
+      1500,
+      60,
+      1650,
+      100
+     ]
+    },
+    {
+     "component_type": "manifold/cabin_distribution_point",
+     "item_tag": "<UNKNOWN>",
+     "label": "CABIN DISTRIBUTION POINT (right)",
+     "bbox": [
+      2130,
+      190,
+      2280,
+      230
+     ]
+    },
+    {
+     "component_type": "manifold/cabin_distribution_point",
+     "item_tag": "<UNKNOWN>",
+     "label": "CABIN DISTRIBUTION POINT (bottom, near J)",
+     "bbox": [
+      1380,
+      1465,
+      1530,
+      1500
+     ]
+    },
+    {
+     "component_type": "manifold/cabin_distribution_point",
+     "item_tag": "<UNKNOWN>",
+     "label": "CABIN DISTRIBUTION POINT (bottom, near I)",
+     "bbox": [
+      2130,
+      1465,
+      2280,
+      1500
+     ]
+    },
+    {
+     "component_type": "strainer/coil",
+     "item_tag": "<UNKNOWN>",
+     "label": "coil symbol near bottom",
+     "bbox": [
+      895,
+      1355,
+      1000,
+      1400
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "<UNKNOWN>",
+     "label": "shutoff valve at bulkhead L",
+     "bbox": [
+      1000,
+      305,
+      1030,
+      335
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "<UNKNOWN>",
+     "label": "shutoff valve at bulkhead L (mid)",
+     "bbox": [
+      1000,
+      715,
+      1030,
+      745
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "<UNKNOWN>",
+     "label": "shutoff valve at bulkhead L (lower)",
+     "bbox": [
+      1000,
+      1035,
+      1030,
+      1065
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "<UNKNOWN>",
+     "label": "shutoff valve at bulkhead K (top)",
+     "bbox": [
+      1395,
+      305,
+      1425,
+      335
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "<UNKNOWN>",
+     "label": "shutoff valve at bulkhead K (mid)",
+     "bbox": [
+      1395,
+      1035,
+      1425,
+      1065
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "<UNKNOWN>",
+     "label": "shutoff valve at bulkhead J (top)",
+     "bbox": [
+      1555,
+      305,
+      1585,
+      335
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "<UNKNOWN>",
+     "label": "shutoff valve at bulkhead J (mid)",
+     "bbox": [
+      1555,
+      1160,
+      1585,
+      1190
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "<UNKNOWN>",
+     "label": "shutoff valve at bulkhead I (top)",
+     "bbox": [
+      2015,
+      300,
+      2045,
+      330
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "<UNKNOWN>",
+     "label": "shutoff valve at bulkhead I (mid)",
+     "bbox": [
+      2015,
+      740,
+      2045,
+      770
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "<UNKNOWN>",
+     "label": "in-line valve near transom shower",
+     "bbox": [
+      515,
+      1140,
+      540,
+      1165
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "note",
+     "item_tag": "<UNKNOWN>",
+     "label": "ALL TRANSOM & LAZARETTE SHUTOFF VALVES LOCATED HERE",
+     "bbox": [
+      1000,
+      1520,
+      1290,
+      1560
+     ]
+    },
+    {
+     "component_type": "toilet_fixture",
+     "item_tag": "<UNKNOWN>",
+     "label": "toilet symbol near AFT CREW HEAD",
+     "bbox": [
+      1495,
+      1090,
+      1525,
+      1120
+     ]
+    },
+    {
+     "component_type": "toilet_fixture",
+     "item_tag": "<UNKNOWN>",
+     "label": "toilet symbol near FWD CREW HEAD",
+     "bbox": [
+      1615,
+      1090,
+      1645,
+      1120
+     ]
+    },
+    {
+     "component_type": "sink_fixture",
+     "item_tag": "<UNKNOWN>",
+     "label": "sink symbol working galley",
+     "bbox": [
+      1665,
+      665,
+      1780,
+      730
+     ]
+    },
+    {
+     "component_type": "sink_fixture",
+     "item_tag": "<UNKNOWN>",
+     "label": "sink symbol aft crew shower area",
+     "bbox": [
+      1590,
+      1290,
+      1630,
+      1330
+     ]
+    },
+    {
+     "component_type": "sink_fixture",
+     "item_tag": "<UNKNOWN>",
+     "label": "sink symbol lower near J1",
+     "bbox": [
+      1480,
+      1290,
+      1520,
+      1330
+     ]
+    },
+    {
+     "component_type": "tank",
+     "item_tag": "<UNKNOWN>",
+     "label": "WATER TANK (partial, top-left)",
+     "bbox": [
+      0,
+      0,
+      60,
+      40
+     ]
+    },
+    {
+     "component_type": "dishwasher",
+     "item_tag": "<UNKNOWN>",
+     "label": "DISHWASHER",
+     "bbox": [
+      150,
+      190,
+      230,
+      210
+     ]
+    },
+    {
+     "component_type": "cabin_distribution_point",
+     "item_tag": "<UNKNOWN>",
+     "label": "CABIN DISTRIBUTION POINT (see schematic)",
+     "bbox": [
+      560,
+      175,
+      730,
+      205
+     ]
+    },
+    {
+     "component_type": "deck_shower_connection",
+     "item_tag": "<UNKNOWN>",
+     "label": "DECK SHOWER CONNECTION",
+     "bbox": [
+      830,
+      160,
+      950,
+      200
+     ]
+    },
+    {
+     "component_type": "mixing_valve",
+     "item_tag": "MIX",
+     "label": "MIX symbol near port aft guest head",
+     "bbox": [
+      815,
+      300,
+      845,
+      325
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "sink_faucet",
+     "item_tag": "<UNKNOWN>",
+     "label": "Sink symbol (circle) near mix valve",
+     "bbox": [
+      855,
+      305,
+      890,
+      330
+     ]
+    },
+    {
+     "component_type": "sink_basin",
+     "item_tag": "<UNKNOWN>",
+     "label": "Basin symbol, PORT AFT GUEST HEAD",
+     "bbox": [
+      850,
+      345,
+      900,
+      365
+     ]
+    },
+    {
+     "component_type": "toilet",
+     "item_tag": "<UNKNOWN>",
+     "label": "Toilet symbol, PORT AFT GUEST HEAD",
+     "bbox": [
+      930,
+      430,
+      995,
+      470
+     ]
+    },
+    {
+     "component_type": "mixing_valve",
+     "item_tag": "MIX",
+     "label": "MIX valve pair at port aft guest head shower",
+     "bbox": [
+      820,
+      440,
+      870,
+      465
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "shower_stall",
+     "item_tag": "<UNKNOWN>",
+     "label": "Shower stall PORT AFT GUEST HEAD (orange outline)",
+     "bbox": [
+      815,
+      505,
+      915,
+      640
+     ]
+    },
+    {
+     "component_type": "shower_stall",
+     "item_tag": "<UNKNOWN>",
+     "label": "Shower stall wood-textured PORT AFT GUEST HEAD",
+     "bbox": [
+      930,
+      500,
+      1010,
+      640
+     ]
+    },
+    {
+     "component_type": "mixing_valve",
+     "item_tag": "MIX",
+     "label": "MIX Shower Rose supply pipe routing (upper)",
+     "bbox": [
+      900,
+      655,
+      930,
+      675
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "mixing_valve",
+     "item_tag": "MIX",
+     "label": "MIX Shower Rose supply pipe routing (lower)",
+     "bbox": [
+      900,
+      955,
+      930,
+      975
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "boiler",
+     "item_tag": "<UNKNOWN>",
+     "label": "80L BOILER (left)",
+     "bbox": [
+      575,
+      985,
+      700,
+      1035
+     ]
+    },
+    {
+     "component_type": "boiler",
+     "item_tag": "<UNKNOWN>",
+     "label": "80L BOILER (right, partial)",
+     "bbox": [
+      2400,
+      650,
+      2460,
+      700
+     ]
+    },
+    {
+     "component_type": "toilet",
+     "item_tag": "<UNKNOWN>",
+     "label": "Toilet, STBD AFT GUEST HEAD",
+     "bbox": [
+      930,
+      1160,
+      995,
+      1200
+     ]
+    },
+    {
+     "component_type": "sink_basin",
+     "item_tag": "<UNKNOWN>",
+     "label": "Basin STBD AFT GUEST HEAD",
+     "bbox": [
+      845,
+      1220,
+      900,
+      1245
+     ]
+    },
+    {
+     "component_type": "mixing_valve",
+     "item_tag": "MIX",
+     "label": "MIX valve pair STBD AFT GUEST HEAD",
+     "bbox": [
+      820,
+      1190,
+      870,
+      1215
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "mixing_valve",
+     "item_tag": "MIX",
+     "label": "MIX symbol near STBD AFT GUEST HEAD toilet",
+     "bbox": [
+      935,
+      1280,
+      965,
+      1300
+     ]
+    },
+    {
+     "component_type": "watermaker",
+     "item_tag": "MAIN WATERMAKER 230V AC",
+     "label": "MAIN WATERMAKER 230V AC",
+     "bbox": [
+      1045,
+      875,
+      1130,
+      1055
+     ]
+    },
+    {
+     "component_type": "watermaker",
+     "item_tag": "BACKUP WATERMAKER 24V DC",
+     "label": "BACKUP WATERMAKER 24V DC",
+     "bbox": [
+      1180,
+      1075,
+      1280,
+      1150
+     ]
+    },
+    {
+     "component_type": "water_pump_unit",
+     "item_tag": "<UNKNOWN>",
+     "label": "WATER PUMP UNIT",
+     "bbox": [
+      1055,
+      1110,
+      1170,
+      1180
+     ]
+    },
+    {
+     "component_type": "sterilizer",
+     "item_tag": "<UNKNOWN>",
+     "label": "SILVER ION STERILIZER",
+     "bbox": [
+      1095,
+      1370,
+      1200,
+      1420
+     ]
+    },
+    {
+     "component_type": "mixing_valve",
+     "item_tag": "MIX",
+     "label": "MIX symbol near port generator area (approx x1600)",
+     "bbox": [
+      1595,
+      650,
+      1625,
+      675
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "tank",
+     "item_tag": "PORT WATER TANK (1500 L)",
+     "label": "PORT WATER TANK (1500 L)",
+     "bbox": [
+      1810,
+      610,
+      1980,
+      660
+     ]
+    },
+    {
+     "component_type": "tank",
+     "item_tag": "STBD WATER TANK (1500 L)",
+     "label": "STBD WATER TANK (1500 L)",
+     "bbox": [
+      1680,
+      955,
+      1830,
+      1010
+     ]
+    },
+    {
+     "component_type": "mixing_valve",
+     "item_tag": "MIX",
+     "label": "MIX symbol upper right near FWD GUEST CABIN",
+     "bbox": [
+      1780,
+      290,
+      1810,
+      315
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "sink_basin",
+     "item_tag": "<UNKNOWN>",
+     "label": "Basin symbol near F watertight upper area",
+     "bbox": [
+      1690,
+      335,
+      1740,
+      365
+     ]
+    },
+    {
+     "component_type": "mixing_valve",
+     "item_tag": "MIX",
+     "label": "MIX pair near FWD GUEST CABIN head",
+     "bbox": [
+      1735,
+      635,
+      1785,
+      660
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "sink_basin",
+     "item_tag": "<UNKNOWN>",
+     "label": "Basin FWD GUEST HEAD",
+     "bbox": [
+      1700,
+      545,
+      1750,
+      570
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "<UNKNOWN>",
+     "label": "Small pump symbol FWD GUEST HEAD area",
+     "bbox": [
+      1655,
+      570,
+      1690,
+      600
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "<UNKNOWN>",
+     "label": "Small pump symbol right side near D",
+     "bbox": [
+      2225,
+      635,
+      2260,
+      665
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "<UNKNOWN>",
+     "label": "Small pump symbol right side near D (lower)",
+     "bbox": [
+      2225,
+      725,
+      2260,
+      755
+     ]
+    },
+    {
+     "component_type": "manifold",
+     "item_tag": "<UNKNOWN>",
+     "label": "Distribution manifold near working galley (MIX+circle)",
+     "bbox": [
+      300,
+      590,
+      360,
+      635
+     ]
+    },
+    {
+     "component_type": "mixing_valve",
+     "item_tag": "MIX",
+     "label": "MIX symbol working galley area",
+     "bbox": [
+      20,
+      545,
+      50,
+      570
+     ],
+     "valve_state": "unknown"
+    },
+    {
+     "component_type": "manifold",
+     "item_tag": "<UNKNOWN>",
+     "label": "Distribution manifold FWD CREW HEAD area",
+     "bbox": [
+      90,
+      1085,
+      150,
+      1130
+     ]
+    },
+    {
+     "component_type": "mixing_valve",
+     "item_tag": "MIX",
+     "label": "MIX symbol FWD CREW HEAD area",
+     "bbox": [
+      165,
+      1170,
+      195,
+      1195
+     ]
+    },
+    {
+     "component_type": "manifold",
+     "item_tag": "<UNKNOWN>",
+     "label": "Distribution manifold CREW SHOWER area (bottom left)",
+     "bbox": [
+      0,
+      1265,
+      60,
+      1315
+     ]
+    },
+    {
+     "component_type": "mixing_valve",
+     "item_tag": "MIX",
+     "label": "MIX symbol CREW SHOWER area",
+     "bbox": [
+      0,
+      1245,
+      20,
+      1270
+     ]
+    },
+    {
+     "component_type": "boiler_label_ref",
+     "item_tag": "<UNKNOWN>",
+     "label": "MAIN BILGE PUMP / MAIN FIRE PUMP (FOR PRIMING LINE) label",
+     "bbox": [
+      2360,
+      330,
+      2460,
+      380
+     ]
+    },
+    {
+     "component_type": "reference_label",
+     "item_tag": "<UNKNOWN>",
+     "label": "CABIN DISTRIBUTION POINT (right side, near F watertight)",
+     "bbox": [
+      1950,
+      300,
+      2100,
+      330
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "<UNKNOWN>",
+     "label": "FWD GUEST HEAD - pump 1 (near cabin)",
+     "bbox": [
+      410,
+      685,
+      500,
+      715
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "<UNKNOWN>",
+     "label": "FWD GUEST HEAD - pump 2 (lower)",
+     "bbox": [
+      420,
+      780,
+      500,
+      810
+     ]
+    },
+    {
+     "component_type": "tank",
+     "item_tag": "<UNKNOWN>",
+     "label": "80L BOILER",
+     "bbox": [
+      610,
+      700,
+      745,
+      765
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "<UNKNOWN>",
+     "label": "small valve above boiler",
+     "bbox": [
+      780,
+      700,
+      800,
+      720
+     ]
+    },
+    {
+     "component_type": "sensor/alarm",
+     "item_tag": "MIX",
+     "label": "MIX indicator (near owners head)",
+     "bbox": [
+      1295,
+      595,
+      1320,
+      615
+     ]
+    },
+    {
+     "component_type": "sensor/alarm",
+     "item_tag": "MIX",
+     "label": "MIX indicator (near sail locker upper)",
+     "bbox": [
+      1375,
+      895,
+      1400,
+      915
+     ]
+    },
+    {
+     "component_type": "sensor/alarm",
+     "item_tag": "MIX",
+     "label": "MIX indicator (near sail locker lower)",
+     "bbox": [
+      1375,
+      935,
+      1400,
+      955
+     ]
+    },
+    {
+     "component_type": "heat_exchanger",
+     "item_tag": "<UNKNOWN>",
+     "label": "orange coil (owners head area)",
+     "bbox": [
+      1075,
+      690,
+      1250,
+      780
+     ]
+    },
+    {
+     "component_type": "fixture",
+     "item_tag": "<UNKNOWN>",
+     "label": "Owners head toilet/basin fixture",
+     "bbox": [
+      1090,
+      800,
+      1170,
+      880
+     ]
+    },
+    {
+     "component_type": "manifold",
+     "item_tag": "<UNKNOWN>",
+     "label": "small circular manifold cluster near owners head",
+     "bbox": [
+      1105,
+      795,
+      1150,
+      820
+     ]
+    },
+    {
+     "component_type": "heat_exchanger",
+     "item_tag": "<UNKNOWN>",
+     "label": "cross-hatched unit 1 (sail locker area)",
+     "bbox": [
+      1265,
+      845,
+      1320,
+      900
+     ]
+    },
+    {
+     "component_type": "heat_exchanger",
+     "item_tag": "<UNKNOWN>",
+     "label": "cross-hatched unit 2 (sail locker area)",
+     "bbox": [
+      1265,
+      940,
+      1320,
+      995
+     ]
+    },
+    {
+     "component_type": "sea_chest/intake",
+     "item_tag": "<UNKNOWN>",
+     "label": "Anchor bay through-hull upper (near A)",
+     "bbox": [
+      1695,
+      745,
+      1715,
+      765
+     ]
+    },
+    {
+     "component_type": "sea_chest/intake",
+     "item_tag": "<UNKNOWN>",
+     "label": "Anchor bay through-hull lower",
+     "bbox": [
+      1805,
+      825,
+      1825,
+      845
+     ]
+    },
+    {
+     "component_type": "compartment",
+     "item_tag": "<UNKNOWN>",
+     "label": "SAIL LOCKER",
+     "bbox": [
+      1445,
+      850,
+      1520,
+      895
+     ]
+    },
+    {
+     "component_type": "compartment",
+     "item_tag": "<UNKNOWN>",
+     "label": "ANCHOR BAY",
+     "bbox": [
+      1780,
+      890,
+      1855,
+      915
+     ]
+    },
+    {
+     "component_type": "hull deck fitting/connection",
+     "item_tag": "<UNKNOWN>",
+     "label": "DOCK WATER CONNECTION",
+     "bbox": [
+      411,
+      163,
+      428,
+      178
+     ]
+    },
+    {
+     "component_type": "hull deck fitting/connection",
+     "item_tag": "<UNKNOWN>",
+     "label": "AFT COCKPIT COLD WATER SUPPLY",
+     "bbox": [
+      595,
+      163,
+      612,
+      178
+     ]
+    },
+    {
+     "component_type": "heat exchanger/coil (calorifier coil?)",
+     "item_tag": "<UNKNOWN>",
+     "label": "coil symbol on manifold line",
+     "bbox": [
+      832,
+      225,
+      932,
+      290
+     ]
+    },
+    {
+     "component_type": "mixing valve",
+     "item_tag": "MIX",
+     "label": "MIX valve near AFT CREW SHOWER",
+     "bbox": [
+      1651,
+      105,
+      1671,
+      125
+     ]
+    },
+    {
+     "component_type": "mixing valve",
+     "item_tag": "MIX",
+     "label": "MIX valve near AFT CREW SHOWER area",
+     "bbox": [
+      1497,
+      190,
+      1517,
+      210
+     ]
+    },
+    {
+     "component_type": "mixing valve",
+     "item_tag": "MIX",
+     "label": "MIX valve near AFT CREW HEAD",
+     "bbox": [
+      1405,
+      240,
+      1425,
+      260
+     ]
+    },
+    {
+     "component_type": "strainer/filter",
+     "item_tag": "<UNKNOWN>",
+     "label": "dual filter unit near cabin distribution point",
+     "bbox": [
+      1470,
+      220,
+      1540,
+      240
+     ]
+    },
+    {
+     "component_type": "washing machine",
+     "item_tag": "<UNKNOWN>",
+     "label": "WASHING MACHINE - PORT LAZARETTE",
+     "bbox": [
+      862,
+      780,
+      935,
+      930
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "004-0X",
+     "label": "washing machine supply valve",
+     "bbox": [
+      915,
+      1120,
+      935,
+      1135
+     ]
+    },
+    {
+     "component_type": "dishwasher",
+     "item_tag": "<UNKNOWN>",
+     "label": "DISHWASHER - GALLEY",
+     "bbox": [
+      1074,
+      780,
+      1150,
+      915
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "016-09",
+     "label": "dishwasher cold supply valve",
+     "bbox": [
+      1105,
+      1032,
+      1140,
+      1047
+     ]
+    },
+    {
+     "component_type": "galley sink",
+     "item_tag": "<UNKNOWN>",
+     "label": "GALLEY SINK",
+     "bbox": [
+      1230,
+      800,
+      1345,
+      895
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "016-14",
+     "label": "galley sink hot/cold valve",
+     "bbox": [
+      1195,
+      1032,
+      1230,
+      1047
+     ]
+    },
+    {
+     "component_type": "instant boiling/chilled/CO2 water unit",
+     "item_tag": "029-01",
+     "label": "INSTANT BOILING/CHILLED/CO2 WATER UNIT",
+     "bbox": [
+      1265,
+      955,
+      1400,
+      1010
+     ]
+    },
+    {
+     "component_type": "pump/faucet",
+     "item_tag": "015-02",
+     "label": "pull-out faucet dodger trough",
+     "bbox": [
+      1590,
+      780,
+      1620,
+      875
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "037-01",
+     "label": "solenoid/electric valve dodger trough",
+     "bbox": [
+      1595,
+      900,
+      1625,
+      935
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "<UNKNOWN>",
+     "label": "pump M symbol dodger trough hot line",
+     "bbox": [
+      1608,
+      935,
+      1630,
+      970
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "004-0X",
+     "label": "dodger trough cold water valve",
+     "bbox": [
+      1585,
+      1030,
+      1605,
+      1045
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "004-0X",
+     "label": "dodger trough hot water valve",
+     "bbox": [
+      1615,
+      1030,
+      1635,
+      1045
+     ]
+    },
+    {
+     "component_type": "basin",
+     "item_tag": "<UNKNOWN>",
+     "label": "BASIN - AFT GUEST HEAD PORT",
+     "bbox": [
+      1690,
+      780,
+      1770,
+      925
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "016-07",
+     "label": "basin supply valve",
+     "bbox": [
+      1765,
+      1015,
+      1805,
+      1030
+     ]
+    },
+    {
+     "component_type": "shower mixer & diverter unit",
+     "item_tag": "<UNKNOWN>",
+     "label": "SHOWER MIXER & DIVERTER UNIT",
+     "bbox": [
+      1855,
+      745,
+      2040,
+      930
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "M",
+     "label": "pump within shower mixer unit",
+     "bbox": [
+      1900,
+      860,
+      1920,
+      890
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "D",
+     "label": "diverter pump within shower mixer unit",
+     "bbox": [
+      1935,
+      860,
+      1955,
+      890
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "016-08",
+     "label": "shower mixer supply valve",
+     "bbox": [
+      1900,
+      1015,
+      1940,
+      1030
+     ]
+    },
+    {
+     "component_type": "toilet",
+     "item_tag": "<UNKNOWN>",
+     "label": "TOILET - AFT GUEST HEAD PORT area",
+     "bbox": [
+      2075,
+      900,
+      2140,
+      940
+     ]
+    },
+    {
+     "component_type": "toilet electro valve",
+     "item_tag": "010-04",
+     "label": "TOILET ELECTRO VALVE",
+     "bbox": [
+      2075,
+      955,
+      2145,
+      1000
+     ]
+    },
+    {
+     "component_type": "boiler/calorifier",
+     "item_tag": "003-02",
+     "label": "80L BOILER",
+     "bbox": [
+      1420,
+      1370,
+      1620,
+      1470
+     ]
+    },
+    {
+     "component_type": "pressure relief valve",
+     "item_tag": "023-02",
+     "label": "boiler relief valve",
+     "bbox": [
+      1680,
+      1375,
+      1700,
+      1400
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "008-03",
+     "label": "boiler discharge check/isolation valve (hot)",
+     "bbox": [
+      1790,
+      1395,
+      1825,
+      1415
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "008-04",
+     "label": "boiler cold inlet valve",
+     "bbox": [
+      1790,
+      1445,
+      1825,
+      1465
+     ]
+    },
+    {
+     "component_type": "check valve",
+     "item_tag": "007-02",
+     "label": "check valve on boiler cold inlet",
+     "bbox": [
+      1855,
+      1445,
+      1890,
+      1465
+     ]
+    },
+    {
+     "component_type": "pressure relief/temperature relief valve",
+     "item_tag": "014-02",
+     "label": "relief valve to sump tank",
+     "bbox": [
+      1680,
+      1495,
+      1705,
+      1520
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "020-01",
+     "label": "diesel fire pump priming line valve region port lazarette",
+     "bbox": [
+      230,
+      2000,
+      260,
+      2020
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "004-0X",
+     "label": "diesel fire pump priming line supply valve",
+     "bbox": [
+      440,
+      1195,
+      460,
+      1210
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "004-0X",
+     "label": "port lazarette hot water valve (bottom)",
+     "bbox": [
+      375,
+      2050,
+      395,
+      2065
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "004-0X",
+     "label": "port lazarette cold water valve (bottom)",
+     "bbox": [
+      375,
+      2075,
+      395,
+      2090
+     ]
+    },
+    {
+     "component_type": "shower mixer/diverter unit",
+     "item_tag": "037-01",
+     "label": "PORT FWD COCKPIT DODGER TROUGH pump unit",
+     "bbox": [
+      80,
+      830,
+      140,
+      900
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "004-0X",
+     "label": "PORT FWD COCKPIT DODGER TROUGH pump",
+     "bbox": [
+      95,
+      940,
+      150,
+      990
+     ]
+    },
+    {
+     "component_type": "basin",
+     "item_tag": "<UNKNOWN>",
+     "label": "AFT GUEST HEAD PORT BASIN",
+     "bbox": [
+      220,
+      730,
+      290,
+      830
+     ]
+    },
+    {
+     "component_type": "mixer valve",
+     "item_tag": "016-07",
+     "label": "AFT GUEST HEAD PORT basin mixer",
+     "bbox": [
+      255,
+      920,
+      300,
+      960
+     ]
+    },
+    {
+     "component_type": "shower mixer/diverter unit",
+     "item_tag": "<UNKNOWN>",
+     "label": "SHOWER MIXER & DIVERTER UNIT (AFT GUEST HEAD PORT)",
+     "bbox": [
+      355,
+      690,
+      500,
+      840
+     ]
+    },
+    {
+     "component_type": "mixer valve",
+     "item_tag": "016-08",
+     "label": "shower mixer diverter valve",
+     "bbox": [
+      390,
+      910,
+      440,
+      955
+     ]
+    },
+    {
+     "component_type": "toilet",
+     "item_tag": "<UNKNOWN>",
+     "label": "TOILET (AFT GUEST HEAD PORT)",
+     "bbox": [
+      550,
+      770,
+      610,
+      830
+     ]
+    },
+    {
+     "component_type": "electro valve",
+     "item_tag": "010-04",
+     "label": "TOILET ELECTRO VALVE",
+     "bbox": [
+      530,
+      880,
+      580,
+      930
+     ]
+    },
+    {
+     "component_type": "sensor/probe",
+     "item_tag": "20-510",
+     "label": "sensor near dodger trough pump",
+     "bbox": [
+      95,
+      790,
+      140,
+      830
+     ]
+    },
+    {
+     "component_type": "toilet",
+     "item_tag": "<UNKNOWN>",
+     "label": "TOILET (FWD GUEST HEAD)",
+     "bbox": [
+      1660,
+      770,
+      1720,
+      830
+     ]
+    },
+    {
+     "component_type": "electro valve",
+     "item_tag": "010-05",
+     "label": "TOILET ELECTRO VALVE (FWD GUEST HEAD)",
+     "bbox": [
+      1650,
+      880,
+      1720,
+      930
+     ]
+    },
+    {
+     "component_type": "shower mixer/diverter unit",
+     "item_tag": "<UNKNOWN>",
+     "label": "SHOWER MIXER & DIVERTER UNIT (FWD GUEST HEAD)",
+     "bbox": [
+      1800,
+      690,
+      1950,
+      840
+     ]
+    },
+    {
+     "component_type": "mixer valve",
+     "item_tag": "016-10",
+     "label": "shower mixer diverter valve fwd",
+     "bbox": [
+      1960,
+      900,
+      2010,
+      955
+     ]
+    },
+    {
+     "component_type": "basin",
+     "item_tag": "<UNKNOWN>",
+     "label": "BASIN (FWD GUEST HEAD)",
+     "bbox": [
+      1980,
+      730,
+      2050,
+      830
+     ]
+    },
+    {
+     "component_type": "mixer valve",
+     "item_tag": "016-11",
+     "label": "basin mixer fwd",
+     "bbox": [
+      1990,
+      910,
+      2040,
+      955
+     ]
+    },
+    {
+     "component_type": "toilet",
+     "item_tag": "<UNKNOWN>",
+     "label": "TOILET (2nd, right side)",
+     "bbox": [
+      2150,
+      770,
+      2210,
+      830
+     ]
+    },
+    {
+     "component_type": "electro valve",
+     "item_tag": "010-06",
+     "label": "TOILET ELECTRO VALVE (2nd)",
+     "bbox": [
+      2140,
+      880,
+      2210,
+      930
+     ]
+    },
+    {
+     "component_type": "silver ion sterilizer",
+     "item_tag": "<UNKNOWN>",
+     "label": "SILVER ION STERILIZER",
+     "bbox": [
+      1085,
+      95,
+      1135,
+      150
+     ]
+    },
+    {
+     "component_type": "water pump unit",
+     "item_tag": "<UNKNOWN>",
+     "label": "WATER PUMP UNIT",
+     "bbox": [
+      1090,
+      10,
+      1170,
+      60
+     ]
+    },
+    {
+     "component_type": "watermaker",
+     "item_tag": "<UNKNOWN>",
+     "label": "BACKUP WATERMAKER 24V DC",
+     "bbox": [
+      1210,
+      10,
+      1290,
+      60
+     ]
+    },
+    {
+     "component_type": "boiler",
+     "item_tag": "003-02",
+     "label": "80L BOILER (left)",
+     "bbox": [
+      55,
+      1290,
+      130,
+      1420
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "023-02",
+     "label": "valve near boiler left",
+     "bbox": [
+      175,
+      1290,
+      210,
+      1330
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "008-03",
+     "label": "isolation valve left",
+     "bbox": [
+      300,
+      1290,
+      340,
+      1330
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "008-04",
+     "label": "isolation valve left",
+     "bbox": [
+      300,
+      1350,
+      340,
+      1390
+     ]
+    },
+    {
+     "component_type": "check valve",
+     "item_tag": "007-02",
+     "label": "check valve left",
+     "bbox": [
+      370,
+      1350,
+      410,
+      1390
+     ]
+    },
+    {
+     "component_type": "check valve",
+     "item_tag": "014-02",
+     "label": "check valve to sump tank left",
+     "bbox": [
+      195,
+      1420,
+      235,
+      1460
+     ]
+    },
+    {
+     "component_type": "boiler",
+     "item_tag": "003-01",
+     "label": "80L BOILER (right)",
+     "bbox": [
+      1875,
+      1290,
+      1950,
+      1420
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "023-01",
+     "label": "valve near boiler right",
+     "bbox": [
+      2000,
+      1290,
+      2035,
+      1330
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "008-01",
+     "label": "isolation valve right",
+     "bbox": [
+      2130,
+      1290,
+      2170,
+      1330
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "008-02",
+     "label": "isolation valve right",
+     "bbox": [
+      2130,
+      1350,
+      2170,
+      1390
+     ]
+    },
+    {
+     "component_type": "check valve",
+     "item_tag": "007-01",
+     "label": "check valve right",
+     "bbox": [
+      2200,
+      1350,
+      2240,
+      1390
+     ]
+    },
+    {
+     "component_type": "check valve",
+     "item_tag": "014-01",
+     "label": "check valve to sump tank right",
+     "bbox": [
+      2020,
+      1420,
+      2060,
+      1460
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "008-04",
+     "label": "ISOLATION valve (NO) main line",
+     "component_note": "on main horizontal line",
+     "valve_state": "NO",
+     "bbox": [
+      995,
+      1170,
+      1035,
+      1210
+     ]
+    },
+    {
+     "component_type": "filter",
+     "item_tag": "032-01",
+     "label": "CARBON filter",
+     "bbox": [
+      1225,
+      1290,
+      1270,
+      1340
+     ]
+    },
+    {
+     "component_type": "filter",
+     "item_tag": "033-01",
+     "label": "CALCITE filter",
+     "bbox": [
+      1280,
+      1290,
+      1325,
+      1340
+     ]
+    },
+    {
+     "component_type": "filter",
+     "item_tag": "<UNKNOWN>",
+     "label": "PARTICLE 5 MICRON filter",
+     "bbox": [
+      730,
+      1460,
+      775,
+      1510
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "022-01",
+     "label": "NO valve engine room freshwater supply",
+     "valve_state": "NO",
+     "bbox": [
+      1300,
+      1400,
+      1340,
+      1440
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "004-0X",
+     "label": "priming line pump for aircon seawater",
+     "bbox": [
+      1300,
+      1450,
+      1340,
+      1490
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "004-0X",
+     "label": "pump to silver ion sterilizer",
+     "bbox": [
+      1300,
+      1500,
+      1340,
+      1540
+     ]
+    },
+    {
+     "component_type": "pump/pressure switch unit",
+     "item_tag": "002-01",
+     "label": "'DEDICATED' PUMP & PRESSURE SWITCH UNIT",
+     "bbox": [
+      990,
+      1580,
+      1070,
+      1660
+     ]
+    },
+    {
+     "component_type": "pressure sensor",
+     "item_tag": "019-01",
+     "label": "pressure sensor for dedicated pump unit",
+     "bbox": [
+      1000,
+      1650,
+      1040,
+      1690
+     ]
+    },
+    {
+     "component_type": "valve",
+     "item_tag": "026-01",
+     "label": "PORT FW TANK BREATHER valve",
+     "bbox": [
+      2140,
+      1670,
+      2180,
+      1700
+     ]
+    },
+    {
+     "component_type": "Shower Mixer & Diverter Unit",
+     "item_tag": "<UNKNOWN>",
+     "label": "SHOWER MIXER & DIVERTER UNIT - FWD GUEST HEAD",
+     "bbox": [
+      123,
+      738,
+      260,
+      900
+     ]
+    },
+    {
+     "component_type": "Basin",
+     "item_tag": "<UNKNOWN>",
+     "label": "BASIN - FWD GUEST HEAD",
+     "bbox": [
+      296,
+      793,
+      388,
+      905
+     ]
+    },
+    {
+     "component_type": "Toilet",
+     "item_tag": "<UNKNOWN>",
+     "label": "TOILET - OWNERS HEAD area",
+     "bbox": [
+      478,
+      795,
+      563,
+      860
+     ]
+    },
+    {
+     "component_type": "Toilet Electro Valve",
+     "item_tag": "010-06",
+     "label": "TOILET ELECTRO VALVE",
+     "bbox": [
+      489,
+      930,
+      560,
+      995
+     ]
+    },
+    {
+     "component_type": "Toilet Electro Valve",
+     "item_tag": "010-05",
+     "label": "TOILET ELECTRO VALVE",
+     "bbox": [
+      0,
+      975,
+      60,
+      1040
+     ]
+    },
+    {
+     "component_type": "Toilet",
+     "item_tag": "<UNKNOWN>",
+     "label": "TOILET (leftmost, partially shown)",
+     "bbox": [
+      0,
+      850,
+      25,
+      895
+     ]
+    },
+    {
+     "component_type": "Shower Mixer & Diverter Unit",
+     "item_tag": "<UNKNOWN>",
+     "label": "SHOWER MIXER & DIVERTER UNIT - OWNERS HEAD",
+     "bbox": [
+      617,
+      738,
+      752,
+      900
+     ]
+    },
+    {
+     "component_type": "Basin",
+     "item_tag": "<UNKNOWN>",
+     "label": "BASIN - OWNERS HEAD (upper)",
+     "bbox": [
+      793,
+      750,
+      875,
+      830
+     ]
+    },
+    {
+     "component_type": "Basin",
+     "item_tag": "<UNKNOWN>",
+     "label": "BASIN - OWNERS HEAD (lower)",
+     "bbox": [
+      793,
+      860,
+      875,
+      940
+     ]
+    },
+    {
+     "component_type": "Deck Wash Connection",
+     "item_tag": "015-03",
+     "label": "DECK WASH CONNECTION",
+     "bbox": [
+      963,
+      900,
+      1030,
+      960
+     ]
+    },
+    {
+     "component_type": "Anchor Wash Nozzle",
+     "item_tag": "<UNKNOWN>",
+     "label": "ANCHOR WASH",
+     "bbox": [
+      1090,
+      900,
+      1200,
+      960
+     ]
+    },
+    {
+     "component_type": "Anchor",
+     "item_tag": "<UNKNOWN>",
+     "label": "ANCHOR BAY / WET BOX anchor symbol",
+     "bbox": [
+      1090,
+      750,
+      1180,
+      830
+     ]
+    },
+    {
+     "component_type": "Ball Valve",
+     "item_tag": "008-05",
+     "label": "Ball Valve at Deck Wash Connection supply",
+     "bbox": [
+      980,
+      1020,
+      1015,
+      1050
+     ]
+    },
+    {
+     "component_type": "Ball Valve",
+     "item_tag": "008-06",
+     "label": "Ball Valve at Anchor Wash supply",
+     "bbox": [
+      1090,
+      1020,
+      1125,
+      1050
+     ]
+    },
+    {
+     "component_type": "Fitting/Union",
+     "item_tag": "016-10",
+     "label": "Fitting/union near FWD Guest Head",
+     "bbox": [
+      188,
+      1010,
+      225,
+      1055
+     ]
+    },
+    {
+     "component_type": "Fitting/Union",
+     "item_tag": "016-11",
+     "label": "Fitting/union near FWD Guest Head",
+     "bbox": [
+      283,
+      1010,
+      320,
+      1055
+     ]
+    },
+    {
+     "component_type": "Fitting/Union",
+     "item_tag": "016-12",
+     "label": "Fitting/union near Owners Head",
+     "bbox": [
+      688,
+      1010,
+      725,
+      1055
+     ]
+    },
+    {
+     "component_type": "Fitting/Union",
+     "item_tag": "016-13",
+     "label": "Fitting/union near Owners Head",
+     "bbox": [
+      783,
+      1010,
+      820,
+      1055
+     ]
+    },
+    {
+     "component_type": "Diaphragm Accumulator",
+     "item_tag": "025-01",
+     "label": "Diaphragm Accumulator",
+     "bbox": [
+      585,
+      1100,
+      625,
+      1160
+     ]
+    },
+    {
+     "component_type": "Diaphragm Accumulator",
+     "item_tag": "025-02",
+     "label": "Diaphragm Accumulator",
+     "bbox": [
+      540,
+      1100,
+      580,
+      1160
+     ]
+    },
+    {
+     "component_type": "Filter",
+     "item_tag": "sf15",
+     "label": "Filter (in-line, red circled sf15) FWD Guest Head Hot line",
+     "bbox": [
+      232,
+      940,
+      270,
+      985
+     ],
+     "ambiguous": true
+    },
+    {
+     "component_type": "Filter",
+     "item_tag": "sf15",
+     "label": "Filter (in-line, red circled sf15) FWD Guest Head Cold line",
+     "bbox": [
+      313,
+      940,
+      350,
+      985
+     ],
+     "ambiguous": true
+    },
+    {
+     "component_type": "Filter",
+     "item_tag": "sf15",
+     "label": "Filter (in-line, red circled sf15) Owners Head Hot line",
+     "bbox": [
+      727,
+      940,
+      765,
+      985
+     ],
+     "ambiguous": true
+    },
+    {
+     "component_type": "Filter",
+     "item_tag": "sf15",
+     "label": "Filter (in-line, red circled sf15) Owners Head Cold line",
+     "bbox": [
+      813,
+      940,
+      850,
+      985
+     ],
+     "ambiguous": true
+    },
+    {
+     "component_type": "Marine Water Heater (Boiler)",
+     "item_tag": "003-01",
+     "label": "80L BOILER",
+     "bbox": [
+      128,
+      1360,
+      290,
+      1470
+     ]
+    },
+    {
+     "component_type": "Ball Valve",
+     "item_tag": "008-01",
+     "label": "Ball Valve at boiler hot outlet",
+     "bbox": [
+      497,
+      1385,
+      530,
+      1415
+     ]
+    },
+    {
+     "component_type": "Ball Valve",
+     "item_tag": "008-02",
+     "label": "Ball Valve at boiler dedicated outlet",
+     "bbox": [
+      497,
+      1425,
+      530,
+      1455
+     ]
+    },
+    {
+     "component_type": "Non-Return Valve",
+     "item_tag": "007-01",
+     "label": "Non-Return Valve near boiler outlet",
+     "bbox": [
+      590,
+      1420,
+      650,
+      1460
+     ]
+    },
+    {
+     "component_type": "Pressure Relief Valve",
+     "item_tag": "023-01",
+     "label": "Pressure Relief Valve at boiler top",
+     "bbox": [
+      388,
+      1360,
+      430,
+      1400
+     ]
+    },
+    {
+     "component_type": "Non-Return Valve",
+     "item_tag": "014-01",
+     "label": "Non-Return Valve to sump tank",
+     "bbox": [
+      420,
+      1520,
+      460,
+      1560
+     ]
+    },
+    {
+     "component_type": "Main Control Panel",
+     "item_tag": "CP",
+     "label": "Main Control Panel",
+     "bbox": [
+      508,
+      1670,
+      540,
+      1700
+     ]
+    },
+    {
+     "component_type": "Pipe Suction Pickup Point",
+     "item_tag": "026-01",
+     "label": "Pipe Suction Pickup Point (Port FW Tank Breather)",
+     "bbox": [
+      430,
+      1690,
+      470,
+      1725
+     ]
+    },
+    {
+     "component_type": "boiler",
+     "item_tag": "003-02",
+     "label": "80L BOILER",
+     "bbox": [
+      1560,
+      90,
+      1815,
+      225
+     ]
+    },
+    {
+     "component_type": "valve_check",
+     "item_tag": "023-02",
+     "label": "",
+     "bbox": [
+      1830,
+      120,
+      1855,
+      145
+     ]
+    },
+    {
+     "component_type": "valve_gate",
+     "item_tag": "008-03",
+     "label": "",
+     "bbox": [
+      1930,
+      120,
+      1985,
+      150
+     ]
+    },
+    {
+     "component_type": "valve_gate",
+     "item_tag": "008-04",
+     "label": "",
+     "bbox": [
+      1930,
+      185,
+      1985,
+      215
+     ]
+    },
+    {
+     "component_type": "valve_relief",
+     "item_tag": "007-02",
+     "label": "",
+     "bbox": [
+      2050,
+      185,
+      2100,
+      215
+     ]
+    },
+    {
+     "component_type": "valve_control",
+     "item_tag": "014-02",
+     "label": "",
+     "bbox": [
+      1810,
+      255,
+      1860,
+      300
+     ]
+    },
+    {
+     "component_type": "transom_shower_unit",
+     "item_tag": "020-01",
+     "label": "TRANSOM SHOWER",
+     "bbox": [
+      160,
+      395,
+      340,
+      480
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "004-0X",
+     "label": "PORT TRANSOM LOCKER PUMP1",
+     "bbox": [
+      380,
+      415,
+      440,
+      440
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "004-0X",
+     "label": "PORT TRANSOM LOCKER PUMP2",
+     "bbox": [
+      380,
+      450,
+      440,
+      475
+     ]
+    },
+    {
+     "component_type": "valve_manual",
+     "item_tag": "008-07",
+     "label": "DECK WASH CONNECTION VALVE",
+     "bbox": [
+      295,
+      700,
+      340,
+      725
+     ]
+    },
+    {
+     "component_type": "hose_connection",
+     "item_tag": "<UNKNOWN>",
+     "label": "DECK WASH CONNECTION",
+     "bbox": [
+      180,
+      700,
+      290,
+      730
+     ]
+    },
+    {
+     "component_type": "pressure_gauge",
+     "item_tag": "019-04",
+     "label": "",
+     "bbox": [
+      315,
+      825,
+      360,
+      860
+     ]
+    },
+    {
+     "component_type": "strainer",
+     "item_tag": "024-01",
+     "label": "",
+     "bbox": [
+      130,
+      850,
+      220,
+      900
+     ]
+    },
+    {
+     "component_type": "valve_gate",
+     "item_tag": "012-01",
+     "label": "",
+     "bbox": [
+      240,
+      860,
+      290,
+      890
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "021-01",
+     "label": "",
+     "bbox": [
+      350,
+      860,
+      410,
+      900
+     ]
+    },
+    {
+     "component_type": "hose_connection",
+     "item_tag": "<UNKNOWN>",
+     "label": "DOCK WATER INLET CONNECTION",
+     "bbox": [
+      100,
+      870,
+      230,
+      930
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "004-0X",
+     "label": "AFT CREW HEAD PUMP",
+     "bbox": [
+      695,
+      630,
+      720,
+      660
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "004-0X",
+     "label": "FWD CREW HEAD PUMP",
+     "bbox": [
+      1215,
+      630,
+      1240,
+      660
+     ]
+    },
+    {
+     "component_type": "electro_valve",
+     "item_tag": "010-01",
+     "label": "TOILET ELECTRO VALVE",
+     "bbox": [
+      680,
+      700,
+      730,
+      760
+     ]
+    },
+    {
+     "component_type": "electro_valve",
+     "item_tag": "010-02",
+     "label": "TOILET ELECTRO VALVE",
+     "bbox": [
+      1200,
+      700,
+      1250,
+      760
+     ]
+    },
+    {
+     "component_type": "electro_valve",
+     "item_tag": "010-03",
+     "label": "TOILET ELECTRO VALVE",
+     "bbox": [
+      1660,
+      930,
+      1710,
+      990
+     ]
+    },
+    {
+     "component_type": "toilet",
+     "item_tag": "<UNKNOWN>",
+     "label": "TOILET AFT CREW HEAD",
+     "bbox": [
+      600,
+      810,
+      700,
+      895
+     ]
+    },
+    {
+     "component_type": "toilet",
+     "item_tag": "<UNKNOWN>",
+     "label": "TOILET FWD CREW HEAD",
+     "bbox": [
+      1130,
+      810,
+      1230,
+      895
+     ]
+    },
+    {
+     "component_type": "toilet",
+     "item_tag": "<UNKNOWN>",
+     "label": "TOILET AFT GUEST HEAD STBD",
+     "bbox": [
+      1590,
+      830,
+      1690,
+      900
+     ]
+    },
+    {
+     "component_type": "basin",
+     "item_tag": "<UNKNOWN>",
+     "label": "BASIN AFT CREW HEAD",
+     "bbox": [
+      735,
+      780,
+      825,
+      920
+     ]
+    },
+    {
+     "component_type": "basin",
+     "item_tag": "<UNKNOWN>",
+     "label": "BASIN FWD CREW HEAD",
+     "bbox": [
+      1245,
+      780,
+      1335,
+      920
+     ]
+    },
+    {
+     "component_type": "basin",
+     "item_tag": "<UNKNOWN>",
+     "label": "BASIN AFT GUEST HEAD STBD",
+     "bbox": [
+      1990,
+      750,
+      2080,
+      900
+     ]
+    },
+    {
+     "component_type": "shower_mixer_unit",
+     "item_tag": "<UNKNOWN>",
+     "label": "SHOWER MIXER UNIT AFT CREW SHOWER",
+     "bbox": [
+      900,
+      790,
+      1060,
+      920
+     ]
+    },
+    {
+     "component_type": "shower_mixer_unit",
+     "item_tag": "<UNKNOWN>",
+     "label": "SHOWER MIXER UNIT FWD CREW HEAD",
+     "bbox": [
+      1400,
+      790,
+      1560,
+      920
+     ]
+    },
+    {
+     "component_type": "shower_mixer_diverter_unit",
+     "item_tag": "<UNKNOWN>",
+     "label": "SHOWER MIXER & DIVERTER UNIT",
+     "bbox": [
+      1790,
+      740,
+      1970,
+      920
+     ]
+    },
+    {
+     "component_type": "valve_manual",
+     "item_tag": "016-01",
+     "label": "",
+     "bbox": [
+      880,
+      1050,
+      935,
+      1080
+     ]
+    },
+    {
+     "component_type": "valve_manual",
+     "item_tag": "016-02",
+     "label": "",
+     "bbox": [
+      955,
+      1050,
+      1010,
+      1080
+     ]
+    },
+    {
+     "component_type": "valve_manual",
+     "item_tag": "016-03",
+     "label": "",
+     "bbox": [
+      1385,
+      1050,
+      1440,
+      1080
+     ]
+    },
+    {
+     "component_type": "valve_manual",
+     "item_tag": "016-04",
+     "label": "",
+     "bbox": [
+      1460,
+      1050,
+      1515,
+      1080
+     ]
+    },
+    {
+     "component_type": "valve_manual",
+     "item_tag": "016-05",
+     "label": "",
+     "bbox": [
+      1795,
+      1050,
+      1850,
+      1080
+     ]
+    },
+    {
+     "component_type": "valve_manual",
+     "item_tag": "016-06",
+     "label": "",
+     "bbox": [
+      1900,
+      1050,
+      1960,
+      1080
+     ]
+    },
+    {
+     "component_type": "deck_wash_connection",
+     "item_tag": "015-01",
+     "label": "DECK WASH CONNECTION",
+     "bbox": [
+      100,
+      690,
+      180,
+      730
+     ]
+    },
+    {
+     "component_type": "valve_check",
+     "item_tag": "007-02",
+     "label": "",
+     "bbox": [
+      400,
+      150,
+      440,
+      185
+     ]
+    },
+    {
+     "component_type": "valve_solenoid",
+     "item_tag": "014-02",
+     "label": "TO SUMP TANK REF",
+     "bbox": [
+      195,
+      225,
+      255,
+      270
+     ]
+    },
+    {
+     "component_type": "boiler",
+     "item_tag": "003-01",
+     "label": "80L BOILER",
+     "bbox": [
+      1985,
+      75,
+      2140,
+      190
+     ]
+    },
+    {
+     "component_type": "valve_check",
+     "item_tag": "023-01",
+     "label": "",
+     "bbox": [
+      2200,
+      95,
+      2235,
+      130
+     ]
+    },
+    {
+     "component_type": "valve_gate",
+     "item_tag": "008-01",
+     "label": "",
+     "bbox": [
+      2295,
+      95,
+      2335,
+      130
+     ]
+    },
+    {
+     "component_type": "valve_gate",
+     "item_tag": "008-02",
+     "label": "",
+     "bbox": [
+      2295,
+      150,
+      2335,
+      185
+     ]
+    },
+    {
+     "component_type": "valve_check",
+     "item_tag": "007-01",
+     "label": "",
+     "bbox": [
+      2390,
+      150,
+      2430,
+      185
+     ]
+    },
+    {
+     "component_type": "valve_solenoid",
+     "item_tag": "014-01",
+     "label": "TO SUMP TANK REF",
+     "bbox": [
+      2195,
+      225,
+      2255,
+      270
+     ]
+    },
+    {
+     "component_type": "filter",
+     "item_tag": "032-01",
+     "label": "CARBON",
+     "bbox": [
+      1300,
+      120,
+      1345,
+      175
+     ]
+    },
+    {
+     "component_type": "filter",
+     "item_tag": "033-01",
+     "label": "CALCITE",
+     "bbox": [
+      1365,
+      120,
+      1410,
+      175
+     ]
+    },
+    {
+     "component_type": "filter",
+     "item_tag": "<UNKNOWN>",
+     "label": "PARTICLE 5 MICRON",
+     "bbox": [
+      775,
+      285,
+      825,
+      340
+     ]
+    },
+    {
+     "component_type": "valve_solenoid",
+     "item_tag": "022-01",
+     "label": "ENGINE ROOM FRESHWATER SUPPLY",
+     "valve_state": "NO",
+     "bbox": [
+      1395,
+      205,
+      1440,
+      240
+     ]
+    },
+    {
+     "component_type": "pump_priming",
+     "item_tag": "004-0X",
+     "label": "PRIMING LINE FOR AIRCON SEAWATER PUMP",
+     "bbox": [
+      1400,
+      275,
+      1450,
+      300
+     ]
+    },
+    {
+     "component_type": "pump_priming",
+     "item_tag": "004-0X",
+     "label": "",
+     "bbox": [
+      1400,
+      320,
+      1450,
+      345
+     ]
+    },
+    {
+     "component_type": "pump_pressure_unit",
+     "item_tag": "002-01",
+     "label": "'DEDICATED' PUMP & PRESSURE SWITCH UNIT",
+     "bbox": [
+      1060,
+      340,
+      1240,
+      480
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "019-01",
+     "label": "",
+     "bbox": [
+      1120,
+      390,
+      1160,
+      430
+     ]
+    },
+    {
+     "component_type": "pressure_switch",
+     "item_tag": "PS",
+     "label": "",
+     "bbox": [
+      1180,
+      375,
+      1210,
+      400
+     ]
+    },
+    {
+     "component_type": "pressure_indicator",
+     "item_tag": "PI",
+     "label": "",
+     "bbox": [
+      1095,
+      420,
+      1120,
+      445
+     ]
+    },
+    {
+     "component_type": "valve_gate",
+     "item_tag": "009-05",
+     "label": "",
+     "valve_state": "NC",
+     "bbox": [
+      940,
+      430,
+      975,
+      465
+     ]
+    },
+    {
+     "component_type": "valve_gate",
+     "item_tag": "009-07",
+     "label": "",
+     "valve_state": "NO",
+     "bbox": [
+      1265,
+      430,
+      1300,
+      465
+     ]
+    },
+    {
+     "component_type": "valve_gate",
+     "item_tag": "009-06",
+     "label": "",
+     "valve_state": "NO",
+     "bbox": [
+      915,
+      510,
+      950,
+      545
+     ]
+    },
+    {
+     "component_type": "valve_gate",
+     "item_tag": "009-08",
+     "label": "",
+     "valve_state": "NC",
+     "bbox": [
+      1305,
+      510,
+      1340,
+      545
+     ]
+    },
+    {
+     "component_type": "pump_pressure_set",
+     "item_tag": "001-01",
+     "label": "FRESHWATER PUMP & PRESSURE SWITCH SET",
+     "bbox": [
+      1000,
+      505,
+      1250,
+      780
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "019-02",
+     "label": "",
+     "bbox": [
+      1090,
+      555,
+      1130,
+      595
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "019-03",
+     "label": "",
+     "bbox": [
+      1090,
+      680,
+      1130,
+      720
+     ]
+    },
+    {
+     "component_type": "valve_gate",
+     "item_tag": "009-04",
+     "label": "",
+     "valve_state": "NO",
+     "bbox": [
+      940,
+      565,
+      975,
+      600
+     ]
+    },
+    {
+     "component_type": "valve_gate",
+     "item_tag": "009-03",
+     "label": "",
+     "valve_state": "NO",
+     "bbox": [
+      940,
+      690,
+      975,
+      725
+     ]
+    },
+    {
+     "component_type": "valve_gate",
+     "item_tag": "013-01",
+     "label": "",
+     "bbox": [
+      760,
+      590,
+      800,
+      630
+     ]
+    },
+    {
+     "component_type": "filter",
+     "item_tag": "011-01",
+     "label": "PARTICLE",
+     "bbox": [
+      1345,
+      700,
+      1390,
+      755
+     ]
+    },
+    {
+     "component_type": "water_maker",
+     "item_tag": "<UNKNOWN>",
+     "label": "WATER MAKERS (x2) (SEE SHEET 2)",
+     "bbox": [
+      1580,
+      370,
+      1755,
+      470
+     ]
+    },
+    {
+     "component_type": "valve_gate",
+     "item_tag": "005-01",
+     "label": "",
+     "bbox": [
+      1510,
+      610,
+      1550,
+      645
+     ]
+    },
+    {
+     "component_type": "valve_gate",
+     "item_tag": "005-02",
+     "label": "",
+     "bbox": [
+      1510,
+      710,
+      1550,
+      745
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "M",
+     "label": "",
+     "bbox": [
+      1515,
+      585,
+      1545,
+      610
+     ]
+    },
+    {
+     "component_type": "level_transmitter",
+     "item_tag": "LT",
+     "label": "PORT FRESH WATER TANK",
+     "bbox": [
+      2245,
+      635,
+      2280,
+      665
+     ]
+    },
+    {
+     "component_type": "tank",
+     "item_tag": "<UNKNOWN>",
+     "label": "PORT FRESH WATER TANK 1500L",
+     "bbox": [
+      2150,
+      600,
+      2440,
+      675
+     ]
+    },
+    {
+     "component_type": "valve_gate",
+     "item_tag": "009-02",
+     "label": "",
+     "bbox": [
+      2020,
+      630,
+      2060,
+      665
+     ]
+    },
+    {
+     "component_type": "level_indicator",
+     "item_tag": "LI",
+     "label": "",
+     "bbox": [
+      2245,
+      455,
+      2280,
+      485
+     ]
+    },
+    {
+     "component_type": "tank",
+     "item_tag": "<UNKNOWN>",
+     "label": "STBD FRESH WATER TANK 1500L",
+     "bbox": [
+      2150,
+      1005,
+      2440,
+      1080
+     ]
+    },
+    {
+     "component_type": "level_transmitter",
+     "item_tag": "LT",
+     "label": "STBD FRESH WATER TANK",
+     "bbox": [
+      2245,
+      1040,
+      2280,
+      1070
+     ]
+    },
+    {
+     "component_type": "valve_gate",
+     "item_tag": "009-01",
+     "label": "",
+     "bbox": [
+      2020,
+      1050,
+      2060,
+      1085
+     ]
+    },
+    {
+     "component_type": "valve_check",
+     "item_tag": "027-02",
+     "label": "",
+     "bbox": [
+      785,
+      435,
+      825,
+      475
+     ]
+    },
+    {
+     "component_type": "valve_check",
+     "item_tag": "027-01",
+     "label": "",
+     "bbox": [
+      1305,
+      860,
+      1345,
+      900
+     ]
+    },
+    {
+     "component_type": "silver_ion_sterilizer",
+     "item_tag": "<UNKNOWN>",
+     "label": "SILVER ION STERILIZER (SEE SHEET 2)",
+     "bbox": [
+      800,
+      1040,
+      970,
+      1100
+     ]
+    },
+    {
+     "component_type": "valve_gate",
+     "item_tag": "031-01",
+     "label": "",
+     "valve_state": "NC",
+     "bbox": [
+      1460,
+      955,
+      1500,
+      990
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "006-01",
+     "label": "",
+     "bbox": [
+      1515,
+      955,
+      1545,
+      990
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "006-02",
+     "label": "",
+     "bbox": [
+      1610,
+      955,
+      1640,
+      990
+     ]
+    },
+    {
+     "component_type": "pump",
+     "item_tag": "006-03",
+     "label": "",
+     "bbox": [
+      1700,
+      955,
+      1730,
+      990
+     ]
+    },
+    {
+     "component_type": "manifold",
+     "item_tag": "<UNKNOWN>",
+     "label": "BUNKER LINE DISTRIBUTION MANIFOLD",
+     "bbox": [
+      1460,
+      1010,
+      1770,
+      1060
+     ]
+    },
+    {
+     "component_type": "solenoid_valve",
+     "item_tag": "010-03",
+     "label": "TOILET ELECTRO VALVE",
+     "bbox": [
+      95,
+      875,
+      140,
+      915
+     ]
+    },
+    {
+     "component_type": "fitting",
+     "item_tag": "016-05",
+     "label": "",
+     "bbox": [
+      210,
+      875,
+      260,
+      900
+     ]
+    },
+    {
+     "component_type": "fitting",
+     "item_tag": "016-06",
+     "label": "",
+     "bbox": [
+      290,
+      895,
+      340,
+      920
+     ]
+    },
+    {
+     "component_type": "toilet",
+     "item_tag": "<UNKNOWN>",
+     "label": "TOILET",
+     "bbox": [
+      45,
+      745,
+      120,
+      810
+     ]
+    },
+    {
+     "component_type": "shower_mixer",
+     "item_tag": "<UNKNOWN>",
+     "label": "SHOWER MIXER & DIVERTER UNIT",
+     "bbox": [
+      190,
+      690,
+      315,
+      780
+     ]
+    },
+    {
+     "component_type": "basin",
+     "item_tag": "<UNKNOWN>",
+     "label": "BASIN",
+     "bbox": [
+      375,
+      690,
+      440,
+      780
+     ]
+    },
+    {
+     "component_type": "Marine Water Heater / Boiler",
+     "item_tag": "003-01",
+     "label": "80L BOILER",
+     "bbox": [
+      130,
+      90,
+      410,
+      220
+     ]
+    },
+    {
+     "component_type": "1/4 Turn Valve",
+     "item_tag": "023-01",
+     "label": "023-01",
+     "bbox": [
+      410,
+      100,
+      450,
+      130
+     ]
+    },
+    {
+     "component_type": "Ball Valve",
+     "item_tag": "008-01",
+     "label": "008-01",
+     "bbox": [
+      545,
+      120,
+      585,
+      150
+     ]
+    },
+    {
+     "component_type": "Ball Valve",
+     "item_tag": "008-02",
+     "label": "008-02",
+     "bbox": [
+      545,
+      170,
+      585,
+      200
+     ]
+    },
+    {
+     "component_type": "Non-Return Valve",
+     "item_tag": "007-01",
+     "label": "007-01",
+     "bbox": [
+      625,
+      170,
+      665,
+      200
+     ]
+    },
+    {
+     "component_type": "Pressure Relief Valve",
+     "item_tag": "014-01",
+     "label": "014-01",
+     "bbox": [
+      420,
+      240,
+      460,
+      290
+     ]
+    },
+    {
+     "component_type": "Level Indicator Sensor",
+     "item_tag": "026-01",
+     "label": "LI - PORT FW TANK BREATHER",
+     "bbox": [
+      465,
+      470,
+      530,
+      530
+     ]
+    },
+    {
+     "component_type": "Level Indicator Sensor",
+     "item_tag": "026-02",
+     "label": "LI - STBD FW TANK BREATHER",
+     "bbox": [
+      465,
+      930,
+      530,
+      990
+     ]
+    },
+    {
+     "component_type": "Ball Valve",
+     "item_tag": "009-02",
+     "label": "009-02",
+     "bbox": [
+      245,
+      690,
+      290,
+      720
+     ]
+    },
+    {
+     "component_type": "Ball Valve",
+     "item_tag": "009-01",
+     "label": "009-01",
+     "bbox": [
+      245,
+      1145,
+      290,
+      1175
+     ]
+    },
+    {
+     "component_type": "Tank Level Transmitter",
+     "item_tag": "LT",
+     "label": "LT - PORT FRESH WATER TANK",
+     "bbox": [
+      480,
+      660,
+      520,
+      690
+     ]
+    },
+    {
+     "component_type": "Tank Level Transmitter",
+     "item_tag": "LT",
+     "label": "LT - STBD FRESH WATER TANK",
+     "bbox": [
+      480,
+      1115,
+      520,
+      1145
+     ]
+    },
+    {
+     "component_type": "Ball Valve",
+     "item_tag": "F",
+     "label": "F valve near port tank",
+     "bbox": [
+      130,
+      690,
+      170,
+      720
+     ]
+    },
+    {
+     "component_type": "Ball Valve",
+     "item_tag": "F",
+     "label": "F valve near stbd tank",
+     "bbox": [
+      130,
+      1145,
+      170,
+      1175
+     ]
+    },
+    {
+     "component_type": "Circulation Pump indicator",
+     "item_tag": "CP",
+     "label": "CP port",
+     "bbox": [
+      535,
+      420,
+      590,
+      460
+     ]
+    },
+    {
+     "component_type": "Circulation Pump indicator",
+     "item_tag": "CP",
+     "label": "CP stbd",
+     "bbox": [
+      535,
+      880,
+      590,
+      920
+     ]
+    }
+   ],
+   "connections": [
+    {
+     "from_component": "PORT WATER TANK (1500 L)",
+     "to_component": "pump 1 (near cabin)",
+     "line_label": "purple/violet supply line",
+     "pipe_size": "<UNKNOWN>",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "pump 1 (near cabin)",
+     "to_component": "80L BOILER",
+     "line_label": "multi-color manifold lines",
+     "pipe_size": "<UNKNOWN>",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "80L BOILER",
+     "to_component": "small valve above boiler",
+     "line_label": "red hot line",
+     "pipe_size": "<UNKNOWN>",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "80L BOILER",
+     "to_component": "owners head manifold cluster",
+     "line_label": "hot/cold distribution lines (red/blue/green/purple)",
+     "pipe_size": "<UNKNOWN>",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "owners head manifold cluster",
+     "to_component": "Owners head toilet/basin fixture",
+     "line_label": "branch line",
+     "pipe_size": "<UNKNOWN>",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "owners head manifold cluster",
+     "to_component": "MIX (near owners head)",
+     "line_label": "mixer branch",
+     "pipe_size": "<UNKNOWN>",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "cross-hatched unit 1 (sail locker area)",
+     "to_component": "MIX (sail locker upper)",
+     "line_label": "branch line",
+     "pipe_size": "<UNKNOWN>",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "cross-hatched unit 2 (sail locker area)",
+     "to_component": "MIX (sail locker lower)",
+     "line_label": "branch line",
+     "pipe_size": "<UNKNOWN>",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "80L BOILER",
+     "to_component": "cross-hatched unit 1 (sail locker area)",
+     "line_label": "hot/cold sheer lines",
+     "pipe_size": "<UNKNOWN>",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "80L BOILER",
+     "to_component": "cross-hatched unit 2 (sail locker area)",
+     "line_label": "hot/cold sheer lines",
+     "pipe_size": "<UNKNOWN>",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "SAIL LOCKER",
+     "to_component": "ANCHOR BAY",
+     "line_label": "saltwater line running to anchor wet box (green)",
+     "pipe_size": "<UNKNOWN>",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "Anchor bay through-hull upper (near A)",
+     "to_component": "ANCHOR BAY H/C MIXER CONNECTION",
+     "line_label": "dashed vertical line",
+     "pipe_size": "<UNKNOWN>",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "Anchor bay through-hull lower",
+     "to_component": "ANCHOR BAY CHAINWASH CONNECTION",
+     "line_label": "dashed vertical line",
+     "pipe_size": "<UNKNOWN>",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "003-01 (80L BOILER)",
+     "to_component": "023-01",
+     "line_label": "",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "023-01",
+     "to_component": "008-01",
+     "line_label": "sf22",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "008-01",
+     "to_component": "SALTWATER LINE",
+     "line_label": "sf22",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "008-02",
+     "to_component": "007-01",
+     "line_label": "",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "003-01 (80L BOILER)",
+     "to_component": "008-02",
+     "line_label": "",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "003-01 (80L BOILER)",
+     "to_component": "014-01",
+     "line_label": "",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "014-01",
+     "to_component": "TO SUMP TANK REF DWG 108-01-530-001",
+     "line_label": "",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "003-01 (80L BOILER)",
+     "to_component": "TO MAIN ENGINE HEAT EXCHANGER REF DWG 108-01-515-001",
+     "line_label": "qy16",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "TO MAIN ENGINE HEAT EXCHANGER REF DWG 108-01-515-001",
+     "to_component": "003-01 (80L BOILER)",
+     "line_label": "qy16",
+     "direction_unconfirmed": false
+    },
+    {
+     "from_component": "PORT FW TANK BREATHER REF DWG 108-01-508-001",
+     "to_component": "026-01",
+     "line_label": "",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "026-01",
+     "to_component": "PORT FRESH WATER TANK 1500L",
+     "line_label": "dw25",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "PORT FRESH WATER TANK 1500L",
+     "to_component": "009-02",
+     "line_label": "",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "009-02",
+     "to_component": "F valve near port tank",
+     "line_label": "",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "F valve near port tank",
+     "to_component": "pvc40 line (external)",
+     "line_label": "pvc40",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "STBD FW TANK BREATHER REF DWG 108-01-508-001",
+     "to_component": "026-02",
+     "line_label": "",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "026-02",
+     "to_component": "STBD FRESH WATER TANK 1500L",
+     "line_label": "dw25",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "STBD FRESH WATER TANK 1500L",
+     "to_component": "009-01",
+     "line_label": "",
+     "direction_unconfirmed": true
+    },
+    {
+     "from_component": "009-01",
+     "to_component": "F valve near stbd tank",
+     "line_label": "",
+     "direction_unconfirmed": true
+    }
+   ]
+  }
+ },
+ "composition": {
+  "serve_who": "This is the Freshwater System Schematic (DWG 108-01-510-001, Rev B) for the whole vessel. Upper region is a GA/deck-plan overlay showing every cabin/head/galley fixture served by the freshwater distribution (cold, hot, dedicated/watermaker, sterilized-drinking, saltwater priming and bunker lines) using frame stations 0-11 and letters A-M as cross-reference keys. The lower region is the actual schematic: two 1500L fresh water tanks (port/stbd), two freshwater pressure pumps + a dedicated pump/pressure-switch unit, two watermakers (main 230VAC + backup 24VDC), two 80L boilers/water heaters, a silver-ion steriliser, UV/carbon/calcite filtration train, bunker-line dock-fill manifold, and all cabin/head/galley/appliance fixtures fed from these sources. Evidence: title block (\"FRESHWATER SYSTEM SCHEMATIC\"), pipe/BOM legends defining hot/cold/dedicated/sterilized/saltwater/bunker line colors, and the authoritative Operating Modes document naming the same pumps/tanks/valves. Equipment nodes served: 510-fresh-water-pump-1, 510-fresh-water-pump-2, 510-salt-water-pump, 510-watermaker-24v, 510-ecosistems-watermaker, 511-fwd-water-heater, 511-aft-water-heater, 510-uv-steriliser, 510-water-transfer-valves, and the galley/laundry appliances (360-dishwasher, 360-washing-machine, 360-dryer) whose supply valves are shown but whose own operation is on other sheets. No dedicated 'fresh water tank' or 'fresh water system' card exists in the register other than the individual pump/heater/watermaker nodes, so the tank/manifold/distribution topology is composed onto the closest fitting system-level equipment (fresh water pumps) per the class rule, with the overall lineup captured under 510-fresh-water-pump-1/2 as the system's duty pumps.",
+  "equipment_groups": [
+   {
+    "equipment_name": "Fresh Water Pump 1 & 2 (pressure set) \u2014 the freshwater distribution system's duty pumps",
+    "target_node_id": "510-fresh-water-pump-1",
+    "placement_reasoning": "Pump Data table names 'Freshwater Pressure System' as a Gianneschi 2 Ecojet 2 BE C.E. twin-pump set (2x55 l/min, 0.37kW each) feeding the whole cabin distribution; this matches 510-fresh-water-pump-1/2 register entries. The operating-modes doc confirms these are the normal-operation supply pumps to all fixtures.",
+    "functions": [
+     {
+      "label": "Normal freshwater supply to all cabin/head/galley fixtures",
+      "what_it_does": "Draws from whichever fresh water tank (port and/or stbd, any combination) is valved open and pressurises the cold/hot/dedicated distribution mains that feed every head, galley, shower, dispenser and deck/cockpit connection shown on the upper GA overlay.",
+      "flow_scenarios": [
+       {
+        "state": "Operating Mode 1 - Normal Operation",
+        "path": "Port and/or Stbd 1500L tank -> Freshwater pump & pressure switch set -> cold/hot/dedicated distribution mains -> cabin distribution points (letters A-M) -> individual fixtures (heads, galley, showers, dispensers); watermakers fill tanks in parallel"
+       },
+       {
+        "state": "Operating Mode 4 - Economical Freshwater Usage",
+        "path": "Same pump/tank lineup as Mode 1, but the dedicated line is sea water instead of fresh (valve state changed at main control panel) \u2014 pumps/piping identical, only water-type source differs"
+       },
+       {
+        "state": "Operating Mode 2 - Tank Water Transfer",
+        "path": "Source tank (e.g. Port) -> Freshwater pump & pressure switch set (Dedicated pump OFF at breaker) -> Receiving tank (e.g. Stbd); CAUTION: monitor to avoid over-pressurising receiving tank, valves reversible for opposite direction"
+       },
+       {
+        "state": "Operating Mode 5 - Pump Backup",
+        "path": "If both freshwater pumps inoperative, the Dedicated pump & pressure switch unit (020-01 area) takes over supply from raw water seachest / fresh water tanks to the freshwater distribution main; seachest shutoff valve closed for this mode"
+       }
+      ],
+      "key_components": [
+       "particle filter (5 micron) upstream",
+       "carbon filter (032-01)",
+       "calcite filter (033-01)",
+       "pressure switch/sensor (019-01)"
+      ],
+      "dry_data": "Gianneschi 2 Ecojet 2 B C.E., 230V/50Hz, 2x55 l/min, 2x0.37kW",
+      "sheet_region": "lower schematic, engine-room dashed box, center-left (~x1000,y1580-1700 of lower sheet)"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Dedicated Pump & Pressure Switch Unit",
+    "target_node_id": "510-water-transfer-valves",
+    "placement_reasoning": "This item is labelled '\"DEDICATED\" PUMP & PRESSURE SWITCH UNIT' (item 002-01) distinct from the freshwater pressure pump set; it feeds the dedicated (sea water or watermaker-fed) line per the Pump Data table (Gianneschi Idromix Ecojet 2 BB, 55 l/min). No dedicated node exists for this pump in the register; closest fit by function (valve/line-selection logic for dockside/tank/dedicated lineups) is 510-water-transfer-valves, used here as a placeholder attach \u2014 flagged as uncertain fit.",
+    "functions": [
+     {
+      "label": "Dedicated-line supply / backup pump duty",
+      "what_it_does": "Feeds the 'dedicated line' (sea water in normal/economical modes, fresh water in some configurations) and serves as backup pump for the freshwater set when both main pumps are down.",
+      "flow_scenarios": [
+       {
+        "state": "Normal/Economical Mode",
+        "path": "Raw water seachest (ref DWG 108-01-515-001) -> Dedicated pump & pressure switch unit -> dedicated distribution line -> anchor wash, deck wash, misc. dedicated-line fixtures"
+       },
+       {
+        "state": "Pump Backup Mode",
+        "path": "Fresh water tanks or seachest -> Dedicated pump (acting as backup) -> Freshwater pump & pressure switch set line, replacing the two main pumps when both are non-operational; seachest shutoff closed if using tank source"
+       }
+      ],
+      "key_components": [
+       "pressure sensor (019-01) for dedicated pump"
+      ],
+      "dry_data": "Gianneschi Idromix Ecojet 2 BB, 230V/50Hz, 55 l/min",
+      "sheet_region": "lower schematic, engine-room box, ~item 002-01, x990-1070,y1580-1660"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Ecosistems Watermaker 230V (Main Watermaker)",
+    "target_node_id": "510-ecosistems-watermaker",
+    "placement_reasoning": "Sheet shows 'MAIN WATERMAKER 230V AC' feeding the port/stbd fresh water tanks per Operating Mode 1 note ('Line = Watermakers feeding into integral freshwater tanks'). Matches register node 510-ecosistems-watermaker (EcoSistems A-300).",
+    "functions": [
+     {
+      "label": "Watermaker product-water fill of fresh water tanks",
+      "what_it_does": "Produces fresh water product from raw water and feeds it into the integral freshwater tanks (port and/or stbd), per Operating Mode 1/4 valve settings selected at the main control panel.",
+      "flow_scenarios": [
+       {
+        "state": "Normal/Economical operation",
+        "path": "Raw water seachest supply (ref DWG 108-01-515-001) -> Main Watermaker (230V AC) -> product line -> Port and/or Stbd Fresh Water Tank (1500L), valve lineup selectable at main control panel"
+       }
+      ],
+      "key_components": [],
+      "dry_data": "230V AC unit, engine-room mounted",
+      "sheet_region": "lower schematic, engine-room box, ~x1225,y405"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Watermaker 24V DC (Backup Watermaker)",
+    "target_node_id": "510-watermaker-24v",
+    "placement_reasoning": "Sheet labels 'BACKUP WATERMAKER 24V DC' distinctly from the main watermaker, matching register node 510-watermaker-24v.",
+    "functions": [
+     {
+      "label": "Backup watermaker product-water fill",
+      "what_it_does": "Serves as the 24VDC-powered backup to the main watermaker, feeding product water into the fresh water tanks when the main unit is unavailable.",
+      "flow_scenarios": [
+       {
+        "state": "Backup operation (implied, same tank-fill topology as main watermaker)",
+        "path": "Raw water seachest supply -> Backup Watermaker (24V DC) -> product line -> Port/Stbd Fresh Water Tank (1500L)"
+       }
+      ],
+      "key_components": [],
+      "dry_data": "24V DC unit",
+      "sheet_region": "lower schematic, engine-room box, ~x1265,y495"
+     }
+    ]
+   },
+   {
+    "equipment_name": "FWD Water Heater (Owners Cab.) \u2014 '80L Boiler' (fwd/owners side)",
+    "target_node_id": "511-fwd-water-heater",
+    "placement_reasoning": "Established alias fact: '80L FWD BOILER' = FWD Water Heater (Owners Cab.). Sheet shows an 80L boiler (item 003-02 area) feeding the owners head / port aft guest cabin cluster, matching this identity.",
+    "functions": [
+     {
+      "label": "Hot water generation for fwd/owners-side cabins",
+      "what_it_does": "Heats fresh water drawn from the cold distribution main and discharges hot water to the fwd-side cabin distribution points and fixtures (owners head, port aft guest cabins, sail locker mixers).",
+      "flow_scenarios": [
+       {
+        "state": "Normal operation",
+        "path": "Cold water main -> boiler cold inlet valve (008-04) -> check valve (007-02) -> 80L boiler -> hot outlet valve (008-03/008-01) -> hot distribution main -> owners head manifold cluster / cross-hatched units (sail locker mixers) -> fixture mixers"
+       },
+       {
+        "state": "Overpressure/relief protection",
+        "path": "80L boiler -> pressure relief valve (023-01/023-02) -> discharge to sump tank (ref DWG 108-01-530-001)"
+       }
+      ],
+      "key_components": [
+       "pressure relief valve (to sump tank)",
+       "check/non-return valve on cold inlet and hot outlet",
+       "isolation ball valves both sides"
+      ],
+      "dry_data": "80L capacity, item tag 003-02/003-01 (two boiler instances drawn \u2014 see uncertainty)",
+      "sheet_region": "lower schematic, right-of-center near owners head / sail locker, and duplicate near port lazarette"
+     }
+    ]
+   },
+   {
+    "equipment_name": "AFT Water Heater (Port Guest Cab.) \u2014 '80L Boiler' (aft/port guest side)",
+    "target_node_id": "511-aft-water-heater",
+    "placement_reasoning": "Established alias fact: '80L AFT BOILER' = AFT Water Heater (Port Guest Cab.). Sheet shows a second, separately-drawn 80L boiler instance in the aft crew/guest zone with its own relief/check/isolation valve set (items 003-01/023-01 etc.), matching this identity as a distinct physical unit from the fwd boiler.",
+    "functions": [
+     {
+      "label": "Hot water generation for aft crew/port guest cabins",
+      "what_it_does": "Heats fresh water for the aft crew heads/showers and port guest cabin fixtures, discharging via its own hot distribution branch with its own relief/check/isolation valve set.",
+      "flow_scenarios": [
+       {
+        "state": "Normal operation",
+        "path": "Cold water main -> boiler cold inlet valve -> check valve -> 80L boiler (aft) -> hot outlet isolation valve -> hot distribution main -> aft crew head/shower and port guest cabin fixtures"
+       },
+       {
+        "state": "Overpressure/relief protection",
+        "path": "80L boiler (aft) -> pressure relief valve -> discharge to sump tank (ref DWG 108-01-530-001)"
+       }
+      ],
+      "key_components": [
+       "pressure relief valve",
+       "check valves",
+       "isolation ball valves"
+      ],
+      "dry_data": "80L capacity",
+      "sheet_region": "lower schematic, left-center near port lazarette / working galley zone"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Silver Ion Sterilizer",
+    "target_node_id": "510-uv-steriliser",
+    "placement_reasoning": "Sheet explicitly labels 'SILVER ION STERILIZER' (upper GA overlay near frame G, and lower schematic engine-room box). Closest matching register node for a water-treatment/sterilising device in the Fresh Water group is 510-uv-steriliser (functionally the disinfection stage of the fresh water train, though the technology named on-sheet is silver-ion rather than UV) \u2014 flagged as an identity note, not forced without basis.",
+    "functions": [
+     {
+      "label": "Drinking-water sterilisation of the dockside/bunker fill line",
+      "what_it_does": "Treats water passing through the dock bunker line before it reaches the bunker-line distribution manifold and fresh water tanks, protecting stored water quality per Operating Mode 3 (Dockside Water Connection).",
+      "flow_scenarios": [
+       {
+        "state": "Operating Mode 3 - Dockside Water Connection",
+        "path": "Dock bunker line supply (fresh water) -> Silver Ion Sterilizer -> Bunker Line Distribution Manifold -> Port and/or Stbd Fresh Water Tank (1500L); pumps (both dedicated and freshwater) turned off at breaker for this mode; tank fill to be monitored to avoid overflow"
+       }
+      ],
+      "key_components": [],
+      "dry_data": "part number: capture at inspection if ever needed",
+      "sheet_region": "lower schematic, engine-room box, bottom-center (~x1095-1200,y1370-1420); also referenced in upper GA near frame G"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Washing Machine (freshwater supply valve only)",
+    "target_node_id": "360-washing-machine",
+    "placement_reasoning": "Sheet shows a dedicated cold-water supply valve to the washing machine (port lazarette zone); the appliance's own operation/electrical is on other sheets \u2014 only its water supply connection is drawn here.",
+    "functions": [
+     {
+      "label": "Cold water supply connection",
+      "what_it_does": "Provides a valved cold-water tap-off from the main distribution to the washing machine in the port lazarette.",
+      "flow_scenarios": [
+       {
+        "state": "Normal supply",
+        "path": "Cold water distribution main -> washing machine supply valve (004-0X) -> washing machine cold inlet"
+       }
+      ],
+      "key_components": [
+       "supply shutoff valve"
+      ],
+      "dry_data": "",
+      "sheet_region": "lower schematic, port lazarette area, near frame K/J"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Dishwasher (freshwater supply valve only)",
+    "target_node_id": "360-dishwasher",
+    "placement_reasoning": "Sheet shows a dedicated cold-water supply valve (016-09) to the galley dishwasher; only the water connection is drawn on this sheet.",
+    "functions": [
+     {
+      "label": "Cold water supply connection",
+      "what_it_does": "Provides a valved cold-water tap-off from the main distribution to the galley dishwasher.",
+      "flow_scenarios": [
+       {
+        "state": "Normal supply",
+        "path": "Cold water distribution main -> dishwasher cold supply valve (016-09) -> dishwasher cold inlet"
+       }
+      ],
+      "key_components": [
+       "supply shutoff valve"
+      ],
+      "dry_data": "",
+      "sheet_region": "lower schematic, galley zone"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "Fresh Water Distribution & Storage (Port/Stbd 1500L tanks, cabin distribution manifolds, cold/hot/dedicated/sterilized/saltwater/bunker mains)",
+    "target_node_id": "510-fresh-water-pump-1",
+    "facts": [
+     "Two 1500L fresh water tanks (Port and Stbd) with level indicator (LI) and level transducer (LT) instrumentation per tank, tank-connection legend defines horizontal/vertical/tank-I.D. entry conventions.",
+     "Pipe legend defines seven distinct line colors/types: hot water, mixed H/C water, dedicated, sterilized drinking water, sea water, bunker line, boiler heater line \u2014 each a physically separate piped system sharing the sheet, not to be merged.",
+     "Cabin distribution points (multiple, cross-referenced 'see schematic for more details') tap the mains at each frame station (A-M) to feed heads/galley/showers throughout the vessel.",
+     "Bunker line runs in the sheer from a dock water inlet connection through a distribution manifold near the engine room to fill either tank via silver-ion sterilizer (Operating Mode 3).",
+     "Anchor bay has its own hot/cold mixer connection and separate chainwash connection, each fed via dashed through-hull risers run in the sheer from aft \u2014 separate small runs, not part of the main cabin distribution.",
+     "All transom & lazarette shutoff valves are grouped at a single location per drawing note (frame ~9-10, bottom of upper GA).",
+     "Filtration train (5-micron particle filter, carbon filter 032-01, calcite filter 033-01) sits upstream of cabin distribution / dedicated pump loop in the engine room.",
+     "Diaphragm accumulators (025-01, 025-02) fitted near the owners-head/FWD guest-head hot & cold branches to dampen pressure pulses.",
+     "Detail view: shower rose supply pipe routing from mixer uses SpeedFit 15mm insulated pipe run through partitions per E-R vent conduit detail (scale 1:2), mirrored port/stbd for aft guest showers."
+    ]
+   }
+  ],
+  "cross_references": [
+   {
+    "what": "Raw water seachest supply feeding freshwater pumps, dedicated pump, and both watermakers",
+    "referenced_sheet_hint": "DWG 108-01-515-001 (Raw Water System)"
+   },
+   {
+    "what": "Sump tank discharge for boiler pressure-relief valves",
+    "referenced_sheet_hint": "DWG 108-01-530-001 (Grey/Sump system)"
+   },
+   {
+    "what": "Overboard discharge reference for water makers",
+    "referenced_sheet_hint": "DWG 96-04-515-001"
+   },
+   {
+    "what": "Priming line reference for aircon seawater pump",
+    "referenced_sheet_hint": "DWG 108-01-515-001"
+   },
+   {
+    "what": "Diesel fire pump / main fire pump priming line",
+    "referenced_sheet_hint": "DWG 108-01-520-01 (Bilge/Fire system)"
+   },
+   {
+    "what": "Main engine heat exchanger cooling supply/return",
+    "referenced_sheet_hint": "DWG 108-01-515-001"
+   },
+   {
+    "what": "Port/Stbd FW tank breather line to overboard",
+    "referenced_sheet_hint": "DWG 96-04-515-001"
+   },
+   {
+    "what": "Toilet electro valves (010-01..06) \u2014 electrical control",
+    "referenced_sheet_hint": "electrical schematics sheet (toilet/head control)"
+   },
+   {
+    "what": "Main Control Panel valve actuators for tank/dedicated-line selection",
+    "referenced_sheet_hint": "Freshwater System Operating Modes.pdf / electrical control sheet for main control panel"
+   },
+   {
+    "what": "Operating Modes document \u2014 authoritative lineup source for this whole system",
+    "referenced_sheet_hint": "Fresh Water System Operating Modes.pdf"
+   }
+  ],
+  "good_to_have": [
+   "Pipe code / SWS code / density-supplier / model piping details table (top-right) \u2014 exact pipe material/ratings readable at inspection.",
+   "Boiler pressure relief valve exact bar setting \u2014 visible on drawing/valve tag at inspection.",
+   "Item tags 004-0X repeated across many generic supply valves \u2014 exact per-instance BOW numbers readable on full-res drawing.",
+   "Bill of Materials (item no/qty/make-supplier/SWS code/description/weight) \u2014 full make/model per component available in table.",
+   "Pump Data table gives exact flow rate/power for both pump types (already captured in dry_data).",
+   "Filter cartridge micron ratings / carbon-calcite filter capacities \u2014 on BOM."
+  ],
+  "uncertainties": [
+   "Two physically separate 80L boiler instances are drawn (item tags overlap as 003-01/003-02 in different places) \u2014 the sheet's own established alias resolves FWD vs AFT boiler identity, but which specific drawn instance (fwd-cabin-zone vs port-lazarette-zone boiler) is the '003-01' vs '003-02' tag could not be confirmed with full certainty from this extraction; functionally both are captured but exact tag-to-node mapping should be confirmed against the BOM.",
+   "Silver Ion Sterilizer's attachment to register node 510-uv-steriliser is a functional best-fit (disinfection stage) rather than a name match \u2014 sheet calls it 'silver ion', register node is named 'UV Steriliser'; if these are actually two different technologies/devices, a dedicated node may be needed.",
+   "'Dedicated' Pump & Pressure Switch Unit (item 002-01) has no exact matching register node; attached to 510-water-transfer-valves as the closest functional fit (valve/line-selection & backup pump duty) but this is not a confident identity match \u2014 engineer should confirm whether this pump needs its own node."
+  ],
+  "_model": "claude-sonnet-5",
+  "_protocol_version": 4
+ },
+ "elapsed_s": 470.8
+}

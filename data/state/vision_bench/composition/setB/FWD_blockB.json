@@ -1,0 +1,610 @@
+{
+ "sheet": "FWD_blockB",
+ "drawing_class": "hydraulic",
+ "extraction": {
+  "header": {
+   "make_model": "DANFOSS PVG 32/16",
+   "title": "FWD BLOCK B: DANFOSS PVG 32/16 - 3 FUNCTIONS / HYDRAULIC SYSTEM",
+   "revision": "10",
+   "sheet": "3 of 12"
+  },
+  "rails": [
+   "P (pressure)",
+   "T (tank/return)",
+   "M",
+   "LS",
+   "LS_A",
+   "LS_B"
+  ],
+  "block_capacity_printed": false,
+  "notes": "Cartridge/part numbers (e.g. 11166832, 11166838, 157B5111, 157B6233, 157B2280, 157B7123, 11130982, 157B2014, 11105532) and pressure setting values (e.g. 280, 250, 300, 95) are printed but not legible at this resolution for precise confirmation. Several red warning triangle symbols mark components whose exact function/setting is unclear at low res. The auxiliary valve/relief assembly near the M and LS rails at left edge has unclear labeling and connections.",
+  "slices": [
+   {
+    "label": "BOW THRUSTER",
+    "identifier": "EV-2.1",
+    "rating": "Spool flow rating 65 lt/min; PVEU proportional actuator signal 0-10 V",
+    "actuation": "Proportional electro-hydraulic (PVEU) with pilot supply from onboard shuttle/reducing network at top of module; neutral position is OPEN CENTER (per legend \"open neutral position\"); signal <5V drives to STBD (port A), >5V drives to PORT (port B)",
+    "neutral": "open neutral position",
+    "is_block_level": false,
+    "x_left": 0.28,
+    "x_right": 0.47,
+    "detail": {
+     "function": "BOW THRUSTER (PVG 32 module, EV-2.1) \u2014 proportional directional control section",
+     "rating": "Spool flow rating 65 lt/min; PVEU proportional actuator signal 0-10 V",
+     "actuation": "Proportional electro-hydraulic (PVEU) with pilot supply from onboard shuttle/reducing network at top of module; neutral position is OPEN CENTER (per legend \"open neutral position\"); signal <5V drives to STBD (port A), >5V drives to PORT (port B)",
+     "cartridges": [
+      {
+       "role": "Main proportional directional spool (PVG32 main stage), open-center in neutral, meters flow from P to A or B depending on PVEU signal",
+       "position_in_flow": "sits in main body between P (bottom rail, red) and work ports A/B at top; T return also passes through body to bottom rail",
+       "id": "157B7123",
+       "setting": "PVEU 0-10V, <5V=A(STBD), >5V=B(PORT)"
+      },
+      {
+       "role": "Pilot/shuttle valve network at top of module feeding proportional pilot stage, small diamond-shuttle cluster above main spool",
+       "position_in_flow": "top of module, between P inlet and pilot chambers of main spool; part no. 11166832 stamped on module top",
+       "id": "11166832"
+      },
+      {
+       "role": "Work-port relief valve on port A leg, dumps overpressure from A line back toward T rail",
+       "position_in_flow": "connected across A branch downstream of spool, outlet joins common return path down to T rail at bottom",
+       "id": "157B2280",
+       "setting": "280 bar"
+      },
+      {
+       "role": "Work-port relief valve on port B leg, dumps overpressure from B line back toward T rail",
+       "position_in_flow": "connected across B branch downstream of spool, outlet joins common return path down to T rail at bottom",
+       "id": "157B2280",
+       "setting": "280 bar"
+      },
+      {
+       "role": "LS pressure limiter cartridges (pair), limit maximum load-sense signal pressure, one on LS_A branch and one on LS_B branch, each vented to local return when LS exceeds setting",
+       "position_in_flow": "sit in LS_A and LS_B lines between work-port shuttle/check network and the common LS rail at bottom of sheet",
+       "setting": "250 bar each"
+      },
+      {
+       "role": "Pilot-operated check / anti-cavitation check on M (motor case/drain?) line, small check+relief combo top-left of section below inlet block",
+       "position_in_flow": "on M line, upstream of the 300-bar relief and diamond check, outlet routed toward T",
+       "setting": "300 bar"
+      },
+      {
+       "role": "Small relief/check pair feeding the M port branch, limits pressure on M line before it joins P/T manifold",
+       "position_in_flow": "M line at far left, in series with 300 bar relief and check symbol, then to horizontal rail marked M/T/P",
+       "id": "unconfirmed"
+      },
+      {
+       "role": "Load-sense shuttle/check pair at work ports A and B (small check symbols directly under A/B port markers) feeding the LS_A/LS_B lines",
+       "position_in_flow": "immediately below A and B port take-off points, each feeding one of the two 280-bar reliefs and continuing down as LS signal lines",
+       "id": "unconfirmed"
+      }
+     ],
+     "flow_scenarios": [
+      "Neutral (0V signal region near mid-band, spool centered): open-center path connects P to T directly through spool bore; no flow to A or B; LS line stays at tank/low pressure since no work port pressurized.",
+      "Signal <5V (to STBD): spool shifts to connect P -> A port; B port connects to T return; oil flows out A to bow thruster motor driving STBD rotation; return oil from motor B line flows back through spool to T rail; LS_A line senses A-branch pressure and is capped by its 250 bar limiter.",
+      "Signal >5V (to PORT): spool shifts opposite way, P -> B port, A -> T; oil drives thruster to PORT direction; LS_B line senses B-branch pressure, capped by its 250 bar limiter.",
+      "Over-pressure on A: if A work-port pressure exceeds 280 bar, the A-side 157B2280 relief opens and dumps A flow to the common return/T rail, protecting the actuator/line from over-pressure regardless of spool position.",
+      "Over-pressure on B: symmetric case \u2014 B-side 157B2280 relief opens at 280 bar to T rail when B pressure exceeds setting.",
+      "M-line protection: pressure on the M (case-drain/auxiliary) line is limited to 300 bar by the relief/check pair before joining the common M/P/T rail at the bottom of the module."
+     ],
+     "settings": [
+      "Work-port relief A: 280 bar (157B2280)",
+      "Work-port relief B: 280 bar (157B2280)",
+      "LS limiter A: 250 bar",
+      "LS limiter B: 250 bar",
+      "M-line relief: 300 bar",
+      "PVEU control signal range: 0-10 V (threshold 5V splits STBD/PORT direction)"
+     ],
+     "ports": [
+      "A (STBD work port) - top of module, feeds off-sheet to bow thruster motor (STBD side); also taps down to LS_A line and 280 bar relief",
+      "B (PORT work port) - top of module, feeds off-sheet to bow thruster motor (PORT side); also taps down to LS_B line and 280 bar relief",
+      "P - main pressure rail entering module from bottom, common with adjacent EV-2.2 section (shared horizontal red rail labeled 157B6233/157B5111 running off right edge)",
+      "T - tank return rail at very bottom of sheet, shared common rail running full width, continues off-sheet left and right",
+      "M - auxiliary/case line at far left of module, joins common bottom rail, position relative to P/T ambiguous beyond crop",
+      "LS_A, LS_B - load-sense lines at bottom, run parallel to T rail, continue off-sheet to system LS gallery"
+     ],
+     "illegible": [
+      "Exact identity/function of small diamond-shuttle cluster at top of module (11166832) - individual cartridge roles within cluster not fully resolvable",
+      "Part number for LS limiter cartridges (250 bar units) not legible",
+      "Part number for M-line check/relief pair not legible",
+      "Text partially cropped at right edge near 157B6233/157B5111 rail labels",
+      "Small warning triangle icon near M line - meaning not specified on this sheet"
+     ],
+     "_model": "claude-sonnet-5"
+    },
+    "actuation_skeleton": "PVEU - 0-10V proportional",
+    "rating_skeleton": "65 lt/min spool"
+   },
+   {
+    "label": "B.T. UP/DOWN",
+    "identifier": "EV-2.2",
+    "rating": "PVG 16 MODULE, spool 5 lt/min",
+    "actuation": "PVE\u25a1 solenoid, ON/OFF actuation; UP=A / DOWN=B; closed neutral position (spool centers closed, blocking A/B)",
+    "neutral": "closed neutral position",
+    "is_block_level": false,
+    "x_left": 0.47,
+    "x_right": 0.66,
+    "detail": {
+     "function": "B.T. UP/DOWN \u2014 EV-2.2",
+     "rating": "PVG 16 MODULE, spool 5 lt/min",
+     "actuation": "PVE\u25a1 solenoid, ON/OFF actuation; UP=A / DOWN=B; closed neutral position (spool centers closed, blocking A/B)",
+     "cartridges": [
+      {
+       "role": "Main directional control spool (PVG16 module) - shifts to route pump flow to A (UP) or B (DOWN), closed-center at neutral",
+       "id": "11105532",
+       "position_in_flow": "sits between P/T rail and A/B work ports; center of the module stack"
+      },
+      {
+       "role": "Pilot solenoid valve stage (PVE\u25a1 ON/OFF pilot for main spool)",
+       "id": "11166838",
+       "position_in_flow": "top of stack, pilot line feeds down to main spool actuator ends"
+      },
+      {
+       "role": "Work-port relief / anti-cavitation valve on A side",
+       "position_in_flow": "small cartridge at left side of spool body, between A port line and case/tank line"
+      },
+      {
+       "role": "Work-port relief valve on B port, set via adjustable relief symbol labeled '95'",
+       "setting": "marked '95' (units illegible, likely bar)",
+       "position_in_flow": "B port branch line, outlet routes down to tank return rail at bottom of sheet"
+      },
+      {
+       "role": "Shuttle/pilot supply check (small diamond symbol) feeding pilot pressure to solenoid pilot stage",
+       "position_in_flow": "upper left, between inlet P rail and pilot solenoid valve"
+      }
+     ],
+     "flow_scenarios": [
+      "Neutral: spool closed-center, no flow to A or B, pump flow bypasses to tank rail (blue return line) at top",
+      "Energized UP (A): pilot solenoid shifts spool, P -> A port -> actuator extends/lifts; return oil from B -> spool -> tank rail",
+      "Energized DOWN (B): pilot solenoid shifts spool opposite direction, P -> B port -> actuator retracts/lowers; return oil from A -> spool -> tank rail",
+      "Relief on B: if B-port pressure exceeds relief setting '95', relief cartridge opens dumping excess flow to tank return rail"
+     ],
+     "settings": [
+      "Relief valve on B port branch: setting marked '95' (units not legible on this crop, presumed bar)"
+     ],
+     "ports": [
+      "A port: connects upward to A rail line (11130982) running off top of crop and to work-port relief cartridge on A side",
+      "B port: connects to B rail line and to relief valve '95' whose outlet runs down to tank return rail (marked <o> symbol) at bottom of crop",
+      "P inlet and T return rails run horizontally across full width, continuing off-sheet left/right"
+     ],
+     "illegible": [
+      "Exact units of relief setting '95' (bar/psi not shown)",
+      "Small identifiers on A-side relief/check cartridge",
+      "Full part number continuation beyond '11130982' and '157B...' at right edge (cut off)",
+      "Text near diamond/shuttle symbols at top of stack"
+     ],
+     "_model": "claude-sonnet-5"
+    },
+    "actuation_skeleton": "PVE0 - ON/OFF",
+    "rating_skeleton": "5 lt/min spool"
+   },
+   {
+    "label": "B.T. LOCK",
+    "identifier": "EV-2.3",
+    "rating": "PVG 16 module, spool 5 lt/min",
+    "actuation": "PVE\u25a1 solenoid, ON/OFF proportional-type module; IN=A / OUT=B; closed neutral (center) position",
+    "neutral": "closed neutral position",
+    "is_block_level": false,
+    "x_left": 0.66,
+    "x_right": 0.85,
+    "detail": {
+     "function": "B.T. LOCK (Bow Thruster Lock) \u2014 sub-circuit, tag 157B2014 visible at top",
+     "rating": "PVG 16 module, spool 5 lt/min",
+     "actuation": "PVE\u25a1 solenoid, ON/OFF proportional-type module; IN=A / OUT=B; closed neutral (center) position",
+     "cartridges": [
+      {
+       "role": "main directional spool (PVG16, closed-center) controlling lock cylinder IN/OUT",
+       "position_in_flow": "sits between P (red supply rail, top) and the two work ports; A energizes IN stroke, B energizes OUT stroke; center closed blocks both A and B",
+       "id": "unconfirmed",
+       "setting": "spool 5 lt/min"
+      },
+      {
+       "role": "pilot-operated / directional element shown at lower left (small box with arrow and 'A' marking) \u2014 appears to gate or indicate one work line, possibly a check or restrictor on the A line",
+       "position_in_flow": "located on the branch line below the spool, between spool output and the lower work port symbol",
+       "id": "unconfirmed"
+      },
+      {
+       "role": "solenoid coil symbol (EV-?) at bottom, unreadable designation",
+       "position_in_flow": "actuator for the spool shown at the bottom of the vertical line, coil box drawn with '>' or similar symbol partially cropped",
+       "id": "EV-? (illegible)"
+      }
+     ],
+     "flow_scenarios": [
+      "Neutral (no energization): spool centered/closed, P blocked from both A and B work lines, cylinder held locked in place (closed-center holds load)",
+      "IN energized (A): P -> spool -> A port -> cylinder IN stroke; opposite port B routed to tank return",
+      "OUT energized (B): P -> spool -> B port -> cylinder OUT stroke; opposite port A routed to tank return"
+     ],
+     "settings": [],
+     "ports": [
+      "Top red line labeled 157B2014 running off-sheet to the right \u2014 appears to be the pressure (P) supply line feeding this module from an external/adjacent sheet connection",
+      "Blue horizontal line mid-crop running off to the left edge \u2014 likely tank (T) return rail, off-sheet",
+      "Lower work port (small circle/node) connecting down to the actuator symbol at bottom of crop \u2014 presumed cylinder port A or B, exact identity not confirmed",
+      "Second work port at very bottom right, partially cropped, connects to a small valve/restrictor block"
+     ],
+     "illegible": [
+      "Exact cartridge/part ID numbers on the spool and lower valve block",
+      "EV coil designation number at bottom (only partial '>' symbol visible)",
+      "Full identity/label of the small boxed component with arrow near bottom-left (looks like a restrictor or pilot check but symbol not fully resolved)",
+      "Any pressure or flow setting text if present near these components \u2014 none clearly visible in this crop"
+     ],
+     "_model": "claude-sonnet-5"
+    },
+    "actuation_skeleton": "PVE0 - ON/OFF",
+    "rating_skeleton": "5 lt/min spool"
+   },
+   {
+    "label": "Inlet/end section with pressure relief and auxiliary valves",
+    "identifier": "unlabeled (near M/LS rails)",
+    "rating": "Spool: 65 lt/min (printed under function title)",
+    "actuation": "PVEU proportional actuation, 0-10V signal; TO STBD <5V = A / TO PORT >5V = B; open neutral (center) position (open-center spool per legend text)",
+    "neutral": "",
+    "is_block_level": true,
+    "x_left": 0.25,
+    "x_right": 0.33,
+    "detail": {
+     "function": "BOW THRUSTER (PVG 32 MODULE) \u2014 as labeled in this crop; identifiers 11166832 (top block) and 157B5111 (module reference tag)",
+     "rating": "Spool: 65 lt/min (printed under function title)",
+     "actuation": "PVEU proportional actuation, 0-10V signal; TO STBD <5V = A / TO PORT >5V = B; open neutral (center) position (open-center spool per legend text)",
+     "cartridges": [
+      {
+       "role": "Main proportional directional spool (PVG32 main stage), open-center neutral, shifted by PVEU pilot signal 0-10V",
+       "position_in_flow": "Sits between P/LS inlet rail (bottom) and M work port; center rail carries P and LS lines up from bottom manifold, spool block shown schematically at mid-height feeding M port line",
+       "id": "unconfirmed"
+      },
+      {
+       "role": "Work-port pressure relief on M line, dumps overpressure from work port to tank return",
+       "position_in_flow": "Small relief symbol with spring, inlet from M port branch line, outlet joins T return rail on left side of crop",
+       "setting": "unconfirmed value (no number legible on this relief)"
+      },
+      {
+       "role": "Second work-port relief / anti-cavitation check pair on M line (relief+check shown stacked)",
+       "position_in_flow": "Parallel relief and check symbols below the first relief, both tied into the M port branch, outlet to T return rail"
+      },
+      {
+       "role": "LS (load-sense) pressure limiter, caps LS signal pressure, set to 300 (units not legible, likely bar)",
+       "position_in_flow": "Cartridge marked '300' with adjustable spring symbol, inlet from LS branch line, outlet through check/orifice symbol to T return rail",
+       "setting": "300 (unit not legible, presumed bar)"
+      },
+      {
+       "role": "Orifice/damping restrictor in LS relief outlet path",
+       "position_in_flow": "Diamond orifice symbol in series between the 300-set relief cartridge and the T return rail"
+      },
+      {
+       "role": "Directional/isolation element with manual override shown at M port (small block with lever symbol, red warning triangle nearby)",
+       "position_in_flow": "In-line on M port branch just before/after the reliefs, red triangle indicates hazard/caution marking on this element, exact function of block not fully traceable"
+      }
+     ],
+     "flow_scenarios": [
+      "Neutral (0V or mid-signal near open-center): spool centered/open, P connects toward T internally, LS line unloaded, no directed flow to M port",
+      "Signal <5V (TO STBD, spool position A): P routed through spool to M port work line one direction; LS line follows load pressure from M branch; opposite port path returns to T via return rail",
+      "Signal >5V (TO PORT, spool position B): P routed through spool to M port opposite direction; LS senses load; return flow to T via return rail",
+      "Relief scenario: if M port pressure exceeds relief cartridge setting(s), oil dumps from M branch through relief symbol(s) to T return rail, protecting circuit from overpressure",
+      "LS limiter scenario: if LS branch pressure exceeds 300 setting, LS relief opens, flow passes through orifice to T return rail, capping LS signal pressure"
+     ],
+     "settings": [
+      "300 (unit not legible on this crop, presumed bar) \u2014 LS limiter cartridge setting; other reliefs on M line show no legible numeric value in this crop"
+     ],
+     "ports": [
+      "M \u2014 work port, connects downward into the reliefs/limiter network shown, and upward toward the main spool block at top of crop (path continues off top of crop toward PVG32 module internals labeled 11166832)",
+      "LS \u2014 load-sense line, runs along left side (cyan dashed/solid line) down to bottom rail, exits at bottom of crop labeled LS",
+      "T \u2014 tank return, bottom rail, port labeled T at very bottom of crop",
+      "P \u2014 pressure inlet, bottom rail, port labeled P at very bottom of crop, adjacent to T"
+     ],
+     "illegible": [
+      "Exact numeric setting/unit of the two reliefs on the M port branch (no printed value visible)",
+      "Full identifier/part number on the small block with lever/manual-override symbol near red warning triangle",
+      "Unit for the '300' setting (bar vs psi not printed)",
+      "Complete top portion of circuit (labeled 11166832) is cropped/cut off, so full main spool wiring to M port not fully traceable within this image",
+      "Any component ID tags on the individual relief/check cartridges besides the two frame reference numbers 11166832 and 157B5111"
+     ],
+     "_model": "claude-sonnet-5"
+    },
+    "actuation_skeleton": "",
+    "rating_skeleton": ""
+   }
+  ],
+  "legends": [
+   {
+    "kind": "text_tag_legend",
+    "title_as_printed": "BOW THRUSTER",
+    "bbox": [
+     0.315,
+     0.135,
+     0.44,
+     0.225
+    ],
+    "content": {
+     "entries": [
+      {
+       "label": "PVG 32 MODULE\nspool 65 lt/min\nPVEU - 0-10 V\nTO STBD <5 V=A/TO PORT >5V=B\nopen neutral position"
+      }
+     ],
+     "title": "BOW THRUSTER",
+     "_model": "claude-sonnet-5"
+    }
+   },
+   {
+    "kind": "text_tag_legend",
+    "title_as_printed": "B.T. UP/DOWN",
+    "bbox": [
+     0.44,
+     0.135,
+     0.56,
+     0.225
+    ],
+    "content": {
+     "title": "UP/DOWN",
+     "entries": [
+      {
+       "label": "PVG 16 MODULE"
+      },
+      {
+       "label": "spool 5 lt/min"
+      },
+      {
+       "label": "PVE\u25a1 - ON/OFF"
+      },
+      {
+       "label": "\u25a1V=B UP=A / DOWN=B"
+      },
+      {
+       "label": "closed neutral position"
+      },
+      {
+       "label": "EV-? ?"
+      }
+     ],
+     "_model": "claude-sonnet-5"
+    }
+   },
+   {
+    "kind": "text_tag_legend",
+    "title_as_printed": "B.T. LOCK",
+    "bbox": [
+     0.56,
+     0.135,
+     0.68,
+     0.225
+    ],
+    "content": {
+     "title": "LOCK",
+     "entries": [
+      {
+       "label": "PVG 16 MODULE"
+      },
+      {
+       "label": "spool 5 lt/min"
+      },
+      {
+       "label": "PVE\u25a1 - ON/OFF"
+      },
+      {
+       "label": "IN=A / OUT=B"
+      },
+      {
+       "label": "closed neutral position"
+      }
+     ],
+     "_model": "claude-sonnet-5"
+    }
+   },
+   {
+    "kind": "notes_block",
+    "title_as_printed": "MODIFICATIONS",
+    "bbox": [
+     0.71,
+     0.83,
+     1.0,
+     0.99
+    ],
+    "content": {
+     "title": "TITLE BLOCK",
+     "entries": [
+      {
+       "label": "REV | DATE | DRAWN | CHECKED | MODIFICATIONS"
+      },
+      {
+       "label": "0 | 27/07/2022 | PT | PR | FIRST ISSUE"
+      },
+      {
+       "label": "JOB N\u00b0: 22-53 | CLIENT: Southern Wind Shipyard | PROJECT: SWS 108"
+      },
+      {
+       "label": "TITLE: HYDRAULIC SYSTEM | REV: 10"
+      },
+      {
+       "label": "SECTION: DIAGRAM | DATE: 16/04/2026"
+      },
+      {
+       "label": "DRAWN: PT | CHECKED: PC | SCALE: not to scale @ A3 | SHEET: 3 of 12"
+      },
+      {
+       "label": "FILE NAME: SWS108-Hydraulic_System-rev10-FWD_blockB"
+      },
+      {
+       "label": "This drawing and the contained informations are property of MYT-Systems S.r.l. and protected by law. Copying, disclosure and any other use are prohibited except with written permission of MYT-Systems S.r.l.."
+      }
+     ],
+     "_model": "claude-sonnet-5"
+    }
+   },
+   {
+    "kind": "other_table",
+    "title_as_printed": "JOB N\u00b0: 22-53 / CLIENT: Southern Wind Shipyard / PROJECT: SWS 108 / TITLE: HYDRAULIC SYSTEM / SECTION: DIAGRAM / DRAWN: PT / CHECKED: PC / SCALE: not to scale @ A3 / SHEET: 3 of 12 / FILE NAME: SWS108-Hydraulic_System-rev10-FWD_blockB",
+    "bbox": [
+     0.71,
+     0.955,
+     1.0,
+     1.0
+    ],
+    "content": {
+     "entries": [
+      {
+       "label": "email: info@myt-systems.com | This drawing and the contained informations are property of MYT-Systems S.r.l. and protected by law. Copying, disclosure and any other use are prohibited except with written permission of MYT-Systems S.r.l.."
+      }
+     ],
+     "title": "<UNKNOWN>",
+     "_model": "claude-sonnet-5"
+    }
+   }
+  ],
+  "legend_context": "THIS SHEET'S OWN LEGENDS AND TABLES (read first; these definitions are AUTHORITATIVE for this sheet and override any generic symbol/line convention):\n- [text_tag_legend] BOW THRUSTER:\n    * PVG 32 MODULE\nspool 65 lt/min\nPVEU - 0-10 V\nTO STBD <5 V=A/TO PORT >5V=B\nopen neutral position\n- [text_tag_legend] B.T. UP/DOWN:\n    * PVG 16 MODULE\n    * spool 5 lt/min\n    * PVE\u25a1 - ON/OFF\n    * \u25a1V=B UP=A / DOWN=B\n    * closed neutral position\n    * EV-? ?\n- [text_tag_legend] B.T. LOCK:\n    * PVG 16 MODULE\n    * spool 5 lt/min\n    * PVE\u25a1 - ON/OFF\n    * IN=A / OUT=B\n    * closed neutral position\n- [notes_block] MODIFICATIONS:\n    * REV | DATE | DRAWN | CHECKED | MODIFICATIONS\n    * 0 | 27/07/2022 | PT | PR | FIRST ISSUE\n    * JOB N\u00b0: 22-53 | CLIENT: Southern Wind Shipyard | PROJECT: SWS 108\n    * TITLE: HYDRAULIC SYSTEM | REV: 10\n    * SECTION: DIAGRAM | DATE: 16/04/2026\n    * DRAWN: PT | CHECKED: PC | SCALE: not to scale @ A3 | SHEET: 3 of 12\n    * FILE NAME: SWS108-Hydraulic_System-rev10-FWD_blockB\n    * This drawing and the contained informations are property of MYT-Systems S.r.l. and protected by law. Copying, disclosure and any other use are prohibited except with written permission of MYT-Systems S.r.l..\n- [other_table] JOB N\u00b0: 22-53 / CLIENT: Southern Wind Shipyard / PROJECT: SWS 108 / TITLE: HYDRAULIC SYSTEM / SECTION: DIAGRAM / DRAWN: PT / CHECKED: PC / SCALE: not to scale @ A3 / SHEET: 3 of 12 / FILE NAME: SWS108-Hydraulic_System-rev10-FWD_blockB:\n    * email: info@myt-systems.com | This drawing and the contained informations are property of MYT-Systems S.r.l. and protected by law. Copying, disclosure and any other use are prohibited except with written permission of MYT-Systems S.r.l..",
+  "passes": {
+   "skeleton_dpi": 200,
+   "detail_dpi": 600,
+   "slices_found": 4,
+   "detail_calls": 4
+  },
+  "model": "claude-sonnet-5"
+ },
+ "composition": {
+  "serve_who": "This sheet (\"FWD BLOCK B: DANFOSS PVG 32/16 \u2013 3 FUNCTIONS\") is the FWD hydraulic manifold block B, hosting three named function slices: BOW THRUSTER (EV-2.1, PVG32 module), B.T. UP/DOWN (EV-2.2, PVG16 module) and B.T. LOCK (EV-2.3, PVG16 module). All three slices are explicitly labelled \"B.T.\" (Bow Thruster) sub-functions and therefore all serve the same equipment: the bow thruster system (460-bow-thruster-oms-h300), which per the register/mappings covers bow thruster drive, lift and lock functions. The manifold block itself (inlet/end section with M/LS/P/T rails, the standalone reduced-pressure valve, and shared rails) is infrastructure belonging to the FWD blockB manifold node (570-danfoss-pvg-32-16-fwd-blockb), not to the bow thruster equipment node.",
+  "equipment_groups": [
+   {
+    "equipment_name": "Bow Thruster (OMS H-300)",
+    "target_node_id": "460-bow-thruster-oms-h300",
+    "placement_reasoning": "All three slices on this sheet are labelled with 'BOW THRUSTER' / 'B.T.' prefixes, matching the engineer-confirmed mapping of bow thruster (drive), bow thruster lift/up-down and bow thruster lock all to node 460-bow-thruster-oms-h300. This is consistent with the established schematic facts already on that node (spool 65 lt/min, PVEU 0-10V, same cartridge family 11166832/15785111/etc.) from the same file family (FWD_blockB.pdf).",
+    "functions": [
+     {
+      "function_id": "EV-2.1",
+      "label": "BOW THRUSTER \u2014 proportional drive",
+      "sheet_region": "left third of sheet, ~x 0.28-0.47",
+      "what_it_does": "Proportionally drives the bow thruster motor to STBD or PORT, metering flow in proportion to a 0-10V electrical signal from the pilot module; open-center spool so pump flow bypasses to tank when no command is present.",
+      "key_components": [
+       "Main proportional directional spool (open-center, PVG32 main stage)",
+       "Pilot/shuttle module directing the spool from the 0-10V signal",
+       "Work-port relief on A (STBD) leg",
+       "Work-port relief on B (PORT) leg",
+       "Load-sense pressure limiters on LS_A and LS_B branches",
+       "M-line (case/auxiliary) relief and check pair upstream of the shared M/P/T rail"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "Neutral (open-center, no/mid signal)",
+        "path": "P flows through the open-center spool directly to T; no directed flow to A or B; LS stays unloaded at tank pressure."
+       },
+       {
+        "state": "Signal <5V \u2014 TO STBD",
+        "path": "Spool shifts, P \u2192 port A \u2192 bow thruster motor drives STBD; return flow from motor via port B \u2192 spool \u2192 T; LS_A senses A-branch pressure, capped by its load-sense limiter (set per drawing, ~250 bar per prior read)."
+       },
+       {
+        "state": "Signal >5V \u2014 TO PORT",
+        "path": "Spool shifts opposite way, P \u2192 port B \u2192 motor drives PORT; return from A \u2192 spool \u2192 T; LS_B senses B-branch pressure, capped by its load-sense limiter."
+       },
+       {
+        "state": "Over-pressure protection on A",
+        "path": "If A work-port pressure exceeds the A-side relief setting (280 bar), the relief opens and dumps A flow to the common T return, protecting the actuator/lines independent of spool position."
+       },
+       {
+        "state": "Over-pressure protection on B",
+        "path": "Symmetric: B-side relief opens at 280 bar to T when B pressure exceeds setting."
+       }
+      ],
+      "dry_data": "PVG32 module, spool 65 lt/min, PVEU proportional actuation 0-10V (threshold 5V splits STBD/PORT), open neutral (open-center) position."
+     },
+     {
+      "function_id": "EV-2.2",
+      "label": "B.T. UP/DOWN \u2014 lift/lower actuation",
+      "sheet_region": "middle third of sheet, ~x 0.47-0.66",
+      "what_it_does": "Raises or lowers the bow thruster unit (lift function) via ON/OFF solenoid-piloted spool; closed-center at neutral so the thruster lift cylinder holds position with no drift when not commanded.",
+      "key_components": [
+       "Main directional spool (PVG16 module, closed-center)",
+       "Pilot ON/OFF solenoid (PVEO) stage",
+       "Work-port relief/anti-cavitation element on A side",
+       "Work-port relief valve on B side"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "Neutral (de-energized)",
+        "path": "Spool closed-center; no flow to A or B; pump flow bypasses to the tank return rail; lift cylinder holds its position."
+       },
+       {
+        "state": "Energized UP (port A)",
+        "path": "Pilot solenoid shifts spool, P \u2192 port A \u2192 lift cylinder extends/raises the thruster; return oil from B \u2192 spool \u2192 tank rail."
+       },
+       {
+        "state": "Energized DOWN (port B)",
+        "path": "Pilot solenoid shifts spool opposite way, P \u2192 port B \u2192 lift cylinder retracts/lowers the thruster; return oil from A \u2192 spool \u2192 tank rail."
+       },
+       {
+        "state": "Over-pressure on B",
+        "path": "If B-port pressure exceeds the relief setting, the relief cartridge opens and dumps excess flow to the tank return rail."
+       }
+      ],
+      "dry_data": "PVG16 module, spool 5 lt/min, PVEO ON/OFF actuation; UP=A / DOWN=B; closed neutral position."
+     },
+     {
+      "function_id": "EV-2.3",
+      "label": "B.T. LOCK \u2014 thruster lock cylinder",
+      "sheet_region": "right third of sheet, ~x 0.66-0.85",
+      "what_it_does": "Extends/retracts the bow thruster mechanical lock cylinder (IN/OUT) via ON/OFF solenoid-piloted spool; closed-center holds the lock in its last commanded position when de-energized.",
+      "key_components": [
+       "Main directional spool (PVG16 module, closed-center)",
+       "Pilot ON/OFF solenoid (PVEO) stage",
+       "Restrictor/check element on the A-side branch (function not fully legible)"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "Neutral (de-energized)",
+        "path": "Spool centered/closed; P blocked from both A and B; lock cylinder held in place (closed-center holds load, neither locking nor unlocking)."
+       },
+       {
+        "state": "IN energized (port A)",
+        "path": "P \u2192 spool \u2192 port A \u2192 lock cylinder strokes IN (locks the thruster); opposite port B routed to tank return."
+       },
+       {
+        "state": "OUT energized (port B)",
+        "path": "P \u2192 spool \u2192 port B \u2192 lock cylinder strokes OUT (unlocks the thruster); opposite port A routed to tank return."
+       }
+      ],
+      "dry_data": "PVG16 module, spool 5 lt/min, PVEO ON/OFF actuation; IN=A / OUT=B; closed neutral position."
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "Danfoss PVG 32/16 FWD Block B manifold (inlet/end section, rails)",
+    "target_node_id": "570-danfoss-pvg-32-16-fwd-blockb",
+    "facts": [
+     "Block hosts 3 function slices (EV-2.1 BOW THRUSTER, EV-2.2 B.T. UP/DOWN, EV-2.3 B.T. LOCK) sharing common P (pressure), T (tank/return), M, LS, LS_A and LS_B rails running the full width of the sheet.",
+     "Inlet/end section at left includes a standalone reduced-pressure valve supplying SPOOL CONTROL (pilot) pressure to the slices, plus an M-line relief/check network venting to the T rail; a load-sense limiter cartridge set to 300 bar caps LS branch pressure with a downstream damping orifice before the T rail.",
+     "A red warning-triangle revision marker sits near the M-line block-level component and near the '95' relief on EV-2.2's B port, and on the pilot modules of EV-2.2/EV-2.3 \u2014 per the revision table these correspond to rev. changes on this file (rev 10: 'PROPORTIONAL AFT WINCHES' etc. do not directly match FWD blockB, so the specific triggering revision row for this sheet's markers could not be tied to a line item; flagged as uncertainty).",
+     "P, T, M, LS rails continue off-sheet to left/right, consistent with a shared FWD manifold gallery serving multiple function blocks (block A/B) \u2014 cross-block continuity, not this equipment's own line."
+    ]
+   }
+  ],
+  "cross_references": [
+   {
+    "what": "Continuation of the shared P/T/M/LS rails to the left edge (labelled 157B5111, 157B2014) and right edge, feeding/joining the adjacent FWD block A manifold section",
+    "referenced_sheet_hint": "SWS108-Hydraulic_System-rev10-FWD_blockA.pdf"
+   },
+   {
+    "what": "Bow thruster motor and lock cylinder actuator hardware itself (only hydraulic supply/control shown here, actuator drawn off-sheet)",
+    "referenced_sheet_hint": "possible mechanical/actuator or thruster installation drawing"
+   },
+   {
+    "what": "PLC/electrical control wiring for the PVEU (0-10V) and PVEO (ON/OFF) pilot signals driving EV-2.1/2.2/2.3",
+    "referenced_sheet_hint": "electrical schematics / PLC I/O rack sheet (e.g. 570-plc-rack-er or similar hydraulic control rack)"
+   }
+  ],
+  "good_to_have": [
+   "Exact bar values of the EV-2.1 work-port reliefs (280 bar each side, per legend) and LS limiters (~250 bar) \u2014 legible on drawing at inspection",
+   "M-line relief setting (~300 bar) at block inlet \u2014 spool control/pilot pressure valve",
+   "Exact bar value of the '95' marked relief on EV-2.2 port B \u2014 value present on drawing, read at inspection",
+   "Cartridge/part numbers (11166832, 11166838, 157B5111, 157B6233, 157B2280, 157B7123, 11130982, 157B2014, 11105532) are stamped on the sheet but not needed to understand function; capture at inspection if ever required",
+   "EV-2.3 restrictor/check element identity near bottom-left of the lock slice \u2014 present on drawing, part ID not critical to function"
+  ],
+  "uncertainties": [
+   "The exact meaning/trigger of the red warning-triangle revision markers on EV-2.2's pilot module, EV-2.3's pilot module, and the block inlet M-line component could not be tied to a specific row in this sheet's own revision table (the visible rows describe AFT winches/pressure adjustments, not FWD blockB items) \u2014 engineer should confirm which revision introduced/changed these three markers.",
+   "The small boxed component with an arrow near the bottom-left of the EV-2.3 (B.T. LOCK) slice has an unclear function (possibly a check or restrictor on the A line) \u2014 its role affects understanding of the lock circuit's directional behavior and should be confirmed."
+  ],
+  "discarded_as_clutter": [
+   "Title block / revision table administrative rows (dates, drawn/checked initials, job/client/project numbers) \u2014 meta, not equipment data",
+   "Legend text blocks restating PVG32/PVG16 rating and actuation already captured in dry_data lines",
+   "File name / copyright footer boilerplate",
+   "Duplicate 'BOW THRUSTER' slice title appearing twice in the prior extraction (main EV-2.1 slice and the separately-listed 'Inlet/end section' slice mislabeled as BOW THRUSTER) \u2014 merged into one function description; the inlet/end section content was reclassified as block infrastructure, not a duplicate bow-thruster function"
+  ],
+  "_model": "claude-sonnet-5",
+  "_protocol_version": 4
+ },
+ "elapsed_s": 179.2
+}

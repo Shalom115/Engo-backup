@@ -1,0 +1,4300 @@
+{
+ "sheet": "GM-110b_power-oneline",
+ "drawing_class": "electrical",
+ "extraction": {
+  "legends": [
+   {
+    "kind": "notes_block",
+    "title_as_printed": "NOTE:",
+    "bbox": [
+     0.02,
+     0.87,
+     0.62,
+     0.985
+    ],
+    "content": {
+     "entries": [
+      {
+       "label": "EDN",
+       "symbol_description": "SHORE CHARGER 400V 3Ph 600V DC"
+      },
+      {
+       "label": "MAPS",
+       "symbol_description": "MODULAR AUXILARY POWER SYSTEM 600V DC/24V DC"
+      },
+      {
+       "label": "HMI",
+       "symbol_description": "SCREEN"
+      },
+      {
+       "label": "ACTM",
+       "symbol_description": "PROPULSION MOTOR"
+      },
+      {
+       "label": "EMRAX",
+       "symbol_description": "HYDRAULIC PUMP MOTOR"
+      }
+     ],
+     "title": "",
+     "_model": "claude-sonnet-5"
+    }
+   },
+   {
+    "kind": "text_tag_legend",
+    "title_as_printed": "BAE LVPDU DIAGRAM REFERENCE  PAGE 26 / 27",
+    "bbox": [
+     0.01,
+     0.985,
+     0.34,
+     1.0
+    ],
+    "content": {
+     "entries": [
+      {
+       "label": "<illegible>",
+       "symbol_description": "<illegible>"
+      }
+     ],
+     "title": "<illegible>",
+     "_model": "claude-sonnet-5"
+    }
+   }
+  ],
+  "legend_context": "THIS SHEET'S OWN LEGENDS AND TABLES (read first; these definitions are AUTHORITATIVE for this sheet and override any generic symbol/line convention):\n- [notes_block] NOTE::\n    * EDN -> SHORE CHARGER 400V 3Ph 600V DC\n    * MAPS -> MODULAR AUXILARY POWER SYSTEM 600V DC/24V DC\n    * HMI -> SCREEN\n    * ACTM -> PROPULSION MOTOR\n    * EMRAX -> HYDRAULIC PUMP MOTOR\n- [text_tag_legend] BAE LVPDU DIAGRAM REFERENCE  PAGE 26 / 27:\n    * <illegible> -> <illegible>",
+  "survey": {
+   "sub_type": "mixed",
+   "sub_type_reason": "Top half of the sheet is a power one-line topology (battery banks, isolator panel, switches, generators/ISG feeding MPCS) with interconnected sources/buses; bottom half is a distribution_schedule (LVPDU panel columns PORT/STBD/system cooling with CB rows feeding named loads). Neither pattern dominates the whole sheet, hence mixed.",
+   "regions": [
+    {
+     "type": "power_one_line",
+     "label": "Battery Fuse and Isolator Panel + Battery Isolator Panel (GMDSS/Emergency/Gen Start/Aux Service batteries, fuses, chargers, switches SW11-SW16, wire-gauge callouts)",
+     "bbox": [
+      0.0,
+      0.06,
+      0.53,
+      0.4
+     ],
+     "approx_unit_count": 4
+    },
+    {
+     "type": "power_one_line",
+     "label": "Port/Stbd Generator + ISG topology feeding MPCS",
+     "bbox": [
+      0.65,
+      0.13,
+      1.0,
+      0.32
+     ],
+     "approx_unit_count": 2
+    },
+    {
+     "type": "other",
+     "label": "24V/230V AC-DC converter + isolator + CT5 to ONYX",
+     "bbox": [
+      0.1,
+      0.4,
+      0.45,
+      0.48
+     ],
+     "approx_unit_count": 1
+    },
+    {
+     "type": "other",
+     "label": "Shunt#1/CT6/Shunt#5 metering (Ammeter/Voltmeter) feeding LVPDU",
+     "bbox": [
+      0.0,
+      0.5,
+      0.6,
+      0.58
+     ],
+     "approx_unit_count": 1
+    },
+    {
+     "type": "panel_column",
+     "label": "LVPDU PORT column (CB1-CB4, CBx1-CBx12)",
+     "bbox": [
+      0.33,
+      0.58,
+      0.5,
+      0.9
+     ],
+     "approx_unit_count": 16
+    },
+    {
+     "type": "panel_column",
+     "label": "LVPDU center column ESS/ACTM/CCP/SCU (CB9-CB13)",
+     "bbox": [
+      0.5,
+      0.58,
+      0.66,
+      0.72
+     ],
+     "approx_unit_count": 5
+    },
+    {
+     "type": "panel_column",
+     "label": "LVPDU STBD column (CB5-CB8)",
+     "bbox": [
+      0.66,
+      0.58,
+      0.83,
+      0.68
+     ],
+     "approx_unit_count": 4
+    },
+    {
+     "type": "panel_column",
+     "label": "STBD auxiliary breaker column (CBx13-CBx20: throttle control, DTLGR, BCP, Parker display, MC43 power)",
+     "bbox": [
+      0.83,
+      0.72,
+      1.0,
+      0.88
+     ],
+     "approx_unit_count": 8
+    },
+    {
+     "type": "panel_column",
+     "label": "PORT System Cooling column (CB14,15,21)",
+     "bbox": [
+      0.33,
+      0.9,
+      0.5,
+      0.96
+     ],
+     "approx_unit_count": 3
+    },
+    {
+     "type": "panel_column",
+     "label": "Center System Cooling column (CB16,19,20,23)",
+     "bbox": [
+      0.5,
+      0.9,
+      0.66,
+      0.98
+     ],
+     "approx_unit_count": 4
+    },
+    {
+     "type": "panel_column",
+     "label": "STBD System Cooling column (CB17,18,22)",
+     "bbox": [
+      0.66,
+      0.9,
+      0.83,
+      0.96
+     ],
+     "approx_unit_count": 3
+    },
+    {
+     "type": "relay_bank",
+     "label": "Re.0 / Re7 relays near CP switch / HVIL",
+     "bbox": [
+      0.55,
+      0.72,
+      0.66,
+      0.78
+     ],
+     "approx_unit_count": 2
+    },
+    {
+     "type": "legend",
+     "label": "NOTE / abbreviation glossary (LVPDU, ISG, SCU, MPCS, ESS, EDN, MAPS, HMI, ACTM, EMRAX)",
+     "bbox": [
+      0.0,
+      0.86,
+      0.32,
+      0.99
+     ],
+     "approx_unit_count": 1
+    },
+    {
+     "type": "legend",
+     "label": "Title block (DWG No, Title, Date, Drawn, Project, Customer)",
+     "bbox": [
+      0.32,
+      0.95,
+      1.0,
+      1.0
+     ],
+     "approx_unit_count": 1
+    }
+   ],
+   "cross_refs": [
+    "see DWG 110a (isolator, SW5)",
+    "see DWG 110a (SW10 shunt#1)",
+    "see DWG 110d (CP SWITCH)",
+    "From SCU3 G3-1129",
+    "to SCU3 P50-23 G3-J11R",
+    "see DWG 113",
+    "BAE LVPDU DIAGRAM REFERENCE PAGE 26/27",
+    "to PORT MPCS",
+    "to STBD MPCS",
+    "to ONYX (x2)",
+    "to CBI Control"
+   ],
+   "notes": "Top section shows battery banks (GMDSS, Emergency, Gen Start, Aux Service) each with dual fuses, feeding chargers or inverter through a dotted-boundary Battery Isolator Panel containing rotary switches SW11-SW16 and breakers CB1/CB2 (50A), with diamond wire-gauge callouts (70) on conductors to Port/Stbd Generator ISG units. This portion is a power_one_line topology. Lower section (LVPDU) is a classic distribution_schedule: metering (CT5, CT6, shunts, ammeter/voltmeter) feeds three panel column groups (PORT, center, STBD) each listing CB-id/rating/load-name rows, repeated for main loads and again for 'System Cooling' loads. A few relay-like elements (Re.0, Re7) and CP switch/HVIL signal tap sit between center and STBD columns. Title block and abbreviation legend confirmed. Some small tag text near CBx rows (e.g. 'BEL CAN BUS ISOLATORS', 'BEL-SYNC') too small to fully verify at this resolution - flagged as possibly illegible/ambiguous. Overall sheet mixes both major layout patterns, hence classified mixed.",
+   "_model": "claude-sonnet-5",
+   "_pass1_dpi": 200
+  },
+  "sub_type": "mixed",
+  "regions_read": [
+   {
+    "region": "LVPDU PORT column (CB1-CB4, CBx1-CBx12)",
+    "region_type": "panel_column",
+    "bbox": [
+     0.33,
+     0.58,
+     0.5,
+     0.9
+    ],
+    "reader": "schedule",
+    "panel_label": "SYSTEM COOLING",
+    "rows": [
+     {
+      "device_type": "breaker",
+      "device_id": "CB14",
+      "rating": "20A",
+      "load_name": "MCP-P PUMP"
+     },
+     {
+      "device_type": "breaker",
+      "device_id": "CB15",
+      "rating": "20A",
+      "load_name": "ECP-P PUMP"
+     },
+     {
+      "device_type": "breaker",
+      "device_id": "CB21",
+      "rating": "6A",
+      "load_name": "SEA WATER PUMP"
+     },
+     {
+      "device_type": "breaker",
+      "device_id": "CBx",
+      "rating": "<UNKNOWN>",
+      "load_name": "<UNKNOWN>",
+      "ambiguous": true
+     },
+     {
+      "device_type": "breaker",
+      "device_id": "CBx2",
+      "rating": "<UNKNOWN>",
+      "load_name": "<UNKNOWN>",
+      "ambiguous": true
+     },
+     {
+      "device_type": "breaker",
+      "device_id": "CBx3",
+      "rating": "<UNKNOWN>",
+      "load_name": "<UNKNOWN>",
+      "ambiguous": true
+     },
+     {
+      "device_type": "breaker",
+      "device_id": "CBx4",
+      "rating": "<UNKNOWN>",
+      "load_name": "<UNKNOWN>",
+      "ambiguous": true
+     },
+     {
+      "device_type": "breaker",
+      "device_id": "CBx5",
+      "rating": "<UNKNOWN>",
+      "load_name": "<UNKNOWN>",
+      "ambiguous": true
+     },
+     {
+      "device_type": "breaker",
+      "device_id": "CBx6",
+      "rating": "<UNKNOWN>",
+      "load_name": "<UNKNOWN>",
+      "ambiguous": true
+     },
+     {
+      "device_type": "breaker",
+      "device_id": "CBx7",
+      "rating": "<UNKNOWN>",
+      "load_name": "<UNKNOWN>",
+      "ambiguous": true
+     },
+     {
+      "device_type": "breaker",
+      "device_id": "CBx8",
+      "rating": "<UNKNOWN>",
+      "load_name": "<UNKNOWN>",
+      "ambiguous": true
+     },
+     {
+      "device_type": "breaker",
+      "device_id": "CBx9",
+      "rating": "<UNKNOWN>",
+      "load_name": "<UNKNOWN>",
+      "ambiguous": true
+     },
+     {
+      "device_type": "breaker",
+      "device_id": "CBx1",
+      "rating": "<UNKNOWN>",
+      "load_name": "<UNKNOWN>",
+      "ambiguous": true
+     },
+     {
+      "device_type": "breaker",
+      "device_id": "CBx1",
+      "rating": "<UNKNOWN>",
+      "load_name": "<UNKNOWN>",
+      "ambiguous": true
+     },
+     {
+      "device_type": "breaker",
+      "device_id": "CBx1",
+      "rating": "<UNKNOWN>",
+      "load_name": "<UNKNOWN>",
+      "ambiguous": true
+     },
+     {
+      "device_type": "breaker",
+      "device_id": "CB1",
+      "rating": "<UNKNOWN>",
+      "load_name": "<UNKNOWN>",
+      "ambiguous": true
+     },
+     {
+      "device_type": "breaker",
+      "device_id": "CB1",
+      "rating": "<UNKNOWN>",
+      "load_name": "<UNKNOWN>",
+      "ambiguous": true
+     },
+     {
+      "device_type": "breaker",
+      "device_id": "CB2",
+      "rating": "<UNKNOWN>",
+      "load_name": "<UNKNOWN>",
+      "ambiguous": true
+     },
+     {
+      "device_type": "breaker",
+      "device_id": "CB2",
+      "rating": "<UNKNOWN>",
+      "load_name": "<UNKNOWN>",
+      "ambiguous": true
+     }
+    ]
+   },
+   {
+    "region": "LVPDU center column ESS/ACTM/CCP/SCU (CB9-CB13)",
+    "region_type": "panel_column",
+    "bbox": [
+     0.5,
+     0.58,
+     0.66,
+     0.72
+    ],
+    "reader": "schedule",
+    "panel_label": null,
+    "rows": [
+     {
+      "device_type": "circuit_breaker",
+      "device_id": "CBx1",
+      "rating": "5A",
+      "load_name": "CP SWITCH",
+      "cross_ref": "see DWG 110d"
+     },
+     {
+      "device_type": "circuit_breaker",
+      "device_id": "CBx2",
+      "rating": "1A",
+      "load_name": "ESS (Re6)"
+     },
+     {
+      "device_type": "circuit_breaker",
+      "device_id": "CBx3",
+      "rating": "5A",
+      "load_name": "HVIL",
+      "ambiguous": false
+     },
+     {
+      "device_type": "circuit_breaker",
+      "device_id": "CBx4",
+      "rating": "5A",
+      "load_name": "BEL CAN BUS ISOLATORS"
+     },
+     {
+      "device_type": "circuit_breaker",
+      "device_id": "CBx5",
+      "rating": "5A",
+      "load_name": "<UNKNOWN>"
+     },
+     {
+      "device_type": "circuit_breaker",
+      "device_id": "CBx6",
+      "rating": "1A",
+      "load_name": "<UNKNOWN>"
+     },
+     {
+      "device_type": "circuit_breaker",
+      "device_id": "CBx7",
+      "rating": "1A",
+      "load_name": "<UNKNOWN>",
+      "cross_ref": "see DWG 113"
+     },
+     {
+      "device_type": "circuit_breaker",
+      "device_id": "CBx8",
+      "rating": "1A",
+      "load_name": "CPP OIL"
+     },
+     {
+      "device_type": "circuit_breaker",
+      "device_id": "CBx9",
+      "rating": "5A",
+      "load_name": "CONDUCTIVITY PROCESSOR"
+     },
+     {
+      "device_type": "circuit_breaker",
+      "device_id": "CBx10",
+      "rating": "5A",
+      "load_name": "CONDUCTIVITY PROCESSOR"
+     }
+    ]
+   },
+   {
+    "region": "LVPDU STBD column (CB5-CB8)",
+    "region_type": "panel_column",
+    "bbox": [
+     0.66,
+     0.58,
+     0.83,
+     0.68
+    ],
+    "reader": "schedule",
+    "panel_label": null,
+    "rows": [
+     {
+      "device_type": "relay",
+      "device_id": "Re.0",
+      "load_name": "<UNKNOWN>",
+      "cross_ref": "From SCU3 G3-1129"
+     },
+     {
+      "device_type": "relay",
+      "device_id": "Re7",
+      "load_name": "<UNKNOWN>",
+      "cross_ref": "to SCU3 P50-23; G3-J11R"
+     },
+     {
+      "device_type": "circuit_breaker",
+      "device_id": "CBx13",
+      "load_name": "<UNKNOWN>",
+      "rating": "<UNKNOWN>"
+     },
+     {
+      "device_type": "circuit_breaker",
+      "device_id": "CBx14",
+      "load_name": "<UNKNOWN>",
+      "rating": "<UNKNOWN>"
+     },
+     {
+      "device_type": "circuit_breaker",
+      "device_id": "CBx15",
+      "load_name": "<UNKNOWN>",
+      "rating": "<UNKNOWN>"
+     },
+     {
+      "device_type": "circuit_breaker",
+      "device_id": "CBx16",
+      "load_name": "<UNKNOWN>",
+      "rating": "<UNKNOWN>"
+     },
+     {
+      "device_type": "circuit_breaker",
+      "device_id": "CBx17",
+      "load_name": "<UNKNOWN>",
+      "rating": "<UNKNOWN>"
+     },
+     {
+      "device_type": "circuit_breaker",
+      "device_id": "CBx18",
+      "load_name": "<UNKNOWN>",
+      "rating": "<UNKNOWN>"
+     },
+     {
+      "device_type": "circuit_breaker",
+      "device_id": "CBx19",
+      "load_name": "<UNKNOWN>",
+      "rating": "<UNKNOWN>"
+     }
+    ]
+   },
+   {
+    "region": "STBD auxiliary breaker column (CBx13-CBx20: throttle control, DTLGR, BCP, Parker display, MC43 power)",
+    "region_type": "panel_column",
+    "bbox": [
+     0.83,
+     0.72,
+     1.0,
+     0.88
+    ],
+    "reader": "schedule",
+    "panel_label": null,
+    "rows": []
+   },
+   {
+    "region": "PORT System Cooling column (CB14,15,21)",
+    "region_type": "panel_column",
+    "bbox": [
+     0.33,
+     0.9,
+     0.5,
+     0.96
+    ],
+    "reader": "schedule",
+    "panel_label": "<UNKNOWN>",
+    "rows": [
+     {
+      "device_type": "unknown",
+      "load_name": "<UNKNOWN>",
+      "ambiguous": true
+     }
+    ]
+   },
+   {
+    "region": "Center System Cooling column (CB16,19,20,23)",
+    "region_type": "panel_column",
+    "bbox": [
+     0.5,
+     0.9,
+     0.66,
+     0.98
+    ],
+    "reader": "schedule",
+    "panel_label": "-110b",
+    "rows": []
+   },
+   {
+    "region": "STBD System Cooling column (CB17,18,22)",
+    "region_type": "panel_column",
+    "bbox": [
+     0.66,
+     0.9,
+     0.83,
+     0.96
+    ],
+    "reader": "schedule",
+    "panel_label": "G.M. MARINE - SWS 108'-01 - SOUTHERN WIND",
+    "rows": []
+   },
+   {
+    "region": "ALL WIRING (coverage: survey regions + full-sheet grid)",
+    "region_type": "relay_terminal_wiring",
+    "bbox": [
+     0,
+     0,
+     1,
+     1
+    ],
+    "reader": "wiring_coverage",
+    "elements": [
+     {
+      "element_type": "annotation",
+      "label": "CONDUCTIVITY PROCESSOR",
+      "connections": [],
+      "_via": "survey_region",
+      "_bbox": [
+       0.55,
+       0.72,
+       0.66,
+       0.78
+      ]
+     },
+     {
+      "element_type": "annotation",
+      "label": "BEL-SYNC",
+      "connections": [],
+      "_via": "survey_region",
+      "_bbox": [
+       0.55,
+       0.72,
+       0.66,
+       0.78
+      ]
+     },
+     {
+      "element_type": "device",
+      "id": "BCP (ESS) PUMP",
+      "label": "BCP (ESS) PUMP",
+      "connections": [],
+      "_via": "survey_region",
+      "_bbox": [
+       0.55,
+       0.72,
+       0.66,
+       0.78
+      ]
+     },
+     {
+      "element_type": "annotation",
+      "label": "SYSTEM",
+      "connections": [],
+      "_via": "survey_region",
+      "_bbox": [
+       0.55,
+       0.72,
+       0.66,
+       0.78
+      ]
+     },
+     {
+      "element_type": "breaker",
+      "id": "CB18",
+      "label": "CB18",
+      "connections": [
+       "vertical bus bar",
+       "downstream circuit (off crop)"
+      ],
+      "_via": "survey_region",
+      "_bbox": [
+       0.55,
+       0.72,
+       0.66,
+       0.78
+      ]
+     },
+     {
+      "id": "NEGATIVE BUS",
+      "element_type": "terminal_strip",
+      "label": "NEGATIVE BUS",
+      "connections": [
+       "SHUNT #2 (-)",
+       "SHUNT #3 (-)",
+       "SHUNT #4 (-)",
+       "AUX SERVICE BAT (-)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "SHUNT #2",
+      "element_type": "device",
+      "label": "SHUNT #2",
+      "connections": [
+       "NEGATIVE BUS -> GMDSS BAT (-)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "SHUNT #3",
+      "element_type": "device",
+      "label": "SHUNT #3",
+      "connections": [
+       "NEGATIVE BUS -> EMERGENCY BAT (-)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "SHUNT #4",
+      "element_type": "device",
+      "label": "SHUNT #4",
+      "connections": [
+       "NEGATIVE BUS -> GEN START BAT (-)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "GMDSS BAT.",
+      "element_type": "device",
+      "label": "GMDSS BAT. 200Ah 24V",
+      "connections": [
+       "SHUNT #2 (-)",
+       "F10/F11 (+)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "EMERGENCY BAT.",
+      "element_type": "device",
+      "label": "EMERGENCY BAT. 200Ah 24V",
+      "connections": [
+       "SHUNT #3 (-)",
+       "F12/F13 (+)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "GEN START BAT.",
+      "element_type": "device",
+      "label": "GEN START BAT. 200Ah 24V",
+      "connections": [
+       "SHUNT #4 (-)",
+       "F14/F15 (+)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "AUX SERVICE BAT.",
+      "element_type": "device",
+      "label": "AUX SERVICE BAT. 200Ah 24V",
+      "connections": [
+       "NEGATIVE BUS (-)",
+       "F16/F17 (+)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "F10",
+      "element_type": "fuse",
+      "label": "F10 35A",
+      "connections": [
+       "GMDSS BAT. (+) -> CHARGER"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "F11",
+      "element_type": "fuse",
+      "label": "F11 35A",
+      "connections": [
+       "GMDSS BAT. (+) -> CHARGER"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "F12",
+      "element_type": "fuse",
+      "label": "F12 50A",
+      "connections": [
+       "EMERGENCY BAT. (+) -> CHARGER"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "F13",
+      "element_type": "fuse",
+      "label": "F13 250A",
+      "connections": [
+       "EMERGENCY BAT. (+) -> SO 10 -> SW12"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "F14",
+      "element_type": "fuse",
+      "label": "F14 50A",
+      "connections": [
+       "GEN START BAT. (+) -> CHARGER"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "F15",
+      "element_type": "fuse",
+      "label": "F15 250A",
+      "connections": [
+       "GEN START BAT. (+) -> SO 9 -> (bus)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "F16",
+      "element_type": "fuse",
+      "label": "F16 250A",
+      "connections": [
+       "AUX SERVICE BAT. (+) -> SW11"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "F17",
+      "element_type": "fuse",
+      "label": "F17 100A",
+      "connections": [
+       "AUX SERVICE BAT. (+) -> INVERTER"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "SO 10",
+      "element_type": "relay",
+      "label": "SO 10",
+      "connections": [
+       "F13 -> contact -> SW12",
+       "coil to unmarked return"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "SO 9",
+      "element_type": "relay",
+      "label": "SO 9",
+      "connections": [
+       "F15 -> contact -> bus",
+       "coil to unmarked return"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "SW13",
+      "element_type": "switch",
+      "label": "SW13",
+      "connections": [
+       "F10/F11 charger line -> BATTERY panel (dotted enclosure)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "SW12",
+      "element_type": "switch",
+      "label": "SW12",
+      "connections": [
+       "SO 10 contact -> BATTERY panel (dotted enclosure)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "SW11",
+      "element_type": "switch",
+      "label": "SW11",
+      "connections": [
+       "F16 -> BATTERY panel (dotted enclosure)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "BATTERY PANEL ENCLOSURE",
+      "element_type": "annotation",
+      "label": "BA... (dotted enclosure boundary)",
+      "connections": [],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "BATTERY FUSE AND ISOLATOR PANEL",
+      "element_type": "annotation",
+      "label": "BATTERY FUSE AND ISOLATOR PANEL",
+      "connections": [],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "CHARGER (GMDSS)",
+      "element_type": "device",
+      "label": "CHARGER",
+      "connections": [
+       "F10/F11 output"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "CHARGER (EMERGENCY)",
+      "element_type": "device",
+      "label": "CHARGER",
+      "connections": [
+       "F12 output"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "CHARGER (GEN START)",
+      "element_type": "device",
+      "label": "CHARGER",
+      "connections": [
+       "F14 output"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "INVERTER",
+      "element_type": "device",
+      "label": "INVERTER",
+      "connections": [
+       "F17 output"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "AC/DC CONVERTER",
+      "element_type": "device",
+      "label": "24V 110A 230V AC / 24V DC converter",
+      "connections": [
+       "L, N inputs -> F18 -> CT5 -> SW5 -> ISOLATOR (see DWG 110a)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "F18",
+      "element_type": "fuse",
+      "label": "F 18 125A",
+      "connections": [
+       "Converter output -> CT5"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "CT5",
+      "element_type": "device",
+      "label": "CT5",
+      "connections": [
+       "F18 -> SW5"
+      ],
+      "ambiguous": true,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "SW5",
+      "element_type": "switch",
+      "label": "SW5",
+      "connections": [
+       "CT5 -> ISOLATOR (see DWG 110a)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "ISOLATOR (see DWG 110a)",
+      "element_type": "breaker",
+      "label": "ISOLATOR (see DWG 110a)",
+      "connections": [
+       "SW5 -> continues on DWG 110a"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.0,
+       0.3733333333333333,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "SW14",
+      "element_type": "switch",
+      "label": "SW14 (positions 1 and 2)",
+      "connections": [
+       "pos 1 from ...ER (upper left source)",
+       "pos 2 from ...ER (lower left source, via junction)",
+       "common output -> junction feeding SW15 and SW16"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "SW15",
+      "element_type": "switch",
+      "label": "SW15",
+      "connections": [
+       "from SW14 common junction",
+       "to wire-gauge callout 70",
+       "to PORT GENERATOR B+"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "CB1",
+      "element_type": "breaker",
+      "label": "CB1 50A",
+      "connections": [
+       "from SW14 common junction (parallel path with SW15)",
+       "to CBI Control branch"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "SW16",
+      "element_type": "switch",
+      "label": "SW16",
+      "connections": [
+       "from SW14 common junction",
+       "to wire-gauge callout 70",
+       "to STBD GENERATOR B+"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "CB2",
+      "element_type": "breaker",
+      "label": "CB2 50A",
+      "connections": [
+       "from SW14 common junction (parallel path with SW16)",
+       "to CBI Control branch"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "wire_gauge_70_SW15",
+      "element_type": "annotation",
+      "label": "70 (wire gauge mm\u00b2, SW15 output line)",
+      "connections": [
+       "on wire between SW15 and PORT GENERATOR B+"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "wire_gauge_70_SW16",
+      "element_type": "annotation",
+      "label": "70 (wire gauge mm\u00b2, SW16 output line)",
+      "connections": [
+       "on wire between SW16 and STBD GENERATOR B+"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "wire_gauge_70_SW11",
+      "element_type": "annotation",
+      "label": "70 (wire gauge mm\u00b2, SW11 output line)",
+      "connections": [
+       "on wire after SW11"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "PORT_GENERATOR",
+      "element_type": "device",
+      "label": "PORT GENERATOR 112KW",
+      "connections": [
+       "B+ from SW15/CB1 branch via wire-gauge 70",
+       "ALT (alternator) indicated",
+       "ground symbol below"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "STBD_GENERATOR",
+      "element_type": "device",
+      "label": "STBD GENERATOR 112KW",
+      "connections": [
+       "B+ from SW16/CB2 branch via wire-gauge 70",
+       "ALT (alternator) indicated",
+       "ground symbol below"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "ALT_PORT",
+      "element_type": "status_signal",
+      "label": "ALT (Port Generator alternator indicator)",
+      "connections": [
+       "tap near PORT GENERATOR"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "ALT_STBD",
+      "element_type": "status_signal",
+      "label": "ALT (Stbd Generator alternator indicator)",
+      "connections": [
+       "tap near STBD GENERATOR"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "to_CBI_Control_1",
+      "element_type": "status_signal",
+      "label": "to CBI Control (line 1 from CB1 branch)",
+      "connections": [
+       "from CB1 branch junction",
+       "downward arrow labeled 'to CBI Control'"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "to_CBI_Control_2",
+      "element_type": "status_signal",
+      "label": "to CBI Control (line 2 from CB2 branch)",
+      "connections": [
+       "from CB2 branch junction",
+       "downward arrow labeled 'to CBI Control'"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "Battery_Isolator_Panel",
+      "element_type": "annotation",
+      "label": "BATTERY ISOLATOR PANEL (enclosure boundary, dotted rectangle)",
+      "connections": [
+       "encloses SW13, SW12, SW15, CB1, SW14, SW16, CB2, SW11"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "CT5",
+      "element_type": "device",
+      "label": "CT5 (current transformer)",
+      "connections": [
+       "clamped around ISOLATOR line",
+       "output to SW5"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "SW5",
+      "element_type": "switch",
+      "label": "SW5 (ISOLATOR, see DWG 110a)",
+      "connections": [
+       "from CT5 line",
+       "to (see DWG 110a)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "ISOLATOR_caption",
+      "element_type": "annotation",
+      "label": "ISOLATOR (caption above SW5, cross-ref 'see DWG 110a')",
+      "connections": [
+       "describes SW5 below"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "GDS_SUPPLY",
+      "element_type": "annotation",
+      "label": "GDS SUPPLY (destination label, cross-ref implied)",
+      "connections": [
+       "fed from SW13"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "EMERGENCY_BAT_SUPPLY",
+      "element_type": "annotation",
+      "label": "EMERGENCY BAT. SUPPLY (destination label)",
+      "connections": [
+       "fed from SW12"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.0,
+       0.7066666666666667,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "ALT (PORT)",
+      "element_type": "status_signal",
+      "label": "ALT",
+      "connections": [
+       "PORT GENERATOR -> ALT"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.0,
+       1.0,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "PORT GENERATOR GROUND",
+      "element_type": "annotation",
+      "label": "ground symbol",
+      "connections": [
+       "PORT GENERATOR -> chassis ground"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.0,
+       1.0,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "ISG (PORT)",
+      "element_type": "plug_pin",
+      "label": "ISG - HIGH VOLTAGE STARTER/GENERATOR connector",
+      "connections": [
+       "PORT GENERATOR -> ISG",
+       "ISG -> to PORT MPCS (3 lines)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.0,
+       1.0,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "to PORT MPCS",
+      "element_type": "annotation",
+      "label": "to PORT MPCS",
+      "connections": [
+       "ISG (PORT) -> PORT MPCS"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.0,
+       1.0,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "ALT (STBD)",
+      "element_type": "status_signal",
+      "label": "ALT",
+      "connections": [
+       "STBD GENERATOR -> ALT"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.0,
+       1.0,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "STBD GENERATOR GROUND",
+      "element_type": "annotation",
+      "label": "ground symbol",
+      "connections": [
+       "STBD GENERATOR -> chassis ground"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.0,
+       1.0,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "ISG (STBD)",
+      "element_type": "plug_pin",
+      "label": "ISG - HIGH VOLTAGE STARTER/GENERATOR connector",
+      "connections": [
+       "STBD GENERATOR -> ISG",
+       "ISG -> to STBD MPCS (3 lines)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.0,
+       1.0,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "to STBD MPCS",
+      "element_type": "annotation",
+      "label": "to STBD MPCS",
+      "connections": [
+       "ISG (STBD) -> STBD MPCS"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.0,
+       1.0,
+       0.3733333333333333
+      ]
+     },
+     {
+      "id": "MAPS",
+      "element_type": "controller_module",
+      "label": "24V 110A / 230V AC / 24V DC (MAPS = MODULAR AUXILARY POWER SYSTEM 600V DC/24V DC)",
+      "connections": [
+       "L (in)",
+       "N (in)",
+       "-> F18 125A fuse",
+       "-> ground/earth"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "F18",
+      "element_type": "fuse",
+      "label": "125A F 18",
+      "connections": [
+       "from MAPS 24V DC output",
+       "-> CT5"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "SW5",
+      "element_type": "switch",
+      "label": "ISOLATOR (see DWG 110a)",
+      "connections": [
+       "from CT5",
+       "-> continues right (off crop)"
+      ],
+      "ambiguous": true,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "SHUNT#1",
+      "element_type": "device",
+      "label": "SHUNT #1 500A/50mV (see DWG 110a)",
+      "connections": [
+       "from main vertical bus (left edge)",
+       "-> F9 125A"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "F9",
+      "element_type": "fuse",
+      "label": "F9 125A",
+      "connections": [
+       "from SHUNT #1",
+       "-> SW10"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "SW10",
+      "element_type": "switch",
+      "label": "SW10",
+      "connections": [
+       "from F9",
+       "-> CT6"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CT6",
+      "element_type": "device",
+      "label": "CT6 current transformer",
+      "connections": [
+       "from SW10",
+       "-> SHUNT #5",
+       "signal -> to ONYX"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "SHUNT#5",
+      "element_type": "device",
+      "label": "SHUNT #5",
+      "connections": [
+       "from CT6",
+       "-> vertical bus feeding PORT CB1-CB4"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "PORT_BUS",
+      "element_type": "terminal_strip",
+      "label": "PORT",
+      "connections": [
+       "from SHUNT #5",
+       "-> CB1",
+       "-> CB2",
+       "-> CB3",
+       "-> CB4"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CB1",
+      "element_type": "breaker",
+      "label": "CB1",
+      "connections": [
+       "from PORT bus",
+       "-> load (off crop)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CB2",
+      "element_type": "breaker",
+      "label": "CB2",
+      "connections": [
+       "from PORT bus",
+       "-> load (off crop)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CB3",
+      "element_type": "breaker",
+      "label": "CB3",
+      "connections": [
+       "from PORT bus",
+       "-> load (off crop)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CB4",
+      "element_type": "breaker",
+      "label": "CB4",
+      "connections": [
+       "from PORT bus",
+       "-> load (off crop)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.29333333333333333,
+       0.3733333333333333,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "A",
+      "element_type": "device",
+      "label": "Ammeter (A)",
+      "connections": [
+       "from SHUNT #5",
+       "-> + bus"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "V",
+      "element_type": "device",
+      "label": "Voltmeter (V)",
+      "connections": [
+       "from F 2A fuse",
+       "-> + bus"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "F 2A",
+      "element_type": "fuse",
+      "label": "F 2A",
+      "connections": [
+       "from + bus",
+       "-> V voltmeter"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "LVPDU",
+      "element_type": "annotation",
+      "label": "LVPDU title",
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CB1",
+      "element_type": "breaker",
+      "label": "CB1 6A - CHART TABLE HMI",
+      "connections": [
+       "PORT bus -> CHART TABLE HMI"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CB2",
+      "element_type": "breaker",
+      "label": "CB2 15A - MPCS-P",
+      "connections": [
+       "PORT bus -> MPCS-P"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CB3",
+      "element_type": "breaker",
+      "label": "CB3 15A - MAPS-P",
+      "connections": [
+       "PORT bus -> MAPS-P"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CB4",
+      "element_type": "breaker",
+      "label": "CB4 10A - EDN-P",
+      "connections": [
+       "PORT bus -> EDN-P"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CB5",
+      "element_type": "breaker",
+      "label": "CB5 6A - BAE F...",
+      "connections": [
+       "STBD bus -> BAE F..."
+      ],
+      "ambiguous": true,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CB6",
+      "element_type": "breaker",
+      "label": "CB6 15A - MPCS-...",
+      "connections": [
+       "STBD bus -> MPCS-..."
+      ],
+      "ambiguous": true,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CB7",
+      "element_type": "breaker",
+      "label": "CB7 15A - MAPS-...",
+      "connections": [
+       "STBD bus -> MAPS-..."
+      ],
+      "ambiguous": true,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CB8",
+      "element_type": "breaker",
+      "label": "CB8 10A - EDN-...",
+      "connections": [
+       "STBD bus -> EDN-..."
+      ],
+      "ambiguous": true,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CB9",
+      "element_type": "breaker",
+      "label": "CB9 6A - ESS",
+      "connections": [
+       "+ bus -> ESS"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CB10",
+      "element_type": "breaker",
+      "label": "CB10 25A - ACTM (GPM-12) [PROPULSION MOTOR]",
+      "connections": [
+       "+ bus -> ACTM (GPM-12)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CB11",
+      "element_type": "breaker",
+      "label": "CB11 25A - CCP (PVED VALVE A / PVED VALVE B)",
+      "connections": [
+       "+ bus -> CCP -> PVED VALVE A",
+       "+ bus -> CCP -> PVED VALVE B"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CB12",
+      "element_type": "breaker",
+      "label": "CB12 25A - SCU CONTROL",
+      "connections": [
+       "+ bus -> SCU CONTROL",
+       "SCU CONTROL -> STBD bus (feedback line)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CB13",
+      "element_type": "breaker",
+      "label": "CB13 6A - SCU",
+      "connections": [
+       "+ bus -> SCU"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CBx1",
+      "element_type": "breaker",
+      "label": "CBx1 5A - CP SWITCH (see DWG 110d)",
+      "connections": [
+       "+ bus -> CP SWITCH",
+       "-> see DWG 110d"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CBx2",
+      "element_type": "breaker",
+      "label": "CBx2 1A - ESS (Re6)",
+      "connections": [
+       "+ bus -> ESS (Re6) relay"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CBx3",
+      "element_type": "breaker",
+      "label": "CBx3 5A - HVIL",
+      "connections": [
+       "+ bus -> HVIL status_signal"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CBx4",
+      "element_type": "breaker",
+      "label": "CBx4 5A - BEL CAN BUS ISOLATORS",
+      "connections": [
+       "+ bus -> BEL CAN BUS ISOLATORS"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CBx5",
+      "element_type": "breaker",
+      "label": "CBx5 5A - (unlabeled)",
+      "connections": [
+       "+ bus -> /"
+      ],
+      "ambiguous": true,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CBx6",
+      "element_type": "breaker",
+      "label": "CBx6 1A - (unlabeled)",
+      "connections": [
+       "+ bus -> /"
+      ],
+      "ambiguous": true,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CBx7",
+      "element_type": "breaker",
+      "label": "CBx7 1A - see DWG 113",
+      "connections": [
+       "+ bus -> see DWG 113"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CBx8",
+      "element_type": "breaker",
+      "label": "CBx8 1A - CPP OIL",
+      "connections": [
+       "+ bus -> CPP OIL"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CBx9",
+      "element_type": "breaker",
+      "label": "CBx9 5A - CONDUCTIVITY PROCESSOR",
+      "connections": [
+       "+ bus -> CONDUCTIVITY PROCESSOR"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "HVIL",
+      "element_type": "status_signal",
+      "label": "HVIL - High Voltage Interlock Loop",
+      "connections": [
+       "CBx3 -> HVIL line",
+       "-> to (continues right edge)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "Re.0",
+      "element_type": "relay",
+      "label": "Re.0 relay coil",
+      "connections": [
+       "+ from switch contact (top)",
+       "coil - to F...(unclear)",
+       "output -> F... arrow (right)"
+      ],
+      "ambiguous": true,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "Re7",
+      "element_type": "relay",
+      "label": "Re7 relay coil",
+      "connections": [
+       "+ from switch contact (top)",
+       "output -> to G3... arrow (right)"
+      ],
+      "ambiguous": true,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "SCU CONTROL feedback line",
+      "element_type": "unknown",
+      "label": "line from SCU CONTROL to STBD bus junction near Re.0/Re7",
+      "connections": [
+       "SCU CONTROL -> STBD bus -> Re.0/Re7 switch contacts"
+      ],
+      "ambiguous": true,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.29333333333333333,
+       0.7066666666666667,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CB5",
+      "element_type": "breaker",
+      "label": "CB5 6A BAE PEDESTAL ALARM",
+      "connections": [
+       "STBD source bus",
+       "BAE PEDESTAL ALARM"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.29333333333333333,
+       1.0,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CB6",
+      "element_type": "breaker",
+      "label": "CB6 15A MPCS-P",
+      "connections": [
+       "STBD source bus",
+       "MPCS-P"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.29333333333333333,
+       1.0,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CB7",
+      "element_type": "breaker",
+      "label": "CB7 15A MAPS-P",
+      "connections": [
+       "STBD source bus",
+       "MAPS-P"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.29333333333333333,
+       1.0,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CB8",
+      "element_type": "breaker",
+      "label": "CB8 10A EDN-P",
+      "connections": [
+       "STBD source bus",
+       "EDN-P"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.29333333333333333,
+       1.0,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "switch_Re0",
+      "element_type": "switch",
+      "label": "contact switch feeding Re.0 coil",
+      "connections": [
+       "STBD source bus",
+       "Re.0 coil +"
+      ],
+      "ambiguous": true,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.29333333333333333,
+       1.0,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "switch_Re7",
+      "element_type": "switch",
+      "label": "contact switch feeding Re7 coil",
+      "connections": [
+       "STBD source bus",
+       "Re7 coil +"
+      ],
+      "ambiguous": true,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.29333333333333333,
+       1.0,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "SCU3_G3-1129",
+      "element_type": "status_signal",
+      "label": "From SCU3 G3-1129",
+      "connections": [
+       "Re.0 coil output"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.29333333333333333,
+       1.0,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "SCU3_P50-23",
+      "element_type": "status_signal",
+      "label": "to SCU3 P50-23",
+      "connections": [
+       "Re7 coil output"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.29333333333333333,
+       1.0,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "G3-J11R",
+      "element_type": "status_signal",
+      "label": "G3-J11R",
+      "connections": [
+       "Re7 coil output"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.29333333333333333,
+       1.0,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CBx13",
+      "element_type": "breaker",
+      "label": "CBx13 5A PORT THROTTLE CONTROL THT-P AXIOMATIC",
+      "connections": [
+       "distribution bus",
+       "PORT THROTTLE CONTROL THT-P AXIOMATIC"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.29333333333333333,
+       1.0,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CBx14",
+      "element_type": "breaker",
+      "label": "CBx14 5A STBD THROTTLE CONTROL THT-S AXIOMATIC",
+      "connections": [
+       "distribution bus",
+       "STBD THROTTLE CONTROL THT-S AXIOMATIC"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.29333333333333333,
+       1.0,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CBx15",
+      "element_type": "breaker",
+      "label": "CBx15 5A DTLGR",
+      "connections": [
+       "distribution bus",
+       "DTLGR"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.29333333333333333,
+       1.0,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CBx16",
+      "element_type": "breaker",
+      "label": "CBx16 5A BAT. COOLING PUMP BCP AXIOMATIC",
+      "connections": [
+       "distribution bus",
+       "BAT. COOLING PUMP BCP AXIOMATIC"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.29333333333333333,
+       1.0,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CBx17",
+      "element_type": "breaker",
+      "label": "CBx17 5A PARKER DISPLAY",
+      "connections": [
+       "distribution bus",
+       "PARKER DISPLAY"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.29333333333333333,
+       1.0,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CBx18",
+      "element_type": "breaker",
+      "label": "CBx18 5A MC43 POWER",
+      "connections": [
+       "distribution bus",
+       "MC43 POWER"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.29333333333333333,
+       1.0,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CBx19",
+      "element_type": "breaker",
+      "label": "CBx19 5A (unlabeled load, marked /)",
+      "connections": [
+       "distribution bus",
+       "unlabeled"
+      ],
+      "ambiguous": true,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.29333333333333333,
+       1.0,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CBx20",
+      "element_type": "breaker",
+      "label": "CBx20 5A (unlabeled load, marked /)",
+      "connections": [
+       "distribution bus",
+       "unlabeled"
+      ],
+      "ambiguous": true,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.29333333333333333,
+       1.0,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "STBD_bus",
+      "element_type": "terminal_strip",
+      "label": "STBD supply bus",
+      "connections": [
+       "CB5",
+       "CB6",
+       "CB7",
+       "CB8",
+       "Re.0 branch",
+       "Re7 branch"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.29333333333333333,
+       1.0,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "distribution_bus_CBx",
+      "element_type": "terminal_strip",
+      "label": "junction feeding CBx13-CBx20",
+      "connections": [
+       "CBx13",
+       "CBx14",
+       "CBx15",
+       "CBx16",
+       "CBx17",
+       "CBx18",
+       "CBx19",
+       "CBx20"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.29333333333333333,
+       1.0,
+       0.7066666666666667
+      ]
+     },
+     {
+      "id": "CB14",
+      "element_type": "breaker",
+      "label": "20A",
+      "connections": [
+       "SYSTEM bus -> load (off-crop)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.6266666666666666,
+       0.3733333333333333,
+       1.0
+      ]
+     },
+     {
+      "id": "CB15",
+      "element_type": "breaker",
+      "label": "20A",
+      "connections": [
+       "SYSTEM bus -> load (off-crop)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.6266666666666666,
+       0.3733333333333333,
+       1.0
+      ]
+     },
+     {
+      "id": "CB21",
+      "element_type": "breaker",
+      "label": "6A",
+      "connections": [
+       "SYSTEM bus -> load (off-crop)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.6266666666666666,
+       0.3733333333333333,
+       1.0
+      ]
+     },
+     {
+      "id": "note_block",
+      "element_type": "annotation",
+      "label": "NOTE: LVPDU/ISG/SCU/MPCS/ESS/EDN/MAPS/HMI/ACTM/EMRAX definitions",
+      "connections": [],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.6266666666666666,
+       0.3733333333333333,
+       1.0
+      ]
+     },
+     {
+      "id": "page_ref",
+      "element_type": "annotation",
+      "label": "BAE LVPDU DIAGRAM REFERENCE PAGE 26 / 27",
+      "connections": [],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.0,
+       0.6266666666666666,
+       0.3733333333333333,
+       1.0
+      ]
+     },
+     {
+      "id": "CBx2",
+      "element_type": "breaker",
+      "label": "1A",
+      "connections": [
+       "from bus",
+       "to ESS (Re6)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "CBx3",
+      "element_type": "breaker",
+      "label": "5A",
+      "connections": [
+       "from bus",
+       "to HVIL"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "HVIL",
+      "element_type": "status_signal",
+      "label": "HVIL interlock line",
+      "connections": [
+       "from CBx3",
+       "to switch (dotted, right side)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "CBx4",
+      "element_type": "breaker",
+      "label": "5A",
+      "connections": [
+       "from bus",
+       "to BEL CAN BUS ISOLATORS"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "CBx5",
+      "element_type": "breaker",
+      "label": "5A",
+      "connections": [
+       "from bus",
+       "spare (/)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "CBx6",
+      "element_type": "breaker",
+      "label": "1A",
+      "connections": [
+       "from bus",
+       "spare (/)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "CBx7",
+      "element_type": "breaker",
+      "label": "1A",
+      "connections": [
+       "from bus",
+       "see DWG 113"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "DWG113_ref",
+      "element_type": "annotation",
+      "label": "see DWG 113",
+      "connections": [
+       "cross-drawing pointer from CBx7"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "CBx8",
+      "element_type": "breaker",
+      "label": "1A",
+      "connections": [
+       "from bus",
+       "to CPP OIL"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "CPP_OIL",
+      "element_type": "device",
+      "label": "CPP OIL",
+      "connections": [
+       "from CBx8"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "CBx9",
+      "element_type": "breaker",
+      "label": "5A",
+      "connections": [
+       "from bus",
+       "to CONDUCTIVITY PROCESSOR"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "ConductivityProcessor_1",
+      "element_type": "device",
+      "label": "CONDUCTIVITY PROCESSOR",
+      "connections": [
+       "from CBx9"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "CBx10",
+      "element_type": "breaker",
+      "label": "5A",
+      "connections": [
+       "from bus",
+       "to CONDUCTIVITY PROCESSOR"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "ConductivityProcessor_2",
+      "element_type": "device",
+      "label": "CONDUCTIVITY PROCESSOR",
+      "connections": [
+       "from CBx10"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "CBx11",
+      "element_type": "breaker",
+      "label": "5A",
+      "connections": [
+       "from bus",
+       "to BEL-SYNC"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "BEL_SYNC",
+      "element_type": "device",
+      "label": "BEL-SYNC",
+      "connections": [
+       "from CBx11"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "CBx12",
+      "element_type": "breaker",
+      "label": "5A",
+      "connections": [
+       "from bus",
+       "spare (/)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "Re7",
+      "element_type": "relay",
+      "label": "Re7",
+      "connections": [
+       "coil + from fuse/rectangle symbol (left)",
+       "contact -> to G... (right, cropped)"
+      ],
+      "ambiguous": true,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "Re7_switch",
+      "element_type": "switch",
+      "label": "contact near Re7 (dotted actuator)",
+      "connections": [
+       "HVIL line -> switch -> to (cropped 'to')"
+      ],
+      "ambiguous": true,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "MCP-P_PUMP",
+      "element_type": "device",
+      "label": "MCP-P PUMP",
+      "connections": [
+       "from CB14"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "ECP-P_PUMP",
+      "element_type": "device",
+      "label": "ECP-P PUMP",
+      "connections": [
+       "from CB15"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "SEA_WATER_PUMP_left",
+      "element_type": "device",
+      "label": "SEA WATER PUMP",
+      "connections": [
+       "from CB21"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "CB19",
+      "element_type": "breaker",
+      "label": "20A",
+      "connections": [
+       "from bus",
+       "to BCP (ESS) PUMP"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "CB16",
+      "element_type": "breaker",
+      "label": "20A",
+      "connections": [
+       "from bus",
+       "to MCP (MOTOR) PUMP"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "MCP_MOTOR_PUMP",
+      "element_type": "device",
+      "label": "MCP (MOTOR) PUMP",
+      "connections": [
+       "from CB16"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "CB20",
+      "element_type": "breaker",
+      "label": "20A",
+      "connections": [
+       "from bus",
+       "to HYDRAULICS"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "HYDRAULICS",
+      "element_type": "device",
+      "label": "HYDRAULICS",
+      "connections": [
+       "from CB20"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "CB23",
+      "element_type": "breaker",
+      "label": "6A",
+      "connections": [
+       "from bus",
+       "to CPP (PITCH) PUMP"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "CPP_PITCH_PUMP",
+      "element_type": "device",
+      "label": "CPP (PITCH) PUMP",
+      "connections": [
+       "from CB23"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "CB18",
+      "element_type": "breaker",
+      "label": "20A",
+      "connections": [
+       "from bus",
+       "to MCP-S... PUMP (cropped)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "MCP-S_PUMP",
+      "element_type": "device",
+      "label": "MCP-S PUMP (cropped)",
+      "connections": [
+       "from CB18"
+      ],
+      "ambiguous": true,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "CB17",
+      "element_type": "breaker",
+      "label": "20A",
+      "connections": [
+       "from bus",
+       "to ECP-S... PUMP (cropped)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "ECP-S_PUMP",
+      "element_type": "device",
+      "label": "ECP-S PUMP (cropped)",
+      "connections": [
+       "from CB17"
+      ],
+      "ambiguous": true,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "CB22",
+      "element_type": "breaker",
+      "label": "6A",
+      "connections": [
+       "from bus",
+       "to SEA WATER PUMP (right, cropped)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "SEA_WATER_PUMP_right",
+      "element_type": "device",
+      "label": "SEA WATER PUMP (cropped)",
+      "connections": [
+       "from CB22"
+      ],
+      "ambiguous": true,
+      "_via": "grid_tile",
+      "_bbox": [
+       0.29333333333333333,
+       0.6266666666666666,
+       0.7066666666666667,
+       1.0
+      ]
+     },
+     {
+      "id": "CBx15",
+      "element_type": "breaker",
+      "label": "CBx15 5A",
+      "connections": [
+       "supply -> DTLGR"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.6266666666666666,
+       1.0,
+       1.0
+      ]
+     },
+     {
+      "id": "CBx16",
+      "element_type": "breaker",
+      "label": "CBx16 5A",
+      "connections": [
+       "supply -> BAT. COOLING PUMP BCP AXIOMATIC"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.6266666666666666,
+       1.0,
+       1.0
+      ]
+     },
+     {
+      "id": "CBx17_top",
+      "element_type": "breaker",
+      "label": "CBx17 5A",
+      "connections": [
+       "supply -> PARKER DISPLAY"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.6266666666666666,
+       1.0,
+       1.0
+      ]
+     },
+     {
+      "id": "CBx18_top",
+      "element_type": "breaker",
+      "label": "CBx18 5A",
+      "connections": [
+       "supply -> MC43 POWER"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.6266666666666666,
+       1.0,
+       1.0
+      ]
+     },
+     {
+      "id": "CBx19",
+      "element_type": "breaker",
+      "label": "CBx19 5A",
+      "connections": [
+       "supply -> / (spare)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.6266666666666666,
+       1.0,
+       1.0
+      ]
+     },
+     {
+      "id": "CBx20",
+      "element_type": "breaker",
+      "label": "CBx20 5A",
+      "connections": [
+       "supply -> / (spare)"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.6266666666666666,
+       1.0,
+       1.0
+      ]
+     },
+     {
+      "id": "CB18",
+      "element_type": "breaker",
+      "label": "CB18 20A",
+      "connections": [
+       "supply -> MCP-S PUMP"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.6266666666666666,
+       1.0,
+       1.0
+      ]
+     },
+     {
+      "id": "CB17",
+      "element_type": "breaker",
+      "label": "CB17 20A",
+      "connections": [
+       "supply -> ECP-S PUMP"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.6266666666666666,
+       1.0,
+       1.0
+      ]
+     },
+     {
+      "id": "CB22",
+      "element_type": "breaker",
+      "label": "CB22 6A",
+      "connections": [
+       "supply -> SEA WATER PUMP"
+      ],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.6266666666666666,
+       1.0,
+       1.0
+      ]
+     },
+     {
+      "id": "SYSTEM COOLING",
+      "element_type": "annotation",
+      "label": "SYSTEM COOLING",
+      "connections": [],
+      "_via": "grid_tile",
+      "_bbox": [
+       0.6266666666666666,
+       0.6266666666666666,
+       1.0,
+       1.0
+      ]
+     }
+    ]
+   }
+  ],
+  "scoped_next": []
+ },
+ "composition": {
+  "serve_who": "This sheet (GMMS 108'-110b, \"AUX 24V START/ AUX LV SUPPLY\") is a mixed power one-line + LVPDU distribution schedule. Top half shows the four 24V house battery banks (GMDSS, Emergency, Gen Start, Aux Service) with fuses/chargers/isolator switches feeding the Battery Isolator Panel and onward to CBI Control and the Port/Stbd 112kW generator ISG units feeding the MPCS. Middle band shows the 24V/230V MAPS-style AC/DC converter feeding an isolator (continued DWG 110a) and the SHUNT#1/CT6/SHUNT#5 metering into the LVPDU. Bottom half is the LVPDU itself: three column groups (PORT, center, STBD) of breakers feeding named BAE-system/propulsion/cooling loads, confirming and extending engineer red-pen breaker facts already on file (CB1-CB23, CBx1-CBx20). Each row names its own served equipment per the engineer's load-map; the panel/bus structure itself belongs to the LVPDU infrastructure (owned by 625-bae-system hub as the BAE LV control panel).",
+  "equipment_groups": [
+   {
+    "equipment_name": "GMDSS Battery Bank (200Ah 24V)",
+    "target_node_id": "631-battery-gmdss",
+    "placement_reasoning": "Labelled 'GMDSS BAT. 200Ah 24V' in the Battery Fuse and Isolator Panel top-left; matches register node directly.",
+    "functions": [
+     {
+      "label": "GMDSS battery supply and charge loop",
+      "what_it_does": "Provides 24V DC standby power for GMDSS comms equipment and receives charge current back from its dedicated charger.",
+      "flow_scenarios": [
+       {
+        "state": "charging",
+        "path": "GMDSS BAT. (+) -> fused terminal F10 35A / F11 35A -> CHARGER; battery (-) returns via SHUNT #2 -> NEGATIVE BUS"
+       },
+       {
+        "state": "discharge/supply",
+        "path": "GMDSS BAT. (+) -> F10/F11 -> switch SW13 -> GDS SUPPLY (destination off-sheet); return via SHUNT #2 -> NEGATIVE BUS"
+       }
+      ],
+      "key_components": [
+       "battery bank (200Ah 24V)",
+       "dual fuses F10 35A/F11 35A (battery protection)",
+       "shunt (current sense, SHUNT #2)",
+       "isolator switch SW13",
+       "charger"
+      ],
+      "dry_data": "200Ah 24V battery; F10/F11 35A fuses; charger via SW13 to GDS SUPPLY",
+      "sheet_region": "top-left, Battery Fuse and Isolator Panel, bbox ~[0.0,0.06,0.3,0.35]"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Emergency Battery Bank (200Ah 24V)",
+    "target_node_id": "632-battery-emergency",
+    "placement_reasoning": "Labelled 'EMERGENCY BAT. 200Ah 24V' feeding EMERGENCY BAT. SUPPLY via SW12.",
+    "functions": [
+     {
+      "label": "Emergency battery supply and charge loop",
+      "what_it_does": "Supplies 24V DC to emergency circuits via SW12 and receives charge from its charger; a relay SO 10 sits inline on the charge/supply feed to F13.",
+      "flow_scenarios": [
+       {
+        "state": "charging",
+        "path": "EMERGENCY BAT. (+) -> F12 50A -> CHARGER; return via SHUNT #3 -> NEGATIVE BUS"
+       },
+       {
+        "state": "discharge/supply",
+        "path": "EMERGENCY BAT. (+) -> F13 250A -> relay contact SO 10 -> switch SW12 -> EMERGENCY BAT. SUPPLY (off-sheet); return via SHUNT #3 -> NEGATIVE BUS"
+       }
+      ],
+      "key_components": [
+       "battery bank (200Ah 24V)",
+       "fuses F12 50A / F13 250A",
+       "shunt SHUNT #3",
+       "relay/contactor SO 10 (coil energisation side not traced on this sheet)",
+       "isolator switch SW12",
+       "charger"
+      ],
+      "dry_data": "200Ah 24V battery; F12 50A / F13 250A fuses",
+      "sheet_region": "top-left, Battery Fuse and Isolator Panel, ~[0.0,0.15,0.3,0.45]"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Generator Start Battery Bank (200Ah 24V)",
+    "target_node_id": "633-battery-gen-start",
+    "placement_reasoning": "Labelled 'GEN START BAT. 200Ah 24V'.",
+    "functions": [
+     {
+      "label": "Generator start battery supply and charge loop",
+      "what_it_does": "Supplies 24V DC start power via SO 9 relay to the bus and receives charge from its dedicated charger.",
+      "flow_scenarios": [
+       {
+        "state": "charging",
+        "path": "GEN START BAT. (+) -> F14 50A -> CHARGER; return via SHUNT #4 -> NEGATIVE BUS"
+       },
+       {
+        "state": "discharge/supply",
+        "path": "GEN START BAT. (+) -> F15 250A -> relay contact SO 9 -> bus (destination off-sheet); return via SHUNT #4 -> NEGATIVE BUS"
+       }
+      ],
+      "key_components": [
+       "battery bank (200Ah 24V)",
+       "fuses F14 50A / F15 250A",
+       "shunt SHUNT #4",
+       "relay/contactor SO 9 (coil side not traced)",
+       "charger"
+      ],
+      "dry_data": "200Ah 24V battery; F14 50A / F15 250A fuses",
+      "sheet_region": "top-left, Battery Fuse and Isolator Panel, ~[0.0,0.25,0.3,0.55]"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Aux Service Battery Bank (200Ah 24V)",
+    "target_node_id": "634-battery-aux-service",
+    "placement_reasoning": "Labelled 'AUX SERVICE BAT. 200Ah 24V' feeding SW11 and the inverter.",
+    "functions": [
+     {
+      "label": "Aux service battery supply loop to isolator switch and inverter",
+      "what_it_does": "Supplies 24V DC through SW11 into the Battery Isolator Panel (feeding generator start switching SW14/15/16) and separately powers the inverter.",
+      "flow_scenarios": [
+       {
+        "state": "supply to isolator panel",
+        "path": "AUX SERVICE BAT. (+) -> F16 250A -> switch SW11 -> Battery Isolator Panel enclosure (SW14/SW15/SW16/CB1/CB2); return via NEGATIVE BUS"
+       },
+       {
+        "state": "supply to inverter",
+        "path": "AUX SERVICE BAT. (+) -> F17 100A -> INVERTER; return via NEGATIVE BUS"
+       }
+      ],
+      "key_components": [
+       "battery bank (200Ah 24V)",
+       "fuses F16 250A / F17 100A",
+       "isolator switch SW11",
+       "inverter"
+      ],
+      "dry_data": "200Ah 24V battery; F16 250A / F17 100A fuses",
+      "sheet_region": "top-left, Battery Fuse and Isolator Panel, ~[0.0,0.3,0.3,0.6]"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Gen-Start Battery Charger",
+    "target_node_id": "621-charger-gen-start",
+    "placement_reasoning": "Charger rectangle fed from F14, labelled CHARGER, dedicated to Gen Start battery per row grouping.",
+    "functions": [
+     {
+      "label": "Charges the Gen Start battery bank",
+      "what_it_does": "Converts supply (source off-sheet) to charge current delivered to the Gen Start battery via F14.",
+      "flow_scenarios": [
+       {
+        "state": "charging",
+        "path": "CHARGER output -> F14 -> GEN START BAT. (+); battery (-) -> SHUNT #4 -> NEGATIVE BUS"
+       }
+      ],
+      "key_components": [
+       "charger (make/model per established fact 630-mastervolt-batteries-chargers/621 group)"
+      ],
+      "dry_data": "Feed side (AC/DC input) not drawn on this sheet",
+      "sheet_region": "top-left ~[0.15,0.28,0.3,0.32]"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Emergency Battery Charger",
+    "target_node_id": "621-charger-emergency",
+    "placement_reasoning": "Charger rectangle fed from F12, dedicated to Emergency battery.",
+    "functions": [
+     {
+      "label": "Charges the Emergency battery bank",
+      "what_it_does": "Delivers charge current to Emergency battery via F12.",
+      "flow_scenarios": [
+       {
+        "state": "charging",
+        "path": "CHARGER output -> F12 -> EMERGENCY BAT. (+); battery (-) -> SHUNT #3 -> NEGATIVE BUS"
+       }
+      ],
+      "key_components": [
+       "charger"
+      ],
+      "dry_data": "Input side not drawn on this sheet",
+      "sheet_region": "top-left ~[0.15,0.18,0.3,0.22]"
+     }
+    ]
+   },
+   {
+    "equipment_name": "GMDSS Battery Charger",
+    "target_node_id": "621-charger-gmdss",
+    "placement_reasoning": "Charger rectangle fed from F10/F11, dedicated to GMDSS battery.",
+    "functions": [
+     {
+      "label": "Charges the GMDSS battery bank",
+      "what_it_does": "Delivers charge current to GMDSS battery via F10/F11.",
+      "flow_scenarios": [
+       {
+        "state": "charging",
+        "path": "CHARGER output -> F10/F11 -> GMDSS BAT. (+); battery (-) -> SHUNT #2 -> NEGATIVE BUS"
+       }
+      ],
+      "key_components": [
+       "charger"
+      ],
+      "dry_data": "Input side not drawn on this sheet",
+      "sheet_region": "top-left ~[0.15,0.08,0.3,0.12]"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Emergency Inverter",
+    "target_node_id": "622-emergency-inverter",
+    "placement_reasoning": "Rectangle labelled INVERTER fed from Aux Service battery F17, matches the emergency inverter node (established fact links EARTH LEAKAGE 13 to this node on GMMS 110c).",
+    "functions": [
+     {
+      "label": "Inverts Aux Service battery DC to AC for connected loads",
+      "what_it_does": "Draws 24V DC from the Aux Service battery bank and supplies inverted AC to downstream loads (destination off-sheet).",
+      "flow_scenarios": [
+       {
+        "state": "supply",
+        "path": "AUX SERVICE BAT. (+) -> F17 100A -> INVERTER -> AC output (off-sheet); DC return via NEGATIVE BUS"
+       }
+      ],
+      "key_components": [
+       "inverter",
+       "fuse F17 100A"
+      ],
+      "dry_data": "100A DC input fuse; AC output destination not drawn",
+      "sheet_region": "top-left ~[0.15,0.35,0.3,0.4]"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Generators (Port + Stbd, 112kW ISG)",
+    "target_node_id": "610-generators",
+    "placement_reasoning": "Boxes labelled 'PORT GENERATOR 112KW' and 'STBD GENERATOR 112KW' each with an ALT tap and an ISG (Integrated Starter/Generator) block feeding respective MPCS \u2014 matches the generators node (610-generators); ISG-specific facts routed separately to 625-isg-port/stbd per engineer mapping since those are distinct BAE nodes.",
+    "functions": [
+     {
+      "label": "Generator B+ energising loop via Battery Isolator Panel switching",
+      "what_it_does": "Routes 24V B+ from the Battery Isolator Panel common switch SW14 through either SW15 (Port path, CB1 50A) or SW16 (Stbd path, CB2 50A) to energise each generator's starter circuit, with a parallel status tap to CBI Control on each breaker branch.",
+      "flow_scenarios": [
+       {
+        "state": "Port branch energised",
+        "path": "Battery Isolator Panel SW14 common -> SW15 (and parallel CB1 50A) -> wire gauge 70 -> PORT GENERATOR B+ -> ALT tap / chassis ground; CB1 branch also taps off to CBI Control"
+       },
+       {
+        "state": "Stbd branch energised",
+        "path": "SW14 common -> SW16 (and parallel CB2 50A) -> wire gauge 70 -> STBD GENERATOR B+ -> ALT tap / chassis ground; CB2 branch also taps off to CBI Control"
+       }
+      ],
+      "key_components": [
+       "rotary switch SW14 (common selector)",
+       "rotary switches SW15/SW16 (per-generator)",
+       "breakers CB1/CB2 50A (parallel path, protective)",
+       "ALT status tap",
+       "chassis ground"
+      ],
+      "dry_data": "112kW ISG per generator; wire gauge 70mm\u00b2 on B+ feeds; CB1/CB2 50A",
+      "sheet_region": "top-center/right, Battery Isolator Panel + generator boxes, ~[0.3,0.13,0.7,0.35]"
+     },
+     {
+      "label": "Generator output to propulsion control (ISG to MPCS)",
+      "what_it_does": "Each generator's Integrated Starter/Generator (ISG) unit outputs three lines to its respective MPCS for propulsion control interface.",
+      "flow_scenarios": [
+       {
+        "state": "normal running",
+        "path": "PORT GENERATOR -> ISG (Port) -> 3 lines -> to PORT MPCS (continues off-sheet)"
+       },
+       {
+        "state": "normal running",
+        "path": "STBD GENERATOR -> ISG (Stbd) -> 3 lines -> to STBD MPCS (continues off-sheet)"
+       }
+      ],
+      "key_components": [
+       "ISG unit (Port)",
+       "ISG unit (Stbd)"
+      ],
+      "dry_data": "3-conductor output per side",
+      "sheet_region": "top-right, ~[0.65,0.13,1.0,0.32]"
+     }
+    ]
+   },
+   {
+    "equipment_name": "ISG Port (Integrated Starter Generator)",
+    "target_node_id": "625-isg-port",
+    "placement_reasoning": "Labelled ISG block directly attached to PORT GENERATOR box; register has a dedicated node distinct from the generic generator node.",
+    "functions": [
+     {
+      "label": "Port ISG interface to MPCS",
+      "what_it_does": "Provides the high-voltage starter/generator interface between the Port generator and the Port MPCS.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "PORT GENERATOR -> ISG (Port) -> to PORT MPCS (3 lines, continues off-sheet)"
+       }
+      ],
+      "key_components": [
+       "ISG connector/module"
+      ],
+      "dry_data": "High voltage starter/generator type",
+      "sheet_region": "top-right ~[0.68,0.14,0.85,0.22]"
+     }
+    ]
+   },
+   {
+    "equipment_name": "ISG Stbd (Integrated Starter Generator)",
+    "target_node_id": "625-isg-stbd",
+    "placement_reasoning": "Labelled ISG block directly attached to STBD GENERATOR box.",
+    "functions": [
+     {
+      "label": "Stbd ISG interface to MPCS",
+      "what_it_does": "Provides the high-voltage starter/generator interface between the Stbd generator and the Stbd MPCS.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "STBD GENERATOR -> ISG (Stbd) -> to STBD MPCS (3 lines, continues off-sheet)"
+       }
+      ],
+      "key_components": [
+       "ISG connector/module"
+      ],
+      "dry_data": "High voltage starter/generator type",
+      "sheet_region": "top-right ~[0.68,0.27,0.85,0.35]"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Modular Auxiliary Power System (MAPS, 24V/230V converter serving LVPDU/ONYX)",
+    "target_node_id": "626-maps",
+    "placement_reasoning": "Converter rectangle with sideways cross symbol, 230V AC in / 24V DC out, rating 24V 110A printed above the rectangle; labelled 'ISOLATOR (see DWG 110a)' downstream via CT5/SW5 to ONYX. Matches MAPS per sheet's own NOTE glossary (600V DC/24V DC) \u2014 here specifically the 230V AC-fed 24V DC unit; placed on general MAPS node since port/stbd split is not indicated for this specific converter box.",
+    "functions": [
+     {
+      "label": "230V AC to 24V DC conversion feeding isolator/ONYX branch",
+      "what_it_does": "Converts 230V AC (L/N in) to 24V 110A DC output, fused, monitored by CT5, switched by SW5 isolator, continuing to ONYX and DWG 110a.",
+      "flow_scenarios": [
+       {
+        "state": "normal supply",
+        "path": "230V AC L/N in -> converter (24V 110A DC out) -> fused terminal F18 125A -> CT5 (current transformer, signal tap to ONYX) -> switch SW5 (ISOLATOR) -> continues on DWG 110a"
+       }
+      ],
+      "key_components": [
+       "AC/DC converter (230V AC / 24V DC, sideways-cross symbol)",
+       "fuse F18 125A",
+       "current transformer CT5",
+       "isolator switch SW5"
+      ],
+      "dry_data": "Rating 24V 110A printed above converter; F18 125A fuse",
+      "sheet_region": "middle-left ~[0.1,0.4,0.45,0.48]"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Chart Table HMI",
+    "target_node_id": "625-bae-system",
+    "placement_reasoning": "CB1 6A row labelled 'CHART TABLE HMI' under PORT column; per glossary HMI=SCREEN, and no dedicated HMI node exists \u2014 attached to BAE hub per engineer mapping list (CHART TABLE HMI -> 625-bae-system).",
+    "functions": [
+     {
+      "label": "Chart table HMI screen power",
+      "what_it_does": "Supplies the chart table HMI screen from the LVPDU PORT bus.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "PORT bus -> CB1 6A -> CHART TABLE HMI"
+       }
+      ],
+      "key_components": [
+       "breaker CB1 6A"
+      ],
+      "dry_data": "CB1 6A",
+      "sheet_region": "LVPDU PORT column, ~[0.33,0.6,0.5,0.62]"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Modular Propulsion Control System (MPCS-P)",
+    "target_node_id": "620-modular-propulsion-control-system-mpcs",
+    "placement_reasoning": "CB2 PORT row 'MPCS-P' and CB6 STBD row 'MPCS-...' confirm engineer fact CB2 MPCS-P; STBD counterpart inferred from column mirroring.",
+    "functions": [
+     {
+      "label": "MPCS LVPDU control supply, Port and Stbd",
+      "what_it_does": "Supplies low-voltage control power to the Port and Stbd Modular Propulsion Control Systems from the LVPDU.",
+      "flow_scenarios": [
+       {
+        "state": "Port supply",
+        "path": "PORT bus -> CB2 15A -> MPCS-P"
+       },
+       {
+        "state": "Stbd supply",
+        "path": "STBD bus -> CB6 15A -> MPCS-S (mirrored label, partly cropped)"
+       }
+      ],
+      "key_components": [
+       "breaker CB2 15A (Port)",
+       "breaker CB6 15A (Stbd)"
+      ],
+      "dry_data": "CB2/CB6 15A",
+      "sheet_region": "LVPDU PORT/STBD columns, ~[0.33,0.62,0.83,0.68]"
+     }
+    ]
+   },
+   {
+    "equipment_name": "MAPS-P (Port)",
+    "target_node_id": "626-maps-p",
+    "placement_reasoning": "CB3 PORT row labelled 'MAPS-P' matches engineer fact CB3 MAPS-P.",
+    "functions": [
+     {
+      "label": "MAPS-P LVPDU control supply",
+      "what_it_does": "Supplies low-voltage control power to the Port MAPS unit from the LVPDU PORT bus.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "PORT bus -> CB3 15A -> MAPS-P"
+       }
+      ],
+      "key_components": [
+       "breaker CB3 15A"
+      ],
+      "dry_data": "CB3 15A",
+      "sheet_region": "LVPDU PORT column ~[0.33,0.64,0.5,0.66]"
+     }
+    ]
+   },
+   {
+    "equipment_name": "MAPS-S (Stbd)",
+    "target_node_id": "626-maps-s",
+    "placement_reasoning": "CB7 STBD row labelled 'MAPS-...' mirroring MAPS-P; STBD counterpart per column symmetry.",
+    "functions": [
+     {
+      "label": "MAPS-S LVPDU control supply",
+      "what_it_does": "Supplies low-voltage control power to the Stbd MAPS unit from the LVPDU STBD bus.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "STBD bus -> CB7 15A -> MAPS-S"
+       }
+      ],
+      "key_components": [
+       "breaker CB7 15A"
+      ],
+      "dry_data": "CB7 15A",
+      "sheet_region": "LVPDU STBD column ~[0.66,0.64,0.83,0.66]"
+     }
+    ]
+   },
+   {
+    "equipment_name": "EDN Shore Charger (P+S)",
+    "target_node_id": "627-edn",
+    "placement_reasoning": "CB4 PORT 'EDN-P' and CB8 STBD 'EDN-...' rows; matches established fact CB4 EDN-P.",
+    "functions": [
+     {
+      "label": "EDN LVPDU control supply, Port and Stbd",
+      "what_it_does": "Supplies low-voltage control power to the shore charger units from the LVPDU.",
+      "flow_scenarios": [
+       {
+        "state": "Port supply",
+        "path": "PORT bus -> CB4 10A -> EDN-P"
+       },
+       {
+        "state": "Stbd supply",
+        "path": "STBD bus -> CB8 10A -> EDN-S"
+       }
+      ],
+      "key_components": [
+       "breaker CB4 10A (Port)",
+       "breaker CB8 10A (Stbd)"
+      ],
+      "dry_data": "CB4/CB8 10A",
+      "sheet_region": "LVPDU PORT/STBD columns ~[0.33,0.66,0.83,0.68]"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Akasol ESS (Energy Storage System)",
+    "target_node_id": "630-akasol-ess",
+    "placement_reasoning": "CB9 'ESS' and CBx2 'ESS (Re6)' rows in center column; matches established fact CB9 T/S BA + CBx.2 G3-41P1 LVPDU control pins for ESS.",
+    "functions": [
+     {
+      "label": "ESS LVPDU control supply",
+      "what_it_does": "Supplies control power to the ESS directly and via a second breaker feeding the Re6 relay path (Re6 itself not drawn on this sheet).",
+      "flow_scenarios": [
+       {
+        "state": "direct ESS supply",
+        "path": "+ bus -> CB9 6A -> ESS"
+       },
+       {
+        "state": "Re6 relay supply",
+        "path": "+ bus -> CBx2 1A -> ESS (Re6) relay (Re6 coil/contacts not drawn here, per established SCU3 control_wiring fact)"
+       }
+      ],
+      "key_components": [
+       "breaker CB9 6A",
+       "breaker CBx2 1A",
+       "relay Re6 (off-sheet)"
+      ],
+      "dry_data": "CB9 6A, CBx2 1A",
+      "sheet_region": "LVPDU center column ~[0.5,0.59,0.66,0.63]"
+     }
+    ]
+   },
+   {
+    "equipment_name": "GPM-12 Drive Motor (ACTM propulsion motor)",
+    "target_node_id": "420-gpm-12-drive-motor",
+    "placement_reasoning": "CB10 25A row labelled 'ACTM (GPM-12)'; glossary confirms ACTM=PROPULSION MOTOR; matches established fact CB10 ACTM 24V control supply.",
+    "functions": [
+     {
+      "label": "ACTM/GPM-12 control supply",
+      "what_it_does": "Supplies 24V control power to the traction/propulsion drive motor.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "+ bus -> CB10 25A -> ACTM (GPM-12)"
+       }
+      ],
+      "key_components": [
+       "breaker CB10 25A"
+      ],
+      "dry_data": "CB10 25A",
+      "sheet_region": "LVPDU center column ~[0.5,0.61,0.66,0.63]"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Hundested CPP Sterngear (CCP PVED valves, CPP oil, CPP pitch pump)",
+    "target_node_id": "430-hundested-cpp-sterngear",
+    "placement_reasoning": "CB11 'CCP PVED VALVE A/B', CBx8 'CPP OIL', CB23 'CPP (PITCH) PUMP' rows; matches established fact electrical_supply for this node.",
+    "functions": [
+     {
+      "label": "CPP pitch valve control supply",
+      "what_it_does": "Supplies control power to the CPP proportional pitch valves A and B (PVED valves).",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "+ bus -> CB11 25A -> CCP -> PVED VALVE A and PVED VALVE B (parallel outputs)"
+       }
+      ],
+      "key_components": [
+       "breaker CB11 25A",
+       "CCP controller"
+      ],
+      "dry_data": "CB11 25A; plug pins G3-g1P1/R1/P2/R2/R3 per established fact",
+      "sheet_region": "LVPDU center column ~[0.5,0.62,0.66,0.64]"
+     },
+     {
+      "label": "CPP oil system supply",
+      "what_it_does": "Supplies control power to the CPP oil pump relays (K1/K2 per established control_chain fact, not drawn on this sheet).",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "+ bus -> CBx8 1A -> CPP OIL"
+       }
+      ],
+      "key_components": [
+       "breaker CBx8 1A (fused terminal per engineer note)"
+      ],
+      "dry_data": "CBx8 1A",
+      "sheet_region": "LVPDU center column ~[0.5,0.7,0.66,0.72]"
+     },
+     {
+      "label": "CPP pitch pump supply",
+      "what_it_does": "Supplies the CPP (pitch) pump in the System Cooling section.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "+ bus -> CB23 6A -> CPP (PITCH) PUMP"
+       }
+      ],
+      "key_components": [
+       "breaker CB23 6A"
+      ],
+      "dry_data": "CB23 6A",
+      "sheet_region": "Center System Cooling column ~[0.5,0.96,0.66,0.98]"
+     }
+    ]
+   },
+   {
+    "equipment_name": "SCU3 (System Control Unit)",
+    "target_node_id": "628-scu3",
+    "placement_reasoning": "CB12 'SCU CONTROL' and CB13 'SCU' rows; matches established fact CB12 SCU CONTROL + CB13 SCU.",
+    "functions": [
+     {
+      "label": "SCU3 control and power supply, with STBD-side relay feedback loop",
+      "what_it_does": "Supplies SCU control power and SCU power from the LVPDU; the SCU CONTROL line also feeds back to the STBD bus area energising two relay coils (Re.0, Re7) whose contacts are alternative activation paths from the STBD supply bus, outputting status signals toward SCU3 pins and the BEL/G3 wiring.",
+      "flow_scenarios": [
+       {
+        "state": "SCU control supply",
+        "path": "+ bus -> CB12 25A -> SCU CONTROL; feedback line -> STBD bus junction near Re.0/Re7"
+       },
+       {
+        "state": "SCU power supply",
+        "path": "+ bus -> CB13 6A -> SCU"
+       },
+       {
+        "state": "Re.0 relay energised",
+        "path": "STBD supply bus -> contact switch -> Re.0 coil + side; coil output -> From SCU3 G3-1129 status signal (- return side/coil source not fully traced)"
+       },
+       {
+        "state": "Re7 relay energised",
+        "path": "STBD supply bus -> contact switch -> Re7 coil + side; coil output -> to SCU3 P50-23 / G3-J11R status signals (- return side/coil source not fully traced)"
+       }
+      ],
+      "key_components": [
+       "breaker CB12 25A (fused terminal)",
+       "breaker CB13 6A (fused terminal, plug pins G3-11P1/11R1 per established fact)",
+       "relay coil Re.0",
+       "relay coil Re7",
+       "STBD supply bus contact switches"
+      ],
+      "dry_data": "CB12 25A, CB13 6A",
+      "sheet_region": "LVPDU center column and STBD relay bank ~[0.5,0.72,0.83,0.78]"
+     }
+    ]
+   },
+   {
+    "equipment_name": "BAE Hybrid System (hub) \u2014 CP Switch, HVIL, Conductivity Processor, BEL-Sync, Chart Table HMI, Throttle Controls, Data Logger",
+    "target_node_id": "625-bae-system",
+    "placement_reasoning": "Multiple CBx rows map directly to 625-bae-system per engineer mapping (HVIL, CONDUCTIVITY PROCESSOR, BEL-SYNC, CHART TABLE HMI, PORT/STBD THROTTLE, DATA LOGGER/DTLGR).",
+    "functions": [
+     {
+      "label": "CP switch fused supply (cross-referenced to DWG 110d)",
+      "what_it_does": "Supplies the CP switch; further wiring detail on DWG 110d.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "+ bus -> CBx1 5A -> CP SWITCH (continues on DWG 110d)"
+       }
+      ],
+      "key_components": [
+       "fuse/breaker CBx1 5A"
+      ],
+      "dry_data": "CBx1 5A",
+      "sheet_region": "LVPDU center column ~[0.5,0.67,0.66,0.69]"
+     },
+     {
+      "label": "HVIL (High Voltage Interlock Loop) supply",
+      "what_it_does": "Supplies the HVIL interlock signal loop, continuing off-sheet via a dotted-actuator contact.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "+ bus -> CBx3 5A -> HVIL -> contact (dotted) -> continues off-sheet"
+       }
+      ],
+      "key_components": [
+       "fuse CBx3 5A",
+       "HVIL contact"
+      ],
+      "dry_data": "CBx3 5A",
+      "sheet_region": "LVPDU center column ~[0.5,0.68,0.66,0.7]"
+     },
+     {
+      "label": "Conductivity processor supply (x2)",
+      "what_it_does": "Supplies two conductivity processor circuits.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "+ bus -> CBx9 5A -> CONDUCTIVITY PROCESSOR"
+       },
+       {
+        "state": "normal",
+        "path": "+ bus -> CBx10 5A -> CONDUCTIVITY PROCESSOR"
+       }
+      ],
+      "key_components": [
+       "fuse CBx9 5A",
+       "fuse CBx10 5A"
+      ],
+      "dry_data": "CBx9/CBx10 5A each",
+      "sheet_region": "LVPDU center column ~[0.5,0.71,0.66,0.75]"
+     },
+     {
+      "label": "BEL-Sync supply",
+      "what_it_does": "Supplies the BEL synchronisation circuit.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "+ bus -> CBx11 5A -> BEL-SYNC"
+       }
+      ],
+      "key_components": [
+       "fuse CBx11 5A"
+      ],
+      "dry_data": "CBx11 5A",
+      "sheet_region": "LVPDU center column ~[0.5,0.75,0.66,0.77]"
+     },
+     {
+      "label": "Chart table HMI \u2014 see equipment entry above (not duplicated here)",
+      "what_it_does": "Cross-reference only; see CHART TABLE HMI function under its own equipment_group entry.",
+      "flow_scenarios": [],
+      "key_components": []
+     },
+     {
+      "label": "Port/Stbd throttle control supply",
+      "what_it_does": "Supplies the axiomatic throttle control units for Port and Stbd.",
+      "flow_scenarios": [
+       {
+        "state": "Port",
+        "path": "distribution bus -> CBx13 5A -> PORT THROTTLE CONTROL THT-P AXIOMATIC"
+       },
+       {
+        "state": "Stbd",
+        "path": "distribution bus -> CBx14 5A -> STBD THROTTLE CONTROL THT-S AXIOMATIC"
+       }
+      ],
+      "key_components": [
+       "fuse CBx13 5A",
+       "fuse CBx14 5A"
+      ],
+      "dry_data": "CBx13/CBx14 5A each",
+      "sheet_region": "STBD auxiliary breaker column ~[0.83,0.72,1.0,0.76]"
+     },
+     {
+      "label": "Data logger supply",
+      "what_it_does": "Supplies the data logger (DTLGR).",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "distribution bus -> CBx15 5A -> DTLGR"
+       }
+      ],
+      "key_components": [
+       "fuse CBx15 5A"
+      ],
+      "dry_data": "CBx15 5A",
+      "sheet_region": "STBD auxiliary breaker column ~[0.83,0.76,1.0,0.78]"
+     }
+    ]
+   },
+   {
+    "equipment_name": "BEL CAN Bus Isolators",
+    "target_node_id": "629-bel",
+    "placement_reasoning": "CBx4 'BEL CAN BUS ISOLATORS' matches established fact CBx4 protective device for 629-bel.",
+    "functions": [
+     {
+      "label": "BEL CAN bus isolator fused supply",
+      "what_it_does": "Supplies/protects the BEL CAN bus isolators.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "+ bus -> CBx4 5A (retractable fuse) -> BEL CAN BUS ISOLATORS"
+       }
+      ],
+      "key_components": [
+       "retractable fuse CBx4 5A"
+      ],
+      "dry_data": "CBx4 5A",
+      "sheet_region": "LVPDU center column ~[0.5,0.69,0.66,0.71]"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Parker MC43 Display",
+    "target_node_id": "625-parker-mc43-display",
+    "placement_reasoning": "CBx17 'PARKER DISPLAY' and CBx18 'MC43 POWER' match established fact protective_device CBx.17 for Parker display; MC43 POWER is directly named too.",
+    "functions": [
+     {
+      "label": "Parker display and MC43 power supply",
+      "what_it_does": "Supplies the Parker display and separately the MC43 controller power.",
+      "flow_scenarios": [
+       {
+        "state": "display supply",
+        "path": "distribution bus -> CBx17 5A (retractable fuse) -> PARKER DISPLAY"
+       },
+       {
+        "state": "MC43 power supply",
+        "path": "distribution bus -> CBx18 5A -> MC43 POWER"
+       }
+      ],
+      "key_components": [
+       "retractable fuse CBx17 5A",
+       "fuse CBx18 5A"
+      ],
+      "dry_data": "CBx17/CBx18 5A each",
+      "sheet_region": "STBD auxiliary breaker column ~[0.83,0.78,1.0,0.82]"
+     }
+    ]
+   },
+   {
+    "equipment_name": "EMP Glycol Cooling Pumps (MCP-P, ECP-P, MCP-S, ECP-S, MCP, BCP, BCP-Axiomatic)",
+    "target_node_id": "595-emp-glycol-pumps",
+    "placement_reasoning": "System Cooling column rows CB14/15/16/17/18/19 and CBx16 match established electrical_supply fact for this node.",
+    "functions": [
+     {
+      "label": "Port/Stbd/Motor/Battery glycol cooling pump supplies",
+      "what_it_does": "Supplies power to the several glycol cooling circulation pumps serving MPCS/ISG, motor, and ESS battery cooling loops.",
+      "flow_scenarios": [
+       {
+        "state": "MCP-P",
+        "path": "PORT System bus -> CB14 20A -> MCP-P PUMP"
+       },
+       {
+        "state": "ECP-P",
+        "path": "PORT System bus -> CB15 20A -> ECP-P PUMP"
+       },
+       {
+        "state": "MCP (Motor)",
+        "path": "Center System bus -> CB16 20A -> MCP (MOTOR) PUMP"
+       },
+       {
+        "state": "BCP (ESS)",
+        "path": "Center System bus -> CB19 20A -> BCP (ESS) PUMP"
+       },
+       {
+        "state": "MCP-S",
+        "path": "STBD System bus -> CB18 20A -> MCP-S PUMP"
+       },
+       {
+        "state": "ECP-S",
+        "path": "STBD System bus -> CB17 20A -> ECP-S PUMP"
+       },
+       {
+        "state": "BCP Axiomatic",
+        "path": "distribution bus -> CBx16 5A -> BAT. COOLING PUMP BCP AXIOMATIC"
+       }
+      ],
+      "key_components": [
+       "breakers CB14/15/16/17/18/19 20A each",
+       "fuse CBx16 5A"
+      ],
+      "dry_data": "20A breakers on main pump circuits; CBx16 5A axiomatic",
+      "sheet_region": "System Cooling columns bottom of sheet, ~[0.33,0.9,1.0,0.98] and STBD aux column ~[0.83,0.8,1.0,0.82]"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Grundfos Main Seawater Cooling Pumps",
+    "target_node_id": "595-grundfos-main-seawater-cooling-pumps",
+    "placement_reasoning": "CB21 'SEA WATER PUMP' (Port System Cooling) and CB22 'SEA WATER PUMP' (Stbd System Cooling) match established fact electrical_supply for this node.",
+    "functions": [
+     {
+      "label": "Port/Stbd main seawater cooling pump supply",
+      "what_it_does": "Supplies power to the main seawater cooling pumps.",
+      "flow_scenarios": [
+       {
+        "state": "Port pump",
+        "path": "PORT System bus -> CB21 6A -> SEA WATER PUMP"
+       },
+       {
+        "state": "Stbd pump",
+        "path": "STBD System bus -> CB22 6A -> SEA WATER PUMP"
+       }
+      ],
+      "key_components": [
+       "breaker CB21 6A (Port)",
+       "breaker CB22 6A (Stbd)"
+      ],
+      "dry_data": "CB21/CB22 6A each; per established fact relay Re4/Re5 control these downstream (not drawn here)",
+      "sheet_region": "PORT/STBD System Cooling columns ~[0.33,0.94,0.83,0.98]"
+     }
+    ]
+   },
+   {
+    "equipment_name": "MYT Systems Hydraulics (main hydraulics supply)",
+    "target_node_id": "570-myt-systems-hydraulics",
+    "placement_reasoning": "Center System Cooling column row labelled 'HYDRAULICS' via CB20; matches HYDRAULICS -> 570-myt-systems-hydraulics engineer mapping.",
+    "functions": [
+     {
+      "label": "Hydraulics system power supply",
+      "what_it_does": "Supplies power to the main hydraulics system from the LVPDU center System Cooling bus.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "Center System bus -> CB20 20A -> HYDRAULICS"
+       }
+      ],
+      "key_components": [
+       "breaker CB20 20A"
+      ],
+      "dry_data": "CB20 20A; per established fact HCP (G3-P7*/e129) cools EMRAX motors, related but separate breaker",
+      "sheet_region": "Center System Cooling column ~[0.5,0.94,0.66,0.96]"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "Negative Bus (24V house battery common return)",
+    "target_node_id": "640-dc-distribution",
+    "facts": [
+     "Common negative bus bar tying together the (-) terminals of all four house battery banks (GMDSS, Emergency, Gen Start, Aux Service) via their respective shunts (#2, #3, #4) and a direct Aux Service tap.",
+     "No dedicated node for this specific bus; attached to DC distribution infrastructure per bus-ownership rule since it is shared house-battery infrastructure, not a titled standalone system on this sheet."
+    ]
+   },
+   {
+    "system_name": "Battery Isolator Panel (dotted enclosure)",
+    "target_node_id": "625-bae-system",
+    "facts": [
+     "Dotted rectangular enclosure containing rotary switches SW11-SW16 and breakers CB1/CB2 (50A), selecting which battery/source feeds the generator starter B+ circuits and CBI Control taps.",
+     "Owned as BAE-adjacent generator-start switching infrastructure; not itself a named equipment \u2014 placed as infrastructure per rule 3."
+    ]
+   },
+   {
+    "system_name": "LVPDU (Low Voltage Power Distribution Unit) bus structure",
+    "target_node_id": "625-bae-system",
+    "facts": [
+     "LVPDU is the BAE system's LV control panel per established fact (628-scu3 control_wiring note); this sheet's PORT/center/STBD breaker columns and their supply buses (fed via SHUNT#1/F9/SW10/CT6/SHUNT#5 metering chain) are the panel infrastructure, not a distinct piece of equipment.",
+     "Metering chain: SHUNT#1 500A/50mV -> F9 125A -> SW10 -> CT6 -> SHUNT#5 -> PORT bus -> CB1-CB4; ammeter (A) and voltmeter (V) with F 2A fuse monitor the + bus.",
+     "STBD supply bus separately feeds CB5-CB8 and the Re.0/Re7 relay branches.",
+     "Distribution bus for CBx13-CBx20 group is a further internal junction within the LVPDU STBD auxiliary section."
+    ]
+   }
+  ],
+  "cross_references": [
+   {
+    "what": "Isolator switch SW5 output continuing to isolator circuitry",
+    "referenced_sheet_hint": "DWG 110a"
+   },
+   {
+    "what": "SW10/SHUNT#1 500A/50mV metering continuing",
+    "referenced_sheet_hint": "DWG 110a"
+   },
+   {
+    "what": "CP SWITCH (CBx1) wiring detail",
+    "referenced_sheet_hint": "DWG 110d"
+   },
+   {
+    "what": "SCU3 control signal pins G3-1129 (Re.0) and P50-23/G3-J11R (Re7)",
+    "referenced_sheet_hint": "SCU3 wiring sheet / GMMS 110d"
+   },
+   {
+    "what": "CBx7 load, unresolved on this sheet",
+    "referenced_sheet_hint": "DWG 113"
+   },
+   {
+    "what": "CT6 signal tap to ONYX monitoring",
+    "referenced_sheet_hint": "ONYX monitoring sheet"
+   },
+   {
+    "what": "CT5 signal tap to ONYX monitoring",
+    "referenced_sheet_hint": "ONYX monitoring sheet"
+   },
+   {
+    "what": "Port/Stbd generator ISG output continuing to MPCS",
+    "referenced_sheet_hint": "MPCS electrical sheet"
+   },
+   {
+    "what": "CB1/CB2 branch taps 'to CBI Control'",
+    "referenced_sheet_hint": "CBI Control sheet"
+   }
+  ],
+  "good_to_have": [
+   "Exact fuse ratings for F10-F18 are printed on-sheet (35A/50A/250A/100A/125A) \u2014 already captured where legible; verify at inspection if any digit is ambiguous.",
+   "SO 9 / SO 10 relay coil energisation source (the other side of these relays) is not shown on this sheet \u2014 function (battery start switching contact) is understood without it.",
+   "CBx5, CBx6, CBx19, CBx20 are unlabelled/marked '/' \u2014 appear to be spare breaker ways for future installation.",
+   "Wire gauge callouts (diamond '70') on generator B+ feeds \u2014 exact gauge value visible on sheet, not re-derived here.",
+   "Part numbers/connector pin identifiers (e.g. G3-g1P1/R1/P2/R2/R3, G3-11P1/11R1) are already captured in established facts; not re-verified pixel-by-pixel here."
+  ],
+  "uncertainties": [
+   "Re.0 and Re7 relay coils: only the STBD supply-bus contact (+) side and the SCU3/G3 status output side are traced; the actual coil negative/return path and the precise function each relay switches (beyond forwarding a status signal toward SCU3) is not fully resolvable from this sheet alone \u2014 engineer should confirm via GMMS 110d/wiring detail.",
+   "CB5 label 'BAE PEDESTAL ALARM' vs the STBD mirror of CB1 'CHART TABLE HMI' \u2014 the STBD column does not have a chart-table-HMI mirror; confirm whether CB5 truly serves a distinct BAE pedestal alarm function or is a STBD-side equivalent of another PORT load.",
+   "SW14 selector's two upstream source positions ('pos 1 from ...ER' and 'pos 2 from ...ER') are illegible on this extraction \u2014 the exact two selectable sources feeding the common generator-start B+ junction could not be identified beyond 'ER' fragment; engineer confirmation needed for full loop-walk accuracy."
+  ],
+  "discarded_as_clutter": [
+   "Repeated/duplicate CBx row fragments from the OCR pass1 schedule reader (device_id CB1/CB2/CBx1 listed multiple times with <UNKNOWN> load in the 'LVPDU PORT column' region) \u2014 superseded by the correctly-read center column schedule and wiring-coverage pass.",
+   "Title block fields (DWG No., Date, Drawn, Project, Customer) \u2014 administrative metadata, not equipment content.",
+   "Illegible text_tag_legend entry under 'BAE LVPDU DIAGRAM REFERENCE PAGE 26/27' \u2014 no resolvable content.",
+   "'BATTERY PANEL ENCLOSURE' and 'BATTERY FUSE AND ISOLATOR PANEL' annotation duplicate rows with empty connections \u2014 subsumed into the Battery Isolator Panel infrastructure entry.",
+   "CT5 duplicate entries from grid-tile re-scan (ambiguous flag, empty connections) \u2014 resolved into single MAPS/isolator function above."
+  ],
+  "_model": "claude-sonnet-5",
+  "_protocol_version": 4
+ },
+ "elapsed_s": 346.5
+}
