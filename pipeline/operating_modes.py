@@ -99,6 +99,18 @@ def read_modes(doc_id: str, doc_name: str = "") -> Optional[Dict[str, Any]]:
     vp = get_vision_provider("plumbed_diagram")
     res = vp.extract(buf.getvalue(), "image/png", _MODES_PROMPT, _MODES_TOOL,
                      max_tokens=8192)
+    # providers sometimes return an array field as a JSON STRING — parse it, or
+    # the digest iterates characters (seen 2026-07-22 on this very doc)
+    if isinstance(res, dict) and isinstance(res.get("modes"), str):
+        raw = res["modes"].strip()
+        try:
+            parsed = json.loads(raw)
+            if isinstance(parsed, dict):
+                parsed = parsed.get("modes", parsed)
+            if isinstance(parsed, list):
+                res["modes"] = parsed
+        except (ValueError, TypeError):
+            res["modes"] = [raw]      # keep as ONE mode string, never chars
     if res:
         res["_doc_name"] = doc_name
         cache[doc_id] = res
@@ -125,6 +137,11 @@ def modes_digest(sheet_name: str) -> str:
            f"and reconcile them with the walked topology (a mode the drawing "
            f"cannot support = flag it, never drop it silently):"]
     for m in modes:
+        if isinstance(m, str):       # provider returned plain strings, not
+            out.append(f"  MODE: {m}")   # objects — keep the content, don't crash
+            continue
+        if not isinstance(m, dict):
+            continue
         bits = [f"MODE: {m.get('mode_name','?')}"]
         for k, lbl in (("pumps", "pump(s)"), ("suction_from", "suction from"),
                        ("discharge_to", "discharge to"),
