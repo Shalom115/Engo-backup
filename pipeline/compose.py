@@ -95,11 +95,19 @@ CLASS_RULES: Dict[str, str] = {
         "equipment engaged by closing its circuit — map each lamp to the "
         "equipment it monitors (e.g. one lamp per BEL/MAPS/charger), do not "
         "leave them as an undifferentiated bank. "
-        "CONVERTER/CHARGER/INVERTER SYMBOL: a rectangle with a sideways cross, "
-        "a voltage on each side (each marked AC or DC), rating usually on top. "
-        "Read the two voltages and which side is AC vs DC; if a rating digit "
-        "is ambiguous or conflicts, record it as good-to-have and flag low "
-        "confidence — never present a doubtful rating as fact. "
+        "CONVERTER/CHARGER/INVERTER SYMBOL (engineer rule): a rectangle with a "
+        "sideways cross. BOTH voltages are written INSIDE the rectangle, one on "
+        "each side of the cross (each marked AC or DC) — that is the device's "
+        "input and output. CONFIRM EACH SIDE BY ITS CONNECTIONS: every side has "
+        "TWO lines, and they identify it — an AC side runs one line to L and one "
+        "to N; a DC side runs one line to the positive bus and one to the "
+        "negative bus. Trace those four lines to name the input and output "
+        "correctly. The RATING is always printed in CLOSE PROXIMITY to the "
+        "rectangle, either directly ABOVE or BELOW it — read it from there, and "
+        "do not attach a number found elsewhere on the sheet to this device. If "
+        "the rating digits are genuinely illegible, record it as good-to-have "
+        "with low confidence; never present a doubtful rating as fact, and never "
+        "let a stray number become a device rating. "
         "SPARE WAYS: an empty/unlabelled breaker way (e.g. 'QE5' with no load) "
         "is a SPARE for future installation — record it as spare, not as an "
         "uncertainty."),
@@ -474,7 +482,8 @@ def _maps_digest(drawing_class: str) -> str:
 def compose(image_png: bytes, extraction: Dict[str, Any],
             drawing_class: str,
             vision_kind: str = "hydraulic_schematic",
-            max_tokens: int = 16384) -> Optional[Dict[str, Any]]:
+            max_tokens: int = 16384,
+            sheet_name: str = "") -> Optional[Dict[str, Any]]:
     """Run the composition pass on one sheet. Returns the composition dict."""
     from providers.vision import get_vision_provider
     rules = CLASS_RULES.get(drawing_class)
@@ -493,10 +502,12 @@ def compose(image_png: bytes, extraction: Dict[str, Any],
         if digest and "no wiring graph" not in digest:
             loop_block = "\n\n" + digest
     elif drawing_class == "pid":
-        from pipeline import pid_extract
+        from pipeline import pid_extract, operating_modes
         digest = pid_extract.loops_digest(extraction)
         if digest and "no fluid topology" not in digest:
             loop_block = "\n\n" + digest
+        if sheet_name:      # authoritative lineup set, when the vessel ships one
+            loop_block += "\n\n" + operating_modes.modes_digest(sheet_name)
     prompt = _COMPOSE_PROMPT.format(
         class_rules=rules + loop_block,
         glossary=vessel_context.glossary_block(),
