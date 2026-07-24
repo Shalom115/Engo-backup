@@ -603,10 +603,13 @@ def extract_sheet(pdf_bytes: bytes, page_index: int = 0, *,
                 "reader": "schedule", "panel_label": rows.get("panel_label"),
                 "rows": rows.get("rows", [])})
         elif rtype in _WIRING_REGIONS:
-            els = read_wiring_region(pdf_bytes, rg["bbox"], page_index, legend_context=ctx)
-            result["regions_read"].append({
-                "region": rg.get("label"), "region_type": rtype, "bbox": rg["bbox"],
-                "reader": "wiring", "elements": els.get("elements", [])})
+            # COVERAGE GUARANTEE (fix 2026-07-22): read_wiring_coverage was built
+            # and validated (264 elements on GM-114a incl. the T/S B fused
+            # terminals) but extract_sheet still called the region-only reader,
+            # so ~2/3 of a wiring sheet went unread — T/S B never reached the
+            # graph and the relay coils lost their + feed. Dispatch through the
+            # coverage reader; handled ONCE per sheet, not per region.
+            continue  # wiring regions handled after the loop, in one coverage pass
         elif rtype in _ONELINE_REGIONS:
             topo = read_oneline_region(pdf_bytes, rg["bbox"], page_index, legend_context=ctx)
             result["regions_read"].append({
@@ -615,4 +618,17 @@ def extract_sheet(pdf_bytes: bytes, page_index: int = 0, *,
                 "edges": topo.get("edges", [])})
         # legend regions are no longer skipped — they were read UP FRONT by
         # legend_first and their content rides in every prompt above.
+
+    # WIRING: one COVERAGE pass for the whole sheet (survey wiring regions
+    # UNION a full-sheet grid, merged+deduped) — guarantees nothing is left
+    # unread, which the region-only path could not.
+    wiring_regions = [rg for rg in s.get("regions", [])
+                      if rg.get("type") in _WIRING_REGIONS]
+    if wiring_regions:
+        els = read_wiring_coverage(pdf_bytes, page_index, wiring_regions,
+                                   legend_context=ctx)
+        result["regions_read"].append({
+            "region": "ALL WIRING (coverage: survey regions + full-sheet grid)",
+            "region_type": "relay_terminal_wiring", "bbox": [0, 0, 1, 1],
+            "reader": "wiring_coverage", "elements": els})
     return result
