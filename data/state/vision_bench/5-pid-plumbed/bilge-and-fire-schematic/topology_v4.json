@@ -1,0 +1,582 @@
+{
+ "survey": {
+  "drawing_no": "108-01-520-001",
+  "revision": "B",
+  "title": "BILGE & FIRE SYSTEM SCHEMATIC",
+  "regions": [
+   {
+    "kind": "diagram",
+    "label": "Deck/General Arrangement Layout (upper plan view of vessel showing frames M-A, compartments, pump locations)",
+    "bbox": [
+     0.0,
+     0.0,
+     0.71,
+     0.32
+    ]
+   },
+   {
+    "kind": "bom_table",
+    "label": "PIPING DETAILS table (pipe codes, SWS code, OEM/supplier, model, details, rating, material, description, weight)",
+    "bbox": [
+     0.71,
+     0.0,
+     1.0,
+     0.075
+    ]
+   },
+   {
+    "kind": "bom_table",
+    "label": "BILL OF MATERIALS table (item no., qty, class, make/supplier, type, SWS code, description, weight ind./total)",
+    "bbox": [
+     0.71,
+     0.075,
+     1.0,
+     0.4
+    ]
+   },
+   {
+    "kind": "diagram",
+    "label": "Main Bilge & Fire System Piping Schematic (frames L-A, sumps, pumps, valves, hoses)",
+    "bbox": [
+     0.0,
+     0.32,
+     1.0,
+     0.83
+    ]
+   },
+   {
+    "kind": "legend",
+    "label": "SYMBOLS LEGEND (electrical motor driven pump, ICE driven pump, ball valves, fire hydrant, filter/strainer, bilge sump strum box, fire suppression spray head, control panel, local switch)",
+    "bbox": [
+     0.0,
+     0.83,
+     0.115,
+     0.945
+    ]
+   },
+   {
+    "kind": "legend",
+    "label": "TEXT LEGEND (BOM number, pipe code, flow direction, NO, NC, LT, LI, M, S, PI, CP, ESS)",
+    "bbox": [
+     0.115,
+     0.83,
+     0.225,
+     0.93
+    ]
+   },
+   {
+    "kind": "legend",
+    "label": "PIPE LEGEND (main bilge line, fireline, aux bilge line, freshwater supply - color coded)",
+    "bbox": [
+     0.34,
+     0.895,
+     0.44,
+     0.95
+    ]
+   },
+   {
+    "kind": "other",
+    "label": "PUMP DATA table (pump type, details, flow rate, power, max head)",
+    "bbox": [
+     0.225,
+     0.895,
+     0.34,
+     0.95
+    ]
+   },
+   {
+    "kind": "notes",
+    "label": "DRAWING-SPECIFIC NOTES",
+    "bbox": [
+     0.44,
+     0.905,
+     0.565,
+     0.95
+    ]
+   },
+   {
+    "kind": "notes",
+    "label": "STANDARD NOTES",
+    "bbox": [
+     0.565,
+     0.905,
+     0.71,
+     0.95
+    ]
+   },
+   {
+    "kind": "title_block",
+    "label": "Title block (Southern Wind logo, design, client, title, drawing no, sheet, drawn, approved/reviewed, revision table)",
+    "bbox": [
+     0.71,
+     0.895,
+     1.0,
+     1.0
+    ]
+   },
+   {
+    "kind": "other",
+    "label": "Revision history block (B, A rows with modification, GE, dates)",
+    "bbox": [
+     0.44,
+     0.955,
+     0.71,
+     1.0
+    ]
+   }
+  ],
+  "_model": "claude-sonnet-5"
+ },
+ "tables": [
+  {
+   "rows": [
+    {
+     "raw": "U026 | VETUS MAXWELL SA | FFHOSE38 | 38mm 1-1/2\", 50mm OD | ISO 7840 MARINE FUEL A2 | NBR RUBBER, STEEL SPIRAL | FUEL 7840 A2 38MM VETUS | 1.1"
+    },
+    {
+     "raw": "U0212 | VETUS MAXWELL SA | FFHOSE51 | 51mm 2\", 63mm OD | ISO 7840 MARINE FUEL A2 | NBR RUBBER, STEEL SPIRAL | FUEL 7840 A2  51MM VETUS | 1.5"
+    },
+    {
+     "raw": "U052 | VETUS MAXWELL SA | MWHOSE25 | 25mm 1\", 34mm OD | | EPDM RUBBER, STEEL SPRIAL | MARINE WATER 25MM VETUS | 0.51"
+    },
+    {
+     "raw": "PVC005D | G I TRADE OPTIONS | | 25mm 1\", 21.4mm ID | | PVC | 25MM PVC PIPE/MTR | 0.15"
+    },
+    {
+     "raw": "WO090 | W&O Supply Inc | 876000.042x001.5 | DN40 42x1.5mm | | CuNiFe 90/10 | PIPE 42MM SEAPRESS | 1.68"
+    },
+    {
+     "raw": "WO099 | W&O Supply Inc | 876000.054x86019 | DN50 54x1.5mm | | CuNiFe 90/10 | PIPE 54MM SEAPRESS | 2.17"
+    }
+   ],
+   "_model": "claude-sonnet-5",
+   "bbox": [
+    0.71,
+    0.0,
+    1.0,
+    0.075
+   ]
+  },
+  {
+   "_model": "claude-sonnet-5",
+   "bbox": [
+    0.71,
+    0.075,
+    1.0,
+    0.4
+   ]
+  }
+ ],
+ "topology": {
+  "components": [
+   {
+    "component_type": "pump",
+    "item_tag": "<UNKNOWN>",
+    "label": "DIESEL FIRE PUMP",
+    "bbox": [
+     380,
+     150,
+     405,
+     165
+    ]
+   },
+   {
+    "component_type": "pump",
+    "item_tag": "<UNKNOWN>",
+    "label": "DIESEL BACKUP BILGE PUMP",
+    "bbox": [
+     380,
+     110,
+     405,
+     125
+    ]
+   },
+   {
+    "component_type": "valve",
+    "item_tag": "<UNKNOWN>",
+    "label": "AFT FIRE HYDRANT",
+    "bbox": [
+     260,
+     140,
+     285,
+     160
+    ],
+    "valve_state": "unknown"
+   },
+   {
+    "component_type": "remote_start_annunciator",
+    "item_tag": "<UNKNOWN>",
+    "label": "FIRE PUMP REMOTE START",
+    "bbox": [
+     245,
+     90,
+     285,
+     130
+    ]
+   },
+   {
+    "component_type": "remote_start_annunciator",
+    "item_tag": "<UNKNOWN>",
+    "label": "MAIN BILGE PUMP REMOTE START",
+    "bbox": [
+     880,
+     95,
+     920,
+     140
+    ]
+   },
+   {
+    "component_type": "pump",
+    "item_tag": "<UNKNOWN>",
+    "label": "MAIN BILGE PUMP LOCAL START",
+    "bbox": [
+     2135,
+     195,
+     2175,
+     235
+    ]
+   },
+   {
+    "component_type": "pump",
+    "item_tag": "<UNKNOWN>",
+    "label": "MAIN BILGE PUMP",
+    "bbox": [
+     2135,
+     255,
+     2175,
+     290
+    ]
+   },
+   {
+    "component_type": "pump",
+    "item_tag": "<UNKNOWN>",
+    "label": "ELECTRIC FIRE PUMP",
+    "bbox": [
+     2015,
+     200,
+     2050,
+     240
+    ]
+   },
+   {
+    "component_type": "pump",
+    "item_tag": "<UNKNOWN>",
+    "label": "ENGINE ROOM AUX BILGE PUMP",
+    "bbox": [
+     1895,
+     195,
+     1935,
+     240
+    ]
+   },
+   {
+    "component_type": "pump",
+    "item_tag": "<UNKNOWN>",
+    "label": "MAST AREA AUX BILGE PUMP",
+    "bbox": [
+     1520,
+     195,
+     1560,
+     235
+    ]
+   },
+   {
+    "component_type": "engine",
+    "item_tag": "<UNKNOWN>",
+    "label": "PORT GENSET (aft engine, saloon area)",
+    "bbox": [
+     1385,
+     395,
+     1470,
+     470
+    ]
+   },
+   {
+    "component_type": "engine",
+    "item_tag": "<UNKNOWN>",
+    "label": "STBD GENSET (lower engine, saloon area)",
+    "bbox": [
+     1385,
+     590,
+     1490,
+     670
+    ]
+   },
+   {
+    "component_type": "pump",
+    "item_tag": "<UNKNOWN>",
+    "label": "STBD GENSET WATER PUMP",
+    "bbox": [
+     1495,
+     570,
+     1540,
+     585
+    ]
+   },
+   {
+    "component_type": "valve",
+    "item_tag": "<UNKNOWN>",
+    "label": "MOTOR-ACTUATED VALVE (FOR LAZARETTE AREA)",
+    "bbox": [
+     500,
+     540,
+     540,
+     560
+    ],
+    "valve_state": "unknown"
+   },
+   {
+    "component_type": "valve",
+    "item_tag": "<UNKNOWN>",
+    "label": "MOTOR-ACTUATED VALVE (FOR AFT AREA)",
+    "bbox": [
+     1195,
+     470,
+     1240,
+     490
+    ],
+    "valve_state": "unknown"
+   },
+   {
+    "component_type": "valve",
+    "item_tag": "<UNKNOWN>",
+    "label": "MOTOR-ACTUATED VALVE (FOR E-R)",
+    "bbox": [
+     1595,
+     400,
+     1635,
+     425
+    ],
+    "valve_state": "unknown"
+   },
+   {
+    "component_type": "valve",
+    "item_tag": "<UNKNOWN>",
+    "label": "MOTOR-ACTUATED VALVE (FOR MAST AREA)",
+    "bbox": [
+     1810,
+     410,
+     1855,
+     435
+    ],
+    "valve_state": "unknown"
+   },
+   {
+    "component_type": "valve",
+    "item_tag": "<UNKNOWN>",
+    "label": "MOTOR-ACTUATED VALVE (FOR SAIL LOCKER AREA)",
+    "bbox": [
+     2055,
+     455,
+     2100,
+     475
+    ]
+   },
+   {
+    "component_type": "overboard_discharge",
+    "item_tag": "<UNKNOWN>",
+    "label": "BILGE OVERBOARD",
+    "bbox": [
+     330,
+     440,
+     375,
+     460
+    ]
+   },
+   {
+    "component_type": "overboard_discharge",
+    "item_tag": "<UNKNOWN>",
+    "label": "BILGE OVERBOARD",
+    "bbox": [
+     2040,
+     420,
+     2080,
+     440
+    ]
+   },
+   {
+    "component_type": "sea_chest_intake",
+    "item_tag": "<UNKNOWN>",
+    "label": "DIESEL PUMP SEAWATER PICKUP",
+    "bbox": [
+     600,
+     500,
+     650,
+     520
+    ]
+   },
+   {
+    "component_type": "sea_chest_intake",
+    "item_tag": "<UNKNOWN>",
+    "label": "FIRE PUMP SEAWATER PICKUP",
+    "bbox": [
+     1975,
+     395,
+     2015,
+     415
+    ]
+   },
+   {
+    "component_type": "strainer",
+    "item_tag": "<UNKNOWN>",
+    "label": "ANTI-SIPHON MANIFOLD",
+    "bbox": [
+     1970,
+     570,
+     2015,
+     590
+    ]
+   },
+   {
+    "component_type": "manifold",
+    "item_tag": "<UNKNOWN>",
+    "label": "MAIN CONTROL PANEL",
+    "bbox": [
+     880,
+     450,
+     935,
+     500
+    ]
+   },
+   {
+    "component_type": "sensor_alarm",
+    "item_tag": "<UNKNOWN>",
+    "label": "WATERMIST SPRAY HEAD (LOCATION & QTY TBC)",
+    "bbox": [
+     280,
+     510,
+     340,
+     530
+    ]
+   },
+   {
+    "component_type": "pipe_junction",
+    "item_tag": "<UNKNOWN>",
+    "label": "MAIN BILGE LINE junction",
+    "bbox": [
+     1330,
+     500,
+     1370,
+     520
+    ]
+   }
+  ],
+  "connections": [
+   {
+    "from_component": "AFT FIRE HYDRANT",
+    "to_component": "DIESEL FIRE PUMP",
+    "line_label": "<UNKNOWN>",
+    "direction_unconfirmed": true
+   },
+   {
+    "from_component": "DIESEL FIRE PUMP",
+    "to_component": "DIESEL BACKUP BILGE PUMP",
+    "line_label": "<UNKNOWN>",
+    "direction_unconfirmed": true,
+    "ambiguous": true
+   },
+   {
+    "from_component": "DIESEL PUMP SEAWATER PICKUP",
+    "to_component": "MOTOR-ACTUATED VALVE (FOR LAZARETTE AREA)",
+    "line_label": "<UNKNOWN>",
+    "direction_unconfirmed": true
+   },
+   {
+    "from_component": "MOTOR-ACTUATED VALVE (FOR LAZARETTE AREA)",
+    "to_component": "BILGE OVERBOARD",
+    "line_label": "<UNKNOWN>",
+    "direction_unconfirmed": true
+   },
+   {
+    "from_component": "MOTOR-ACTUATED VALVE (FOR AFT AREA)",
+    "to_component": "MAIN CONTROL PANEL",
+    "line_label": "<UNKNOWN>",
+    "direction_unconfirmed": true
+   },
+   {
+    "from_component": "MAIN CONTROL PANEL",
+    "to_component": "MOTOR-ACTUATED VALVE (FOR LAZARETTE AREA)",
+    "line_label": "MAIN BILGE LINE",
+    "direction_unconfirmed": true
+   },
+   {
+    "from_component": "MOTOR-ACTUATED VALVE (FOR AFT AREA)",
+    "to_component": "pipe_junction",
+    "line_label": "MAIN BILGE LINE",
+    "direction_unconfirmed": true
+   },
+   {
+    "from_component": "pipe_junction",
+    "to_component": "MOTOR-ACTUATED VALVE (FOR E-R)",
+    "line_label": "MAIN BILGE LINE",
+    "direction_unconfirmed": true
+   },
+   {
+    "from_component": "MOTOR-ACTUATED VALVE (FOR E-R)",
+    "to_component": "MOTOR-ACTUATED VALVE (FOR MAST AREA)",
+    "line_label": "MAIN BILGE LINE",
+    "direction_unconfirmed": true
+   },
+   {
+    "from_component": "MOTOR-ACTUATED VALVE (FOR MAST AREA)",
+    "to_component": "FIRE PUMP SEAWATER PICKUP",
+    "line_label": "<UNKNOWN>",
+    "direction_unconfirmed": true
+   },
+   {
+    "from_component": "FIRE PUMP SEAWATER PICKUP",
+    "to_component": "MOTOR-ACTUATED VALVE (FOR SAIL LOCKER AREA)",
+    "line_label": "<UNKNOWN>",
+    "direction_unconfirmed": true
+   },
+   {
+    "from_component": "MOTOR-ACTUATED VALVE (FOR SAIL LOCKER AREA)",
+    "to_component": "BILGE OVERBOARD",
+    "line_label": "<UNKNOWN>",
+    "direction_unconfirmed": true,
+    "ambiguous": true
+   },
+   {
+    "from_component": "STBD GENSET WATER PUMP",
+    "to_component": "ANTI-SIPHON MANIFOLD",
+    "line_label": "<UNKNOWN>",
+    "direction_unconfirmed": true
+   },
+   {
+    "from_component": "ANTI-SIPHON MANIFOLD",
+    "to_component": "FIRE PUMP SEAWATER PICKUP",
+    "line_label": "<UNKNOWN>",
+    "direction_unconfirmed": true,
+    "ambiguous": true
+   },
+   {
+    "from_component": "MAIN BILGE PUMP",
+    "to_component": "MOTOR-ACTUATED VALVE (FOR SAIL LOCKER AREA)",
+    "line_label": "<UNKNOWN>",
+    "direction_unconfirmed": true,
+    "pump_side": "discharge"
+   },
+   {
+    "from_component": "ELECTRIC FIRE PUMP",
+    "to_component": "FIRE PUMP SEAWATER PICKUP",
+    "line_label": "<UNKNOWN>",
+    "direction_unconfirmed": true,
+    "pump_side": "suction"
+   },
+   {
+    "from_component": "ENGINE ROOM AUX BILGE PUMP",
+    "to_component": "MOTOR-ACTUATED VALVE (FOR MAST AREA)",
+    "line_label": "<UNKNOWN>",
+    "direction_unconfirmed": true,
+    "pump_side": "suction"
+   },
+   {
+    "from_component": "MAST AREA AUX BILGE PUMP",
+    "to_component": "MOTOR-ACTUATED VALVE (FOR E-R)",
+    "line_label": "<UNKNOWN>",
+    "direction_unconfirmed": true,
+    "pump_side": "suction"
+   }
+  ]
+ }
+}

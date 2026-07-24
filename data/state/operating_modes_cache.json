@@ -1,0 +1,48 @@
+{
+ "180Tmk78rjpdz_GrkH0Melm6fivtkBpXw": {
+  "modes": [
+   {
+    "mode_name": "OPERATING MODE 1 - NORMAL OPERATION (MAIN BILGE//MAIN FIRE)",
+    "pumps": "Main Bilge Pump (electric); Electric Fire Pump; Diesel Fire Pump",
+    "suction_from": "Seawater pickup (via seawater strainer) for fire line; Lazarette Sump, Midship Sump, Engine Room Sump, Mast Area Sump, Sail Locker Sump for bilge line",
+    "discharge_to": "Fire line in port sheer (fire hose stations, tender garage sprinklers) for fire operation; Bilge overboard via anti-siphon manifold (breather to run into STBD E-R vent box) for bilge operation",
+    "valve_positions": "These valves N.C. - only open valves necessary to remove water from relevant sump (applies at multiple sump connection points); This valve N.C. - only open valves necessary to remove water from relevant sump (single valve near B/A fire line junction)",
+    "notes": "Main bilge line shown in blue, main fire line shown in red. Unnecessary detail hidden for clarity in engine room area and mast area sump area."
+   },
+   {
+    "mode_name": "OPERATING MODE 2 - AUXILIARY BILGE OPERATION: AUX BILGE PUMP OVERBOARD (WHEN REGULATIONS ALLOW)",
+    "pumps": "E-R Aux Bilge Pump; Mast Aux Bilge Pump",
+    "suction_from": "Engine Room Sump; Mast Area Sump",
+    "discharge_to": "Overboard - Fwd deck locker drain (min 800mm above DWL) via oily bilge filter and flex suction hose connection; also line to portable oil storage tank",
+    "valve_positions": "Not explicitly separately stated beyond flow path shown (oily bilge filter inline, flex suction hose connections shown)",
+    "notes": "Purple line indicates this mode's flow path. Unnecessary detail hidden for clarity."
+   },
+   {
+    "mode_name": "OPERATING MODE 2 - AUXILIARY BILGE OPERATION: AUX BILGE PUMP TO STORAGE CONTAINERS",
+    "pumps": "E-R Aux Bilge Pump; Mast Aux Bilge Pump",
+    "suction_from": "Engine Room Sump; Mast Area Sump",
+    "discharge_to": "Portable Storage Tank(s) via oily bilge filter and flex suction hose connection; Fwd deck locker drain (below DWL) shown for reference",
+    "valve_positions": "Not explicitly separately stated beyond flow path shown (oily bilge filter inline, flex suction hose connections shown)",
+    "notes": "Purple line indicates this mode's flow path."
+   },
+   {
+    "mode_name": "OPERATING MODE 3 - EMERGENCY OPERATION - FIRE BACKUP",
+    "pumps": "Diesel Fire Pump (electric fire pump noted as NOT OPERATIONAL)",
+    "suction_from": "Seawater pickup via seawater strainer",
+    "discharge_to": "Fire line in port sheer (both fore and aft sections) - fire hose stations, tender garage sprinklers",
+    "valve_positions": "Priming line from fresh water supply ref dwg 108-01-510-001 used for priming diesel fire pump",
+    "notes": "Orange line indicates emergency fire backup flow path. Electric fire pump marked as NOT OPERATIONAL (red X). Unnecessary detail hidden for clarity."
+   },
+   {
+    "mode_name": "OPERATING MODE 4 - EMERGENCY OPERATION - BILGE BACKUP",
+    "pumps": "Diesel Fire Pump (used as bilge backup, driven via priming line); Raw Water Pump (STBD Genset) (Main Bilge Pump noted as NOT OPERATIONAL)",
+    "suction_from": "Lazarette Sump, Midship Sump, Engine Room Sump, Mast Area Sump, Sail Locker Sump; also seachest supply ref dwg 108-01-515-003 for raw water pump",
+    "discharge_to": "Bilge overboard via anti-siphon manifold (breather to STBD E-R vent box); overboard via exhaust water separator ref dwg 108-01-515-001 for raw water pump",
+    "valve_positions": "These valves N.C. - only open valves necessary to remove water from relevant sump (multiple locations); This valve N.C. - only open valves necessary to remove water from relevant sump",
+    "notes": "Green line indicates emergency bilge backup flow path. Main Bilge Pump marked as NOT OPERATIONAL (red X). Unnecessary detail hidden for clarity."
+   }
+  ],
+  "_model": "claude-sonnet-5",
+  "_doc_name": "Bilge and Fire System Operating Modes.pdf"
+ }
+}

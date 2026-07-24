@@ -1,0 +1,6435 @@
+{
+ "legends": [
+  {
+   "kind": "other_table",
+   "title_as_printed": "MAIN PANEL / PLUG C",
+   "bbox": [
+    0.615,
+    0.63,
+    0.975,
+    0.775
+   ],
+   "content": {
+    "title": "<UNKNOWN>",
+    "entries": [
+     {
+      "label": "LAZARETTE BILGE",
+      "symbol_description": "switch S20 with contact symbol"
+     },
+     {
+      "label": "AFT BILGE",
+      "symbol_description": "switch S21 with contact symbol"
+     },
+     {
+      "label": "ENG. ROOM BILGE",
+      "symbol_description": "switch S22 with contact symbol"
+     },
+     {
+      "label": "FWD BILGE",
+      "symbol_description": "switch S23 with contact symbol"
+     },
+     {
+      "label": "SAIL LOCKER",
+      "symbol_description": "switch S24 with contact symbol"
+     },
+     {
+      "label": "BILGE PUMP SW",
+      "symbol_description": "switch S13 with lamp symbol (circle with X)"
+     },
+     {
+      "label": "AUX PLUG ON PC BOARD",
+      "symbol_description": "connector pins [8]-[12] mating to [1]-[4] with arrow contact symbols"
+     },
+     {
+      "label": "LAZARETTE BILGE",
+      "symbol_description": "PLUG D pin [1]-1 connecting through MAIN PANEL PC CARD to lamp symbol (circle with X) labeled 'open' / 'closed'"
+     }
+    ],
+    "_model": "claude-sonnet-5"
+   }
+  },
+  {
+   "kind": "other_table",
+   "title_as_printed": "PLUG D",
+   "bbox": [
+    0.615,
+    0.87,
+    0.735,
+    0.985
+   ],
+   "content": {
+    "title": "G.M. MA<illegible>",
+    "entries": [
+     {
+      "label": "Tel. (27) 021-671 80<illegible>"
+     },
+     {
+      "label": "PROJECT | SWS<illegible>"
+     },
+     {
+      "label": "CUSTOMER | SOUT<illegible>"
+     },
+     {
+      "label": "RESERVED AND NO PART OF IT M<illegible>"
+     }
+    ],
+    "_model": "claude-sonnet-5"
+   }
+  },
+  {
+   "kind": "other_table",
+   "title_as_printed": "MAIN PANEL PC CARD",
+   "bbox": [
+    0.735,
+    0.85,
+    0.975,
+    0.995
+   ],
+   "content": {
+    "title": "MARINE SERVICES",
+    "entries": [
+     {
+      "label": "71 8001   Cell 083 298 3305   goetz@telkomsa.net"
+     },
+     {
+      "label": "SWS 108'-01 \" Gelliceaux \""
+     },
+     {
+      "label": "SOUTHERN WIND SHIPYARD (PTY) LTD"
+     },
+     {
+      "label": "F IT MAY BE COPIED WITHOUT PRIOR PERMISSION."
+     }
+    ],
+    "_model": "claude-sonnet-5"
+   }
+  },
+  {
+   "kind": "notes_block",
+   "title_as_printed": "THE COPYRIGHT OF THIS DRAWING IS EXPRESSLY RESERVED AND NO PART OF IT MAY BE COPIED WITHOUT PRIOR PERMISSION.",
+   "bbox": [
+    0.31,
+    0.975,
+    1.0,
+    1.0
+   ],
+   "content": {
+    "title": "<UNKNOWN>",
+    "entries": [
+     {
+      "label": "<illegible>",
+      "symbol_description": "<illegible>"
+     }
+    ],
+    "_model": "claude-sonnet-5"
+   }
+  },
+  {
+   "kind": "equipment_data_table",
+   "title_as_printed": "DWG No. / TITLE / DATE / DRAWN / PROJECT / CUSTOMER",
+   "bbox": [
+    0.31,
+    0.918,
+    1.0,
+    1.0
+   ],
+   "content": {
+    "title": "BILGE SYSTEM (Title Block)",
+    "entries": [
+     {
+      "label": "TITLE | BILGE SYSTEM | Tel. (27) 021-671 8001  Cell 083 298 3305  goetz@telkomsa.net"
+     },
+     {
+      "label": "DATE | 4/ 10/2023 | PROJECT | SWS 108'-01 \" Gelliceaux \""
+     },
+     {
+      "label": "DRAWN | GM | CUSTOMER | SOUTHERN WIND SHIPYARD (PTY) LTD"
+     },
+     {
+      "label": "THE COPYRIGHT OF THIS DRAWING IS EXPRESSLY RESERVED AND NO PART OF IT MAY BE COPIED WITHOUT PRIOR PERMISSION."
+     }
+    ],
+    "_model": "claude-sonnet-5"
+   }
+  }
+ ],
+ "legend_context": "THIS SHEET'S OWN LEGENDS AND TABLES (read first; these definitions are AUTHORITATIVE for this sheet and override any generic symbol/line convention):\n- [other_table] MAIN PANEL / PLUG C:\n    * LAZARETTE BILGE -> switch S20 with contact symbol\n    * AFT BILGE -> switch S21 with contact symbol\n    * ENG. ROOM BILGE -> switch S22 with contact symbol\n    * FWD BILGE -> switch S23 with contact symbol\n    * SAIL LOCKER -> switch S24 with contact symbol\n    * BILGE PUMP SW -> switch S13 with lamp symbol (circle with X)\n    * AUX PLUG ON PC BOARD -> connector pins [8]-[12] mating to [1]-[4] with arrow contact symbols\n    * LAZARETTE BILGE -> PLUG D pin [1]-1 connecting through MAIN PANEL PC CARD to lamp symbol (circle with X) labeled 'open' / 'closed'\n- [other_table] PLUG D:\n    * Tel. (27) 021-671 80<illegible>\n    * PROJECT | SWS<illegible>\n    * CUSTOMER | SOUT<illegible>\n    * RESERVED AND NO PART OF IT M<illegible>\n- [other_table] MAIN PANEL PC CARD:\n    * 71 8001   Cell 083 298 3305   goetz@telkomsa.net\n    * SWS 108'-01 \" Gelliceaux \"\n    * SOUTHERN WIND SHIPYARD (PTY) LTD\n    * F IT MAY BE COPIED WITHOUT PRIOR PERMISSION.\n- [notes_block] THE COPYRIGHT OF THIS DRAWING IS EXPRESSLY RESERVED AND NO PART OF IT MAY BE COPIED WITHOUT PRIOR PERMISSION.:\n    * <illegible> -> <illegible>\n- [equipment_data_table] DWG No. / TITLE / DATE / DRAWN / PROJECT / CUSTOMER:\n    * TITLE | BILGE SYSTEM | Tel. (27) 021-671 8001  Cell 083 298 3305  goetz@telkomsa.net\n    * DATE | 4/ 10/2023 | PROJECT | SWS 108'-01 \" Gelliceaux \"\n    * DRAWN | GM | CUSTOMER | SOUTHERN WIND SHIPYARD (PTY) LTD\n    * THE COPYRIGHT OF THIS DRAWING IS EXPRESSLY RESERVED AND NO PART OF IT MAY BE COPIED WITHOUT PRIOR PERMISSION.",
+ "survey": {
+  "regions": [
+   {
+    "type": "breaker_bank",
+    "label": "Feed/Fuse/Switch row (F3 60A, SW8, SO 6, T/S S, Q13 10A, F2 200A)",
+    "bbox": [
+     0.0,
+     0.06,
+     0.32,
+     0.9
+    ],
+    "approx_unit_count": 5
+   },
+   {
+    "type": "terminal_strip",
+    "label": "T/S B (terminals 8-13, relay coil taps)",
+    "bbox": [
+     0.16,
+     0.26,
+     0.24,
+     0.78
+    ],
+    "approx_unit_count": 6
+   },
+   {
+    "type": "relay_bank",
+    "label": "Re1-Re6 relay coils driving valve/contact groups",
+    "bbox": [
+     0.2,
+     0.26,
+     0.3,
+     0.79
+    ],
+    "approx_unit_count": 6
+   },
+   {
+    "type": "terminal_strip",
+    "label": "T/S C (numbered terminals 1-50, open/close/valve/bilge sw wiring)",
+    "bbox": [
+     0.32,
+     0.26,
+     0.45,
+     0.8
+    ],
+    "approx_unit_count": 50
+   },
+   {
+    "type": "controller_module",
+    "label": "Bilge Valve motor units (M) with open/close contacts, ENG. ROOM BILGE valve x5",
+    "bbox": [
+     0.55,
+     0.27,
+     0.68,
+     0.79
+    ],
+    "approx_unit_count": 5
+   },
+   {
+    "type": "other",
+    "label": "Bilge switches / sensor endpoints (PORT/STBD LAZARETTE, AFT, ENG ROOM, FWD, SAIL LOCKER BILGE SW)",
+    "bbox": [
+     0.72,
+     0.27,
+     0.92,
+     0.78
+    ],
+    "approx_unit_count": 6
+   },
+   {
+    "type": "other",
+    "label": "Local Pump SW / T/S S terminal group and Main Bilge Pump motor",
+    "bbox": [
+     0.28,
+     0.08,
+     0.9,
+     0.16
+    ],
+    "approx_unit_count": 2
+   },
+   {
+    "type": "terminal_strip",
+    "label": "MAIN PANEL PLUG C (terminals 1-12, S20-S24 switches, S13 lamp, AUX PLUG)",
+    "bbox": [
+     0.6,
+     0.83,
+     0.98,
+     0.95
+    ],
+    "approx_unit_count": 12
+   },
+   {
+    "type": "controller_module",
+    "label": "PEDESTAL ALARM MOD + MUTE / ALARM MOD block",
+    "bbox": [
+     0.5,
+     0.87,
+     0.62,
+     0.95
+    ],
+    "approx_unit_count": 1
+   },
+   {
+    "type": "terminal_strip",
+    "label": "PLUG D (terminals 1-12) connecting to Main Panel PC Card",
+    "bbox": [
+     0.6,
+     0.95,
+     0.72,
+     1.0
+    ],
+    "approx_unit_count": 12
+   },
+   {
+    "type": "controller_module",
+    "label": "MAIN PANEL PC CARD (dotted enclosure with open/closed lamps for each bilge zone, +24V)",
+    "bbox": [
+     0.72,
+     0.95,
+     1.0,
+     1.0
+    ],
+    "approx_unit_count": 5
+   },
+   {
+    "type": "legend",
+    "label": "Title block / equipment data table",
+    "bbox": [
+     0.3,
+     0.96,
+     1.0,
+     1.0
+    ]
+   }
+  ],
+  "sub_type": "relay_terminal_wiring",
+  "sub_type_reason": "Sheet is dominated by terminal strips (T/S S, T/S B, T/S C, PLUG C, PLUG D) with numbered terminals, relay coils Re1-Re6 driving valve motor contacts, and status endpoints (bilge switches) wired to a monitoring/alarm system (Main Panel PC Card with open/closed lamps) - characteristic of relay/terminal wiring diagrams rather than a distribution schedule or one-line power topology.",
+  "cross_refs": [
+   "XA40 <14>",
+   "XA40 <12>",
+   "XA40 <16>",
+   "XA10 <06>",
+   "XA10 <04>",
+   "XA10 <02>",
+   "XA11 <32>",
+   "to ONYX (arrow, off-sheet pointer)"
+  ],
+  "title_block": {
+   "drawing_no": "GMMS 108'-114a",
+   "title": "BILGE SYSTEM",
+   "drafter": "GM"
+  },
+  "notes": "Sheet shows +24V service battery feed through F2 200A / F3 60A / SW8 / SO6 into terminal strip T/S S (local pump SW) and Main Bilge Pump motor. A parallel branch (Bilge Valves Q13 10A) feeds T/S B terminal blocks 8-13, each driving a relay (Re1-Re6) whose contacts route through T/S C's large numbered terminal field (1-50) to open/close contacts, bilge valve motors (M, engine room bilge valve type, qty 5) and bilge level switches for Port/Stbd Lazarette, Aft, Eng Room, Fwd, Sail Locker. XA40/XA10/XA11 tags are status-signal taps to an external monitoring loom (not drawing cross-references, no sheet number given). Lower right shows Main Panel wiring: Plug C terminals to panel switches S20-S24 and lamp S13, an AUX plug, a Pedestal Alarm Mod with mute, then Plug D terminals continuing into a dotted-outline enclosure 'MAIN PANEL PC CARD' with open/closed indicator lamps for each bilge zone and a +24V supply rail with diodes. Small illegible fragments in title-block/legend area at far right/bottom (bleed-through of adjacent sheet text) - flagged as illegible duplicate text, not treated as separate regions. 'to ONYX' arrow near lower left is unresolved (no explicit dwg/sheet number visible) - recorded as cross_ref pending confirmation it's an actual pointer vs. status tap.\"",
+  "_model": "claude-sonnet-5",
+  "_pass1_dpi": 200
+ },
+ "sub_type": "relay_terminal_wiring",
+ "regions_read": [
+  {
+   "region": "Feed/Fuse/Switch row (F3 60A, SW8, SO 6, T/S S, Q13 10A, F2 200A)",
+   "region_type": "breaker_bank",
+   "bbox": [
+    0.0,
+    0.06,
+    0.32,
+    0.9
+   ],
+   "reader": "schedule",
+   "panel_label": "Bilge System - Battery Distribution",
+   "rows": [
+    {
+     "device_type": "fuse",
+     "device_id": "F3",
+     "rating": "60A",
+     "load_name": "SW8 / SO 6 circuit",
+     "cross_ref": ""
+    },
+    {
+     "device_type": "switch",
+     "device_id": "SW8",
+     "rating": "<UNKNOWN>",
+     "load_name": "SO 6",
+     "cross_ref": ""
+    },
+    {
+     "device_type": "breaker",
+     "device_id": "Q13",
+     "rating": "10A",
+     "load_name": "BILGE VALVES",
+     "cross_ref": ""
+    },
+    {
+     "device_type": "relay",
+     "device_id": "Re1",
+     "rating": "<UNKNOWN>",
+     "load_name": "<UNKNOWN>",
+     "cross_ref": "XA40"
+    },
+    {
+     "device_type": "relay",
+     "device_id": "Re2",
+     "rating": "<UNKNOWN>",
+     "load_name": "<UNKNOWN>",
+     "cross_ref": "XA40"
+    },
+    {
+     "device_type": "relay",
+     "device_id": "Re3",
+     "rating": "<UNKNOWN>",
+     "load_name": "<UNKNOWN>",
+     "cross_ref": "XA10"
+    },
+    {
+     "device_type": "relay",
+     "device_id": "Re4",
+     "rating": "<UNKNOWN>",
+     "load_name": "<UNKNOWN>",
+     "cross_ref": "XA10"
+    },
+    {
+     "device_type": "relay",
+     "device_id": "Re5",
+     "rating": "<UNKNOWN>",
+     "load_name": "<UNKNOWN>",
+     "cross_ref": "XA10"
+    },
+    {
+     "device_type": "relay",
+     "device_id": "Re6",
+     "rating": "<UNKNOWN>",
+     "load_name": "not used",
+     "cross_ref": "XA11"
+    },
+    {
+     "device_type": "fuse",
+     "device_id": "F2",
+     "rating": "200A",
+     "load_name": "+24V SERVICE BAT.",
+     "cross_ref": ""
+    }
+   ]
+  },
+  {
+   "region": "ALL WIRING (coverage: survey regions + full-sheet grid)",
+   "region_type": "relay_terminal_wiring",
+   "bbox": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "reader": "wiring_coverage",
+   "elements": [
+    {
+     "id": "9",
+     "element_type": "terminal",
+     "label": "9",
+     "connections": [
+      "vertical trunk bus",
+      "to relay contact/coil group Re..."
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.16,
+      0.26,
+      0.24,
+      0.78
+     ]
+    },
+    {
+     "id": "Re (near 9)",
+     "element_type": "relay",
+     "label": "Re",
+     "connections": [
+      "from terminal 9 via contact",
+      "coil dotted linkage to contact above"
+     ],
+     "ambiguous": true,
+     "_via": "survey_region",
+     "_bbox": [
+      0.16,
+      0.26,
+      0.24,
+      0.78
+     ]
+    },
+    {
+     "id": "10",
+     "element_type": "terminal",
+     "label": "10",
+     "connections": [
+      "vertical trunk bus",
+      "to relay contact/coil group Re..."
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.16,
+      0.26,
+      0.24,
+      0.78
+     ]
+    },
+    {
+     "id": "Re (near 10)",
+     "element_type": "relay",
+     "label": "Re",
+     "connections": [
+      "from terminal 10 via contact",
+      "coil dotted linkage to contact above"
+     ],
+     "ambiguous": true,
+     "_via": "survey_region",
+     "_bbox": [
+      0.16,
+      0.26,
+      0.24,
+      0.78
+     ]
+    },
+    {
+     "id": "11",
+     "element_type": "terminal",
+     "label": "11",
+     "connections": [
+      "vertical trunk bus",
+      "to relay contact/coil group Re..."
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.16,
+      0.26,
+      0.24,
+      0.78
+     ]
+    },
+    {
+     "id": "Re (near 11)",
+     "element_type": "relay",
+     "label": "Re",
+     "connections": [
+      "from terminal 11 via contact",
+      "coil dotted linkage to contact above"
+     ],
+     "ambiguous": true,
+     "_via": "survey_region",
+     "_bbox": [
+      0.16,
+      0.26,
+      0.24,
+      0.78
+     ]
+    },
+    {
+     "id": "12",
+     "element_type": "terminal",
+     "label": "12",
+     "connections": [
+      "vertical trunk bus",
+      "to relay contact/coil group Re5..."
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.16,
+      0.26,
+      0.24,
+      0.78
+     ]
+    },
+    {
+     "id": "Re5",
+     "element_type": "relay",
+     "label": "Re5",
+     "connections": [
+      "from terminal 12 via contact",
+      "coil dotted linkage to contact above"
+     ],
+     "ambiguous": true,
+     "_via": "survey_region",
+     "_bbox": [
+      0.16,
+      0.26,
+      0.24,
+      0.78
+     ]
+    },
+    {
+     "id": "13",
+     "element_type": "terminal",
+     "label": "13",
+     "connections": [
+      "vertical trunk bus",
+      "to relay contact/coil group Re6..."
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.16,
+      0.26,
+      0.24,
+      0.78
+     ]
+    },
+    {
+     "id": "Re6",
+     "element_type": "relay",
+     "label": "Re6",
+     "connections": [
+      "from terminal 13 via contact",
+      "coil dotted linkage to contact above"
+     ],
+     "ambiguous": true,
+     "_via": "survey_region",
+     "_bbox": [
+      0.16,
+      0.26,
+      0.24,
+      0.78
+     ]
+    },
+    {
+     "id": "S20",
+     "element_type": "switch",
+     "label": "LAZARETTE BILGE",
+     "connections": [
+      "terminal 9 -> Re2 contact group"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.2,
+      0.26,
+      0.3,
+      0.79
+     ]
+    },
+    {
+     "id": "Re2",
+     "element_type": "relay",
+     "label": "Re2",
+     "connections": [
+      "coil dotted-line linked to contact group above (S20 side) -> XA40 terminal strip output lines"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.2,
+      0.26,
+      0.3,
+      0.79
+     ]
+    },
+    {
+     "id": "XA40",
+     "element_type": "terminal_strip",
+     "label": "XA40",
+     "connections": [
+      "Re2 contacts -> XA40 outgoing lines"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.2,
+      0.26,
+      0.3,
+      0.79
+     ]
+    },
+    {
+     "id": "S21",
+     "element_type": "switch",
+     "label": "AFT BILGE",
+     "connections": [
+      "terminal 10 -> Re3 contact group"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.2,
+      0.26,
+      0.3,
+      0.79
+     ]
+    },
+    {
+     "id": "Re3",
+     "element_type": "relay",
+     "label": "Re3",
+     "connections": [
+      "coil dotted-line linked to contact group above (S21 side) -> XA10 terminal strip output lines"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.2,
+      0.26,
+      0.3,
+      0.79
+     ]
+    },
+    {
+     "id": "XA10_a",
+     "element_type": "terminal_strip",
+     "label": "XA10",
+     "connections": [
+      "Re3 contacts -> XA10 outgoing lines"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.2,
+      0.26,
+      0.3,
+      0.79
+     ]
+    },
+    {
+     "id": "S22",
+     "element_type": "switch",
+     "label": "ENG. ROOM BILGE",
+     "connections": [
+      "terminal 11 -> Re4 contact group"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.2,
+      0.26,
+      0.3,
+      0.79
+     ]
+    },
+    {
+     "id": "Re4",
+     "element_type": "relay",
+     "label": "Re4",
+     "connections": [
+      "coil dotted-line linked to contact group above (S22 side) -> XA10 terminal strip output lines"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.2,
+      0.26,
+      0.3,
+      0.79
+     ]
+    },
+    {
+     "id": "XA10_b",
+     "element_type": "terminal_strip",
+     "label": "XA10",
+     "connections": [
+      "Re4 contacts -> XA10 outgoing lines"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.2,
+      0.26,
+      0.3,
+      0.79
+     ]
+    },
+    {
+     "id": "S23",
+     "element_type": "switch",
+     "label": "FWD BILGE",
+     "connections": [
+      "terminal 12 -> Re5 contact group"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.2,
+      0.26,
+      0.3,
+      0.79
+     ]
+    },
+    {
+     "id": "XA1_a",
+     "element_type": "terminal_strip",
+     "label": "XA1",
+     "connections": [
+      "Re5 contacts -> XA1 outgoing lines"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.2,
+      0.26,
+      0.3,
+      0.79
+     ]
+    },
+    {
+     "id": "S13",
+     "element_type": "switch",
+     "label": "BILGE PUMP SW (lamp symbol)",
+     "connections": [
+      "single contact -> Re6 coil"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.2,
+      0.26,
+      0.3,
+      0.79
+     ]
+    },
+    {
+     "id": "ONYX_ref",
+     "element_type": "annotation",
+     "label": "to ONYX",
+     "connections": [
+      "Re6 output -> ONYX (cross-drawing reference, no explicit sheet number given)"
+     ],
+     "ambiguous": true,
+     "_via": "survey_region",
+     "_bbox": [
+      0.2,
+      0.26,
+      0.3,
+      0.79
+     ]
+    },
+    {
+     "id": "XA1_b",
+     "element_type": "terminal_strip",
+     "label": "XA1",
+     "connections": [
+      "near Re6/Re5 region"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.2,
+      0.26,
+      0.3,
+      0.79
+     ]
+    },
+    {
+     "id": "16",
+     "element_type": "terminal",
+     "label": "terminal 16",
+     "connections": [
+      "3",
+      "1"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "17",
+     "element_type": "terminal",
+     "label": "terminal 17",
+     "connections": [
+      "4",
+      "2"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "18",
+     "element_type": "terminal",
+     "label": "terminal 18",
+     "connections": [
+      "3"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "19",
+     "element_type": "terminal",
+     "label": "terminal 19",
+     "connections": [
+      "4"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "20",
+     "element_type": "terminal",
+     "label": "terminal 20",
+     "connections": [
+      "2"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "21",
+     "element_type": "terminal",
+     "label": "terminal 21, wire-gauge/junction tap dot",
+     "connections": [
+      "5"
+     ],
+     "ambiguous": true,
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "22",
+     "element_type": "terminal",
+     "label": "terminal 22",
+     "connections": [
+      "6"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "23",
+     "element_type": "terminal",
+     "label": "terminal 23",
+     "connections": [
+      "3",
+      "7"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "plug_pin_16",
+     "element_type": "plug_pin",
+     "label": "PLUG D pin <16",
+     "connections": [
+      "3"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "24",
+     "element_type": "terminal",
+     "label": "terminal 24",
+     "connections": [
+      "5",
+      "1"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "25",
+     "element_type": "terminal",
+     "label": "terminal 25",
+     "connections": [
+      "6",
+      "2"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "26",
+     "element_type": "terminal",
+     "label": "terminal 26",
+     "connections": [
+      "3"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "27",
+     "element_type": "terminal",
+     "label": "terminal 27",
+     "connections": [
+      "4"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "28",
+     "element_type": "terminal",
+     "label": "terminal 28",
+     "connections": [
+      "3"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "29",
+     "element_type": "terminal",
+     "label": "terminal 29, junction dot",
+     "connections": [
+      "5"
+     ],
+     "ambiguous": true,
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "30",
+     "element_type": "terminal",
+     "label": "terminal 30",
+     "connections": [
+      "6"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "31",
+     "element_type": "terminal",
+     "label": "terminal 31",
+     "connections": [
+      "4",
+      "7"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "plug_pin_06",
+     "element_type": "plug_pin",
+     "label": "PLUG D pin <06",
+     "connections": [
+      "4"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "32",
+     "element_type": "terminal",
+     "label": "terminal 32",
+     "connections": [
+      "7",
+      "1"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "33",
+     "element_type": "terminal",
+     "label": "terminal 33",
+     "connections": [
+      "8",
+      "2"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "34",
+     "element_type": "terminal",
+     "label": "terminal 34",
+     "connections": [
+      "3"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "35",
+     "element_type": "terminal",
+     "label": "terminal 35",
+     "connections": [
+      "4"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "36",
+     "element_type": "terminal",
+     "label": "terminal 36",
+     "connections": [
+      "4"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "37",
+     "element_type": "terminal",
+     "label": "terminal 37, junction dot",
+     "connections": [
+      "5"
+     ],
+     "ambiguous": true,
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "38",
+     "element_type": "terminal",
+     "label": "terminal 38",
+     "connections": [
+      "6"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "39",
+     "element_type": "terminal",
+     "label": "terminal 39",
+     "connections": [
+      "5",
+      "7"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "plug_pin_04",
+     "element_type": "plug_pin",
+     "label": "PLUG D pin <04",
+     "connections": [
+      "5"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "40",
+     "element_type": "terminal",
+     "label": "terminal 40",
+     "connections": [
+      "9",
+      "1"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "41",
+     "element_type": "terminal",
+     "label": "terminal 41",
+     "connections": [
+      "10",
+      "2"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "42",
+     "element_type": "terminal",
+     "label": "terminal 42",
+     "connections": [
+      "3"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "43",
+     "element_type": "terminal",
+     "label": "terminal 43",
+     "connections": [
+      "4"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "44",
+     "element_type": "terminal",
+     "label": "terminal 44",
+     "connections": [
+      "5"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "45",
+     "element_type": "terminal",
+     "label": "terminal 45, junction dot, adjacent tick mark",
+     "connections": [
+      "5"
+     ],
+     "ambiguous": true,
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "46",
+     "element_type": "terminal",
+     "label": "terminal 46",
+     "connections": [
+      "6"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "47",
+     "element_type": "terminal",
+     "label": "terminal 47",
+     "connections": [
+      "6",
+      "7"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "plug_pin_02",
+     "element_type": "plug_pin",
+     "label": "PLUG D pin <02",
+     "connections": [
+      "6"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "48",
+     "element_type": "terminal",
+     "label": "terminal 48",
+     "connections": [
+      "1",
+      "6"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "49",
+     "element_type": "terminal",
+     "label": "terminal 49",
+     "connections": [
+      "2"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "50",
+     "element_type": "terminal",
+     "label": "terminal 50",
+     "connections": [
+      "7"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "stub_11",
+     "element_type": "status_signal",
+     "label": "tap 11",
+     "connections": [
+      "11"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "stub_12",
+     "element_type": "annotation",
+     "label": "not used - spare terminal 12",
+     "connections": [
+      "12"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "id": "plug_pin_32b",
+     "element_type": "plug_pin",
+     "label": "PLUG D pin 1<32",
+     "connections": [
+      "1",
+      "2"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.32,
+      0.26,
+      0.45,
+      0.8
+     ]
+    },
+    {
+     "element_type": "switch",
+     "id": "CLOSE (top cropped)",
+     "label": "CLOSE",
+     "connections": [
+      "motor terminal (cropped top)"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "device",
+     "id": "M (top cropped)",
+     "label": "BILGE VALVE ENG. ROOM BILGE",
+     "connections": [
+      "[2]",
+      "[3]",
+      "CLOSE switch (cropped)"
+     ],
+     "ambiguous": true,
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "[2] (top cropped)",
+     "label": "[2]",
+     "connections": [
+      "M"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "[3] (top cropped)",
+     "label": "[3]",
+     "connections": [
+      "M"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "annotation",
+     "id": "wire-gauge callout 1",
+     "label": "diamond wire gauge marker on line below M (top cropped)",
+     "connections": [],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "annotation",
+     "id": "wire-gauge callout 2",
+     "label": "diamond wire gauge marker",
+     "connections": [],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "annotation",
+     "id": "wire-gauge callout 3",
+     "label": "diamond wire gauge marker",
+     "connections": [],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "switch",
+     "id": "OPEN (block2)",
+     "label": "OPEN",
+     "connections": [
+      "motor M (block2) top contact"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "switch",
+     "id": "CLOSE (block2)",
+     "label": "CLOSE",
+     "connections": [
+      "motor M (block2)"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "device",
+     "id": "M (block2)",
+     "label": "BILGE VALVE ENG. ROOM BILGE",
+     "connections": [
+      "[2] (block2)",
+      "[3] (block2)",
+      "OPEN switch",
+      "CLOSE switch"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "[2] (block2)",
+     "label": "[2]",
+     "connections": [
+      "M (block2)"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "[3] (block2)",
+     "label": "[3]",
+     "connections": [
+      "M (block2)"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "annotation",
+     "id": "wire-gauge callout 4",
+     "label": "diamond wire gauge marker on output line of block2",
+     "connections": [],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "annotation",
+     "id": "wire-gauge callout 5",
+     "label": "diamond wire gauge marker",
+     "connections": [],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "annotation",
+     "id": "wire-gauge callout 6",
+     "label": "diamond wire gauge marker",
+     "connections": [],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "switch",
+     "id": "OPEN (block3)",
+     "label": "OPEN",
+     "connections": [
+      "motor M (block3) top contact"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "switch",
+     "id": "CLOSE (block3)",
+     "label": "CLOSE",
+     "connections": [
+      "motor M (block3)"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "device",
+     "id": "M (block3)",
+     "label": "BILGE VALVE ENG. ROOM BILGE",
+     "connections": [
+      "[2] (block3)",
+      "[3] (block3)",
+      "OPEN switch",
+      "CLOSE switch"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "[2] (block3)",
+     "label": "[2]",
+     "connections": [
+      "M (block3)"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "[3] (block3)",
+     "label": "[3]",
+     "connections": [
+      "M (block3)"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "annotation",
+     "id": "wire-gauge callout 7",
+     "label": "diamond wire gauge marker on output line of block3",
+     "connections": [],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "annotation",
+     "id": "wire-gauge callout 8",
+     "label": "diamond wire gauge marker",
+     "connections": [],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "annotation",
+     "id": "wire-gauge callout 9",
+     "label": "diamond wire gauge marker",
+     "connections": [],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "switch",
+     "id": "OPEN (block4)",
+     "label": "OPEN",
+     "connections": [
+      "motor M (block4) top contact"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "switch",
+     "id": "CLOSE (block4)",
+     "label": "CLOSE",
+     "connections": [
+      "motor M (block4)"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "device",
+     "id": "M (block4)",
+     "label": "BILGE VALVE ENG. ROOM BILGE",
+     "connections": [
+      "[2] (block4)",
+      "[3] (block4)",
+      "OPEN switch",
+      "CLOSE switch"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "[2] (block4)",
+     "label": "[2]",
+     "connections": [
+      "M (block4)"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "[3] (block4)",
+     "label": "[3]",
+     "connections": [
+      "M (block4)"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "annotation",
+     "id": "wire-gauge callout 10",
+     "label": "diamond wire gauge marker on output line of block4",
+     "connections": [],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "annotation",
+     "id": "wire-gauge callout 11",
+     "label": "diamond wire gauge marker",
+     "connections": [],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "plug_pin",
+     "id": "PLUG C - 1",
+     "label": "[1]",
+     "connections": [
+      "MAIN PANEL PC CARD line to [1]"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "plug_pin",
+     "id": "PLUG C - 2",
+     "label": "[2]",
+     "connections": [
+      "MAIN PANEL PC CARD line to [2]"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "plug_pin",
+     "id": "PLUG C - 3",
+     "label": "[3]",
+     "connections": [
+      "MAIN PANEL PC CARD line to [3]"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "plug_pin",
+     "id": "PLUG C - 4",
+     "label": "[4]",
+     "connections": [
+      "MAIN PANEL PC CARD line to [4]"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "plug_pin",
+     "id": "PLUG C - 5",
+     "label": "[5]",
+     "connections": [
+      "MAIN PANEL PC CARD line to [5]"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "plug_pin",
+     "id": "PLUG C - 6",
+     "label": "[6]",
+     "connections": [
+      "MAIN PANEL PC CARD line to [6]"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "plug_pin",
+     "id": "PLUG C - 7",
+     "label": "[7]",
+     "connections": [
+      "MAIN PANEL PC CARD line to [7]"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "status_signal",
+     "id": "PLUG C - 8",
+     "label": "[8] AUX PLUG ON PC BOARD",
+     "connections": [
+      "mating pin [1]"
+     ],
+     "ambiguous": true,
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "status_signal",
+     "id": "PLUG C - 9",
+     "label": "[9] AUX PLUG ON PC BOARD",
+     "connections": [
+      "mating pin [2]"
+     ],
+     "ambiguous": true,
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "status_signal",
+     "id": "PLUG C - 10",
+     "label": "[10] AUX PLUG ON PC BOARD",
+     "connections": [
+      "mating pin [3]"
+     ],
+     "ambiguous": true,
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "status_signal",
+     "id": "PLUG C - 11",
+     "label": "[11] AUX PLUG ON PC BOARD",
+     "connections": [
+      "mating pin [4]"
+     ],
+     "ambiguous": true,
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "status_signal",
+     "id": "PLUG C - 12",
+     "label": "[12]",
+     "connections": [
+      "fuse-like inline marker on line"
+     ],
+     "ambiguous": true,
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "switch",
+     "id": "S20",
+     "label": "LAZARETTE BILGE switch S20",
+     "connections": [
+      "MAIN PANEL PLUG C"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "switch",
+     "id": "S21",
+     "label": "AFT BILGE switch S21",
+     "connections": [
+      "MAIN PANEL PLUG C"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "switch",
+     "id": "S22",
+     "label": "ENG. ROOM BILGE switch S22",
+     "connections": [
+      "MAIN PANEL PLUG C"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "switch",
+     "id": "S23",
+     "label": "FWD BILGE switch S23",
+     "connections": [
+      "MAIN PANEL PLUG C"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "switch",
+     "id": "S24",
+     "label": "SAIL LOCKER switch S24",
+     "connections": [
+      "MAIN PANEL PLUG C"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "switch",
+     "id": "S13",
+     "label": "BILGE PUMP SW S13 (with lamp symbol)",
+     "connections": [
+      "MAIN PANEL PLUG C"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "plug_pin",
+     "id": "PLUG D - 1",
+     "label": "1 [1] 1",
+     "connections": [
+      "MAIN PANEL PC CARD",
+      "LAZARETTE BILGE via lamp symbol open/closed"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "plug_pin",
+     "id": "PLUG D - 2",
+     "label": "2 [2] 2",
+     "connections": [
+      "MAIN PANEL PC CARD"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "plug_pin",
+     "id": "PLUG D - 3",
+     "label": "3 [3] 3",
+     "connections": [
+      "MAIN PANEL PC CARD"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "annotation",
+     "id": "PLUG D header info",
+     "label": "Tel. (27) 021-671 80<illegible> / PROJECT SWS<illegible> / CUSTOMER SOUT<illegible> / RESERVED AND NO PART OF IT M<illegible>",
+     "connections": [],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "annotation",
+     "id": "MAIN PANEL PC CARD header info",
+     "label": "71 8001 Cell 083 298 3305 goetz@telkomsa.net / SWS 108'-01 \"Gelliceaux\" / SOUTHERN WIND SHIPYARD (PTY) LTD / F IT MAY BE COPIED WITHOUT PRIOR PERMISSION.",
+     "connections": [],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "annotation",
+     "id": "copyright notes block",
+     "label": "THE COPYRIGHT OF THIS DRAWING IS EXPRESSLY RESERVED AND NO PART OF IT MAY BE COPIED WITHOUT PRIOR PERMISSION. <illegible> -> <illegible>",
+     "connections": [],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "element_type": "annotation",
+     "id": "equipment data table",
+     "label": "TITLE BILGE SYSTEM / DATE 4/10/2023 / DRAWN GM / PROJECT SWS 108'-01 \"Gelliceaux\" / CUSTOMER SOUTHERN WIND SHIPYARD (PTY) LTD / Tel. (27) 021-671 8001 Cell 083 298 3305 goetz@telkomsa.net",
+     "connections": [],
+     "_via": "survey_region",
+     "_bbox": [
+      0.55,
+      0.27,
+      0.68,
+      0.79
+     ]
+    },
+    {
+     "id": "7-12 left T/S",
+     "element_type": "terminal_strip",
+     "label": "Terminal strip 7-12 (left)",
+     "connections": [
+      "7-[7]-7",
+      "8-[8]-8",
+      "9-[9]-9",
+      "10-[10]-10",
+      "11-[11]-11",
+      "12-[12]-12"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.6,
+      0.83,
+      0.98,
+      0.95
+     ]
+    },
+    {
+     "id": "7 left",
+     "element_type": "terminal",
+     "label": "7",
+     "connections": [
+      "arrow contact [7]-7"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.6,
+      0.83,
+      0.98,
+      0.95
+     ]
+    },
+    {
+     "id": "8 left",
+     "element_type": "terminal",
+     "label": "8",
+     "connections": [
+      "arrow contact [8]-8"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.6,
+      0.83,
+      0.98,
+      0.95
+     ]
+    },
+    {
+     "id": "9 left",
+     "element_type": "terminal",
+     "label": "9",
+     "connections": [
+      "arrow contact [9]-9"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.6,
+      0.83,
+      0.98,
+      0.95
+     ]
+    },
+    {
+     "id": "10 left",
+     "element_type": "terminal",
+     "label": "10",
+     "connections": [
+      "arrow contact [10]-10"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.6,
+      0.83,
+      0.98,
+      0.95
+     ]
+    },
+    {
+     "id": "11 left",
+     "element_type": "terminal",
+     "label": "11",
+     "connections": [
+      "arrow contact [11]-11"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.6,
+      0.83,
+      0.98,
+      0.95
+     ]
+    },
+    {
+     "id": "12 left",
+     "element_type": "terminal",
+     "label": "12",
+     "connections": [
+      "arrow contact [12]-12"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.6,
+      0.83,
+      0.98,
+      0.95
+     ]
+    },
+    {
+     "id": "7 right",
+     "element_type": "terminal",
+     "label": "7",
+     "connections": [
+      "vertical bus wire to lamp 7 (open)"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.6,
+      0.83,
+      0.98,
+      0.95
+     ]
+    },
+    {
+     "id": "8 right",
+     "element_type": "terminal",
+     "label": "8",
+     "connections": [
+      "vertical bus wire to lamp 8 (closed)"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.6,
+      0.83,
+      0.98,
+      0.95
+     ]
+    },
+    {
+     "id": "9 right",
+     "element_type": "terminal",
+     "label": "9",
+     "connections": [
+      "vertical bus wire to lamp 9 (open), junction dot to diode array"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.6,
+      0.83,
+      0.98,
+      0.95
+     ]
+    },
+    {
+     "id": "10 right",
+     "element_type": "terminal",
+     "label": "10",
+     "connections": [
+      "vertical bus wire to lamp 10 (closed)"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.6,
+      0.83,
+      0.98,
+      0.95
+     ]
+    },
+    {
+     "id": "11 right",
+     "element_type": "terminal",
+     "label": "11",
+     "connections": [
+      "junction dot to diode array, +24V"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.6,
+      0.83,
+      0.98,
+      0.95
+     ]
+    },
+    {
+     "id": "12 right",
+     "element_type": "terminal",
+     "label": "12",
+     "connections": [
+      "no further connection shown"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.6,
+      0.83,
+      0.98,
+      0.95
+     ]
+    },
+    {
+     "id": "lamp7",
+     "element_type": "device",
+     "label": "open (FWD BILGE)",
+     "connections": [
+      "from terminal 7 right"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.6,
+      0.83,
+      0.98,
+      0.95
+     ]
+    },
+    {
+     "id": "lamp8",
+     "element_type": "device",
+     "label": "closed (FWD BILGE)",
+     "connections": [
+      "from terminal 8 right"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.6,
+      0.83,
+      0.98,
+      0.95
+     ]
+    },
+    {
+     "id": "lamp9",
+     "element_type": "device",
+     "label": "open (SAIL LOCKER)",
+     "connections": [
+      "from terminal 9 right"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.6,
+      0.83,
+      0.98,
+      0.95
+     ]
+    },
+    {
+     "id": "lamp10",
+     "element_type": "device",
+     "label": "closed (SAIL LOCKER)",
+     "connections": [
+      "from terminal 10 right"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.6,
+      0.83,
+      0.98,
+      0.95
+     ]
+    },
+    {
+     "id": "diode array",
+     "element_type": "unknown",
+     "label": "5 diodes to +24V bus",
+     "connections": [
+      "from terminal 9 right junction",
+      "from terminal 11 right junction",
+      "to +24V"
+     ],
+     "ambiguous": true,
+     "_via": "survey_region",
+     "_bbox": [
+      0.6,
+      0.83,
+      0.98,
+      0.95
+     ]
+    },
+    {
+     "id": "+24V",
+     "element_type": "annotation",
+     "label": "+24V supply label",
+     "connections": [
+      "diode array to antenna symbol"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.6,
+      0.83,
+      0.98,
+      0.95
+     ]
+    },
+    {
+     "id": "antenna symbol",
+     "element_type": "unknown",
+     "label": "antenna/ground symbol below +24V dotted enclosure",
+     "connections": [
+      "dotted line to +24V"
+     ],
+     "ambiguous": true,
+     "_via": "survey_region",
+     "_bbox": [
+      0.6,
+      0.83,
+      0.98,
+      0.95
+     ]
+    },
+    {
+     "id": "FWD BILGE caption",
+     "element_type": "annotation",
+     "label": "FWD BILGE",
+     "connections": [
+      "labels lamps 7-8"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.6,
+      0.83,
+      0.98,
+      0.95
+     ]
+    },
+    {
+     "id": "SAIL LOCKER caption",
+     "element_type": "annotation",
+     "label": "SAIL LOCKER",
+     "connections": [
+      "labels lamps 9-10"
+     ],
+     "_via": "survey_region",
+     "_bbox": [
+      0.6,
+      0.83,
+      0.98,
+      0.95
+     ]
+    },
+    {
+     "id": "title block",
+     "element_type": "annotation",
+     "label": "G.M. MARINE SERVICES title block, PROJECT SWS 108'-01 Gelliceaux, CUSTOMER SOUTHERN WIND SHIPYARD (PTY) LTD, copyright notice",
+     "connections": [],
+     "_via": "survey_region",
+     "_bbox": [
+      0.6,
+      0.83,
+      0.98,
+      0.95
+     ]
+    },
+    {
+     "element_type": "annotation",
+     "id": "DWG_NO",
+     "label": "?-114a",
+     "connections": [],
+     "_via": "survey_region",
+     "_bbox": [
+      0.5,
+      0.87,
+      0.62,
+      0.95
+     ]
+    },
+    {
+     "element_type": "annotation",
+     "id": "TITLE",
+     "label": "BILGE SYSTEM",
+     "connections": [],
+     "_via": "survey_region",
+     "_bbox": [
+      0.5,
+      0.87,
+      0.62,
+      0.95
+     ]
+    },
+    {
+     "element_type": "annotation",
+     "id": "DATE",
+     "label": "4/10/2023",
+     "connections": [],
+     "_via": "survey_region",
+     "_bbox": [
+      0.5,
+      0.87,
+      0.62,
+      0.95
+     ]
+    },
+    {
+     "element_type": "annotation",
+     "id": "NOTES",
+     "label": "THE COPYRIGHT OF THIS DRAWING IS EXPRESSLY RESERVED AND NO PART OF IT MAY BE COPIED WITHOUT PRIOR PERMISSION.",
+     "connections": [],
+     "_via": "survey_region",
+     "_bbox": [
+      0.5,
+      0.87,
+      0.62,
+      0.95
+     ]
+    },
+    {
+     "element_type": "annotation",
+     "label": "CUSTOMER (header, illegible partial text)",
+     "_via": "survey_region",
+     "_bbox": [
+      0.6,
+      0.95,
+      0.72,
+      1.0
+     ]
+    },
+    {
+     "element_type": "annotation",
+     "label": "SC... (header, illegible partial text)",
+     "_via": "survey_region",
+     "_bbox": [
+      0.6,
+      0.95,
+      0.72,
+      1.0
+     ]
+    },
+    {
+     "element_type": "annotation",
+     "label": "...SLY RESERVED AND NO PART OF ... (copyright notice, illegible partial)",
+     "_via": "survey_region",
+     "_bbox": [
+      0.6,
+      0.95,
+      0.72,
+      1.0
+     ]
+    },
+    {
+     "id": "<UNKNOWN>",
+     "element_type": "annotation",
+     "label": "SOUTHERN WIND SHIPYARD (PTY) LTD",
+     "connections": [],
+     "_via": "survey_region",
+     "_bbox": [
+      0.72,
+      0.95,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "<UNKNOWN>",
+     "element_type": "annotation",
+     "label": "...OF IT MAY BE COPIED WITHOUT PRIOR PERMISSION.",
+     "connections": [],
+     "_via": "survey_region",
+     "_bbox": [
+      0.72,
+      0.95,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "F3",
+     "element_type": "fuse",
+     "label": "F3 60A",
+     "connections": [
+      "main supply -> SW8"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.0,
+      0.0,
+      0.3733333333333333,
+      0.3733333333333333
+     ]
+    },
+    {
+     "id": "SW8",
+     "element_type": "switch",
+     "label": "SW8",
+     "connections": [
+      "F3 -> SO 6 contact"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.0,
+      0.0,
+      0.3733333333333333,
+      0.3733333333333333
+     ]
+    },
+    {
+     "id": "SO 6",
+     "element_type": "switch",
+     "label": "SO 6",
+     "connections": [
+      "SW8 -> coil/contact SO6",
+      "SO6 -> T/S S term13/14 lines"
+     ],
+     "ambiguous": true,
+     "_via": "grid_tile",
+     "_bbox": [
+      0.0,
+      0.0,
+      0.3733333333333333,
+      0.3733333333333333
+     ]
+    },
+    {
+     "id": "T/S S-13",
+     "element_type": "terminal",
+     "label": "T/S S 13",
+     "connections": [
+      "SO6 -> T/S S 13",
+      "T/S S 13 -> pin 1"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.0,
+      0.0,
+      0.3733333333333333,
+      0.3733333333333333
+     ]
+    },
+    {
+     "id": "T/S S-14",
+     "element_type": "terminal",
+     "label": "T/S S 14",
+     "connections": [
+      "SO6 -> T/S S 14",
+      "T/S S 14 -> pin 2"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.0,
+      0.0,
+      0.3733333333333333,
+      0.3733333333333333
+     ]
+    },
+    {
+     "id": "T/S S-15",
+     "element_type": "terminal",
+     "label": "T/S S 15",
+     "connections": [
+      "short stub line -> T/S S 15"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.0,
+      0.0,
+      0.3733333333333333,
+      0.3733333333333333
+     ]
+    },
+    {
+     "id": "Q13",
+     "element_type": "breaker",
+     "label": "BILGE VALVES Q13 10A",
+     "connections": [
+      "main supply -> T/S B 8/9/10 feed"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.0,
+      0.0,
+      0.3733333333333333,
+      0.3733333333333333
+     ]
+    },
+    {
+     "id": "T/S B-8",
+     "element_type": "terminal",
+     "label": "T/S B 8",
+     "connections": [
+      "Q13 -> T/S B 8",
+      "T/S B 8 -> Re1 contact"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.0,
+      0.0,
+      0.3733333333333333,
+      0.3733333333333333
+     ]
+    },
+    {
+     "id": "T/S B-9",
+     "element_type": "terminal",
+     "label": "T/S B 9",
+     "connections": [
+      "Q13 -> T/S B 9",
+      "T/S B 9 -> Re2 contact"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.0,
+      0.0,
+      0.3733333333333333,
+      0.3733333333333333
+     ]
+    },
+    {
+     "id": "T/S B-10",
+     "element_type": "terminal",
+     "label": "T/S B 10",
+     "connections": [
+      "Q13 -> T/S B 10",
+      "T/S B 10 -> Re3 contact"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.0,
+      0.0,
+      0.3733333333333333,
+      0.3733333333333333
+     ]
+    },
+    {
+     "id": "Re1",
+     "element_type": "relay",
+     "label": "Re1",
+     "connections": [
+      "T/S B 8 -> Re1 contact",
+      "Re1 coil -> XA40 14/12 lines"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.0,
+      0.0,
+      0.3733333333333333,
+      0.3733333333333333
+     ]
+    },
+    {
+     "id": "XA40-14",
+     "element_type": "status_signal",
+     "label": "XA40 14",
+     "connections": [
+      "Re1 -> XA40 pin14"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.0,
+      0.0,
+      0.3733333333333333,
+      0.3733333333333333
+     ]
+    },
+    {
+     "id": "XA40-12",
+     "element_type": "status_signal",
+     "label": "XA40 12",
+     "connections": [
+      "Re1 -> XA40 pin12"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.0,
+      0.0,
+      0.3733333333333333,
+      0.3733333333333333
+     ]
+    },
+    {
+     "id": "XA40-16",
+     "element_type": "status_signal",
+     "label": "XA40 16",
+     "connections": [
+      "Re2 -> XA40 pin16"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.0,
+      0.0,
+      0.3733333333333333,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "terminal_strip",
+     "id": "T/S S",
+     "label": "T/S S",
+     "connections": [
+      "13->local pump sw contact 1",
+      "14->local pump sw contact 2",
+      "15-><UNKNOWN>"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "switch",
+     "id": "LOCAL PUMP SW",
+     "label": "LOCAL PUMP SW",
+     "connections": [
+      "T/S S 13->1",
+      "T/S S 14->2"
+     ],
+     "ambiguous": true,
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "status_signal",
+     "id": "T/S S 15",
+     "label": "lamp/status feed line",
+     "connections": [
+      "T/S S 15-><UNKNOWN>"
+     ],
+     "ambiguous": true,
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "terminal_strip",
+     "id": "T/S C",
+     "label": "T/S C",
+     "connections": [
+      "1->7",
+      "2->8",
+      "->9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "T/S C-7",
+     "label": "7-1",
+     "connections": [
+      "1->OPEN switch"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "T/S C-8",
+     "label": "8-2",
+     "connections": [
+      "2->CLOSE switch"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "switch",
+     "id": "OPEN/CLOSE SW 1",
+     "label": "OPEN / CLOSE",
+     "connections": [
+      "T/S C 7->motor M [2]",
+      "T/S C 8->motor M [3]"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "T/S C-9",
+     "label": "9-3",
+     "connections": [
+      "3->motor M [2]"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "T/S C-10",
+     "label": "10-4",
+     "connections": [
+      "4->motor M [3]"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "device",
+     "id": "M1",
+     "label": "BILGE VALVE ENG. ROOM BILGE (motor 1)",
+     "connections": [
+      "[2]<-T/S C 9",
+      "[3]<-T/S C 10",
+      "->valve symbol"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "T/S C-11",
+     "label": "11-1",
+     "connections": [
+      "1-><UNKNOWN>"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "T/S C-12",
+     "label": "12-5",
+     "connections": [
+      "5->status line (double arrow)"
+     ],
+     "ambiguous": true,
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "T/S C-13",
+     "label": "13-6",
+     "connections": [
+      "6->status line (double arrow)"
+     ],
+     "ambiguous": true,
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "T/S C-14",
+     "label": "14-7",
+     "connections": [
+      "1<-XA40 pin 14",
+      "7->status line (double arrow)"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "status_signal",
+     "id": "XA40-14",
+     "label": "XA40 pin 14",
+     "connections": [
+      "XA40 14->T/S C 14"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "T/S C-15",
+     "label": "15-8",
+     "connections": [
+      "2<-XA40 pin 12",
+      "8->status line (double arrow)"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "status_signal",
+     "id": "XA40-12",
+     "label": "XA40 pin 12",
+     "connections": [
+      "XA40 12->T/S C 15"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "T/S C-16",
+     "label": "16-1",
+     "connections": [
+      "3->OPEN switch 2"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "T/S C-17",
+     "label": "17-2",
+     "connections": [
+      "4->CLOSE switch 2"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "switch",
+     "id": "OPEN/CLOSE SW 2",
+     "label": "OPEN / CLOSE",
+     "connections": [
+      "T/S C 16->motor M2 [2]",
+      "T/S C 17->motor M2 [3]"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "T/S C-18",
+     "label": "18-3",
+     "connections": [
+      "3->motor M2 [2]"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "T/S C-19",
+     "label": "19-4",
+     "connections": [
+      "4->motor M2 [3]"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "device",
+     "id": "M2",
+     "label": "BILGE VALVE ENG. ROOM BILGE (motor 2)",
+     "connections": [
+      "[2]<-T/S C 18",
+      "[3]<-T/S C 19",
+      "->valve symbol"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "T/S C-20",
+     "label": "20-2",
+     "connections": [
+      "2-><UNKNOWN>"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "T/S C-21",
+     "label": "21-5",
+     "connections": [
+      "5->status line (double arrow)"
+     ],
+     "ambiguous": true,
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "T/S C-22",
+     "label": "22-6",
+     "connections": [
+      "6->status line (double arrow)"
+     ],
+     "ambiguous": true,
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "T/S C-23",
+     "label": "23-7",
+     "connections": [
+      "3<-XA40 pin 16",
+      "7->status line (double arrow)"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "status_signal",
+     "id": "XA40-16",
+     "label": "XA40 pin 16",
+     "connections": [
+      "XA40 16->T/S C 23"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "T/S C-24",
+     "label": "24-1",
+     "connections": [
+      "5->OPEN switch 3"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "T/S C-25",
+     "label": "25-2",
+     "connections": [
+      "6->CLOSE switch 3"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "switch",
+     "id": "OPEN/CLOSE SW 3",
+     "label": "OPEN / CLOSE",
+     "connections": [
+      "T/S C 24->motor M3 [2]",
+      "T/S C 25->motor M3 [3]"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "T/S C-26",
+     "label": "26-3",
+     "connections": [
+      "3->motor M3 [2]"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "T/S C-27",
+     "label": "27-4",
+     "connections": [
+      "4->motor M3 [3]"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "device",
+     "id": "M3",
+     "label": "BILGE VALVE ENG. ROOM BILGE (motor 3)",
+     "connections": [
+      "[2]<-T/S C 26",
+      "[3]<-T/S C 27",
+      "->valve symbol"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "T/S C-28",
+     "label": "28-3",
+     "connections": [
+      "3-><UNKNOWN>"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "T/S C-29",
+     "label": "29-5",
+     "connections": [
+      "5->status line (double arrow)"
+     ],
+     "ambiguous": true,
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "T/S C-30",
+     "label": "30-6",
+     "connections": [
+      "6->status line (double arrow)"
+     ],
+     "ambiguous": true,
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "T/S C-31",
+     "label": "31-7",
+     "connections": [
+      "4<-XA40 pin (partially cropped)",
+      "7->status line (double arrow)"
+     ],
+     "ambiguous": true,
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "element_type": "status_signal",
+     "id": "XA40-cropped",
+     "label": "XA40 pin (illegible, cropped bottom)",
+     "connections": [
+      "XA40 ->T/S C 31"
+     ],
+     "ambiguous": true,
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.0,
+      0.7066666666666667,
+      0.3733333333333333
+     ]
+    },
+    {
+     "id": "MAIN BILGE PUMP",
+     "element_type": "device",
+     "label": "MAIN BILGE PUMP",
+     "connections": [
+      "+ from main panel feed",
+      "- (ground symbol) to hull/ground"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.0,
+      1.0,
+      0.3733333333333333
+     ]
+    },
+    {
+     "id": "BILGE VALVE ENG. ROOM BILGE (1)",
+     "element_type": "switch",
+     "label": "BILGE VALVE ENG. ROOM BILGE",
+     "connections": [
+      "tap from vertical feed",
+      "to junction point"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.0,
+      1.0,
+      0.3733333333333333
+     ]
+    },
+    {
+     "id": "PORT LAZARETTE BILGE / BILGE SW",
+     "element_type": "switch",
+     "label": "PORT LAZARETTE BILGE - BILGE SW",
+     "connections": [
+      "- terminal to feed line",
+      "+ terminal to feed line"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.0,
+      1.0,
+      0.3733333333333333
+     ]
+    },
+    {
+     "id": "STBD LAZARETTE BILGE / BILGE SW",
+     "element_type": "switch",
+     "label": "STBD LAZARETTE BILGE - BILGE SW",
+     "connections": [
+      "- terminal to feed line",
+      "+ terminal to feed line"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.0,
+      1.0,
+      0.3733333333333333
+     ]
+    },
+    {
+     "id": "BILGE VALVE ENG. ROOM BILGE (2)",
+     "element_type": "switch",
+     "label": "BILGE VALVE ENG. ROOM BILGE",
+     "connections": [
+      "tap from vertical feed",
+      "to junction point"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.0,
+      1.0,
+      0.3733333333333333
+     ]
+    },
+    {
+     "id": "AFT BILGE / BILGE SW",
+     "element_type": "switch",
+     "label": "AFT BILGE - BILGE SW",
+     "connections": [
+      "- terminal to feed line",
+      "+ terminal to feed line",
+      "third line unlabeled"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.0,
+      1.0,
+      0.3733333333333333
+     ]
+    },
+    {
+     "id": "BILGE VALVE ENG. ROOM BILGE (3)",
+     "element_type": "switch",
+     "label": "BILGE VALVE ENG. ROOM BILGE",
+     "connections": [
+      "tap from vertical feed",
+      "to junction point"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.0,
+      1.0,
+      0.3733333333333333
+     ]
+    },
+    {
+     "id": "ENG. ROOM BILGE / BILGE SW",
+     "element_type": "switch",
+     "label": "ENG. ROOM BILGE - BILGE SW",
+     "connections": [
+      "- terminal to feed line",
+      "+ terminal to feed line",
+      "third line unlabeled"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.0,
+      1.0,
+      0.3733333333333333
+     ]
+    },
+    {
+     "id": "T10",
+     "element_type": "terminal",
+     "label": "10",
+     "connections": [
+      "to switch/contact -> Re3 coil",
+      "left bus feed"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.0,
+      0.29333333333333333,
+      0.3733333333333333,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "SW_Re3",
+     "element_type": "switch",
+     "label": "contact above Re3",
+     "connections": [
+      "terminal 10",
+      "Re3 coil"
+     ],
+     "ambiguous": true,
+     "_via": "grid_tile",
+     "_bbox": [
+      0.0,
+      0.29333333333333333,
+      0.3733333333333333,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "XA10-06",
+     "element_type": "status_signal",
+     "label": "XA10 <06",
+     "connections": [
+      "from Re3 circuit"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.0,
+      0.29333333333333333,
+      0.3733333333333333,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "T11",
+     "element_type": "terminal",
+     "label": "11",
+     "connections": [
+      "to switch/contact -> Re4 coil",
+      "left bus feed"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.0,
+      0.29333333333333333,
+      0.3733333333333333,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "SW_Re4",
+     "element_type": "switch",
+     "label": "contact above Re4",
+     "connections": [
+      "terminal 11",
+      "Re4 coil"
+     ],
+     "ambiguous": true,
+     "_via": "grid_tile",
+     "_bbox": [
+      0.0,
+      0.29333333333333333,
+      0.3733333333333333,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "XA10-04",
+     "element_type": "status_signal",
+     "label": "XA10 <04",
+     "connections": [
+      "from Re4 circuit"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.0,
+      0.29333333333333333,
+      0.3733333333333333,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "T12",
+     "element_type": "terminal",
+     "label": "12",
+     "connections": [
+      "to switch/contact -> Re5 coil",
+      "left bus feed"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.0,
+      0.29333333333333333,
+      0.3733333333333333,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "SW_Re5",
+     "element_type": "switch",
+     "label": "contact above Re5",
+     "connections": [
+      "terminal 12",
+      "Re5 coil"
+     ],
+     "ambiguous": true,
+     "_via": "grid_tile",
+     "_bbox": [
+      0.0,
+      0.29333333333333333,
+      0.3733333333333333,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "XA10-02",
+     "element_type": "status_signal",
+     "label": "XA10 <02",
+     "connections": [
+      "from Re5 circuit"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.0,
+      0.29333333333333333,
+      0.3733333333333333,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "T13",
+     "element_type": "terminal",
+     "label": "13",
+     "connections": [
+      "to switch/contact -> Re6 coil (lamp symbol)",
+      "left bus feed"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.0,
+      0.29333333333333333,
+      0.3733333333333333,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "Re6",
+     "element_type": "relay",
+     "label": "Re6 (lamp indicator crossed circle)",
+     "connections": [
+      "from terminal 13 via contact",
+      "pin 11 (wire out)",
+      "pin 12 not used",
+      "XA11-32 (return line)"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.0,
+      0.29333333333333333,
+      0.3733333333333333,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "SW_Re6",
+     "element_type": "switch",
+     "label": "contact above Re6",
+     "connections": [
+      "terminal 13",
+      "Re6 coil"
+     ],
+     "ambiguous": true,
+     "_via": "grid_tile",
+     "_bbox": [
+      0.0,
+      0.29333333333333333,
+      0.3733333333333333,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "pin11",
+     "element_type": "plug_pin",
+     "label": "11",
+     "connections": [
+      "Re6 output"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.0,
+      0.29333333333333333,
+      0.3733333333333333,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "pin12",
+     "element_type": "plug_pin",
+     "label": "12 (not used)",
+     "connections": [
+      "spare, not used"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.0,
+      0.29333333333333333,
+      0.3733333333333333,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "XA11-32",
+     "element_type": "status_signal",
+     "label": "XA11 <32",
+     "connections": [
+      "from Re6 circuit"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.0,
+      0.29333333333333333,
+      0.3733333333333333,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "to_ONYX",
+     "element_type": "annotation",
+     "label": "to ONYX",
+     "connections": [
+      "arrow pointing into circuit near terminal 10/13 vertical bus"
+     ],
+     "ambiguous": true,
+     "_via": "grid_tile",
+     "_bbox": [
+      0.0,
+      0.29333333333333333,
+      0.3733333333333333,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "20",
+     "element_type": "terminal",
+     "label": "2",
+     "connections": [
+      "XA40 16 -> pin above 20"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "21",
+     "element_type": "terminal",
+     "label": "5",
+     "connections": [
+      "junction/tap"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "22",
+     "element_type": "terminal",
+     "label": "6",
+     "connections": [],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "23",
+     "element_type": "terminal",
+     "label": "7",
+     "connections": [
+      "XA40 16 pin3 -> 23"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "24",
+     "element_type": "terminal",
+     "label": "1",
+     "connections": [
+      "pin5 -> 24 -> OPEN switch"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "25",
+     "element_type": "terminal",
+     "label": "2",
+     "connections": [
+      "pin6 -> 25 -> CLOSE switch"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "OPEN_switch_1",
+     "element_type": "switch",
+     "label": "OPEN",
+     "connections": [
+      "24 -> OPEN contact"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "CLOSE_switch_1",
+     "element_type": "switch",
+     "label": "CLOSE",
+     "connections": [
+      "25 -> CLOSE contact"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "26",
+     "element_type": "terminal",
+     "label": "3",
+     "connections": [
+      "26 -> [2] motor terminal"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "27",
+     "element_type": "terminal",
+     "label": "4",
+     "connections": [
+      "27 -> [3] motor terminal"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "BILGE_VALVE_1",
+     "element_type": "device",
+     "label": "BILGE VALVE ENG. ROOM BILGE",
+     "connections": [
+      "OPEN switch -> [2] -> M",
+      "CLOSE switch -> [3] -> M",
+      "M -> valve symbol"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "28",
+     "element_type": "terminal",
+     "label": "3",
+     "connections": [],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "29",
+     "element_type": "terminal",
+     "label": "5",
+     "connections": [
+      "junction/tap"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "30",
+     "element_type": "terminal",
+     "label": "6",
+     "connections": [],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "31",
+     "element_type": "terminal",
+     "label": "7",
+     "connections": [
+      "XA10 06 pin4 -> 31"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "32",
+     "element_type": "terminal",
+     "label": "1",
+     "connections": [
+      "pin7 -> 32 -> OPEN switch"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "33",
+     "element_type": "terminal",
+     "label": "2",
+     "connections": [
+      "pin8 -> 33 -> CLOSE switch"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "OPEN_switch_2",
+     "element_type": "switch",
+     "label": "OPEN",
+     "connections": [
+      "32 -> OPEN contact"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "CLOSE_switch_2",
+     "element_type": "switch",
+     "label": "CLOSE",
+     "connections": [
+      "33 -> CLOSE contact"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "34",
+     "element_type": "terminal",
+     "label": "3",
+     "connections": [
+      "34 -> [2] motor terminal"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "35",
+     "element_type": "terminal",
+     "label": "4",
+     "connections": [
+      "35 -> [3] motor terminal"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "BILGE_VALVE_2",
+     "element_type": "device",
+     "label": "BILGE VALVE ENG. ROOM BILGE",
+     "connections": [
+      "OPEN switch -> [2] -> M",
+      "CLOSE switch -> [3] -> M",
+      "M -> valve symbol"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "36",
+     "element_type": "terminal",
+     "label": "4",
+     "connections": [],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "37",
+     "element_type": "terminal",
+     "label": "5",
+     "connections": [
+      "junction/tap"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "38",
+     "element_type": "terminal",
+     "label": "6",
+     "connections": [],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "39",
+     "element_type": "terminal",
+     "label": "7",
+     "connections": [
+      "XA10 04 pin5 -> 39"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "40",
+     "element_type": "terminal",
+     "label": "1",
+     "connections": [
+      "pin9 -> 40 -> OPEN switch"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "41",
+     "element_type": "terminal",
+     "label": "2",
+     "connections": [
+      "pin10 -> 41 -> CLOSE switch"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "OPEN_switch_3",
+     "element_type": "switch",
+     "label": "OPEN",
+     "connections": [
+      "40 -> OPEN contact"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "CLOSE_switch_3",
+     "element_type": "switch",
+     "label": "CLOSE",
+     "connections": [
+      "41 -> CLOSE contact"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "42",
+     "element_type": "terminal",
+     "label": "3",
+     "connections": [
+      "42 -> [2] motor terminal"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "43",
+     "element_type": "terminal",
+     "label": "4",
+     "connections": [
+      "43 -> [3] motor terminal"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "BILGE_VALVE_3",
+     "element_type": "device",
+     "label": "BILGE VALVE ENG. ROOM BILGE",
+     "connections": [
+      "OPEN switch -> [2] -> M",
+      "CLOSE switch -> [3] -> M",
+      "M -> valve symbol"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "44",
+     "element_type": "terminal",
+     "label": "5",
+     "connections": [],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "45",
+     "element_type": "terminal",
+     "label": "5",
+     "connections": [
+      "junction/tap",
+      "wire-gauge annotation nearby"
+     ],
+     "ambiguous": true,
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "46",
+     "element_type": "terminal",
+     "label": "6",
+     "connections": [],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "47",
+     "element_type": "terminal",
+     "label": "7",
+     "connections": [
+      "XA10 02 pin6 -> 47"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "48",
+     "element_type": "terminal",
+     "label": "6",
+     "connections": [
+      "pin1 -> 48"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "49",
+     "element_type": "terminal",
+     "label": "unlabeled",
+     "connections": [
+      "pin2 -> 49 -> loop back to 48 area"
+     ],
+     "ambiguous": true,
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "50",
+     "element_type": "terminal",
+     "label": "7",
+     "connections": [
+      "pin11 -> 50",
+      "XA11 32 -> 50 loop"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "XA40-16",
+     "element_type": "plug_pin",
+     "label": "XA40 16",
+     "connections": [
+      "XA40 pin16 -> terminal 20/23 group"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "XA10-06",
+     "element_type": "plug_pin",
+     "label": "XA10 06",
+     "connections": [
+      "XA10 pin06 -> terminal 31"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "XA10-04",
+     "element_type": "plug_pin",
+     "label": "XA10 04",
+     "connections": [
+      "XA10 pin04 -> terminal 39"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "XA10-02",
+     "element_type": "plug_pin",
+     "label": "XA10 02",
+     "connections": [
+      "XA10 pin02 -> terminal 47"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "XA11-32",
+     "element_type": "plug_pin",
+     "label": "XA11 32",
+     "connections": [
+      "XA11 pin32 -> terminal 50 loop"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "not_used_12",
+     "element_type": "annotation",
+     "label": "not used",
+     "connections": [
+      "pin12 spare"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "ONYX",
+     "element_type": "annotation",
+     "label": "ONYX",
+     "connections": [
+      "arrow pointing into sheet, external reference"
+     ],
+     "ambiguous": true,
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "PLUG_C",
+     "element_type": "terminal_strip",
+     "label": "PLUG C",
+     "connections": [
+      "terminal 50 -> PLUG C pin1",
+      "pins 1-7 -> [1]-[7]",
+      "pins 8-12 -> aux plug arrows"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "PLUG_C-8",
+     "element_type": "plug_pin",
+     "label": "8",
+     "connections": [
+      "ALARM MOD speaker -> [8]"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "PLUG_C-9",
+     "element_type": "plug_pin",
+     "label": "9",
+     "connections": [
+      "[9] arrow outward"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "PLUG_C-10",
+     "element_type": "plug_pin",
+     "label": "10",
+     "connections": [
+      "lamp symbol -> [10]"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "PLUG_C-11",
+     "element_type": "plug_pin",
+     "label": "11",
+     "connections": [
+      "switch contact -> [11]"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "PLUG_C-12",
+     "element_type": "plug_pin",
+     "label": "12",
+     "connections": [
+      "[12] arrow outward"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "ALARM_MOD",
+     "element_type": "device",
+     "label": "PEDESTAL ALARM + MUTE / ALARM MOD",
+     "connections": [
+      "ALARM MOD speaker symbol -> PLUG C [8]",
+      "-> lamp -> [10]",
+      "-> switch -> [11]"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "alarm_lamp",
+     "element_type": "status_signal",
+     "label": "lamp (circle X)",
+     "connections": [
+      "ALARM MOD -> lamp -> PLUG C [10]"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "alarm_switch",
+     "element_type": "switch",
+     "label": "unlabeled contact switch",
+     "connections": [
+      "-> PLUG C [11]"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.29333333333333333,
+      0.7066666666666667,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "AFT BILGE BILGE SW",
+     "element_type": "device",
+     "label": "AFT BILGE / BILGE SW",
+     "connections": [
+      "- (neg wire)",
+      "+ (pos wire)",
+      "status/switch line"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.29333333333333333,
+      1.0,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "ENG. ROOM BILGE BILGE SW",
+     "element_type": "device",
+     "label": "ENG. ROOM BILGE / BILGE SW",
+     "connections": [
+      "- (neg wire)",
+      "+ (pos wire)",
+      "status/switch line"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.29333333333333333,
+      1.0,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "BILGE VALVE ENG. ROOM BILGE (tap 1)",
+     "element_type": "annotation",
+     "label": "BILGE VALVE ENG. ROOM BILGE - caption over ENG. ROOM BILGE device",
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.29333333333333333,
+      1.0,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "FWD BILGE BILGE SW",
+     "element_type": "device",
+     "label": "FWD BILGE / BILGE SW",
+     "connections": [
+      "- (neg wire)",
+      "+ (pos wire)",
+      "status/switch line"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.29333333333333333,
+      1.0,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "BILGE VALVE ENG. ROOM BILGE (tap 2)",
+     "element_type": "annotation",
+     "label": "BILGE VALVE ENG. ROOM BILGE - caption over FWD BILGE device",
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.29333333333333333,
+      1.0,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "SAIL LOCKER BILGE SW",
+     "element_type": "device",
+     "label": "SAIL LOCKER / BILGE SW",
+     "connections": [
+      "- (neg wire)",
+      "+ (pos wire)",
+      "status/switch line"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.29333333333333333,
+      1.0,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "BILGE VALVE ENG. ROOM BILGE (tap 3)",
+     "element_type": "annotation",
+     "label": "BILGE VALVE ENG. ROOM BILGE - caption over SAIL LOCKER device",
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.29333333333333333,
+      1.0,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "PLUG C",
+     "element_type": "plug_pin",
+     "label": "PLUG C",
+     "connections": [
+      "pins 1-12 to MAIN PANEL switches and AUX PLUG"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.29333333333333333,
+      1.0,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "PLUG C [1]",
+     "element_type": "plug_pin",
+     "label": "PLUG C pin 1",
+     "connections": [
+      "-> S20 LAZARETTE BILGE"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.29333333333333333,
+      1.0,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "PLUG C [2]",
+     "element_type": "plug_pin",
+     "label": "PLUG C pin 2",
+     "connections": [
+      "-> S21 AFT BILGE"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.29333333333333333,
+      1.0,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "PLUG C [3]",
+     "element_type": "plug_pin",
+     "label": "PLUG C pin 3",
+     "connections": [
+      "-> S22 ENG. ROOM BILGE"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.29333333333333333,
+      1.0,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "PLUG C [4]",
+     "element_type": "plug_pin",
+     "label": "PLUG C pin 4",
+     "connections": [
+      "-> S23 FWD BILGE"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.29333333333333333,
+      1.0,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "PLUG C [5]",
+     "element_type": "plug_pin",
+     "label": "PLUG C pin 5",
+     "connections": [
+      "-> S24 SAIL LOCKER"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.29333333333333333,
+      1.0,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "PLUG C [6]",
+     "element_type": "plug_pin",
+     "label": "PLUG C pin 6",
+     "connections": [
+      "-> lamp symbol on S13 BILGE PUMP SW"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.29333333333333333,
+      1.0,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "PLUG C [7]",
+     "element_type": "plug_pin",
+     "label": "PLUG C pin 7",
+     "connections": [
+      "-> S13 BILGE PUMP SW switch contact"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.29333333333333333,
+      1.0,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "S20",
+     "element_type": "switch",
+     "label": "S20 LAZARETTE BILGE",
+     "connections": [
+      "PLUG C [1] -> contact -> common bus to S21/S22/S23/S24/S13"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.29333333333333333,
+      1.0,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "S21",
+     "element_type": "switch",
+     "label": "S21 AFT BILGE",
+     "connections": [
+      "PLUG C [2] -> contact -> common bus"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.29333333333333333,
+      1.0,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "S22",
+     "element_type": "switch",
+     "label": "S22 ENG. ROOM BILGE",
+     "connections": [
+      "PLUG C [3] -> contact -> common bus"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.29333333333333333,
+      1.0,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "S23",
+     "element_type": "switch",
+     "label": "S23 FWD BILGE",
+     "connections": [
+      "PLUG C [4] -> contact -> common bus"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.29333333333333333,
+      1.0,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "S24",
+     "element_type": "switch",
+     "label": "S24 SAIL LOCKER",
+     "connections": [
+      "PLUG C [5] -> contact -> common bus"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.29333333333333333,
+      1.0,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "S13",
+     "element_type": "switch",
+     "label": "S13 BILGE PUMP SW",
+     "connections": [
+      "PLUG C [6] -> lamp (circle-X)",
+      "PLUG C [7] -> switch contact -> common bus"
+     ],
+     "has_builtin_fuse": false,
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.29333333333333333,
+      1.0,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "PLUG C [8]",
+     "element_type": "status_signal",
+     "label": "PLUG C pin 8 to AUX PLUG ON PC BOARD pin 1",
+     "connections": [
+      "PLUG C [8] -> AUX PLUG [1]"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.29333333333333333,
+      1.0,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "PLUG C [9]",
+     "element_type": "status_signal",
+     "label": "PLUG C pin 9 to AUX PLUG ON PC BOARD pin 2",
+     "connections": [
+      "PLUG C [9] -> AUX PLUG [2]"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.29333333333333333,
+      1.0,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "PLUG C [10]",
+     "element_type": "status_signal",
+     "label": "PLUG C pin 10 to AUX PLUG ON PC BOARD pin 3",
+     "connections": [
+      "PLUG C [10] -> AUX PLUG [3]"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.29333333333333333,
+      1.0,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "PLUG C [11]",
+     "element_type": "status_signal",
+     "label": "PLUG C pin 11 to AUX PLUG ON PC BOARD pin 4",
+     "connections": [
+      "PLUG C [11] -> AUX PLUG [4]"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.29333333333333333,
+      1.0,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "PLUG C [12]",
+     "element_type": "plug_pin",
+     "label": "PLUG C pin 12",
+     "connections": [
+      "spare/unterminated"
+     ],
+     "ambiguous": true,
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.29333333333333333,
+      1.0,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "AUX PLUG ON PC BOARD",
+     "element_type": "controller_module",
+     "label": "AUX PLUG ON PC BOARD",
+     "connections": [
+      "[1]<-PLUG C[8]",
+      "[2]<-PLUG C[9]",
+      "[3]<-PLUG C[10]",
+      "[4]<-PLUG C[11]"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.29333333333333333,
+      1.0,
+      0.7066666666666667
+     ]
+    },
+    {
+     "id": "MAIN PANEL",
+     "element_type": "controller_module",
+     "label": "MAIN PANEL",
+     "connections": [
+      "hosts S20-S24, S13, PLUG C"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.29333333333333333,
+      1.0,
+      0.7066666666666667
+     ]
+    },
+    {
+     "element_type": "terminal",
+     "id": "+24V SERVICE BAT.",
+     "label": "+24V SERVICE BAT.",
+     "connections": [
+      "+24V SERVICE BAT. -> F2 200A"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.0,
+      0.6266666666666666,
+      0.3733333333333333,
+      1.0
+     ]
+    },
+    {
+     "element_type": "fuse",
+     "id": "F2",
+     "label": "F2 200A",
+     "connections": [
+      "+24V SERVICE BAT. -> F2 200A -> vertical bus (down)"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.0,
+      0.6266666666666666,
+      0.3733333333333333,
+      1.0
+     ]
+    },
+    {
+     "id": "MUTE_SWITCH",
+     "element_type": "switch",
+     "label": "mute pushbutton (below alarm mod, in series with lamp symbol)",
+     "connections": [
+      "from ALARM MOD wire -> through lamp/buzzer symbol -> to pushbutton contact -> pin [11]"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.6266666666666666,
+      0.7066666666666667,
+      1.0
+     ]
+    },
+    {
+     "id": "MAIN_PANEL_T1",
+     "element_type": "terminal",
+     "label": "1",
+     "connections": [
+      "terminal 1 -> [1] -> outgoing wire right"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.6266666666666666,
+      0.7066666666666667,
+      1.0
+     ]
+    },
+    {
+     "id": "MAIN_PANEL_T2",
+     "element_type": "terminal",
+     "label": "2",
+     "connections": [
+      "terminal 2 -> [2] -> outgoing wire right"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.6266666666666666,
+      0.7066666666666667,
+      1.0
+     ]
+    },
+    {
+     "id": "MAIN_PANEL_T3",
+     "element_type": "terminal",
+     "label": "3",
+     "connections": [
+      "terminal 3 -> [3] -> outgoing wire right"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.6266666666666666,
+      0.7066666666666667,
+      1.0
+     ]
+    },
+    {
+     "id": "MAIN_PANEL_T4",
+     "element_type": "terminal",
+     "label": "4",
+     "connections": [
+      "terminal 4 -> [4] -> outgoing wire right"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.6266666666666666,
+      0.7066666666666667,
+      1.0
+     ]
+    },
+    {
+     "id": "MAIN_PANEL_T5",
+     "element_type": "terminal",
+     "label": "5",
+     "connections": [
+      "terminal 5 -> [5] -> outgoing wire right"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.6266666666666666,
+      0.7066666666666667,
+      1.0
+     ]
+    },
+    {
+     "id": "MAIN_PANEL_T6",
+     "element_type": "terminal",
+     "label": "6",
+     "connections": [
+      "terminal 6 -> [6] -> outgoing wire right"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.6266666666666666,
+      0.7066666666666667,
+      1.0
+     ]
+    },
+    {
+     "id": "MAIN_PANEL_T7",
+     "element_type": "terminal",
+     "label": "7",
+     "connections": [
+      "terminal 7 -> [7] -> outgoing wire right"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.6266666666666666,
+      0.7066666666666667,
+      1.0
+     ]
+    },
+    {
+     "id": "AUX_PIN_8",
+     "element_type": "status_signal",
+     "label": "AUX PLUG ON PC BOARD pin [8]",
+     "connections": [
+      "ALARM MOD + terminal -> [8] -> double-arrow contact -> outgoing wire right"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.6266666666666666,
+      0.7066666666666667,
+      1.0
+     ]
+    },
+    {
+     "id": "AUX_PIN_9",
+     "element_type": "status_signal",
+     "label": "AUX PLUG ON PC BOARD pin [9]",
+     "connections": [
+      "ALARM MOD wire -> [9] -> double-arrow contact -> outgoing wire right"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.6266666666666666,
+      0.7066666666666667,
+      1.0
+     ]
+    },
+    {
+     "id": "AUX_PIN_10",
+     "element_type": "status_signal",
+     "label": "AUX PLUG ON PC BOARD pin [10]",
+     "connections": [
+      "lamp/buzzer symbol -> [10] -> double-arrow contact -> outgoing wire right"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.6266666666666666,
+      0.7066666666666667,
+      1.0
+     ]
+    },
+    {
+     "id": "AUX_PIN_11",
+     "element_type": "status_signal",
+     "label": "AUX PLUG ON PC BOARD pin [11]",
+     "connections": [
+      "pushbutton switch -> [11] -> double-arrow contact -> outgoing wire right"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.6266666666666666,
+      0.7066666666666667,
+      1.0
+     ]
+    },
+    {
+     "id": "AUX_PIN_12",
+     "element_type": "status_signal",
+     "label": "AUX PLUG ON PC BOARD pin [12]",
+     "connections": [
+      "ground/frame symbol -> [12] -> double-arrow contact -> outgoing wire right"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.6266666666666666,
+      0.7066666666666667,
+      1.0
+     ]
+    },
+    {
+     "id": "PLUG_D",
+     "element_type": "terminal_strip",
+     "label": "PLUG D",
+     "connections": [
+      "vertical wire from XA11/ONYX junction -> PLUG D pin 1",
+      "PLUG D pins 1-12 each -> [1]-[12] -> numbered pins 1-12 continuing right to another connector"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.6266666666666666,
+      0.7066666666666667,
+      1.0
+     ]
+    },
+    {
+     "id": "PLUG_D_1",
+     "element_type": "terminal",
+     "label": "1",
+     "connections": [
+      "1 -> [1] -> 1 -> continues right"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.6266666666666666,
+      0.7066666666666667,
+      1.0
+     ]
+    },
+    {
+     "id": "PLUG_D_2",
+     "element_type": "terminal",
+     "label": "2",
+     "connections": [
+      "2 -> [2] -> 2 -> continues right"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.6266666666666666,
+      0.7066666666666667,
+      1.0
+     ]
+    },
+    {
+     "id": "PLUG_D_3",
+     "element_type": "terminal",
+     "label": "3",
+     "connections": [
+      "3 -> [3] -> 3 -> continues right"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.6266666666666666,
+      0.7066666666666667,
+      1.0
+     ]
+    },
+    {
+     "id": "PLUG_D_4",
+     "element_type": "terminal",
+     "label": "4",
+     "connections": [
+      "4 -> [4] -> 4 -> continues right"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.6266666666666666,
+      0.7066666666666667,
+      1.0
+     ]
+    },
+    {
+     "id": "PLUG_D_5",
+     "element_type": "terminal",
+     "label": "5",
+     "connections": [
+      "5 -> [5] -> 5 -> continues right"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.6266666666666666,
+      0.7066666666666667,
+      1.0
+     ]
+    },
+    {
+     "id": "PLUG_D_6",
+     "element_type": "terminal",
+     "label": "6",
+     "connections": [
+      "6 -> [6] -> 6 -> continues right"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.6266666666666666,
+      0.7066666666666667,
+      1.0
+     ]
+    },
+    {
+     "id": "PLUG_D_7",
+     "element_type": "terminal",
+     "label": "7",
+     "connections": [
+      "7 -> [7] -> 7 -> continues right"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.6266666666666666,
+      0.7066666666666667,
+      1.0
+     ]
+    },
+    {
+     "id": "PLUG_D_8",
+     "element_type": "terminal",
+     "label": "8",
+     "connections": [
+      "8 -> [8] -> 8 -> continues right"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.6266666666666666,
+      0.7066666666666667,
+      1.0
+     ]
+    },
+    {
+     "id": "PLUG_D_9",
+     "element_type": "terminal",
+     "label": "9",
+     "connections": [
+      "9 -> [9] -> 9 -> continues right"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.6266666666666666,
+      0.7066666666666667,
+      1.0
+     ]
+    },
+    {
+     "id": "PLUG_D_10",
+     "element_type": "terminal",
+     "label": "10",
+     "connections": [
+      "10 -> [10] -> 10 -> continues right"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.6266666666666666,
+      0.7066666666666667,
+      1.0
+     ]
+    },
+    {
+     "id": "PLUG_D_11",
+     "element_type": "terminal",
+     "label": "11",
+     "connections": [
+      "11 -> [11] -> 11 -> continues right"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.6266666666666666,
+      0.7066666666666667,
+      1.0
+     ]
+    },
+    {
+     "id": "PLUG_D_12",
+     "element_type": "terminal",
+     "label": "12",
+     "connections": [
+      "12 -> [12] -> 12 -> continues right"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.29333333333333333,
+      0.6266666666666666,
+      0.7066666666666667,
+      1.0
+     ]
+    },
+    {
+     "id": "1",
+     "element_type": "plug_pin",
+     "label": "PLUG C pin 1",
+     "connections": [
+      "S20"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "2",
+     "element_type": "plug_pin",
+     "label": "PLUG C pin 2",
+     "connections": [
+      "S21"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "3",
+     "element_type": "plug_pin",
+     "label": "PLUG C pin 3",
+     "connections": [
+      "S22"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "4",
+     "element_type": "plug_pin",
+     "label": "PLUG C pin 4",
+     "connections": [
+      "S23"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "5",
+     "element_type": "plug_pin",
+     "label": "PLUG C pin 5",
+     "connections": [
+      "S24"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "6",
+     "element_type": "plug_pin",
+     "label": "PLUG C pin 6",
+     "connections": [
+      "S13 lamp"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "7",
+     "element_type": "plug_pin",
+     "label": "PLUG C pin 7",
+     "connections": [
+      "S13 switch"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "8",
+     "element_type": "plug_pin",
+     "label": "PLUG C pin 8",
+     "connections": [
+      "AUX PLUG ON PC BOARD [1]"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "9",
+     "element_type": "plug_pin",
+     "label": "PLUG C pin 9",
+     "connections": [
+      "AUX PLUG ON PC BOARD [2]"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "10",
+     "element_type": "plug_pin",
+     "label": "PLUG C pin 10",
+     "connections": [
+      "AUX PLUG ON PC BOARD [3]"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "11",
+     "element_type": "plug_pin",
+     "label": "PLUG C pin 11",
+     "connections": [
+      "AUX PLUG ON PC BOARD [4]"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "12",
+     "element_type": "plug_pin",
+     "label": "PLUG C pin 12",
+     "connections": [],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "S20",
+     "element_type": "switch",
+     "label": "LAZARETTE BILGE switch",
+     "connections": [
+      "PLUG C pin 1",
+      "common bus to S21"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "S21",
+     "element_type": "switch",
+     "label": "AFT BILGE switch",
+     "connections": [
+      "PLUG C pin 2",
+      "common bus"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "S22",
+     "element_type": "switch",
+     "label": "ENG. ROOM BILGE switch",
+     "connections": [
+      "PLUG C pin 3",
+      "common bus"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "S23",
+     "element_type": "switch",
+     "label": "FWD BILGE switch",
+     "connections": [
+      "PLUG C pin 4",
+      "common bus"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "S24",
+     "element_type": "switch",
+     "label": "SAIL LOCKER switch",
+     "connections": [
+      "PLUG C pin 5",
+      "common bus"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "S13",
+     "element_type": "switch",
+     "label": "BILGE PUMP SW (with lamp)",
+     "connections": [
+      "PLUG C pin 6",
+      "PLUG C pin 7",
+      "common bus"
+     ],
+     "ambiguous": true,
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "AUX-1",
+     "element_type": "plug_pin",
+     "label": "AUX PLUG ON PC BOARD [1]",
+     "connections": [
+      "PLUG C pin 8"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "AUX-2",
+     "element_type": "plug_pin",
+     "label": "AUX PLUG ON PC BOARD [2]",
+     "connections": [
+      "PLUG C pin 9"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "AUX-3",
+     "element_type": "plug_pin",
+     "label": "AUX PLUG ON PC BOARD [3]",
+     "connections": [
+      "PLUG C pin 10"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "AUX-4",
+     "element_type": "plug_pin",
+     "label": "AUX PLUG ON PC BOARD [4]",
+     "connections": [
+      "PLUG C pin 11"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "PLUG D-1",
+     "element_type": "plug_pin",
+     "label": "PLUG D pin 1",
+     "connections": [
+      "MAIN PANEL PC CARD pin 1"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "PLUG D-2",
+     "element_type": "plug_pin",
+     "label": "PLUG D pin 2",
+     "connections": [
+      "MAIN PANEL PC CARD pin 2"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "PLUG D-3",
+     "element_type": "plug_pin",
+     "label": "PLUG D pin 3",
+     "connections": [
+      "MAIN PANEL PC CARD pin 3"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "PLUG D-4",
+     "element_type": "plug_pin",
+     "label": "PLUG D pin 4",
+     "connections": [
+      "MAIN PANEL PC CARD pin 4"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "PLUG D-5",
+     "element_type": "plug_pin",
+     "label": "PLUG D pin 5",
+     "connections": [
+      "MAIN PANEL PC CARD pin 5"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "PLUG D-6",
+     "element_type": "plug_pin",
+     "label": "PLUG D pin 6",
+     "connections": [
+      "MAIN PANEL PC CARD pin 6"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "PLUG D-7",
+     "element_type": "plug_pin",
+     "label": "PLUG D pin 7",
+     "connections": [
+      "MAIN PANEL PC CARD pin 7"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "PLUG D-8",
+     "element_type": "plug_pin",
+     "label": "PLUG D pin 8",
+     "connections": [
+      "MAIN PANEL PC CARD pin 8"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "PLUG D-9",
+     "element_type": "plug_pin",
+     "label": "PLUG D pin 9",
+     "connections": [
+      "MAIN PANEL PC CARD pin 9"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "PLUG D-10",
+     "element_type": "plug_pin",
+     "label": "PLUG D pin 10",
+     "connections": [
+      "MAIN PANEL PC CARD pin 10"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "PLUG D-11",
+     "element_type": "plug_pin",
+     "label": "PLUG D pin 11",
+     "connections": [
+      "MAIN PANEL PC CARD pin 11"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "PLUG D-12",
+     "element_type": "plug_pin",
+     "label": "PLUG D pin 12",
+     "connections": [
+      "MAIN PANEL PC CARD pin 12"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "MPC-1",
+     "element_type": "device",
+     "label": "LAZARETTE BILGE open lamp",
+     "connections": [
+      "PLUG D pin 1",
+      "+24V"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "MPC-2",
+     "element_type": "device",
+     "label": "LAZARETTE BILGE closed lamp",
+     "connections": [
+      "PLUG D pin 2",
+      "+24V"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "MPC-3",
+     "element_type": "device",
+     "label": "AFT BILGE open lamp",
+     "connections": [
+      "PLUG D pin 3",
+      "+24V"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "MPC-4",
+     "element_type": "device",
+     "label": "AFT BILGE closed lamp",
+     "connections": [
+      "PLUG D pin 4",
+      "+24V"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "MPC-5",
+     "element_type": "device",
+     "label": "ENG. ROOM BILGE open lamp",
+     "connections": [
+      "PLUG D pin 5",
+      "+24V"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "MPC-6",
+     "element_type": "device",
+     "label": "ENG. ROOM BILGE closed lamp",
+     "connections": [
+      "PLUG D pin 6",
+      "+24V"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "MPC-7",
+     "element_type": "device",
+     "label": "FWD BILGE open lamp",
+     "connections": [
+      "PLUG D pin 7",
+      "+24V"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "MPC-8",
+     "element_type": "device",
+     "label": "FWD BILGE closed lamp",
+     "connections": [
+      "PLUG D pin 8",
+      "+24V"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "MPC-9",
+     "element_type": "device",
+     "label": "SAIL LOCKER open lamp",
+     "connections": [
+      "PLUG D pin 9",
+      "+24V"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "MPC-10",
+     "element_type": "device",
+     "label": "SAIL LOCKER closed lamp",
+     "connections": [
+      "PLUG D pin 10",
+      "+24V"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "D5-1",
+     "element_type": "unknown",
+     "label": "diode 1 to +24V bus (from pin 9 tap)",
+     "connections": [
+      "pin 9 tap",
+      "+24V bus"
+     ],
+     "ambiguous": true,
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "D5-2",
+     "element_type": "unknown",
+     "label": "diode 2 to +24V bus (from pin 7 tap)",
+     "connections": [
+      "pin 7 tap",
+      "+24V bus"
+     ],
+     "ambiguous": true,
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "D5-3",
+     "element_type": "unknown",
+     "label": "diode 3 to +24V bus (from pin 5 tap)",
+     "connections": [
+      "pin 5 tap",
+      "+24V bus"
+     ],
+     "ambiguous": true,
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "D5-4",
+     "element_type": "unknown",
+     "label": "diode 4 to +24V bus (from pin 3 tap)",
+     "connections": [
+      "pin 3 tap",
+      "+24V bus"
+     ],
+     "ambiguous": true,
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "D5-5",
+     "element_type": "unknown",
+     "label": "diode 5 to +24V bus (from pin 1 tap)",
+     "connections": [
+      "pin 1 tap",
+      "+24V bus"
+     ],
+     "ambiguous": true,
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "MAIN-PANEL-PC-CARD",
+     "element_type": "controller_module",
+     "label": "MAIN PANEL PC CARD enclosure",
+     "connections": [
+      "PLUG D pins 1-12",
+      "+24V ground symbol"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "PLUG-D",
+     "element_type": "terminal_strip",
+     "label": "PLUG D 12-pin connector",
+     "connections": [
+      "pins 1-12 to MAIN PANEL PC CARD pins 1-12"
+     ],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "AUX-PLUG-CAPTION",
+     "element_type": "annotation",
+     "label": "AUX PLUG ON PC BOARD",
+     "connections": [],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "id": "GND-SYMBOL",
+     "element_type": "annotation",
+     "label": "chassis/ground symbol below +24V",
+     "connections": [],
+     "_via": "grid_tile",
+     "_bbox": [
+      0.6266666666666666,
+      0.6266666666666666,
+      1.0,
+      1.0
+     ]
+    }
+   ]
+  }
+ ],
+ "scoped_next": []
+}

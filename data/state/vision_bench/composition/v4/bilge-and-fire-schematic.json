@@ -1,0 +1,368 @@
+{
+ "sheet": "bilge-and-fire-schematic",
+ "drawing_class": "pid",
+ "composition": {
+  "serve_who": "This sheet (108-01-520-001 rev B, \"Bilge & Fire System Schematic\") is the master P&ID for the vessel's combined bilge and firefighting system. It shows: the Main Bilge Pump, Electric Fire Pump and Diesel Fire Pump (crash pump) all located near frame B/A (aft engine room/lazarette boundary); two Aux Bilge Pumps (Engine Room and Mast Area, Whale Gulper 320); a network of motor-actuated bilge valves at each sump/compartment; sump boxes at Lazarette, Midship, Engine Room, Mast Area, ESS Enclosure and Sail Locker; the fireline running fore-and-aft in the port sheer to hydrants/hoses fwd and aft; and the operating-modes doc (referenced by note 2) that defines Normal/Aux/Emergency-fire/Emergency-bilge lineups. Evidence: title block, BOM table (pump items 001-003, 024; valve items 016-017; sensor items 007,025), pump-data table, and the walked pipe colors (blue=main bilge, red=fireline, purple=aux bilge, dashed blue=freshwater priming).",
+  "equipment_groups": [
+   {
+    "equipment_name": "Bilge & Fire System (system card)",
+    "target_node_id": "520-bilge-system",
+    "placement_reasoning": "This is the overall system node for the combined bilge/fire schematic; the sheet's own multi-loop, multi-pump topology (main bilge line, fireline, aux bilge line) is a system-level lineup, not any one pump's function.",
+    "functions": [
+     {
+      "function_id": "mode1",
+      "label": "Normal Operation \u2014 Main Bilge // Main Fire",
+      "what_it_does": "Main Bilge Pump clears water from any of the five sumps (Lazarette, Midship, Engine Room, Mast Area, Sail Locker) via the main bilge line (blue) and discharges overboard through the anti-siphon manifold, whose breather runs into the STBD E-R vent box. In parallel, the Electric Fire Pump and Diesel Fire Pump draw seawater via a seawater strainer and pressurise the fireline (red) in the port sheer, feeding fire hose stations fore and aft and the tender-garage/lazarette sprinklers.",
+      "flow_scenarios": [
+       {
+        "state": "bilge lineup (normal)",
+        "path": "Sump (Laz/Midship/E-R/Mast/Sail Locker) -> only the NC valve(s) for the sump in use opened -> main bilge line (blue) -> Main Bilge Pump -> anti-siphon manifold -> bilge overboard (breather to STBD E-R vent box)"
+       },
+       {
+        "state": "fire lineup (normal)",
+        "path": "Seawater pickup -> seawater strainer -> Electric Fire Pump / Diesel Fire Pump -> fireline (red, port sheer) -> fwd + aft fire hydrants/hoses; tender garage & lazarette sprinklers"
+       }
+      ],
+      "key_components": [
+       "NC bilge valves at each sump (open only as needed)",
+       "anti-siphon manifold with breather to STBD E-R vent box",
+       "seawater strainer on fire suction"
+      ],
+      "dry_data": "Main bilge line shown blue, fireline shown red on sheet; unnecessary engine-room/mast-sump detail hidden for clarity per drawing note.",
+      "sheet_region": "main schematic, frames L-A"
+     },
+     {
+      "function_id": "mode2a",
+      "label": "Auxiliary Bilge Operation \u2014 Aux pump overboard (when regulations allow)",
+      "what_it_does": "E-R Aux Bilge Pump and Mast Aux Bilge Pump each draw from their local sump and discharge through an oily bilge filter to the FWD deck locker drain (min 800mm above DWL), via a flex suction hose connection \u2014 an alternate discharge route from the main bilge line, used only when overboard discharge of bilge water is permitted.",
+      "flow_scenarios": [
+       {
+        "state": "aux overboard (permitted)",
+        "path": "Engine Room Sump / Mast Area Sump -> flex suction hose connection -> Aux Bilge Pump -> oily bilge filter -> FWD deck locker drain (min. 800mm above DWL) overboard"
+       }
+      ],
+      "key_components": [
+       "oily bilge filter (inline)",
+       "flex suction hose connections"
+      ],
+      "dry_data": "Purple line indicates this mode's flow path on the sheet.",
+      "sheet_region": "main schematic, engine room / mast area sump boxes"
+     },
+     {
+      "function_id": "mode2b",
+      "label": "Auxiliary Bilge Operation \u2014 Aux pump to storage containers",
+      "what_it_does": "Same Aux Bilge Pumps redirected to fill portable oil storage tank(s) instead of overboard discharge, when regulations do not allow direct overboard discharge.",
+      "flow_scenarios": [
+       {
+        "state": "aux to storage",
+        "path": "Engine Room Sump / Mast Area Sump -> flex suction hose connection -> Aux Bilge Pump -> oily bilge filter -> portable oil storage tank (FWD deck locker drain path shown for reference only, below DWL)"
+       }
+      ],
+      "key_components": [
+       "oily bilge filter (inline)",
+       "flex suction hose connections",
+       "portable oil storage tank connection point"
+      ],
+      "dry_data": "Purple line indicates this mode's flow path on the sheet.",
+      "sheet_region": "main schematic, engine room / mast area sump boxes"
+     },
+     {
+      "function_id": "mode3",
+      "label": "Emergency Operation \u2014 Fire Backup (electric fire pump NOT operational)",
+      "what_it_does": "With the Electric Fire Pump marked NOT OPERATIONAL, the Diesel Fire Pump alone (primed from the fresh water supply per ref dwg 108-01-510-001) draws seawater via the strainer and supplies the full fireline (both fore and aft) to hydrants/hoses.",
+      "flow_scenarios": [
+       {
+        "state": "emergency fire backup",
+        "path": "Seawater pickup -> seawater strainer -> Diesel Fire Pump (primed via freshwater priming line, ref dwg 108-01-510-001) -> fireline (fore+aft, port sheer) -> hydrants/hoses, tender garage/lazarette sprinklers"
+       }
+      ],
+      "key_components": [
+       "priming line from fresh water supply (cross-sheet)",
+       "seawater strainer"
+      ],
+      "dry_data": "Orange line indicates emergency fire-backup path; electric fire pump shown with red X (not operational) in this mode.",
+      "sheet_region": "main schematic, aft area near diesel fire pump / hydrants"
+     },
+     {
+      "function_id": "mode4",
+      "label": "Emergency Operation \u2014 Bilge Backup (main bilge pump NOT operational)",
+      "what_it_does": "With the Main Bilge Pump marked NOT OPERATIONAL, the Diesel Fire Pump (driven via its priming line) and the STBD Genset's raw water pump take over bilge duty: sumps are drained via the same NC valve lineup logic (open only the valve(s) needed) through the anti-siphon manifold overboard, while the genset raw-water pump path discharges via the exhaust water separator (ref dwg 108-01-515-001).",
+      "flow_scenarios": [
+       {
+        "state": "emergency bilge backup \u2014 diesel fire pump route",
+        "path": "Sump (Laz/Midship/E-R/Mast/Sail Locker) -> NC valve(s) opened as needed -> main bilge line -> Diesel Fire Pump (via priming line) -> anti-siphon manifold -> bilge overboard (breather to STBD E-R vent box)"
+       },
+       {
+        "state": "emergency bilge backup \u2014 genset raw water pump route",
+        "path": "Sea chest supply (ref dwg 108-01-515-003) -> STBD Genset raw water pump -> exhaust water separator (ref dwg 108-01-515-001) -> overboard"
+       }
+      ],
+      "key_components": [
+       "STBD Genset raw water pump",
+       "exhaust water separator (cross-sheet)",
+       "anti-siphon manifold"
+      ],
+      "dry_data": "Green line indicates emergency bilge-backup flow path; Main Bilge Pump shown with red X (not operational) in this mode.",
+      "sheet_region": "main schematic, engine room / aft area"
+     },
+     {
+      "function_id": "diesel-pump-loop",
+      "label": "Diesel (backup bilge/fire) pump seawater pickup lineup",
+      "what_it_does": "A dedicated seawater pickup near the lazarette feeds through a motor-actuated valve (for lazarette area) to bilge overboard \u2014 the drawn topology backing the diesel pump's suction/discharge in the lazarette bilge area.",
+      "flow_scenarios": [
+       {
+        "state": "lazarette bilge lineup",
+        "path": "Diesel pump seawater pickup -> motor-actuated valve (for lazarette area) -> bilge overboard"
+       }
+      ],
+      "key_components": [
+       "motor-actuated valve (lazarette area)"
+      ],
+      "dry_data": "Direction of flow not confirmed by arrow at this junction \u2014 treated per walked topology.",
+      "sheet_region": "aft/lazarette area, frames L-K"
+     },
+     {
+      "function_id": "fire-pump-loop",
+      "label": "Fire pump seawater pickup / sail locker lineup",
+      "what_it_does": "The fire pump's seawater pickup near frame B/A connects through a motor-actuated valve (for sail locker area) to bilge overboard \u2014 the drawn topology for the fwd bilge/sail-locker area valve lineup.",
+      "flow_scenarios": [
+       {
+        "state": "sail locker bilge lineup",
+        "path": "Fire pump seawater pickup -> motor-actuated valve (for sail locker area) -> bilge overboard"
+       }
+      ],
+      "key_components": [
+       "motor-actuated valve (sail locker area)"
+      ],
+      "dry_data": "Direction of flow not confirmed by arrow at this junction \u2014 treated per walked topology.",
+      "sheet_region": "fwd area, frames C-A"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Main Bilge Pump",
+    "target_node_id": "520-main-bilge-pump",
+    "placement_reasoning": "BOM item 001, labelled 'MAIN BILGE PUMP' with local start switch and remote start icon at frame A/B; identity already established (Gianneschi ACB 431B) \u2014 this sheet adds its role-in-flow and BOM data.",
+    "functions": [
+     {
+      "label": "Main bilge suction/discharge duty pump",
+      "what_it_does": "Draws from the main bilge line (all sumps) and discharges to the anti-siphon manifold/overboard; has local start switch and remote start annunciator shown on this sheet (wiring itself is on electrical sheets).",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "main bilge line -> Main Bilge Pump (suction) -> discharge -> anti-siphon manifold -> bilge overboard"
+       }
+      ],
+      "key_components": [
+       "local start switch (drawn)",
+       "remote start annunciator (drawn, control wiring on electrical sheet \u2014 cross-ref)"
+      ],
+      "dry_data": "BOM 001: Feit VA 40B, 24V DC centrifugal pump, bronze; qty 1; flow rate 300 l/min, power 0.75kW, max head 17m per pump-data table. Note: engineer identity_resolution supersedes 'FEIT' printed make \u2014 actual pump is Gianneschi ACB 431B.",
+      "sheet_region": "frame A/B, upper right of schematic"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Fire Pump (Electric)",
+    "target_node_id": "520-fire-pump",
+    "placement_reasoning": "BOM item 024 'ELECTRIC FIRE PUMP', Gianneschi ACB431 24V, drawn at frame B/A next to fire pump seawater pickup and fireline start; local/remote start icons shown adjacent.",
+    "functions": [
+     {
+      "label": "Electric fire pump \u2014 normal fire main duty",
+      "what_it_does": "Draws seawater via strainer at fire pump seawater pickup, discharges into the fireline (red) supplying hydrants/hoses fore and aft; primary duty pump in Mode 1, taken out of service (NOT OPERATIONAL) in Mode 3.",
+      "flow_scenarios": [
+       {
+        "state": "normal fire duty",
+        "path": "seawater pickup -> seawater strainer -> Electric Fire Pump -> fireline (port sheer) -> fwd/aft hydrants and hose stations"
+       },
+       {
+        "state": "emergency (Mode 3) \u2014 pump out of service",
+        "path": "N/A \u2014 marked NOT OPERATIONAL; Diesel Fire Pump takes over (see 520-bilge-system mode3)"
+       }
+      ],
+      "key_components": [
+       "seawater strainer (suction)",
+       "fire pump remote start (control wiring on electrical sheet \u2014 cross-ref)"
+      ],
+      "dry_data": "BOM 024: Gianneschi ACB 431 B 24V CC 1.5kW 1500rpm; qty 1.",
+      "sheet_region": "frame B/A, near fire pump seawater pickup"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Diesel Fire Pump (crash pump)",
+    "target_node_id": "520-diesel-fire-pump",
+    "placement_reasoning": "BOM item 002 'DIESEL FIRE PUMP', Aussie Pumps LF48/Yanmar YDH50 engine, drawn at frame M/L in aft stowage area with manual pull-start noted; serves both fire backup and bilge backup emergency modes per operating-modes doc.",
+    "functions": [
+     {
+      "label": "Diesel-driven emergency fire pump / bilge backup",
+      "what_it_does": "Manually pull-started diesel engine drives a pump that can supply the fireline as emergency fire backup (Mode 3) and, via its priming line, assist bilge backup duty (Mode 4) when the main bilge pump is out.",
+      "flow_scenarios": [
+       {
+        "state": "emergency fire backup (Mode 3)",
+        "path": "seawater pickup -> seawater strainer -> Diesel Fire Pump (primed via freshwater priming line ref dwg 108-01-510-001) -> fireline (fore+aft) -> hydrants/hoses"
+       },
+       {
+        "state": "emergency bilge backup (Mode 4)",
+        "path": "sumps -> NC valves opened as needed -> main bilge line -> Diesel Fire Pump (via priming line) -> anti-siphon manifold -> bilge overboard"
+       }
+      ],
+      "key_components": [
+       "manual pull-start (no remote/electric start drawn on this sheet)",
+       "priming line connection from fresh water supply (cross-sheet)"
+      ],
+      "dry_data": "BOM 002: Yanmar L48 diesel engine, qty 1; pump-data table: Aussie Pumps LF48 (Yanmar YDH50), flow 715 l/min, power 3.6kW, max head 37m.",
+      "sheet_region": "aft stowage area, frame M/L"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Aux Bilge Pumps (mast + eng.room)",
+    "target_node_id": "520-aux-bilge-pumps",
+    "placement_reasoning": "BOM item 003 (Whale Gulper 320, qty 2), drawn twice: 'ENGINE ROOM AUX BILGE PUMP' and 'MAST AREA AUX BILGE PUMP', each with local sumps/valves shown \u2014 matches engineer-confirmed identity note.",
+    "functions": [
+     {
+      "label": "Engine Room Aux Bilge Pump",
+      "what_it_does": "Clears Engine Room Sump via flex suction hose connection, discharging through oily bilge filter to either overboard (FWD deck locker drain, when permitted) or portable oil storage tank.",
+      "flow_scenarios": [
+       {
+        "state": "aux overboard",
+        "path": "Engine Room Sump -> flex suction hose -> E-R Aux Bilge Pump -> oily bilge filter -> FWD deck locker drain overboard"
+       },
+       {
+        "state": "aux to storage",
+        "path": "Engine Room Sump -> flex suction hose -> E-R Aux Bilge Pump -> oily bilge filter -> portable oil storage tank"
+       }
+      ],
+      "key_components": [
+       "flex suction hose connection",
+       "oily bilge filter"
+      ],
+      "dry_data": "BOM 003: Whale Gulper 320 24V DC, qty 2 (shared with Mast Area unit); pump-data: flow 19 l/min, power 0.1kW, max head 3m.",
+      "sheet_region": "engine room area, frame I/H"
+     },
+     {
+      "label": "Mast Area Aux Bilge Pump",
+      "what_it_does": "Clears Mast Area Sump via flex suction hose connection, discharging through oily bilge filter to either overboard (FWD deck locker drain, when permitted) or portable oil storage tank.",
+      "flow_scenarios": [
+       {
+        "state": "aux overboard",
+        "path": "Mast Area Sump -> flex suction hose -> Mast Aux Bilge Pump -> oily bilge filter -> FWD deck locker drain overboard"
+       },
+       {
+        "state": "aux to storage",
+        "path": "Mast Area Sump -> flex suction hose -> Mast Aux Bilge Pump -> oily bilge filter -> portable oil storage tank"
+       }
+      ],
+      "key_components": [
+       "flex suction hose connection",
+       "oily bilge filter",
+       "suction manifold"
+      ],
+      "dry_data": "BOM 003: Whale Gulper 320 24V DC, qty 2 (shared with Engine Room unit).",
+      "sheet_region": "mast area, frame F/G"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Bilge Valves",
+    "target_node_id": "520-bilge-valves",
+    "placement_reasoning": "BOM items 016 (electric rotary actuators) + 017 (2-way ball valves DN050) \u2014 drawn as motor-actuated valves at 5 locations (lazarette, aft, E-R, mast, sail locker) controlling which sump the main bilge line draws from; normal-closed states are the operative lineup logic per operating-modes doc.",
+    "functions": [
+     {
+      "label": "Sump isolation valve set (5 locations)",
+      "what_it_does": "Each motor-actuated valve isolates its sump from the main bilge line; per operating-modes doc, these valves are normally closed and only the valve(s) for the sump actually being pumped are opened, one at a time, to prevent cross-flooding/air-locking between compartments.",
+      "flow_scenarios": [
+       {
+        "state": "normal (all NC)",
+        "path": "no flow through any valve unless opened"
+       },
+       {
+        "state": "selected sump draining",
+        "path": "operator/automation opens ONE valve (e.g. lazarette, aft, E-R, mast, or sail locker) -> that sump connects to main bilge line -> Main Bilge Pump or Diesel Fire Pump (backup) -> overboard"
+       }
+      ],
+      "key_components": [
+       "electric rotary actuator (Burkert) per valve",
+       "5x DN050 2-way ball valve (Burkert)"
+      ],
+      "dry_data": "BOM 016: Burkert electric rotary actuator, 5.6kg ind./28kg total, qty5. BOM 017: Burkert 2-way ball valve DN050, 3.5kg ind./17.5kg total, qty5. Electrical supply on Q14 breaker (10A, emergency panel) per electrical schematic \u2014 cross-ref.",
+      "sheet_region": "distributed at frames L, H, G, F, D/C (one per sump zone)"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "Fireline (main fire main, port sheer)",
+    "facts": [
+     "50mm 2\" rubber fire-resistant hose (sf51, ISO 15540) runs fore-and-aft in the port sheer connecting fire pumps to hydrant stations at multiple frames.",
+     "Fed by Electric Fire Pump (normal) or Diesel Fire Pump (emergency, Mode 3).",
+     "Max reach of 18m fire hose from fwd hydrant and aft hydrant marked with dashed red arcs on plan view."
+    ]
+   },
+   {
+    "system_name": "Main bilge line (blue)",
+    "facts": [
+     "Runs fore-and-aft connecting all 5 sump/valve stations to the Main Bilge Pump / anti-siphon manifold.",
+     "Pipe code sea54 (metallic, CuNiFe 90/10, DN50 54x1.5mm) used along main bilge line per piping details table."
+    ]
+   }
+  ],
+  "cross_references": [
+   {
+    "what": "Diesel Fire Pump priming line from fresh water supply",
+    "referenced_sheet_hint": "108-01-510-001"
+   },
+   {
+    "what": "STBD Genset raw water pump overboard via exhaust water separator",
+    "referenced_sheet_hint": "108-01-515-001"
+   },
+   {
+    "what": "Sea chest supply feeding raw water pump (Mode 4)",
+    "referenced_sheet_hint": "108-01-515-003"
+   },
+   {
+    "what": "Anti-siphon manifold breather running into STBD E-R vent box",
+    "referenced_sheet_hint": "108-01-508-001"
+   },
+   {
+    "what": "Thru-hull valve sizing detail for all bilge/fire thru-hulls",
+    "referenced_sheet_hint": "108-01-504-002"
+   },
+   {
+    "what": "Fire pump remote start / main bilge pump remote start / local start wiring",
+    "referenced_sheet_hint": "electrical schematics (GMMS series)"
+   },
+   {
+    "what": "Bilge and Fire System Operating Modes document (authoritative lineup source)",
+    "referenced_sheet_hint": "Bilge and Fire System Operating Modes.pdf"
+   },
+   {
+    "what": "Bilge valve electrical supply Q14 breaker, emergency panel",
+    "referenced_sheet_hint": "SW108-01-600 Electrical schematics"
+   }
+  ],
+  "uncertainties": [
+   "Flow direction at several junctions (diesel pump seawater pickup <-> lazarette valve <-> bilge overboard; fire pump seawater pickup <-> sail locker valve <-> bilge overboard) is not marked with arrows on this sheet \u2014 the walked topology could not confirm suction vs discharge direction at these specific junctions; treated as unconfirmed per drawn-line law."
+  ],
+  "good_to_have": [
+   "Exact pressure-relief setting for the pressure relief valve (BOM item 008, '3bar SET PRESSURE') \u2014 value is on the drawing.",
+   "Full pipe/hose sizing and material specs are tabulated in the Piping Details table (ff38, ffs1, mw25, pvc25, sea42, sea54, sf15, sf51) \u2014 read at inspection if needed.",
+   "Individual weights/part numbers for strainers, non-return valves, siphon break valves, 3-way ball valves (BOM items 005-015) are in the BOM table.",
+   "Bilge/high-level alarm switch details (BOM 025, Vega sensors) \u2014 capacitive level switch with IO-Link, present at each sump; exact set points on drawing."
+  ],
+  "discarded_as_clutter": [
+   "Symbols legend (restates standard P&ID symbols)",
+   "Text legend (restates BOM/pipe-code/NO/NC conventions)",
+   "Pipe legend (color key already used in scenario descriptions)",
+   "Standard notes (do not scale, dimension tolerances, etc.)",
+   "Revision history block",
+   "Title block fields (design/client/drawn/approved names, dates)",
+   "Frame letter/number ruler along hull outline (M-A, 11-1)",
+   "Area/tender garage dimension callouts (12.8m2 etc.) \u2014 general arrangement, not system function"
+  ],
+  "_model": "claude-sonnet-5",
+  "_protocol_version": 4
+ }
+}

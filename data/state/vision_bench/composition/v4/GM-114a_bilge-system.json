@@ -1,0 +1,178 @@
+{
+ "sheet": "GM-114a_bilge-system",
+ "drawing_class": "electrical",
+ "composition": {
+  "serve_who": "Sheet GMMS 108'-114a \"BILGE SYSTEM\" is a relay/terminal wiring diagram serving THREE distinct bilge-related equipment nodes that share the +24V DC service battery supply but are separate systems per the sheet's own titled sections: (1) 520-main-bilge-pump \u2014 the MAIN BILGE PUMP motor at top-right with its Local Pump SW / T/S S control loop and Main Panel/ONYX remote paths; (2) 520-bilge-valves \u2014 the five BURKERT-type motorised bilge valves (labelled \"BILGE VALVE ENG. ROOM BILGE\" x5, each with OPEN/CLOSE contacts) fed via Q13 10A BILGE VALVES breaker through relays Re1-Re5 and T/S B/T/S C; (3) 520-vega-bilge-level-sensors \u2014 the six \"BILGE SW\" level-switch endpoints (Port/Stbd Lazarette, Aft, Eng Room, Fwd, Sail Locker) that report status via XA40/XA10/XA11 taps and ultimately light the open/closed lamp bank on the MAIN PANEL PC CARD. The Main Panel / Plug C / Plug D / PC Card block is the operator interface for all three, cross-referencing 641-vessel-control-panel. Evidence: title block \"BILGE SYSTEM\"; load labels BILGE VALVES Q13, MAIN BILGE PUMP, BILGE SW sensor names, and the switch names S20-S24 explicitly naming each bilge zone valve/lamp pairing on the Main Panel.",
+  "equipment_groups": [
+   {
+    "equipment_name": "Main Bilge Pump (520-main-bilge-pump)",
+    "target_node_id": "520-main-bilge-pump",
+    "placement_reasoning": "Motor explicitly labelled MAIN BILGE PUMP top-right of sheet; fed via F3 60A / SW8 / SO6 into T/S S control terminals 13/14/15, matching the register mapping BILGE PUMP -> 520-main-bilge-pump and the established engineer red-pen control_loop fact for this exact sheet (GM-114a).",
+    "functions": [
+     {
+      "function_id": "F1",
+      "label": "Main bilge pump run/stop control loop",
+      "what_it_does": "Runs the main bilge pump motor to discharge bilge water; the solenoid contactor coil (T/S S terminals 13/14) can be closed from any of three alternative locations, consistent with the established multi-switch activation fact for this pump on this sheet.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/default",
+        "path": "+24V service battery -> F2 200A -> F3 60A -> SW8 -> SO6 solenoid -> T/S S terminals 13/14/15 -> pump motor contactor coil de-energised, pump idle"
+       },
+       {
+        "state": "local activation",
+        "path": "LOCAL PUMP SW (adjacent to T/S S, terminal 1/2 stub) closes -> T/S S terminal 15 -> contactor coil energised -> MAIN BILGE PUMP motor runs, discharge overboard (per established emergency-suction fact, via STBD generator raw-water pump path when in that mode)"
+       },
+       {
+        "state": "remote activation via Main Panel",
+        "path": "MAIN PANEL BILGE PUMP SW (S13, lamp symbol) at Plug C -> plug/cable run -> T/S S control lines -> contactor coil energised -> pump runs; lamp on S13 indicates pump engaged"
+       },
+       {
+        "state": "remote activation via ONYX",
+        "path": "ONYX command over XA11 tap <32> -> terminal 50 on T/S C -> relay Re6 contact closes -> T/S S control line -> contactor coil energised -> pump runs (cross-reference: ONYX wiring detailed on monitoring sheet)"
+       }
+      ],
+      "key_components": [
+       "contactor coil (T/S S 13/14)",
+       "control terminals T/S S 12/14/15",
+       "solenoid SO6",
+       "local switch (LOCAL PUMP SW)",
+       "relay Re6 (ONYX path)"
+      ],
+      "sheet_region": "top strip 0.0-0.32 x 0.06-0.9 (feed/switch row) and 0.28-0.9 x 0.08-0.16 (local pump sw / motor)"
+     }
+    ],
+    "good_to_have": [
+     "F3 fuse rated 60A \u2014 value on drawing",
+     "F2 fuse rated 200A \u2014 value on drawing",
+     "pump identity confirmed Gianneschi ACB 431B per prior engineer resolution"
+    ]
+   },
+   {
+    "equipment_name": "Bilge Valves (520-bilge-valves)",
+    "target_node_id": "520-bilge-valves",
+    "placement_reasoning": "Five motorised valve blocks all labelled 'BILGE VALVE ENG. ROOM BILGE' with OPEN/CLOSE contact pairs, fed from breaker labelled 'BILGE VALVES Q13 10A' through T/S B / relays Re1-Re5 / T/S C terminal field \u2014 direct match to register mapping BILGE VALVES -> 520-bilge-valves and BOM identity (Burkert electric rotary actuators on DN050 ball valves).",
+    "functions": [
+     {
+      "function_id": "F1",
+      "label": "Motorised bilge valve open/close control (5 valves, one per bilge zone line)",
+      "what_it_does": "Each of the five bilge valve actuators opens or closes its bilge suction line on command, selecting which bilge compartment is connected to the pump manifold; each valve is driven by its own relay off the shared Q13 supply.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/default",
+        "path": "+24V service battery -> BILGE VALVES Q13 10A breaker -> T/S B terminals 8-13 -> relay coils Re1-Re5 de-energised, valve actuators idle/last-position"
+       },
+       {
+        "state": "open command",
+        "path": "T/S C OPEN contact (terminals 7,16,24,32,40 per valve) closes -> relay Re(n) energises -> valve actuator motor M terminal [2] -> valve opens, connecting that bilge zone's suction line to the main run"
+       },
+       {
+        "state": "close command",
+        "path": "T/S C CLOSE contact (terminals 8,17,25,33,41 per valve) closes -> relay Re(n) energises -> valve actuator motor M terminal [3] -> valve closes, isolating that bilge zone's suction line"
+       }
+      ],
+      "key_components": [
+       "relays Re1-Re5 (one per valve)",
+       "terminal strip T/S B (8-13)",
+       "terminal strip T/S C (numbered 1-50, open/close contact pairs)",
+       "valve actuator motor contacts [2] open / [3] close per valve"
+      ],
+      "sheet_region": "0.16-0.68 x 0.26-0.8 (T/S B, relay bank, T/S C, valve motor blocks)"
+     }
+    ],
+    "good_to_have": [
+     "Q13 breaker rated 10A \u2014 value on drawing",
+     "actuator part numbers (Burkert 0018/BURK005) \u2014 capture at inspection if needed"
+    ]
+   },
+   {
+    "equipment_name": "Bilge Level Sensors / Status Monitoring (520-vega-bilge-level-sensors)",
+    "target_node_id": "520-vega-bilge-level-sensors",
+    "placement_reasoning": "Six 'BILGE SW' endpoints (Port Lazarette, Stbd Lazarette, Aft, Eng Room, Fwd, Sail Locker) are level-switch sensors reporting bilge state; their signals feed the XA40/XA10/XA11 taps and ultimately the Main Panel PC Card open/closed lamp bank \u2014 this is the bilge level sensing/monitoring function, matching register category 520-vega-bilge-level-sensors (Bilge and fire system).",
+    "functions": [
+     {
+      "function_id": "F1",
+      "label": "Bilge level switch status reporting (6 zones)",
+      "what_it_does": "Each zone's bilge switch detects presence of water and reports status (open/closed level state) back through the wiring loom to the monitoring taps and to the Main Panel PC Card indicator lamps for that zone, letting an operator see which bilge is engaged.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/default",
+        "path": "BILGE SW contact open (no water) -> no signal on status line -> Main Panel PC Card lamp for that zone shows 'closed' (valve/level default) via diode-isolated +24V lamp array"
+       },
+       {
+        "state": "level detected",
+        "path": "BILGE SW contact closes at rising water -> status line runs via drawn line to valve motor circuit tap (junction near valve output) -> onward via XA40 (Lazarette/Aft zones) or XA10 (Eng Room/Fwd/Sail Locker zones) monitoring taps -> external monitoring loom (cross-reference, sheet not given) -> also correlates with Main Panel PC Card lamp 'open' for that zone"
+       }
+      ],
+      "key_components": [
+       "BILGE SW level switches x6 (Port Lazarette, Stbd Lazarette, Aft, Eng Room, Fwd, Sail Locker)",
+       "monitoring taps XA40-12/14/16, XA10-02/04/06, XA11-32",
+       "Main Panel PC Card open/closed lamp bank with diode isolation"
+      ],
+      "sheet_region": "0.72-0.92 x 0.27-0.78 (bilge switch endpoints) and 0.72-1.0 x 0.95-1.0 (PC Card lamp bank)"
+     }
+    ],
+    "good_to_have": [
+     "exact XA40/XA10/XA11 destination sheet numbers not printed \u2014 cross-reference only"
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "24V Service Battery Distribution (feed/fuse/switch row, terminal strips T/S S / T/S B / T/S C, relay bank Re1-Re6, Plug C/Plug D interconnect)",
+    "target_node_id": "640-dc-distribution",
+    "facts": [
+     "+24V SERVICE BAT. feeds this sheet via F2 200A main fuse, then splits to F3 60A (pump/solenoid branch) and Q13 10A BILGE VALVES branch",
+     "T/S S, T/S B, T/S C are terminal strips distributing control signals; T/S C carries the large numbered field (1-50) routing open/close/valve/bilge-sw wiring",
+     "Relay bank Re1-Re6 sits on this distribution backbone, not owned by any single valve/pump \u2014 Re1-Re5 drive individual bilge valves, Re6 relates to ONYX/pump remote path",
+     "Main Panel interconnect Plug C (12-pin) and Plug D (12-pin) carry switch/lamp signals between this sheet's terminal strips and the Main Panel PC Card enclosure"
+    ]
+   },
+   {
+    "system_name": "Main Panel / Vessel Control Panel bilge controls (Plug C switches S20-S24/S13, AUX plug, Pedestal Alarm Mod + Mute, PC Card lamp bank)",
+    "target_node_id": "641-vessel-control-panel",
+    "facts": [
+     "MAIN PANEL section on this sheet hosts switches S20 (Lazarette Bilge), S21 (Aft Bilge), S22 (Eng Room Bilge), S23 (Fwd Bilge), S24 (Sail Locker), and S13 (Bilge Pump SW with lamp)",
+     "AUX PLUG ON PC BOARD mates pins [8]-[12] to [1]-[4] of Plug C",
+     "PEDESTAL ALARM MOD + MUTE provides an audible alarm with mute switch, wired into Plug C terminals 8-12",
+     "PLUG D (12 pins) carries signals onward into the dotted-outline MAIN PANEL PC CARD enclosure, which hosts open/closed indicator lamps for each bilge zone plus a +24V diode-isolated supply rail"
+    ]
+   }
+  ],
+  "cross_references": [
+   {
+    "what": "ONYX remote bilge-pump command (XA11 tap <32> into terminal 50/relay Re6, 'to ONYX' arrow)",
+    "referenced_sheet_hint": "ONYX monitoring/control sheet (652-onyx-monitoring)"
+   },
+   {
+    "what": "XA40 taps <12>,<14>,<16> \u2014 status signal destination sheet for Lazarette/Aft bilge zones",
+    "referenced_sheet_hint": "monitoring loom sheet, not given"
+   },
+   {
+    "what": "XA10 taps <02>,<04>,<06> \u2014 status signal destination sheet for Eng Room/Fwd/Sail Locker bilge zones",
+    "referenced_sheet_hint": "monitoring loom sheet, not given"
+   },
+   {
+    "what": "Main Panel PC Card and Vessel Control Panel physical wiring/layout",
+    "referenced_sheet_hint": "Main Panel schematic sheets GM-112/GM-112a per established fact on 694-main-ac-panel authoritative_source"
+   }
+  ],
+  "good_to_have": [
+   "Exact fuse/breaker ratings F3 60A, F2 200A, Q13 10A already legible on sheet",
+   "Relief/valve actuator part numbers (Burkert 0018/BURK005) \u2014 capture at inspection if needed",
+   "Wire-gauge diamond markers on valve output lines \u2014 exact gauge not required for function understanding"
+  ],
+  "uncertainties": [
+   "Re6 label reads 'not used' at T/S B terminal 13 area in one legend entry yet is also shown carrying the ONYX/ pump remote path per the established engineer fact \u2014 the sheet's own 'not used' annotation near terminal 12/Re6 stub conflicts with Re6 being an active relay in the pump loop; kept both readings since the established fact is authoritative for the pump loop, but the 'not used' terminal-12 stub itself is a separate spare terminal, not a function conflict.",
+   "Two 'XA1' terminal_strip labels in the raw extraction appear to be OCR misreads of 'XA10' (given the Re5/S23 Fwd Bilge context and the XA10 tags used elsewhere) \u2014 resolved as XA10, not flagged further."
+  ],
+  "discarded_as_clutter": [
+   "Title block repeats (DWG No., TITLE, DATE, DRAWN, PROJECT, CUSTOMER) appearing 3x across legend/survey",
+   "Company contact info (Tel., Cell, email) repeated in multiple legend blocks",
+   "Illegible bleed-through text fragments in legend/survey (PLUG D header, MAIN PANEL PC CARD header, copyright notice) \u2014 restates title-block info already captured",
+   "Individual diamond wire-gauge marker annotations (callouts 1-11) \u2014 decorative/spec notation, not functional",
+   "Duplicate PLUG C pin descriptions [1]-[7] restating the S20-S24/S13 switch mapping already captured in equipment functions"
+  ],
+  "_model": "claude-sonnet-5",
+  "_protocol_version": 4
+ }
+}
