@@ -26,7 +26,7 @@ import config
 # with an older version (the stale-composition failure of 2026-07-22: a write
 # set built from pre-red-pen compositions re-presented every answered
 # uncertainty to the engineer). Airtight by construction, not by memory.
-PROTOCOL_VERSION = 4
+PROTOCOL_VERSION = 5
 
 # ---------------------------------------------------------------------------
 # Per-class composition rules. The GENERAL RULE is shared; these add the
@@ -81,6 +81,13 @@ CLASS_RULES: Dict[str, str] = {
         "taps out of the circuit OR ACTIVATION commands into it — derive "
         "the direction from the drawn wiring (what the line reaches), never "
         "assume all taps are status. "
+        "MEASURED NETLIST OUTRANKS APPEARANCE: when a MEASURED NETLIST block is "
+        "supplied, it is derived from the drawing's real vector geometry and "
+        "is the AUTHORITY on connectivity. Two labels on the same net ARE "
+        "wired together; labels on different nets are NOT, however close they "
+        "look. Never contradict the netlist from raster appearance, and never "
+        "attach a number to a device just because it is printed nearby — check "
+        "the net. "
         "READ ELECTRICITY SIDE-TO-SIDE (engineer rule): a relay/contactor "
         "coil is energised only when BOTH its power sides are made — the "
         "positive/L feed AND the negative/N return. Compose each coil's loop "
@@ -501,6 +508,10 @@ def compose(image_png: bytes, extraction: Dict[str, Any],
         digest = loop_prepass.loops_digest(extraction)
         if digest and "no wiring graph" not in digest:
             loop_block = "\n\n" + digest
+        # MEASURED NETLIST (geometry) — the authority on what connects to what.
+        nl = extraction.get("_netlist_digest")
+        if nl:
+            loop_block += "\n\n" + nl
     elif drawing_class == "pid":
         from pipeline import pid_extract, operating_modes
         digest = pid_extract.loops_digest(extraction)
