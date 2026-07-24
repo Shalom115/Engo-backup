@@ -91,6 +91,7 @@ def assemble_loops(extraction: Dict[str, Any],
                     role = h.get("role") or ""
                     if "activ" in role or ntype in ("switch", "status_signal"):
                         activation_sources.append(f"{nid} ({ntype})")
+        sides = _coil_sides(hops)
         loops.append({
             "anchor": el.get("label") or el.get("id") or f"element_{i}",
             "anchor_type": el.get("element_type"),
@@ -98,9 +99,48 @@ def assemble_loops(extraction: Dict[str, Any],
             "terminals_on_path": sorted(set(terminals)),
             "fused_terminals": sorted(set(fused)),
             "activation_sources": sorted(set(activation_sources)),
+            "positive_side": sides["positive"],
+            "negative_side": sides["negative"],
+            "sides_complete": bool(sides["positive"]) and bool(sides["negative"]),
             "unresolved": [u.get("raw") for u in trace.get("unresolved_refs", [])][:6],
         })
     return loops
+
+
+def _coil_sides(hops: List[Dict[str, Any]]) -> Dict[str, List[str]]:
+    """
+    COIL TWO-SIDED WALK (engineer rule 2026-07-22): a coil energises only when
+    BOTH power sides are made. Partition the walked hops into the POSITIVE/L
+    feed side and the NEGATIVE/N return side using the rail tags + the element
+    kinds each side runs through, so composition is handed both sides (or told
+    which one is missing) instead of inferring one loop.
+    """
+    pos: List[str] = []
+    neg: List[str] = []
+    for h in hops:
+        rail = (h.get("rail") or "").lower()
+        frm, to = h.get("from", {}), h.get("to", {})
+        leg = (f"{frm.get('id') or frm.get('label') or '?'}"
+               f" -> {to.get('id') or to.get('label') or '?'}")
+        via = (h.get("via_text") or "")
+        blob = f"{leg} {via} {frm.get('label','')} {to.get('label','')}".lower()
+        if rail == "positive" or any(w in blob for w in
+                                     (" +", "+ ", "positive", "supply", "feed",
+                                      "breaker", "fuse")):
+            pos.append(leg + (f"  [{via}]" if via else ""))
+        elif rail in ("negative", "ground") or any(w in blob for w in
+                                                   (" -", "- ", "negative",
+                                                    "return", "rtn", "neg")):
+            neg.append(leg + (f"  [{via}]" if via else ""))
+    # dedupe, preserve order
+    def _dedupe(xs):
+        seen, out = set(), []
+        for x in xs:
+            if x not in seen:
+                seen.add(x)
+                out.append(x)
+        return out[:10]
+    return {"positive": _dedupe(pos), "negative": _dedupe(neg)}
 
 
 def loops_digest(extraction: Dict[str, Any]) -> str:
@@ -122,6 +162,16 @@ def loops_digest(extraction: Dict[str, Any]) -> str:
         if lp["fused_terminals"]:
             out.append(f"  FUSED terminals (troubleshooting culprits): "
                        f"{', '.join(lp['fused_terminals'])}")
+        # BOTH POWER SIDES — a coil needs its + feed AND its - return
+        if lp.get("positive_side"):
+            out.append(f"  + / L FEED SIDE: {' ; '.join(lp['positive_side'])}")
+        if lp.get("negative_side"):
+            out.append(f"  - / N RETURN SIDE: {' ; '.join(lp['negative_side'])}")
+        if not lp.get("sides_complete"):
+            missing = "negative/return" if lp.get("positive_side") else "positive/feed"
+            out.append(f"  !! ONE SIDE NOT TRACED ({missing}) — compose this coil as "
+                       f"INCOMPLETE and say which side is missing; do not present "
+                       f"it as fully understood.")
         if lp["unresolved"]:
             out.append(f"  unresolved off-sheet refs: {', '.join(lp['unresolved'])}")
     return "\n".join(out)

@@ -173,7 +173,56 @@ def extract_pid(pdf_bytes: bytes, page: int = 0, *,
                               "image/png", _TOPOLOGY_PROMPT, _TOPOLOGY_TOOL) or {}
             topology["components"].extend(topo.get("components", []))
             topology["connections"].extend(topo.get("connections", []))
+
+    # COVERAGE GUARANTEE (2026-07-22, same fix as the wiring dispatcher): a
+    # survey-detected diagram region is ONE crop of a large dense sheet and
+    # under-reads it (bilge: 26 components from a 5-sump system). Add a fixed
+    # grid sweep and merge, so no part of the sheet goes unread.
+    for gb in _grid_boxes(rows=3, cols=3):
+        topo = vp.extract(_render(pdf_bytes, page, detail_dpi, gb), "image/png",
+                          _TOPOLOGY_PROMPT, _TOPOLOGY_TOOL) or {}
+        topology["components"].extend(topo.get("components", []))
+        topology["connections"].extend(topo.get("connections", []))
+    topology = _merge_topology(topology)
     return {"survey": survey, "tables": tables, "topology": topology}
+
+
+def _grid_boxes(rows: int = 3, cols: int = 3,
+                overlap: float = 0.06) -> List[List[float]]:
+    """Full-sheet grid with slight overlap so nothing falls on a seam."""
+    boxes = []
+    for r in range(rows):
+        for c in range(cols):
+            x0 = max(0.0, c / cols - overlap)
+            y0 = max(0.0, r / rows - overlap)
+            x1 = min(1.0, (c + 1) / cols + overlap)
+            y1 = min(1.0, (r + 1) / rows + overlap)
+            boxes.append([x0, y0, x1, y1])
+    return boxes
+
+
+def _merge_topology(topo: Dict[str, Any]) -> Dict[str, Any]:
+    """Dedupe components (by tag+label+type) and connections (by from+to)."""
+    comps, seen_c = [], set()
+    for c in topo.get("components", []):
+        if not isinstance(c, dict):
+            continue
+        k = (_key(c.get("item_tag")), _key(c.get("label")),
+             _key(c.get("component_type")))
+        if k in seen_c:
+            continue
+        seen_c.add(k)
+        comps.append(c)
+    cons, seen_x = [], set()
+    for x in topo.get("connections", []):
+        if not isinstance(x, dict):
+            continue
+        k = (_key(x.get("from_component")), _key(x.get("to_component")))
+        if k in seen_x:
+            continue
+        seen_x.add(k)
+        cons.append(x)
+    return {"components": comps, "connections": cons}
 
 
 # ---------------------------------------------------------------- loop walk
