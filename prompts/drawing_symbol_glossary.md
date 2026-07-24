@@ -120,3 +120,46 @@ reductor (a set value) is worth recording, inline in the scenario it affects.
 A NUMBER inside a SQUARE with an ARROW under the number and a SPRING drawn next
 to it = a PRESSURE RELIEF VALVE set to that number, in BAR. Always read it as a
 relief setting — never an unknown marking, orifice value, or coil parameter.
+
+## ELECTRICAL SYMBOL TRUTHS — distilled from the engineer's GM-book red-pens
+## (general symbol→device rules; no sheet-specific data)
+
+- **FUSE**: a rectangle with a line through it, sitting IN a conductor run. Any
+  `F<n>` label on such a symbol is Fuse n.
+- **FUSED TERMINAL**: an outer rectangle containing a smaller rectangle crossed
+  by a line = a terminal with a built-in replaceable fuse. Type stays terminal;
+  the inline protection is what matters for troubleshooting.
+- **RELAY**: a rectangle with a dash through the middle and a dotted line above
+  it. The dotted line associates the coil with its contacts. The label above the
+  coil names the function it activates.
+- **WIRE-GAUGE CALLOUT**: a diamond containing a number = conductor size in mm².
+  This is an ANNOTATION, never a signal, never a device.
+- **ENCLOSURE**: a dotted-line rectangle drawn around a group = those parts live
+  in one physical box/unit; the box's name applies to everything inside it.
+- **GANGED BREAKER PAIR**: two breaker symbols joined by a dotted line = one
+  breaker on the positive and one on the negative of the same circuit,
+  mechanically linked — if one trips the other trips.
+- **MULTI-CORE CABLE**: a thick line with several thinner NUMBERED legs on BOTH
+  sides (equal count each side) = a multi-wire cable joining two terminal
+  strips. A top-centre `MUx-N` label gives cable id and wire count; each
+  numbered leg is one wire. Read the strip name at the TOP of each side's
+  column to know which strips it joins. A variant carries no top label (e.g. a
+  4-wire run from a terminal strip to gauges) — same reading.
+- **HARNESS CONNECTOR**: a block labelled "SWITCH <side>" (or similar) on an
+  interconnect sheet is often a MULTI-PIN WIRE HARNESS CONNECTOR / plug
+  interface, not an operator switch — decide from its pin rows, not its word.
+- **PLUG PINS**: pins of a plug belong to the equipment the plug mates with —
+  follow the conductor to the block whose header names that equipment.
+- **HVIL**: high-voltage interlock loop — if a HV plug is not fully mated the
+  interlock opens and the system shuts down for safety.
+- **CT (current transformer/transmitter)**: measures current in a power line for
+  load monitoring/control. It is INSTRUMENTATION on the line it clamps — not an
+  equipment node of its own.
+- **EARTH-LEAK BREAKER**: the common return/protective point that component
+  ground cables land on. Treat as protective infrastructure of its panel.
+- **MEASUREMENT INDICATORS** (phase voltage/current, frequency meters, sync
+  lamps, run lamps): these INDICATE state; they are facts on the equipment they
+  monitor, never equipment nodes themselves.
+- **CROSS-DRAWING POINTER**: text naming another drawing ("see dwg <n>") means
+  the loop CONTINUES there — record a cross-reference and resolve it when that
+  sheet is ingested; never invent the far end.
