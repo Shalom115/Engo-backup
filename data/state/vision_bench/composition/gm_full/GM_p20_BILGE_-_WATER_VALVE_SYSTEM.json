@@ -1,0 +1,223 @@
+{
+ "sheet": "GM_p20_BILGE_-_WATER_VALVE_SYSTEM",
+ "page": 20,
+ "title": "BILGE / WATER VALVE SYSTEM",
+ "drawing_class": "electrical",
+ "composition": {
+  "serve_who": "Sheet GMMS 108'-114b \"BILGE / WATER VALVE SYSTEM\" serves the WATER TRANSFER VALVES system: five motorized fresh-water valves (FRESH WATER VALVE, FRESH WATER PORT BUNKER, FRESH WATER STBD BUNKER, FRESH WATER PORT SUCTION, FRESH WATER STBD SUCTION) each controlled through a dedicated relay (Re7-Re11) off terminal strip T/S B, fed from breaker Q14 10A labelled \"WATER TRANSFER VALVES\". This matches the engineer mapping WATER TRANSFER VALVES -> 510-water-transfer-valves, and the established fact that this Q14 10A breaker feeds this exact load (per 510-water-transfer-valves electrical_supply fact). All five valve groups are functionally identical rows of the same equipment/system and are composed as one node.",
+  "equipment_groups": [
+   {
+    "equipment_name": "Water Transfer Valves (5 motorized ball/butterfly valves: main Fresh Water Valve, Port Bunker, Stbd Bunker, Port Suction, Stbd Suction)",
+    "target_node_id": "510-water-transfer-valves",
+    "placement_reasoning": "Engineer-confirmed mapping: 'WATER TRANSFER VALVES -> 510-water-transfer-valves'. Sheet title is BILGE/WATER VALVE SYSTEM but the only loads drawn are named fresh-water valves fed from breaker Q14 10A labelled WATER TRANSFER VALVES, consistent with established fact electrical_supply Q14 10A EMERGENCY PANEL for 510-water-transfer-valves.",
+    "functions": [
+     {
+      "function_id": "fw-valve-open-close",
+      "label": "Fresh Water Valve open/close control",
+      "what_it_does": "Motorized valve (M) opens or closes the main fresh water line; commanded remotely via relay Re7 and reports status via XA41 feedback tap.",
+      "sheet_region": "T/S B row 14, terminals 51-55, top group (~y0.14-0.22)",
+      "flow_scenarios": [
+       {
+        "state": "OPEN command",
+        "path": "Remote command via XA60 pin 02 -> terminal 51 -> OPEN contact (1) -> motor M terminal 3 -> valve drives open"
+       },
+       {
+        "state": "CLOSE command",
+        "path": "Remote command via XA60 pin 04 -> terminal 52 -> CLOSE contact (4) -> motor M terminal 2 -> valve drives closed"
+       },
+       {
+        "state": "Relay/supply feed (INCOMPLETE)",
+        "path": "Q14 10A -> T/S B terminal 14 -> Re7 relay contact group -> terminals 53/54 -> motor M; motor's positive/feed side back to Re7 coil not traced on this sheet (coil/contacts run off-crop)"
+       },
+       {
+        "state": "status feedback",
+        "path": "Terminal 55 -> XA41 pin 10 (status tap to monitoring, direction per drawn line into XA41)"
+       }
+      ],
+      "key_components": [
+       "Relay Re7 (valve control relay)",
+       "OPEN/CLOSE remote contacts via XA60 pins 02/04",
+       "XA41 pin 10 status tap",
+       "Motor-operated valve actuator (M)"
+      ]
+     },
+     {
+      "function_id": "fw-port-bunker-open-close",
+      "label": "Fresh Water Port Bunker valve open/close control",
+      "what_it_does": "Motorized valve controls the port fresh-water bunker fill/isolation line; commanded via relay Re8, status reported via XA41.",
+      "sheet_region": "T/S B row 15, terminals 56-60",
+      "flow_scenarios": [
+       {
+        "state": "OPEN command",
+        "path": "XA60 pin 06 -> terminal 56 -> OPEN contact (1) -> motor M terminal 3 -> valve opens"
+       },
+       {
+        "state": "CLOSE command",
+        "path": "XA60 pin 08 -> terminal 57 -> CLOSE contact (4) -> motor M terminal 2 -> valve closes"
+       },
+       {
+        "state": "Relay/supply feed (INCOMPLETE)",
+        "path": "Q14 10A -> T/S B terminal 15 -> Re8 relay contact group -> terminals 58/59 -> motor M; motor's return/coil side to Re8 not traced (off-crop)"
+       },
+       {
+        "state": "status feedback",
+        "path": "Terminal 60 -> XA41 pin 12"
+       }
+      ],
+      "key_components": [
+       "Relay Re8",
+       "OPEN/CLOSE contacts via XA60 pins 06/08",
+       "XA41 pin 12 status tap",
+       "Motor-operated valve actuator (M)"
+      ]
+     },
+     {
+      "function_id": "fw-stbd-bunker-open-close",
+      "label": "Fresh Water Stbd Bunker valve open/close control",
+      "what_it_does": "Motorized valve controls the starboard fresh-water bunker fill/isolation line; commanded via relay Re9, status reported via XA41.",
+      "sheet_region": "T/S B row 16, terminals 61-65",
+      "flow_scenarios": [
+       {
+        "state": "OPEN command",
+        "path": "XA60 pin 10 -> terminal 61 -> OPEN contact (1) -> motor M terminal 3 -> valve opens"
+       },
+       {
+        "state": "CLOSE command",
+        "path": "XA60 pin 12 -> terminal 62 -> CLOSE contact (4) -> motor M terminal 2 -> valve closes"
+       },
+       {
+        "state": "Relay/supply feed (INCOMPLETE)",
+        "path": "Q14 10A -> T/S B terminal 16 -> Re9 relay contact group -> terminals 63/64 -> motor M; motor's return/coil side to Re9 not traced (off-crop)"
+       },
+       {
+        "state": "status feedback",
+        "path": "Terminal 65 -> XA41 pin 14"
+       }
+      ],
+      "key_components": [
+       "Relay Re9",
+       "OPEN/CLOSE contacts via XA60 pins 10/12",
+       "XA41 pin 14 status tap",
+       "Motor-operated valve actuator (M)"
+      ]
+     },
+     {
+      "function_id": "fw-port-suction-open-close",
+      "label": "Fresh Water Port Suction valve open/close control",
+      "what_it_does": "Motorized valve isolates/selects the port fresh-water suction line; commanded via relay Re10 through fused terminal 17, status reported via XA41.",
+      "sheet_region": "T/S B row 17, terminals 66-70",
+      "flow_scenarios": [
+       {
+        "state": "OPEN command",
+        "path": "XA60 pin 14 -> terminal 66 -> OPEN contact (1) -> motor M(port) terminal 3 -> valve opens"
+       },
+       {
+        "state": "CLOSE command",
+        "path": "XA60 pin 16 -> terminal 67 -> CLOSE contact (4) -> motor M(port) terminal 2 -> valve closes"
+       },
+       {
+        "state": "Relay/supply feed loop",
+        "path": "Q14 10A -> T/S B terminal 17 -> via FUSED terminal 17 -> Re10 relay contact common -> terminals 68/69 -> motor M(port); the return/negative side of Re10's coil to its energising source is not traced beyond terminal 17/68/69 on this sheet"
+       },
+       {
+        "state": "status feedback",
+        "path": "Terminal 70 -> XA41 pin 16"
+       }
+      ],
+      "key_components": [
+       "Relay Re10",
+       "FUSED terminal 17 (built-in replaceable fuse - troubleshooting culprit)",
+       "OPEN/CLOSE contacts via XA60 pins 14/16",
+       "XA41 pin 16 status tap",
+       "Motor-operated valve actuator (M, port)"
+      ]
+     },
+     {
+      "function_id": "fw-stbd-suction-open-close",
+      "label": "Fresh Water Stbd Suction valve open/close control",
+      "what_it_does": "Motorized valve isolates/selects the starboard fresh-water suction line; commanded via relay Re11 through fused terminal 18, status reported via XA41.",
+      "sheet_region": "T/S B row 18, terminals 71-75",
+      "flow_scenarios": [
+       {
+        "state": "OPEN command",
+        "path": "XA60 pin 18 -> terminal 71 -> OPEN contact (1) -> motor M(stbd) terminal 3 -> valve opens"
+       },
+       {
+        "state": "CLOSE command",
+        "path": "XA60 pin 20 -> terminal 72 -> CLOSE contact (4) -> motor M(stbd) terminal 2 -> valve closes"
+       },
+       {
+        "state": "Relay/supply feed loop",
+        "path": "Q14 10A -> T/S B terminal 18 -> via FUSED terminal 18 -> Re11 relay contact common -> terminals 73/74 -> motor M(stbd); the return/negative side of Re11's coil to its energising source is not traced beyond terminal 18/73/74 on this sheet"
+       },
+       {
+        "state": "status feedback",
+        "path": "Terminal 75 -> XA41 pin 18"
+       }
+      ],
+      "key_components": [
+       "Relay Re11",
+       "FUSED terminal 18 (built-in replaceable fuse - troubleshooting culprit)",
+       "OPEN/CLOSE contacts via XA60 pins 18/20",
+       "XA41 pin 18 status tap",
+       "Motor-operated valve actuator (M, stbd)"
+      ]
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "T/S B Terminal Strip / Relay Bank (Re7-Re11) \u2014 distribution & control rack for water transfer valves",
+    "target_node_id": "510-water-transfer-valves",
+    "facts": [
+     "Supply chain: +24V SERVICE BAT. -> F6 300A fuse -> breaker Q14 10A (WATER TRANSFER VALVES) -> T/S B terminals 14-18",
+     "T/S B distributes to five relays Re7 (T14), Re8 (T15), Re9 (T16), Re10 (T17), Re11 (T18)",
+     "Terminals 17 and 18 on T/S B are FUSED terminals (built-in replaceable fuse) \u2014 known troubleshooting culprits for Port/Stbd Suction valve circuits",
+     "XA60 multi-pin plug supplies OPEN/CLOSE remote command pairs (pins 02/04, 06/08, 10/12, 14/16, 18/20) into terminals 51-72 for the five valves",
+     "XA41 multi-pin plug receives status/feedback taps from terminals 55, 60, 65, 70, 75 (one per valve)"
+    ]
+   }
+  ],
+  "cross_references": [
+   {
+    "what": "XA60 remote OPEN/CLOSE command source (Onyx or main panel control) \u2014 origin device/panel not shown on this sheet",
+    "referenced_sheet_hint": "possibly ONYX monitoring sheet or DWG referenced elsewhere as XA60 bus"
+   },
+   {
+    "what": "XA41 status/feedback tap destination (annunciator/monitoring)",
+    "referenced_sheet_hint": "DWG showing XA41 termination, likely bilge/water alarm monitoring sheet (cf. GMMS 108'-112 PC card sheet per q8/q11 pattern)"
+   },
+   {
+    "what": "Relay coil energising source (the missing + or - side of Re7-Re11 coils) continuing off-crop",
+    "referenced_sheet_hint": "unresolved off-sheet \u2014 no hint available; possibly continues on same DWG 114 series or adjacent panel sheet"
+   }
+  ],
+  "good_to_have": [
+   "F6 300A fuse rating printed at bottom-left of sheet \u2014 read at inspection if capacity verification needed",
+   "Q14 10A breaker rating confirmed on sheet and matches established fact",
+   "Exact valve actuator part numbers/models not printed on this sheet \u2014 inspect physical valve tags if needed"
+  ],
+  "uncertainties": [
+   "Re7-Re11 relay coil energising path (the side that actually closes each relay to select OPEN vs CLOSE) is not fully traceable on this sheet \u2014 the coil/contact wiring runs off-crop for all five relays. This is a genuine connection gap: it is unclear whether the XA60 command lines directly drive the coils, or whether coils are switched by a separate local/remote selector not shown. Needs engineer clarification if a valve fails to respond to command."
+  ],
+  "discarded_as_clutter": [
+   "Title block (DWG No., customer, drawn-by) \u2014 meta, not equipment data",
+   "Copyright notice \u2014 meta",
+   "Off-net label fragments: 'STBD SU', '75', '20', 'Re11' duplicate stray labels already resolved into row 18 group",
+   "Blank middle/lower sheet area \u2014 no content"
+  ],
+  "_model": "claude-sonnet-5",
+  "_protocol_version": 5
+ },
+ "netlist_stats": {
+  "segments": 13099,
+  "nets": 1116,
+  "conductors": 835,
+  "labels": 233,
+  "bound": 73,
+  "unbound": 22,
+  "devices_located": 57,
+  "devices_placed": 57
+ }
+}

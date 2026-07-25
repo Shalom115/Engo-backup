@@ -1,0 +1,281 @@
+{
+ "sheet": "GM_p24_GAS-CO-_P._VAPOUR_ALARM",
+ "page": 24,
+ "title": "GAS/CO/ P. VAPOUR ALARM",
+ "drawing_class": "electrical",
+ "composition": {
+  "serve_who": "This sheet (GMMS 108'-117, \"GAS/CO/P.VAPOUR ALARM\") serves the Gas/CO/Petrol Vapour Alarm system (696-gas-alarms), plus related equipment fed off the AFT DC Panel: Fire Alarm (695-fire-alarm), Engine-room ventilation extractor/fan interlocks (599-ventilation-fans / 599-engroom-blower-extractor), and downstream shutoff devices \u2014 the Gas Solenoid Valve and Galley Extractor cut-off \u2014 which belong to the gas alarm system's protective action rather than to the galley extraction hood itself. The AFT DC PANEL breakers (Q34, QE3, Q18, Q19, QE4, Q20), the T/S C terminal strips, the Re27-Re34 relay bank, the CONTROL PANEL indicator/alarm bank, the DISPLAY PLC and J/BOX # terminal strip are all infrastructure of the gas/CO/petrol-vapour alarm control loop drawn on this sheet, feeding the ALARM MOD1/MOD2/MOD3 horns and the Hydrogen Fluoride Sensor monitoring loop. Evidence: sheet title itself (\"GAS/CO/ P. VAPOUR ALARM\"), breaker labels (PETROL VAPOUR ALARM Q19, GAS/CO ALARM Q20, FIRE ALARM Q18), the J/BOX # table naming LPG1-3/CO-1-3/PETROL1-3 channels tied to the DISPLAY PLC, and the GAS SLONOID VALVE / GALLEY output devices driven by Re1-Re3 from the same J/BOX terminal strip.",
+  "equipment_groups": [
+   {
+    "equipment_name": "Gas/CO/Petrol Vapour Alarm system",
+    "target_node_id": "696-gas-alarms",
+    "placement_reasoning": "Sheet title is 'GAS/CO/ P. VAPOUR ALARM'; the PETROL VAPOUR ALARM (Q19) and GAS/CO ALARM (Q20) breakers, the DISPLAY PLC LPG1-3/CO-1-3/PETROL1-3 channel taps, the CONTROL PANEL alarm/mute/emergency-stop lamps, and the Gas Solenoid Valve / Galley extractor cutoff outputs are all part of this one monitoring & shutdown system per engineer mapping 'PETROL VAPOUR ALARM -> 696-gas-alarms' and 'GAS/CO2/PETROL VAPOUR ALARM -> 696-gas-alarms'.",
+    "functions": [
+     {
+      "function_id": "F1",
+      "label": "Petrol vapour detection and ventilation interlock",
+      "what_it_does": "Detects a petrol-vapour alarm condition via Q19 (PETROL VAPOUR ALARM 10A) and drives relay Re27, whose contacts feed T/S C terminals 160/161 into the Re29/Re30/Re31 relay group; this group commands the PETROL VAPOUR FAN (via the SIEMENS 3UG4621-1AW30 monitoring relay Re30) and provides the interlocked cut-off signal to the Galley Extractor (220V AC contact shown top-right 'to cut galley Extractor power').",
+      "key_components": [
+       "Re27 (alarm interlock relay)",
+       "SIEMENS 3UG4621-1AW30 (Re30, monitoring/changeover relay)",
+       "Re29 relay",
+       "Re31/Re32 contact relays",
+       "T/S C 160-169 terminal strip (fused terminal noted at 177 elsewhere)"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "normal/no alarm",
+        "path": "Q19 supply -> Re27 (de-energised) -> no signal into T/S C 160/161 -> Re29/Re30 group idle -> Petrol Vapour Fan off; Galley Extractor power not cut"
+       },
+       {
+        "state": "petrol vapour alarm active",
+        "path": "Q19 10A -> Re27 energised -> T/S C 160/161 -> Re29 coil circuit -> Re30 (SIEMENS 3UG4621-1AW30) changeover contact 11/12/14 switches -> feeds Petrol Vapour Fan control and the 220V AC contact that cuts galley extractor power (dotted box top-right) -> also drives Re31/Re32 contacts into T/S C 162-169 -> CONTROL PANEL terminals 1-7 (ALARM MOD1 horn, ALARM MUTE lamp/switch, EMERGENCY STOP (Petrol vapour ventilation) and EMERGENCY STOP (Galley Extractor) indicator lamps)"
+       }
+      ],
+      "dry_data": "Re30 module: SIEMENS 3UG4621-1AW30 monitoring relay, contact set 11/12/14, I>< symbol (current/thermal monitoring type); Q19 breaker 10A",
+      "sheet_region": "top-left to top-center, breaker bank + Re27/Re29/Re30/Re31/Re32 relay bank + T/S C 160-169, and CONTROL PANEL terminals 1-7 (0.12-0.78, 0.09-0.5)"
+     },
+     {
+      "function_id": "F2",
+      "label": "CO/LPG/Petrol channel monitoring via Display PLC and J/BOX",
+      "what_it_does": "The DISPLAY PLC (with signal leads B2, A1, C32/C33, D5-D35, B7/B8, B16-B36, C28, A3, B11) taps into the J/BOX # terminal strip (T/S CA terminals 1-41) which carries per-channel wiring for three LPG sensors, three CO sensors, and three PETROL vapour sensors (LPG1-3, CO-1-3, PETROL1-3), duplicated across terminal groups 1-13 and 14-41 for redundant/per-circuit taps.",
+      "key_components": [
+       "DISPLAY PLC controller",
+       "T/S CA terminal strip (1-41)",
+       "J/BOX # (41-way terminal block)"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "normal monitoring",
+        "path": "Sensor loops for LPG1-3/CO-1-3/PETROL1-3 (off-sheet, at J/BOX #) -> T/S CA terminals 1-13 and 14-41 -> DISPLAY PLC input leads (B2,A1,C32,C33,D5-D35,B7,B17,B18,B26,B27,B36,C28,A3,B11) -> PLC evaluates channel state"
+       },
+       {
+        "state": "any channel alarm",
+        "path": "PLC drives downstream relay bank Re1/Re2/Re3 (fed from terminal_strip_left near T/S CA terminals 11-13) -> energises GAS SOLONOID VALVE (shut-off) and/or MOD3 ALARM horn and/or GALLEY switch/lamp cutoff"
+       }
+      ],
+      "dry_data": "T/S CA terminal strip, 41 terminals; channel labels duplicated at terminals 2-13 and 14-40 (LPG1/2/3, CO-1/2/3, PETROL1/2/3)",
+      "sheet_region": "bottom-left/bottom-center, DISPLAY PLC (0.15-0.32,0.77-0.99) and J/BOX # T/S CA (0.34-0.65,0.78-1.0)"
+     },
+     {
+      "function_id": "F3",
+      "label": "Gas solenoid valve shutoff and galley alarm output",
+      "what_it_does": "Relay bank Re1-Re3 (fed from the J/BOX/T-S CA wiring near terminals 11-13) switches the GAS SLONOID VALVE closed and sounds the MOD3 ALARM horn on a detected gas condition; a GALLEY push-button/lamp is also wired into this same relay group for local mute/indication at the galley.",
+      "key_components": [
+       "Re1 relay",
+       "Re2 relay",
+       "Re3 relay",
+       "GAS SLONOID VALVE (shutoff valve)",
+       "MOD3 ALARM horn",
+       "GALLEY pushbutton+lamp"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "normal (valve open)",
+        "path": "Re1/Re2/Re3 de-energised -> Gas Solenoid Valve remains in normal (open) service position -> MOD3 alarm silent"
+       },
+       {
+        "state": "gas alarm triggered",
+        "path": "T/S CA terminal(s) 11-13 -> Re1 coil (+ side from terminal strip left column, unfused/fused terminal not clearly marked) -> Re2/Re3 contact chain -> GAS SLONOID VALVE energised to shut; simultaneously -> MOD3 ALARM horn sounds; GALLEY pushbutton/lamp available for local mute/ack (return side to GALLEY switch+lamp)"
+       }
+      ],
+      "dry_data": "Re1/Re2/Re3 relay identifiers only; part numbers/fuse ratings not legible \u2014 capture at inspection if needed",
+      "sheet_region": "bottom-right, Re1/Re2/Re3 block and GAS SLONOID VALVE / GALLEY outputs (0.5-0.98, 0.85-0.96)"
+     },
+     {
+      "function_id": "F4",
+      "label": "Control panel alarm/status annunciation (ALARM MOD1 & MOD2)",
+      "what_it_does": "A dedicated CONTROL PANEL (dotted enclosure) presents two alarm modules: ALARM MOD1 (horn) with an ALARM MUTE pushbutton/lamp and two EMERGENCY STOP indicator lamps (Petrol vapour ventilation; Galley Extractor), and ALARM MOD2 (horn) with its own ALARM MUTE lamp, a FAN ON-OFF MONITOR indicator, and a NO POWER lamp. These are wired via T/S C terminals 162-177 to the upstream relay contacts (Re31/Re32/Re33/Re34) that reflect the petrol-vapour and fan-monitor loop states.",
+      "key_components": [
+       "ALARM MOD1 horn",
+       "ALARM MOD2 horn",
+       "ALARM MUTE pushbutton/lamp (x2)",
+       "EMERGENCY STOP (Petrol vapour ventilation) lamp",
+       "EMERGENCY STOP (Galley Extractor) lamp",
+       "FAN ON-OFF MONITOR IND. lamp",
+       "NO POWER lamp",
+       "T/S C 162-177 terminal strip",
+       "Re31/Re32/Re33/Re34 relays"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "No alarm condition -> T/S C 162-177 lines quiescent -> all control panel lamps off, horns silent"
+       },
+       {
+        "state": "petrol vapour ventilation path active",
+        "path": "Re31/Re32 contact group -> T/S C 162-169 -> CONTROL PANEL terminals 1 (ALARM MOD1 horn), 2 (ALARM MUTE), 3 (lamp), 4 (lamp), 5 (EMERGENCY STOP Petrol vapour ventilation lamp), 6 (lamp), 7 (EMERGENCY STOP Galley Extractor lamp) \u2014 feed side traced from relay contacts; positive/+bus feed for the lamps themselves not traced on this sheet (each lamp's + side is only annotated 'control panel bus +', not drawn to a source)"
+       },
+       {
+        "state": "fan monitor / alarm mod2 path active",
+        "path": "Re33 contact group -> T/S C 170-177 -> CONTROL PANEL terminals 8 (ALARM MOD2 horn), 9 (ALARM MUTE), 10 (lamp), 11 (FAN ON-OFF MONITOR IND.), 12 (lamp), 13 (NO POWER lamp) -> terminal 177 shown with a fused-terminal marker on its incoming line"
+       },
+       {
+        "state": "Re34 alarm-output relay",
+        "path": "Contact group above Re34 -> T/S 178-179 -> feeds the ALARM OUT block (dotted enclosure) at far right"
+       }
+      ],
+      "dry_data": "T/S C fused terminal noted at 177 (fuse rating not legible \u2014 good to have at inspection); Re31-Re34 relay identifiers only",
+      "sheet_region": "center-right, T/S C 162-179 terminal strips and CONTROL PANEL dotted enclosure (0.47-0.78, 0.32-0.66)"
+     },
+     {
+      "function_id": "F5",
+      "label": "Hydrogen Fluoride sensor alarm output (battery compartment)",
+      "what_it_does": "Re34's output at T/S 178-179 (ALARM OUT block) provides a status/alarm connection to a Hydrogen Fluoride Sensor located in the battery compartment; this is drawn as a one-way status tap into the ALARM OUT dotted box \u2014 its own positive/feed side back to the sensor is not traced on this sheet.",
+      "key_components": [
+       "Re34 relay (with indicator lamp on coil)",
+       "T/S 178-179",
+       "ALARM OUT terminal block",
+       "Hydrogen Fluoride Sensor (bat. compartment)"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "monitoring (default)",
+        "path": "Hydrogen Fluoride Sensor (battery compartment) -> ALARM OUT terminal block -> (return path only traced; positive/feed side to the sensor not traced on this sheet)"
+       }
+      ],
+      "dry_data": "n/a",
+      "sheet_region": "right-center, ALARM OUT / Hydrogen Fluoride Sensor dotted box (0.82-0.92, 0.62-0.7)"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Engine Room / ESS Ventilation Fan interlock (petrol vapour fan + galley extractor cutoff)",
+    "target_node_id": "599-ventilation-fans",
+    "placement_reasoning": "The PETROL VAPOUR FAN and the 'to cut galley Extractor power' contact are ventilation devices driven by the gas-alarm loop but are themselves ventilation equipment (per mapping 'FUEL / ENG. VENTILATION -> 599-ventilation-fans', 'SERVICE BAT. VENTILATION -> 599-ventilation-fans'); the AC230V Q34 6A breaker feeding ESS VENTILATION/TENDERGARAGE (cross-ref DWG 102) also belongs to this ventilation node's supply picture, not the alarm system itself.",
+    "functions": [
+     {
+      "function_id": "F1",
+      "label": "Petrol vapour extraction fan and galley extractor power cutoff",
+      "what_it_does": "The Petrol Vapour Fan is switched via the Re29/Re30/Re31 relay chain fed from the petrol-vapour-alarm loop (Q19/Re27); a separate 220V AC contact ('to cut galley Extractor power') is provided to interrupt galley extractor power when the same interlock trips.",
+      "key_components": [
+       "PETROL VAPOUR FAN motor/indicator",
+       "220V AC cut-off contact (unlabeled coil in dotted box)"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "Fan off, galley extractor power not interrupted"
+       },
+       {
+        "state": "petrol vapour alarm",
+        "path": "Interlock relay chain (Re27->Re29->Re30) energises Petrol Vapour Fan (feed side conductor from left edge not fully traced on this sheet) and opens/closes the 220V AC contact to cut galley extractor power (feed side likewise not traced \u2014 arrives from a long horizontal run off the left edge of the sheet)"
+       }
+      ],
+      "dry_data": "n/a",
+      "sheet_region": "top-right, PETROL VAPOUR FAN + 220V AC cutoff dotted box (0.72-0.98, 0.18-0.32)"
+     },
+     {
+      "function_id": "F2",
+      "label": "ESS Ventilation / Tendergarage supply (cross-reference)",
+      "what_it_does": "AC 230V supply via breaker Q34 (6A) feeds ESS VENTILATION and TENDERGARAGE loads, both detailed on DWG 102, not on this sheet.",
+      "key_components": [
+       "Q34 6A breaker"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "supply",
+        "path": "AC 230V bus -> Q34 6A -> ESS VENTILATION / TENDERGARAGE (continues on DWG 102, not drawn here)"
+       }
+      ],
+      "dry_data": "Q34, 6A, AC 230V",
+      "sheet_region": "top-left corner (0.0-0.3, 0.0-0.2)"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Fire Alarm",
+    "target_node_id": "695-fire-alarm",
+    "placement_reasoning": "Q18 breaker labelled 'FIRE ALARM' directly feeds a 'FIRE ALARM' output line; matches engineer mapping 'FIRE ALARM -> 695-fire-alarm'.",
+    "functions": [
+     {
+      "function_id": "F1",
+      "label": "Fire alarm circuit supply",
+      "what_it_does": "Supplies the Fire Alarm circuit output from the emergency/AFT DC panel.",
+      "key_components": [
+       "Q18 breaker (10A)"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "supply",
+        "path": "AFT DC Panel bus -> Q18 10A -> FIRE ALARM output line (continues off-sheet)"
+       }
+      ],
+      "dry_data": "Q18, 10A",
+      "sheet_region": "top-left, breaker bank (0.02-0.22,0.08-0.3)"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "AFT DC Panel (breaker rail)",
+    "target_node_id": "640-dc-distribution",
+    "facts": [
+     "Panel titled 'AFT DC PANEL' hosts breakers Q34 (6A, AC230V), QE3 (10A, Emergency Supply), Q18 (10A, Fire Alarm), Q19 (10A, Petrol Vapour Alarm), QE4 (10A, ESS Service Bat. Ventilation), Q20 (10A, Gas/CO Alarm).",
+     "MU-XX cable to AC PANEL cross-references DWG 102 via T/S C terminals 181-186.",
+     "ESS Ventilation / Tendergarage load cross-references DWG 102."
+    ]
+   },
+   {
+    "system_name": "T/S C and T/S CA terminal strips / relay bank (Re27-Re34, Re1-Re3) \u2014 alarm control loop wiring",
+    "target_node_id": "696-gas-alarms",
+    "facts": [
+     "T/S C terminals 160-179 carry the petrol-vapour/fan-monitor control loop signals between relays Re27/Re29/Re30/Re31/Re32/Re33/Re34 and the CONTROL PANEL terminals 1-13.",
+     "T/S CA terminals 1-41 (J/BOX #) carry duplicated LPG1-3/CO-1-3/PETROL1-3 channel wiring between sensors and the DISPLAY PLC.",
+     "Terminal 177 shown with a fused-terminal marker (exact fuse rating not legible \u2014 good to have at inspection).",
+     "Relay bank Re1-Re3 switches the GAS SLONOID VALVE and MOD3 ALARM/GALLEY outputs."
+    ]
+   }
+  ],
+  "cross_references": [
+   {
+    "what": "ESS VENTILATION / TENDERGARAGE load fed via Q34, AC230V",
+    "referenced_sheet_hint": "DWG 102"
+   },
+   {
+    "what": "MU-XX cable to AC PANEL via T/S C terminals 181-186",
+    "referenced_sheet_hint": "DWG 102"
+   },
+   {
+    "what": "FIRE ALARM output continuing off-sheet",
+    "referenced_sheet_hint": "possibly GMMS 111 or dedicated fire alarm sheet"
+   },
+   {
+    "what": "Control panel referenced as 'port pedestal' PLUG C alarm module mapping (ALARM MOD2 pins 8/9, ALARM MUTE pins 11/12) per engineer red-pen fact on 641-vessel-control-panel",
+    "referenced_sheet_hint": "GMMS 112/113 main panel"
+   }
+  ],
+  "uncertainties": [
+   "CONTROL PANEL legend: 5 of 6 device labels are illegible on this sheet (only 'ALARM MOD2' horn is legible); the remaining lamp/switch identities (rows 2-13, including ALARM MOD1 side terminals 1-7) were inferred from position (ALARM MUTE, EMERGENCY STOP Petrol vapour ventilation, EMERGENCY STOP Galley Extractor, ALARM MUTE (MOD2), FAN ON-OFF MONITOR IND., NO POWER) based on adjacent annotation fragments ('ALAR...', 'FAN MONI...', 'NO') \u2014 engineer should confirm exact panel legend text.",
+   "Positive/feed side of nearly all CONTROL PANEL lamps/horns (ALARM MOD1, ALARM MOD2, ALARM MUTE lamps, EMERGENCY STOP lamps, FAN MONITOR lamp, NO POWER lamp) is not traced on this sheet \u2014 only their return/signal side via T/S C terminals is drawn. The bus/source feeding the control panel + rail is off-sheet or on the panel's own internal wiring not captured here.",
+   "Positive/feed side of the PETROL VAPOUR FAN and the 220V AC 'cut galley extractor power' contact is not traced \u2014 both show only a conductor arriving from the left edge of the sheet with no visible source.",
+   "Re1/Re2/Re3 relay coil feed/return sides are only partially traced (a 'left wire in' from terminal strip, ambiguous whether fused); the exact command source (which J/BOX channel or PLC output triggers Re1 vs Re2 vs Re3) is not clearly distinguishable from the drawn wiring \u2014 engineer confirmation needed on which channel(s) drive the gas solenoid shutoff vs. the galley alarm/mute path.",
+   "Positive/feed side of the Hydrogen Fluoride Sensor (battery compartment) is not traced on this sheet \u2014 only its return/status tap into the ALARM OUT block is drawn."
+  ],
+  "good_to_have": [
+   "Fused terminal at T/S C 177 \u2014 exact fuse rating not legible, read at inspection.",
+   "SIEMENS 3UG4621-1AW30 (Re30) full part/model data \u2014 printed on sheet, legible.",
+   "Re1-Re3, Re27-Re34 relay part numbers/coil ratings \u2014 not printed or illegible, capture at inspection if ever needed."
+  ],
+  "discarded_as_clutter": [
+   "Legend entries repeating illegible CONTROL PANEL labels already captured functionally",
+   "Duplicate J/BOX # channel labels (terminals 14-40 restate 2-13 LPG/CO/PETROL channel names) \u2014 same channels, not separate equipment",
+   "DWG title block / copyright footer text",
+   "Orphan fragment labels 'IN', 'A1+', 'A2-' \u2014 resolved as SIEMENS 3UG4621-1AW30 terminal designations already captured in F1",
+   "Fragment '23', 'T-117' near bottom-right \u2014 illegible annotation fragments, not resolvable to any function"
+  ],
+  "_model": "claude-sonnet-5",
+  "_protocol_version": 5
+ },
+ "netlist_stats": {
+  "segments": 24803,
+  "nets": 2998,
+  "conductors": 2376,
+  "labels": 492,
+  "bound": 213,
+  "unbound": 23,
+  "devices_located": 98,
+  "devices_placed": 98
+ }
+}

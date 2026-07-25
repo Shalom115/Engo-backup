@@ -1,0 +1,846 @@
+{
+ "sheet": "GM_p37_PORT_PEDESTAL_INTERCONNECTIONS",
+ "page": 37,
+ "title": "PORT PEDESTAL INTERCONNECTIONS",
+ "drawing_class": "electrical",
+ "composition": {
+  "serve_who": "This sheet (\"PORT PEDESTAL INTERCONNECTIONS\", GMMS 108'-123) documents the port helm pedestal's switch/illumination console and its multi-core cable connections (MU-A..MU-F, MU-12) out of the \"PORT J/BOX 1 (LASARETTE)\" junction box to: the joystick cluster (main sheet/traveler/bow/stern thruster), throttle potentiometers (propulsion/regeneration/enable), and a large bank of sailing-function pushbuttons with paired red LED indicators (VANG, CUNNINGHAM, OUTHAUL, DEFLECTOR, BACKSTAY, STAYSAIL, JIB, CODE 0, plus alarm/crew-call/MOB/dimmer functions). It also carries the AFT MYT PLC BOX terminal strip (DI/DO/AI channel wiring) and LVPDU/XC23 supply connector wiring feeding the pedestal. Evidence: sheet title, the dotted PORT J/BOX 1 enclosure, the switch bank column labelled with each sailing function name, and the joystick/thruster cluster explicitly labelled MAIN SHEET / TRAVELER / BOW THRUSTER / STERN THRUSTER.",
+  "equipment_groups": [
+   {
+    "equipment_name": "BOW THRUSTER (OMS H-300)",
+    "target_node_id": "460-bow-thruster-oms-h300",
+    "placement_reasoning": "Joystick cluster explicitly labels a potentiometer 'BOW THRUSTER' with its own dotted symbol box, wired via terminals 7/8 to the switch-bank RED LED loom (net near CUNNINGHAM_IN/JIB_FURL_OUT). This is the command potentiometer for the bow thruster, matching the register's bow thruster node.",
+    "functions": [
+     {
+      "label": "Bow thruster command potentiometer (joystick station)",
+      "what_it_does": "Provides a proportional command signal from the port pedestal joystick cluster toward the bow thruster's proportional valve control (drawn elsewhere on hydraulic block); this sheet shows only the local pot wiring and its return/wiper terminals.",
+      "function_id": "bow-thr-pot",
+      "sheet_region": "Joystick / thruster cluster, right-center of sheet (~0.75-0.92, 0.34-0.52)",
+      "key_components": [
+       "potentiometer (proportional command)"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "neutral",
+        "path": "pot wiper centered -> terminal 8 (blue, wiper) -> no differential command out"
+       },
+       {
+        "state": "commanded",
+        "path": "joystick moved -> pot wiper -> terminal 8 (blue) signal, terminal 7 (-ve) return -> onward wiring (feed side to proportional valve not traced on this sheet; see hydraulic block cross-reference)"
+       }
+      ],
+      "dry_data": "Actuation: proportional, PVEU 0-10V (per hydraulic block record); this sheet only shows the local pot/terminal wiring, not the valve."
+     }
+    ]
+   },
+   {
+    "equipment_name": "STERN THRUSTER (OMS H-250)",
+    "target_node_id": "461-stern-thruster-oms-h250",
+    "placement_reasoning": "Joystick cluster explicitly labels a potentiometer 'STERN THRUSTER' wired via terminals 8/9 into the switch-bank loom (near OUTHAUL_IN/JIB_TACK_DOWN), matching the register's stern thruster node.",
+    "functions": [
+     {
+      "label": "Stern thruster command potentiometer (joystick station)",
+      "what_it_does": "Provides a proportional command signal from the port pedestal joystick cluster toward the stern thruster's proportional valve control; only local pot wiring is shown here.",
+      "function_id": "stern-thr-pot",
+      "sheet_region": "Joystick / thruster cluster, right-center of sheet (~0.75-0.92, 0.34-0.52)",
+      "key_components": [
+       "potentiometer (proportional command)"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "neutral",
+        "path": "pot wiper centered -> terminal 9 (+red) -> no differential command out"
+       },
+       {
+        "state": "commanded",
+        "path": "joystick moved -> pot wiper -> terminal 9 (+red) signal, terminal 8 (blue) return -> onward wiring (feed side to proportional valve not traced on this sheet; see hydraulic block cross-reference)"
+       }
+      ],
+      "dry_data": "Actuation: proportional PVEU 0-10V, PVG 32 module (per hydraulic block record); local pot wiring only on this sheet."
+     }
+    ]
+   },
+   {
+    "equipment_name": "BAE Hybrid System / Propulsion Throttle & Enable Logic",
+    "target_node_id": "625-bae-system",
+    "placement_reasoning": "The THROTTLE FWD/REVERSE potentiometer pair, and the PROPULSION/REGENERATION/ENABLE indicator lamps with their relay logic (Re1/Re2/Re4/T), are the port pedestal's helm throttle station for the BAE propulsion system \u2014 matching the engineer-confirmed mapping 'PORT THROTTLE -> 625-bae-system'.",
+    "functions": [
+     {
+      "label": "Port throttle command (FWD/REVERSE potentiometer)",
+      "what_it_does": "Gives the helmsman at the port pedestal a proportional forward/reverse throttle command signal into the propulsion control system.",
+      "function_id": "port-throttle",
+      "sheet_region": "Top-right, THROTTLE FWD/REVERSE box (~0.75-0.95, 0.05-0.16)",
+      "key_components": [
+       "FWD potentiometer",
+       "REVERSE potentiometer"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "neutral",
+        "path": "both pot wipers centered -> BLK(1)/WHT(2, wiper)/+red(3) terminals idle -> no command"
+       },
+       {
+        "state": "commanded forward",
+        "path": "FWD pot moved -> wiper (WHT term.2) signal referenced to BLK(1)/+red(3) -> onward wiring toward propulsion control (destination off-sheet, not traced here)"
+       },
+       {
+        "state": "commanded reverse",
+        "path": "REVERSE pot moved -> wiper (WHT term.2) signal referenced to BLK(1)/+red(3) -> onward wiring toward propulsion control (destination off-sheet, not traced here)"
+       }
+      ],
+      "dry_data": "Two 3-terminal potentiometers (BLK/WHT-wiper/+red) in a dotted FWD/REVERSE enclosure; feed side and destination not traced on this sheet."
+     },
+     {
+      "label": "Propulsion / Regeneration / Enable status/command lamps",
+      "what_it_does": "Illuminated (X-circle) indicators for PROPULSION, REGENERATION, and ENABLE states of the BAE drive, switched via a small relay group (Re1, Re2, Re4, T/TI) that sits between the throttle circuit and the lamps.",
+      "function_id": "prop-regen-enable-lamps",
+      "sheet_region": "Top-center-right, relay group + lamp row (~0.44-0.62, 0.16-0.36)",
+      "key_components": [
+       "Re1 relay",
+       "Re2 relay",
+       "Re4 relay",
+       "T/TI relay (timer/thermal, marked +/-)"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "PROPULSION lamp path",
+        "path": "PROPULSION switch/contact -> terminal 5 -> lamp (+/X circle) \u2014 positive feed side traced only to relay contact; upstream supply not fully traced on this sheet"
+       },
+       {
+        "state": "REGENERATION lamp path",
+        "path": "REGENERATION switch/contact -> terminals 6/7 -> lamp (+/X circle) \u2014 same incomplete trace"
+       },
+       {
+        "state": "ENABLE lamp path",
+        "path": "ENABLE switch/contact -> terminal 8 -> lamp (+/X circle) \u2014 same incomplete trace"
+       }
+      ],
+      "dry_data": "Relay coils Re1/Re2/Re4/T shown with only one side (partial +/- feed) traceable per the loop-walk; function is understood (mode indication) even though full coil energising path is incomplete on this sheet."
+     }
+    ]
+   },
+   {
+    "equipment_name": "Sailing Function Controls \u2014 Vang / Cunningham / Outhaul / Deflector / Backstay (Cariboni hydraulic cylinders group)",
+    "target_node_id": "840-cariboni-hydraulic-cylinders",
+    "placement_reasoning": "The switch bank explicitly names VANG, CUNNINGHAM, OUTHAUL, DEFLECTOR, and BACKSTAY IN/OUT push-buttons, each paired with a red LED. These are on/off sailing hydraulic cylinder functions consistent with the Cariboni PVED ON/OFF cylinder group already on the vessel's hydraulic register (no dedicated per-function node exists, so they group under the AFT cylinder actuator node).",
+    "functions": [
+     {
+      "label": "Vang dump / in / out pushbutton control",
+      "what_it_does": "Lets the helmsman at the port pedestal command VANG DUMP, VANG OUT, and VANG IN via momentary pushbuttons, each lighting its own red LED when engaged, walking through the MU-B/MU-C multi-core cable to the sailing manifold valve (valve itself is off-sheet).",
+      "function_id": "vang-ctrl",
+      "sheet_region": "Switch bank column rows 10-12 (VANG DUMP) and rows 3-4 (VANG OUT/IN), ~0.68-0.8, 0.55-0.98",
+      "key_components": [
+       "VANG DUMP pushbutton",
+       "VANG OUT pushbutton",
+       "VANG IN pushbutton",
+       "paired red LEDs"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "idle",
+        "path": "no button pressed -> LED off -> no command sent on MU-B/MU-C"
+       },
+       {
+        "state": "VANG DUMP commanded",
+        "path": "VANG DUMP button pressed -> terminal 10/11/12 loop -> RED LED lit -> command carried via MU-B cable toward sailing manifold (valve destination off-sheet)"
+       },
+       {
+        "state": "VANG OUT commanded",
+        "path": "VANG OUT button (row 3) pressed -> terminal 3 loop -> RED LED lit -> command via MU-C cable"
+       },
+       {
+        "state": "VANG IN commanded",
+        "path": "VANG IN button (row 4) pressed -> terminal 4 loop -> RED LED lit -> command via MU-C cable"
+       }
+      ],
+      "dry_data": "Pushbutton + paired red LED indicator per function; onward valve/manifold wiring is a cross-reference off-sheet."
+     },
+     {
+      "label": "Cunningham in/out pushbutton control",
+      "what_it_does": "Momentary IN/OUT pushbuttons for the cunningham cylinder, each with its own red LED indicator, carried via MU-C.",
+      "function_id": "cunningham-ctrl",
+      "sheet_region": "Switch bank rows 5-6 (~0.68-0.8, 0.55-0.98)",
+      "key_components": [
+       "CUNNINGHAM OUT pushbutton",
+       "CUNNINGHAM IN pushbutton",
+       "paired red LEDs"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "idle",
+        "path": "no button pressed -> LED off"
+       },
+       {
+        "state": "OUT commanded",
+        "path": "CUNNINGHAM OUT button -> terminal 5 loop -> LED lit -> MU-C cable onward"
+       },
+       {
+        "state": "IN commanded",
+        "path": "CUNNINGHAM IN button -> terminal 6 loop -> LED lit -> MU-C cable onward"
+       }
+      ],
+      "dry_data": "Pushbutton pair + LED pair; valve destination off-sheet."
+     },
+     {
+      "label": "Outhaul in/out pushbutton control",
+      "what_it_does": "Momentary IN/OUT pushbuttons for the outhaul cylinder with red LED indicators, on MU-C.",
+      "function_id": "outhaul-ctrl",
+      "sheet_region": "Switch bank rows 7-8 (~0.68-0.8, 0.55-0.98)",
+      "key_components": [
+       "OUTHAUL OUT pushbutton",
+       "OUTHAUL IN pushbutton",
+       "paired red LEDs"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "idle",
+        "path": "no button pressed -> LED off"
+       },
+       {
+        "state": "OUT commanded",
+        "path": "OUTHAUL OUT button -> terminal 7 loop -> LED lit -> MU-C cable onward"
+       },
+       {
+        "state": "IN commanded",
+        "path": "OUTHAUL IN button -> terminal 8 loop -> LED lit -> MU-C cable onward"
+       }
+      ],
+      "dry_data": "Pushbutton pair + LED pair; valve destination off-sheet."
+     },
+     {
+      "label": "Deflector in/out pushbutton control",
+      "what_it_does": "Momentary IN/OUT pushbuttons for the deflector cylinder with red LED indicators, on MU-C.",
+      "function_id": "deflector-ctrl",
+      "sheet_region": "Switch bank rows 9-10 (~0.68-0.8, 0.55-0.98)",
+      "key_components": [
+       "DEFLECTOR OUT pushbutton",
+       "DEFLECTOR IN pushbutton",
+       "paired red LEDs"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "idle",
+        "path": "no button pressed -> LED off"
+       },
+       {
+        "state": "OUT commanded",
+        "path": "DEFLECTOR OUT button -> terminal 9 loop -> LED lit -> MU-C cable onward"
+       },
+       {
+        "state": "IN commanded",
+        "path": "DEFLECTOR IN button -> terminal 10 loop -> LED lit -> MU-C cable onward"
+       }
+      ],
+      "dry_data": "Pushbutton pair + LED pair; valve destination off-sheet."
+     },
+     {
+      "label": "Backstay in/out pushbutton control",
+      "what_it_does": "Momentary IN/OUT pushbuttons for the backstay cylinder with red LED indicators, on MU-C.",
+      "function_id": "backstay-ctrl",
+      "sheet_region": "Switch bank rows 11-12 (~0.68-0.8, 0.55-0.98)",
+      "key_components": [
+       "BACKSTAY OUT pushbutton",
+       "BACKSTAY IN pushbutton",
+       "paired red LEDs"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "idle",
+        "path": "no button pressed -> LED off"
+       },
+       {
+        "state": "OUT commanded",
+        "path": "BACKSTAY OUT button -> terminal 11 loop -> LED lit -> MU-C cable onward"
+       },
+       {
+        "state": "IN commanded",
+        "path": "BACKSTAY IN button -> terminal 12 loop -> LED lit -> MU-C cable onward"
+       }
+      ],
+      "dry_data": "Pushbutton pair + LED pair; valve destination off-sheet."
+     }
+    ]
+   },
+   {
+    "equipment_name": "Bamar Furlers \u2014 Staysail / Jib / Code 0 furl-tack pushbutton controls",
+    "target_node_id": "860-bamar-furling-systems",
+    "placement_reasoning": "The switch bank explicitly labels rows STAYSAIL (furl in/out, stay up/down), JIB (furl in/out, tack up/down), and CODE 0 (furl in/out) \u2014 these directly match the Bamar furler group name (staysail=SIT20, jib=GFSI30, code0=PI20) already on the vessel register; no per-model split is possible from this sheet so grouped under the parent furling-systems node.",
+    "functions": [
+     {
+      "label": "Staysail furl in/out and stay up/down pushbutton control",
+      "what_it_does": "Lets helmsman command staysail furl in/out and stay tensioner up/down via momentary pushbuttons with LED indicators, carried on MU-C/MU-D.",
+      "function_id": "staysail-ctrl",
+      "sheet_region": "Switch bank 'STAYSAIL' rows (~0.68-0.8, 0.55-0.98)",
+      "key_components": [
+       "FURL IN pushbutton",
+       "FURL OUT pushbutton",
+       "STAY UP pushbutton",
+       "STAY DOWN pushbutton",
+       "paired red LEDs"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "idle",
+        "path": "no button pressed -> LED off"
+       },
+       {
+        "state": "furl in commanded",
+        "path": "STAYSAIL FURL IN button (row 1) -> LED lit -> MU-C cable onward toward furler valve (off-sheet)"
+       },
+       {
+        "state": "furl out commanded",
+        "path": "STAYSAIL FURL OUT button (row 2) -> LED lit -> MU-C cable onward"
+       },
+       {
+        "state": "stay up commanded",
+        "path": "STAY UP button (row 3) -> LED lit -> MU-C cable onward"
+       },
+       {
+        "state": "stay down commanded",
+        "path": "STAY DOWN button (row 4) -> LED lit -> MU-C cable onward"
+       }
+      ],
+      "dry_data": "4 pushbuttons + 4 LEDs; valve destination off-sheet."
+     },
+     {
+      "label": "Jib furl in/out and tack up/down pushbutton control",
+      "what_it_does": "Lets helmsman command jib furl in/out and tack up/down via momentary pushbuttons with LED indicators, on MU-C.",
+      "function_id": "jib-ctrl",
+      "sheet_region": "Switch bank 'JIB' rows (~0.68-0.8, 0.55-0.98)",
+      "key_components": [
+       "FURL IN pushbutton",
+       "FURL OUT pushbutton",
+       "TACK UP pushbutton",
+       "TACK DOWN pushbutton",
+       "paired red LEDs"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "idle",
+        "path": "no button pressed -> LED off"
+       },
+       {
+        "state": "furl in commanded",
+        "path": "JIB FURL IN button (row 5) -> LED lit; per netlist also ties to code-0 furl-in circuit and terminal 5 shared node -> MU-C cable onward"
+       },
+       {
+        "state": "furl out commanded",
+        "path": "JIB FURL OUT button (row 6) -> LED lit; terminal 6 shared with BOW THRUSTER blue wire node per netlist -> MU-C cable onward"
+       },
+       {
+        "state": "tack up commanded",
+        "path": "JIB TACK UP button (row 7) -> LED lit; terminal 7 shared with BOW THRUSTER -ve node -> MU-C cable onward"
+       },
+       {
+        "state": "tack down commanded",
+        "path": "JIB TACK DOWN button (row 8) -> LED lit; terminal 8 shared with STERN THRUSTER blue node -> MU-C cable onward"
+       }
+      ],
+      "dry_data": "4 pushbuttons + 4 LEDs; valve destination off-sheet. Note: netlist shows JIB button terminals sharing numbers with thruster pot terminals \u2014 same terminal-strip position, not a functional interlock (thruster pots and jib buttons are separate circuits sharing adjacent terminal numbering)."
+     },
+     {
+      "label": "Code 0 furl in/out pushbutton control",
+      "what_it_does": "Lets helmsman command Code 0 furl in/out via momentary pushbuttons with LED indicators, on MU-C.",
+      "function_id": "code0-ctrl",
+      "sheet_region": "Switch bank 'CODE 0' rows (~0.68-0.8, 0.55-0.98)",
+      "key_components": [
+       "FURL IN pushbutton",
+       "FURL OUT pushbutton",
+       "paired red LEDs"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "idle",
+        "path": "no button pressed -> LED off"
+       },
+       {
+        "state": "furl in commanded",
+        "path": "CODE 0 FURL IN button (row 9) -> LED lit -> MU-C cable onward"
+       },
+       {
+        "state": "furl out commanded",
+        "path": "CODE 0 FURL OUT button (row 10) -> LED lit -> MU-C cable onward"
+       }
+      ],
+      "dry_data": "2 pushbuttons + 2 LEDs; valve destination off-sheet."
+     }
+    ]
+   },
+   {
+    "equipment_name": "Port Pedestal Console \u2014 button dimmer, back lighting, down lights, alarm/audio mute, crew call, MOB (console-integral, no dedicated equipment node)",
+    "target_node_id": "652-onyx-monitoring",
+    "placement_reasoning": "These functions (BUTTON DIMMER, BACK LIGHTING, PEDESTAL DOWN LTs, ALARM MUTE, AUDIO MUTE, CREW CALL, MOB) are console/monitoring-related utility functions of the pedestal itself, tied via terminal 55/AFT MYT PLC I/O into the onboard monitoring/annunciation loop (crew-call/MOB alarms typically routed through the monitoring/onyx system per glossary MOB=AIS10 status). No dedicated node exists for 'pedestal console lighting/alarm' so placed on the monitoring/control node as the best fit; flagged as uncertain below.",
+    "functions": [
+     {
+      "label": "Button dimmer control (illumination brightness for switch bank)",
+      "what_it_does": "Pushbutton toggling dimming level of the sailing-function switch bank's backlighting/button LEDs, via LED DIM1/2/3 relay modules (Re1/Re2/Re3) in the PORT J/BOX 1 enclosure.",
+      "function_id": "button-dimmer",
+      "sheet_region": "Left enclosure BUTTONS/BACK LTS/DOWN LTS LED DIM modules (~0.03-0.18, 0.72-0.93); switch bank row 11 'BUTTON DIMMER'",
+      "key_components": [
+       "LED DIM1 module",
+       "LED DIM2 module",
+       "LED DIM3 module",
+       "Re1/Re2/Re3 relays"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "idle",
+        "path": "no dimmer command -> LED DIM modules at default level"
+       },
+       {
+        "state": "dimmer toggled",
+        "path": "BUTTON DIMMER pushbutton -> terminal 38/39 loop -> Re1/Re2/Re3 relay contacts -> LED DIM1/2/3 lamp brightness change (one relay side confirmed to negative/ground return; positive feed side to each dimmer module not fully traced on this sheet)"
+       }
+      ],
+      "dry_data": "3 dimmer relay modules (LED DIM1/2/3) each with a positive supply not fully traced \u2014 see uncertainty."
+     },
+     {
+      "label": "Back lighting control",
+      "what_it_does": "Pushbutton toggling the pedestal's back-panel illumination (BACK LTS) via LED DIM2 module.",
+      "function_id": "back-lighting",
+      "sheet_region": "Left enclosure BACK LTS LED DIM2 module (~0.03-0.18, 0.72-0.93); switch bank row 12 'BACK LIGHTING'",
+      "key_components": [
+       "LED DIM2 module",
+       "Re2 relay"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "idle",
+        "path": "no command -> back lighting at default state"
+       },
+       {
+        "state": "commanded",
+        "path": "BACK LIGHTING pushbutton -> terminal 38/39 loop -> Re2 relay -> LED DIM2 lamp (negative return traced; positive feed side not fully traced)"
+       }
+      ],
+      "dry_data": "Dimmer relay Re2 driving BACK LTS lamp bank."
+     },
+     {
+      "label": "Pedestal down lights control",
+      "what_it_does": "Pushbutton switching the pedestal's own down-facing lighting (PEDESTAL DOWN LIGHT) on/off via terminal 55 and MU-E cable, walked to a lamp at the pedestal and cross-referenced to Port Hydraulics Emergency Stop wiring on the same MU-E cable.",
+      "function_id": "pedestal-down-lts",
+      "sheet_region": "Switch bank row 1 'PEDESTAL DOWN LTs'; PEDESTAL DOWN LIGHT box (~0.55-0.68, 0.83-0.98)",
+      "key_components": [
+       "PEDESTAL DOWN LTs pushbutton",
+       "PEDESTAL DOWN LIGHT lamp",
+       "terminal 55 (+ feed)"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "idle",
+        "path": "no command -> lamp off"
+       },
+       {
+        "state": "commanded on",
+        "path": "PEDESTAL DOWN LTs pushbutton -> terminal 11/55 loop (+ feed at terminal 55) -> MU-E pin1 -> PEDESTAL DOWN LIGHT lamp on"
+       }
+      ],
+      "dry_data": "Positive feed traced to terminal 55; MU-E cable carries this plus the Port Hydraulics Emergency Stop switch signal on adjacent pins (separate circuit, same cable)."
+     },
+     {
+      "label": "Alarm mute control",
+      "what_it_does": "Pushbutton to mute an active alarm annunciation, tied to AFT MYT PLC DI channel and terminal strip loop (row 2 'ALARM MUTE').",
+      "function_id": "alarm-mute",
+      "sheet_region": "Switch bank row 2 'ALARM MUTE' (~0.68-0.8, 0.55-0.98)",
+      "key_components": [
+       "ALARM MUTE pushbutton",
+       "AFT MYT PLC DI-01 CH03 input"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "idle",
+        "path": "no mute pressed -> alarm continues per its own logic"
+       },
+       {
+        "state": "muted",
+        "path": "ALARM MUTE pushbutton -> terminal 10 loop -> AFT MYT PLC BOX DI-01 CH03 (pin13->terminal10) -> PLC processes mute (destination logic off-sheet)"
+       }
+      ],
+      "dry_data": "DI input to AFT MYT PLC; mute logic itself is in PLC program, off-sheet."
+     },
+     {
+      "label": "Audio mute control",
+      "what_it_does": "Pushbutton to mute audio annunciation, tied to AFT MYT PLC DI channel (row 3 'AUDIO MUTE').",
+      "function_id": "audio-mute",
+      "sheet_region": "Switch bank row 3 'AUDIO MUTE' (~0.68-0.8, 0.55-0.98)",
+      "key_components": [
+       "AUDIO MUTE pushbutton",
+       "AFT MYT PLC DI-01 CH01 input"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "idle",
+        "path": "no mute pressed -> audio alarm continues per its own logic"
+       },
+       {
+        "state": "muted",
+        "path": "AUDIO MUTE pushbutton -> terminal 11 loop -> AFT MYT PLC BOX DI-01 CH01 (pin14->terminal11) -> PLC processes mute (destination logic off-sheet)"
+       }
+      ],
+      "dry_data": "DI input to AFT MYT PLC; mute logic off-sheet."
+     },
+     {
+      "label": "Crew call control",
+      "what_it_does": "Pushbutton at the pedestal to trigger a crew-call alert, tied to AFT MYT PLC DO-01 CH01 output (row 4 'CREW CALL').",
+      "function_id": "crew-call",
+      "sheet_region": "Switch bank row 4 'CREW CALL' (~0.68-0.8, 0.55-0.98)",
+      "key_components": [
+       "CREW CALL pushbutton",
+       "AFT MYT PLC DO-01 CH01 output",
+       "RED LED indicator"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "idle",
+        "path": "no button pressed -> LED off"
+       },
+       {
+        "state": "commanded",
+        "path": "CREW CALL pushbutton -> terminal 12/15/39 loop -> AFT MYT PLC BOX DO-01 CH01 (pin15) -> RED LED lit -> crew call signal onward (destination off-sheet)"
+       }
+      ],
+      "dry_data": "DO-01 CH01 output confirmed; downstream crew-call annunciator off-sheet."
+     },
+     {
+      "label": "MOB (man overboard) alert",
+      "what_it_does": "Pushbutton/indicator for man-overboard alert at the pedestal, tied via terminal 13/51/52 loop into AFT MYT PLC DI-01 CH03 input and back through a plug pin.",
+      "function_id": "mob-alert",
+      "sheet_region": "Switch bank row 5 'MOB' (~0.68-0.8, 0.55-0.98)",
+      "key_components": [
+       "MOB pushbutton/indicator",
+       "AFT MYT PLC DI-01 CH03 input",
+       "RED LED indicator"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "idle",
+        "path": "no MOB event -> LED off"
+       },
+       {
+        "state": "commanded/triggered",
+        "path": "MOB pushbutton/signal -> terminal 13 -> AFT MYT PLC BOX DI-01 CH03 (pin13, shared with ALARM MUTE per netlist net588/585) -> RED LED lit"
+       }
+      ],
+      "dry_data": "MOB = AIS10 per glossary; PLC logic for onward alerting is off-sheet."
+     }
+    ]
+   },
+   {
+    "equipment_name": "Port Hydraulics Emergency Stop",
+    "target_node_id": "654-emergency-stops",
+    "placement_reasoning": "Explicitly labelled switch 'PORT HYDRAULICS EMERGENCY STOP' on MU-E cable pins 3-4, matching the register's Emergency Stops node.",
+    "functions": [
+     {
+      "label": "Port hydraulics emergency stop pushbutton",
+      "what_it_does": "Allows the helmsman at the port pedestal to trip an emergency stop of the port hydraulics system.",
+      "function_id": "port-hyd-estop",
+      "sheet_region": "Bottom-center, near PEDESTAL DOWN LIGHT box (~0.55-0.68, 0.83-0.98)",
+      "key_components": [
+       "PORT HYDRAULICS EMERGENCY STOP pushbutton"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "normal (not tripped)",
+        "path": "switch open -> hydraulics run normally"
+       },
+       {
+        "state": "tripped",
+        "path": "PORT HYDRAULICS EMERGENCY STOP pushbutton pressed -> MU-E cable pins 3-4 -> onward to hydraulics power pack shutdown circuit (destination off-sheet)"
+       }
+      ],
+      "dry_data": "Switch only; shutdown relay/circuit is on another sheet (hydraulic power pack)."
+     }
+    ]
+   },
+   {
+    "equipment_name": "ONYX Monitoring & Control (screen power, alarm modules)",
+    "target_node_id": "652-onyx-monitoring",
+    "placement_reasoning": "MU-F cable explicitly labels 'ONYX SCREEN POWER' and 'ONYX ALARM MOD1' pins, plus a general 'ALARM MOD2' and 'PANEL BACK LIGHTS' pin \u2014 matches the engineer-confirmed mapping ONYX CONTROL -> 652-onyx-monitoring.",
+    "functions": [
+     {
+      "label": "Onyx screen power feed",
+      "what_it_does": "Carries power for the pedestal-mounted ONYX display screen via MU-F multi-core cable pin 5-6.",
+      "function_id": "onyx-screen-power",
+      "sheet_region": "MU-F cable breakout, bottom-right (~0.68-0.8, 0.9-0.98)",
+      "key_components": [
+       "MU-F cable pins 5-6"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "powered",
+        "path": "terminal strip (via terminal 60/61 loop, positive feed traced only to terminal 11/TS-55 tap) -> MU-F pin 5 -> ONYX SCREEN POWER output (screen itself off-sheet)"
+       }
+      ],
+      "dry_data": "Feed side traced to terminal strip tap; screen hardware and full supply chain off-sheet."
+     },
+     {
+      "label": "Onyx alarm module 1 & 2 signalling",
+      "what_it_does": "Carries alarm horn/signal lines for ONYX ALARM MOD1 (MU-F pins 7-8) and a separate ALARM MOD2 device (MU-F pins 1-2) shown as a horn/alarm symbol.",
+      "function_id": "onyx-alarm-mods",
+      "sheet_region": "MU-F cable breakout, bottom-right (~0.68-0.8, 0.9-0.98)",
+      "key_components": [
+       "ALARM MOD2 horn/alarm symbol",
+       "ONYX ALARM MOD1 pin"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "idle",
+        "path": "no alarm condition -> horn silent"
+       },
+       {
+        "state": "alarm active",
+        "path": "terminal strip 60/61 loop -> MU-F pin1 (ALARM MOD2) or pin7 (ONYX ALARM MOD1) -> horn/alarm sounds (trigger source off-sheet)"
+       }
+      ],
+      "dry_data": "Two alarm module taps on MU-F; trigger logic off-sheet."
+     },
+     {
+      "label": "Panel back lights feed",
+      "what_it_does": "Carries power for panel back-lighting via MU-F pins 3-4.",
+      "function_id": "panel-back-lights",
+      "sheet_region": "MU-F cable breakout, bottom-right (~0.68-0.8, 0.9-0.98)",
+      "key_components": [
+       "MU-F cable pins 3-4"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "powered",
+        "path": "terminal strip 60/61 loop -> MU-F pin3 -> PANEL BACK LIGHTS output (lamps off-sheet)"
+       }
+      ],
+      "dry_data": "Feed traced to terminal strip tap only."
+     }
+    ]
+   },
+   {
+    "equipment_name": "Main Sheet & Traveler control (joystick) \u2014 Sailing hydraulic manifold group",
+    "target_node_id": "840-cariboni-hydraulic-cylinders",
+    "placement_reasoning": "Joystick box explicitly labels 'MAIN SHEET' and 'TRAVELER' potentiometers \u2014 proportional command inputs for the sailing hydraulic cylinder group (mainsheet trim, traveler position), matching the on/off-plus-proportional Cariboni/sailing manifold hydraulics already carried under this node.",
+    "functions": [
+     {
+      "label": "Main sheet trim command potentiometer",
+      "what_it_does": "Provides a proportional joystick command for main sheet trimming.",
+      "function_id": "mainsheet-pot",
+      "sheet_region": "Joystick box, right-center (~0.75-0.92, 0.34-0.44)",
+      "key_components": [
+       "potentiometer"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "neutral",
+        "path": "joystick centered -> pot wiper mid-range -> no command"
+       },
+       {
+        "state": "commanded",
+        "path": "joystick moved -> pot wiper (terminals 3/4 blue) signal referenced to -ve (terminal 5) -> onward to manifold valve (destination off-sheet)"
+       }
+      ],
+      "dry_data": "Proportional command pot; destination valve off-sheet."
+     },
+     {
+      "label": "Traveler position command potentiometer",
+      "what_it_does": "Provides a proportional joystick command for traveler car positioning.",
+      "function_id": "traveler-pot",
+      "sheet_region": "Joystick box, right-center (~0.75-0.92, 0.34-0.44)",
+      "key_components": [
+       "potentiometer"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "neutral",
+        "path": "joystick centered -> pot wiper mid-range -> no command"
+       },
+       {
+        "state": "commanded",
+        "path": "joystick moved -> pot wiper (terminal 6, blue) signal referenced to common node -> onward to manifold valve (destination off-sheet)"
+       }
+      ],
+      "dry_data": "Proportional command pot; destination valve off-sheet."
+     }
+    ]
+   },
+   {
+    "equipment_name": "Pedestal Alarm + Mute buzzer (helm annunciator, no dedicated node)",
+    "target_node_id": "652-onyx-monitoring",
+    "placement_reasoning": "A standalone 'PEDESTAL ALARM + MUTE' buzzer/lamp/pushbutton block sits near the title block, separate from the ONYX/alarm-mod circuits on MU-F; grouped here as the closest monitoring/annunciation node since no dedicated pedestal-alarm node exists.",
+    "functions": [
+     {
+      "label": "Pedestal alarm buzzer with mute lamp and pushbutton",
+      "what_it_does": "Sounds an audible alarm at the pedestal (buzzer) with a status lamp and a mute pushbutton; likely feeds off the same monitoring loop as ALARM MUTE/AUDIO MUTE on the main switch bank, but this instance's wiring is drawn as an independent 4-terminal block near the title.",
+      "function_id": "pedestal-alarm-mute",
+      "sheet_region": "Bottom-left near title block (~0.22-0.34, 0.9-0.965)",
+      "key_components": [
+       "buzzer (+)",
+       "lamp (X circle)",
+       "pushbutton"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "idle",
+        "path": "no alarm -> buzzer silent, lamp off"
+       },
+       {
+        "state": "alarm active",
+        "path": "terminal 1/2 -> buzzer sounds; terminal 3 -> lamp lit (feed/trigger source not traced on this sheet)"
+       },
+       {
+        "state": "muted",
+        "path": "terminal 4 pushbutton pressed -> mutes buzzer (downstream logic off-sheet)"
+       }
+      ],
+      "dry_data": "4-terminal block (buzzer, lamp, pushbutton); positive feed side not traced."
+     }
+    ]
+   },
+   {
+    "equipment_name": "Call Module (crew intercom/call, no dedicated node)",
+    "target_node_id": "652-onyx-monitoring",
+    "placement_reasoning": "Caption 'to CALL MODULE / +12V' with Re4 relay and T relay drives an off-sheet 'CALL MODULE' device; grouped under monitoring/control as closest fit since no dedicated intercom/call node exists in the register.",
+    "functions": [
+     {
+      "label": "Call module relay drive (Re4/T)",
+      "what_it_does": "A relay pair (Re4, T) switches a +12V feed toward an off-sheet CALL MODULE device, likely part of the crew-call annunciation function of the pedestal.",
+      "function_id": "call-module-relay",
+      "sheet_region": "Left-lower enclosure, near LED DIM3/Re3 group (~0.03-0.18, 0.72-0.93)",
+      "key_components": [
+       "Re4 relay",
+       "T relay (thermal/timer, marked +/-)"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "idle",
+        "path": "contact open -> no signal to CALL MODULE"
+       },
+       {
+        "state": "activated",
+        "path": "+12V line -> Re4 contact -> T relay -> CALL MODULE (off-sheet); negative/return side of both Re4 and T not fully traced on this sheet"
+       }
+      ],
+      "dry_data": "Two-relay drive circuit to off-sheet call module; both coils show only one side traced (see uncertainties)."
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "AFT MYT PLC BOX / Port Pedestal Terminal Strip (69-way, DI/DO/AI channels)",
+    "target_node_id": "570-plc-rack-aft",
+    "facts": [
+     "69-terminal numbered strip carrying AFT MYT PLC DI-01/DI-02/AI-02/AI-03/DO-01 channel wiring plus +5V, +24V AFT MYT PLC, PLC NEG, COM NEG, MYT NEG rails",
+     "Feeds/receives all pedestal switch and LED functions listed above via its numbered terminals (1-69)",
+     "Cross-connects to PLUG C (Main Panel) pins 8-11 for terminals 1-4, per 'see DWG 112/114a'",
+     "This is shared bus/rack infrastructure, not itself an equipment function"
+    ]
+   },
+   {
+    "system_name": "XC23 / LVPDU Connector Wiring (C1/C2/C3)",
+    "target_node_id": "640-dc-distribution",
+    "facts": [
+     "C1 pins 6/1 fed from CBx.13 5A breaker via LVPDU, labelled G3-f1P1/G3-f1R1",
+     "C2 pins 12/2/1/7/3/6 labelled G3-f12T/R/S/W/U/V \u2014 likely twisted-pair signal wiring crossing to THROTTLE FWD/REVERSE potentiometer terminals (BLK/WHT/+red) per drawn crossover lines",
+     "C3 pins 1/4/2/5/3/6 labelled G3-f146a/f173a/F147/F146 (x2) \u2014 feed the Propulsion/Regeneration/Enable relay logic (Re1/Re2/Re4/T) and lamps",
+     "XC23 is the LVPDU-side connector supplying/receiving this pedestal's throttle and mode signals; full upstream LVPDU circuit is documented elsewhere"
+    ]
+   },
+   {
+    "system_name": "PORT J/BOX 1 (LASARETTE) \u2014 Port Pedestal Switches/Illumination enclosure",
+    "target_node_id": "570-plc-rack-aft",
+    "facts": [
+     "Dotted enclosure bounding the AFT MYT PLC BOX terminal strip, LED DIM1/2/3 relay modules (Re1/Re2/Re3), Re4/T call-module relay, and PLUG C reference \u2014 the physical junction box housing this sheet's wiring",
+     "Outputs multi-core cables MU-A through MU-F and MU-12 (link to Port J/Box 2) to the joystick cluster and switch bank"
+    ]
+   },
+   {
+    "system_name": "Multi-core cables MU-A..MU-F / MU-12 (cable infrastructure)",
+    "target_node_id": "570-plc-rack-aft",
+    "facts": [
+     "MU-A: 9-conductor cable to Joystick (main sheet/traveler) and Bow/Stern thruster pots",
+     "MU-B: cable to VANG DUMP / SAILING FUNCTIONS switch group top rows",
+     "MU-C: cable to F1/F2/VANG/CUNNINGHAM/OUTHAUL/DEFLECTOR/BACKSTAY/STAYSAIL/JIB/CODE0 switch bank",
+     "MU-D: cable carrying AUDIO MUTE/MOB/+24V AFT MYT PLC/COM NEG signals to switch bank lower rows",
+     "MU-E: cable to PEDESTAL DOWN LIGHT and PORT HYDRAULICS EMERGENCY STOP",
+     "MU-F: cable to ALARM MOD2, PANEL BACK LIGHTS, ONYX SCREEN POWER, ONYX ALARM MOD1",
+     "MU-12: 'LINK A TO PORT J/BOX 2' \u2014 continuation cable to a second port junction box"
+    ]
+   }
+  ],
+  "cross_references": [
+   {
+    "what": "Bow thruster proportional valve control (destination of terminal 7/8 signal from joystick pot)",
+    "referenced_sheet_hint": "SWS108-Hydraulic_System-rev10-FWD_blockB.pdf (bow thruster OMS H-300 block)"
+   },
+   {
+    "what": "Stern thruster proportional valve control (destination of terminal 8/9 signal from joystick pot)",
+    "referenced_sheet_hint": "SWS108-Hydraulic_System-rev10-AFT_blockB.pdf (stern thruster OMS H-250 block)"
+   },
+   {
+    "what": "Throttle FWD/REVERSE potentiometer destination in propulsion control system",
+    "referenced_sheet_hint": "BAE/MPCS electrical schematics (GMMS 110-series)"
+   },
+   {
+    "what": "Sailing function pushbutton commands (VANG/CUNNINGHAM/OUTHAUL/DEFLECTOR/BACKSTAY/STAYSAIL/JIB/CODE0) onward to sailing manifold valves",
+    "referenced_sheet_hint": "SWS108-Hydraulic_System-rev10 AFT/FWD sailing manifold drawings"
+   },
+   {
+    "what": "PLUG C (MAINPANEL) terminals 1-4 continuation",
+    "referenced_sheet_hint": "DWG 112/114a"
+   },
+   {
+    "what": "LINK B TO PORT J/BOX 2 (terminal 60/61 continuation)",
+    "referenced_sheet_hint": "Port J/Box 2 drawing"
+   },
+   {
+    "what": "MU-12 LINK A TO PORT J/BOX 2",
+    "referenced_sheet_hint": "Port J/Box 2 drawing"
+   },
+   {
+    "what": "Port hydraulics emergency stop downstream shutdown circuit",
+    "referenced_sheet_hint": "Hydraulic power pack / emergency stop electrical sheet"
+   },
+   {
+    "what": "BAE LVPDU diagram reference for XC23/LVPDU connector wiring",
+    "referenced_sheet_hint": "BAE LVPDU DIAGRAM REFERENCE PAGE 38 (this sheet cites it, but content lives elsewhere)"
+   },
+   {
+    "what": "ONYX screen/alarm module hardware and full supply chain",
+    "referenced_sheet_hint": "ONYX monitoring system electrical sheet"
+   },
+   {
+    "what": "CALL MODULE device (crew intercom/call target of Re4/T relay drive)",
+    "referenced_sheet_hint": "Crew call / intercom electrical sheet"
+   }
+  ],
+  "uncertainties": [
+   "Positive/feed side of the PROPULSION, REGENERATION, and ENABLE indicator lamps (Re1/Re2/Re4/T relay group) is not fully traced \u2014 only the switch/terminal-to-lamp return side is drawn; which upstream rail (XC23 C3 or LVPDU) actually supplies these coils is ambiguous.",
+   "Positive/feed side of LED DIM1/DIM2/DIM3 dimmer modules (button dimmer, back lighting, down lights functions) is not traced \u2014 only ground/return and relay contact wiring is drawn.",
+   "The Re4/T relay pair driving the 'CALL MODULE' output has neither coil's full feed+return path traced; direction of control (does Re4 energise T, or vice versa) is not fully clear from the drawn lines.",
+   "The 'Pedestal Alarm + Mute' 4-terminal buzzer/lamp/pushbutton block near the title has no traced positive supply \u2014 its relationship to the main switch-bank ALARM MUTE/AUDIO MUTE functions (same device repeated, or a separate physical unit) is not established by drawn lines.",
+   "No equipment-register node exists specifically for a 'pedestal console utility' (button dimmer/back lighting/down lights/mute/crew-call/MOB/call-module) group; these were placed on 652-onyx-monitoring as the closest monitoring/annunciation fit \u2014 engineer should confirm whether a dedicated console/annunciator node should be created instead."
+  ],
+  "good_to_have": [
+   "CBx.13 breaker rating: 5A (legible, feeds XC23 C1)",
+   "Throttle potentiometer wire color coding: BLK/WHT/+red per FWD and REVERSE pot",
+   "Exact part/model numbers for Re1-Re4 relays and T/TI relay: read at inspection if needed",
+   "Terminal strip fused-terminal markings (40/41/42 with +/- symbols etc.): capture exact fuse ratings at inspection if ever needed"
+  ],
+  "discarded_as_clutter": [
+   "Repeated terminal-strip pin-to-pin mapping rows (6->3, 7->4, etc.) in AFT MYT PLC BOX legend \u2014 restates the terminal strip survey data already captured as infrastructure",
+   "Title block repeats (DWG No., date, drawn-by, copyright notice)",
+   "BAE LVPDU DIAGRAM REFERENCE PAGE 38 empty legend stub \u2014 no content, just a cross-reference caption",
+   "Individual RED LED repeated ~27x entries \u2014 consolidated into per-function LED indicator mentions rather than a flat list",
+   "Orphan single-character extraction fragments ('6', '1', 'MU-B' unbound label) \u2014 resolved as terminal/cable references in context, not separate uncertainties"
+  ],
+  "_model": "claude-sonnet-5",
+  "_protocol_version": 5
+ },
+ "netlist_stats": {
+  "segments": 84399,
+  "nets": 4862,
+  "conductors": 3923,
+  "labels": 799,
+  "bound": 271,
+  "unbound": 7,
+  "devices_located": 217,
+  "devices_placed": 217
+ }
+}

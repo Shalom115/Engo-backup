@@ -1,0 +1,211 @@
+{
+ "sheet": "GM_p18_BILGE_ALARM_SYSTEM",
+ "page": 18,
+ "title": "BILGE ALARM SYSTEM",
+ "drawing_class": "electrical",
+ "composition": {
+  "serve_who": "This sheet (GMMS 108'-114, \"BILGE ALARM SYSTEM\") serves the vessel's bilge/fire pump loads and their alarm/monitoring: MAIN BILGE PUMP, MAIN FIRE PUMP, AUX MAST BILGE PUMP, and AUX ENGINE ROOM BILGE PUMP \u2014 each named directly on the sheet as a load driven from DC Main Panel or FWD DC Panel feeders, plus a Main Panel PC Card that aggregates bilge-level/run status (LAZARETTE BILGE, AFT BILGE, ENGINE ROOM BILGE, FWD BILGE, SAIL LOCKER) into a common alarm/buzzer with mute/test. The register maps MAIN BILGE PUMP -> 520-main-bilge-pump, MAIN FIRE PUMP -> 520-fire-pump, and AUX MAST/ENGINE ROOM BILGE PUMP -> 520-aux-bilge-pumps. The PC Card / alarm annunciator itself is bilge-system-wide monitoring infrastructure without its own equipment identity on this sheet; T/S/relay/bus structure (T/S S, T/S F, T/S B, T/S C, T/S E, F5, MU4-12) is shared panel infrastructure belonging to 640-dc-distribution / 641-vessel-control-panel.",
+  "equipment_groups": [
+   {
+    "equipment_name": "Main Bilge Pump",
+    "target_node_id": "520-main-bilge-pump",
+    "placement_reasoning": "Directly labelled 'MAIN BILGE PUMP' motor at top-right, fed from DC MAIN PANEL via F3 60A / SW8 / SO 6 coil circuit, with local pump switch on T/S S terminals 13/14. Matches register mapping BILGE PUMP -> 520-main-bilge-pump. Established fact (engineer_redpen) confirms the multi-switch activation loop (local SW, main panel SW, ONYX remote XA11) \u2014 this sheet shows the local-switch/SO6-relay portion consistent with that established loop; do not re-derive beyond what is drawn here.",
+    "functions": [
+     {
+      "label": "Main bilge pump supply and local run control",
+      "function_id": "main-bilge-supply",
+      "what_it_does": "Feeds the Main Bilge Pump motor from the DC Main Panel and energises its run-relay (SO 6) via the local pump switch, so the pump can be started locally at the panel.",
+      "flow_scenarios": [
+       {
+        "state": "default/off",
+        "path": "DC Main Panel bus -> fuse F3 (60A) -> switch SW8 (open) -> SO 6 coil de-energised -> pump motor idle"
+       },
+       {
+        "state": "local start (LOCAL PUMP SW closed)",
+        "path": "DC Main Panel bus -> F3 60A -> SW8 -> SO 6 relay coil -> junction T/S S terminals 13/14 -> LOCAL PUMP SW contact closes circuit -> SO 6 energised -> contactor closes -> +24V feeds MAIN BILGE PUMP motor -> motor runs (return to ground stub, feed side traced only to SW8/F3; coil's other side not fully traced on this sheet)"
+       }
+      ],
+      "key_components": [
+       "F3 60A fuse (feeder protection)",
+       "SW8 isolating switch",
+       "SO 6 relay/contactor coil (pump run relay)",
+       "LOCAL PUMP SW (local start switch, on T/S S terminals 13/14)"
+      ],
+      "dry_data": "24V DC circuit; fuse F3 60A; local switch actuation via T/S S 13/14; per established fact this coil can ALSO be closed by MAIN PANEL switch (plug C pins 6/7) and ONYX remote XA11/relay Re6 \u2014 those paths are not drawn on this sheet and are cross-referenced only.",
+      "sheet_region": "top-left DC Main Panel column (approx 0.03-0.42, 0.1-0.38) and Main Bilge Pump motor top-right (approx 0.85-0.95, 0.13-0.2)"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Main Fire Pump",
+    "target_node_id": "520-fire-pump",
+    "placement_reasoning": "Directly labelled 'MAIN FIRE PUMP' motor, fed via F4 100A/SW9/SO7 relay, with two local switches (FWD PUMP SW, LAZ. PUMP SW) wired through T/S S terminals 16-19. Register maps FIRE PUMP -> 520-fire-pump. Established fact confirms this is a separate physical pump (same model as main bilge pump, Gianneschi ACB 431B) \u2014 consistent, not re-derived.",
+    "functions": [
+     {
+      "label": "Main fire pump supply and remote switch control (FWD / Lazarette stations)",
+      "function_id": "main-fire-supply",
+      "what_it_does": "Feeds the Main Fire Pump motor from the DC Main Panel and allows starting it from either a forward-pump switch station or a lazarette pump switch station, via relay SO7 and terminal strip T/S S.",
+      "flow_scenarios": [
+       {
+        "state": "default/off",
+        "path": "DC Main Panel bus -> fuse F4 (100A) -> switch SW9 (open) -> SO7 coil de-energised -> pump motor idle"
+       },
+       {
+        "state": "start from FWD PUMP SW",
+        "path": "DC Main Panel bus -> F4 100A -> SW9 -> SO7 relay coil junctions T/S S 16/17/18 -> BR/BL/G lines to right-edge plug -> FWD PUMP SW contact closes (BR/BL/G) -> SO7 energised -> contactor closes -> +24V to MAIN FIRE PUMP motor -> motor runs -> return to NEG. BUS"
+       },
+       {
+        "state": "start from LAZ. PUMP SW",
+        "path": "DC Main Panel bus -> F4 100A -> SW9 -> SO7 relay coil junctions T/S S 16/17/18 -> BR/BL/G lines to right-edge plug -> LAZ. PUMP SW contact closes (BR/BL/G) -> SO7 energised -> contactor closes -> +24V to MAIN FIRE PUMP motor -> motor runs -> return to NEG. BUS"
+       }
+      ],
+      "key_components": [
+       "F4 100A fuse (feeder protection)",
+       "SW9 isolating switch",
+       "SO7 relay/contactor coil (pump run relay)",
+       "FWD PUMP SW (forward station switch, BR/BL/G contacts)",
+       "LAZ. PUMP SW (lazarette station switch, BR/BL/G contacts)",
+       "NEG. BUS (motor negative return)"
+      ],
+      "dry_data": "24V DC circuit; fuse F4 100A; two alternative remote switch stations (FWD, Lazarette) both closing the same SO7 coil circuit through T/S S terminals 16/17/18 and a 3-wire BR/BL/G run.",
+      "sheet_region": "top-left DC Main Panel column (F4/SW9/SO7, approx 0.03-0.42,0.1-0.38) and Main Fire Pump motor + switch dotted boxes top-right (approx 0.62-0.92, 0.13-0.44)"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Aux Bilge Pumps (Mast + Engine Room)",
+    "target_node_id": "520-aux-bilge-pumps",
+    "placement_reasoning": "Two loads named 'AUX MAST BILGE PUMP' (Q2 10A/Re2) and 'AUX BILGE PUMP ENGINE ROOM' / 'AUX ENGINE ROOM BILGE PUMP' (Q3 10A/Re3) both fed from FWD DC Panel, each with a bilge float switch and an override switch, and both reporting run status back through the Main Panel PC Card. Register maps both AUX MAST BILGE PUMP and AUX BILGE PUMP ENG. ROOM to 520-aux-bilge-pumps (same node, matches BOM: Whale Gulper 320 for both).",
+    "functions": [
+     {
+      "label": "Aux Mast Bilge Pump automatic/override run control",
+      "function_id": "aux-mast-bilge-supply",
+      "what_it_does": "Feeds and automatically runs the Aux Mast Bilge Pump on rising bilge water (float switch) or on manual override, via relay Re2 and terminal strip T/S F, and reports run status to the Main Panel PC Card.",
+      "flow_scenarios": [
+       {
+        "state": "default/standby",
+        "path": "FWD DC Panel bus -> breaker Q2 (10A) -> relay Re2 contact open -> T/S F terminals 11/12/13 -> BILGE SW (float, open) and OVERRIDE SW (open) -> pump idle"
+       },
+       {
+        "state": "automatic run (bilge float switch closes)",
+        "path": "FWD DC Panel bus -> Q2 10A -> Re2 contact -> T/S F terminal 11/12/13 (terminal 12 is a FUSED terminal) -> BILGE SW. closes on rising water -> +24V feeds AUX MAST BILGE PUMP motor -> pump runs, discharging bilge water -> run status returns via T/S C terminal (RUN IND. - MAST BILGE PUMP) to Main Panel PC Card lamp"
+       },
+       {
+        "state": "manual override run",
+        "path": "FWD DC Panel bus -> Q2 10A -> Re2 -> T/S F terminal 12 (fused) -> tap 5 -> OVERRIDE SW closes manually -> pump runs regardless of float switch state -> run status to PC Card via RUN IND."
+       }
+      ],
+      "key_components": [
+       "Q2 10A breaker (feeder protection)",
+       "Re2 relay/contactor",
+       "T/S F terminal 12 \u2014 FUSED terminal (built-in replaceable fuse; known troubleshooting culprit)",
+       "BILGE SW. (float switch, automatic activation)",
+       "OVERRIDE SW (manual override switch)",
+       "RUN IND. - MAST BILGE PUMP (status lamp on Main Panel PC Card)"
+      ],
+      "dry_data": "24V DC circuit; breaker Q2 10A; fused terminal at T/S F-12 (exact fuse rating: capture at inspection). Coil positive feed side traced to Q2/F5/Re2; the RUN IND. lamp's own positive/feed side is not traced on this sheet (see uncertainties).",
+      "sheet_region": "FWD DC Panel column mid-left (approx 0.03-0.42, 0.53-0.71) and AUX MAST BILGE PUMP motor + switches mid-right (approx 0.62-0.92, 0.53-0.71); RUN IND. lamp bottom of Main Panel PC Card (approx 0.55-0.92, 0.93-0.97)"
+     },
+     {
+      "label": "Aux Engine Room Bilge Pump automatic/override run control",
+      "function_id": "aux-engroom-bilge-supply",
+      "what_it_does": "Feeds and automatically runs the Aux Engine Room Bilge Pump on rising bilge water (float switch) or on manual override, via relay Re3 and terminal strip T/S F, and reports run status to the Main Panel PC Card.",
+      "flow_scenarios": [
+       {
+        "state": "default/standby",
+        "path": "FWD DC Panel bus -> breaker Q3 (10A) -> relay Re3 contact open -> T/S F terminals 14/15/16 -> BILGE SW (float, open) and ENG.ROOM OVERRIDE SW (open) -> pump idle"
+       },
+       {
+        "state": "automatic run (bilge float switch closes)",
+        "path": "FWD DC Panel bus -> Q3 10A -> Re3 contact -> T/S F terminal 14/15/16 (terminal 15 is a FUSED terminal) -> BILGE SW. closes on rising water -> +24V feeds AUX BILGE PUMP ENGINE ROOM motor -> pump runs, discharging bilge water -> run status returns via T/S C terminal (RUN IND. - AUX ENGINE ROOM BILGE PUMP) to Main Panel PC Card lamp"
+       },
+       {
+        "state": "manual override run",
+        "path": "FWD DC Panel bus -> Q3 10A -> Re3 -> T/S F terminal 15 (fused) -> tap 6 -> ENG.ROOM OVERRIDE SW closes manually -> pump runs regardless of float switch state -> run status to PC Card via RUN IND."
+       }
+      ],
+      "key_components": [
+       "Q3 10A breaker (feeder protection)",
+       "Re3 relay/contactor",
+       "T/S F terminal 15 \u2014 FUSED terminal (built-in replaceable fuse; known troubleshooting culprit)",
+       "BILGE SW. (float switch, automatic activation)",
+       "ENG.ROOM OVERRIDE SW (manual override switch)",
+       "RUN IND. - AUX ENGINE ROOM BILGE PUMP (status lamp on Main Panel PC Card)"
+      ],
+      "dry_data": "24V DC circuit; breaker Q3 10A; fused terminal at T/S F-15 (exact fuse rating: capture at inspection). Coil positive feed side traced to Q3/F5/Re3; the RUN IND. lamp's own positive/feed side is not traced on this sheet (see uncertainties).",
+      "sheet_region": "FWD DC Panel column mid-left (approx 0.03-0.42, 0.53-0.71) and AUX BILGE PUMP ENGINE ROOM motor + switches mid-right (approx 0.62-0.92, 0.53-0.71); RUN IND. lamp bottom of Main Panel PC Card (approx 0.55-0.92, 0.93-0.97)"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "DC Main Panel / FWD DC Panel distribution (T/S S, T/S F, F5, F3, F4, SW8, SW9, terminal strips)",
+    "target_node_id": "641-vessel-control-panel",
+    "facts": [
+     "T/S S (terminal strip) carries + SERVICE BAT and 500A SHUNT feeds (pins 1-3) and pump control loops (pins 13-19) \u2014 panel-side terminal infrastructure, not a distinct system.",
+     "T/S F (terminal strip near Re2/Re3) carries relay contact taps 11-16 for the two aux bilge pump circuits \u2014 shared distribution infrastructure.",
+     "F5 100A fuse feeds both Q2 and Q3 breakers from the +24V service supply \u2014 shared feeder infrastructure for the FWD DC Panel.",
+     "FWD DC PANEL itself is detailed on a separate sheet (see DWG 120) \u2014 cross-reference only."
+    ]
+   },
+   {
+    "system_name": "Main Panel PC Card bilge alarm/annunciator (T/S B, T/S E, T/S C, diode matrix, buzzer/alarm, mute/test)",
+    "target_node_id": "641-vessel-control-panel",
+    "facts": [
+     "T/S E terminal 8 is a FUSED terminal feeding the PC Card from EMERGENCY BAT +24V \u2014 built-in replaceable fuse, note as troubleshooting culprit (exact rating: capture at inspection).",
+     "T/S C terminals 1-6 receive six status taps (PORT XA41-04, STBD XA41-02, XA41-06, XA61-30, XA61-28, XA61-26) that the PC Card's diode matrix converts into five annunciated bilge-alarm zones: LAZARETTE BILGE, AFT BILGE, ENGINE ROOM BILGE, FWD BILGE, SAIL LOCKER.",
+     "A common horn/buzzer with MUTE (S15) and TEST (S14) switches, plus a separate ALARM MOD horn/speaker, are driven off the diode/relay bank \u2014 general alarm annunciation infrastructure, not tied to one equipment.",
+     "T/S C terminals 19/20 carry the RUN IND. taps for Mast Bilge Pump and Aux Engine Room Bilge Pump status lamps, routed via multi-core cable MU4-12 from the FWD panel area.",
+     "T/S B junction block (G,3,4,5) is a pass-through/junction between T/S F override-switch taps and other terminal strips \u2014 panel wiring infrastructure only."
+    ]
+   }
+  ],
+  "cross_references": [
+   {
+    "what": "FWD DC PANEL detail",
+    "referenced_sheet_hint": "DWG 120"
+   },
+   {
+    "what": "Onyx remote command XA11 into terminal 50 via relay Re6 for main bilge pump (per established engineer note) \u2014 not drawn on this sheet",
+    "referenced_sheet_hint": "GM-114a / main bilge pump control sheet"
+   },
+   {
+    "what": "XA41/XA61 status tap sources (PORT/STBD XA41-02/04/06, XA61-26/28/30) \u2014 origin device/panel not shown on this sheet",
+    "referenced_sheet_hint": "ONYX monitoring system sheet"
+   },
+   {
+    "what": "MU4-12 multi-core cable continuation between FWD panel terminal blocks and Main Panel PC Card",
+    "referenced_sheet_hint": "GMMS 112"
+   }
+  ],
+  "good_to_have": [
+   "Exact fuse rating at T/S E terminal 8 (feeds PC card from EMERGENCY BAT +24V) \u2014 read at inspection",
+   "Exact fuse rating at T/S F terminal 12 (Aux Mast Bilge Pump override tap) \u2014 read at inspection",
+   "Exact fuse rating at T/S F terminal 15 (Aux Engine Room Bilge Pump override tap) \u2014 read at inspection",
+   "Wire gauge/leg annotations (diamond-enclosed numbers) on T/S F terminals \u2014 decorative wire-gauge convention, not devices"
+  ],
+  "uncertainties": [
+   "RUN IND. lamps for Mast Bilge Pump and Aux Engine Room Bilge Pump: only their return/tap side into T/S C (pins 19/20, via MU4-12) is traced on this sheet; the lamps' own positive supply side is not drawn here \u2014 cannot confirm whether they are powered from the PC card's own +24V feed or from elsewhere.",
+   "SO 6 and SO7 relay coils: only one coil side (via SW8/F3 and SW9/F4 respectively) is traced to the main DC bus; the other coil side's return path off-sheet is not shown.",
+   "Direction of XA41/XA61 taps into T/S C: sheet shows them landing on PC card diode inputs feeding annunciator lamps, consistent with STATUS signals; if any of these actually command/activate rather than merely report, that is not distinguishable from this sheet alone."
+  ],
+  "discarded_as_clutter": [
+   "Title block repeat (DWG No./TITLE/DATE/DRAWN/PROJECT/CUSTOMER + copyright notice) \u2014 administrative meta, not equipment content",
+   "Diamond-enclosed wire-gauge/leg numbers on T/S F terminals \u2014 decorative convention, already covered as good-to-have, not separate devices",
+   "Orphan label fragments 'PORT', 'STBD', '02', '06', 'XA61', '30', '28', '26', 'PC CARD', 'SAIL LOCKE', 'LAZARETTE BILGE' from netlist unbound-labels list \u2014 resolved as part of the XA41/XA61 status taps and PC card zone names already captured above"
+  ],
+  "_model": "claude-sonnet-5",
+  "_protocol_version": 5
+ },
+ "netlist_stats": {
+  "segments": 17602,
+  "nets": 1984,
+  "conductors": 1633,
+  "labels": 249,
+  "bound": 121,
+  "unbound": 14,
+  "devices_located": 106,
+  "devices_placed": 106
+ }
+}

@@ -1,0 +1,268 @@
+{
+ "sheet": "GM_p22_BLACK_WATER_SYSTEM",
+ "page": 22,
+ "title": "BLACK WATER SYSTEM",
+ "drawing_class": "electrical",
+ "composition": {
+  "serve_who": "This sheet (GMMS 108'-115a, \"BLACK WATER SYSTEM\") serves two related but distinct groups on the Gelliceaux: (1) the four WC/toilet flush-water pump circuits (Port Aft Guest, Stbd Aft Guest, Port Crew Head/Fwd Crew Heads, Stbd Crew Head/Aft Crew Heads) driven from DC Main Panel breakers Q7-Q10 via relays Re15-Re18 into controller/junction modules with water shut-off valves and pumps \u2014 these map to 540-wc-toilets (the WC fixtures) with their supply pumps under 540-black-water-pumps per the engineer mapping; and (2) the FWD and AFT black water tank pump-out systems (Q11 32A / Q12 32A) with senders, timers T1/T2, relay/switch S01/S02, and PC-card tank-level sensing (A/F/E taps) feeding FWD/AFT BLACK WATER PUMPs \u2014 these map directly to 540-black-water-pumps. The T/S B terminal strip block (19-30: DWG115 refs, LOW BAT ALARM, MASTERVOLT EASY VIEW, SHORE POWER PANEL, GENERAL COCKPIT ALARM, PEDESTAL LTS) is shared monitoring/status infrastructure that belongs to the main panel/distribution node (641-vessel-control-panel), not to the black water system itself \u2014 it is only routed through this sheet's terminal strip.",
+  "equipment_groups": [
+   {
+    "equipment_name": "540-wc-toilets (Port Aft Guest WC, Stbd Aft Guest WC, Port Crew Head WC, Stbd Crew Head WC)",
+    "target_node_id": "540-wc-toilets",
+    "placement_reasoning": "Load names Q7-Q10 explicitly name PORT AFT GUEST WC, STBD AFT GUEST WC, PORT CREW HEAD WC, STBD CREW HEAD WC \u2014 matching the engineer-confirmed mapping to 540-wc-toilets. Each breaker feeds a relay (NC contact) into T/S C terminal (106-109) then to a controller module with BR/BL/GRY wiring driving a WATER SHUT-OFF valve and a flush pump, ending at the named heads (PORT AFT GUEST HEADS, STBD AFT GUEST HEADS, FWD CREW HEADS, AFT CREW HEADS).",
+    "functions": [
+     {
+      "label": "Port Aft Guest WC flush water supply",
+      "what_it_does": "Supplies/controls the flush water pump and shut-off valve for the Port Aft Guest heads.",
+      "sheet_region": "top-left breaker bank / top-right controller module and pump, bbox ~[0.03,0.13]-[1.0,0.4] row 1",
+      "key_components": [
+       "Q7 20A breaker",
+       "Re15 relay (NC contact)",
+       "controller/junction module (BR/BL/GRY)",
+       "WATER SHUT-OFF valve",
+       "pump P"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "energised (WC circuit closed)",
+        "path": "DC Main Panel bus -> Q7 20A breaker -> Re15 relay NC contact -> T/S C terminal 106 -> controller module (module BR line -> pump P +; module BL line -> WATER SHUT-OFF valve) -> PORT AFT GUEST HEADS pump -> ground/return"
+       },
+       {
+        "state": "GRY tap",
+        "path": "controller module -> GRY wire marked 'not used' -> ground (spare, not in use)"
+       }
+      ],
+      "dry_data": "24V DC circuit; breaker Q7 20A; relay Re15 NC-type contact; pump feed positive side traced (BR->pump), negative/return side to controller module and ground NOT fully traced on this sheet."
+     },
+     {
+      "label": "Stbd Aft Guest WC flush water supply",
+      "what_it_does": "Supplies/controls the flush water pump and shut-off valve for the Stbd Aft Guest heads.",
+      "sheet_region": "row 2 of breaker bank / controller module and pump",
+      "key_components": [
+       "Q8 20A breaker",
+       "Re16 relay (NC contact)",
+       "controller/junction module (BR/BL/GRY)",
+       "WATER SHUT-OFF valve",
+       "pump P"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "energised (WC circuit closed)",
+        "path": "DC Main Panel bus -> Q8 20A breaker -> Re16 relay NC contact -> T/S C terminal 107 -> controller module (BR -> pump +; BL -> WATER SHUT-OFF valve) -> STBD AFT GUEST HEADS pump -> ground/return"
+       },
+       {
+        "state": "GRY tap",
+        "path": "controller module -> GRY wire marked 'not used' -> ground (spare)"
+       }
+      ],
+      "dry_data": "24V DC circuit; breaker Q8 20A; relay Re16 NC contact; pump negative/return side to controller module not fully traced."
+     },
+     {
+      "label": "Port Crew Head WC flush water supply (feeds FWD CREW HEADS pump)",
+      "what_it_does": "Supplies/controls the flush water pump and shut-off valve for the crew heads labelled FWD CREW HEADS at the pump end.",
+      "sheet_region": "row 3 of breaker bank / controller module and pump",
+      "key_components": [
+       "Q9 20A breaker",
+       "Re17 relay (NC contact)",
+       "controller/junction module (BR/BL/GRY)",
+       "WATER SHUT-OFF valve",
+       "pump P"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "energised (WC circuit closed)",
+        "path": "DC Main Panel bus -> Q9 20A breaker -> Re17 relay NC contact -> T/S C terminal 108 -> controller module (BR -> pump +; BL -> WATER SHUT-OFF valve) -> FWD CREW HEADS pump -> ground/return"
+       },
+       {
+        "state": "GRY tap",
+        "path": "controller module -> GRY wire marked 'not used' -> ground (spare)"
+       }
+      ],
+      "dry_data": "24V DC circuit; breaker Q9 20A; relay Re17 NC contact."
+     },
+     {
+      "label": "Stbd Crew Head WC flush water supply (feeds AFT CREW HEADS pump)",
+      "what_it_does": "Supplies/controls the flush water pump and shut-off valve for the crew heads labelled AFT CREW HEADS at the pump end.",
+      "sheet_region": "row 4 of breaker bank / controller module and pump",
+      "key_components": [
+       "Q10 20A breaker",
+       "Re18 relay (NC contact)",
+       "controller/junction module (BR/BL/GRY)",
+       "WATER SHUT-OFF valve",
+       "pump P"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "energised (WC circuit closed)",
+        "path": "DC Main Panel bus -> Q10 20A breaker -> Re18 relay NC contact -> T/S C terminal 109 -> controller module (BR -> pump +; BL -> WATER SHUT-OFF valve) -> AFT CREW HEADS pump -> ground/return"
+       },
+       {
+        "state": "GRY tap",
+        "path": "controller module -> GRY wire marked 'not used' -> ground (spare)"
+       }
+      ],
+      "dry_data": "24V DC circuit; breaker Q10 20A; relay Re18 NC contact."
+     }
+    ]
+   },
+   {
+    "equipment_name": "540-black-water-pumps (FWD and AFT Black Water tank pump-out)",
+    "target_node_id": "540-black-water-pumps",
+    "placement_reasoning": "Load names 'FWD BLACK WATER' (Q11 32A) and 'AFT BLACK WATER' (Q12 32A) match the engineer-confirmed mapping FWD/AFT BLACK WATER PUMP -> 540-black-water-pumps. Each drives a pump, a level sender, a switch (S12/S13) and PC-card level sensing.",
+    "functions": [
+     {
+      "label": "FWD Black Water tank pump-out",
+      "what_it_does": "Pumps out the FWD black water holding tank; provides tank level sensing to the PC card and a manual FWD BLACK switch (S12) input; timer T1 sequences the pump run.",
+      "sheet_region": "left-mid breaker bank (Q11) and right-side FWD BLACK WATER pump/sender, bbox ~[0.03,0.55]-[0.9,0.8]",
+      "key_components": [
+       "Q11 32A breaker",
+       "S01 relay/switch device",
+       "T1 timer relay",
+       "FWD BLACK WATER SENDER (variable resistor)",
+       "S12 FWD BLACK manual switch",
+       "PC CARD level-sense taps A/F/E",
+       "FWD BLACK WATER pump"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "pump run (Q11 closed)",
+        "path": "Supply -> Q11 32A breaker -> switch contact -> S01 -> T/S C terminal 110 -> off-sheet continuation -> FWD BLACK WATER pump (+); pump negative/ground side not traced on this sheet"
+       },
+       {
+        "state": "timer sequencing",
+        "path": "Q11 loop -> T/S B terminal 29 -> T1 timer coil -> T1 contact -> back into S01 loop (function: time-limits or sequences the pump run; exact logic not fully legible)"
+       },
+       {
+        "state": "manual test/select switch",
+        "path": "S12 'FWD BLACK' switch at T/S C 110/off PC card boundary -> selects/confirms FWD tank status alongside PC card taps"
+       },
+       {
+        "state": "tank level sensing to PC card",
+        "path": "T/S C terminals 111/112/113 (fed via XA61 pins 18/16/14 through cable MU4-12[7]) -> PC CARD junctions A / F / E (empty/full/level electrodes) -> terminal 114 (spare/ground stub)"
+       },
+       {
+        "state": "remote command/status pins",
+        "path": "XA30 pin 04 (+) / pin 05 (-) -> power/return line running to FWD BLACK WATER SENDER; direction and destination of this pair not fully traceable off-sheet"
+       }
+      ],
+      "dry_data": "24V DC circuit; breaker Q11 32A; sender is a variable-resistor tank level sender; PC card A/F/E are electrode-style level taps (empty/full/common convention typical for such senders)."
+     },
+     {
+      "label": "AFT Black Water tank pump-out",
+      "what_it_does": "Pumps out the AFT black water holding tank; provides tank level sensing to the PC card and a manual AFT BLACK switch (S13) input; timer T2 sequences the pump run.",
+      "sheet_region": "lower breaker bank (Q12) and right-side AFT BLACK WATER pump/sender, bbox ~[0.03,0.75]-[0.9,0.95]",
+      "key_components": [
+       "Q12 32A breaker",
+       "S02 relay/switch device",
+       "T2 timer relay",
+       "AFT BLACK WATER SENDER (variable resistor)",
+       "S13 AFT BLACK manual switch",
+       "PC CARD level-sense taps A/F/E",
+       "AFT BLACK WATER pump"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "pump run (Q12 closed)",
+        "path": "Supply -> Q12 32A breaker -> switch contact -> S02 -> T/S C terminal 115 -> off-sheet continuation -> AFT BLACK WATER pump (+); pump negative/ground side not traced on this sheet"
+       },
+       {
+        "state": "timer sequencing",
+        "path": "Q12 loop -> T/S B terminal 30 -> T2 timer coil -> T2 contact -> back into S02 loop"
+       },
+       {
+        "state": "manual test/select switch",
+        "path": "S13 'AFT BLACK' switch near T/S C 115 -> selects/confirms AFT tank status alongside PC card taps"
+       },
+       {
+        "state": "tank level sensing to PC card",
+        "path": "T/S C terminals 116/117/118 (fed via XA61 pins 24/22/20) -> PC CARD junctions A / F / E -> terminal 119 (spare/ground stub) -> ground"
+       },
+       {
+        "state": "remote command/status pins",
+        "path": "S02 loop + -> XA70 pin 10; S02 loop - -> XA70 pin 11 \u2014 off-sheet plug destination not shown"
+       }
+      ],
+      "dry_data": "24V DC circuit; breaker Q12 32A; sender is a variable-resistor tank level sender; PC card A/F/E are electrode-style level taps."
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "T/S B terminal strip status/monitoring rail (owned by 641-vessel-control-panel)",
+    "target_node_id": "641-vessel-control-panel",
+    "facts": [
+     "T/S B terminals 19/20 both annotated 'DWG115' \u2014 cross-drawing wired reference, resolved on that other sheet, not detailed here.",
+     "T/S B terminal 21 ties to Re19 coil return; terminal 22 destination unresolved on this sheet (multiple unresolved refs).",
+     "T/S B terminal 23 has no printed load label (spare/unlabelled way).",
+     "T/S B terminal 24 = LOW BAT. ALARM, 25 = MASTERVOLT EASY VIEW, 26 = SHORE POWER PANEL, 27 = GENERAL COCKPIT ALARM, 28 = PEDESTAL LTS (COMPASS LTS) \u2014 these are status/monitoring taps off the main panel terminal strip, not part of the black water system; they physically sit on the same terminal block but are a different, unrelated set of circuits per the sheet's own layout.",
+     "Re19 relay coil is fed on the + side from T/S B terminal 20 via a switch (cross-ref to DWG115); the - side returns via T/S B terminal 21 and ties into the common vertical return line shared with Re15-Re18 diode returns \u2014 function of Re19 itself (what it switches) is not labelled on this sheet."
+    ]
+   },
+   {
+    "system_name": "Main Panel / DC Main Panel supply rails (bus structure)",
+    "target_node_id": "641-vessel-control-panel",
+    "facts": [
+     "DC MAIN PANEL and MAIN PANEL title blocks head two adjacent zones at top of sheet; breakers Q7-Q10 and Q11/Q12 draw from this shared supply bus.",
+     "T/S C terminal strip (106-119) is the routing backbone between the DC Main Panel breaker outputs and the pump/valve control modules and PC card; terminal 114 and 119 are spare/ground stubs (per drawn ground-symbol convention), not in use."
+    ]
+   }
+  ],
+  "cross_references": [
+   {
+    "what": "T/S B terminals 19 and 20 both explicitly annotated 'DWG115' \u2014 a cross-drawing wired connection whose other end (switch/relay logic) is detailed there",
+    "referenced_sheet_hint": "DWG115"
+   },
+   {
+    "what": "Multi-core cable MU4-12 [7] linking XA61 pins 18/16/14 to T/S C terminals 111/112/113 (FWD black water PC-card level taps) \u2014 cable continues off-sheet",
+    "referenced_sheet_hint": "GMMS 112/113 main panel (per established MU4-12/MU5-12 wiring note)"
+   },
+   {
+    "what": "XA61 pins 24/22/20 feeding T/S C terminals 116/117/118 (AFT black water PC-card level taps)",
+    "referenced_sheet_hint": "unknown \u2014 likely same multi-core cable schedule as MU4-12"
+   },
+   {
+    "what": "XA30 pins 04(+)/05(-) power/return pair to FWD BLACK WATER SENDER loop",
+    "referenced_sheet_hint": "unknown"
+   },
+   {
+    "what": "XA70 pins 10(+)/11(-) power/return pair from S02 (AFT black water) loop",
+    "referenced_sheet_hint": "unknown"
+   },
+   {
+    "what": "T/S B terminal 22 destination \u2014 unresolved on this sheet, tied to water-shut-off/pump wiring fragments with no clear routing",
+    "referenced_sheet_hint": "unknown"
+   }
+  ],
+  "good_to_have": [
+   "Exact function/target of Re19 relay (what it switches when energised via T/S B 20/21) is legible as a relay but its downstream contact load is not printed \u2014 inspect physically or check DWG115 if needed.",
+   "T1 and T2 timer relay exact time-delay setting/rating not printed on this sheet \u2014 part number/rating at inspection.",
+   "PC CARD A/F/E electrode roles (likely empty/full/common tank-level sense) not explicitly labelled beyond letter tags \u2014 confirm at inspection.",
+   "S12 'FWD BLACK' and S13 'AFT BLACK' switches: exact function (test/reset/manual override) not detailed, just labelled with tank name.",
+   "Controller/junction modules (dashed twin-slot boxes) ahead of each WC pump are unlabelled generically \u2014 likely pump control/flow modules; part number not legible."
+  ],
+  "uncertainties": [
+   "The positive/feed side of the WC pump controller modules (Port Aft Guest, Stbd Aft Guest, Fwd Crew, Aft Crew Heads) is drawn only as an unlabeled 'left wire in' into the module \u2014 the module's own internal supply source before the BR/BL/GRY outputs is not traceable on this sheet, so each pump's control loop is INCOMPLETE on the feed side.",
+   "T/S B terminal 22's connection is unresolved on this sheet (netlist shows fragments only) \u2014 cannot determine what load/function it serves; needs engineer confirmation.",
+   "Re19's downstream switched function (what device/circuit its contact energises) is not labelled \u2014 only the coil feed/return path is traceable, not what it controls."
+  ],
+  "discarded_as_clutter": [
+   "Title block repeat entries (DWG No./TITLE/DATE/DRAWN/PROJECT/CUSTOMER, copyright notice) \u2014 administrative metadata, not equipment function.",
+   "Legend fragment repeating T/S B terminal 23-28 labels \u2014 already captured once as infrastructure facts; duplicate legend text discarded.",
+   "Orphan letter/fragment IDs from extraction ('conne...' truncated netlist entry, isolated 'MAIN_PANEL' title text annotation) \u2014 sheet titles, not devices.",
+   "Stray 'not used x \u2014 GRY' spare wire annotations repeated 4x \u2014 captured once generically as spare taps, not separate uncertainties."
+  ],
+  "_model": "claude-sonnet-5",
+  "_protocol_version": 5
+ },
+ "netlist_stats": {
+  "segments": 17042,
+  "nets": 2105,
+  "conductors": 1729,
+  "labels": 298,
+  "bound": 109,
+  "unbound": 23,
+  "devices_located": 101,
+  "devices_placed": 101
+ }
+}
