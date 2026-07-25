@@ -538,6 +538,20 @@ def compose(image_png: bytes, extraction: Dict[str, Any],
     result = vp.extract(image_png, "image/png", prompt, _COMPOSE_TOOL,
                         max_tokens=max_tokens)
     result = _repair_stringified(result)
+    # MALFORMED-RESPONSE RETRY (2026-07-26): a tool call can come back with
+    # placeholder keys (e.g. {"parameter_name": ...}) instead of the schema's
+    # fields — seen once on a 31k-segment sheet whose geometry was perfect.
+    # Silently writing that as "0 groups" would look like a real empty result.
+    if isinstance(result, dict) and not result.get("serve_who") \
+            and not result.get("equipment_groups"):
+        retry = vp.extract(image_png, "image/png", prompt, _COMPOSE_TOOL,
+                           max_tokens=max_tokens)
+        retry = _repair_stringified(retry)
+        if isinstance(retry, dict) and (retry.get("serve_who")
+                                        or retry.get("equipment_groups")):
+            result = retry
+        elif isinstance(result, dict):
+            result["_malformed_response"] = True
     if isinstance(result, dict):
         result["_protocol_version"] = PROTOCOL_VERSION
     return result
