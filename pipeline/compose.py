@@ -26,7 +26,7 @@ import config
 # with an older version (the stale-composition failure of 2026-07-22: a write
 # set built from pre-red-pen compositions re-presented every answered
 # uncertainty to the engineer). Airtight by construction, not by memory.
-PROTOCOL_VERSION = 5
+PROTOCOL_VERSION = 6
 
 # ---------------------------------------------------------------------------
 # Per-class composition rules. The GENERAL RULE is shared; these add the
@@ -115,6 +115,7 @@ CLASS_RULES: Dict[str, str] = {
         "the rating digits are genuinely illegible, record it as good-to-have "
         "with low confidence; never present a doubtful rating as fact, and never "
         "let a stray number become a device rating. "
+        "NEGATIVE-BUS SYMBOL (engineer rule): a short line terminating in a bar/tick (a ground-style stub) at the end of a conductor means that conductor RETURNS TO THE NEGATIVE BUS. It is a complete, known return path — record the coil/device negative as 'to negative bus' and do NOT flag it as an untraced side. A cross-sheet note ('+ from DWG n') likewise means the feed is established on that sheet — record it as a cross-reference, not an uncertainty. "
         "SPARE WAYS: an empty/unlabelled breaker way (e.g. 'QE5' with no load) "
         "is a SPARE for future installation — record it as spare, not as an "
         "uncertainty."),
@@ -519,6 +520,13 @@ def compose(image_png: bytes, extraction: Dict[str, Any],
             loop_block = "\n\n" + digest
         if sheet_name:      # authoritative lineup set, when the vessel ships one
             loop_block += "\n\n" + operating_modes.modes_digest(sheet_name)
+    try:
+        from pipeline import open_questions
+        oq = open_questions.open_digest()
+    except Exception:
+        oq = ""
+    if oq:
+        loop_block += "\n\n" + oq
     prompt = _COMPOSE_PROMPT.format(
         class_rules=rules + loop_block,
         glossary=vessel_context.glossary_block(),
