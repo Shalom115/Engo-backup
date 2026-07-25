@@ -1,0 +1,541 @@
+{
+ "sheet": "p23_ER-fan-fuel-valves-tank-ind",
+ "page": 23,
+ "drawing_class": "electrical",
+ "composition": {
+  "serve_who": "This sheet (GMMS 108'-116, \"E.R. FAN / FUEL VALVES / TANK IND.\") serves several distinct systems that happen to share the DC MAIN PANEL supply and a mid-column wire-tag terminal block: (1) Engine-room ventilation (blower/extractor/E-stop signals routed to a VENTILATION CONTROL BOX via T/S C), which is the 599-ventilation-fans / 599-engroom-blower-extractor domain; (2) Fuel transfer equipment \u2014 manual fuel pump, transfer valve, auto (ONYX) fuel pump, port/stbd tank valves, day-tank valve \u2014 matching 550-fuel-transfer by the engineer-confirmed mapping; (3) Fuel/water tank level senders (port/stbd outboard, inboard, day tank, port/stbd water) feeding XA50 connector, which is tank monitoring \u2014 no dedicated fuel/water-tank-sender node exists in the register, closest is 652-onyx-monitoring (ONYX Monitoring & Control) since ONYX is named directly on this sheet (AUTO FUEL PUMP = ONYX per mapping) and XA50/XA21 are its connector blocks; (4) Emergency engine stop wiring (Q17, Re25, terminals 136-140) matching 654-emergency-stops; (5) MYT HYDRAULICS breaker Q18 feeding MYT MAST/ENG.ROOM/AFT PLC taps (141-144), matching 570-myt-systems-hydraulics and its PLC racks (570-plc-rack-mast/er/aft); (6) Fire gate/gas release/door-switch/fire-siren circuit (terminals 131,132,157-159) matching 695-fire-system (gas release) per mapping ENG.ROOM GAS RELEASE ALARM; (7) RACOR fuel filter monitoring (+RACOR block, senders 1-3 via XA40) matching 550-racor-fuel-filters. The DC MAIN PANEL / T/S B / T/S C / T/S E / numbered wire-tag terminal column and Re20-Re26 relay bank are shared infrastructure of the panel, not equipment in themselves \u2014 attached to 640-dc-distribution as the owning distribution node.",
+  "equipment_groups": [
+   {
+    "equipment_name": "Fuel Transfer (Manual + Auto pumps, tank valves)",
+    "target_node_id": "550-fuel-transfer",
+    "placement_reasoning": "Engineer-confirmed mapping: MANUAL FUEL PUMP -> 550-fuel-transfer, ONYX (AUTO FUEL TRANSFER PUMP) -> 550-fuel-transfer. All fuel pump/valve icons on the right column are this equipment's endpoints.",
+    "functions": [
+     {
+      "label": "Manual fuel transfer pump",
+      "function_id": "manual-pump",
+      "what_it_does": "Manually operated 24V DC motor pump that transfers fuel; in series with an inline fuse (F) feeding onward to the transfer fuel valve.",
+      "sheet_region": "right column, ~0.75-1.0 x, 0.18-0.25 y",
+      "key_components": [
+       "motor M (manual fuel pump)",
+       "F fuse inline",
+       "on/off switch (X symbol)"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "energised",
+        "path": "Q15 20A breaker (MANUEL FUEL PUMP) -> T/S B -> on/off switch -> motor M -> through F fuse -> TRANSFER FUEL VALVE"
+       }
+      ],
+      "dry_data": "24V DC motor pump; breaker Q15 20A; fuse F rating not legible on sheet"
+     },
+     {
+      "label": "Transfer fuel valve",
+      "function_id": "transfer-valve",
+      "what_it_does": "Solenoid valve opened in the manual-pump fuel transfer line, positioned downstream of fuse F.",
+      "sheet_region": "right column, ~0.9 x, 0.22 y",
+      "key_components": [
+       "fuse F (shared with manual pump feed)"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "energised with manual pump run",
+        "path": "manual pump circuit -> F fuse -> TRANSFER FUEL VALVE coil -> open"
+       }
+      ],
+      "dry_data": "solenoid valve, feed side only traced (return/negative side not drawn on this sheet)"
+     },
+     {
+      "label": "Auto (ONYX) fuel transfer pump",
+      "function_id": "auto-pump",
+      "what_it_does": "Automatically-controlled fuel pump (ONYX system) wired via connector XA21 pins 01/02.",
+      "sheet_region": "right column, ~0.85 x, 0.28 y",
+      "key_components": [
+       "XA21 connector pins 01,02"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "commanded run",
+        "path": "ONYX control (off-sheet) -> XA21-01/02 -> motor M (AUTO FUEL PUMP)"
+       }
+      ],
+      "dry_data": "24V DC motor; positive/feed side of this loop not traced on this sheet \u2014 only XA21 pins to motor drawn"
+     },
+     {
+      "label": "Port tank fuel valve",
+      "function_id": "port-tank-valve",
+      "what_it_does": "Solenoid valve controlling fuel draw from the port tank, commanded via XA21 pins 13/14.",
+      "sheet_region": "right column, ~0.85 x, 0.32 y",
+      "key_components": [
+       "XA21 connector pins 13,14"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "commanded open",
+        "path": "ONYX/control system (off-sheet) -> XA21-13/14 -> PORT TANK FUEL VALVE"
+       }
+      ],
+      "dry_data": "solenoid valve; feed side not traced on this sheet"
+     },
+     {
+      "label": "STBD tank fuel valve",
+      "function_id": "stbd-tank-valve",
+      "what_it_does": "Solenoid valve controlling fuel draw from the starboard tank, commanded via XA21 pins 15/16.",
+      "sheet_region": "right column, ~0.85 x, 0.34 y",
+      "key_components": [
+       "XA21 connector pins 15,16"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "commanded open",
+        "path": "ONYX/control system (off-sheet) -> XA21-15/16 -> STBD TANK FUEL VALVE"
+       }
+      ],
+      "dry_data": "solenoid valve; feed side not traced on this sheet"
+     },
+     {
+      "label": "Day tank fuel valve",
+      "function_id": "day-tank-valve",
+      "what_it_does": "Solenoid valve controlling fuel to the day tank, driven from wire-tag terminal 130 on the panel's numbered column.",
+      "sheet_region": "mid column, ~0.6 x, 0.5 y",
+      "key_components": [
+       "terminal 130"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "energised",
+        "path": "panel terminal 130 -> FUEL VALVE DAY TANK coil (return side not drawn)"
+       }
+      ],
+      "dry_data": "solenoid valve"
+     }
+    ]
+   },
+   {
+    "equipment_name": "RACOR Fuel Filter monitoring",
+    "target_node_id": "550-racor-fuel-filters",
+    "placement_reasoning": "Named block '+RACOR' with dedicated relay (Re24) and three sender taps (SENDER 1/2/3) via connector XA40 \u2014 matches 550-racor-fuel-filters node for the Racor fuel filter monitoring circuit.",
+    "functions": [
+     {
+      "label": "RACOR filter clog/status monitoring",
+      "function_id": "racor-monitor",
+      "what_it_does": "Monitors up to three RACOR fuel filter sender contacts (clog/water-in-fuel type switches) and relays status through Re24 to panel terminal 135, exiting via connector XA40 to three senders.",
+      "sheet_region": "mid-left, ~0.3-0.45 x, 0.55-0.62 y",
+      "key_components": [
+       "Re24 relay",
+       "3x sender switch contacts (SENDER 1/2/3)",
+       "+RACOR supply/ground terminal block"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "filter status change",
+        "path": "+RACOR block -> lower switch contact -> Re24 coil -> terminal 135 -> XA40 connector (10-core cable) -> SENDER 1 / SENDER 2 / SENDER 3 (parallel taps)"
+       }
+      ],
+      "dry_data": "relay Re24; connector XA40 wire count 10 (per sheet callout)"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Engine Room Ventilation (Blower/Extractor)",
+    "target_node_id": "599-engroom-blower-extractor",
+    "placement_reasoning": "T/S C terminals 120-125 are explicitly labelled 'on/off BLOWER', 'on/off EXTRACTOR', 'E STOP', 'on/off with ENG.ROOM TEMP' and route to 'VENTILATION CONTROL BOX' \u2014 matches Engine Room Blower/Extractor node (Q18 ENG.ROOM BLOWER + Q19 ENG.ROOM EXTRACTOR per established facts, though this sheet doesn't show those breakers directly).",
+    "functions": [
+     {
+      "label": "Blower/extractor on-off and E-stop signalling to ventilation control box",
+      "function_id": "vent-control-signals",
+      "what_it_does": "Provides four command/status lines from T/S C to an external Ventilation Control Box: blower on/off, extractor on/off, E-stop, and on/off gated by engine-room temperature; plus a + supply tap.",
+      "sheet_region": "top of sheet, T/S C block ~0.55-0.63 x, 0.1-0.16 y",
+      "key_components": [
+       "T/S C terminals 120-125"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "neutral/signal routing",
+        "path": "T/S C terminal 120 (pin1, on/off BLOWER) -> to VENTILATION CONTROL BOX"
+       },
+       {
+        "state": "neutral/signal routing",
+        "path": "T/S C terminal 121 (pin2, on/off EXTRACTOR) -> to VENTILATION CONTROL BOX"
+       },
+       {
+        "state": "neutral/signal routing",
+        "path": "T/S C terminal 122 (pin3, E STOP) -> to VENTILATION CONTROL BOX"
+       },
+       {
+        "state": "neutral/signal routing",
+        "path": "T/S C terminal 123 (pin4, on/off with ENG.ROOM TEMP) -> to VENTILATION CONTROL BOX"
+       },
+       {
+        "state": "supply tap",
+        "path": "T/S C terminal 124 (pin5, +) supply feed to ventilation control box, terminal 125 (pin6) unlabeled"
+       }
+      ],
+      "dry_data": "terminal strip T/S C, 6 pins; destination Ventilation Control Box is off-sheet (cross-reference)"
+     }
+    ]
+   },
+   {
+    "equipment_name": "MYT Hydraulics (PLC monitoring taps)",
+    "target_node_id": "570-myt-systems-hydraulics",
+    "placement_reasoning": "Breaker labelled 'MYT HYDRAULICS Q18 20A' directly feeds relay Re26 and onward to three PLC status taps (MYT MAST PLC, MYT ENG. ROOM PLC, MYT AFT PLC) \u2014 matches engineer mapping MYT HYDRAULICS -> 570-myt-systems-hydraulics and established fact for Q18/20A supply on this sheet.",
+    "functions": [
+     {
+      "label": "MYT hydraulics supply and PLC status taps",
+      "function_id": "myt-plc-taps",
+      "what_it_does": "Feeds MYT Hydraulics load from breaker Q18 20A via relay Re26, and carries three separate status/command taps out to MYT's three PLC racks (mast, engine room, aft).",
+      "sheet_region": "lower-left, ~0.0-0.35 x, 0.68-0.78 y",
+      "key_components": [
+       "Q18 20A breaker",
+       "Re26 relay"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "supply feed",
+        "path": "DC MAIN PANEL -> Q18 20A -> Re26 contacts -> onward to terminal 141/142/143 tap points"
+       },
+       {
+        "state": "MAST PLC tap",
+        "path": "terminal 141 -> MYT MAST PLC"
+       },
+       {
+        "state": "ENG.ROOM PLC tap",
+        "path": "terminal 142 -> MYT ENG. ROOM PLC"
+       },
+       {
+        "state": "AFT PLC tap",
+        "path": "terminal 143 -> MYT AFT PLC"
+       },
+       {
+        "state": "terminal 144",
+        "path": "terminal 144 (fused terminal) -> routes down/right, destination not fully traced on this sheet"
+       }
+      ],
+      "dry_data": "breaker Q18 20A per established fact; terminal 144 has a built-in fuse per engineer rule"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Emergency Engine Stop",
+    "target_node_id": "654-emergency-stops",
+    "placement_reasoning": "Breaker labelled 'EMERGENCY STOP Q17 6A' feeds relay Re25 with terminals explicitly captioned 'EMERGENCY ENGINE STOP' and 'EMERGENCY STOP (MAINPANEL)' \u2014 direct name match to 654-emergency-stops.",
+    "functions": [
+     {
+      "label": "Emergency engine stop control loop",
+      "function_id": "emergency-stop-loop",
+      "what_it_does": "Provides the emergency engine stop command from Q17 breaker through relay Re25's multi-contact group, exiting via terminal 136 (caption 'EMERGENCY ENGINE STOP') and a cross-reference tap to XA10, with a final hardware stop output terminal (138-140) reaching an 'EMERGENCY STOP (MAINPANEL)' device.",
+      "sheet_region": "mid-left, ~0.0-0.35 x, 0.68-0.83 y",
+      "key_components": [
+       "Q17 6A breaker",
+       "Re25 relay (5-contact group)",
+       "terminal 139 (built-in fuse)"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "neutral supply",
+        "path": "DC MAIN PANEL -> Q17 6A -> Re25 contact group"
+       },
+       {
+        "state": "engine stop command out",
+        "path": "Re25 contacts -> terminal 136 (EMERGENCY ENGINE STOP) -> onward wiring"
+       },
+       {
+        "state": "cross-drawing tap",
+        "path": "terminal 137 -> XA10 connector (10-core, see DWG for continuation)"
+       },
+       {
+        "state": "main-panel stop output",
+        "path": "terminal 138 -> fused terminal 139 -> terminal 140 -> EMERGENCY STOP (MAINPANEL) device"
+       }
+      ],
+      "dry_data": "breaker Q17 6A; fused terminal 139 (fuse rating not legible \u2014 inspect at panel)"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Fire/Gas Release Alarm (Engine Room)",
+    "target_node_id": "695-fire-system",
+    "placement_reasoning": "Sheet shows a 'GAS RELEASE' / 'DOOR SWITCH' contact driving a 'FIRE SIREN \u2014 ENG. ROOM' via terminals 157-159, matching the engineer mapping ENG.ROOM GAS RELEASE ALARM -> 695-fire-system.",
+    "functions": [
+     {
+      "label": "Gas release door-switch to fire siren",
+      "function_id": "gas-release-siren",
+      "what_it_does": "A door switch associated with the gas release system closes to sound the engine-room fire siren, wired through terminals 157-159.",
+      "sheet_region": "bottom right, ~0.75-1.0 x, 0.88-0.93 y",
+      "key_components": [
+       "DOOR SWITCH (gas release)",
+       "FIRE SIREN \u2014 ENG. ROOM"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "door switch closed / gas release triggered",
+        "path": "terminal 157 -> DOOR SWITCH (gas release) closes -> terminal 158/159 -> FIRE SIREN (ENG. ROOM) sounds"
+       }
+      ],
+      "dry_data": "positive/feed side of siren loop not traced on this sheet"
+     },
+     {
+      "label": "Fire gate signal taps",
+      "function_id": "fire-gate-taps",
+      "what_it_does": "Two wire-tag terminals (131, 132) both captioned 'FIRE GATE', tapping off the Re22/Re23 relay/contact group toward an off-sheet fire gate mechanism.",
+      "sheet_region": "mid column, ~0.6 x, 0.46-0.48 y",
+      "key_components": [
+       "Re22 relay",
+       "Re23 relay",
+       "terminals 131,132"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "fire gate command",
+        "path": "Re22/Re23 contact group -> terminal 131 -> FIRE GATE (off-sheet)"
+       },
+       {
+        "state": "fire gate command (second tap)",
+        "path": "Re22/Re23 contact group -> terminal 132 -> FIRE GATE (off-sheet)"
+       }
+      ],
+      "dry_data": "exact fire-gate destination device not shown on this sheet"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Fuel & Water Tank Level Senders (ONYX monitoring)",
+    "target_node_id": "652-onyx-monitoring",
+    "placement_reasoning": "XA50 connector block lists eight sender pairs (port/stbd outboard, port/stbd inboard, day tank, port/stbd water) feeding an ONYX-style monitoring connector; ONYX CONTROL -> 652-onyx-monitoring per engineer mapping, and this is the tank-sender legend for that monitoring system.",
+    "functions": [
+     {
+      "label": "Port outboard fuel tank sender",
+      "function_id": "sender-port-outboard",
+      "what_it_does": "Reports port outboard fuel tank level via XA50 pins 01/02.",
+      "sheet_region": "right column, ~0.85 x, 0.37 y",
+      "key_components": [
+       "XA50 pins 01,02"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "status",
+        "path": "PORT OUTBOARD FUEL SENDER -> XA50-01/02 -> ONYX monitoring (off-sheet)"
+       }
+      ],
+      "dry_data": "resistive level sender"
+     },
+     {
+      "label": "STBD outboard fuel tank sender",
+      "function_id": "sender-stbd-outboard",
+      "what_it_does": "Reports stbd outboard fuel tank level via XA50 pins 03/04.",
+      "sheet_region": "right column, ~0.85 x, 0.385 y",
+      "key_components": [
+       "XA50 pins 03,04"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "status",
+        "path": "STBD OUTBOARD FUEL SENDER -> XA50-03/04 -> ONYX monitoring (off-sheet)"
+       }
+      ],
+      "dry_data": "resistive level sender"
+     },
+     {
+      "label": "Port inboard fuel tank sender",
+      "function_id": "sender-port-inboard",
+      "what_it_does": "Reports port inboard fuel tank level via XA50 pins 05/06.",
+      "sheet_region": "right column, ~0.85 x, 0.4 y",
+      "key_components": [
+       "XA50 pins 05,06"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "status",
+        "path": "PORT INBOARD FUEL SENDER -> XA50-05/06 -> ONYX monitoring (off-sheet)"
+       }
+      ],
+      "dry_data": "resistive level sender; positive/feed not traced"
+     },
+     {
+      "label": "STBD inboard fuel tank sender",
+      "function_id": "sender-stbd-inboard",
+      "what_it_does": "Reports stbd inboard fuel tank level via XA50 pins 07/08.",
+      "sheet_region": "right column, ~0.85 x, 0.415 y",
+      "key_components": [
+       "XA50 pins 07,08"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "status",
+        "path": "STBD INBOARD FUEL SENDER -> XA50-07/08 -> ONYX monitoring (off-sheet)"
+       }
+      ],
+      "dry_data": "resistive level sender; positive/feed not traced"
+     },
+     {
+      "label": "Day tank fuel sender",
+      "function_id": "sender-day-tank",
+      "what_it_does": "Reports day tank fuel level via XA50 pins 09/10.",
+      "sheet_region": "right column, ~0.85 x, 0.43 y",
+      "key_components": [
+       "XA50 pins 09,10"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "status",
+        "path": "DAY TANK FUEL SENDER -> XA50-09/10 -> ONYX monitoring (off-sheet)"
+       }
+      ],
+      "dry_data": "resistive level sender; positive/feed not traced"
+     },
+     {
+      "label": "Port water tank sender",
+      "function_id": "sender-port-water",
+      "what_it_does": "Reports port fresh-water tank level via XA50 pins 11/12.",
+      "sheet_region": "right column, ~0.85 x, 0.445 y",
+      "key_components": [
+       "XA50 pins 11,12"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "status",
+        "path": "PORT WATER SENDER -> XA50-11/12 -> ONYX monitoring (off-sheet)"
+       }
+      ],
+      "dry_data": "resistive level sender; positive/feed not traced"
+     },
+     {
+      "label": "STBD water tank sender",
+      "function_id": "sender-stbd-water",
+      "what_it_does": "Reports stbd fresh-water tank level via XA50 pins 13/14.",
+      "sheet_region": "right column, ~0.85 x, 0.46 y",
+      "key_components": [
+       "XA50 pins 13,14"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "status",
+        "path": "STBD WATER SENDER -> XA50-13/14 -> ONYX monitoring (off-sheet)"
+       }
+      ],
+      "dry_data": "resistive level sender; positive/feed not traced"
+     }
+    ]
+   },
+   {
+    "equipment_name": "DC Distribution / Terminal & Relay Infrastructure (panel-owned)",
+    "target_node_id": "640-dc-distribution",
+    "placement_reasoning": "T/S B, T/S C, T/S E, the mid-column numbered wire-tag terminal block (126-159), the SR2 B121BD logic module, and relays Re20-Re26 are all shared panel infrastructure distributing supply/signals to the equipment above \u2014 per BUS OWNERSHIP rule these belong to the distribution panel node, not to any single load.",
+    "functions": [
+     {
+      "label": "Terminal strip and relay distribution backbone",
+      "function_id": "backbone",
+      "what_it_does": "Central terminal strips (T/S B 31-39, T/S C 120-125, T/S E 40-41) and a logic/relay bank (SR2 B121BD, Re20-Re26) distribute DC panel power and control signals out to the ventilation, fuel, emergency-stop, and MYT hydraulics circuits documented above.",
+      "sheet_region": "center of sheet, ~0.15-0.63 x, 0.1-0.9 y",
+      "key_components": [
+       "T/S B terminal strip",
+       "T/S C terminal strip",
+       "T/S E terminal strip",
+       "SR2 B121BD logic module",
+       "relays Re20,Re21,Re22,Re23,Re24,Re25,Re26"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "breaker feed",
+        "path": "DC MAIN PANEL bus -> Q15/Q16/Q17/Q18 breakers -> T/S B / relay bank distribution"
+       }
+      ],
+      "dry_data": "SR2 B121BD is a small PLC/logic relay module with 4 NO contact outputs; part numbers/ratings not read"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "DC Main Panel breaker feeds (Q15-Q18, QE1-QE6)",
+    "facts": [
+     "Left-edge breaker stack: Q15 20A (Manual Fuel Pump), Q16 10A (Fuel/Ventilation), Q17 6A (Emergency Stop), Q18 20A (MYT Hydraulics), plus emergency breakers QE1 32A, QE2 6A, QE3 10A, QE4 10A, QE5 20A, QE6 16A",
+     "QE5 20A and QE6 16A have no load name legible on this sheet \u2014 treat as spare/unlabeled ways unless resolved elsewhere",
+     "Supplied from +24V SERVICE BAT. and +24V EMERGENCY BAT. rails at bottom-left of sheet"
+    ]
+   },
+   {
+    "system_name": "Numbered wire-tag terminal column (126-159)",
+    "facts": [
+     "Mid-column terminal block routes numbered signal tags between the relay/logic area and the right-hand equipment legend/other drawings",
+     "Tags 127/128 cross-reference 'see DWG 118'",
+     "Tag 130 feeds Fuel Valve Day Tank",
+     "Tags 145-148 route via MU5a-12 cable to 'see DWG 121'; tags 149-156 marked 'not used' (spare)",
+     "Terminals 139 and 144 have built-in replaceable fuses per drawn fused-terminal symbol"
+    ]
+   }
+  ],
+  "cross_references": [
+   {
+    "what": "Wire tags 127/128 continue",
+    "referenced_sheet_hint": "DWG 118"
+   },
+   {
+    "what": "T/S C signals (blower/extractor/E-stop/temp on-off) route to Ventilation Control Box",
+    "referenced_sheet_hint": "Ventilation Control Box sheet (not yet identified)"
+   },
+   {
+    "what": "Terminal 137 tap to XA10 connector",
+    "referenced_sheet_hint": "XA10 connector detail sheet"
+   },
+   {
+    "what": "Terminal 135 tap to XA40 connector (RACOR senders)",
+    "referenced_sheet_hint": "XA40 connector detail sheet"
+   },
+   {
+    "what": "MU5a-12 cable from terminals 145-148",
+    "referenced_sheet_hint": "DWG 121"
+   },
+   {
+    "what": "XA21 connector pin list (auto fuel pump, tank valves)",
+    "referenced_sheet_hint": "XA21 connector detail / ONYX wiring sheet"
+   },
+   {
+    "what": "XA50 connector pin list (fuel/water senders)",
+    "referenced_sheet_hint": "XA50 connector detail / ONYX wiring sheet"
+   },
+   {
+    "what": "MYT PLC taps 141/142/143",
+    "referenced_sheet_hint": "MYT MAST PLC / MYT ENG.ROOM PLC / MYT AFT PLC rack sheets (570-plc-rack-mast/er/aft)"
+   },
+   {
+    "what": "Fire gate terminals 131/132 destination mechanism",
+    "referenced_sheet_hint": "Fire gate / fire suppression sheet"
+   }
+  ],
+  "good_to_have": [
+   "Fuse F (manual fuel pump / transfer valve line) rating \u2014 capture at inspection",
+   "Fused terminal 139 rating \u2014 capture at inspection",
+   "Fused terminal 144 rating \u2014 capture at inspection",
+   "SR2 B121BD module exact part/model details available on sheet",
+   "Wire gauge callout near XA40 (10 mm\u00b2 per sheet annotation) \u2014 confirm at inspection",
+   "QE1-QE6 exact load assignments beyond what's printed \u2014 some appear as spare ways"
+  ],
+  "uncertainties": [
+   "QE5 20A and QE6 16A have no load name legible on this sheet/extraction \u2014 cannot confirm if these are spares or feed equipment not named here.",
+   "The positive/feed side of the AUTO FUEL PUMP, PORT/STBD TANK FUEL VALVE, and all XA50 fuel/water senders is not drawn on this sheet \u2014 only the return/signal side to XA21/XA50 is traced; full loop needs the ONYX wiring sheet.",
+   "Re20 coil's negative/return side and the MANUEL FUEL PUMP on/off switch's positive/feed side are not traceable on this sheet \u2014 loops are incomplete as drawn.",
+   "Destination device for Fire Gate terminals 131/132 is not shown on this sheet \u2014 only relay contacts and terminal tags are visible; actual fire-gate actuator identity unconfirmed here.",
+   "Relay Re22's contact linkage detail is marked illegible in the SR2 B121BD table region \u2014 its exact switching role could not be confirmed from this sheet."
+  ],
+  "discarded_as_clutter": [
+   "Title block repeat (DWG No./Title/Date/Drawn/Project/Customer) \u2014 administrative metadata, not equipment",
+   "Copyright notice text block",
+   "Duplicate wire-tag/terminal listings appearing in both survey regions and grid_tile passes for the same terminals (130,133-159 etc.) \u2014 consolidated into single facts",
+   "T/S E illegible sub-legend fragment \u2014 no resolvable content beyond terminal numbers 40/41 already captured",
+   "Orphan annotation 'wire_gauge_diamond_1' and 'wire-gauge-diamond-unlabeled' \u2014 unresolved illegible gauge callouts near IB/IC/IE, no functional impact"
+  ],
+  "_model": "claude-sonnet-5",
+  "_protocol_version": 4
+ },
+ "netlist_stats": {
+  "segments": 24804,
+  "nets": 2148,
+  "conductors": 1545,
+  "labels": 416,
+  "bound": 170,
+  "unbound": 19,
+  "devices_located": 109,
+  "devices_placed": 109
+ },
+ "placed_devices": 109
+}
