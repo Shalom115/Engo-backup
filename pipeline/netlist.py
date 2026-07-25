@@ -38,8 +38,10 @@ _DEVICE_ID = re.compile(r"^[A-Za-z]{1,4}[-_ ]?\d{1,3}(\.\d+)?$")
 
 def build(pdf_bytes: bytes, page_index: int = 0, *,
           labels: Optional[List[Dict[str, Any]]] = None,
+          located: Optional[List[Dict[str, Any]]] = None,
+          locate: bool = True,
           tol: float = 0.75, bind_dist: float = 10.0) -> Dict[str, Any]:
-    """Full netlist for one sheet."""
+    """Full netlist for one sheet: geometry + labels + located device symbols."""
     from pipeline import label_ocr
     segs = net_trace.extract_segments(pdf_bytes, page_index)
     nets = net_trace.classify_nets(net_trace.build_nets(segs, tol=tol))
@@ -59,7 +61,24 @@ def build(pdf_bytes: bytes, page_index: int = 0, *,
                 devices.append(rec)
     bound_texts = {l["text"] for n in nets for l in n["labels"]}
     unbound = [l for l in labels if l["text"] not in bound_texts]
+
+    # LAYER 3: locate device symbols and bind them to the nets they touch, so
+    # terminal->device is answerable by geometry (the piece missing at 50%).
+    result_stub = {"_nets_full": nets}
+    if located is None and locate:
+        from pipeline import device_locate
+        try:
+            located = device_locate.locate_devices(pdf_bytes, page_index)
+        except Exception:
+            located = []
+    placed_devices = []
+    if located:
+        # located boxes are already page-points (device_locate emits points)
+        bind_devices(result_stub, located, page_size=None)
+        placed_devices = result_stub.get("placed_devices", [])
+
     return {"nets": [{"net_id": n["net_id"], "kind": n["kind"],
+                      "devices": n.get("devices", []),
                       "bbox": [round(v, 1) for v in n["bbox"]],
                       "n_segments": n["n_segments"],
                       "labels": [l["text"] for l in n["labels"]]}
@@ -67,12 +86,15 @@ def build(pdf_bytes: bytes, page_index: int = 0, *,
             "_nets_full": nets,
             "terminals": terminals,
             "devices": devices,
+            "placed_devices": placed_devices,
             "unbound_labels": [l["text"] for l in unbound],
             "stats": {"segments": len(segs), "nets": len(nets),
                       "conductors": sum(1 for n in nets if n["kind"] == "conductor"),
                       "labels": len(labels),
                       "bound": len(bound_texts),
-                      "unbound": len(unbound)}}
+                      "unbound": len(unbound),
+                      "devices_located": len(located or []),
+                      "devices_placed": len(placed_devices)}}
 
 
 def bind_devices(netlist: Dict[str, Any],
@@ -178,9 +200,15 @@ def digest(netlist: Dict[str, Any], max_nets: int = 40) -> str:
            "each other on the sheet."]
     shown = 0
     for n in netlist["nets"]:
-        if n["kind"] != "conductor" or len(n["labels"]) < 2:
+        if n["kind"] != "conductor":
             continue
-        out.append(f"  {n['net_id']}: " + " = ".join(n["labels"][:12]))
+        devs = n.get("devices", [])
+        if len(n["labels"]) < 2 and not devs:
+            continue
+        line = f"  {n['net_id']}: " + " = ".join(n["labels"][:12])
+        if devs:
+            line += "   [devices on this net: " + ", ".join(sorted(set(devs))[:6]) + "]"
+        out.append(line)
         shown += 1
         if shown >= max_nets:
             break
