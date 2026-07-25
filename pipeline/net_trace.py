@@ -42,26 +42,43 @@ Segment = Tuple[Point, Point]
 # --------------------------------------------------------------- extraction
 def extract_segments(pdf_bytes: bytes, page_index: int = 0,
                      *, include_rects: bool = True) -> List[Segment]:
-    """Every drawn line segment on the page, in PDF points."""
+    """
+    Every drawn line segment on the page, in PDF points.
+
+    ROTATION (found on BAE 2026-07-22): pages in one file can carry different
+    /Rotate values (BAE p0 = 90, the rest 0). `page.get_drawings()` returns
+    coordinates in UNROTATED space, while renders/OCR boxes follow the
+    displayed rotation — mixing the two silently misaligns every label bind.
+    Normalizing here keeps geometry and labels in ONE space.
+    """
     import fitz
     doc = fitz.open(stream=pdf_bytes, filetype="pdf")
     page = doc[page_index]
+    # use PyMuPDF's own rotation matrix — exact, no hand-derived trig
+    rot = page.rotation or 0
+    _m = page.rotation_matrix if rot else None
+    def _fix(pt):
+        if _m is None:
+            return pt
+        p = fitz.Point(pt[0], pt[1]) * _m
+        return (p.x, p.y)
     segs: List[Segment] = []
     for path in page.get_drawings():
         for item in path["items"]:
             kind = item[0]
             if kind == "l":
                 a, b = item[1], item[2]
-                segs.append(((a.x, a.y), (b.x, b.y)))
+                segs.append((_fix((a.x, a.y)), _fix((b.x, b.y))))
             elif kind == "re" and include_rects:
                 r = item[1]
-                c = [(r.x0, r.y0), (r.x1, r.y0), (r.x1, r.y1), (r.x0, r.y1)]
+                c = [_fix(p) for p in ((r.x0, r.y0), (r.x1, r.y0),
+                                       (r.x1, r.y1), (r.x0, r.y1))]
                 for i in range(4):
                     segs.append((c[i], c[(i + 1) % 4]))
             elif kind == "qu" and include_rects:
                 q = item[1]
-                pts = [(q.ul.x, q.ul.y), (q.ur.x, q.ur.y),
-                       (q.lr.x, q.lr.y), (q.ll.x, q.ll.y)]
+                pts = [_fix(p) for p in ((q.ul.x, q.ul.y), (q.ur.x, q.ur.y),
+                                         (q.lr.x, q.lr.y), (q.ll.x, q.ll.y))]
                 for i in range(4):
                     segs.append((pts[i], pts[(i + 1) % 4]))
     return segs
