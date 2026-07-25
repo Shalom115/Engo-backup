@@ -1,0 +1,37 @@
+ENGINEER RED-PEN — two fresh GM sheets (2026-07-22, verbatim). VERDICT: "this is a
+great result... this is a good 90% answer" -> GO to ingest full GM book + write to Register.
+
+GM-116 (p23) uncertainties:
+1. QE5 20A / QE6 16A: "yes Q5 and QE6 are part of the emergency board and will be resolved
+   as the sheets are ingested"
+2. XA50 / ONYX taps: "as onyx is the monitoring and control system it's also got a PLC side
+   to it so through the screens its not only getting signals it also powers things like the
+   auto fuel pump, fuel valves and other things". Onyx drawings file attached (part of the
+   650 monitoring and control folder). "these type of things will be resolved as the rest of
+   the electrical system gets ingested."
+   *** STRUCTURAL DEMAND: "there will be a lot of time when things are not necessarily
+   understood in the current sheet/file but it will come clear as the entire drive gets
+   ingested so we need to make sure that questions like that get answered somehow maybe
+   keeping an open uncertainty list going on and when every sheet gets ingested at the end
+   of the sheet there will be a cross reference of what is uncertain and what in this sheet
+   answered past uncertainties or something like this, work your magic to create a solution."
+   *** When ingesting the Onyx drawings: use the same line-tracing system and IMPROVE it —
+   that set has sheets with IMAGES and REASONING in them.
+3. Re20: "the positive is in DWG 118 as it says"; the attached symbol screenshot (a short
+   horizontal line with a vertical bar / ground-style tick) "simply means its a negative that
+   is connected to the negative bus". MANUEL FUEL PUMP: positive from Q15 (already read),
+   negative/return same as Re20 (the negative-bus symbol).
+4. "Fire gate" = in his opinion the VENTILATION GATE that shuts ER ventilation before gas
+   release into the chamber.
+5. "good flag will be confirmed in other sheets"
+
+GM-118 (p25): "the + comes from DWG 116, the negative is answered with the screenshot"
+(negative-bus symbol).
+
+NEXT ORDERS:
+A. Ingest ALL of the GM book in this manner and WRITE TO REGISTER (90% answer accepted).
+B. Then build an exact plan to use the same multi-tool system for BAE and P&ID.
+C. Hydraulic + PLC "were not far from locked" — add improvements from lessons learned here.
+D. Then scan with the new/improved protocols: the 3 AFT hydraulic sheets + their
+   corresponding AFT PLC pages + bilge & fire + black water + the electrical GA + one NEW GA,
+   all with line tracing. Show results after finishing.
