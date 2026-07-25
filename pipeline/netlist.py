@@ -116,6 +116,8 @@ def bind_devices(netlist: Dict[str, Any],
     nets = netlist["_nets_full"]
     placed: List[Dict[str, Any]] = []
     for dv in devices:
+        if not isinstance(dv, dict):    # same guard: non-dict device entry
+            continue
         bx = dv.get("bbox")
         if not bx or len(bx) != 4:
             continue

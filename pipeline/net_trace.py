@@ -176,6 +176,8 @@ def bind_labels(nets: List[Dict[str, Any]],
     A label binds to the net with the nearest ink within `max_dist` points.
     """
     for lb in labels:
+        if not isinstance(lb, dict):    # provider returned a bare string —
+            continue                    # skip, never crash the page
         bx = lb.get("bbox")
         if not bx or len(bx) != 4:
             continue
