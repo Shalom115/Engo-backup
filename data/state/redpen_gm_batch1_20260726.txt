@@ -1,0 +1,55 @@
+ENGINEER RED-PEN — GM batch 1 (2026-07-26, verbatim). POLARITY REVERSED = massive mistake.
+
+p15 NAV LTS ALARM — "you got the run wrong it didn't follow the lines correctly":
+* Steaming lights: terminal 41 activates ONLY relay 10; terminal 40 ONLY relay 9;
+  terminal 39 ONLY relay 8; terminal 38 ONLY relay 7. "their positive is COMMON from
+  T/S E terminal 21 which it completely ignored. what caused this mistake? find the
+  real answer"
+* Siemens: not on the sheet -> keep in the uncertain list, may reveal itself later.
+
+p20 BILGE / WATER VALVE — "Again a misread... completely reversed the polarity":
+* Mistook XA60 SIGNAL terminals for XA41 CONTROL functions.
+* Relays 7,8,9,10,11 SUPPLY POSITIVE to the M (valve motors); each relay is activated
+  by its respective XA41 terminal which gives it a NEGATIVE.
+* "the sweep showed that QE14 and the respective fused terminals were the negative when
+  if you follow QE14 back it clearly says it is coming from the positive"
+* GENERAL RULE: "in low voltage DC systems breakers are *almost* always on the + side
+  not the - side."
+* "why did it not follow Q14 all the way back? what is wrong on the general protocol
+  level?"
+* XA60s are SIGNAL to the Onyx system -> should cross-reference the onyx drawings.
+
+p22 BLACK WATER — "looks good". Uncertainties answered:
+* module controls activation; positive is there, WC button activates it; positive from
+  the specified route, NEGATIVE COMES DIRECT FROM THE BUS.
+* not on the sheet -> disregard until found elsewhere; "stick to what you can find!"
+* Relay 19: confusing, not critical now. What it controls is obvious — it gives NEGATIVE
+  to relays whose load is on the NC side, so energising it OPENS those loads. The diode
+  on it is the confusing part (direction unclear); possibly overfill protection.
+
+p26 AFT COMPANION WAY — "do over to the inflation mechanism you missed a lot there!":
+* Positive for S1 comes from RE3, for S2 from RE4, THROUGH A ROW OF RELAYS AND BUTTONS.
+* *** THE RELAY RULE (engineer, general): "look at this drawing and FOLLOW THE LINES!!
+  when seeing that a line reached a relay look if it is on the NO or NC side of the
+  relay. If the relay shows OPEN CONTACT and DOTTED LINES BELOW that means it's NO and
+  when relay is energised it will close it; and if it shows a CLOSED CONTACT with DOTTED
+  LINES it means NC. In general in relays always have to ask: 'is the load/signal
+  connected to NC or NO?' and 'What energizes this coil to change the position of the
+  relay?' The idea is that the relays control the functions and their control either
+  open or close a circuit — so get this to the protocol somehow in an efficient and
+  smart way." ***
+* + side of V1 and the Aux inflate/deflate valve come through a row of relays activated
+  by certain functions, e.g. the REED SWITCH (magnetic proximity switch) which when
+  engaged closes the loop of terminals 24 and 25 and supplies NEGATIVE to relay 8, which
+  allows the inflate valves to open and inflate the seal — if SW (inflate/deflate), the
+  seal activation switch, is closed.
+* "the fact there is an inflatable seal on both companionways is GIVEN IN THE OWNER
+  MANUAL and should have been known to engo. what are we missing here? why were these
+  mistakes made?"
+
+p36 MAST/EXTERIOR LTS — "almost complete, good follow but same issue with the relays, do over"
+p41 COCKPIT HYDRAULIC PANELS — "the relays are activating the light in the switch, each
+  one for its individual function it is next to"
+
+ORDER: find the GENERAL REAL REASONS, do the fixes, re-run, show results + all
+corrections made to the other protocols.
