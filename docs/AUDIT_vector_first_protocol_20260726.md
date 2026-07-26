@@ -190,6 +190,92 @@ through `rotation_matrix` when comparing against or cropping from renders.
 The BAE set is drawn rotated 90° (known from the corpus survey) — this fix is
 a precondition for probing it, not an afterthought.
 
+## 5c. FULL ACCOUNTING — nothing on the page is left unread (2026-07-26, engineer push-back #2)
+
+The engineer's second grade: "everything you left in black won't be read" — the
+first overlays colored only the top-60 nets and drew nothing for symbols/labels.
+Fixed in `tools/vector_extract_poc.py`, proven on p13 (GMMS 111a):
+
+- **100% of ink pixels accounted** into four primitive classes: 810 wire
+  conductors (dash-joined) → 355 nets; 309 closed-loop symbol boxes (terminal
+  boxes, fuse elements, relay outlines, diamonds); 1,486 filled marks (junction
+  dots — used as net connectors — and arrowheads); 344 label boxes (incl. 14
+  vertical). Every class drawn in the overlay; nothing black.
+- **Labels read and attached, locally, $0:** 330/344 OCR non-empty; 163 word-
+  confidence ≥70 untuned ('NAVIGATION LTS' 94, 'PORT NAV. LT.' 95,
+  'NAV.LIGHTS ALARM SYSTEM' 95, 'STEAMING LT. 2' 96); **325/344 labels attached
+  to their net or symbol within 12pt by geometry alone.**
+- Known gaps, named: lamp/circle symbols (curve loops) not yet promoted to
+  symbol boxes; ~half the labels below conf-70 await the residue channel;
+  `get_pixmap(clip=)` is rotation-treacherous — the POC crops from one
+  full-page render instead (two mis-crop bugs burned before this was learned).
+
+**The deterministic OCR endgame — glyph-fingerprint FONT DECODE:** the plotted
+SHX text means each character is an identical vector shape everywhere (89%
+shape-reuse measured). Build the font table once per drafting house (one vision
+read of the ~80 unique glyph shapes, or self-derived by aligning high-confidence
+tesseract reads with their glyph sequences), and every label on every sheet of
+every GM-drawn vessel decodes EXACTLY, forever — zero OCR noise, zero API. Same
+family as the decode_c +29 win, at glyph level. This is the planned kill for the
+OCR-residue channel, not a nice-to-have.
+
+## 5d. HOW EXTRACTED OBJECTS BECOME NODE FACTS (the engineer's "how will all of
+this be added to the nodes?")
+
+The assembly emits one structured record per device: `{device_type (from the
+symbol bank), id + rating (from attached labels), net memberships (from the
+netlist), bbox}`. From there the EXISTING machinery routes it — nothing new:
+- supply devices → `write_electrical_row` (load-map first, §9e fallback,
+  flag-never-guess) → `electrical_supply` fact on the load's node;
+- switches/relays/indicators → control/indicator facts per the two routing
+  rules (FEEDER≠LOAD, CONTROL≠INDICATOR≠SUPPLY);
+- **activation loops become graph queries, not extractions**: walk the netlist
+  from a supply anchor through fuse→terminal→relay-coil→device; store as the
+  existing `power_path` fact. Example assembled from real p13 output: +24V
+  SERVICE BUS → F6 200A → SW7 → Q36 6A 'NAVIGATION LTS' → T/S E 22 → F 0.1A →
+  PORT NAV. LT. — every hop with exact bbox provenance (jump-to-and-mark exact).
+The difference from today: `power_path` walks REAL adjacency instead of
+free-text 'connections' strings, and every element has a spatial identity that
+cannot drift between runs.
+
+## 5e. AUTONOMY ARCHITECTURE — the machine grades itself; red-pen is calibration,
+not operation (the engineer's "step the game up" mandate)
+
+Phase-1 red-pens are the TRAINING SET for automatic graders — their purpose is
+to make themselves unnecessary. Customers never red-pen. Four self-grading
+channels, all engineer-free at run time:
+
+1. **Drafting invariants (electrical lint, $0):** a valid extraction obeys
+   checkable physics/drafting rules — every net touches ≥2 objects; every
+   device symbol sits on ≥1 net; every label attaches within radius; a
+   fuse/breaker bridges exactly 2 nets; every load reachable from a supply
+   rail; terminal strips number monotonically; cross-refs resolve to sheets
+   that exist in the book index. Violations = machine-detected extraction
+   defects. This replaces "engineer eyeballs the overlay."
+2. **Dual-channel agreement:** the same fact derived two independent ways must
+   match — geometry-netlist vs a sampled vision audit; tesseract vs glyph-
+   decode vs vision on labels; the schedule sheet vs the wiring sheet vs the
+   HV/LV wiring xlsx for the same device (the §2 multi-source vote, now cheap
+   enough to run on everything). Agreement → auto-accept; disagreement →
+   auto-flag.
+3. **Self-derived ID grammars:** the corpus teaches its own tag formats
+   (Q\d+, F\d+, Re\d+, CB\d+, XA\d+[nn]) from high-confidence reads; a read
+   that breaks the sheet's own grammar triggers an automatic re-read
+   (partnum_format generalized, self-deriving — never hardcoded).
+4. **Confidence routing:** every fact carries confidence from channels 1-3;
+   only sub-threshold residue queues on the existing confirmation-list
+   machinery. Phase-1 red-pens calibrate the thresholds ONCE; the symbol bank
+   red-pen is once per drafting HOUSE and accumulates as a fleet asset.
+
+**End-state flow (customer experience):** share the Drive → walk → A1/A2 probe
+runs INSIDE ingest (the `route_kind` classifier gains the get_drawings probe —
+code, not a session) → per-class pipelines → netlists + labels + symbol
+instances → invariants lint → cross-doc reconciliation → nodes, facts and
+activation loops written with provenance → ONE residue page per book for a
+human, shrinking per vessel as banks and grammars accumulate. The engineer's
+role in Phase 1 — answering everything — is precisely what gets encoded so
+vessel #2's engineer answers almost nothing.
+
 ## 6. Risks and limits, stated plainly
 
 - **Only A1 sheets benefit.** Probe every set before promising; PLC stays on
