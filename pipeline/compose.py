@@ -115,6 +115,10 @@ CLASS_RULES: Dict[str, str] = {
         "the rating digits are genuinely illegible, record it as good-to-have "
         "with low confidence; never present a doubtful rating as fact, and never "
         "let a stray number become a device rating. "
+        "POLARITY - NEVER INVERT IT (engineer rule; a reversal is the worst possible error): in LOW-VOLTAGE DC a breaker or fuse sits on the POSITIVE side almost always. A conductor carrying a breaker/fuse is a SUPPLY (+) feed - never call it the negative. Before naming either side of any device, FOLLOW THE CONDUCTOR ALL THE WAY BACK to the breaker or bus it originates from and state that origin. Where the MEASURED POLARITY block marks a net, that marking is authoritative over any impression. "
+        "COMMON RAILS: several devices are normally fed (or returned) from ONE shared conductor - e.g. a single terminal supplying the coils of a whole bank of relays. When the COMMON RAILS block names such a net, state the shared source explicitly for every device on it; never describe each device as if it had a private feed, and never report a side as untraced when a common rail supplies it. "
+        "RELAY READING - ANSWER BOTH QUESTIONS FOR EVERY RELAY (engineer rule): (1) IS THE LOAD OR SIGNAL ON THE NC OR THE NO CONTACT? A contact drawn OPEN, joined to the coil by a dotted line, is NORMALLY OPEN - energising the coil CLOSES it, so the load is OFF until the coil is energised. A contact drawn CLOSED with that dotted line is NORMALLY CLOSED - energising the coil OPENS it, so the load is ON until the coil is energised and energising REMOVES it. (2) WHAT ENERGISES THIS COIL - which side supplies its positive and which supplies its negative, each traced back to its source. Relays ARE the control: they open or close a circuit, so an inverted NO/NC reading inverts the entire function. State both answers in the scenario. "
+        "SIGNAL vs CONTROL DIRECTION: a monitoring-system tag block is either a STATUS OUT (the circuit reporting to the monitor) or a CONTROL IN (the monitor commanding the circuit, typically by supplying a coil its negative). Decide per tag from what its drawn conductor REACHES - a tag landing on a relay coil is a COMMAND; a tag taken off a contact or a load is a STATUS. Never assign these by name similarity and never swap two different tag families. "
         "NEGATIVE-BUS SYMBOL (engineer rule): a short line terminating in a bar/tick (a ground-style stub) at the end of a conductor means that conductor RETURNS TO THE NEGATIVE BUS. It is a complete, known return path — record the coil/device negative as 'to negative bus' and do NOT flag it as an untraced side. A cross-sheet note ('+ from DWG n') likewise means the feed is established on that sheet — record it as a cross-reference, not an uncertainty. "
         "SPARE WAYS: an empty/unlabelled breaker way (e.g. 'QE5' with no load) "
         "is a SPARE for future installation — record it as spare, not as an "
@@ -513,6 +517,9 @@ def compose(image_png: bytes, extraction: Dict[str, Any],
         nl = extraction.get("_netlist_digest")
         if nl:
             loop_block += "\n\n" + nl
+        cd = extraction.get("_circuit_digest")
+        if cd:
+            loop_block += "\n\n" + cd
     elif drawing_class == "pid":
         from pipeline import pid_extract, operating_modes
         digest = pid_extract.loops_digest(extraction)
