@@ -47,6 +47,7 @@ Last full audit: 2026-07-02
 | Electrical wiring (GM sub-type C) | wiring reader | ✅ validated on 114a · ⬜ not yet node-routed |
 | Electrical one-line (GM sub-type B) | one-line reader | ✅ validated on 110b · ⬜ not yet node-routed |
 | Remaining GM book sheets (43pp current book) | above readers | ⬜ next |
+| **GEOMETRY-FIRST vector protocol (audit 2026-07-26)** — GM book probed **pure vector 43/43 pages (0 raster images)**: wires/nets/labels extractable deterministically at $0; vision moves to symbol-bank (once/book) + residue-OCR + QA roles; projected ~$0.10-0.20/page vs $2.00; supersedes tiling on A1 vector sheets if approved | `docs/AUDIT_vector_first_protocol_20260726.md` + `tools/vector_probe.py` (probe/overlay proven live) | 🔴 engineer grades audit + Phase-0 corpus probe GO |
 | BAE wiring (47pp, rotated; 2 contents ambiguous) | one-line+wiring readers + HV/LV xlsx cross-val | ⬜ 🔴 (pick current content) |
 | PLC sets (image-only; rack + I/O pages) | electrical extractor | ⬜ |
 | Trunking C2 (garbled render) | decode_c (+29 proven) + building router | ✅ decoder / ⬜ ingestion wiring |

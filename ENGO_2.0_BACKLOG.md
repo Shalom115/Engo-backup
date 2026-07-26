@@ -44,6 +44,10 @@ Last full audit: 2026-07-02
 - Functional-equipment list per vessel class (Register-first pre-seed, Decision 4)
 - Drawing-symbol glossary (electrical/hydraulic/P&ID symbol → device type) + equipment-class
   glossary (§6 future build)
+- **Per-drafting-house SYMBOL BANK (vector-fingerprint → device type, engineer red-penned
+  once)** — durable fleet asset from the 2026-07-26 vector-first audit: any future vessel
+  drawn by the same house (GM Marine etc.) inherits its bank; classification cost amortizes
+  across the fleet, red-pen effort is once per house not per page
 - Vessel identity capture (naval architect / builder) for fleet cross-referencing
 - Hull_number = primary key; same-hull-model ≠ same-vessel
 
