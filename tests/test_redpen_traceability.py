@@ -23,7 +23,8 @@ def _load():
                   # three-layer electrical stack: geometry, fusion, semantics
                   'pipeline/net_trace.py', 'pipeline/netlist.py',
                   'pipeline/circuit.py', 'pipeline/device_locate.py',
-                  'pipeline/open_questions.py', 'pipeline/vcache.py']
+                  'pipeline/open_questions.py', 'pipeline/vcache.py',
+                  'pipeline/fused_tiles.py', 'pipeline/meter.py']
     allcode = "\n".join((_ROOT / f).read_text() for f in code_files)
     reg = json.loads((_ROOT / 'data/state/register_gelliceaux_001.json').read_text())
     return allcode, reg
@@ -44,6 +45,10 @@ CHECKS = [
     ("gm-b1-fix3", "label never binds to its own glyph", r"NEVER BINDS TO ITS OWN INK", "code"),
     ("gm-b1-fix3", "binding counted per instance, not per distinct string", r"COUNT LABEL INSTANCES", "code"),
     ("gm-b1-cost", "deterministic vision layers cached by content", r"VISION-LAYER CACHE", "code"),
+    ("cost-trial", "fused tile pass reads each tile once, not three times", r"read each tile ONCE", "code"),
+    ("cost-trial", "legends-first lives INSIDE the fused path, not in the caller", r"LEGENDS FIRST IS PART OF THIS FUNCTION", "code"),
+    ("cost-trial", "legend context is part of the tile cache key", r"a different read", "code"),
+    ("cost-trial", "per-call usage metered by layer", r"USAGE METER", "code"),
     # --- GM batch-1 red-pen, 2026-07-26 (polarity reversal + relay/rail/pairing)
     ("gm-b1-p20", "LV DC: breaker/fuse sits on the POSITIVE side", r"POLARITY - NEVER INVERT IT", "code"),
     ("gm-b1-p20", "walk the conductor back to its breaker/bus", r"FOLLOW THE CONDUCTOR ALL THE WAY BACK", "code"),

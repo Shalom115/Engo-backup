@@ -134,25 +134,36 @@ def _to_page(items: List[Dict[str, Any]], bx: List[float],
 
 def read_tiles(pdf_bytes: bytes, page_index: int = 0, *,
                rows: int = 4, cols: int = 4, dpi: int = 400,
-               overlap: float = 0.04,
+               overlap: float = 0.04, legend_context: str = "",
                use_cache: bool = True) -> Dict[str, List[Dict[str, Any]]]:
-    """One tiled pass returning {labels, symbols, elements} in PAGE POINTS."""
+    """One tiled pass returning {labels, symbols, elements} in PAGE POINTS.
+
+    `legend_context` carries THIS sheet's own legend/reference tables, read
+    verbatim before any symbol is classified (the legends-first mandate). It is
+    part of the cache key: the same tiles read under different definitions are
+    a different read."""
     from pipeline import vcache
     params = {"rows": rows, "cols": cols, "dpi": dpi, "overlap": overlap,
-              "prompt": hashlib.sha256(_FUSED_PROMPT.encode()).hexdigest()[:12]}
+              "prompt": hashlib.sha256(_FUSED_PROMPT.encode()).hexdigest()[:12],
+              "legend": hashlib.sha256(legend_context.encode()).hexdigest()[:12]}
     return vcache.get_or_compute(
         "fused", pdf_bytes, page_index, params,
         lambda: _read_tiles_uncached(pdf_bytes, page_index, rows=rows,
-                                     cols=cols, dpi=dpi, overlap=overlap),
+                                     cols=cols, dpi=dpi, overlap=overlap,
+                                     legend_context=legend_context),
         enabled=use_cache)
 
 
 def _read_tiles_uncached(pdf_bytes: bytes, page_index: int = 0, *,
                          rows: int = 4, cols: int = 4, dpi: int = 400,
-                         overlap: float = 0.04) -> Dict[str, List[Dict[str, Any]]]:
+                         overlap: float = 0.04, legend_context: str = ""
+                         ) -> Dict[str, List[Dict[str, Any]]]:
     from providers.vision import get_vision_provider
+    from pipeline import legend_first, symbol_glossary
     from pipeline import meter
     meter.set_layer("fused")
+    prompt = legend_first.with_context(
+        legend_context, symbol_glossary.with_glossary(_FUSED_PROMPT))
     vp = get_vision_provider("electrical", layer="tiles")
     W, H = label_ocr.page_size(pdf_bytes, page_index)
     labels: List[Dict[str, Any]] = []
@@ -165,7 +176,7 @@ def _read_tiles_uncached(pdf_bytes: bytes, page_index: int = 0, *,
                   min(1.0, (r + 1) / rows + overlap)]
             try:
                 png = label_ocr._crop_png(pdf_bytes, page_index, bx, dpi)
-                res = vp.extract(png, "image/png", _FUSED_PROMPT, _FUSED_TOOL,
+                res = vp.extract(png, "image/png", prompt, _FUSED_TOOL,
                                  max_tokens=8192) or {}
             except Exception:
                 continue
@@ -231,3 +242,41 @@ def as_netlist_inputs(tiles: Dict[str, List[Dict[str, Any]]]) -> Tuple[list, lis
                 "bbox": s["bbox"]}
                for s in tiles.get("symbols", []) if s.get("bbox")]
     return tiles.get("labels", []), devices
+
+
+def extract_sheet_fused(pdf_bytes: bytes, page_index: int = 0, *,
+                        legends_first: bool = True,
+                        sub_type: str = "relay_terminal_wiring"
+                        ) -> Dict[str, Any]:
+    """
+    The fused replacement for `electrical_extract.extract_sheet`.
+
+    LEGENDS FIRST IS PART OF THIS FUNCTION, not of whatever calls it. The trial
+    that proved the fused pass cheaper and better skipped the legends pass — it
+    read symbols without first reading the sheet's own definitions of them. That
+    was a mandated protocol step dropped by a harness, which is exactly the way
+    a step gets lost: it lived in the caller instead of in the path. Here the
+    legend tables are read verbatim BEFORE any tile is classified, and their
+    context rides in the tile prompt.
+
+    Returns the same shape `extract_sheet` returns, so composition, the netlist
+    binder and the node writer consume it unchanged.
+    """
+    from pipeline import legend_first
+    legends: Dict[str, Any] = {"tables": [], "context_block": ""}
+    if legends_first:
+        legends = legend_first.from_pdf(pdf_bytes, page_index)
+    ctx = legends.get("context_block", "")
+
+    tiles = read_tiles(pdf_bytes, page_index, legend_context=ctx)
+    return {
+        "legends": legends.get("tables", []),
+        "legend_context": ctx,
+        "survey": {"sub_type": sub_type, "source": "fused tile pass"},
+        "sub_type": sub_type,
+        "regions_read": [{
+            "region": "ALL (fused tiles: labels + symbols + elements in one read)",
+            "region_type": sub_type, "bbox": [0, 0, 1, 1], "reader": "fused",
+            "elements": tiles.get("elements", [])}],
+        "_fused_tiles": tiles,
+    }

@@ -411,12 +411,60 @@
     </div>
   </section>
 
+
+  <section>
+    <span class="label">Clean baseline · after the repair</span>
+    <h2>What the fused path really costs, with legends-first back in</h2>
+    <p class="lede">The trial's fused arm had two advantages it should not have had: it skipped the
+      <strong>legends-first pass</strong> (a mandated step that lived in the harness, not in the path), and like every
+      other arm it ran on a composition prompt whose established-facts rule was cut mid-sentence. Both are fixed —
+      legends-first now lives inside <span class="mono">extract_sheet_fused()</span>, and the rule is whole. Re-run on
+      the same three sheets:</p>
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr><th>Sheet</th><th>Trial cost</th><th>Clean cost</th><th>Legends</th><th>Systems</th><th>Facts</th><th>Bound</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>p19 Bilge system</td><td class="num">$0.87</td><td class="num">$1.09</td><td class="num">5</td><td class="num">7 → 2</td><td class="num">21 → 19</td><td class="num">429 → 389</td></tr>
+          <tr><td>p21 Aft service pumps</td><td class="num">$0.82</td><td class="num">$0.92</td><td class="num">1</td><td class="num">7 → 6</td><td class="num">23 → 19</td><td class="num">313 → 301</td></tr>
+          <tr><td>p5 230 V aft distribution</td><td class="num">$0.61</td><td class="num">$0.79</td><td class="num">2</td><td class="num">17 → 14</td><td class="num">42 → 40</td><td class="num">121 → 106</td></tr>
+          <tr class="total"><td>Fused, 3 sheets</td><td class="num">$2.30</td><td class="num">$2.80</td><td class="num">8</td><td class="num">31 → 22</td><td class="num">86 → 78</td><td class="num">863 → 796</td></tr>
+          <tr class="total"><td>Baseline, for reference</td><td class="num" colspan="2">$5.00</td><td class="num">—</td><td class="num">23</td><td class="num">80</td><td class="num">780</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="notes" style="margin-top:18px">
+      <div class="note">
+        <span class="tag">Claim corrected</span>
+        <p><strong>The fused pass is a cost win at parity, not a cost-and-quality win.</strong> Against baseline it is
+          <strong>56% of the cost and 56% of the wall-clock</strong> for the same output — 22 systems vs 23, 78 facts
+          vs 80, and 796 bound conductors vs 780. The quality edge I reported earlier came substantially from the
+          skipped legends step, not from fusing the reads. Legends-first costs about <strong>$0.17 a sheet</strong>,
+          and that is the price of the protocol, not an overhead to argue away.</p>
+      </div>
+      <div class="note">
+        <span class="tag">Granularity holds</span>
+        <p>The result that mattered survived: p21 still resolves <strong>one node per physical pump</strong> — AFT
+          grey water, PORT and STBD aft guest grey sumps, FWD and AFT crew head sumps, AFT A/C sump. Six of the seven
+          the trial found, with the per-installation split intact.</p>
+      </div>
+      <div class="note">
+        <span class="tag">Read with care</span>
+        <p>p19's 7 → 2 systems is the outlier and sits inside the variance band already measured on this pipeline
+          (identical inputs swung 2 → 5 in the trial itself). Facts and bound conductors — the steadier measures —
+          moved only a few percent on every sheet.</p>
+      </div>
+    </div>
+  </section>
+
   <section>
     <div class="verdict">
       <span class="label">Recommendation</span>
-      <p><strong>Adopt A1 (fused tiles) as the default extraction path.</strong> It is the only change that improves
-        the output while cutting the cost — 46% of baseline, the most systems found, the most facts written, the most
-        measured wiring on all three sheets, and the only arm that produced one node per physical pump.</p>
+      <p><strong>Adopt the fused tile pass as the default extraction path</strong> — on the corrected numbers it
+        delivers baseline-equivalent output at <strong>56% of the cost and 56% of the time</strong>, with
+        legends-first honoured inside the path. It is a clear win, but on cost and speed, not on quality: the
+        quality edge in the raw trial came from the step it was skipping.</p>
       <p>Keep the content cache — proven, and it makes re-runs cheap, which is how the quality gets won. The prompt
         cache now reads, but it is worth ~4% of a sheet, not the ~19% I projected: bank it, don't plan around it.
         Drop the cheap model for the tile layers — on this evidence it is a false economy: barely cheaper once

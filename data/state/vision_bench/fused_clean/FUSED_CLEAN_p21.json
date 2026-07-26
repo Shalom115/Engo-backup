@@ -1,0 +1,484 @@
+{
+ "page": 21,
+ "title": "AFT SERVICE PUMPS",
+ "usd": 0.9208,
+ "seconds": 258,
+ "legend_tables": 1,
+ "composition": {
+  "serve_who": "This sheet (GMMS 108'-115, \"AFT SERVICE PUMPS\") serves the aft-zone grey/black-water auxiliary pumps: AFT GREY WATER PUMP, PORT/STBD AFT GREY GUEST SUMP pumps, FWD/AFT CREW HEAD SUMP pumps, and AFT A/C SUMP PUMP \u2014 each named directly against its own breaker (Q1-Q6) and terminal-strip row, per the engineer glossary mapping (AFT GREY WATER PUMP -> 530-grey-water-pumps; PORT/STBD AFT GREY GUEST SUMP, FWD/AFT CREW HEAD SUMP, AFT A/C SUMP -> 530-sump-pumps). A block of remote status/alarm terminals (5,6,8,9 = MAST BILGE, ENGINE ROOM BILGE, OWNERS GREY SUMP, FWD GUEST GREY SUMP, AFT A/C SUMP) are printed on this sheet as REMOTE INDICATOR ROWS only \u2014 these belong to their own equipment (520-aux-bilge-pumps, 530-grey-water-pumps, 530-sump-pumps) and are cross-references here, not new circuits, since no pump/motor for those items is drawn on this sheet. The PC CARD / MAIN PANEL terminal strip (T/S C, T/S B, T/S E, T/S F) and MU4-12 multi-core cable are shared distribution infrastructure belonging to 641-vessel-control-panel.",
+  "equipment_groups": [
+   {
+    "equipment_name": "AFT GREY WATER PUMP",
+    "target_node_id": "530-grey-water-pumps",
+    "placement_reasoning": "Load name 'AFT GREY WATER P.' directly labels the breaker Q1 row and drives the pump symbol labelled 'AFT GREY WATER PUMP' at right; glossary maps AFT GREY WATER PUMP -> 530-grey-water-pumps.",
+    "functions": [
+     {
+      "label": "Aft grey water pump run/alarm control and local ON/OFF/AUTO selection",
+      "what_it_does": "Runs the aft grey water discharge pump on command from the local S17 ON/OFF/AUTO selector switch, with a run indicator and an alarm output; a level sender reports tank level back to the panel.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/default",
+        "path": "Fed from DC MAIN PANEL breaker Q1 (10A) -> through relay Re12 contact and terminal strip T/S C terminals 76/77/78/79 -> PC CARD RUN IND. (78/79) and ALARM (80/81) outputs monitored; XA61 terminals 10/12 tie into this loop (measured on net21 with Re12/T/S C) and XA61 08 taps the ALARM line -> pump runs to AFT GREY WATER PUMP at right when commanded"
+       },
+       {
+        "state": "AUTO/local command via S17",
+        "path": "S17 selector (ON/OFF/AUTO) at PC CARD -> commands pump run through the Q1-fed relay/terminal circuit -> AFT GREY WATER PUMP motor; RUN IND. lamp on 78/79 lights while running"
+       },
+       {
+        "state": "level sending",
+        "path": "AFT GREY WATER SENDER (variable resistor symbol) -> SWB02/AFT connector -XA70 pins 07(+)/08(-) -> panel level display (feed/return pair not further traced on this sheet)"
+       }
+      ],
+      "key_components": [
+       "Q1 10A breaker (positive supply)",
+       "Re12 relay",
+       "T/S C terminal strip (76-81)",
+       "S17 ON/OFF/AUTO selector",
+       "AFT GREY WATER SENDER (level sensor)",
+       "RUN IND. lamp",
+       "ALARM output"
+      ],
+      "dry_data": "24V DC circuit; breaker Q1 10A; alarm/run-indicator taps XA61-10, XA61-12, XA61-08 per netlist net21",
+      "sheet_region": "top-left, DC MAIN PANEL / PC CARD area, rows Q1/T-S-C/S17"
+     }
+    ]
+   },
+   {
+    "equipment_name": "PORT AFT GREY GUEST SUMP PUMP",
+    "target_node_id": "530-sump-pumps",
+    "placement_reasoning": "Load name 'PORT AFT GREY GUEST SUMP' labels breaker Q2 row feeding relay 82/83 to pump 'PORT AFT GUEST GREY SUMP'; glossary maps PORT AFT GREY GUEST SUMP -> 530-sump-pumps.",
+    "functions": [
+     {
+      "label": "Port aft guest grey sump pump run control",
+      "what_it_does": "Automatically runs the port aft guest grey sump pump via a run-indicated relay circuit, protected by a fused terminal at the pump end.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/default",
+        "path": "Fed from DC MAIN PANEL breaker Q2 (20A) -> terminal strip (terminals 82/83) -> relay 83 coil / contact 82 (NO \u2014 measured net45/net52/net851) -> RUN IND. tap -> via fused terminal 1A -> switch contact -> PORT AFT GUEST GREY SUMP pump"
+       }
+      ],
+      "key_components": [
+       "Q2 20A breaker (supply)",
+       "relay 82/83 (coil 83, NO contact 82)",
+       "fused terminal (1A, built-in replaceable fuse at pump)",
+       "RUN IND. lamp"
+      ],
+      "dry_data": "24V DC; breaker Q2 20A; fused terminal 1A at pump feed",
+      "sheet_region": "left-mid, terminals 82/83 row"
+     }
+    ]
+   },
+   {
+    "equipment_name": "STBD AFT GREY GUEST SUMP PUMP",
+    "target_node_id": "530-sump-pumps",
+    "placement_reasoning": "Load name 'STBD AFT GREY GUEST SUMP' labels breaker Q3 row feeding relay 84/85 to pump 'STBD AFT GUEST GREY SUMP'; glossary maps STBD AFT GREY GUEST SUMP -> 530-sump-pumps.",
+    "functions": [
+     {
+      "label": "Stbd aft guest grey sump pump run control",
+      "what_it_does": "Automatically runs the starboard aft guest grey sump pump via a run-indicated relay circuit, protected by a fused terminal at the pump end.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/default",
+        "path": "Fed from DC MAIN PANEL breaker Q3 (20A) -> terminal strip (terminals 84/85) -> relay 85 coil / contact 84 (NO \u2014 measured net36/net54/net1054) -> RUN IND. tap -> via fused terminal 1A -> switch contact -> STBD AFT GUEST GREY SUMP pump"
+       }
+      ],
+      "key_components": [
+       "Q3 20A breaker (supply)",
+       "relay 84/85 (coil 85, NO contact 84)",
+       "fused terminal (1A) at pump feed",
+       "RUN IND. lamp"
+      ],
+      "dry_data": "24V DC; breaker Q3 20A; fused terminal 1A at pump feed",
+      "sheet_region": "left-mid, terminals 84/85 row"
+     }
+    ]
+   },
+   {
+    "equipment_name": "FWD CREW HEAD SUMP PUMP",
+    "target_node_id": "530-sump-pumps",
+    "placement_reasoning": "Load name 'FWD CREW HEAD SUMP PUMP' labels breaker Q4 row feeding relay 86/87/88 to pump 'FWD CREW HEAD GREY SUMP'.",
+    "functions": [
+     {
+      "label": "Fwd crew head grey sump pump run control with reed switch level sensing and by-pass",
+      "what_it_does": "Runs the forward crew head grey sump pump automatically when the reed sump switch detects sump level, with a manual BY-PASS switch to force running independent of the reed switch; run indicator reports status.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/default",
+        "path": "Fed from DC MAIN PANEL breaker Q4 (10A) -> relay Re13 -> terminal strip (terminals 86/87/88) -> relay 87 coil / NO contacts 86,88 (measured nets net26/net48/net492/net1062-1063) -> RUN IND. tap -> pump line"
+       },
+       {
+        "state": "auto run via REED SUMP SW.",
+        "path": "REED SUMP SW. (NO contact) closes on rising sump level -> completes pump circuit at the FWD CREW HEAD GREY SUMP pump end -> pump runs"
+       },
+       {
+        "state": "manual override via BY-PASS",
+        "path": "BY-PASS pushbutton wired in parallel with REED SUMP SW. at the pump -> manually closes the pump circuit regardless of reed-switch state, for test/override"
+       }
+      ],
+      "key_components": [
+       "Q4 10A breaker (supply)",
+       "Re13 relay (feeds terminal 86/87/88 group)",
+       "relay 87 coil / NO contacts 86 & 88",
+       "REED SUMP SW. (NO, level sensor)",
+       "BY-PASS pushbutton",
+       "RUN IND. lamp"
+      ],
+      "dry_data": "24V DC; breaker Q4 10A; Re13 relay in supply path",
+      "sheet_region": "left-mid, terminals 86/87/88 row + pump BY-PASS/REED SUMP SW. at right"
+     }
+    ]
+   },
+   {
+    "equipment_name": "AFT CREW HEAD SUMP PUMP",
+    "target_node_id": "530-sump-pumps",
+    "placement_reasoning": "Load name 'AFT CREW HEAD SUMP PUMP' labels breaker Q5 row feeding relay 89/90/91 to pump 'AFT CREW HEAD GREY SUMP'.",
+    "functions": [
+     {
+      "label": "Aft crew head grey sump pump run control with reed switch level sensing and by-pass",
+      "what_it_does": "Runs the aft crew head grey sump pump automatically when its reed sump switch detects sump level, with a manual BY-PASS switch to force running; run indicator reports status; also feeds a group of remote alarm/status taps for other bilge/sump items.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/default",
+        "path": "Fed from DC MAIN PANEL breaker Q5 (10A) -> relay Re14 -> terminal strip (terminals 89/90/91) -> relay 90 coil / NO contacts 89, 91 (measured nets net27/net50/net216/net495/net1072-1074) -> RUN IND. tap -> pump line"
+       },
+       {
+        "state": "auto run via REED SUMP SW.",
+        "path": "REED SUMP SW. (NO contact) closes on rising sump level -> completes pump circuit at the AFT CREW HEAD GREY SUMP pump end -> pump runs"
+       },
+       {
+        "state": "manual override via BY-PASS",
+        "path": "BY-PASS pushbutton wired in parallel with REED SUMP SW. at the pump -> manually closes the pump circuit regardless of reed-switch state, for test/override"
+       }
+      ],
+      "key_components": [
+       "Q5 10A breaker (supply)",
+       "Re14 relay (feeds terminal 89/90/91 group)",
+       "relay 90 coil / NO contacts 89 & 91",
+       "REED SUMP SW. (NO, level sensor)",
+       "BY-PASS pushbutton",
+       "RUN IND. lamp"
+      ],
+      "dry_data": "24V DC; breaker Q5 10A; Re14 relay in supply path",
+      "sheet_region": "left-mid, terminals 89/90/91 row + pump BY-PASS/REED SUMP SW. at right"
+     }
+    ]
+   },
+   {
+    "equipment_name": "AFT A/C SUMP PUMP",
+    "target_node_id": "530-sump-pumps",
+    "placement_reasoning": "Load name 'AFT A/C SUMP PUMP' directly labels breaker Q6 row feeding the pump symbol labelled 'AFT A/C SUMP PUMP' at right; glossary maps AFT AIRCON SUMP PUMP -> 530-sump-pumps.",
+    "functions": [
+     {
+      "label": "Aft air-con sump pump run control with S18 selector",
+      "what_it_does": "Runs the aft air-conditioning condensate sump pump under local ON/OFF/AUTO selection (S18), with run indication and alarm.",
+      "flow_scenarios": [
+       {
+        "state": "neutral/default",
+        "path": "Fed from DC MAIN PANEL breaker Q6 (20A) -> terminal strip terminals 97-101 -> RUN IND. (97) and ALARM (100/101) taps -> via fused terminal 1A -> switch contact -> AFT A/C SUMP PUMP"
+       },
+       {
+        "state": "AUTO/local command via S18",
+        "path": "S18 selector (ON/OFF/AUTO), labelled 'FWD GREY WATER' on this row, commands the pump run circuit through terminals 97-101"
+       },
+       {
+        "state": "remote command/status taps",
+        "path": "XA61 pins 04, 06 (command, per net21-style bond to relay coil elsewhere on sheet), XA61 pin 02 land on terminals 97-101 group; exact command vs status role of these specific pins is not separately measured for this row"
+       }
+      ],
+      "key_components": [
+       "Q6 20A breaker (supply)",
+       "S18 ON/OFF/AUTO selector",
+       "terminal strip 97-101",
+       "fused terminal 1A at pump feed",
+       "RUN IND. lamp",
+       "ALARM output"
+      ],
+      "dry_data": "24V DC; breaker Q6 20A; fused terminal 1A at pump",
+      "sheet_region": "lower-left, Q6/terminals 97-101/S18 row"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "DC Main Panel / PC Card distribution (T/S B, T/S C, T/S E, T/S F terminal strips)",
+    "target_node_id": "641-vessel-control-panel",
+    "facts": [
+     "T/S C carries the AFT GREY WATER pump's run/alarm terminals (76-81) alongside PC CARD RUN IND./ALARM readouts and S17 selector.",
+     "T/S B terminals 19,20 marked 'not used' \u2014 spares.",
+     "T/S E terminal 8 feeds EMERGENCY BAT +24V into the panel loop; T/S E terminals 19/20 route into the BACKUP EM POWER/GMDSS BACKUP alarm row; T/S E terminal 57 ties into EMERGENCY LTS SW Link via terminals 10/11/12 -> 103/104/105.",
+     "T/S F (right side, 'see DWG-120') terminals 7-12 correspond to terminals 19-24; terminal 22 goes to EMERGENCY LTS SW; terminals 23,24 marked not used (spares).",
+     "Remote alarm/status terminal row (terminals 92-96) reports MAST BILGE, ENGINE ROOM BILGE, OWNERS GREY SUMP, FWD GUEST GREY SUMP, AFT A/C SUMP as a shared common-rail net (net216/net282) \u2014 these are status indicators for equipment on OTHER sheets/nodes, not pumps driven from this sheet.",
+     "MU4-12 multi-core cable links this panel's terminal group to T/S F (per 'see DWG-120') carrying 12 conductors including the EMERGENCY LTS SW line."
+    ]
+   }
+  ],
+  "cross_references": [
+   {
+    "what": "MAST BILGE run/alarm status (terminal 92)",
+    "referenced_sheet_hint": "520-aux-bilge-pumps mast bilge sheet"
+   },
+   {
+    "what": "ENGINE ROOM BILGE run/alarm status (terminal 93)",
+    "referenced_sheet_hint": "520-aux-bilge-pumps engine room sheet"
+   },
+   {
+    "what": "OWNERS GREY SUMP run/alarm status (terminal 94)",
+    "referenced_sheet_hint": "530-sump-pumps owners sump sheet"
+   },
+   {
+    "what": "FWD GUEST GREY SUMP run/alarm status (terminal 95)",
+    "referenced_sheet_hint": "530-sump-pumps fwd guest sump sheet"
+   },
+   {
+    "what": "FWD BLACK WATER TANK FULL SIGNAL (XA61 pin 18, terminal 102) \u2014 'see DWG115a'",
+    "referenced_sheet_hint": "GMMS 115a"
+   },
+   {
+    "what": "T/S F terminal group (7-12 / 19-24) continuing to another drawing",
+    "referenced_sheet_hint": "DWG-120"
+   },
+   {
+    "what": "SWB02/AFT connector -XA70 pins 07/08 to AFT GREY WATER SENDER",
+    "referenced_sheet_hint": "sender/tank monitoring sheet"
+   },
+   {
+    "what": "SWB01/FWD connector -XA30 pins 01/02 to FWD GREY WATER SENDER",
+    "referenced_sheet_hint": "sender/tank monitoring sheet"
+   },
+   {
+    "what": "EMERGENCY LTS SW Link (terminals 10-12 -> 103-105 -> T/S E 57) continuing to emergency lighting circuit",
+    "referenced_sheet_hint": "693-emergency-lighting sheet"
+   }
+  ],
+  "good_to_have": [
+   "Exact fuse rating printed at each '1A' fused terminal symbol near the sump pumps \u2014 value is on the drawing.",
+   "Re12/Re13/Re14 exact relay part numbers not given, only reference designators \u2014 capture at inspection if ever needed.",
+   "Q1-Q6 breaker exact trip curve/model \u2014 ratings (10A/20A/10A/10A/10A/20A) are printed and captured; part data not needed for function."
+  ],
+  "discarded_as_clutter": [
+   "Title block repeat (DWG No., date, drawn-by, customer) \u2014 administrative meta, not equipment data",
+   "Copyright/reservation notice \u2014 legal boilerplate",
+   "G.M. Marine Services contact/letterhead block \u2014 company info, not circuit data",
+   "Orphan net labels 'net313/net435' (company letterhead text fragments bound to no real device) \u2014 discarded as OCR noise, not circuit elements"
+  ],
+  "uncertainties": [
+   "S17 and S18 selector switches read as ON/OFF/AUTO but the netlist marks their contact state as 'NO' from wiring only (symbol not legible) \u2014 cannot confirm which physical position corresponds to auto-run without inspection; function (local selector for the associated pump) is understood, only the exact NO/NC symbol reading is unresolved.",
+   "The correspondence between XA61 pins 04/06/02 and specific functions within the Q6/S18/terminals-97-101 group is not individually measured on this sheet (only that they land in that terminal group) \u2014 do not assume pin-to-terminal order; flagged per no-interpolation rule.",
+   "Terminal group 92-96 (MAST BILGE, ENGINE ROOM BILGE, OWNERS GREY SUMP, FWD GUEST GREY SUMP, AFT A/C SUMP) is on a shared common-rail net (net216) \u2014 these are status/alarm inputs for equipment NOT wired for control on this sheet; whether each terminal is a status report or a command into a coil elsewhere is not resolvable from this sheet alone and should be confirmed on the sheet(s) that actually drive those pumps."
+  ],
+  "_model": "claude-sonnet-5",
+  "_protocol_version": 9
+ },
+ "netlist_stats": {
+  "segments": 20261,
+  "nets": 2367,
+  "conductors": 1918,
+  "labels": 366,
+  "bound": 301,
+  "bound_to_conductor": 301,
+  "distinct_bound_texts": 155,
+  "unbound": 31,
+  "devices_located": 139,
+  "devices_placed": 139
+ },
+ "write_counts": {
+  "would_attach": 19
+ },
+ "would_write": [
+  {
+   "action": "would_attach",
+   "node": "530-grey-water-pumps",
+   "kind": "flow_scenarios",
+   "label": "Aft grey water pump run/alarm control and local ON/OFF/AUTO selection"
+  },
+  {
+   "action": "would_attach",
+   "node": "530-grey-water-pumps",
+   "kind": "dry_data",
+   "label": "Aft grey water pump run/alarm control and local ON/OFF/AUTO selection"
+  },
+  {
+   "action": "would_attach",
+   "node": "530-grey-water-pumps",
+   "kind": "key_components",
+   "label": "Aft grey water pump run/alarm control and local ON/OFF/AUTO selection"
+  },
+  {
+   "action": "would_attach",
+   "node": "530-sump-pumps",
+   "kind": "flow_scenarios",
+   "label": "Port aft guest grey sump pump run control"
+  },
+  {
+   "action": "would_attach",
+   "node": "530-sump-pumps",
+   "kind": "dry_data",
+   "label": "Port aft guest grey sump pump run control"
+  },
+  {
+   "action": "would_attach",
+   "node": "530-sump-pumps",
+   "kind": "key_components",
+   "label": "Port aft guest grey sump pump run control"
+  },
+  {
+   "action": "would_attach",
+   "node": "530-sump-pumps",
+   "kind": "flow_scenarios",
+   "label": "Stbd aft guest grey sump pump run control"
+  },
+  {
+   "action": "would_attach",
+   "node": "530-sump-pumps",
+   "kind": "dry_data",
+   "label": "Stbd aft guest grey sump pump run control"
+  },
+  {
+   "action": "would_attach",
+   "node": "530-sump-pumps",
+   "kind": "key_components",
+   "label": "Stbd aft guest grey sump pump run control"
+  },
+  {
+   "action": "would_attach",
+   "node": "530-sump-pumps",
+   "kind": "flow_scenarios",
+   "label": "Fwd crew head grey sump pump run control with reed switch level sensing and by-pass"
+  },
+  {
+   "action": "would_attach",
+   "node": "530-sump-pumps",
+   "kind": "dry_data",
+   "label": "Fwd crew head grey sump pump run control with reed switch level sensing and by-pass"
+  },
+  {
+   "action": "would_attach",
+   "node": "530-sump-pumps",
+   "kind": "key_components",
+   "label": "Fwd crew head grey sump pump run control with reed switch level sensing and by-pass"
+  },
+  {
+   "action": "would_attach",
+   "node": "530-sump-pumps",
+   "kind": "flow_scenarios",
+   "label": "Aft crew head grey sump pump run control with reed switch level sensing and by-pass"
+  },
+  {
+   "action": "would_attach",
+   "node": "530-sump-pumps",
+   "kind": "dry_data",
+   "label": "Aft crew head grey sump pump run control with reed switch level sensing and by-pass"
+  },
+  {
+   "action": "would_attach",
+   "node": "530-sump-pumps",
+   "kind": "key_components",
+   "label": "Aft crew head grey sump pump run control with reed switch level sensing and by-pass"
+  },
+  {
+   "action": "would_attach",
+   "node": "530-sump-pumps",
+   "kind": "flow_scenarios",
+   "label": "Aft air-con sump pump run control with S18 selector"
+  },
+  {
+   "action": "would_attach",
+   "node": "530-sump-pumps",
+   "kind": "dry_data",
+   "label": "Aft air-con sump pump run control with S18 selector"
+  },
+  {
+   "action": "would_attach",
+   "node": "530-sump-pumps",
+   "kind": "key_components",
+   "label": "Aft air-con sump pump run control with S18 selector"
+  },
+  {
+   "action": "would_attach",
+   "node": "641-vessel-control-panel",
+   "kind": "infrastructure_facts",
+   "label": "DC Main Panel / PC Card distribution (T/S B, T/S C, T/S E, T/S F terminal strips)"
+  }
+ ],
+ "uncertainties": [
+  {
+   "sheet": "GM_p21_FUSED_CLEAN",
+   "drawing_class": "electrical",
+   "text": "S17 and S18 selector switches read as ON/OFF/AUTO but the netlist marks their contact state as 'NO' from wiring only (symbol not legible) \u2014 cannot confirm which physical position corresponds to auto-run without inspection; function (local selector for the associated pump) is understood, only the exact NO/NC symbol reading is unresolved.",
+   "status": "open",
+   "ts": "2026-07-26T20:00:06+00:00"
+  },
+  {
+   "sheet": "GM_p21_FUSED_CLEAN",
+   "drawing_class": "electrical",
+   "text": "The correspondence between XA61 pins 04/06/02 and specific functions within the Q6/S18/terminals-97-101 group is not individually measured on this sheet (only that they land in that terminal group) \u2014 do not assume pin-to-terminal order; flagged per no-interpolation rule.",
+   "status": "open",
+   "ts": "2026-07-26T20:00:06+00:00"
+  },
+  {
+   "sheet": "GM_p21_FUSED_CLEAN",
+   "drawing_class": "electrical",
+   "text": "Terminal group 92-96 (MAST BILGE, ENGINE ROOM BILGE, OWNERS GREY SUMP, FWD GUEST GREY SUMP, AFT A/C SUMP) is on a shared common-rail net (net216) \u2014 these are status/alarm inputs for equipment NOT wired for control on this sheet; whether each terminal is a status report or a command into a coil elsewhere is not resolvable from this sheet alone and should be confirmed on the sheet(s) that actually drive those pumps.",
+   "status": "open",
+   "ts": "2026-07-26T20:00:06+00:00"
+  }
+ ],
+ "flags": [],
+ "cross_refs": [
+  {
+   "sheet": "GM_p21_FUSED_CLEAN",
+   "what": "MAST BILGE run/alarm status (terminal 92)",
+   "referenced_sheet_hint": "520-aux-bilge-pumps mast bilge sheet",
+   "status": "open"
+  },
+  {
+   "sheet": "GM_p21_FUSED_CLEAN",
+   "what": "ENGINE ROOM BILGE run/alarm status (terminal 93)",
+   "referenced_sheet_hint": "520-aux-bilge-pumps engine room sheet",
+   "status": "open"
+  },
+  {
+   "sheet": "GM_p21_FUSED_CLEAN",
+   "what": "OWNERS GREY SUMP run/alarm status (terminal 94)",
+   "referenced_sheet_hint": "530-sump-pumps owners sump sheet",
+   "status": "open"
+  },
+  {
+   "sheet": "GM_p21_FUSED_CLEAN",
+   "what": "FWD GUEST GREY SUMP run/alarm status (terminal 95)",
+   "referenced_sheet_hint": "530-sump-pumps fwd guest sump sheet",
+   "status": "open"
+  },
+  {
+   "sheet": "GM_p21_FUSED_CLEAN",
+   "what": "FWD BLACK WATER TANK FULL SIGNAL (XA61 pin 18, terminal 102) \u2014 'see DWG115a'",
+   "referenced_sheet_hint": "GMMS 115a",
+   "status": "open"
+  },
+  {
+   "sheet": "GM_p21_FUSED_CLEAN",
+   "what": "T/S F terminal group (7-12 / 19-24) continuing to another drawing",
+   "referenced_sheet_hint": "DWG-120",
+   "status": "open"
+  },
+  {
+   "sheet": "GM_p21_FUSED_CLEAN",
+   "what": "SWB02/AFT connector -XA70 pins 07/08 to AFT GREY WATER SENDER",
+   "referenced_sheet_hint": "sender/tank monitoring sheet",
+   "status": "open"
+  },
+  {
+   "sheet": "GM_p21_FUSED_CLEAN",
+   "what": "SWB01/FWD connector -XA30 pins 01/02 to FWD GREY WATER SENDER",
+   "referenced_sheet_hint": "sender/tank monitoring sheet",
+   "status": "open"
+  },
+  {
+   "sheet": "GM_p21_FUSED_CLEAN",
+   "what": "EMERGENCY LTS SW Link (terminals 10-12 -> 103-105 -> T/S E 57) continuing to emergency lighting circuit",
+   "referenced_sheet_hint": "693-emergency-lighting sheet",
+   "status": "open"
+  }
+ ]
+}

@@ -1,0 +1,400 @@
+{
+ "page": 19,
+ "title": "BILGE SYSTEM",
+ "usd": 1.0919,
+ "seconds": 314,
+ "legend_tables": 5,
+ "composition": {
+  "serve_who": "This sheet (GMMS 108'-114a, \"BILGE SYSTEM\") serves two distinct equipment groups: (1) the MAIN BILGE PUMP (motor top-right, fed via F3 60A/SW8/SO6 solenoid, with local pump switch, main-panel switch S13, and ONYX remote path) \u2014 matches established node 520-main-bilge-pump and is consistent with the prior engineer red-pen control_loop fact for this same drawing; (2) the five motorised BILGE VALVES (OPEN/CLOSE actuated, fed from Q13 10A via relays Re1-Re5) which control ENG. ROOM BILGE routing to five zones \u2014 PORT LAZARETTE, STBD LAZARETTE, AFT, ENG. ROOM, FWD, and SAIL LOCKER bilge lines \u2014 matching node 520-bilge-valves. The MAIN PANEL / PLUG C / PLUG D / PC CARD block is shared status/command infrastructure for both (indicator lamps S20-S24 for valve position, S13 for pump run) and is treated as infrastructure of the main panel (641-vessel-control-panel), not a separate equipment node, per the bus/panel ownership rule.",
+  "equipment_groups": [
+   {
+    "equipment_name": "Main Bilge Pump",
+    "target_node_id": "520-main-bilge-pump",
+    "placement_reasoning": "The pump motor labelled 'MAIN BILGE PUMP' is fed via F3 60A / SW8 / SO6 and locally switched; this matches the previously-established multi-switch activation control_loop fact recorded against 520-main-bilge-pump from this same drawing (GM-114a), confirming node identity.",
+    "functions": [
+     {
+      "function_id": "main-bilge-pump-run",
+      "label": "Main bilge pump run circuit",
+      "what_it_does": "Runs the main bilge pump motor to discharge bilge water overboard; the pump can be commanded from multiple locations feeding one solenoid contactor coil.",
+      "flow_scenarios": [
+       {
+        "state": "default",
+        "path": "24V service battery (+24V SERVICE BAT.) -> fuse F3 60A -> SW8 -> solenoid coil SO6 -> pump motor M energised when coil closes; local pump switch (T/S S terminals 13/14/15) can close the loop directly"
+       },
+       {
+        "state": "commanded from main panel",
+        "path": "MAIN PANEL switch S13 (BILGE PUMP SW) via PLUG C pins 6/7 -> closes coil circuit -> pump runs; indicator lamp on S13 shows pump-run status"
+       },
+       {
+        "state": "commanded from ONYX remote",
+        "path": "ONYX remote command via cable/tap 'to ONYX' (XA11 pin 32, per prior engineer trace) -> closes relay Re6 (T/S C terminal 50) -> completes coil circuit -> pump runs"
+       }
+      ],
+      "key_components": [
+       "fuse F3 60A (supply)",
+       "switch SW8 (NC contact, measured)",
+       "solenoid coil SO6 (NO, measured)",
+       "local pump switch (T/S S terminals 13-15)",
+       "main panel switch S13 with indicator lamp",
+       "relay Re6 (ONYX command path)"
+      ],
+      "dry_data": "24V DC circuit; F3 60A fuse; SO6 solenoid coil actuates contactor for pump motor M",
+      "sheet_region": "top-left (SW8/SO6/F3) and top-right (pump motor M); main panel PLUG C bottom-right for S13"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Bilge Valves (motorised diverter valves, 5 zones)",
+    "target_node_id": "520-bilge-valves",
+    "placement_reasoning": "All five OPEN/CLOSE motorised valve rows (fed from breaker Q13 'BILGE VALVES' 10A via relays Re1-Re5) are labelled 'BILGE VALVE ENG. ROOM BILGE' and route to five named bilge zones \u2014 matching the established 520-bilge-valves node and its BOM (Burkert electric actuators) fact.",
+    "functions": [
+     {
+      "function_id": "bilge-valve-port-laz",
+      "label": "Port Lazarette bilge valve (Re1)",
+      "what_it_does": "Opens/closes the motorised bilge valve routing the Port Lazarette bilge line into the common eng. room bilge suction/discharge manifold.",
+      "flow_scenarios": [
+       {
+        "state": "default (de-energised)",
+        "path": "valve position holds last commanded state; PORT LAZARETTE BILGE switch (BILGE SW, NO contact, measured) reports position to T/S B / XA40 status taps"
+       },
+       {
+        "state": "OPEN command",
+        "path": "Q13 10A (BILGE VALVES) -> T/S B terminal 8 -> Re1 coil energised -> Re1 NO contact closes -> OPEN line (T/S C terminals 7/8) drives valve motor open"
+       },
+       {
+        "state": "CLOSE command",
+        "path": "same supply and relay path -> CLOSE line (T/S C terminals 7/8 pair) drives valve motor closed"
+       },
+       {
+        "state": "status reporting",
+        "path": "valve position switch (BILGE SW) taps to XA40 terminals 14/12 (measured STATUS, no coil on net) -> to monitoring, and separately to main-panel PC CARD open/closed lamps for LAZARETTE BILGE (circleX/circleDot pair)"
+       }
+      ],
+      "key_components": [
+       "relay Re1 (NO contact, coil measured)",
+       "position switch BILGE SW (NO, measured) for Port Laz. bilge",
+       "XA40 status taps (measured STATUS direction)"
+      ],
+      "dry_data": "24V DC; fed from Q13 10A via terminal strip T/S B/C; valve motor M with [2]/[3] terminal pair",
+      "sheet_region": "upper-mid rows (T/S 8, Re1, terminals 7-15)"
+     },
+     {
+      "function_id": "bilge-valve-stbd-laz-aft",
+      "label": "Stbd Lazarette / Aft bilge valve (Re2)",
+      "what_it_does": "Opens/closes the motorised bilge valve routing the STBD Lazarette and AFT bilge lines into the eng. room bilge manifold.",
+      "flow_scenarios": [
+       {
+        "state": "OPEN/CLOSE command",
+        "path": "Q13 10A -> T/S B terminal 9 -> Re2 coil energised (NO contact, measured) -> OPEN/CLOSE lines (terminals 16-23) drive valve motor"
+       },
+       {
+        "state": "status reporting",
+        "path": "STBD LAZARETTE BILGE / AFT BILGE position switches (BILGE SW) -> XA40 terminal 16 (measured STATUS) -> to monitoring"
+       }
+      ],
+      "key_components": [
+       "relay Re2 (NO, coil measured)",
+       "BILGE SW position switches (STBD Laz., Aft)",
+       "XA40-16 status tap"
+      ],
+      "dry_data": "24V DC; fed from Q13 10A via T/S B/C terminals 9, 16-23",
+      "sheet_region": "second row block (T/S 9, Re2, terminals 16-23)"
+     },
+     {
+      "function_id": "bilge-valve-eng-room",
+      "label": "Engine Room bilge valve (Re3)",
+      "what_it_does": "Opens/closes the motorised bilge valve for the ENG. ROOM BILGE line itself.",
+      "flow_scenarios": [
+       {
+        "state": "OPEN/CLOSE command",
+        "path": "Q13 10A -> T/S B terminal 10 -> Re3 coil energised (NO contact, measured) -> OPEN/CLOSE lines (terminals 24-31) drive valve motor"
+       },
+       {
+        "state": "status reporting",
+        "path": "ENG. ROOM BILGE position switch (BILGE SW) -> XA10 terminal 06 (measured STATUS) -> to monitoring"
+       }
+      ],
+      "key_components": [
+       "relay Re3 (NO contact, coil measured; note contact-state table also shows one Re3-contact reading as NC \u2014 flagged below)",
+       "BILGE SW eng. room position switch",
+       "XA10-06 status tap"
+      ],
+      "dry_data": "24V DC; fed from Q13 10A via T/S B/C terminals 10, 24-31",
+      "sheet_region": "third row block (T/S 10, Re3, terminals 24-31)"
+     },
+     {
+      "function_id": "bilge-valve-fwd",
+      "label": "FWD bilge valve (Re4)",
+      "what_it_does": "Opens/closes the motorised bilge valve for the FWD BILGE line.",
+      "flow_scenarios": [
+       {
+        "state": "OPEN/CLOSE command",
+        "path": "Q13 10A -> T/S B terminal 11 -> Re4 coil energised (NO contact, measured) -> OPEN/CLOSE lines (terminals 32-39) drive valve motor"
+       },
+       {
+        "state": "status reporting",
+        "path": "FWD BILGE position switch (BILGE SW) -> XA10 terminal 04 (measured STATUS) -> to monitoring"
+       }
+      ],
+      "key_components": [
+       "relay Re4 (NO, coil measured)",
+       "BILGE SW fwd position switch",
+       "XA10-04 status tap"
+      ],
+      "dry_data": "24V DC; fed from Q13 10A via T/S B/C terminals 11, 32-39",
+      "sheet_region": "fourth row block (T/S 11, Re4, terminals 32-39)"
+     },
+     {
+      "function_id": "bilge-valve-sail-locker",
+      "label": "Sail Locker bilge valve (Re5)",
+      "what_it_does": "Opens/closes the motorised bilge valve for the SAIL LOCKER bilge line.",
+      "flow_scenarios": [
+       {
+        "state": "OPEN/CLOSE command",
+        "path": "Q13 10A -> T/S B terminal 12 -> Re5 coil energised (NO contact, measured) -> OPEN/CLOSE lines (terminals 40-47) drive valve motor"
+       },
+       {
+        "state": "status reporting",
+        "path": "SAIL LOCKER position switch (BILGE SW) reports on shared T/S C net; no distinct XA tap number identified in the netlist for this valve"
+       }
+      ],
+      "key_components": [
+       "relay Re5 (NO, coil measured)",
+       "BILGE SW sail locker position switch"
+      ],
+      "dry_data": "24V DC; fed from Q13 10A via T/S B/C terminals 12, 40-47",
+      "sheet_region": "fifth row block (T/S 12, Re5, terminals 40-47)"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "Main Panel / PLUG C / PLUG D / PC Card (bilge status & command distribution)",
+    "target_node_id": "641-vessel-control-panel",
+    "facts": [
+     "S20-S24 are main-panel switches reporting/commanding LAZARETTE, AFT, ENG. ROOM, FWD, SAIL LOCKER bilge status; S13 is the main-panel bilge pump switch with indicator lamp.",
+     "PLUG C carries these signals (pins [1]-[7]) plus an AUX PLUG ON PC BOARD connector (pins [8]-[12]) to the MAIN PANEL PC CARD.",
+     "PLUG D (pins 1-12) carries the same signal set redundantly into the MAIN PANEL PC CARD, which drives open/closed indicator pairs (circleX=open, circleDot=closed) per zone (LAZARETTE BILGE, AFT BILGE, ENG. ROOM BILGE, FWD BILGE, SAIL LOCKER) via a diode array off the +24V bus.",
+     "PEDESTAL ALARM+MUTE module taps into PLUG C lines [8]-[12] alongside the AUX PLUG ON PC BOARD \u2014 its own supply/role is not detailed on this sheet.",
+     "F2 200A fuse and +24V SERVICE BAT. feed the vertical bus supplying T/S B / Q13 / F3 branches."
+    ]
+   }
+  ],
+  "cross_references": [
+   {
+    "what": "ONYX remote command/status for the bilge pump and bilge valves ('to ONYX' cable, XA11 pin 32)",
+    "referenced_sheet_hint": "ONYX monitoring sheet (652-onyx-monitoring)"
+   },
+   {
+    "what": "XA40 and XA10 status taps for individual bilge valve positions",
+    "referenced_sheet_hint": "monitoring/ONYX or annunciator sheet where XA40/XA10 terminate"
+   },
+   {
+    "what": "PEDESTAL ALARM + MUTE module wiring and supply",
+    "referenced_sheet_hint": "pedestal interconnection sheet (per open question q58 on GM_p37)"
+   }
+  ],
+  "good_to_have": [
+   "F3 60A fuse rating on main bilge pump supply \u2014 value visible on drawing.",
+   "F2 200A fuse rating on the +24V service battery bus \u2014 value visible on drawing.",
+   "Q13 10A breaker rating for BILGE VALVES supply \u2014 value visible on drawing.",
+   "Exact Burkert actuator part numbers on the five bilge valves \u2014 available at inspection / BOM (established fact)."
+  ],
+  "uncertainties": [
+   "Re3's contact state shows a conflict in the measurement: the general relay table records relay_contact (coil Re3) as NO (confirmed by symbol+wiring), but a separate 'Re3-contact' reading elsewhere records NC on net12. This inversion changes whether the ENG. ROOM bilge valve function is OFF-until-energised or ON-until-energised \u2014 needs engineer confirmation.",
+   "Correspondence between the five main-panel switches S20-S24 (LAZARETTE, AFT, ENG. ROOM, FWD, SAIL LOCKER BILGE) and the five relay/valve rows Re1-Re5 is NOT established by a measured net pairing in the given netlist (labels sit on separate nets net58-net61/net64) \u2014 do not assume S20->Re1, S21->Re2 etc. by position; this is an unresolved 1:1 mapping.",
+   "PORT LAZARETTE BILGE label and BILGE SW for STBD LAZARETTE BILGE are UNBOUND/only partially bound in the netlist \u2014 the exact relay (Re1 vs Re2) each of the two Lazarette bilge switches ties to is not fully confirmed by measured net, only inferred from row proximity; flagged per the no-interpolation rule.",
+   "Sail Locker bilge valve status tap: no XA10/XA40 terminal number could be confirmed on the netlist for this zone (unlike the other four), so its monitoring destination is unconfirmed on this sheet."
+  ],
+  "discarded_as_clutter": [
+   "repeated title-block company/contact text (G.M. Marine Services address, phone, copyright notice) across multiple legend entries",
+   "duplicate PLUG D / PLUG C legend entries repeating the same pin-to-pin connections already captured in functions",
+   "orphan fragments '06','04','P...','108'-114a','G.M.' from the unbound-labels list \u2014 resolved as fragments of XA10-06/XA10-04 tags and drawing number/author initials, not separate devices"
+  ],
+  "_model": "claude-sonnet-5",
+  "_protocol_version": 9
+ },
+ "netlist_stats": {
+  "segments": 23504,
+  "nets": 2326,
+  "conductors": 1740,
+  "labels": 479,
+  "bound": 390,
+  "bound_to_conductor": 389,
+  "distinct_bound_texts": 142,
+  "unbound": 14,
+  "devices_located": 165,
+  "devices_placed": 165
+ },
+ "write_counts": {
+  "would_attach": 19
+ },
+ "would_write": [
+  {
+   "action": "would_attach",
+   "node": "520-main-bilge-pump",
+   "kind": "flow_scenarios",
+   "label": "Main bilge pump run circuit"
+  },
+  {
+   "action": "would_attach",
+   "node": "520-main-bilge-pump",
+   "kind": "dry_data",
+   "label": "Main bilge pump run circuit"
+  },
+  {
+   "action": "would_attach",
+   "node": "520-main-bilge-pump",
+   "kind": "key_components",
+   "label": "Main bilge pump run circuit"
+  },
+  {
+   "action": "would_attach",
+   "node": "520-bilge-valves",
+   "kind": "flow_scenarios",
+   "label": "Port Lazarette bilge valve (Re1)"
+  },
+  {
+   "action": "would_attach",
+   "node": "520-bilge-valves",
+   "kind": "dry_data",
+   "label": "Port Lazarette bilge valve (Re1)"
+  },
+  {
+   "action": "would_attach",
+   "node": "520-bilge-valves",
+   "kind": "key_components",
+   "label": "Port Lazarette bilge valve (Re1)"
+  },
+  {
+   "action": "would_attach",
+   "node": "520-bilge-valves",
+   "kind": "flow_scenarios",
+   "label": "Stbd Lazarette / Aft bilge valve (Re2)"
+  },
+  {
+   "action": "would_attach",
+   "node": "520-bilge-valves",
+   "kind": "dry_data",
+   "label": "Stbd Lazarette / Aft bilge valve (Re2)"
+  },
+  {
+   "action": "would_attach",
+   "node": "520-bilge-valves",
+   "kind": "key_components",
+   "label": "Stbd Lazarette / Aft bilge valve (Re2)"
+  },
+  {
+   "action": "would_attach",
+   "node": "520-bilge-valves",
+   "kind": "flow_scenarios",
+   "label": "Engine Room bilge valve (Re3)"
+  },
+  {
+   "action": "would_attach",
+   "node": "520-bilge-valves",
+   "kind": "dry_data",
+   "label": "Engine Room bilge valve (Re3)"
+  },
+  {
+   "action": "would_attach",
+   "node": "520-bilge-valves",
+   "kind": "key_components",
+   "label": "Engine Room bilge valve (Re3)"
+  },
+  {
+   "action": "would_attach",
+   "node": "520-bilge-valves",
+   "kind": "flow_scenarios",
+   "label": "FWD bilge valve (Re4)"
+  },
+  {
+   "action": "would_attach",
+   "node": "520-bilge-valves",
+   "kind": "dry_data",
+   "label": "FWD bilge valve (Re4)"
+  },
+  {
+   "action": "would_attach",
+   "node": "520-bilge-valves",
+   "kind": "key_components",
+   "label": "FWD bilge valve (Re4)"
+  },
+  {
+   "action": "would_attach",
+   "node": "520-bilge-valves",
+   "kind": "flow_scenarios",
+   "label": "Sail Locker bilge valve (Re5)"
+  },
+  {
+   "action": "would_attach",
+   "node": "520-bilge-valves",
+   "kind": "dry_data",
+   "label": "Sail Locker bilge valve (Re5)"
+  },
+  {
+   "action": "would_attach",
+   "node": "520-bilge-valves",
+   "kind": "key_components",
+   "label": "Sail Locker bilge valve (Re5)"
+  },
+  {
+   "action": "would_attach",
+   "node": "641-vessel-control-panel",
+   "kind": "infrastructure_facts",
+   "label": "Main Panel / PLUG C / PLUG D / PC Card (bilge status & command distribution)"
+  }
+ ],
+ "uncertainties": [
+  {
+   "sheet": "GM_p19_FUSED_CLEAN",
+   "drawing_class": "electrical",
+   "text": "Re3's contact state shows a conflict in the measurement: the general relay table records relay_contact (coil Re3) as NO (confirmed by symbol+wiring), but a separate 'Re3-contact' reading elsewhere records NC on net12. This inversion changes whether the ENG. ROOM bilge valve function is OFF-until-energised or ON-until-energised \u2014 needs engineer confirmation.",
+   "status": "open",
+   "ts": "2026-07-26T19:55:48+00:00"
+  },
+  {
+   "sheet": "GM_p19_FUSED_CLEAN",
+   "drawing_class": "electrical",
+   "text": "Correspondence between the five main-panel switches S20-S24 (LAZARETTE, AFT, ENG. ROOM, FWD, SAIL LOCKER BILGE) and the five relay/valve rows Re1-Re5 is NOT established by a measured net pairing in the given netlist (labels sit on separate nets net58-net61/net64) \u2014 do not assume S20->Re1, S21->Re2 etc. by position; this is an unresolved 1:1 mapping.",
+   "status": "open",
+   "ts": "2026-07-26T19:55:48+00:00"
+  },
+  {
+   "sheet": "GM_p19_FUSED_CLEAN",
+   "drawing_class": "electrical",
+   "text": "PORT LAZARETTE BILGE label and BILGE SW for STBD LAZARETTE BILGE are UNBOUND/only partially bound in the netlist \u2014 the exact relay (Re1 vs Re2) each of the two Lazarette bilge switches ties to is not fully confirmed by measured net, only inferred from row proximity; flagged per the no-interpolation rule.",
+   "status": "open",
+   "ts": "2026-07-26T19:55:48+00:00"
+  },
+  {
+   "sheet": "GM_p19_FUSED_CLEAN",
+   "drawing_class": "electrical",
+   "text": "Sail Locker bilge valve status tap: no XA10/XA40 terminal number could be confirmed on the netlist for this zone (unlike the other four), so its monitoring destination is unconfirmed on this sheet.",
+   "status": "open",
+   "ts": "2026-07-26T19:55:48+00:00"
+  }
+ ],
+ "flags": [],
+ "cross_refs": [
+  {
+   "sheet": "GM_p19_FUSED_CLEAN",
+   "what": "ONYX remote command/status for the bilge pump and bilge valves ('to ONYX' cable, XA11 pin 32)",
+   "referenced_sheet_hint": "ONYX monitoring sheet (652-onyx-monitoring)",
+   "status": "open"
+  },
+  {
+   "sheet": "GM_p19_FUSED_CLEAN",
+   "what": "XA40 and XA10 status taps for individual bilge valve positions",
+   "referenced_sheet_hint": "monitoring/ONYX or annunciator sheet where XA40/XA10 terminate",
+   "status": "open"
+  },
+  {
+   "sheet": "GM_p19_FUSED_CLEAN",
+   "what": "PEDESTAL ALARM + MUTE module wiring and supply",
+   "referenced_sheet_hint": "pedestal interconnection sheet (per open question q58 on GM_p37)",
+   "status": "open"
+  }
+ ]
+}
