@@ -179,4 +179,62 @@ def digest(netlist: Dict[str, Any], max_rails: int = 12) -> str:
         out.append(f"  supply(+) nets: {', '.join(pos_nets)}")
     if neg_nets:
         out.append(f"  return(-) nets: {', '.join(neg_nets)}")
+    td = tag_digest(netlist)
+    if td:
+        out.append("")
+        out.append(td)
+    return "\n".join(out)
+
+
+# --------------------------------------------------------------- tag direction
+_COIL_WORDS = ("coil", "relay", "contactor", "solenoid")
+
+
+def tag_direction(netlist: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """
+    SIGNAL vs CONTROL, decided by GEOMETRY not by name (the XA60/XA41 swap).
+
+    A monitoring-system tag block is a COMMAND when its conductor reaches a
+    relay/contactor COIL (the monitor energises the coil, typically by
+    supplying its negative). It is a STATUS when its conductor is taken off a
+    contact, a load or an instrument instead.
+
+    Prompt rules could not settle this because two tag families look alike;
+    the drawn net decides. Tag families are discovered from the sheet's own
+    labels — no vessel-specific token.
+    """
+    fam = re.compile(r"^[A-Z]{2}\d{2,3}$")      # e.g. a two-letter + digits tag block
+    out: List[Dict[str, Any]] = []
+    for n in netlist.get("nets", []):
+        tags = [l for l in n.get("labels", []) if fam.match(l.strip())]
+        if not tags:
+            continue
+        devs = [d for d in (n.get("devices") or [])]
+        blob = _txt(" ".join(devs))
+        reaches_coil = any(w in blob for w in _COIL_WORDS)
+        for t in tags:
+            out.append({"tag": t.strip(), "net_id": n["net_id"],
+                        "direction": "COMMAND (reaches a coil)" if reaches_coil
+                                     else "STATUS (no coil on this net)",
+                        "devices_on_net": sorted(set(devs))[:8]})
+    # one verdict per tag family prefix, majority wins, so families don't mix
+    return out
+
+
+def tag_digest(netlist: Dict[str, Any]) -> str:
+    tags = tag_direction(netlist)
+    if not tags:
+        return ""
+    out = ["TAG DIRECTION (measured from the drawn net, NOT from the tag name — "
+           "a tag whose conductor reaches a relay coil is a COMMAND INTO the "
+           "circuit; a tag with no coil on its net is a STATUS OUT to the "
+           "monitor). Use these verdicts; do not swap tag families:"]
+    seen = set()
+    for t in tags[:30]:
+        key = (t["tag"], t["direction"])
+        if key in seen:
+            continue
+        seen.add(key)
+        devs = ", ".join(t["devices_on_net"][:5]) or "(no devices bound)"
+        out.append(f"  {t['tag']} ({t['net_id']}): {t['direction']} — on net with: {devs}")
     return "\n".join(out)
