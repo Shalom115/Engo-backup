@@ -26,7 +26,7 @@ import config
 # with an older version (the stale-composition failure of 2026-07-22: a write
 # set built from pre-red-pen compositions re-presented every answered
 # uncertainty to the engineer). Airtight by construction, not by memory.
-PROTOCOL_VERSION = 6
+PROTOCOL_VERSION = 7
 
 # ---------------------------------------------------------------------------
 # Per-class composition rules. The GENERAL RULE is shared; these add the

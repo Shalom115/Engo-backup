@@ -137,6 +137,8 @@ def bind_devices(netlist: Dict[str, Any],
                 if d <= max(max_dist, (bx[2] - bx[0] + bx[3] - bx[1]) / 2):
                     touching.append(n["net_id"])
         rec = {"label": dv.get("label", ""), "kind": dv.get("kind", ""),
+               "contact_state": dv.get("contact_state", ""),
+               "coil_id": dv.get("coil_id", ""),
                "bbox": [round(v, 1) for v in bx], "nets": touching[:12]}
         placed.append(rec)
         for nid in touching:
@@ -214,6 +216,23 @@ def digest(netlist: Dict[str, Any], max_nets: int = 40) -> str:
         shown += 1
         if shown >= max_nets:
             break
+    # RELAY TABLE — coil, contact state (NO/NC) and the nets each touches.
+    relays = [d for d in netlist.get("placed_devices", [])
+              if "relay" in (d.get("kind") or "").lower()
+              or "coil" in (d.get("kind") or "").lower()
+              or (d.get("contact_state") or "")]
+    if relays:
+        out.append("RELAYS — for EVERY relay you must answer BOTH engineer "
+                   "questions: (1) is the load/signal on the NC or the NO "
+                   "contact? (2) what energises this coil (which side gives it "
+                   "+ and which gives it -)? A load on NC is ON until the coil "
+                   "energises; a load on NO is OFF until the coil energises — "
+                   "getting this backwards inverts the function:")
+        for r in relays[:24]:
+            cs = r.get("contact_state") or "unknown"
+            coil = f" coil={r['coil_id']}" if r.get("coil_id") else ""
+            out.append(f"  {r.get('label') or r.get('kind')}: contact={cs}{coil} "
+                       f"on nets {', '.join(r.get('nets', [])[:6])}")
     if netlist["unbound_labels"]:
         out.append("  (labels not bound to any conductor — treat as annotation "
                    "or off-net text: " +

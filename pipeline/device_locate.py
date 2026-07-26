@@ -31,8 +31,17 @@ _DEV_PROMPT = (
     "(circle, often with an X), MULTI-CORE CABLE (a thick line with equal "
     "numbered legs both sides — box the cable and read its 'MUx' label). "
     "For each: type, id (as printed, '' if none), and the function label "
-    "printed on/above it if any. Read only what is drawn; do not invent; mark "
-    "ambiguous=true rather than guess."
+    "printed on/above it if any.\n"
+    "RELAY CONTACT STATE (engineer rule — decisive, read it every time): a "
+    "relay's CONTACTS are drawn near its coil, joined to it by a DOTTED LINE. "
+    "If a contact is drawn OPEN with the dotted line, it is NORMALLY OPEN (NO) "
+    "— energising the coil CLOSES it. If a contact is drawn CLOSED with the "
+    "dotted line, it is NORMALLY CLOSED (NC) — energising the coil OPENS it. "
+    "For every relay contact you find, set contact_state to 'NO' or 'NC' (or "
+    "'unknown' only if truly illegible), and set coil_id to the id of the coil "
+    "its dotted line reaches. This decides whether energising the relay turns "
+    "its load ON or OFF — getting it wrong inverts the function.\n"
+    "Read only what is drawn; do not invent; mark ambiguous=true rather than guess."
 )
 _DEV_TOOL = {
     "name": "record_devices",
@@ -44,6 +53,8 @@ _DEV_TOOL = {
                 "kind": {"type": "string"},
                 "id": {"type": "string"},
                 "function_label": {"type": "string"},
+                "contact_state": {"type": "string", "enum": ["NO", "NC", "unknown"]},
+                "coil_id": {"type": "string"},
                 "bbox": {"type": "array", "items": {"type": "number"},
                          "minItems": 4, "maxItems": 4},
                 "ambiguous": {"type": "boolean"}},
@@ -94,6 +105,8 @@ def locate_devices(pdf_bytes: bytes, page_index: int = 0, *,
                     "label": label,
                     "kind": (dv.get("kind") or "").strip(),
                     "function_label": (dv.get("function_label") or "").strip(),
+                    "contact_state": (dv.get("contact_state") or "").strip(),
+                    "coil_id": (dv.get("coil_id") or "").strip(),
                     "bbox": [ox + b[0] * cw, oy + b[1] * ch,
                              ox + b[2] * cw, oy + b[3] * ch],
                     "ambiguous": bool(dv.get("ambiguous"))})
