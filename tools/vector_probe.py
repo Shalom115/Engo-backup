@@ -62,14 +62,47 @@ def probe_page(page: fitz.Page) -> Dict[str, Any]:
 
 
 def _segments(page: fitz.Page) -> List[Tuple[float, float, float, float]]:
+    """Wire segments in RENDER space. get_drawings() returns coordinates in the
+    UNROTATED page space while get_pixmap() renders the rotated view — on a
+    /Rotate page (p13 of the GM book is Rotate 270) that mismatch put every
+    overlay line ~90° off. THE ENGINEER CAUGHT THIS (2026-07-26, ink-hit rate
+    was 6.4%); rotation_matrix maps to render space (measured 96.2% after)."""
+    R = page.rotation_matrix
     segs = []
     for d in page.get_drawings():
         for it in d["items"]:
             if it[0] == "l":
                 a, b = it[1], it[2]
                 if math.hypot(b.x - a.x, b.y - a.y) >= WIRE_MIN_PT:
-                    segs.append((a.x, a.y, b.x, b.y))
+                    A = fitz.Point(a.x, a.y) * R
+                    B = fitz.Point(b.x, b.y) * R
+                    segs.append((A.x, A.y, B.x, B.y))
     return segs
+
+
+def ink_hit_rate(page: fitz.Page, segs: List[Tuple[float, float, float, float]],
+                 zoom: float = 2.2, sample_n: int = 300) -> float:
+    """MANDATORY self-check before any overlay is shown to a human: fraction of
+    points sampled along the extracted segments that land on rendered ink.
+    An eyeball is not a gate — this number is. <0.90 means a transform bug."""
+    import random
+    pix = page.get_pixmap(matrix=fitz.Matrix(zoom, zoom), colorspace=fitz.csGRAY)
+    w, h, buf = pix.width, pix.height, pix.samples
+
+    def dark(x: float, y: float) -> bool:
+        xi, yi = int(x), int(y)
+        return 0 <= xi < w and 0 <= yi < h and buf[yi * w + xi] < 128
+
+    random.seed(0)
+    hits = tot = 0
+    for (x0, y0, x1, y1) in random.sample(segs, min(sample_n, len(segs))):
+        for s in range(1, 10):
+            t = s / 10
+            X, Y = (x0 + t * (x1 - x0)) * zoom, (y0 + t * (y1 - y0)) * zoom
+            if any(dark(X + dx, Y + dy) for dx in (-1, 0, 1) for dy in (-1, 0, 1)):
+                hits += 1
+            tot += 1
+    return hits / max(1, tot)
 
 
 def _pt_seg_dist(px, py, x0, y0, x1, y1) -> float:
@@ -141,6 +174,7 @@ def overlay(pdf_path: Path, page_index: int, out_png: Path, zoom: float = 2.2) -
     page = doc[page_index]
     segs = _segments(page)
     nets = build_nets(segs)
+    rate = ink_hit_rate(page, segs, zoom=zoom)
     pix = page.get_pixmap(matrix=fitz.Matrix(zoom, zoom))
     img = (Image.frombytes("RGB", (pix.width, pix.height), pix.samples)
            .convert("L").point(lambda v: 150 + v * 105 // 255).convert("RGB"))
@@ -153,10 +187,15 @@ def overlay(pdf_path: Path, page_index: int, out_png: Path, zoom: float = 2.2) -
         for i in net:
             x0, y0, x1, y1 = segs[i]
             dr.line([x0 * zoom, y0 * zoom, x1 * zoom, y1 * zoom],
-                    fill=col, width=3)
+                    fill=col, width=2)
+    verdict = "OK" if rate >= 0.90 else "FAILED — DO NOT TRUST THIS OVERLAY"
+    dr.text((20, 20), f"ALIGNMENT SELF-CHECK: {rate:.1%} of drawn samples on "
+                      f"sheet ink [{verdict}] (rotation={page.rotation})",
+            fill=(180, 0, 0))
     img.save(out_png)
     return (f"p{page_index}: {len(segs)} wire segments -> {len(nets)} nets "
-            f"(top sizes {[len(v) for v in nets[:6]]}) -> {out_png}")
+            f"(top sizes {[len(v) for v in nets[:6]]}) ink-hit={rate:.1%} "
+            f"[{verdict}] -> {out_png}")
 
 
 def probe_pdf(pdf_path: Path) -> None:

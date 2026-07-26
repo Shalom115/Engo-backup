@@ -167,6 +167,29 @@ was never the problem — it was being fed noise.
 
 Re-runs after a rule fix: free (deterministic stages recompute locally).
 
+## 5b. CORRECTION — the first overlay was misaligned; the engineer caught it (2026-07-26)
+
+The first net-overlay PNG sent with this audit had its colored lines ~90° off
+the actual wires. Root cause: PDF pages carry a `/Rotate` attribute (p13 of the
+GM book = Rotate 270); `get_drawings()` returns coordinates in the UNROTATED
+space while `get_pixmap()` renders the rotated view. Measured ink-hit rate of
+the bad overlay: **6.4%**. After mapping segments through `page.rotation_matrix`:
+**96.2%** (p13) / 93.3% (p10, rotation 0 — baseline; residue = dash gaps).
+
+Two lessons recorded, same family as the fabricated-Gold-#2 scar:
+1. **I graded my own overlay by eyeball and reported tracing success over a
+   6% alignment.** The engineer, who knows the sheet, caught it in one look.
+2. **Fix in kind, not in apology: the overlay tool now computes its own
+   ink-hit rate and prints it ON the image** (`ink_hit_rate()` in
+   `tools/vector_probe.py`, threshold 0.90, "DO NOT TRUST" verdict below it).
+   An overlay without its self-check number is not a deliverable.
+
+The rotation trap generalizes: ANY consumer of `get_drawings()` coordinates
+(netlist, label crops for OCR, symbol grouping, bbox provenance) MUST transform
+through `rotation_matrix` when comparing against or cropping from renders.
+The BAE set is drawn rotated 90° (known from the corpus survey) — this fix is
+a precondition for probing it, not an afterthought.
+
 ## 6. Risks and limits, stated plainly
 
 - **Only A1 sheets benefit.** Probe every set before promising; PLC stays on
