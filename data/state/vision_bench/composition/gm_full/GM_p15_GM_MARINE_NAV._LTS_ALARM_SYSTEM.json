@@ -4,149 +4,241 @@
  "title": "GM MARINE NAV. LTS ALARM SYSTEM",
  "drawing_class": "electrical",
  "composition": {
-  "serve_who": "This sheet (GMMS 108'-111b, \"GM MARINE NAV. LTS ALARM SYSTEM\") serves the vessel's navigation lights: PORT/STBD/STERN NAV. LT., their AUX PORT/STBD/STERN duplicates, and STEAMING LT. 1/2 \u2014 all directly named on the sheet and mapped via the engineer-confirmed vocabulary to node 690-navigation-lights. The sheet documents the GM Marine NAV.LIGHT ALARM MODULE MK3-1 (a dedicated failure-monitoring/alarm controller for these same nav lights), its indicator lamp panel, mute switch, and the relay/contactor chain (Re7-Re13, C1-C4) that both switches the lights ON/OFF from the main-panel NAV LIGHTS/STEAMING LIGHTS selector switches and feeds back lamp-failure status to the alarm module and audible ALARM buzzer. The main panel NAV LIGHTS / STEAMING LIGHTS selector switches and the T/S E / T/S F terminal strips are infrastructure of 641-vessel-control-panel (per established facts), not a distinct system on this sheet.",
+  "serve_who": "This sheet (GMMS 108'-111b, \"GM MARINE NAV. LTS ALARM SYSTEM\") documents the GM Marine NAV.LIGHT ALARM MODULE MK3-1 controller and its downstream wiring to the vessel's navigation and steaming lights. All eight lamp loads on the right side of the sheet (PORT/STBD/STERN NAV. LT., AUX PORT/STBD/STERN NAV. LT., STEAMING LT. 1/2) map by the engineer-confirmed vocabulary to node 690-navigation-lights, consistent with the established fact that E22-E37 terminals feed exactly this group (GMMS 111a note). The main-panel NAV. LIGHTS and STEAMING LIGHTS selector switches (feeding PLUG A pins 5-8) are the command inputs for this same equipment. The relay bank Re7-Re13, the C1-C4 logic-contact modules, the Alarm Panel Ind. lamp bank, S25 mute switch, and the SIEMENS 3UG4621-1AW30 monitoring relay are all internal parts of the NAV.LIGHT ALARM MODULE MK3-1 controller \u2014 they belong to 690-navigation-lights as the alarm/monitoring front-end of that same lighting circuit, not a separate system (the sheet does not caption them as anything else). Terminal strips T/S E (21-37) and T/S F (51,52) are infrastructure/bus structure carrying the supply and load wiring for this equipment and are recorded as infrastructure, not as equipment nodes.",
   "equipment_groups": [
    {
-    "equipment_name": "Navigation Lights (PORT/STBD/STERN + AUX PORT/STBD/STERN + STEAMING 1/2)",
+    "equipment_name": "Navigation Lights (incl. NAV.LIGHT ALARM MODULE MK3-1 controller)",
     "target_node_id": "690-navigation-lights",
-    "placement_reasoning": "Engineer-confirmed mappings list PORT NAV. LT., STBD NAV. LT., STERN NAV. LT., AUX PORT/STBD/STERN NAV. LT., STEAMING LT. 1/2 all -> 690-navigation-lights. This sheet is titled 'GM MARINE NAV. LTS ALARM SYSTEM' and its dominant content is the switching/alarm circuitry for exactly these loads.",
+    "placement_reasoning": "Sheet title 'GM MARINE NAV. LTS ALARM SYSTEM' and the engineer-confirmed vocabulary map every named lamp (PORT/STBD/STERN NAV. LT., AUX PORT/STBD/STERN NAV. LT., STEAMING LT. 1/2) plus the NAV.LIGHTS/STEAMING LIGHTS main-panel switches to 690-navigation-lights. The Nav Light Alarm Module MK3-1 (Re7-Re13, C1-C4, Alarm Panel Ind., S25 mute, SIEMENS relay) is the monitoring/alarm front-end wired in series with these same circuits \u2014 it has no separate title/box identity on the sheet and is therefore composed as part of this same equipment.",
     "functions": [
      {
-      "function_id": "nav-sw-1",
-      "label": "Nav lights ON/OFF switching from main panel selector",
-      "what_it_does": "Main panel NAV. LIGHTS switch (positions I/II) commands relays Re7 and (via linked contacts) the downstream contactor/relay chain that switches 24V DC out to the PORT, STBD, STERN nav lights and their AUX duplicates at T/S E terminals 22-33.",
+      "function_id": "F1",
+      "label": "Nav./Steaming light selector inputs from main panel",
+      "what_it_does": "Main-panel NAV. LIGHTS (I/II) and STEAMING LIGHTS (I/II) rocker switches, via PLUG A pins [5]-[8], feed terminal taps 38/39 (Nav) and 40/41 (Steaming) which are the signal/command inputs that energise Re7 (Nav I), and drive the Re8/Re9/Re10 group for the remaining positions.",
+      "sheet_region": "left side, ~(0,0.62)-(0.24,0.75)",
+      "key_components": [
+       "NAV. LIGHTS I/II switch",
+       "STEAMING LIGHTS I/II switch",
+       "PLUG A pins 5-8",
+       "terminal taps 38,39,40,41"
+      ],
       "flow_scenarios": [
        {
-        "state": "NAV. LIGHTS switch position I",
-        "path": "Main panel NAV. LIGHTS switch common -> PLUG A [5] -> terminal 38 -> Re7 relay contact/coil circuit -> C1/C2/C3 contactor block -> Re12 contact block -> T/S E terminals 22/23 (PORT), 24/25 (STBD), 26/27 (STERN) and onward via bus to 28/29, 30/31, 32/33 (AUX PORT/STBD/STERN) -> nav light lamps -> return to negative bus"
+        "state": "Nav Lights switch position I closed",
+        "path": "Main panel NAV. LIGHTS switch I -> PLUG A [5] -> terminal 38 -> Re7 coil circuit (return via terminal 39 side) -> Re7 energised"
        },
        {
-        "state": "NAV. LIGHTS switch position II",
-        "path": "Main panel NAV. LIGHTS switch common -> PLUG A [6] -> terminal 39 -> same Re7/contactor chain -> same T/S E terminal outputs -> nav light lamps"
+        "state": "Nav Lights switch position II closed",
+        "path": "Main panel NAV. LIGHTS switch II -> PLUG A [6] -> terminal 39 -> Re7 contact-side circuit"
        },
        {
-        "state": "switch OFF / neutral",
-        "path": "No path energised from PLUG A [5]/[6]; Re7 coil de-energised, contactor contacts open, no supply reaches T/S E 22-33; lamps off"
+        "state": "Steaming Lights switch position I closed",
+        "path": "Main panel STEAMING LIGHTS switch I -> PLUG A [7] -> terminal 40 -> Re8 coil circuit"
+       },
+       {
+        "state": "Steaming Lights switch position II closed",
+        "path": "Main panel STEAMING LIGHTS switch II -> PLUG A [8] -> terminal 41 -> Re9/Re10 circuit"
        }
       ],
-      "key_components": [
-       "Re7 (switching relay)",
-       "C1/C2/C3 (I>< contactor/relay blocks)",
-       "Re12 (output-stage relay)",
-       "T/S E terminals 22-33 (load terminals, PORT/STBD/STERN + AUX)"
-      ],
-      "dry_data": "24V DC control loop; relay-driven switching per selector position",
-      "sheet_region": "left-center relay bank (Re7-Re10, C1-C4) and T/S E terminal strip, bbox approx 0.0-0.72 x 0.63-0.9"
+      "dry_data": "Panel rocker switches, two positions (I/II) each, low-voltage DC signal level; wire-gauge diamond callouts on 38-41 are gauge marks, not devices."
      },
      {
-      "function_id": "steam-sw-1",
-      "label": "Steaming lights ON/OFF switching from main panel selector",
-      "what_it_does": "Main panel STEAMING LIGHTS switch (positions I/II) commands relays Re8/Re9 and downstream C4/Re13 contactor chain that switches 24V DC out to STEAMING LT. 1 and STEAMING LT. 2 via T/S E terminals 34-37 and onward through multi-core cable MU5-12 to T/S F terminals 51/52.",
+      "function_id": "F2",
+      "label": "Re7-Re10 relay bank: nav/steaming input relay stage",
+      "what_it_does": "Re7-Re10 coils are each supplied + from common terminal T/S E-21 (a shared/common rail feeding all four coils per the COMMON RAILS block for net0/net7-type common feeds); each coil's return/negative side is closed by its respective main-panel switch tap (38/39 for Re7, 40/41 for Re8, and via the Re9/Re10 chain for the second bank). Energising each coil operates its associated contact to pass the alarm-monitoring / lamp-select signal into the C1-C4 logic-contact stage below. Contact NC/NO state could not be conclusively read from the sheet symbols for Re7/Re8 (recorded as unknown per netlist relay table); Re9's and Re10's downstream contacts feed the C3/C4 logic modules and the Re11/Re12/Re13 stage.",
+      "sheet_region": "relay bank ~(0.29,0.62)-(0.36,0.85)",
+      "key_components": [
+       "Re7 coil+contact",
+       "Re8 coil+contact",
+       "Re9 coil+contact",
+       "Re10 coil+contact",
+       "flyback diodes across each coil (protective, suppress relay switch-off transient)"
+      ],
       "flow_scenarios": [
        {
-        "state": "STEAMING LIGHTS switch position I",
-        "path": "Main panel STEAMING LIGHTS switch common -> PLUG A [7] -> terminal 40 -> Re8 relay -> C4 contactor -> Re13 -> T/S E terminals 34/35 -> MU5-12 [10] -> T/S F terminal 51 -> STEAMING LT. 1 lamp -> return to negative bus"
+        "state": "T/S E-21 supply present, Re7 selected by switch I",
+        "path": "T/S E 21 (+ common rail) -> Re7 coil -> return via terminal 38/39 circuit closed by Nav Lights switch -> Re7 contact operates -> feeds C1 logic stage"
        },
        {
-        "state": "STEAMING LIGHTS switch position II",
-        "path": "Main panel STEAMING LIGHTS switch common -> PLUG A [8] -> terminal 41 -> Re8/Re9/Re10 relay chain -> C4 contactor -> Re13 -> T/S E terminals 36/37 -> MU5-12 [11] -> T/S F terminal 52 -> STEAMING LT. 2 lamp -> return to negative bus; T/S E 37 also routes to 'RELAIS 1' pointer, cross-referenced to DWG 111a"
+        "state": "Re8 selected by Steaming switch I",
+        "path": "T/S E 21 (+ common rail, shared with Re7/Re9/Re10) -> Re8 coil -> return via terminal 40/41 -> Re8 contact -> feeds C2 logic stage"
        },
        {
-        "state": "switch OFF / neutral",
-        "path": "No path energised from PLUG A [7]/[8]; Re8/Re9 coils de-energised; no supply reaches T/S E 34-37; steaming lamps off"
+        "state": "Re9/Re10 selected by remaining switch positions",
+        "path": "T/S E 21 (+ common rail) -> Re9/Re10 coils -> return via 38-41 circuit and internal contact chain -> feeds C3/C4 logic stage and Re13"
        }
       ],
-      "key_components": [
-       "Re8, Re9, Re10 (switching relays)",
-       "C4 (I>< contactor block)",
-       "Re13 (output relay)",
-       "T/S E terminals 34-37, T/S F terminals 51/52 (load terminals)"
-      ],
-      "dry_data": "24V DC control loop; feeds continue via MU5-12 multi-core cable to T/S F (GMMS 112)",
-      "sheet_region": "left relay bank (Re8-Re10) + C4/Re13 block + T/S E 34-37 / T/S F 51-52, bbox approx 0.0-0.85 x 0.63-0.9"
+      "dry_data": "Each coil carries an inline diode (surge/direction protection) and, on Re9, an additional flyback diode across the coil terminals; part numbers not printed, good-to-have only."
      },
      {
-      "function_id": "nav-alarm-1",
-      "label": "Lamp-failure alarm monitoring for each nav/steaming light circuit",
-      "what_it_does": "The NAV.LIGHT ALARM MODULE MK3-1 monitors each of the 8 nav/steaming light circuits (RED1/GREEN1/WHITE1/RED2/GREEN2/WHITE2/STEAMING1/STEAMING2) via Plug A pins 1-8, each driving its own indicator lamp on the ALARM PANEL IND. row; a common NEG return (Plug A pin 9) and MUTE pushbutton S25 silence the audible ALARM buzzer without extinguishing the fault lamp. A separate audible ALARM buzzer (wired via its own +/- terminals to Plug C horizontal lines into the module) sounds on any monitored circuit fault. Alarm status also appears to feed back onto the relay bank's own indicator lamp (circle-X symbol) below the Re7-Re10 relay row, energised from the same relay contacts/diodes.",
+      "function_id": "F3",
+      "label": "C1-C4 logic-contact (I><) modules feeding Re11/Re12/Re13",
+      "what_it_does": "C1, C2, C3, C4 are protective/monitoring contact modules (I>< symbol, current-monitoring type contacts per netlist showing NO contact = C1/C2/C3 confirmed) that receive the Re7-Re10 outputs and in turn supply Re11 (common alarm relay), Re12 (drives the SIEMENS 3UG4621-1AW30 / nav lamp cutout function via T/S E 22,23,26,27) and Re13 (steaming light circuit, via T/S E 34,35 and terminal 36/37 which continues 'to RELAIS 1, see DWG 111a').",
+      "sheet_region": "~(0.36,0.62)-(0.65,0.83)",
+      "key_components": [
+       "C1 contact (NO, coil=C1)",
+       "C2 contact (NO, coil=C2)",
+       "C3 contact (NO, coil=C3)",
+       "C4 contact",
+       "Re11 relay",
+       "Re12 relay",
+       "Re13 relay"
+      ],
       "flow_scenarios": [
        {
-        "state": "normal (all circuits healthy)",
-        "path": "Each nav/steaming light circuit -> Plug A pin (1-8) -> module -> corresponding ALARM PANEL IND. lamp OFF -> common NEG bus (Plug A pin 9)"
+        "state": "C1/C2/C3 contacts closed (energised by Re7/Re8/Re9 outputs)",
+        "path": "Re7/Re8/Re9 contact outputs -> C1/C2/C3 NO contacts close -> common horizontal line feeds Re11 and Re12 coils -> Re12 contact operates T/S E 22/23 (PORT) and 26/27 (STERN) circuits"
        },
        {
-        "state": "fault on one circuit (e.g. lamp open/blown)",
-        "path": "Faulted circuit's Plug A pin -> module detects loss of load current -> corresponding ALARM PANEL IND. lamp illuminates -> ALARM buzzer energised via Plug C / +[1]/-[2] -> audible alarm sounds"
-       },
-       {
-        "state": "MUTE pressed",
-        "path": "S25 mute pushbutton (Plug A pins 10/11/12) -> silences audible ALARM buzzer -> fault indicator lamp remains lit until fault clears"
+        "state": "C4 contact operated (Re9/Re10 output)",
+        "path": "Re9/Re10 contact output -> C4 module -> dotted linkage feeds Re13 coil -> Re13 contact operates T/S E 34/35 and terminal 36 (fused)/37 feeding steaming light loop, terminal 37 continuing off-sheet 'to RELAIS 1 (see DWG 111a)'"
        }
       ],
+      "dry_data": "Terminal 36 is a FUSED terminal (built-in replaceable fuse) \u2014 known troubleshooting point for the steaming-light/Re13 loop; exact fuse rating not legible, good-to-have."
+     },
+     {
+      "function_id": "F4",
+      "label": "Alarm Panel Indicator lamps + audible ALARM + S25 mute",
+      "what_it_does": "A bank of 8 indicator lamps (RED 1, GREEN 1, WHITE 1, RED 2, GREEN 2, WHITE 2, STEAMING 1, STEAMING 2) on PLUG A pins 1-8 each report the status of one nav/steaming light circuit (one lamp per colour/position). All 8 share a common NEG return (PLUG A pin 9). An audible ALARM buzzer is wired via PLUG C pins to the Re7-Re10 diode network \u2014 it sounds when a monitored light circuit reports a fault. S25 is a manual MUTE pushbutton silencing the alarm (wired via PLUG A pins 10-12).",
+      "sheet_region": "controller enclosure ~(0.24,0.13)-(0.63,0.46), indicator legend ~(0.36,0.34)-(0.49,0.40)",
       "key_components": [
-       "NAV.LIGHT ALARM MODULE MK3-1 (controller)",
-       "ALARM PANEL IND. lamp row (8 lamps: RED1/GREEN1/WHITE1/RED2/GREEN2/WHITE2/STEAMING1/STEAMING2)",
-       "S25 (MUTE pushbutton switch)",
-       "ALARM (audible buzzer)"
+       "8x indicator lamp (status per light circuit)",
+       "ALARM buzzer",
+       "S25 mute pushbutton",
+       "PLUG A pins 1-12",
+       "PLUG C pins 1-4 and lower +1/2"
       ],
-      "dry_data": "Module: GM Marine Services NAV.LIGHT ALARM MODULE MK3-1; Plug A (12-pin monitoring+control), Plug B (10-pin, feed continues per 'see DWG 111a'), Plug C (4-pin, unresolved off-sheet arrows)",
-      "sheet_region": "top module block, bbox approx 0.35-0.63 x 0.13-0.46"
+      "flow_scenarios": [
+       {
+        "state": "monitored circuit healthy",
+        "path": "no fault signal reaches the Re7-Re10 diode network -> lamp for that circuit remains off, alarm silent"
+       },
+       {
+        "state": "monitored circuit fault detected",
+        "path": "Re7/Re8/Re9/Re10 contact -> diode network -> ALARM buzzer (PLUG C lower +1/2) energised and corresponding PLUG A indicator lamp (1-8) lit -> common return via PLUG A pin 9 NEG"
+       },
+       {
+        "state": "operator presses MUTE (S25)",
+        "path": "PLUG A pins 10-12 -> S25 switch contact -> MUTE line -> silences ALARM buzzer while indicator lamp remains lit until fault clears"
+       }
+      ],
+      "dry_data": "Module: NAV.LIGHT ALARM MODULE MK3-1, GM Marine Services; plug/pin assignment per legend; exact lamp part numbers not printed, good-to-have."
+     },
+     {
+      "function_id": "F5",
+      "label": "SIEMENS 3UG4621-1AW30 monitoring relay (PORT/STBD NAV lamp monitor)",
+      "what_it_does": "A monitoring relay block shown with IN/A1+/A2/C1 terminals and output contacts 11-12/11-14, wired to a horizontal double-line run reaching the PORT NAV. LT. and STBD NAV. LT. lamp symbols. Function appears to be current/voltage monitoring of the port/stbd nav lamp circuit for the alarm module, feeding back a fault signal.",
+      "sheet_region": "~(0.78,0.43)-(0.93,0.49)",
+      "key_components": [
+       "SIEMENS 3UG4621-1AW30 monitoring relay",
+       "IN/A1+/A2 terminals",
+       "contact 11-12, 11-14"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "monitored (default)",
+        "path": "PORT NAV. LT./STBD NAV. LT. lamp circuit -> horizontal double-line run -> SIEMENS relay IN -> internal monitor -> contact 11-12/11-14 output (destination on this sheet not further traced)"
+       }
+      ],
+      "dry_data": "SIEMENS 3UG4621-1AW30, terminals IN, A1+, A2, C1, contacts 11-12 and 11-14 marked on sheet."
+     },
+     {
+      "function_id": "F6",
+      "label": "Load endpoints: nav./steaming lights",
+      "what_it_does": "Eight lamp loads (PORT, STBD, STERN, AUX PORT, AUX STBD, AUX STERN nav lights, STEAMING LT.1, STEAMING LT.2) each terminate at their own T/S E terminal pair (22/23 through 36/37), all returning through a common T/S E structure; STEAMING LT.1/2 additionally route through T/S F terminals 51/52 via multi-core cable legs MU5-12[10]/[11].",
+      "sheet_region": "right edge ~(0.85,0.62)-(1.0,0.87)",
+      "key_components": [
+       "PORT NAV. LT. lamp",
+       "STBD NAV. LT. lamp",
+       "STERN NAV. LT. lamp",
+       "AUX PORT/STBD/STERN NAV. LT. lamps",
+       "STEAMING LT. 1/2 lamps",
+       "T/S E terminals 22-37",
+       "T/S F terminals 51/52"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "lamp fed from module output (default operation)",
+        "path": "Re12/Re13 contact output -> T/S E terminal pair (22/23, 24/25, 26/27, 28/29, 30/31, 32/33) -> lamp symbol -> return; STEAMING LT.1/2 additionally continue via T/S E 34/36 -> MU5-12 [10]/[11] multi-core cable -> T/S F 51/52 -> lamp"
+       }
+      ],
+      "dry_data": "Loads shown as simple circled-X lamp symbols; individual wattage/part numbers not printed on this sheet, good-to-have."
      }
     ]
    }
   ],
   "infrastructure": [
    {
-    "system_name": "Vessel Control Panel (Main Panel) \u2014 NAV/STEAMING switches, terminal strips, relay bank",
-    "target_node_id": "641-vessel-control-panel",
+    "system_name": "Terminal strip T/S E (nav./steaming light distribution, terminals 21-37)",
     "facts": [
-     "NAV. LIGHTS and STEAMING LIGHTS selector switches (positions I/II) are drawn as '(MAIN PANEL)' inputs on this sheet, feeding Plug A pins 5-8.",
-     "Relay bank Re7-Re13, contactor blocks C1-C4, and terminal strip T/S E (terminals 21-37) form the panel-side distribution/switching infrastructure that this sheet's nav-light functions ride on; T/S E terminal 21 is the +24V DC supply bus feeding relay coils.",
-     "T/S F terminals 51/52 continue via multi-core cable MU5-12 [10]/[11] to the main panel per established fact (MU5-12/MU4-12, GMMS 112) \u2014 cross-sheet continuation, not drawn in full here.",
-     "SIEMENS 3UG4621-1AW30 relay block (IN/A1+/A2-/C1, contacts 11-12, 11-14) appears isolated at upper right with no traced feed on this sheet \u2014 likely a monitoring relay whose full wiring continues off-sheet."
+     "T/S E terminal 21 is the + supply input feeding the common rail to Re7, Re8, Re9, Re10 coils",
+     "T/S E terminals 22-37 are the output taps to each nav/steaming lamp per the established fact 'E22-E37: PORT/STBD/STERN + AUX PORT/STBD/STERN nav lts + STEAMING LT 1/2 (GMMS 111a)'",
+     "Terminal 36 is a FUSED terminal (built-in replaceable fuse) on the Re13/steaming-light feed \u2014 known troubleshooting point",
+     "Terminal 37 continues off-sheet via a pointer labelled 'to RELAIS 1 (see DWG 111a)'"
+    ]
+   },
+   {
+    "system_name": "Terminal strip T/S F (steaming light loop, terminals 51/52)",
+    "facts": [
+     "T/S F terminals 51 and 52 each terminate a ground-stub return for STEAMING LT.1 and STEAMING LT.2 respectively",
+     "Fed via multi-core cable legs MU5-12[10] (to terminal 51) and MU5-12[11] (to terminal 52), consistent with established fact 'also 10/34 & 11/36 STEAMING LTs (GMMS 112)'"
+    ]
+   },
+   {
+    "system_name": "Plug A / Plug B / Plug C wiring harness (NAV.LIGHT ALARM MODULE MK3-1 enclosure interconnect)",
+    "facts": [
+     "PLUG A: 12 pins \u2014 pins 1-8 to Alarm Panel Ind. lamps, pin 9 to NEG common return, pins 10-12 bracketed to S25 mute switch, pins 5-8 to main-panel Nav/Steaming Lights switches",
+     "PLUG B: 10 pins, pins 9 and 10 marked +, routes downward to the relay/logic circuit below the module",
+     "PLUG C: 4 pins (1-4) with arrows pointing left to an external/off-sheet wire (unresolved), plus a lower +1/2 pair feeding the ALARM buzzer directly"
     ]
    }
   ],
   "cross_references": [
    {
-    "what": "Plug B (10-pin) supply/feed lines to the NAV.LIGHT ALARM MODULE \u2014 annotated 'see DWG 111a'",
+    "what": "Cross-drawing pointer '(see DWG 111a)' near top plug wiring \u2014 continuation of PLUG C wiring or Re7-Re10 supply",
     "referenced_sheet_hint": "GMMS 111a"
    },
    {
-    "what": "T/S E terminal 37 routes to 'RELAIS 1', annotated 'to RELAIS 1 (see DWG 111a)'",
+    "what": "Cross-drawing pointer 'to RELAIS 1 (see DWG 111a)' from terminal 37 / Re13 area",
     "referenced_sheet_hint": "GMMS 111a"
    },
    {
-    "what": "T/S F terminals 51/52 continue via MU5-12 [10]/[11] multi-core cable to main panel terminal strips",
-    "referenced_sheet_hint": "GMMS 112"
+    "what": "MU5-12 [10] and MU5-12 [11] multi-core cable legs to T/S F terminals 51/52",
+    "referenced_sheet_hint": "GMMS 112 (main panel multi-core cable MU5-12/MU4-12 per established fact 641-vessel-control-panel)"
+   },
+   {
+    "what": "PLUG C pins [1]-[4] arrows pointing to external wire, off-crop / unresolved destination",
+    "referenced_sheet_hint": "possibly GMMS 111a or main panel sheet"
    }
   ],
-  "good_to_have": [
-   "SIEMENS 3UG4621-1AW30 relay block part number/rating visible on sheet but exact function/wiring to rest of circuit not fully traced \u2014 inspect at panel if troubleshooting.",
-   "Diode part numbers/ratings near Re7/Re8/Re9/Re10 (flyback suppression diodes) not legible \u2014 presence noted, values at inspection.",
-   "Plug C 4-pin group and separate [1]/[2] pins into the alarm module have unresolved off-sheet routing \u2014 likely continue to DWG 111a per module's own Plug B convention; capture at inspection if needed."
-  ],
   "uncertainties": [
-   "The SIEMENS 3UG4621-1AW30 relay's positive/coil feed side is not traced on this sheet \u2014 its relationship to the nav-light alarm circuit (monitoring input vs separate protection relay) is not established from drawn lines alone.",
-   "PORT/STBD/STERN/AUX NAV. LT. and STEAMING LT. 1/2 loads each show only their negative/return side traced to T/S E and T/S F terminals; the positive/supply side feeding each lamp from the relay/contactor chain is not completely drawn on this sheet (dead-ends at terminal numbers without a visible far-side conductor to the relay contacts) \u2014 engineer should confirm supply-side continuity, possibly via DWG 111a."
+   "The SIEMENS 3UG4621-1AW30 monitoring relay's positive/coil feed side and its exact role (monitoring input vs separate protective trip for PORT/STBD nav lamp circuit) is not traced to a clear source or destination on this sheet \u2014 carried forward from open question q1.",
+   "The NC/NO contact state and full coil feed+return for Re7 and Re8 could not be conclusively determined from the sheet symbols (netlist marks these 'contact=unknown'); this could invert whether the nav/steaming lamps are ON or OFF by default versus on fault \u2014 needs engineer confirmation.",
+   "PLUG C pins [1]-[4] (arrows to an external wire) have no traceable destination on this sheet \u2014 genuinely dead-ends off-sheet."
+  ],
+  "good_to_have": [
+   "Terminal 36 fused terminal \u2014 exact fuse rating not legible, read at inspection.",
+   "SIEMENS 3UG4621-1AW30 contact ratings/current threshold \u2014 printed on device, not transcribed here.",
+   "Individual lamp wattage/part numbers for PORT/STBD/STERN/AUX/STEAMING nav lights \u2014 not printed on this sheet.",
+   "Flyback/inline diode part numbers on Re7-Re13 coils \u2014 present but not legible, function (transient suppression) is understood without them."
   ],
   "discarded_as_clutter": [
-   "Title block repeat (DWG No./TITLE/DATE/DRAWN/PROJECT/CUSTOMER, copyright notice)",
-   "ALARM PANEL IND. legend row (R/GRE/WHI/STEAMI abbreviations) \u2014 restates lamp labels already captured in composed functions",
-   "GM Marine Services letterhead/contact fragments repeated near T/S F region",
-   "Orphan grid-tile duplicate entries for RED1/GREEN1/etc. lamps already consolidated into single nav-alarm-1 function"
+   "Wire-gauge diamond callouts near Re7-Re10 and C1-C4/Re11 area \u2014 these are gauge marks, not devices, per survey notes.",
+   "Duplicate legend restating ALARM PANEL IND. labels (RED/GREEN/WHITE/STEAMING x2, NEG, MUTE) \u2014 already captured in F4.",
+   "Title block / copyright notice \u2014 meta, not equipment content.",
+   "Nested dotted sub-enclosure boundary around Alarm Panel Ind. + S25 \u2014 drawing convention, not a device."
   ],
   "_model": "claude-sonnet-5",
-  "_protocol_version": 5
+  "_protocol_version": 7
  },
  "netlist_stats": {
   "segments": 18722,
   "nets": 2031,
   "conductors": 1698,
-  "labels": 258,
-  "bound": 100,
-  "unbound": 30,
-  "devices_located": 124,
-  "devices_placed": 124
+  "labels": 261,
+  "bound": 102,
+  "unbound": 38,
+  "devices_located": 113,
+  "devices_placed": 113
  }
 }

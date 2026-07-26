@@ -4,228 +4,273 @@
  "title": "COCKPIT HYDRAULIC CONTROL PANELS",
  "drawing_class": "electrical",
  "composition": {
-  "serve_who": "This sheet (GMMS 108'-124 \"COCKPIT HYDRAULIC CONTROL PANELS\") documents two mirrored cockpit control panels \u2014 PORT and STBD \u2014 each with a 9-button \"SAILING FUNCTIONS\" switch/LED array (FURL JIB, STAYSAIL(FURL STAYSAIL), JIB TACK UP/DOWN, JIB SHEET UP/DOWN, IN/OUT) that commands the sailing hydraulic furlers/cylinders via a shared AFT MYT PLC J/BOX (PLC I/O node feeding MYT hydraulics manifolds). Each button labeled FURL/STAYSAIL corresponds to the Bamar furling units (860-bamar-gfsi30 jib furler, 860-bamar-sit20 staysail furler, and by extension 860-bamar-pi20 code-0), JIB TACK UP/DOWN and JIB SHEET IN/OUT/UP/DOWN correspond to the Cariboni hydraulic cylinders (840-cariboni-hydraulic-cylinders) already confirmed for these buttons in engineer mappings. The PLC J/BOX itself is part of the MYT hydraulic control/PLC infrastructure (570-myt-systems-hydraulics / 570-plc-rack-aft), and the panels' own LED indicator/backlighting/terminal-strip wiring is panel infrastructure, not equipment.",
+  "serve_who": "This sheet (GMMS 108'-124, \"Cockpit Hydraulic Control Panels\") shows two mirrored cockpit console panels \u2014 PORT and STBD \u2014 each carrying a bank of pushbuttons labelled FURL/JIB, STAYSAIL(FURL), JIB TACK UP/DOWN, JIB SHEET UP/DOWN, IN, OUT with paired red LED indicators, wired via numbered terminal strips and multi-core cables (MU-X1P/X2P port, MU-X1S/X2S stbd) down into a shared \"AFT MYT PLC J/BOX\" containing PORT/STBD DI/DO terminal columns feeding a MYT PLC (DI-04/05, DO-01 channels) and a 4-relay bank (Re1-4) whose output lands on a terminal labelled MYT and continues off-sheet \"to STBD PEDESTAL J/BOX 3\". By function-name match against engineer-confirmed mappings: FURL/JIB -> Bamar GFSI30 jib furler (860-bamar-gfsi30); STAYSAIL(FURL) -> Bamar SIT20 staysail furler (860-bamar-sit20); the unlabelled first FURL row (row1, likely Code-0/general furl) -> Bamar PI20 (860-bamar-pi20). JIB TACK UP/DOWN and JIB SHEET UP/DOWN/IN/OUT are cylinder-actuation commands consistent with Cariboni hydraulic cylinders (840-cariboni-hydraulic-cylinders), per the established fact already recording 'JIB TACK UP/DOWN' and 'JIB SHEET UP' cockpit_control entries against that node. The AFT MYT PLC J/BOX, its DI/DO terminal structure, +24V PLC rail, and the Re1-4 relay bank are shared PLC I/O infrastructure and attach to the AFT PLC I/O Rack node (570-plc-rack-aft), not to any single sail function. The actual hydraulic valve/cylinder wiring downstream of these pushbutton commands is not drawn on this sheet \u2014 only the button-to-PLC-input wiring is shown; the valve/manifold end is cross-referenced to the sailing manifold hydraulic schematics.",
   "equipment_groups": [
    {
-    "equipment_name": "Bamar GFSI 30 CTS \u2014 Jib Furler (860-bamar-gfsi30)",
+    "equipment_name": "Bamar GFSI30 Jib Furler",
     "target_node_id": "860-bamar-gfsi30",
-    "placement_reasoning": "The 'FURL' / 'JIB' pushbutton row on both PORT and STBD sailing-function panels is engineer-confirmed as the cockpit control for the Bamar GFSI 30 jib furler (per established facts). Command travels from the panel pushbutton through the numbered terminal block onto the MU-X1P/S multi-core cable into the AFT MYT PLC J/BOX DI channels.",
+    "placement_reasoning": "Engineer-confirmed mapping: 'FURL JIB' -> 860-bamar-gfsi30; 'JIB' button (terminal 2) -> 860-bamar-gfsi30 per established fact from this same sheet (GMMS 108'-124).",
     "functions": [
      {
-      "label": "Furl/unfurl JIB command",
-      "function_id": "jib-furl",
-      "what_it_does": "Cockpit pushbutton (JIB, row 2 on both panels) sends a momentary command to furl/unfurl the jib via the MYT hydraulic PLC; a RED LED at the panel indicates the button/function is engaged.",
+      "function_id": "furl-jib-cmd",
+      "label": "FURL / JIB pushbutton command (PORT and STBD consoles)",
+      "what_it_does": "Momentary pushbutton on both port and stbd cockpit consoles commands furling/unfurling of the jib via the MYT PLC; each button is wired to its console terminal strip terminal 2, then via multi-core cable (MU-X1P/X2P port, MU-X1S/X2S stbd) to the AFT MYT PLC J/BOX PLC input columns.",
+      "sheet_region": "PORT panel top-left (bbox 0.0-0.30,0.19-0.42) and STBD panel top-right (bbox 0.70-1.0,0.19-0.42); AFT MYT PLC J/BOX (0.33-0.66,0.56-0.93)",
+      "key_components": [
+       "pushbutton switch (JIB row)",
+       "paired red LED indicator",
+       "terminal 2 on console terminal strip"
+      ],
       "flow_scenarios": [
        {
         "state": "neutral",
-        "path": "no button pressed -> no signal on JIB terminal -> furler idle"
+        "path": "button open -> no signal on terminal 2 -> PLC input not asserted -> LED off"
        },
        {
-        "state": "commanded",
-        "path": "JIB pushbutton pressed (PORT panel terminal 2 / STBD panel terminal 2) -> panel wiring -> MU-X1P/MU-X1S multi-core cable -> AFT MYT PLC J/BOX DI input -> MYT hydraulic control energises jib furler function (detailed on hydraulic block sheet, cross-referenced)"
+        "state": "commanded (press)",
+        "path": "operator presses JIB pushbutton (port or stbd console) -> closes contact to terminal 2 -> signal travels via multi-core cable MU-X1P/X2P (port) or MU-X1S/X2S (stbd) -> AFT MYT PLC J/BOX DI terminal column -> MYT PLC reads command and drives furler; paired red LED illuminates to confirm button press/engagement"
        }
       ],
-      "key_components": [
-       "Pushbutton switch (JIB)",
-       "RED LED indicator",
-       "MU-X1P/MU-X1S multi-core cable",
-       "AFT MYT PLC J/BOX DI input"
-      ],
-      "sheet_region": "PORT panel terminal 2 (bbox ~0-0.3,0.19-0.44); STBD panel terminal 2 (bbox ~0.7-1.0,0.19-0.44)"
+      "dry_data": "24V DC pushbutton input to WAGO-type PLC DI, mirrored port/stbd consoles"
      }
     ]
    },
    {
-    "equipment_name": "Bamar SIT 20 CD \u2014 Staysail Furler (860-bamar-sit20)",
+    "equipment_name": "Bamar SIT20 Staysail Furler",
     "target_node_id": "860-bamar-sit20",
-    "placement_reasoning": "The 'STAYSAIL' pushbutton row (terminal 3, both panels) is engineer-confirmed as the cockpit control for the Bamar SIT 20 staysail furler.",
+    "placement_reasoning": "Engineer-confirmed mapping: 'FURL STAYSAIL' -> 860-bamar-sit20; 'STAYSAIL' button (terminal 3) -> 860-bamar-sit20 per established fact from this sheet.",
     "functions": [
      {
-      "label": "Furl/unfurl STAYSAIL command",
-      "function_id": "staysail-furl",
-      "what_it_does": "Cockpit pushbutton (STAYSAIL, row 3 on both panels) sends a command to furl/unfurl the staysail via the MYT hydraulic PLC; RED LED indicates engagement.",
+      "function_id": "furl-staysail-cmd",
+      "label": "STAYSAIL / FURL pushbutton command (PORT and STBD consoles)",
+      "what_it_does": "Momentary pushbutton commands furling/unfurling of the staysail; wired to console terminal 3 on both port and stbd panels, routed via multi-core cable to the AFT MYT PLC J/BOX for PLC processing.",
+      "sheet_region": "PORT panel (0.0-0.30,0.19-0.42), STBD panel (0.70-1.0,0.19-0.42), AFT MYT PLC J/BOX (0.33-0.66,0.56-0.93)",
+      "key_components": [
+       "pushbutton switch (STAYSAIL row)",
+       "paired red LED indicator",
+       "terminal 3 on console terminal strip"
+      ],
       "flow_scenarios": [
        {
         "state": "neutral",
-        "path": "no button pressed -> no signal -> furler idle"
+        "path": "button open -> no signal on terminal 3 -> LED off"
        },
        {
-        "state": "commanded",
-        "path": "STAYSAIL pushbutton pressed (terminal 3) -> panel wiring -> MU-X1P/MU-X1S cable -> AFT MYT PLC J/BOX DI input -> MYT hydraulic control energises staysail furler function"
+        "state": "commanded (press)",
+        "path": "operator presses STAYSAIL pushbutton -> closes contact to terminal 3 -> via MU-X1P/X2P or MU-X1S/X2S -> AFT MYT PLC J/BOX DI column -> MYT PLC drives staysail furler; LED confirms"
        }
       ],
-      "key_components": [
-       "Pushbutton switch (STAYSAIL)",
-       "RED LED indicator",
-       "MU-X1P/MU-X1S cable",
-       "AFT MYT PLC J/BOX DI input"
-      ],
-      "sheet_region": "PORT panel terminal 3; STBD panel terminal 3"
+      "dry_data": "24V DC pushbutton input to PLC DI, mirrored port/stbd consoles"
      }
     ]
    },
    {
-    "equipment_name": "Cariboni Hydraulic Cylinders \u2014 Jib Tack (840-cariboni-hydraulic-cylinders)",
-    "target_node_id": "840-cariboni-hydraulic-cylinders",
-    "placement_reasoning": "JIB TACK UP and JIB TACK DOWN pushbuttons are engineer-confirmed cockpit controls for the Cariboni hydraulic cylinder(s) actuating the jib tack line, on both PORT and STBD panels (terminals 4 and 5).",
+    "equipment_name": "Bamar PI20 Code-0 Furler",
+    "target_node_id": "860-bamar-pi20",
+    "placement_reasoning": "Engineer-confirmed mapping: unlabeled first 'FURL' row (row 1, terminal 1) on the cockpit panel -> 860-bamar-pi20 per established fact from this sheet (labeled 'FURL (unlabeled / row 1)').",
     "functions": [
      {
-      "label": "Jib Tack UP/DOWN command",
-      "function_id": "jib-tack",
-      "what_it_does": "Pushbuttons raise/lower the jib tack via a Cariboni hydraulic cylinder, commanded through the AFT MYT PLC J/BOX.",
+      "function_id": "furl-row1-cmd",
+      "label": "Row-1 FURL pushbutton command (unlabeled, above JIB row)",
+      "what_it_does": "Momentary pushbutton (topmost row on both consoles, header 'FURL' above the JIB row) commands the Code-0 furler; wired to terminal 1 of the console terminal strip.",
+      "sheet_region": "PORT/STBD panel top row (terminal 1), bbox 0.0-0.30/0.70-1.0, 0.19-0.42",
+      "key_components": [
+       "pushbutton switch (row 1)",
+       "paired red LED indicator",
+       "terminal 1 on console terminal strip"
+      ],
       "flow_scenarios": [
        {
         "state": "neutral",
-        "path": "no button pressed -> cylinder holds position"
+        "path": "button open -> no signal on terminal 1 -> LED off"
        },
        {
-        "state": "commanded_up",
-        "path": "JIB TACK UP pressed (terminal 4) -> panel wiring -> MU-X1P/S cable -> AFT MYT PLC J/BOX DI input -> MYT hydraulic control extends/retracts Cariboni cylinder (UP direction)"
-       },
-       {
-        "state": "commanded_down",
-        "path": "JIB TACK DOWN pressed (terminal 5) -> panel wiring -> MU-X1P/S cable -> AFT MYT PLC J/BOX DI input -> MYT hydraulic control drives Cariboni cylinder (DOWN direction)"
+        "state": "commanded (press)",
+        "path": "operator presses row-1 FURL pushbutton -> closes contact to terminal 1 -> via multi-core cable to AFT MYT PLC J/BOX -> MYT PLC processes command for Code-0 furler; LED confirms press"
        }
       ],
-      "key_components": [
-       "Pushbutton switches (UP/DOWN)",
-       "RED LED indicators",
-       "MU-X1P/MU-X1S cable",
-       "AFT MYT PLC J/BOX DI input"
-      ],
-      "sheet_region": "PORT panel terminals 4-5; STBD panel terminals 4-5"
+      "dry_data": "24V DC pushbutton input to PLC DI"
      }
     ]
    },
    {
-    "equipment_name": "Cariboni Hydraulic Cylinders \u2014 Jib Sheet (840-cariboni-hydraulic-cylinders)",
+    "equipment_name": "Cariboni Hydraulic Cylinders (Jib Tack / Jib Sheet actuators)",
     "target_node_id": "840-cariboni-hydraulic-cylinders",
-    "placement_reasoning": "JIB SHEET UP/DOWN and IN/OUT pushbuttons are engineer-confirmed cockpit controls for the Cariboni hydraulic cylinder(s) actuating the jib sheet, on both PORT and STBD panels (terminals 6,7,8,9). One relay bank (Re1-Re4) inside the AFT MYT PLC J/BOX with contacts tied to DI-05 CH12 and an output flagged 'MYT' appears to be part of the OUT/sheet-out command chain, feeding onward to STBD PEDESTAL J/BOX 3.",
+    "placement_reasoning": "Engineer-confirmed cockpit_control facts already on this node name JIB TACK UP/DOWN and JIB SHEET UP as commands from 'cockpit hydraulic control panel (GM 124)' \u2014 this sheet. JIB SHEET DOWN/IN/OUT are the same button group and belong with it.",
     "functions": [
      {
-      "label": "Jib Sheet UP/DOWN command",
-      "function_id": "jib-sheet-updown",
-      "what_it_does": "Pushbuttons drive the jib sheet cylinder up/down.",
+      "function_id": "jib-tack-cmd",
+      "label": "JIB TACK UP / DOWN pushbutton commands (PORT and STBD consoles)",
+      "what_it_does": "Two momentary pushbuttons move the jib tack hydraulic cylinder up or down; wired to terminals 4 (UP) and 5 (DOWN) on both port and stbd consoles, through the multi-core cable to the PLC J/Box.",
+      "sheet_region": "PORT panel rows 4-5 (0.0-0.30,0.19-0.42), STBD panel rows 4-5 (0.70-1.0,0.19-0.42), AFT MYT PLC J/BOX",
+      "key_components": [
+       "pushbutton (JIB TACK UP)",
+       "pushbutton (JIB TACK DOWN)",
+       "paired red LED indicators",
+       "terminals 4 and 5"
+      ],
       "flow_scenarios": [
        {
         "state": "neutral",
-        "path": "no button pressed -> cylinder holds"
+        "path": "both buttons open -> no signal on terminal 4 or 5 -> cylinder holds position -> LEDs off"
        },
        {
-        "state": "commanded_up",
-        "path": "JIB SHEET UP pressed (terminal 6) -> panel wiring -> MU-X1P/S cable -> AFT MYT PLC J/BOX DI input -> MYT hydraulic control drives Cariboni jib sheet cylinder UP"
+        "state": "commanded UP",
+        "path": "operator presses JIB TACK UP -> closes contact terminal 4 -> via multi-core cable (MU-X1P/X2P or MU-X1S/X2S) -> AFT MYT PLC J/BOX DI column -> MYT PLC actuates cylinder extend/retract (up direction); LED confirms"
        },
        {
-        "state": "commanded_down",
-        "path": "JIB SHEET DOWN pressed (terminal 7) -> panel wiring -> MU-X1P/S cable -> AFT MYT PLC J/BOX DI input -> MYT hydraulic control drives Cariboni jib sheet cylinder DOWN"
+        "state": "commanded DOWN",
+        "path": "operator presses JIB TACK DOWN -> closes contact terminal 5 -> via multi-core cable -> AFT MYT PLC J/BOX DI column -> MYT PLC actuates cylinder opposite direction; LED confirms"
        }
       ],
-      "key_components": [
-       "Pushbutton switches (UP/DOWN)",
-       "RED LED indicators",
-       "MU-X1P/MU-X1S cable",
-       "AFT MYT PLC J/BOX DI input"
-      ],
-      "sheet_region": "PORT panel terminals 6-7; STBD panel terminals 6-7"
+      "dry_data": "24V DC pushbutton pair to PLC DI, mirrored port/stbd"
      },
      {
-      "label": "Jib Sheet IN/OUT command",
-      "function_id": "jib-sheet-inout",
-      "what_it_does": "Pushbuttons trim the jib sheet in or out; the OUT command is relayed through Re2/Re3/Re4 relay bank in the PLC J/BOX (each relay's contact loops through a RED LED indicator to DI-05 CH12, and the common junction ties to a terminal marked 'MYT') before continuing to a downstream 6-way terminal block that runs 'to STBD PEDESTAL J/BOX 3'.",
+      "function_id": "jib-sheet-cmd",
+      "label": "JIB SHEET UP / DOWN, IN / OUT pushbutton commands (PORT and STBD consoles)",
+      "what_it_does": "Four momentary pushbuttons (JIB SHEET UP, DOWN, IN, OUT) command the jib sheet hydraulic cylinder/winch; wired to terminals 6 (UP), 7 (DOWN), 8 (IN), 9 (OUT) on both consoles.",
+      "sheet_region": "PORT panel rows 6-9 (0.0-0.30,0.19-0.42), STBD panel rows 6-9 (0.70-1.0,0.19-0.42), AFT MYT PLC J/BOX",
+      "key_components": [
+       "pushbutton (JIB SHEET UP)",
+       "pushbutton (JIB SHEET DOWN)",
+       "pushbutton (IN)",
+       "pushbutton (OUT)",
+       "paired red LED indicators",
+       "terminals 6-9"
+      ],
       "flow_scenarios": [
        {
         "state": "neutral",
-        "path": "no button pressed -> sheet holds position"
+        "path": "all buttons open -> no signal on terminals 6-9 -> LEDs off"
        },
        {
-        "state": "commanded_in",
-        "path": "IN pressed (terminal 8, both panels) -> panel wiring -> MU-X1P/S cable -> AFT MYT PLC J/BOX DI-04 CH07 (PORT) / DI-05 CH04 (STBD) input -> MYT hydraulic control trims sheet IN"
+        "state": "commanded UP",
+        "path": "press JIB SHEET UP -> terminal 6 -> multi-core cable -> AFT MYT PLC J/BOX -> MYT PLC actuates sheet cylinder; LED confirms"
        },
        {
-        "state": "commanded_out",
-        "path": "OUT pressed (terminal 9, both panels) -> panel wiring -> MU-X1P/S cable -> AFT MYT PLC J/BOX DI input -> relay bank Re2/Re3/Re4 (each contact in series with a RED LED status indicator feeding DI-05 CH12) -> common junction to terminal marked 'MYT' -> onward via 6-way terminal block to STBD PEDESTAL J/BOX 3 (continuation off-sheet)"
+        "state": "commanded DOWN",
+        "path": "press JIB SHEET DOWN -> terminal 7 -> multi-core cable -> AFT MYT PLC J/BOX -> MYT PLC actuates sheet cylinder opposite; LED confirms"
+       },
+       {
+        "state": "commanded IN",
+        "path": "press IN -> terminal 8 -> multi-core cable -> AFT MYT PLC J/BOX -> MYT PLC drives sheet in; LED confirms"
+       },
+       {
+        "state": "commanded OUT",
+        "path": "press OUT -> terminal 9 -> multi-core cable -> AFT MYT PLC J/BOX -> MYT PLC drives sheet out; LED confirms"
        }
       ],
+      "dry_data": "24V DC pushbutton set (4 buttons) to PLC DI, mirrored port/stbd"
+     }
+    ]
+   },
+   {
+    "equipment_name": "MYT Aft-area PLC / relay control (AFT MYT PLC J/BOX)",
+    "target_node_id": "570-plc-rack-aft",
+    "placement_reasoning": "The J/Box is a titled PLC I/O infrastructure enclosure (dashed boundary) holding PORT/STBD DI/DO terminal columns, +24V PLC rail, and a 4-relay bank (Re1-4) \u2014 shared infrastructure serving all cockpit console commands, matching the AFT PLC I/O Rack node rather than any single sail function.",
+    "functions": [
+     {
+      "function_id": "plc-relay-processing",
+      "label": "PLC DI/DO processing and Re1-4 relay bank",
+      "what_it_does": "Receives all PORT/STBD console pushbutton signals on DI channels (DI-04 CH07 port, DI-05 CH04 stbd, plus others), applies +24V PLC supply to inputs, and drives 4 output relays (Re1-Re4) whose contacts report status back on DI-05 CH12 and whose combined output lands on a terminal labelled 'MYT', continuing off-sheet to STBD PEDESTAL J/BOX 3.",
+      "sheet_region": "AFT MYT PLC J/BOX dashed enclosure (bbox 0.32-0.68,0.56-0.93); relay bank (0.46-0.58,0.72-0.83)",
       "key_components": [
-       "Pushbutton switches (IN/OUT)",
-       "RED LED status indicators on Re2/Re3/Re4 contacts",
-       "Relays Re2, Re3, Re4",
-       "DI-05 CH12 status input",
-       "terminal marked MYT"
+       "PORT DI/DO terminal column (12 terminals)",
+       "STBD DI/DO terminal column (12 terminals)",
+       "+24V PLC supply terminal 10 (both sides)",
+       "DO-01 CH13 (port)/CH16 (stbd) outputs",
+       "relay Re1",
+       "relay Re2",
+       "relay Re3",
+       "relay Re4",
+       "lower terminal strip (1-6) to MYT"
       ],
-      "sheet_region": "PORT/STBD panel terminals 8-9; relay bank Re1-Re4 inside AFT MYT PLC J/BOX (bbox ~0.47-0.58,0.73-0.83)"
+      "flow_scenarios": [
+       {
+        "state": "neutral",
+        "path": "no console button pressed -> DI channels not asserted -> relays Re1-4 de-energised -> DI-05 CH12 status lines reflect off state"
+       },
+       {
+        "state": "PLC output active",
+        "path": "PLC logic asserts DO-01 CH13 (port) or CH16 (stbd) -> +24V PLC feed at terminal 10 -> energises relay coil (Re1/Re2/Re3/Re4, contact type not confirmed on this sheet) -> relay contact closes/opens -> status reported to DI-05 CH12 -> combined signal reaches terminal strip pin 1 labelled MYT -> continues off-sheet via multi-core cable to STBD PEDESTAL J/BOX 3 (cross-reference, not detailed here)"
+       }
+      ],
+      "dry_data": "WAGO-style PLC I/O module, +24V DC supply, DI-04 CH07/DI-05 CH04 inputs, DO-01 CH13/CH16 outputs, DI-05 CH12 relay status feedback"
      }
     ]
    }
   ],
   "infrastructure": [
    {
-    "system_name": "PORT Sailing Functions Panel (LED/switch/terminal wiring)",
+    "system_name": "Cockpit console back-lighting (PORT and STBD)",
     "facts": [
-     "9-button pushbutton array (FURL/JIB, STAYSAIL, JIB TACK UP/DOWN, JIB SHEET UP/DOWN, IN, OUT) each with a RED LED indicator, wired through a 12-pin terminal block",
-     "A secondary 6-pin terminal block carries +/- supply and BACK LIGHTING +/-",
-     "Panel connects onward via 2-conductor multi-core cable MU-X1P and MU-X2P into the AFT MYT PLC J/BOX",
-     "LED chain positive/feed side not fully traced on this sheet (first LED marked + only); series-wired LED string return paths traced between LEDs but ultimate feed source is off-sheet/unclear low severity \u2014 see good_to_have"
+     "Each console (port and stbd) has its own back-lighting +/- pair wired to lower terminal strip terminals 5 (+) and 6 (-)",
+     "No node exists specifically for console panel back-lighting as a distinct equipment; treated as console infrastructure, not attached to a sailing-function node",
+     "Not a separate lighting circuit fed from a lighting panel node (690-lts-*) since no such link is drawn on this sheet \u2014 this is local panel illumination wired through the console's own terminal strip"
     ]
    },
    {
-    "system_name": "STBD Sailing Functions Panel (LED/switch/terminal wiring)",
+    "system_name": "Console LED indicator bank supply (PORT and STBD)",
     "facts": [
-     "Mirror of PORT panel: 9-button pushbutton array with RED LED indicators, 12-pin terminal block, secondary 6-pin block (+/-, BACK LIGHTING +/-)",
-     "Connects onward via multi-core cable MU-X1S and MU-X2S into the AFT MYT PLC J/BOX",
-     "LED chain positive/feed side not fully traced on this sheet, same as PORT panel"
+     "Each console has a bank of red LED indicators (one per pushbutton function, 9 total) fed from a shared + rail (terminal 10/marked +) and returning on a common bus to terminals 11/12",
+     "The LED bank's positive feed side traces to console terminal strip terminal 10 (marked +); the negative/return side is a common bus across all 9 LEDs, per the drawn wiring, not an individually traced return for each LED",
+     "This shared LED supply rail is console infrastructure (not a separate system) and does not attach to a specific equipment node \u2014 it is recorded here as infrastructure of the two mirrored consoles"
     ]
    },
    {
-    "system_name": "AFT MYT PLC J/BOX (PLC I/O terminal enclosure)",
-    "target_node_id": "570-plc-rack-aft",
+    "system_name": "Multi-core cable interconnect (MU-X1P/X2P port, MU-X1S/X2S stbd)",
     "facts": [
-     "Dotted-boundary enclosure with separate PORT and STBD 12-pin terminal columns mapped to PLC DI/DO channels: PORT pin1=DI-04 CH07, pin10=+24V PLC, pin11=DO-01 CH13; STBD pin1=DI-05 CH04, pin10=+24V PLC, pin11=DO-01 CH16",
-     "Contains relay bank Re1-Re4 with contacts wired to DI-05 CH12 (status)",
-     "Feeds a downstream 6-way terminal block (pin1 tied to 'MYT' flag) whose cable continues off-sheet 'to STBD PEDESTAL J/BOX 3' (cross-reference)",
-     "This J/BOX is the shared PLC infrastructure for both PORT and STBD cockpit panels, not itself an item of equipment"
+     "Port console connects to AFT MYT PLC J/BOX via two multi-core cable designators MU-X1P and MU-X2P",
+     "Stbd console connects to AFT MYT PLC J/BOX via two multi-core cable designators MU-X1S and MU-X2S",
+     "These are cable/connector infrastructure carrying all console signals (pushbutton commands + LED returns + back-lighting) between the console terminal strips and the PLC J/Box; they are not equipment in themselves"
     ]
    }
   ],
   "cross_references": [
    {
-    "what": "AFT MYT PLC J/BOX PORT/STBD DI/DO channel mapping (DI-04 CH07, DI-05 CH04, DI-05 CH12, DO-01 CH13, DO-01 CH16) continuing into MYT hydraulic manifold control logic",
-    "referenced_sheet_hint": "MYT PLC rack / AFT sailing manifold hydraulic schematic (570-plc-rack-aft, 570-myt-aft-sailing-manifold)"
+    "what": "Sailing function pushbutton commands (JIB, STAYSAIL, JIB TACK, JIB SHEET, IN/OUT) continuing onward from AFT MYT PLC J/BOX to the actual sailing manifold hydraulic valves/cylinders \u2014 not drawn on this sheet",
+    "referenced_sheet_hint": "MYT sailing manifold hydraulic schematics (570-myt-aft-sailing-manifold / 570-myt-aft-mast-sailing-manifold)"
    },
    {
-    "what": "6-way terminal block output from relay bank (pin1 'MYT' flag) continuing 'to STBD PEDESTAL J/BOX 3'",
-    "referenced_sheet_hint": "GMMS 108'-124D or Pedestal J/Box 3 sheet (per open question q50 DWG:124D)"
+    "what": "Relay bank (Re1-4) combined output at terminal strip pin 1 labelled 'MYT' continues off-sheet",
+    "referenced_sheet_hint": "to STBD PEDESTAL J/BOX 3 (per sheet's own cross-reference note)"
    },
    {
-    "what": "Sailing function pushbutton commands (JIB, STAYSAIL, JIB TACK, JIB SHEET) onward wiring to actual sailing manifold hydraulic valves/cylinders",
-    "referenced_sheet_hint": "SWS108 Hydraulic System AFT sailing manifold / Cariboni cylinder detail sheets (open question q63)"
+    "what": "DI-04 CH07 (port) and DI-05 CH04 (stbd) PLC input channel assignments \u2014 full PLC program/channel map not detailed on this sheet",
+    "referenced_sheet_hint": "MYT PLC I/O channel list / AFT PLC I/O Rack documentation"
+   },
+   {
+    "what": "DO-01 CH13 (port) and DO-01 CH16 (stbd) PLC output channel assignments",
+    "referenced_sheet_hint": "MYT PLC I/O channel list / AFT PLC I/O Rack documentation"
    }
   ],
-  "good_to_have": [
-   "Exact positive/feed source for the RED LED indicator strings on both panels is not drawn on this sheet \u2014 value/connection is present at the panel, capture at inspection if ever needed.",
-   "Fuse/rating detail (if any) on the multi-core cable terminals MU-X1P/X2P/X1S/X2S is not specified here; presence noted for troubleshooting only.",
-   "Part numbers for the individual pushbuttons and LEDs are not given on this sheet."
-  ],
   "uncertainties": [
-   "The full downstream identity of what the relay bank Re1-Re4 output ('MYT' flagged terminal, continuing to STBD PEDESTAL J/BOX 3') actually switches is not shown on this sheet \u2014 whether it is a status feedback loop or a further command stage for the jib sheet OUT function is ambiguous and needs the MYT hydraulic/pedestal J/BOX 3 sheet to resolve (echoes open question q50)."
+   "Relay bank Re1-Re4: neither the NC/NO contact state for the loads nor the full +/- coil feed and return path is confirmed on this sheet (netlist marks contact=unknown for the coil-question on several nets); the function driven by each individual relay (Re1 vs Re2 vs Re3 vs Re4) is not distinctly labelled beyond a shared 'DI-05 CH12' output and a common 'MYT' terminal \u2014 cannot say which relay corresponds to which sailing function without the PLC program.",
+   "The identity of the unlabeled first pushbutton row (row 1, header 'FURL' with no sub-label) is inferred from the engineer-confirmed mapping to Bamar PI20 (Code-0 furler); the sheet itself does not print a distinguishing sub-label for this row beyond 'FURL' shared with the header."
+  ],
+  "good_to_have": [
+   "Exact terminal-to-terminal wire routing within the AFT MYT PLC J/BOX lower terminal strip (pins 2-6, marked +/-) \u2014 legible on the drawing at higher resolution/inspection.",
+   "Relay part numbers/ratings for Re1-Re4 \u2014 not printed legibly on this crop; capture at inspection if needed.",
+   "Exact PLC module part number/rating for the AFT MYT PLC \u2014 visible on drawing/at inspection."
   ],
   "discarded_as_clutter": [
-   "Title block repeated fields (DWG No., Title, Date, Drawn) - meta",
-   "Copyright notice - meta",
-   "Duplicate legend restatement of terminal pin numbers already captured in survey regions",
-   "Individual LED loop-walk fragments (LED1-LED9 chains) - collapsed into single PORT/STBD panel infrastructure fact rather than per-LED equipment scenarios, since LEDs are indicator infrastructure not separate equipment"
+   "Repeated title-block copyright notice text",
+   "Duplicate LED/pushbutton legend rows restating the same 9-function pattern already captured per console (PORT vs STBD mirror)",
+   "Orphan terminal-number fragments (T1-T12, T1_lower-T6_lower) already resolved into the console terminal-strip wiring narrative",
+   "Illegible drafter name in title block",
+   "Stray extraction artifacts 'NG', 'CUSTOMER', 'SOUTHER' etc. from unbound label list"
   ],
   "_model": "claude-sonnet-5",
-  "_protocol_version": 5
+  "_protocol_version": 7
  },
  "netlist_stats": {
   "segments": 28840,
   "nets": 2109,
   "conductors": 1739,
-  "labels": 353,
-  "bound": 71,
-  "unbound": 11,
-  "devices_located": 104,
-  "devices_placed": 104
+  "labels": 346,
+  "bound": 64,
+  "unbound": 13,
+  "devices_located": 120,
+  "devices_placed": 120
  }
 }

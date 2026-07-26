@@ -16,3 +16,6 @@ logs/
 # this purpose going forward. Existing backups are left on disk, just untracked.
 data/state/*backup*.json
 data/state/vision_bench/sheets/
+
+# Content-addressed vision-layer cache — derived, regenerates itself, grows large.
+data/state/cache/

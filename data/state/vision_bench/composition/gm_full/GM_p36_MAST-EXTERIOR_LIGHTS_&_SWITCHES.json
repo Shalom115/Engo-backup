@@ -4,370 +4,413 @@
  "title": "MAST/EXTERIOR LIGHTS & SWITCHES",
  "drawing_class": "electrical",
  "composition": {
-  "serve_who": "This sheet (GMMS 108'-120a \"MAST/EXTERIOR LIGHTS & SWITCHES\") is fed from the FWD DC DISTRIBUTION PANEL and serves: MAST LIGHTS (Q11), BOOM LIGHTS (Q12), FWD DC SOCKETS/ANCHOR BAY DC SOCKETS (Q13), FOG HORN (Q14), and EMERGENCY LTS SUPPLY (QE1) via T/S E/F. It also carries a HYDRAULICS EMERGENCY STOP signal block (DO22-CH07/MYT 0V/DIO3-CH13/MYT 24V) that is monitoring/estop wiring for the MYT hydraulics system, and terminal blocks A/B/C/D that break out the mast-head/boom/deck light circuits and DC MAST SOCKETS by name. The register maps MAST LTS -> 690-lts-mast, BOOM LTS -> 690-lts-boom, DECK LTS -> 690-lts-deck, DC SOCKETS -> 692-dc-sockets, FOG HORN -> 733-fog-horn, EMERGENCY LTS -> 693-emergency-lighting, HYDRAULICS -> 570-myt-systems-hydraulics, NAVIGATION LTS -> 690-lts-navigation (for the nav-mode lamps upper/lower red + green + steaming/anchor which are navigation-mode running lights per the mast-light legend group A/C). Spreader/aft-boom/cockpit-boom lamps in group B belong to boom/mast lighting per their names.",
+  "serve_who": "This sheet (GMMS 108'-120a \"MAST/EXTERIOR LIGHTS & SWITCHES\") serves several distinct lighting/exterior-equipment circuits, all fed from the FWD DC DISTRIBUTION PANEL breakers Q11-Q14/QE1 through relays Re7-Re19 into terminal strip T/S F, and out to the MAST LIGHTS terminal blocks A-D. Titled sub-systems on the sheet: Mast Lights (Section A: anchor/windex/mast-up/steaming lts), Boom Lights + related deck/spreader/cockpit lamps (Section B), Tri-colour/DC mast socket group (Section C), pushbutton-controlled spreader/deck lamps (Section D \u2014 routed to PORT LAZ. J/BOX 2), Emergency Lights supply (QE1), FWD DC Sockets / Anchor Bay DC Sockets (Q13), Fog Horn + Aux Fog Horn with timer logic (Q14, T1/T2/Re18/Re19), LED Dimmer 1/2 outputs, and a small Hydraulics Emergency Stop status-lamp block tied to MYT/ONYX DIO/DO channels. Register mappings: MAST LTS -> 690-lts-mast, BOOM LTS -> 690-lts-boom, DECK LTS -> 690-lts-deck (fwd deck lt / cockpit boom lts treated under boom/deck groupings per label), NAV LIGHTS/STEAMING/spreader-red-green tri-colour set -> 690-navigation-lights (per engineer mapping for STEAMING LT./NAV LT. family), EMERGENCY LTS -> 693-emergency-lighting, DC SOCKETS/ANCHOR BAY DC SOCKETS -> 692-dc-sockets, FOG HORN -> 733-fog-horn, HYDRAULICS (emergency-stop status lamp) -> 570-myt-systems-hydraulics, ONYX-style DIO/DO tags -> 652-onyx-monitoring cross-reference. Bus/terminal/relay infrastructure (T/S E, T/S F, relay bank Re7-Re19) belongs to 640-dc-distribution as the FWD DC Distribution Panel's own bus structure feeding these circuits, not to any single load.",
   "equipment_groups": [
    {
-    "equipment_name": "Mast Lights (690-lts-mast)",
+    "equipment_name": "Mast Lights (Anchor/Windex/Mast-Up lamps) \u2014 690-lts-mast",
     "target_node_id": "690-lts-mast",
-    "placement_reasoning": "Breaker Q11 'MAST LIGHTS 10A' on the FWD DC DISTRIBUTION PANEL feeds relays Re10-Re13 which drive terminal-strip circuits 37-48 labelled ANCHOR LT, WINDEX LT, PORT/STBD MAST UP LT and STEAMING LT 1/2 in connector group A of the MAST LIGHTS terminal block \u2014 all clearly the mast-head fixture set named on the sheet.",
+    "placement_reasoning": "Section A of the MAST LIGHTS terminal block is fed from Q11 MAST LIGHTS 10A via Re7 relay bank; ANCHOR LT, WINDEX LT, PORT/STBD MAST UP LT are named mast-mounted navigation/utility lamps distinct from steaming lights (which map to nav-lights). Register maps 'MAST LTS' to 690-lts-mast.",
     "functions": [
      {
+      "function_id": "f1",
       "label": "Anchor light circuit",
-      "what_it_does": "Illuminates the masthead anchor light, switched from the mast-lights supply.",
+      "what_it_does": "Provides power to the masthead ANCHOR LT (terminal A[1]/[2]) for anchoring illumination.",
       "flow_scenarios": [
        {
         "state": "energised",
-        "path": "Q11 (10A) -> T/S F terminal 25 -> Re10 relay contact -> T/S F terminal 37/38 -> MAST LIGHTS connector A pin [1]/[2] -> ANCHOR LT lamp"
+        "path": "Q11 MAST LIGHTS 10A -> Re7 contact -> T/S F terminal 26/27 area -> Re10/Re11 relay contacts -> T/S F terminals 37/38 -> multi-core to Mast Lights terminal block A[1] -> ANCHOR LT -> return A[2]"
        }
       ],
       "key_components": [
-       "Re10 relay",
-       "T/S F terminals 37-38",
-       "connector block A pins 1-2"
+       "Re7 (mast lights master relay)",
+       "Re10/Re11 (individual light relays)",
+       "terminal block A pins 1/2"
       ],
-      "dry_data": "24V DC, Q11 10A breaker, relay-switched, terminal-block A pin 1/2",
-      "sheet_region": "mast lights relay bank / connector group A"
+      "dry_data": "24V DC, fed via Q11 10A breaker",
+      "sheet_region": "top-right Mast Lights Section A"
      },
      {
+      "function_id": "f2",
       "label": "Windex light circuit",
-      "what_it_does": "Illuminates the wind-indicator (windex) light at the masthead.",
+      "what_it_does": "Powers WINDEX LT (wind-indicator illumination) at masthead.",
       "flow_scenarios": [
        {
         "state": "energised",
-        "path": "Q11 -> Re10/Re11 contact -> T/S F terminals 39-41 (terminal 40 fused) -> connector A pins [3]/[4] -> WINDEX LT"
+        "path": "Q11 -> Re7 -> T/S F -> Re10/Re11 contact -> terminal block A[3] -> WINDEX LT -> return A[4]"
        }
       ],
       "key_components": [
-       "fused terminal 40",
-       "Re11 relay"
+       "Re10/Re11 relay contact",
+       "terminal block A pins 3/4"
       ],
-      "dry_data": "24V DC, fused terminal (rating: capture at inspection)",
-      "sheet_region": "connector group A"
+      "dry_data": "24V DC via Q11 10A",
+      "sheet_region": "Mast Lights Section A"
      },
      {
-      "label": "Port/Stbd mast-up (steaming reference) lights",
-      "what_it_does": "Illuminates port and starboard mast-up marker lights.",
+      "function_id": "f3",
+      "label": "Port/Stbd Mast Up lights",
+      "what_it_does": "Powers PORT MAST UP LT and STBD MAST UP LT, presumably upward-facing mast illumination lamps.",
       "flow_scenarios": [
        {
         "state": "energised",
-        "path": "Q11 -> Re12 relay contact via diode -> T/S F terminals 42-44 (terminal 43 fused) -> connector A pins [5]-[8] -> PORT MAST UP LT / STBD MAST UP LT"
+        "path": "Q11 -> Re7 -> T/S F terminals 26-30 -> Re12/Re13 relay contacts (diode in coil return path) -> terminals 42-47 -> terminal block A[5]/[6] (PORT) and A[7]/[8] (STBD) -> lamps"
        }
       ],
       "key_components": [
-       "Re12 relay",
-       "diode (Re12)",
-       "fused terminal 43"
+       "Re12 (with series diode in coil return)",
+       "Re13 (with series diode in coil return)",
+       "terminal block A pins 5-8"
       ],
-      "dry_data": "24V DC, diode-isolated relay contact, fused terminal",
-      "sheet_region": "relay bank Re12 / connector A"
-     },
-     {
-      "label": "Steaming lights 1 & 2",
-      "what_it_does": "Illuminates the two masthead steaming (motoring) lights.",
-      "flow_scenarios": [
-       {
-        "state": "energised",
-        "path": "Q11 -> Re13 relay contact via diode -> T/S F terminals 45-47 (terminal 46 fused) -> connector A pins [9]-[12] -> STEAMING LT 1 / STEAMING LT 2"
-       }
-      ],
-      "key_components": [
-       "Re13 relay",
-       "diode (Re13)",
-       "fused terminal 46"
-      ],
-      "dry_data": "24V DC, fused terminal (rating: capture at inspection)",
-      "sheet_region": "relay bank Re13 / connector A"
-     },
-     {
-      "label": "Spreader lights port/stbd",
-      "what_it_does": "Illuminates the port and starboard spreader lights on the mast.",
-      "flow_scenarios": [
-       {
-        "state": "energised",
-        "path": "Q11 -> Re14 relay contact via diode -> T/S F terminals 49-51 (terminal 50 fused) -> connector B pins [1]-[4] -> SPREADER LTS PORT / STBD"
-       }
-      ],
-      "key_components": [
-       "Re14 relay",
-       "fused terminal 50"
-      ],
-      "dry_data": "24V DC, fused terminal",
-      "sheet_region": "relay bank Re14 / connector B"
+      "dry_data": "24V DC via Q11 10A; Re12/Re13 coil positive feed not traced on this sheet (only NO contact and diode return side visible)",
+      "sheet_region": "Mast Lights Section A"
      }
     ]
    },
    {
-    "equipment_name": "Boom Lights (690-lts-boom)",
-    "target_node_id": "690-lts-boom",
-    "placement_reasoning": "Breaker Q12 'BOOM LIGHTS 6A' feeds relay Re8 which drives terminal strip 31-34 leading to AFT BOOM LT and COCKPIT BOOM LTS in connector group B, matching the boom fixture names.",
-    "functions": [
-     {
-      "label": "Aft boom light circuit",
-      "what_it_does": "Illuminates the aft boom-mounted light.",
-      "flow_scenarios": [
-       {
-        "state": "energised",
-        "path": "Q12 (6A) -> T/S F terminal 31 -> Re8 relay contact -> T/S F terminal 55 area -> connector B pin [7]/[8] -> AFT BOOM LT"
-       }
-      ],
-      "key_components": [
-       "Re8 relay"
-      ],
-      "dry_data": "24V DC, Q12 6A breaker",
-      "sheet_region": "Re8 relay bank / connector B pins 7-8"
-     },
-     {
-      "label": "Cockpit boom lights",
-      "what_it_does": "Illuminates the two cockpit-area boom lights (twin lamp group).",
-      "flow_scenarios": [
-       {
-        "state": "energised",
-        "path": "Q12 -> Re8 -> T/S F terminals 32-33 (33 fused) -> connector B pin [9]/[10] -> COCKPIT BOOM LTS (twin lamps)"
-       }
-      ],
-      "key_components": [
-       "Re8 relay",
-       "fused terminal 33"
-      ],
-      "dry_data": "24V DC, fused terminal 33",
-      "sheet_region": "Re8 relay bank / connector B pins 9-10"
-     }
-    ]
-   },
-   {
-    "equipment_name": "Deck Lights (690-lts-deck)",
-    "target_node_id": "690-lts-deck",
-    "placement_reasoning": "FWD DECK LT appears both in the mast-lights connector B (fixed) and again in connector D as a switched/push-button circuit \u2014 the fwd deck light is a deck fixture named directly on the sheet.",
-    "functions": [
-     {
-      "label": "Forward deck light \u2014 mast supply branch",
-      "what_it_does": "Illuminates the forward deck light from the mast lighting relay chain.",
-      "flow_scenarios": [
-       {
-        "state": "energised",
-        "path": "Q11 -> Re14 relay contact -> T/S F terminal 54 -> connector B pin [5]/[6] -> FWD DECK LT"
-       }
-      ],
-      "key_components": [
-       "Re14 relay"
-      ],
-      "dry_data": "24V DC",
-      "sheet_region": "connector B pins 5-6"
-     },
-     {
-      "label": "Forward deck light \u2014 spreader push-button panel branch",
-      "what_it_does": "Same FWD DECK LT fixture, alternatively switched via the push-button spreader-control panel (connector D) with a + supply tap and return to PORT LAZ. J/BOX 2.",
-      "flow_scenarios": [
-       {
-        "state": "energised via push-button panel",
-        "path": "connector D push-button switch D1-D2-D3 [4] (+) -> terminal 76 -> FWD DECK LT; return -> terminal 54 and to PORT LAZ. J/BOX 2 (cross-reference)"
-       }
-      ],
-      "key_components": [
-       "push-button switch D1-D2-D3",
-       "terminal 76 (+)"
-      ],
-      "dry_data": "24V DC, + tap at D[4]/terminal 76",
-      "sheet_region": "connector D / spreader control block"
-     }
-    ]
-   },
-   {
-    "equipment_name": "Spreader Down/Up Lights (690-lts-mast, spreader control sub-branch)",
-    "target_node_id": "690-lts-mast",
-    "placement_reasoning": "SPREADER DOWN LTS and SPREADER UP LTS appear only in connector group D driven by the push-button switch D1-D2-D3, distinct from the fixed SPREADER LTS PORT/STBD in group B (mast lights). Grouped with mast lighting node since no separate spreader-control node exists.",
-    "functions": [
-     {
-      "label": "Spreader down/up light selection",
-      "what_it_does": "Push-button panel selects spreader-down or spreader-up lamp state, sharing the + supply and return with FWD DECK LT on the same connector D block.",
-      "flow_scenarios": [
-       {
-        "state": "down selected",
-        "path": "push-button switch D1-D2-D3 [2] -> terminal 74 -> SPREADER DOWN LTS; + from D[4]/terminal 76"
-       },
-       {
-        "state": "up selected",
-        "path": "push-button switch D1-D2-D3 [3] -> terminal 75 -> SPREADER UP LTS; + from D[4]/terminal 76"
-       }
-      ],
-      "key_components": [
-       "push-button switch D1-D2-D3"
-      ],
-      "dry_data": "24V DC, push-button selector, terminals 74/75",
-      "sheet_region": "connector D"
-     }
-    ]
-   },
-   {
-    "equipment_name": "Navigation Lights \u2014 mast-mounted (690-navigation-lights)",
+    "equipment_name": "Navigation Lights (Steaming, Tri-colour Red/Green, Spreader) \u2014 690-navigation-lights",
     "target_node_id": "690-navigation-lights",
-    "placement_reasoning": "Connector group C lists UPPER RED LTS, LOWER RED LTS, and GREEN LTS \u2014 classic tri-colour navigation light set at masthead, matching the register's NAV. LT. mapping to 690-navigation-lights. These lamps share a + feed from DC MAST SOCKETS C[7] per the legend.",
+    "placement_reasoning": "STEAMING LT 1/2 (Section A) and UPPER/LOWER RED LTS + GREEN LTS (tri-colour, Section C) match the register's engineer-confirmed mapping 'STEAMING LT./NAV LT.' -> 690-navigation-lights, consistent with established facts on 690-navigation-lights (E22-E37 nav lt supply, steaming lts also on GMMS 112).",
     "functions": [
      {
-      "label": "Masthead tri-colour nav lights",
-      "what_it_does": "Provides upper/lower red and green sectors of the masthead tri-colour navigation light, fed via connector C with a common + from the DC mast sockets junction.",
+      "function_id": "f4",
+      "label": "Steaming lights 1 & 2",
+      "what_it_does": "Provides masthead steaming-light illumination (forward white steaming lights), duplicated as LT1/LT2 for redundancy.",
       "flow_scenarios": [
        {
         "state": "energised",
-        "path": "+ supply at connector C[7]/DC MAST SOCKETS -> C[1]/[2] -> UPPER RED LTS; C[3]/[4] -> LOWER RED LTS; C[5]/[6] -> GREEN LTS (returns at T/S terminals 62/64/66)"
+        "path": "Q11 mast lights supply -> Re7/Re14 relay chain -> T/S F terminals 48/49 (Re14 with series diode coil return) -> terminal block A[9]/[10] STEAMING LT 1, A[11]/[12] STEAMING LT 2"
        }
       ],
       "key_components": [
-       "connector block C",
-       "shared + tap at C[7]"
+       "Re14 (relay, diode in coil return)",
+       "terminal block A pins 9-12"
       ],
-      "dry_data": "24V DC, common + from DC mast socket point",
-      "sheet_region": "connector group C"
-     }
-    ],
-    "uncertainties": []
-   },
-   {
-    "equipment_name": "DC Sockets \u2014 mast/FWD (692-dc-sockets)",
-    "target_node_id": "692-dc-sockets",
-    "placement_reasoning": "Two distinct DC socket circuits are named on this sheet: FWD DC SOCKETS / ANCHOR BAY DC SOCKETS fed via breaker Q13, and DC MAST SOCKETS in connector C at the masthead. Both map to the DC Sockets node per the register mapping ('DC SOCKETS -> 692-dc-sockets').",
-    "functions": [
-     {
-      "label": "FWD DC sockets / anchor bay DC sockets",
-      "what_it_does": "Supplies 24V DC utility sockets at the anchor bay via the FWD DC panel.",
-      "flow_scenarios": [
-       {
-        "state": "energised",
-        "path": "Q13 (16A) -> switch contact -> ANCHOR BAY DC SOCKETS (direct feed, labelled arrow on sheet)"
-       }
-      ],
-      "key_components": [
-       "Q13 breaker"
-      ],
-      "dry_data": "24V DC, Q13 16A",
-      "sheet_region": "left panel column, FWD DC SOCKETS row"
+      "dry_data": "24V DC via Q11 10A",
+      "sheet_region": "Mast Lights Section A"
      },
      {
-      "label": "Mast-mounted DC sockets",
-      "what_it_does": "Provides 24V DC socket outlets at the masthead, fed from the shared + junction on connector block C alongside the nav lights.",
+      "function_id": "f5",
+      "label": "Tri-colour light circuit (upper red, lower red, green)",
+      "what_it_does": "Drives the masthead tri-colour navigation lamp set: two UPPER RED, two LOWER RED, two GREEN lamps, wired on the shared terminal block C common rail (C-1 through C-6 daisy-chained via dot junctions).",
       "flow_scenarios": [
        {
         "state": "energised",
-        "path": "+ supply at C[7] -> C[8] junction -> DC MAST SOCKETS -> return at terminal 68"
+        "path": "Mast lights supply chain (Re15/Re16 relay bank, T/S F terminals 57-65) -> terminal block C[1]-[6] common feed rail -> UPPER RED LTS (C1/2), LOWER RED LTS (C3/4), GREEN LTS (C5/6) lamps -> common return"
        }
       ],
       "key_components": [
-       "connector block C, pin 7/8"
+       "Re15/Re16 relay contacts",
+       "terminal block C shared rail C-1..C-6"
+      ],
+      "dry_data": "24V DC; each lamp pair on a common daisy-chained rail per netlist (all C[1]-[6] on same physical run)",
+      "sheet_region": "Mast Lights Section C"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Boom/Deck exterior lighting group \u2014 690-lts-boom / 690-lts-deck",
+    "target_node_id": "690-lts-boom",
+    "placement_reasoning": "BOOM LIGHTS Q12 6A feeds Re8 relay bank into T/S F terminals 31-34, onward to Section B terminal block loads: SPREADER LTS PORT/STBD, FWD DECK LT, AFT BOOM LT, COCKPIT BOOM LTS. Register maps BOOM LTS -> 690-lts-boom; FWD DECK LT and spreader lamps are deck-area functions but fed on the same boom-lights breaker/relay chain, so grouped here per the sheet's own breaker labelling; a distinct 690-lts-deck node exists but this sheet's drawn supply is specifically the BOOM LIGHTS breaker/relay path.",
+    "functions": [
+     {
+      "function_id": "f6",
+      "label": "Spreader lights (port/stbd)",
+      "what_it_does": "Powers spreader-mounted deck-illumination lamps, port and starboard, fixed (breaker-switched, not pushbutton) supply.",
+      "flow_scenarios": [
+       {
+        "state": "energised",
+        "path": "Q12 BOOM LIGHTS 6A -> Re8 contact -> T/S F terminal 31 -> Re14 contact (diode coil return) -> terminals 48/49 -> terminal block B[1]/[2] SPREADER LTS PORT, B[3]/[4] SPREADER LTS STBD"
+       }
+      ],
+      "key_components": [
+       "Re8 (boom lights master relay)",
+       "Re14 (diode in coil return)"
+      ],
+      "dry_data": "24V DC via Q12 6A breaker",
+      "sheet_region": "Mast Lights Section B"
+     },
+     {
+      "function_id": "f7",
+      "label": "Fwd deck light (fixed supply)",
+      "what_it_does": "Powers a forward deck lamp, fixed switched supply (distinct from the pushbutton-controlled FWD DECK LT in Section D).",
+      "flow_scenarios": [
+       {
+        "state": "energised",
+        "path": "Q12 -> Re8 -> T/S F terminals 31-34 -> Re15/Re16 relay chain -> terminal block B[5]/[6] FWD DECK LT"
+       }
+      ],
+      "key_components": [
+       "Re15/Re16 relay chain"
+      ],
+      "dry_data": "24V DC via Q12 6A",
+      "sheet_region": "Mast Lights Section B"
+     },
+     {
+      "function_id": "f8",
+      "label": "Aft boom light",
+      "what_it_does": "Powers a single lamp mounted aft on the boom.",
+      "flow_scenarios": [
+       {
+        "state": "energised",
+        "path": "Q12 -> Re8 -> T/S F -> relay chain -> terminal block B[7]/[8] AFT BOOM LT"
+       }
+      ],
+      "key_components": [
+       "boom lights relay chain"
+      ],
+      "dry_data": "24V DC via Q12 6A",
+      "sheet_region": "Mast Lights Section B"
+     },
+     {
+      "function_id": "f9",
+      "label": "Cockpit boom lights (3-lamp group)",
+      "what_it_does": "Powers a group of three lamps in series/parallel under the boom illuminating the cockpit.",
+      "flow_scenarios": [
+       {
+        "state": "energised",
+        "path": "Q12 -> Re8 -> T/S F -> relay chain -> terminal block B[9]/[10] COCKPIT BOOM LTS (3 lamps)"
+       }
+      ],
+      "key_components": [
+       "3x lamp group"
+      ],
+      "dry_data": "24V DC via Q12 6A",
+      "sheet_region": "Mast Lights Section B"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Pushbutton-controlled Spreader/Deck lights (Section D) \u2014 690-lts-deck",
+    "target_node_id": "690-lts-deck",
+    "placement_reasoning": "Section D is a distinct pushbutton-operated group (SPREADER DOWN LTS, SPREADER UP LTS, FWD DECK LT) sharing a common + rail (D[4]/D[8]) and routed 'to PORT LAZ. J/BOX 2' \u2014 a separate control scheme from the breaker/relay-switched Section B lamps, so treated as its own deck-lighting function on 690-lts-deck.",
+    "functions": [
+     {
+      "function_id": "f10",
+      "label": "Pushbutton spreader-down / spreader-up / fwd-deck lamps",
+      "what_it_does": "Three momentary pushbuttons at terminal block D each independently close their own lamp circuit (spreader down, spreader up, fwd deck) from a shared positive rail (D[4]=D[8]).",
+      "flow_scenarios": [
+       {
+        "state": "spreader down pressed",
+        "path": "shared + rail D[4]/D[8] -> pushbutton D1 -> SPREADER DOWN LTS lamp (D[1]) -> return D[5]"
+       },
+       {
+        "state": "spreader up pressed",
+        "path": "shared + rail D[4]/D[8] -> pushbutton D2 -> SPREADER UP LTS lamp (D[2]) -> return D[6]"
+       },
+       {
+        "state": "fwd deck pressed",
+        "path": "shared + rail D[4]/D[8] -> pushbutton D3 -> FWD DECK LT lamp (D[3]) -> return D[7]"
+       }
+      ],
+      "key_components": [
+       "3x momentary pushbuttons",
+       "shared + supply rail D[4]/D[8]"
+      ],
+      "dry_data": "24V DC common rail; feed origin off-sheet (to PORT LAZ. J/BOX 2 per legend)",
+      "sheet_region": "Mast Lights Section D, bottom-right"
+     }
+    ]
+   },
+   {
+    "equipment_name": "DC Mast Sockets \u2014 692-dc-sockets",
+    "target_node_id": "692-dc-sockets",
+    "placement_reasoning": "Section C terminal [7]/[8] is explicitly labelled '+ DC MAST SOCKETS' with arrows, a distinct load on the shared tri-colour terminal block rail but its own named device. Register maps DC SOCKETS -> 692-dc-sockets.",
+    "functions": [
+     {
+      "function_id": "f11",
+      "label": "DC mast sockets supply",
+      "what_it_does": "Provides a DC supply tap for accessory sockets mounted at the mast, fed from the same terminal block C rail as tri-colour lights but tapped off separately at C[7]/[8].",
+      "flow_scenarios": [
+       {
+        "state": "energised",
+        "path": "terminal block C common rail (fed via Section C wiring) -> C[7]+ -> DC MAST SOCKETS -> C[8] return"
+       }
+      ],
+      "key_components": [
+       "terminal block C pins 7/8"
       ],
       "dry_data": "24V DC",
-      "sheet_region": "connector group C"
+      "sheet_region": "Mast Lights Section C, row 4"
      }
     ]
    },
    {
-    "equipment_name": "Fog Horn (733-fog-horn)",
-    "target_node_id": "733-fog-horn",
-    "placement_reasoning": "Breaker Q14 'FOG HORN 16A' feeds relay Re9, timers T1(30s-F)/T2(5s-D), relays Re18/Re19 and CT2, driving FOG HORM and AUX FOG HORM devices with an auto/manual selector \u2014 matches FOG HORN mapping directly.",
+    "equipment_name": "FWD DC Sockets / Anchor Bay DC Sockets \u2014 692-dc-sockets",
+    "target_node_id": "692-dc-sockets",
+    "placement_reasoning": "Q13 FWD DC SOCKETS 16A breaker directly labels and feeds 'ANCHOR BAY DC SOCKETS' via a pointer line; register maps DC SOCKETS / ANCHOR BAY DC SOCKETS -> 692-dc-sockets.",
     "functions": [
      {
-      "label": "Fog horn auto/manual sounding sequence",
-      "what_it_does": "Sounds the main fog horn and an auxiliary fog horn, timed by a 30-second and 5-second timer pair, selectable between auto and manual modes via terminals 67 (auto) and 68 (man).",
-      "flow_scenarios": [
-       {
-        "state": "auto mode",
-        "path": "Q14 (16A) -> Re9 relay -> 30s-F timer T1 -> 5s-D timer T2 -> Re18 relay contact -> terminal 66 -> FOG HORN (+); auto selector at terminal 67"
-       },
-       {
-        "state": "manual mode",
-        "path": "Re19 relay contact -> terminal 68 (man) -> AUX FOG HORN switch contact -> AUX FOG HORN device"
-       },
-       {
-        "state": "monitored",
-        "path": "CT2 current transformer taps Re18/Re19 contact lines for horn-current monitoring/status (loop-walk; downstream destination of the monitoring signal is off-sheet)"
-       }
-      ],
-      "key_components": [
-       "Re9 relay",
-       "T1 30s timer",
-       "T2 5s timer",
-       "Re18 relay",
-       "Re19 relay",
-       "CT2 current transformer",
-       "auto/manual selector terminals 67/68"
-      ],
-      "dry_data": "24V DC, Q14 16A breaker, timer bank 30s/5s",
-      "sheet_region": "fog horn timer/relay logic block, lower-left of sheet"
-     }
-    ],
-    "uncertainties": [
-     "AUX FOG HORN and FOG HORN devices' positive/feed conductor is not fully traced separately from the shared Re18/CT2 loop; only the return/contact side is clearly walked \u2014 function (sound the horn) is understood, but the exact + source point for the horn device itself is ambiguous beyond the relay contact."
-    ]
-   },
-   {
-    "equipment_name": "Emergency Lighting / EM Supply (693-emergency-lighting)",
-    "target_node_id": "693-emergency-lighting",
-    "placement_reasoning": "QE1 'EMERGENCY LTS SUPPLY 10A' is the first breaker row on this FWD DC distribution panel, feeding T/S E terminal 5 \u2014 matches register mapping EMERGENCY LTS -> 693-emergency-lighting.",
-    "functions": [
-     {
-      "label": "Emergency lighting supply feed",
-      "what_it_does": "Provides the emergency-lights supply tap from the FWD DC distribution panel into T/S E, continuing to the emergency lighting circuits detailed on other sheets.",
+      "function_id": "f12",
+      "label": "FWD DC sockets / Anchor bay DC sockets supply",
+      "what_it_does": "Feeds DC accessory sockets at the anchor bay forward area.",
       "flow_scenarios": [
        {
         "state": "energised",
-        "path": "+24V service supply -> F5 100A fuse -> QE1 (10A) -> T/S E terminal 5 -> onward (off-sheet emergency lighting circuit)"
+        "path": "Q13 FWD DC SOCKETS 16A -> left vertical supply bus -> ANCHOR BAY DC SOCKETS (pointer line, positive feed side traced to Q13; negative return not traced on this sheet)"
        }
       ],
       "key_components": [
-       "QE1 breaker",
-       "F5 100A fuse",
-       "T/S E terminal 5"
+       "Q13 breaker 16A"
       ],
-      "dry_data": "24V DC, QE1 10A, F5 100A upstream fuse",
-      "sheet_region": "top-left of sheet, EMERGENCY LTS SUPPLY row"
+      "dry_data": "24V DC, Q13 16A breaker",
+      "sheet_region": "left column, mid-height, 'FWD DC SOCKETS Q13 16A'"
+     }
+    ],
+    "cross_ref_note": "n/a"
+   },
+   {
+    "equipment_name": "Emergency Lights supply \u2014 693-emergency-lighting",
+    "target_node_id": "693-emergency-lighting",
+    "placement_reasoning": "T/S E terminal 5 -> QE1 'EMERGENCY LTS SUPPLY 10A' breaker directly labelled at top-left; register maps EMERGENCY LTS -> 693-emergency-lighting; consistent with established fact QE1 32A emergency breaker on other sheets (this sheet shows QE1 10A locally feeding mast-lights emergency tap \u2014 value as printed here).",
+    "functions": [
+     {
+      "function_id": "f13",
+      "label": "Emergency lights supply feed into mast lights circuit",
+      "what_it_does": "Provides an emergency-power tap into the T/S F terminal 25 / mast-lights relay chain, ensuring some mast lighting can be energised from the emergency bus.",
+      "flow_scenarios": [
+       {
+        "state": "energised",
+        "path": "T/S E terminal 5 -> QE1 (EMERGENCY LTS SUPPLY, 10A as printed on this sheet) -> T/S F terminal 25 -> Re10 relay contact chain"
+       }
+      ],
+      "key_components": [
+       "QE1 breaker (10A, this sheet)"
+      ],
+      "dry_data": "24V DC, QE1 10A (as printed here; other sheets show QE1 as 32A emergency breaker \u2014 value discrepancy, note only)",
+      "sheet_region": "top-left corner"
      }
     ]
    },
    {
-    "equipment_name": "MYT Hydraulics \u2014 emergency stop signal (570-myt-systems-hydraulics)",
-    "target_node_id": "570-myt-systems-hydraulics",
-    "placement_reasoning": "The 'HYDRAULICS EMERGENCY STOP' block with DO22-CH07 / MYT 0V / DIO3-CH13 / MYT 24V signal lines directly names hydraulics; register maps HYDRAULICS -> 570-myt-systems-hydraulics.",
+    "equipment_name": "Fog Horn / Aux Fog Horn \u2014 733-fog-horn",
+    "target_node_id": "733-fog-horn",
+    "placement_reasoning": "Q14 FOG HORN 16A breaker feeds Re9 relay and a T1(30s-F)/T2(5s-D) timer chain into Re18/Re19 driving FOG HORM (fog horn) and AUX FOG HORM (auxiliary fog horn) devices, with an auto/man selector switch. Register maps FOG HORN -> 733-fog-horn.",
     "functions": [
      {
-      "label": "Hydraulics emergency-stop signal interface",
-      "what_it_does": "Carries a PLC digital I/O signal (DO22-CH07 output, DIO3-CH13 switched input) between the MYT hydraulics control system and a switch contact, providing the hydraulics emergency-stop status/command tap on this lighting/switches sheet.",
+      "function_id": "f14",
+      "label": "Fog horn sounding sequence (auto timed cycle + manual)",
+      "what_it_does": "Sounds the main fog horn and auxiliary fog horn either automatically on a timed cycle (30s-off / 5s-on repeating via T1/T2 timers) or manually via a local switch selecting AUTO/MAN mode.",
       "flow_scenarios": [
        {
-        "state": "normal/monitoring",
-        "path": "DO22-CH07 -> MYT 0V line with circled-X symbol (status indicator) -> DIO3-CH13 switch contact -> HYDRAULICS EMERGENCY STOP; MYT 24V supply reference"
+        "state": "auto cycle running",
+        "path": "Q14 FOG HORN 16A -> Re9 relay -> T1 (30s-F) timer -> T2 (5s-D) timer -> Re18 relay -> terminal 66 -> FOG HORN switch -> FOG HORM (+) and AUX FOG HORM (+); loop repeats via diode-coupled T1/T2/Re18 chain"
+       },
+       {
+        "state": "manual sounding (terminal 68 'man')",
+        "path": "manual selector at terminals 67(auto)/68(man) -> Re18 contact -> terminal 66 -> FOG HORM / AUX FOG HORM"
        }
       ],
       "key_components": [
-       "DIO3-CH13 switch contact",
-       "DO22-CH07 PLC output tap"
+       "Re9 (master relay from Q14)",
+       "T1 30s-F timer",
+       "T2 5s-D timer",
+       "Re18 (output relay, diode-coupled)",
+       "Re19 (T/S F terminal 35 tap)",
+       "auto/man selector switch (terminals 67/68)"
       ],
-      "dry_data": "signal-level, PLC I/O module tags DO22-CH07 / DIO3-CH13",
-      "sheet_region": "right side of sheet, below MAST LIGHTS connector legend"
+      "dry_data": "24V DC, Q14 16A breaker; timer settings 30s-F and 5s-D as printed",
+      "sheet_region": "lower-left, 'FOG HORM Q14 16A' block and timer chain, bottom-centre 'FOG HORM'/'AUX FOG HORM' device symbols"
+     }
+    ]
+   },
+   {
+    "equipment_name": "LED Dimmer outputs \u2014 no fitting node",
+    "target_node_id": null,
+    "placement_reasoning": "LED DIMMER 1 (terminal 78) and LED DIMMER 2 (terminal 79) are named outputs on T/S F but no register node exists for a generic mast/exterior LED dimmer control function; not clearly 690-lts-mast/boom specific dimming target on this sheet. Flag as no fitting node per rule 6.",
+    "functions": [
+     {
+      "function_id": "f15",
+      "label": "LED Dimmer 1 output",
+      "what_it_does": "Provides a dimming control output signal from T/S F terminal 78 labelled LED DIMMER 1; downstream target/device not shown on this sheet.",
+      "flow_scenarios": [
+       {
+        "state": "signal present",
+        "path": "T/S F terminal 78 -> LED DIMMER 1 output (destination off-sheet, positive/feed side not traced)"
+       }
+      ],
+      "key_components": [
+       "terminal 78"
+      ],
+      "dry_data": "24V DC signal, terminal 78",
+      "sheet_region": "lower-mid terminal strip, row 78-79"
+     },
+     {
+      "function_id": "f16",
+      "label": "LED Dimmer 2 output",
+      "what_it_does": "Provides a dimming control output signal from T/S F terminal 79 labelled LED DIMMER 2; downstream target/device not shown on this sheet.",
+      "flow_scenarios": [
+       {
+        "state": "signal present",
+        "path": "T/S F terminal 79 -> LED DIMMER 2 output (destination off-sheet, positive/feed side not traced)"
+       }
+      ],
+      "key_components": [
+       "terminal 79"
+      ],
+      "dry_data": "24V DC signal, terminal 79",
+      "sheet_region": "lower-mid terminal strip, row 78-79"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Hydraulics Emergency Stop status lamp \u2014 570-myt-systems-hydraulics",
+    "target_node_id": "570-myt-systems-hydraulics",
+    "placement_reasoning": "Bottom-right block labelled 'HYDRAULICS EMERGENCY STOP' with an indicator lamp driven by DO22-CH07/MYT 0V and DIO3-CH13/MYT 24V status/command tags; register maps HYDRAULICS -> 570-myt-systems-hydraulics, and this is a monitoring lamp for that system's emergency-stop state.",
+    "functions": [
+     {
+      "function_id": "f17",
+      "label": "Hydraulics emergency-stop indicator lamp",
+      "what_it_does": "Illuminates to indicate the MYT hydraulics emergency-stop status, driven by PLC output/status channels DO22-CH07 and DIO3-CH13 referencing MYT 0V/24V rails.",
+      "flow_scenarios": [
+       {
+        "state": "status indicated",
+        "path": "DO22-CH07 (MYT 0V return) and DIO3-CH13 (MYT 24V feed) -> HYDRAULICS EMERGENCY STOP indicator lamp; positive/feed side traced to MYT 24V tag, return to MYT 0V tag, but full PLC-side origin not detailed on this sheet"
+       }
+      ],
+      "key_components": [
+       "indicator lamp",
+       "DO22-CH07 status tap",
+       "DIO3-CH13 status/command tap"
+      ],
+      "dry_data": "24V DC (MYT rail), PLC channel tags DO22-CH07 / DIO3-CH13",
+      "sheet_region": "bottom-right, 'HYDRAULICS EMERGENCY STOP' block"
      }
     ],
-    "uncertainties": [
-     "Direction of the DO22-CH07/DIO3-CH13 taps (status feedback into the PLC vs. a command from this switch into the hydraulics estop circuit) is not resolvable purely from this sheet's drawn symbols; noted per sheet's own legend as a 'HYDRAULICS EMERGENCY STOP' block without further detail."
+    "cross_references_inline": [
+     "DO22-CH07/DIO3-CH13 are MYT/PLC channel tags \u2014 likely continue to the MAST PLC I/O Rack sheet (570-plc-rack-mast); cross-reference only, not detailed here."
     ]
    }
   ],
   "infrastructure": [
    {
-    "system_name": "FWD DC Distribution Panel (breaker/relay/terminal infrastructure)",
+    "system_name": "FWD DC Distribution Panel (T/S E, T/S F terminal strip, relay bank Re7-Re19)",
     "target_node_id": "640-dc-distribution",
     "facts": [
-     "Panel houses breakers QE1 (10A, Emergency Lts Supply), Q11 (10A, Mast Lights), Q12 (6A, Boom Lights), Q13 (16A, FWD DC Sockets), Q14 (16A, Fog Horn), supplied from +24V SERVICE SUPPLY through F5 100A fuse.",
-     "Relay bank Re7-Re19 and terminal strips T/S E, T/S F (terminals 25-91) form the internal wiring/distribution backbone for this panel's outgoing circuits \u2014 not equipment in themselves.",
-     "Multi-core cables MU4-12 (to DWG120/112/111a), MU5-12 (to AFT DC PANEL), MU6-12 (to LAZ. J/BOX 2), MU5a-12 (to AFT DC PANEL) carry these circuits off-sheet."
+     "T/S E terminal 5 feeds QE1 (Emergency Lts Supply, 10A as printed) which taps into T/S F terminal 25.",
+     "T/S F is the sheet's large sequential terminal strip (terminals 25 through 91), many marked 'not used' \u2014 spare ways for future circuits.",
+     "Breakers Q11 (Mast Lights 10A), Q12 (Boom Lights 6A), Q13 (FWD DC Sockets 16A), Q14 (Fog Horn 16A) all originate here and route through relay bank Re7-Re19 into T/S F.",
+     "Relay bank Re7-Re19 acts as the switching/logic layer between breaker supply and the individual mast-light/boom-light/fog-horn loads; several relay coils (Re12, Re13, Re14, Re15) have diodes in series in their contact/coil-return paths \u2014 a recurring protective/isolation pattern on this panel.",
+     "Multi-core cables MU5-12, MU6-12, MU5a-12 exit this terminal strip toward AFT DC PANEL (MU5-12, MU5a-12) and LAZ. J/BOX 2 (MU6-12) \u2014 cross-sheet continuations, not detailed here.",
+     "T/S F terminal 22 has a cross-reference note 'MU4-12 [10] (see DWG120/112/111a)'.",
+     "Many T/S F terminals (25, 26, 31, 34, 43, 46, 50, 52, 58, 60, 64) are FUSED TERMINALS (built-in replaceable fuse) \u2014 troubleshooting culprits per sheet convention."
+    ]
+   },
+   {
+    "system_name": "Fog Horn timer/relay logic module (T1, T2, Re9, Re18, Re19)",
+    "target_node_id": "640-dc-distribution",
+    "facts": [
+     "T1 (30s-F) and T2 (5s-D) timers and relays Re9/Re18/Re19 form a local control-logic sub-assembly on the FWD DC panel dedicated to sequencing the fog horn sounding pattern; physically part of the panel's relay bank, feeding the 733-fog-horn equipment function (see equipment group above)."
     ]
    }
   ],
   "cross_references": [
    {
-    "what": "MU4-12 [10] cross-reference to terminal 22",
-    "referenced_sheet_hint": "DWG 120/112/111a"
+    "what": "MU4-12 [10] wire continuing to another main-panel drawing",
+    "referenced_sheet_hint": "DWG120/112/111a"
    },
    {
     "what": "MU5-12 multi-core cable to AFT DC PANEL",
-    "referenced_sheet_hint": "DWG 112 / AFT DC PANEL sheet"
+    "referenced_sheet_hint": "AFT DC PANEL sheet"
    },
    {
     "what": "MU6-12 multi-core cable to LAZ. J/BOX 2",
@@ -378,45 +421,47 @@
     "referenced_sheet_hint": "AFT DC PANEL sheet"
    },
    {
-    "what": "MAST LIGHTS connector group B 'to PORT LAZ. J/BOX 2' (spreader down/up + fwd deck lt push-button branch)",
+    "what": "Section D pushbutton group (spreader down/up, fwd deck lt) wired 'to PORT LAZ. J/BOX 2'",
     "referenced_sheet_hint": "PORT LAZ. J/BOX 2 sheet"
    },
    {
-    "what": "LED DIMMER 1 and LED DIMMER 2 terminals 78/79 - positive/feed side not drawn on this sheet, continues elsewhere",
-    "referenced_sheet_hint": "unknown - possibly lighting control module sheet (Yachtica?)"
+    "what": "DO22-CH07 / DIO3-CH13 PLC channel tags for Hydraulics Emergency Stop indicator, MYT 0V/24V rails",
+    "referenced_sheet_hint": "MAST PLC I/O Rack (570-plc-rack-mast) or MYT hydraulic monitoring sheet"
+   },
+   {
+    "what": "LED Dimmer 1 / LED Dimmer 2 downstream dimmer module destination",
+    "referenced_sheet_hint": "possibly PORT PEDESTAL INTERCONNECTIONS sheet (q56 open question re DIM1/DIM2/DIM3)"
    }
   ],
   "good_to_have": [
-   "Fused terminal 40 (Windex Lt circuit) - exact fuse rating: read at inspection",
-   "Fused terminal 43 (Port/Stbd Mast Up Lt) - exact fuse rating: read at inspection",
-   "Fused terminal 46 (Steaming Lt 1/2) - exact fuse rating: read at inspection",
-   "Fused terminal 50 (Spreader Lts) - exact fuse rating: read at inspection",
-   "Fused terminal 33 (Cockpit Boom Lts) - exact fuse rating: read at inspection",
-   "Fused terminal 58/60/64 (mast lights group C/B fused terminals) - exact fuse ratings: read at inspection",
-   "F5 100A main fuse feeding +24V service supply - part number/spec at inspection"
+   "Exact wire-gauge diamond callouts on conductors not legible at this resolution \u2014 capture at inspection if ever needed.",
+   "Fused terminal exact fuse ratings at T/S F terminals 25,26,31,34,43,46,50,52,58,60,64 \u2014 values on drawing/at inspection.",
+   "Timer set-point exact values for T1 (30s-F) and T2 (5s-D) are printed on sheet as labels; precise tolerance/adjustment range not detailed.",
+   "Q11/Q12/Q13/Q14/QE1 breaker part numbers/manufacturer \u2014 not printed, capture at inspection if needed."
   ],
   "uncertainties": [
-   "LED DIMMER 1 (terminal 78) and LED DIMMER 2 (terminal 79) show only the outgoing line to the dimmer devices; their positive/feed side and which lighting circuit(s) they dim is not drawn on this sheet - function (LED dimming) is understood but the served fixture/circuit identity is not resolvable here.",
-   "AUX FOG HORN and FOG HORN devices' positive/supply conductor is not distinctly traced apart from the shared Re18/CT2/Re19 relay-contact loop; the sounding function is understood but the exact feed origin point is ambiguous."
+   "QE1 is printed as '10A' on this sheet feeding mast-lights emergency tap, but established facts from other sheets show QE1 as a 32A emergency breaker \u2014 engineer should confirm whether this is a second QE1 tap/sub-fuse or a labelling discrepancy.",
+   "Re12/Re13/Re14/Re15 coil positive/feed sides are not traced on this sheet \u2014 only the NO contact and diode-coupled return/coil side are drawn; the actual command source (which switch/logic energises these mast-light relays) is incomplete.",
+   "FOG HORM and AUX FOG HORM positive supply conductor is not distinctly traced apart from the shared Re18/T1/T2/Re19 relay-contact loop \u2014 consistent with prior open question q40.",
+   "LED Dimmer 1/2 positive/feed side and downstream destination device are not shown on this sheet (matches prior open question q56 regarding DIM1/DIM2/DIM3) \u2014 no fitting equipment node identified for this function on this sheet."
   ],
   "discarded_as_clutter": [
-   "Individual 'not used' terminal rows (69-73, 80-91) - spare terminal ways, not equipment",
-   "Terminal legend rows repeating pin numbers already captured in function scenarios (A1-A12, B1-B12, C1-C12, D1-D9) - restated as connector pin descriptions only",
-   "Title block repeated fields (DWG No., DATE, DRAWN, copyright text) - administrative meta",
-   "Garbled/illegible OCR fragments from bottom title-block legend D ('001 Cell 083...', 'HERN WIND SHIPYARD...', 'AY BE COPIED...') - scan artifacts of standard title block",
-   "Generic wire-gauge diamond markers mentioned in survey notes - convention symbols, not devices"
+   "DWG_TABLE title-block repeat",
+   "not_used_block_1/2/3 spare terminal groups (25-91 series, D-9 through D-12b) \u2014 spare ways per rule 'SPARE WAYS'",
+   "H_label_partial_1/2 unresolved stray letter fragments \u2014 illegible partial annotation, no functional content",
+   "duplicate legend rows restating Section A-D terminal/lamp names already captured in equipment functions"
   ],
   "_model": "claude-sonnet-5",
-  "_protocol_version": 5
+  "_protocol_version": 7
  },
  "netlist_stats": {
   "segments": 26597,
   "nets": 2566,
   "conductors": 1914,
-  "labels": 644,
-  "bound": 193,
-  "unbound": 14,
-  "devices_located": 211,
-  "devices_placed": 211
+  "labels": 645,
+  "bound": 198,
+  "unbound": 7,
+  "devices_located": 178,
+  "devices_placed": 178
  }
 }

@@ -17,6 +17,8 @@ the tiling protocol necessary for cartridge IDs.
 
 from __future__ import annotations
 
+import hashlib
+
 import io
 import config  # loads .env (API keys) on import
 from typing import Any, Dict, List, Optional, Tuple
@@ -82,10 +84,33 @@ def _crop_png(pdf_bytes: bytes, page_index: int, box: List[float],
 
 def labels_from_vision(pdf_bytes: bytes, page_index: int = 0, *,
                        rows: int = 4, cols: int = 4, dpi: int = 400,
-                       overlap: float = 0.04) -> List[Dict[str, Any]]:
-    """Tiled OCR returning labels in PAGE POINTS."""
+                       overlap: float = 0.04,
+                       use_cache: bool = True) -> List[Dict[str, Any]]:
+    """Tiled OCR returning labels in PAGE POINTS.
+
+    CACHED BY CONTENT: what is printed on a page never changes, so a re-run of
+    the same page at the same tiling and DPI must not re-buy ~16 vision calls.
+    The prompt version is part of the key, so improving the prompt invalidates
+    exactly its own cache and nothing else."""
+    from pipeline import vcache
+    params = {"rows": rows, "cols": cols, "dpi": dpi, "overlap": overlap,
+              "prompt": hashlib.sha256(_OCR_PROMPT.encode()).hexdigest()[:12]}
+    return vcache.get_or_compute(
+        "labels", pdf_bytes, page_index, params,
+        lambda: _labels_from_vision_uncached(pdf_bytes, page_index, rows=rows,
+                                             cols=cols, dpi=dpi,
+                                             overlap=overlap),
+        enabled=use_cache)
+
+
+def _labels_from_vision_uncached(pdf_bytes: bytes, page_index: int = 0, *,
+                                 rows: int = 4, cols: int = 4, dpi: int = 400,
+                                 overlap: float = 0.04) -> List[Dict[str, Any]]:
+    """The real tiled OCR pass (cache miss path)."""
+    from pipeline import meter
+    meter.set_layer("labels")
     from providers.vision import get_vision_provider
-    vp = get_vision_provider("electrical")
+    vp = get_vision_provider("electrical", layer="labels")
     W, H = page_size(pdf_bytes, page_index)
     out: List[Dict[str, Any]] = []
     for r in range(rows):

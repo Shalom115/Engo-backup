@@ -167,13 +167,31 @@ def build_nets(segments: Sequence[Segment], *, tol: float = 0.75,
 def bind_labels(nets: List[Dict[str, Any]],
                 labels: Sequence[Dict[str, Any]],
                 *, page_size: Optional[Tuple[float, float]] = None,
-                max_dist: float = 12.0) -> List[Dict[str, Any]]:
+                max_dist: float = 12.0,
+                reach: float = 3.0,
+                decisive_ratio: float = 0.55) -> List[Dict[str, Any]]:
     """
     Attach OCR labels to the net they physically sit on.
 
     `labels`: [{"text": str, "bbox": [x0,y0,x1,y1]}] in the SAME coordinate
     space as the segments (pass page_size to convert normalized boxes).
-    A label binds to the net with the nearest ink within `max_dist` points.
+
+    RECALL vs CORRECTNESS (2026-07-26, the terminal->relay 1:1 drift).
+    A hard cutoff at `max_dist` silently DROPPED every label printed slightly
+    off its wire — and a dropped label is not a neutral loss: composition then
+    had no measured pairing for it and interpolated one from layout order,
+    which is how "terminal 39 -> Re8" drifted to Re7's contact. So:
+
+      * inside `max_dist`  -> bind (strong, as before);
+      * out to `max_dist * reach` -> bind ONLY IF the nearest net is DECISIVELY
+        nearer than the runner-up (nearest/second <= decisive_ratio). A label
+        sitting between two candidate wires stays unbound rather than being
+        assigned to the wrong one — recall must never buy itself a wrong wire;
+      * otherwise -> unbound, and reported AS a measurement gap (see digest),
+        never as "annotation".
+
+    Each binding records how it was made (`strong` / `reach`) so a downstream
+    reader can weight a far binding less than one sitting on the ink.
     """
     for lb in labels:
         if not isinstance(lb, dict):    # provider returned a bare string —
@@ -185,19 +203,43 @@ def bind_labels(nets: List[Dict[str, Any]],
             W, H = page_size
             bx = [bx[0] * W, bx[1] * H, bx[2] * W, bx[3] * H]
         cx, cy = (bx[0] + bx[2]) / 2, (bx[1] + bx[3]) / 2
-        best, best_d = None, float("inf")
+        far = max_dist * reach
+        best, best_d, second_d = None, float("inf"), float("inf")
         for n in nets:
-            x0, y0, x1, y1 = n["bbox"]
-            if cx < x0 - max_dist or cx > x1 + max_dist:
+            # A LABEL NEVER BINDS TO ITS OWN INK (2026-07-26). On these sheets
+            # the lettering is drawn as vector outlines, so each label sits
+            # exactly on top of a 'glyph' net made of its own strokes — always
+            # the nearest thing to itself. 15% of every sheet's labels were
+            # binding to their own letters and telling us nothing, while the
+            # conductor they were printed against went unlabelled. Glyph nets
+            # are not conductors and can never be the answer to "what is this
+            # label attached to".
+            if n.get("kind") == "glyph":
                 continue
-            if cy < y0 - max_dist or cy > y1 + max_dist:
+            x0, y0, x1, y1 = n["bbox"]
+            if cx < x0 - far or cx > x1 + far:
+                continue
+            if cy < y0 - far or cy > y1 + far:
                 continue
             d = min(math.dist((cx, cy), p) for p in n["points"])
+            # Prefer a CONDUCTOR over a symbol at comparable distance: the
+            # question a label answers is which wire it names.
+            if n.get("kind") != "conductor":
+                d += max_dist / 2
             if d < best_d:
-                best, best_d = n, d
-        if best is not None and best_d <= max_dist:
+                best, second_d, best_d = n, best_d, d
+            elif d < second_d:
+                second_d = d
+        if best is None:
+            continue
+        how = None
+        if best_d <= max_dist:
+            how = "strong"
+        elif best_d <= far and best_d <= second_d * decisive_ratio:
+            how = "reach"
+        if how:
             best["labels"].append({"text": lb.get("text", ""),
-                                   "dist": round(best_d, 2)})
+                                   "dist": round(best_d, 2), "how": how})
     return nets
 
 

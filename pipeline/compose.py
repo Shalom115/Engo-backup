@@ -17,6 +17,7 @@ and HyDE vessel context).
 from __future__ import annotations
 
 import json
+import re
 from typing import Any, Dict, Optional
 
 import config
@@ -26,7 +27,7 @@ import config
 # with an older version (the stale-composition failure of 2026-07-22: a write
 # set built from pre-red-pen compositions re-presented every answered
 # uncertainty to the engineer). Airtight by construction, not by memory.
-PROTOCOL_VERSION = 7
+PROTOCOL_VERSION = 9
 
 # ---------------------------------------------------------------------------
 # Per-class composition rules. The GENERAL RULE is shared; these add the
@@ -115,6 +116,7 @@ CLASS_RULES: Dict[str, str] = {
         "the rating digits are genuinely illegible, record it as good-to-have "
         "with low confidence; never present a doubtful rating as fact, and never "
         "let a stray number become a device rating. "
+        "A CONTACT THAT REACHES A COIL IS A CONTROL, NOT A REPORT: a switch, reed/proximity switch, pressure switch or monitoring output whose conductor lands on a relay or contactor COIL is COMMANDING that relay - typically by completing the coil circuit to negative. Describe it as what ENABLES the function (closing this loop supplies the coil its negative, which lets the valve open), never as a status indication. Only a contact whose conductor runs to a monitor or indicator, with no coil on its net, is a status report. "
         "POLARITY - NEVER INVERT IT (engineer rule; a reversal is the worst possible error): in LOW-VOLTAGE DC a breaker or fuse sits on the POSITIVE side almost always. A conductor carrying a breaker/fuse is a SUPPLY (+) feed - never call it the negative. Before naming either side of any device, FOLLOW THE CONDUCTOR ALL THE WAY BACK to the breaker or bus it originates from and state that origin. Where the MEASURED POLARITY block marks a net, that marking is authoritative over any impression. "
         "COMMON RAILS: several devices are normally fed (or returned) from ONE shared conductor - e.g. a single terminal supplying the coils of a whole bank of relays. When the COMMON RAILS block names such a net, state the shared source explicitly for every device on it; never describe each device as if it had a private feed, and never report a side as untraced when a common rail supplies it. "
         "RELAY READING - ANSWER BOTH QUESTIONS FOR EVERY RELAY (engineer rule): (1) IS THE LOAD OR SIGNAL ON THE NC OR THE NO CONTACT? A contact drawn OPEN, joined to the coil by a dotted line, is NORMALLY OPEN - energising the coil CLOSES it, so the load is OFF until the coil is energised. A contact drawn CLOSED with that dotted line is NORMALLY CLOSED - energising the coil OPENS it, so the load is ON until the coil is energised and energising REMOVES it. (2) WHAT ENERGISES THIS COIL - which side supplies its positive and which supplies its negative, each traced back to its source. Relays ARE the control: they open or close a circuit, so an inverted NO/NC reading inverts the entire function. State both answers in the scenario. "
@@ -435,12 +437,31 @@ THE GENERAL RULE — a drawing is a view onto equipment, never the destination:
    record it under cross_references — do NOT pull the other sheet's content
    in and narrate it here as if drawn. Resolution happens when that sheet is
    ingested.
+14. NEVER INTERPOLATE A CORRESPONDENCE. When several similar items sit beside
+   several similar devices — terminals beside relays, function slices beside
+   cartridges, BOM rows beside symbols, I/O channels beside functions, callouts
+   beside equipment — do NOT assume the first goes to the first and the second
+   to the second. Every correspondence must come from a measurement, a printed
+   tag, or a stated mapping. Report the ones that are actually established, and
+   for the rest write plainly that the correspondence is not established on this
+   sheet and record it as an uncertainty. One confident wrong pairing corrupts
+   a node permanently; an admitted gap costs nothing and gets resolved when the
+   sheet that shows it is ingested.
 
 CLASS-SPECIFIC RULES for this sheet:
 {class_rules}
 
 VESSEL ACRONYM GLOSSARY (authoritative — never call one of these unknown):
 {glossary}
+
+ENGINEER-CONFIRMED MAPPINGS (authoritative vocabulary → node; use when a
+label matches):
+{maps}
+
+REGISTER INDEX:
+{index}
+
+===== EVERYTHING BELOW IS SPECIFIC TO THIS SHEET =====
 
 ESTABLISHED FACTS (already on the vessel's nodes from previously ingested
 sheets). USE AS REFERENCE ONLY — to stay consistent with what is already
@@ -454,15 +475,21 @@ remote input is not DRAWN on THIS sheet, it does not exist on this sheet —
 do not import it from another node's fact:
 {established}
 
-ENGINEER-CONFIRMED MAPPINGS (authoritative vocabulary → node; use when a
-label matches):
-{maps}
+VESSEL DOCUMENTATION (retrieved from the vessel's own ingested manuals,
+handover notes and OEM documents for THIS sheet's subject). The manuals
+describe what equipment IS and what it DOES; the drawing shows how it is
+wired or plumbed. Use this to NAME equipment correctly, to know a component
+exists and what it is for, and to understand the purpose of a circuit —
+a documented feature of a system (a seal, an interlock, a duty/standby
+arrangement) is KNOWN to this vessel and must not be reported as unknown.
+It is background, never a substitute for the drawing: where the two differ,
+the drawing rules for what is connected, and the conflict is recorded as an
+uncertainty rather than silently resolved:
+{corpus}
 
 PRIOR EXTRACTION:
 {extraction}
 
-REGISTER INDEX:
-{index}
 """
 
 
@@ -491,11 +518,57 @@ def _maps_digest(drawing_class: str) -> str:
     return "\n".join(out) if out else "(none for this class)"
 
 
+def _mentions_relays(extraction: Dict[str, Any]) -> bool:
+    """Does this sheet's extraction actually contain relays? (Kind field first,
+    label pattern as backup — general, no vessel token.)"""
+    blob = json.dumps(extraction, default=str).lower()
+    return ('"relay"' in blob or "'relay'" in blob or "relay" in blob)
+
+
+def _corpus_subject(sheet_name: str, extraction: Dict[str, Any]) -> str:
+    """What this sheet is ABOUT, as a retrieval query.
+
+    Built from the sheet's own title/system words — never from a vessel-token
+    list, so it works on any vessel's drawing set."""
+    bits = [sheet_name or ""]
+    for key in ("title", "sheet_title", "system", "drawing_title", "subject"):
+        v = extraction.get(key)
+        if isinstance(v, str):
+            bits.append(v)
+    tb = extraction.get("title_block")
+    if isinstance(tb, dict):
+        for v in tb.values():
+            if isinstance(v, str) and len(v) < 120:
+                bits.append(v)
+    q = " ".join(b for b in bits if b)
+    return re.sub(r"[_\-]+", " ", q)[:300]
+
+
+# The first per-sheet section of the assembled prompt. Everything above it is
+# run-invariant; everything from here down changes with the sheet.
+_SHEET_SPECIFIC_MARKER = "===== EVERYTHING BELOW IS SPECIFIC TO THIS SHEET ====="
+
+
+def _split_cacheable(prompt: str, use_cache: bool = True) -> tuple:
+    """(cacheable_prefix, per_sheet_remainder).
+
+    Anthropic caches a PREFIX, so the invariant text must lead and be
+    byte-identical between calls. Below a few thousand characters caching is
+    not worth a separate block, so the prompt is returned whole."""
+    if not use_cache:
+        return "", prompt
+    i = prompt.find(_SHEET_SPECIFIC_MARKER)
+    if i < 2000:
+        return "", prompt
+    return prompt[:i], prompt[i:]
+
+
 def compose(image_png: bytes, extraction: Dict[str, Any],
             drawing_class: str,
             vision_kind: str = "hydraulic_schematic",
             max_tokens: int = 16384,
-            sheet_name: str = "") -> Optional[Dict[str, Any]]:
+            sheet_name: str = "",
+            prompt_cache: bool = True) -> Optional[Dict[str, Any]]:
     """Run the composition pass on one sheet. Returns the composition dict."""
     from providers.vision import get_vision_provider
     rules = CLASS_RULES.get(drawing_class)
@@ -520,6 +593,25 @@ def compose(image_png: bytes, extraction: Dict[str, Any],
         cd = extraction.get("_circuit_digest")
         if cd:
             loop_block += "\n\n" + cd
+        # RELAY GAP DECLARED, NOT SILENT (2026-07-26). If the sheet clearly has
+        # relays but none reached the measured netlist with a contact state,
+        # the digest previously said nothing at all — so composition never knew
+        # it owed the engineer's two relay answers, and quietly described relay
+        # circuits without them (p36/p41). Silence about a missing measurement
+        # is the same failure as interpolating one.
+        if "RELAYS —" not in (nl or "") and _mentions_relays(extraction):
+            loop_block += (
+                "\n\nRELAYS PRESENT BUT CONTACT STATE NOT MEASURED: this sheet "
+                "carries relays, yet none arrived with a readable NO/NC contact "
+                "state. You must still answer both engineer questions for each "
+                "relay you describe — (1) is the load/signal on the NC or the NO "
+                "contact, (2) what energises this coil (which side gives it + "
+                "and which gives it -) — reading them off the drawn symbol: a "
+                "contact drawn OPEN with a dotted link to the coil is NO "
+                "(energising CLOSES it); drawn CLOSED with that dotted link is "
+                "NC (energising OPENS it). Where the symbol is genuinely not "
+                "legible, say so per relay and record it as an uncertainty — "
+                "never omit the question.")
     elif drawing_class == "pid":
         from pipeline import pid_extract, operating_modes
         digest = pid_extract.loops_digest(extraction)
@@ -530,20 +622,39 @@ def compose(image_png: bytes, extraction: Dict[str, Any],
     try:
         from pipeline import open_questions
         oq = open_questions.open_digest()
+        # ENGINEER-SETTLED answers rank above anything this pass derives: an
+        # answer given once must hold for every later sheet (2026-07-26).
+        settled = open_questions.settled_digest()
     except Exception:
-        oq = ""
+        oq = settled = ""
+    if settled:
+        loop_block += "\n\n" + settled
     if oq:
         loop_block += "\n\n" + oq
     prompt = _COMPOSE_PROMPT.format(
-        class_rules=rules + loop_block,
+        class_rules=rules,
         glossary=vessel_context.glossary_block(),
         established=vessel_context.relationship_context(ext_json),
         maps=_maps_digest(drawing_class),
-        extraction=ext_json,
+        corpus=vessel_context.corpus_context(
+            _corpus_subject(sheet_name, extraction)) or "(no corpus context)",
+        extraction=(loop_block.strip() + "\n\n" + ext_json
+                    if loop_block else ext_json),
         index=vessel_context.register_index())
+    # PROMPT CACHING (2026-07-26). Composition sends ~87K input tokens for ONE
+    # call, and the largest part of it — the general rules, this class's rules,
+    # the acronym glossary and the 300-node register index — is IDENTICAL for
+    # every sheet in a run. Sent as a separate leading block marked for
+    # caching, later sheets pay roughly a tenth for it. The split point is the
+    # first per-sheet section, so the cached prefix is byte-identical across
+    # sheets by construction; if it ever is not, the cache simply misses and
+    # the result is unchanged.
+    cache_prefix, prompt = _split_cacheable(prompt, use_cache=prompt_cache)
     vp = get_vision_provider(vision_kind)
+    from pipeline import meter
+    meter.set_layer("compose")
     result = vp.extract(image_png, "image/png", prompt, _COMPOSE_TOOL,
-                        max_tokens=max_tokens)
+                        max_tokens=max_tokens, cache_prefix=cache_prefix)
     result = _repair_stringified(result)
     # MALFORMED-RESPONSE RETRY (2026-07-26): a tool call can come back with
     # placeholder keys (e.g. {"parameter_name": ...}) instead of the schema's
@@ -552,13 +663,49 @@ def compose(image_png: bytes, extraction: Dict[str, Any],
     if isinstance(result, dict) and not result.get("serve_who") \
             and not result.get("equipment_groups"):
         retry = vp.extract(image_png, "image/png", prompt, _COMPOSE_TOOL,
-                           max_tokens=max_tokens)
+                           max_tokens=max_tokens, cache_prefix=cache_prefix)
         retry = _repair_stringified(retry)
         if isinstance(retry, dict) and (retry.get("serve_who")
                                         or retry.get("equipment_groups")):
             result = retry
         elif isinstance(result, dict):
             result["_malformed_response"] = True
+    # ENGINEER-ANSWER GATE (2026-07-26). A settled answer being present in the
+    # prompt does not mean it landed on the element it is about — the p26 reed
+    # switch proved that. So the draft is CHECKED: deterministic code finds
+    # which functions are about which answers, and one cheap-model call judges
+    # whether each answer was actually stated. If any was omitted or
+    # contradicted, the sheet is composed ONCE more with those failures named.
+    # Cost is a fraction of a cent against a composition costing dollars, and
+    # it catches exactly the class of miss that used to reach the engineer.
+    if isinstance(result, dict) and sheet_name:
+        try:
+            from pipeline import open_questions
+            bad = open_questions.verify_settled(result, sheet=sheet_name)
+        except Exception:
+            bad = []
+        if bad:
+            note = open_questions.enforcement_note(bad)
+            fixed = vp.extract(image_png, "image/png",
+                               prompt + "\n\n" + note, _COMPOSE_TOOL,
+                               max_tokens=max_tokens,
+                               cache_prefix=cache_prefix)
+            fixed = _repair_stringified(fixed)
+            if isinstance(fixed, dict) and (fixed.get("serve_who")
+                                            or fixed.get("equipment_groups")):
+                still = open_questions.verify_settled(fixed, sheet=sheet_name)
+                fixed["_settled_enforced"] = [b["id"] for b in bad]
+                if still:
+                    # Honest: say which answers STILL did not land rather than
+                    # shipping a composition that silently contradicts one.
+                    fixed["_settled_unresolved"] = [
+                        {"id": b["id"], "verdict": b["verdict"],
+                         "why": b.get("why", "")} for b in still]
+                result = fixed
+            else:
+                result["_settled_unresolved"] = [
+                    {"id": b["id"], "verdict": b["verdict"],
+                     "why": b.get("why", "")} for b in bad]
     if isinstance(result, dict):
         result["_protocol_version"] = PROTOCOL_VERSION
     return result

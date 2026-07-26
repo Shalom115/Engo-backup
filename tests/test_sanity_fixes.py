@@ -202,3 +202,76 @@ def test_expand_paths_covers_registry(tmp_path):
         (tmp_path / f"doc{suffix}").write_text("x")
     found = {p.suffix for p in _expand_paths([str(tmp_path)])}
     assert found == set(PARSER_REGISTRY)
+
+
+# ---------------------------------------------------------------------------
+# REAL-SHAPE regression (2026-07-26). tag_direction was first "verified" on a
+# hand-built netlist whose device entries contained the word "relay". The real
+# pipeline stores the LABEL ("Re7") — so on real data every tag came back
+# STATUS and the XA41/XA60 swap would have survived the fix meant to cure it.
+# This test builds the netlist THROUGH bind_devices, the way production does.
+# ---------------------------------------------------------------------------
+
+def test_tag_direction_on_real_bind_devices_shape():
+    from pipeline import netlist, circuit
+    nets = [{"net_id": "n1", "kind": "conductor", "bbox": [0, 0, 10, 10],
+             "points": [(1, 1)], "labels": [{"text": "XA41"}],
+             "n_segments": 3, "devices": []},
+            {"net_id": "n2", "kind": "conductor", "bbox": [20, 0, 30, 10],
+             "points": [(21, 1)], "labels": [{"text": "XA60"}],
+             "n_segments": 3, "devices": []}]
+    nl = {"_nets_full": nets}
+    netlist.bind_devices(nl, [
+        {"label": "Re7", "kind": "relay", "contact_state": "NO",
+         "bbox": [0, 0, 10, 10]},
+        {"label": "M1", "kind": "valve motor", "bbox": [20, 0, 30, 10]}])
+    nl["nets"] = [{"net_id": n["net_id"], "kind": n["kind"],
+                   "devices": n.get("devices", []),
+                   "device_kinds": n.get("device_kinds", []),
+                   "labels": [l["text"] for l in n["labels"]]} for n in nets]
+    verdict = {t["tag"]: t["direction"] for t in circuit.tag_direction(nl)}
+    assert verdict["XA41"].startswith("COMMAND"), verdict
+    assert verdict["XA60"].startswith("STATUS"), verdict
+
+
+def test_breaker_net_is_positive_by_device_kind():
+    """Polarity must also work when the breaker is typed but oddly named."""
+    from pipeline import netlist, circuit
+    nets = [{"net_id": "n1", "kind": "conductor", "bbox": [0, 0, 10, 10],
+             "points": [(1, 1)], "labels": [{"text": "MAIN FEED"}],
+             "n_segments": 3, "devices": []}]
+    nl = {"_nets_full": nets}
+    netlist.bind_devices(nl, [{"label": "MAIN FEED", "kind": "breaker",
+                               "bbox": [0, 0, 10, 10]}])
+    nl["nets"] = [{"net_id": n["net_id"], "kind": n["kind"],
+                   "devices": n.get("devices", []),
+                   "device_kinds": n.get("device_kinds", []),
+                   "labels": [l["text"] for l in n["labels"]]} for n in nets]
+    assert circuit.classify_sources(nl)["n1"] == "positive"
+
+
+def test_label_never_binds_to_its_own_glyph():
+    """A label sits on top of its own drawn letters; binding there teaches
+    nothing and steals the label from the conductor it names."""
+    from pipeline import net_trace
+    nets = [{"net_id": "g1", "kind": "glyph", "bbox": [0, 0, 6, 6],
+             "points": [(3, 3)], "labels": []},
+            {"net_id": "c1", "kind": "conductor", "bbox": [0, 8, 40, 9],
+             "points": [(3, 8.5)], "labels": []}]
+    net_trace.bind_labels(nets, [{"text": "21", "bbox": [2, 2, 4, 4]}],
+                          max_dist=12.0)
+    assert nets[0]["labels"] == [], "bound to its own glyph"
+    assert [l["text"] for l in nets[1]["labels"]] == ["21"]
+
+
+def test_binding_stats_count_instances_not_distinct_texts():
+    """Seven terminals printed '9' are seven measurements, not one."""
+    from pipeline import net_trace
+    nets = [{"net_id": f"c{i}", "kind": "conductor",
+             "bbox": [i * 50, 0, i * 50 + 40, 1], "points": [(i * 50 + 5, 0.5)],
+             "labels": []} for i in range(3)]
+    labels = [{"text": "9", "bbox": [i * 50 + 4, 0, i * 50 + 6, 2]}
+              for i in range(3)]
+    net_trace.bind_labels(nets, labels, max_dist=12.0)
+    instances = sum(len(n["labels"]) for n in nets)
+    assert instances == 3, f"expected 3 bound instances, got {instances}"

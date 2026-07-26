@@ -19,13 +19,46 @@ def _load():
     code_files = ['pipeline/compose.py', 'pipeline/compose_write.py',
                   'pipeline/vessel_context.py', 'pipeline/pid_extract.py',
                   'pipeline/electrical_extract.py', 'pipeline/loop_prepass.py',
-                  'pipeline/power_path.py', 'prompts/drawing_symbol_glossary.md']
+                  'pipeline/power_path.py', 'prompts/drawing_symbol_glossary.md',
+                  # three-layer electrical stack: geometry, fusion, semantics
+                  'pipeline/net_trace.py', 'pipeline/netlist.py',
+                  'pipeline/circuit.py', 'pipeline/device_locate.py',
+                  'pipeline/open_questions.py', 'pipeline/vcache.py']
     allcode = "\n".join((_ROOT / f).read_text() for f in code_files)
     reg = json.loads((_ROOT / 'data/state/register_gelliceaux_001.json').read_text())
     return allcode, reg
 
 
 CHECKS = [
+    ("gm-b1-all", "engineer answers durable + outrank later passes", r"def answer_by_engineer", "code"),
+    ("gm-b1-all", "engineer answer match is token-bounded + scoped", r"identifier too short to be unique", "code"),
+    ("gm-b1-all", "settled answers never re-raised as uncertainties", r"SETTLED BY THE ENGINEER", "code"),
+    ("gm-b1-corpus", "corpus context has a relevance floor (no filler)", r"CORPUS_MAX_DISTANCE", "code"),
+    ("gm-b1-corpus", "duplicate corpus rows collapsed, not read as corroboration", r"READS AS CORROBORATION", "code"),
+    ("gm-b1-p36", "relay gap declared when contact state unmeasured", r"RELAYS PRESENT BUT CONTACT STATE NOT MEASURED", "code"),
+    ("gm-b1-latent", "polarity words matched on token boundaries, not substrings", r"NEVER AS SUBSTRINGS", "code"),
+    ("gm-b1-latent", "device TYPE kept alongside label for circuit logic", r"device_kinds", "code"),
+    ("gm-b1-fix1", "engineer answers VERIFIED as applied, not just offered", r"def verify_settled", "code"),
+    ("gm-b1-fix1", "answer scope travels with the answer", r"SCOPE TRAVELS WITH THE ANSWER", "code"),
+    ("gm-b1-fix2", "NO/NC measured from net topology, reconciled with symbol", r"def contact_states", "code"),
+    ("gm-b1-fix3", "label never binds to its own glyph", r"NEVER BINDS TO ITS OWN INK", "code"),
+    ("gm-b1-fix3", "binding counted per instance, not per distinct string", r"COUNT LABEL INSTANCES", "code"),
+    ("gm-b1-cost", "deterministic vision layers cached by content", r"VISION-LAYER CACHE", "code"),
+    # --- GM batch-1 red-pen, 2026-07-26 (polarity reversal + relay/rail/pairing)
+    ("gm-b1-p20", "LV DC: breaker/fuse sits on the POSITIVE side", r"POLARITY - NEVER INVERT IT", "code"),
+    ("gm-b1-p20", "walk the conductor back to its breaker/bus", r"FOLLOW THE CONDUCTOR ALL THE WAY BACK", "code"),
+    ("gm-b1-p20", "measured polarity from geometry, not wording", r"def classify_sources", "code"),
+    ("gm-b1-p20", "trace-to-source operation exists", r"def trace_to_source", "code"),
+    ("gm-b1-p20", "tag direction decided by whether the net reaches a coil", r"def tag_direction", "code"),
+    ("gm-b1-p15", "common rail named for every device on it", r"COMMON RAILS", "code"),
+    ("gm-b1-p15", "common-rail detection over the netlist", r"def common_rails", "code"),
+    ("gm-b1-p15", "never interpolate a correspondence (ALL classes)", r"NEVER INTERPOLATE A CORRESPONDENCE", "code"),
+    ("gm-b1-p15", "unbound labels declared as measurement gaps", r"MEASUREMENT COMPLETENESS", "code"),
+    ("gm-b1-p15", "reach-binding only when decisively nearest", r"decisive_ratio", "code"),
+    ("gm-b1-p26", "relay: load on NO or NC + what energises the coil", r"RELAY READING - ANSWER BOTH QUESTIONS", "code"),
+    ("gm-b1-p26", "contact state captured at locate time", r"contact_state", "code"),
+    ("gm-b1-p26", "a contact reaching a coil is control, not status", r"REACHES A COIL IS A CONTROL", "code"),
+    ("gm-b1-p26", "manuals reachable during composition (inflatable seal)", r"def corpus_context", "code"),
     ("elec-batch1", "wire-gauge diamond = annotation not status", r"diamond.*mm.{0,6}2|wire.gauge.*diamond|conductor mm", "code"),
     ("elec-batch2", "pin-7 = 24V negative", r"negative", "code"),
     ("elec-batch2", "dotted rectangle = confined box (HVPDU)", r"confined box|dotted.*rectangle|dotted-line rectangle", "code"),

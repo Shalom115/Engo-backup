@@ -4,18 +4,280 @@
  "title": "PORT/STBD CREW/GALLEY LTS",
  "drawing_class": "electrical",
  "composition": {
-  "parameter_name": "$PARAMETER_VALUE",
+  "serve_who": "This sheet ('PORT/STBD CREW/GALLEY LTS', DWG GMMS 108'-119b, section captioned 'PORT AFT GUEST CABIN') is a Yachtica lighting-PLC wiring sheet. It documents three Yachtica controller modules (MCP 804 LX #8, MCP 804 LX #9, MGA BD4LX #21) that take switch-bank inputs (SW22, SW25, SW28, SW28.B, SW28.C) via terminal strip T/S D and output to numbered lighting circuits (8.1-8.4, 9.1-9.4, 21.1-21.4), plus a courtesy/emergency lighting tap and a shared CAN bus. All of the numbered CIRCUIT x.y loads and the COURTESY LIGHTS device are generic cabin lighting outputs of the Yachtica lighting-control system \u2014 the controllers, terminal strips, switch banks and CAN bus are the Yachtica system's own infrastructure (691-yachtica-lighting-control). The circuit labels do not name a specific cabin/space equipment node distinct from Yachtica itself (no separate 'crew' or 'galley' lighting circuit ids resolve individually beyond the sheet title), so the whole load bank is attributed to 691-yachtica-lighting-control as the serving system, with COURTESY LIGHTS additionally cross-referenced to 690-lts-courtesy since that circuit is its own established node.",
+  "equipment_groups": [
+   {
+    "equipment_name": "Yachtica Lighting Control System (controllers #8, #9, #21 + switch banks + CAN bus)",
+    "target_node_id": "691-yachtica-lighting-control",
+    "placement_reasoning": "The sheet is built entirely around three Yachtica controller modules (MCP 804 LX #8, MCP 804 LX #9, MGA BD4LX #21) which take switch-bank command inputs and drive numbered lighting output circuits via terminal strips. This matches the established Yachtica Lighting Control node (691-yachtica-lighting-control), previously fed via Q13/Q39 breakers on other sheets. The switch banks (SW22, SW25, SW28, SW28.B, SW28.C), T/S D terminal strip, and CAN bus are the system's own infrastructure/backbone, not separate equipment.",
+    "functions": [
+     {
+      "function_id": "f1",
+      "label": "Switch-bank command input to controller #8",
+      "what_it_does": "Nine-position switch banks SW22 and SW25 supply momentary/toggle command inputs into controller #8 (MCP 804 LX) via terminal strip T/S D terminals 1-9 (SW COM returns on terminals 10/11), giving the controller its lighting-scene/on-off commands for circuits 8.1-8.4.",
+      "flow_scenarios": [
+       {
+        "state": "default",
+        "path": "SW22/SW25 switch contacts (open) -> T/S D terminals 1-9 -> controller #8 INPUTS 1-8, C -> no command asserted"
+       },
+       {
+        "state": "switch pressed",
+        "path": "SW22 or SW25 position n closed -> T/S D terminal n -> controller #8 INPUTS -> controller processes command -> drives output relay/driver stage for circuit 8.x -> SW COM return via T/S D terminals 10/11"
+       }
+      ],
+      "key_components": [
+       "SW22 9-position switch bank",
+       "SW25 9-position switch bank",
+       "T/S D terminals 1-16",
+       "controller #8 INPUTS 1-8,C"
+      ],
+      "sheet_region": "left-center, bbox ~0.15-0.53, 0.23-0.34",
+      "dry_data": "MCP 804 LX controller #8, CAN-bus networked, +/- power feed via T/S D terminals 14/15, BUS A/B via terminals 12/13"
+     },
+     {
+      "function_id": "f2",
+      "label": "Switch-bank command input to controller #9",
+      "what_it_does": "Switch banks SW28, SW28.B, SW28.C supply command inputs into controller #9 (MCP 804 LX) via terminal strip T/S D terminals 17-24 (SW COM returns on 25/26/27), commanding lighting circuits 9.1-9.4 plus courtesy/emergency lighting taps.",
+      "flow_scenarios": [
+       {
+        "state": "default",
+        "path": "SW28/SW28.B/SW28.C contacts open -> T/S D 17-24 -> controller #9 INPUTS -> no command asserted"
+       },
+       {
+        "state": "switch pressed",
+        "path": "SW28 family position closed -> T/S D terminal -> controller #9 INPUTS -> controller output stage energises corresponding circuit 9.x -> SW COM return via T/S D 25/26/27"
+       }
+      ],
+      "key_components": [
+       "SW28 9-position switch bank",
+       "SW28.B 9-position switch bank",
+       "SW28.C 9-position switch bank",
+       "T/S D terminals 17-32",
+       "controller #9 INPUTS 1-7,C"
+      ],
+      "sheet_region": "left-center, bbox ~0.15-0.53, 0.45-0.76",
+      "dry_data": "MCP 804 LX controller #9, CAN-bus networked, +/- power feed via T/S D terminals 30/31, BUS A/B via terminals 28/29"
+     },
+     {
+      "function_id": "f3",
+      "label": "Controller #8 output to lighting circuits 8.1-8.4",
+      "what_it_does": "Controller #8 drives four independent lighting output circuits (8.1 16W, 8.2 4W, 8.3 24W, 8.4 16W) through fused output terminals 55-58; the shared +/+ supply pair at terminals 53/54 is itself protected by an inline 16A breaker before reaching the terminal bank.",
+      "flow_scenarios": [
+       {
+        "state": "default/off",
+        "path": "controller #8 output stage open -> circuits 8.1-8.4 dark"
+       },
+       {
+        "state": "circuit 8.1 commanded on",
+        "path": "controller #8 output block 1 -> fused terminal 55 -> CIRCUIT 8.1 (16W) lamp -> return to controller output common"
+       },
+       {
+        "state": "circuit 8.2 commanded on",
+        "path": "controller #8 output block 2 -> fused terminal 56 -> CIRCUIT 8.2 (4W)"
+       },
+       {
+        "state": "circuit 8.3 commanded on",
+        "path": "controller #8 output block 3 -> fused terminal 57 -> CIRCUIT 8.3 (24W)"
+       },
+       {
+        "state": "circuit 8.4 commanded on",
+        "path": "controller #8 output block 4 -> fused terminal 58 -> CIRCUIT 8.4 (16W)"
+       }
+      ],
+      "key_components": [
+       "fused terminal 55 (built-in fuse)",
+       "fused terminal 56 (built-in fuse)",
+       "fused terminal 57 (built-in fuse)",
+       "fused terminal 58 (built-in fuse)",
+       "16A inline breaker on supply pair 53/54"
+      ],
+      "sheet_region": "top-right, bbox ~0.7-0.92, 0.22-0.34",
+      "dry_data": "Loads: 16W/4W/24W/16W; supply pair fed via fused terminals 53/54 protected by 16A breaker"
+     },
+     {
+      "function_id": "f4",
+      "label": "Controller #9 output to lighting circuits 9.1-9.4",
+      "what_it_does": "Controller #9 drives four lighting output circuits (9.1 16W, 9.2 8W, 9.3 2W, 9.4 12W) through terminals 61-64; the shared supply pair at 59/60 is protected by an inline 16A breaker.",
+      "flow_scenarios": [
+       {
+        "state": "default/off",
+        "path": "controller #9 output stage open -> circuits 9.1-9.4 dark"
+       },
+       {
+        "state": "circuit 9.1 commanded on",
+        "path": "controller #9 output block 1 -> terminal 61 -> CIRCUIT 9.1 (16W)"
+       },
+       {
+        "state": "circuit 9.2 commanded on",
+        "path": "controller #9 output block 2 -> terminal 62 -> CIRCUIT 9.2 (8W)"
+       },
+       {
+        "state": "circuit 9.3 commanded on",
+        "path": "controller #9 output block 3 -> terminal 63 -> CIRCUIT 9.3 (2W)"
+       },
+       {
+        "state": "circuit 9.4 commanded on",
+        "path": "controller #9 output block 4 -> terminal 64 -> CIRCUIT 9.4 (12W)"
+       }
+      ],
+      "key_components": [
+       "terminal 61",
+       "terminal 62",
+       "terminal 63",
+       "terminal 64",
+       "16A inline breaker on supply pair 59/60"
+      ],
+      "sheet_region": "mid-right, bbox ~0.7-0.92, 0.47-0.57",
+      "dry_data": "Loads: 16W/8W/2W/12W; supply pair fed via terminals 59/60 protected by 16A breaker"
+     },
+     {
+      "function_id": "f5",
+      "label": "Controller #21 (MGA BD4LX) 0-10V dimmer output to circuits 21.1-21.4",
+      "what_it_does": "Controller #21 (MGA BD4LX dimming module) drives four 0-10V dimmer DRIVER modules, each independently powering one dimmable lighting circuit (21.1-21.4, each 12W). Each DRIVER module's 230V AC L/N feed comes from the shared 230V AC supply block (L 230v / N / earth) via its own fused terminal (68 for driver 21.1's L, 69 for its N; 70/71 similarly feed the 21.2 driver's L/N pair per common-rail net16), while the 0-10V control signal comes from controller #21's output terminal block via terminals 44-48 (BUS A/B, +/-) and pin blocks 1-4.",
+      "flow_scenarios": [
+       {
+        "state": "default/off (0V control)",
+        "path": "controller #21 0-10V output at 0V -> DRIVER 0-10V module -> driver output dark/dimmed fully off -> CIRCUIT 21.x"
+       },
+       {
+        "state": "dimmed on, driver 21.1",
+        "path": "230V AC L/N (net16, shared supply) -> fused terminal 68 (L) and 69 (N) -> DRIVER 0-10V (21.1) -> controller #21 0-10V command signal via terminal block 1-4 -> DRIVER output + / I -> CIRCUIT 21.1 (12W)"
+       },
+       {
+        "state": "dimmed on, driver 21.2",
+        "path": "230V AC L/N (net16, shared supply) -> fused terminal 70 (L)/71 (N) region -> DRIVER 0-10V (21.2) -> controller #21 command -> CIRCUIT 21.2 (12W)"
+       },
+       {
+        "state": "dimmed on, driver 21.3/21.4",
+        "path": "shared 230V AC supply (net16) -> DRIVER 0-10V (21.3)/(21.4) -> controller #21 0-10V command via 0V1-0V4 terminal strip -> CIRCUIT 21.3 (12W) / CIRCUIT 21.4 (12W)"
+       }
+      ],
+      "key_components": [
+       "DRIVER 0-10V module (x4, one per circuit)",
+       "fused terminal 68 (L feed)",
+       "fused terminal 69 (N feed)",
+       "0V1-0V4 terminal strip (0-10V command bus)",
+       "controller #21 MGA BD4LX"
+      ],
+      "sheet_region": "bottom-right, bbox ~0.68-0.92, 0.68-0.90",
+      "dry_data": "4x 12W dimmable circuits; drivers fed 230V AC via T/S 68/69 (and 70/71 for other drivers) off net16 common rail; 0-10V control bus 0V1-0V4"
+     },
+     {
+      "function_id": "f6",
+      "label": "System supply and shared CAN/bus infrastructure",
+      "what_it_does": "The whole Yachtica lighting-control node on this sheet is fed from AC 230V via breaker 'YACHTICA 10A' and, separately, +24V SERVICE BAT DC supply; PORT AFT GUEST CABIN LTS breaker Q43 (40A) supplies the associated cabin lighting loads. A CAN twisted-pair bus enters top-left and threads down through all three controllers (#8, #9, #21), providing their network/BUS A/B and command synchronisation, then exits bottom of sheet to continue elsewhere.",
+      "flow_scenarios": [
+       {
+        "state": "normal operation",
+        "path": "AC 230V supply -> breaker YACHTICA 10A -> feeds driver/DRIVER 230V rail (net16) and controller AC needs; +24V SERVICE BAT -> feeds controller DC power inputs (T/S D +/- terminals 14/15, 30/31, 46/47); CAN bus enters top-left -> routes through controllers #8/#9/#21 BUS A/B terminals -> exits bottom of sheet to continue off-sheet"
+       },
+       {
+        "state": "PORT AFT GUEST CABIN LTS load path",
+        "path": "Q43 40A breaker -> PORT AFT GUEST CABIN LTS feed -> onward to switch-bank/controller wiring on this sheet"
+       }
+      ],
+      "key_components": [
+       "YACHTICA 10A breaker",
+       "Q43 40A breaker (PORT AFT GUEST CABIN LTS)",
+       "+24V SERVICE BAT supply",
+       "CAN bus (twisted pair)"
+      ],
+      "sheet_region": "top-left and full-sheet vertical CAN run, bbox ~0.0-0.3, 0.08-0.18 and 0.29-0.7 vertical span",
+      "dry_data": "AC 230V via 10A breaker; +24V DC service battery supply; Q43 40A breaker for cabin lights; CAN twisted pair networking all three controllers"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Courtesy Lights (courtesy/emergency lighting tap off Yachtica system)",
+    "target_node_id": "690-lts-courtesy",
+    "placement_reasoning": "COURTESY LIGHTS is a distinct named load on this sheet fed via terminal 65 and controlled/tapped through the COURTESY/EMERGENCY LTS SW and EMERGENCY LTS SW terminals (66, 67). This matches the established courtesy-lighting node (690-lts-courtesy), which already has electrical_supply facts from other sheets (breaker Q37, etc.) \u2014 this sheet documents the local switch/terminal wiring for the courtesy lighting tap point within the Yachtica lighting infrastructure, not the courtesy circuit's own dedicated breaker (that lives on other sheets).",
+    "functions": [
+     {
+      "function_id": "f1",
+      "label": "Courtesy/emergency lighting switch loop",
+      "what_it_does": "A courtesy lighting output (terminal 65) is switched by a COURTESY/EMERGENCY LTS SW and a separate EMERGENCY LTS SW, both landing on terminals 66 and 67 respectively; walking the drawn lines, terminal 66 feeds/returns via the COURTESY/EMERGENCY LTS SW loop and terminal 67 via the EMERGENCY LTS SW loop, both associated with the COURTESY LIGHTS device.",
+      "flow_scenarios": [
+       {
+        "state": "default (switches open)",
+        "path": "COURTESY LIGHTS -> terminal 65 -> no switch closed -> lights off"
+       },
+       {
+        "state": "courtesy/emergency switch closed",
+        "path": "terminal 66 -> COURTESY/EMERGENCY LTS SW closed -> COURTESY LIGHTS energised, return via terminal 66 junction"
+       },
+       {
+        "state": "emergency switch closed",
+        "path": "terminal 67 -> EMERGENCY LTS SW closed -> COURTESY LIGHTS energised (emergency override), return via terminal 67 junction"
+       }
+      ],
+      "key_components": [
+       "terminal 65 (courtesy lights feed tap)",
+       "terminal 66 (courtesy/emergency switch tap)",
+       "terminal 67 (emergency switch tap)",
+       "COURTESY/EMERGENCY LTS SW",
+       "EMERGENCY LTS SW"
+      ],
+      "sheet_region": "mid-right, bbox ~0.7-0.92, 0.58-0.62",
+      "dry_data": "Courtesy lighting output on T/S D terminal 65; switch taps at terminals 66/67; local switch device identities (COURTESY/EMERGENCY LTS SW, EMERGENCY LTS SW) drawn only as arrows off-sheet \u2014 exact remote switch panel not shown here"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "T/S D terminal strip and controller I/O rack (Yachtica sheet-local distribution)",
+    "target_node_id": "691-yachtica-lighting-control",
+    "facts": [
+     "T/S D terminal strip spans terminals 1-71 across the sheet, mapping switch-bank inputs (1-32) to controller I/O and lighting outputs (49-71)",
+     "Diamond callouts on some terminal numbers (9,10,11,25,26,27,41,42,43) are wire-gauge/junction annotations, not separate devices",
+     "CAN bus twisted pair is shared infrastructure feeding BUS A/B terminals of all three controllers (#8, #9, #21) sequentially down the sheet",
+     "16A inline breakers on supply pairs (53/54, 59/60) are common-rail protective devices for controller output stages, not standalone loads"
+    ]
+   }
+  ],
+  "cross_references": [
+   {
+    "what": "CAN bus continues off-sheet at top (incoming) and bottom (outgoing) \u2014 likely links to other Yachtica lighting sheets/nodes for continuity of the network",
+    "referenced_sheet_hint": "other GMMS 108'-119 series Yachtica lighting sheets"
+   },
+   {
+    "what": "PORT AFT GUEST CABIN LTS Q43 40A breaker \u2014 origin panel/schedule for this feed",
+    "referenced_sheet_hint": "AFT DC DB LIGHTS PANELa / PANEL b sheets (GMMS 108'-119, 108'-119a)"
+   },
+   {
+    "what": "YACHTICA 10A AC breaker origin",
+    "referenced_sheet_hint": "GMMS 102 / main AC distribution schedule"
+   },
+   {
+    "what": "COURTESY/EMERGENCY LTS SW and EMERGENCY LTS SW physical switch panel wiring/location",
+    "referenced_sheet_hint": "main panel / emergency lighting schematic sheets (693-emergency-lighting, 690-lts-courtesy)"
+   },
+   {
+    "what": "+24V SERVICE BAT supply origin and fuse/breaker protecting it",
+    "referenced_sheet_hint": "GMMS 108'-111 +24V DC Distribution"
+   }
+  ],
+  "good_to_have": [
+   "Exact wattages for circuits 8.1-8.4 (16W/4W/24W/16W) and 9.1-9.4 (16W/8W/2W/12W) and 21.1-21.4 (12W each) are printed on the sheet",
+   "Fuse ratings inside fused terminals 16, 32, 48, 55-58 not individually specified \u2014 capture at inspection if needed",
+   "16A breaker part numbers/ratings for output pairs 53/54 and 59/60 confirmed as 16A from sheet text",
+   "Switch bank identifiers (SW22, SW25, SW28, SW28.B, SW28.C) position-to-function mapping (which physical switch position controls which circuit) not individually labelled beyond generic 9-position banks \u2014 physical legend/labeling at inspection"
+  ],
+  "uncertainties": [
+   "The exact identity/location of the COURTESY/EMERGENCY LTS SW and EMERGENCY LTS SW devices (physical switch panel) is not shown on this sheet \u2014 only their terminal taps (66, 67) and arrows indicating an off-sheet connection are drawn; cannot confirm whether these are dedicated physical switches or PLC-driven soft switches without the referenced panel sheet.",
+   "Circuit labels 8.x, 9.x, 21.x are generic 'CIRCUIT n.n' designations without a named cabin/space per circuit distinguishing PORT vs STBD crew/galley \u2014 the sheet title indicates both port and stbd crew/galley lighting are combined here, but no on-sheet label ties a specific circuit number to a specific physical space (e.g., which circuit is galley vs which is crew cabin) \u2014 engineer should confirm circuit-to-space mapping against the switch bank legend/panel schedule."
+  ],
   "_model": "claude-sonnet-5",
-  "_protocol_version": 5
+  "_protocol_version": 7
  },
  "netlist_stats": {
   "segments": 31411,
   "nets": 2506,
   "conductors": 1881,
-  "labels": 648,
-  "bound": 161,
-  "unbound": 13,
-  "devices_located": 89,
-  "devices_placed": 89
+  "labels": 627,
+  "bound": 168,
+  "unbound": 2,
+  "devices_located": 98,
+  "devices_placed": 98
  }
 }

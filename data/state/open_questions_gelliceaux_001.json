@@ -140,10 +140,10 @@
    ],
    "status": "answered",
    "opened": "2026-07-25",
-   "answered_by": "GM_p20_BILGE_-_WATER_VALVE_SYSTEM",
-   "answered_on": "2026-07-25",
+   "answered_by": "GM_p36_MAST-EXTERIOR_LIGHTS_&_SWITCHES",
+   "answered_on": "2026-07-26",
    "matched_keys": [
-    "XA41"
+    "DWG:SHOWS"
    ]
   },
   {
@@ -198,11 +198,10 @@
    ],
    "status": "answered",
    "opened": "2026-07-25",
-   "answered_by": "GM_p20_BILGE_-_WATER_VALVE_SYSTEM",
-   "answered_on": "2026-07-25",
+   "answered_by": "GM_p36_MAST-EXTERIOR_LIGHTS_&_SWITCHES",
+   "answered_on": "2026-07-26",
    "matched_keys": [
-    "DWG:ONYX",
-    "XA41"
+    "DWG:ONYX"
    ]
   },
   {
@@ -233,8 +232,13 @@
    "keys": [
     "XA60"
    ],
-   "status": "open",
-   "opened": "2026-07-25"
+   "status": "answered",
+   "opened": "2026-07-25",
+   "answer": "The coil energising path IS the XA41 terminal: each relay Re7-Re11 is activated by its respective XA41 terminal, which supplies the coil its NEGATIVE; the relay then supplies POSITIVE to the valve motor. XA60 is signal to Onyx, not the command.",
+   "authority": "engineer",
+   "answered_by": "engineer",
+   "answered_on": "2026-07-26",
+   "answer_scope": ""
   },
   {
    "id": "q14",
@@ -251,12 +255,11 @@
    ],
    "status": "answered",
    "opened": "2026-07-25",
-   "answered_by": "GM_p22_BLACK_WATER_SYSTEM",
-   "answered_on": "2026-07-25",
-   "matched_keys": [
-    "DWG:OR",
-    "DWG:REFERENCED"
-   ]
+   "answer": "XA60 terminals are SIGNAL to the Onyx monitoring system \u2014 cross-reference the Onyx drawings. They are NOT the control commands.",
+   "authority": "engineer",
+   "answered_by": "engineer",
+   "answered_on": "2026-07-26",
+   "answer_scope": ""
   },
   {
    "id": "q15",
@@ -273,11 +276,11 @@
    ],
    "status": "answered",
    "opened": "2026-07-25",
-   "answered_by": "GM_p22_BLACK_WATER_SYSTEM",
-   "answered_on": "2026-07-25",
-   "matched_keys": [
-    "DWG:PER"
-   ]
+   "answer": "XA41 terminals are the CONTROL: each relay (Re7-Re11) is activated by its respective XA41 terminal, which supplies the coil its NEGATIVE. The relays then SUPPLY POSITIVE to the valve motors (M).",
+   "authority": "engineer",
+   "answered_by": "engineer",
+   "answered_on": "2026-07-26",
+   "answer_scope": ""
   },
   {
    "id": "q16",
@@ -291,11 +294,14 @@
    ],
    "status": "answered",
    "opened": "2026-07-25",
-   "answered_by": "GM_p22_BLACK_WATER_SYSTEM",
-   "answered_on": "2026-07-25",
+   "answered_by": "engineer",
+   "answered_on": "2026-07-26",
    "matched_keys": [
     "DWG:114"
-   ]
+   ],
+   "answer": "The coil energising path IS the XA41 terminal: each relay Re7-Re11 is activated by its respective XA41 terminal, which supplies the coil its NEGATIVE; the relay then supplies POSITIVE to the valve motor. XA60 is signal to Onyx, not the command.",
+   "authority": "engineer",
+   "answer_scope": ""
   },
   {
    "id": "q17",
@@ -331,8 +337,13 @@
    "kind": "uncertainty",
    "text": "Re19's downstream switched function (what device/circuit its contact energises) is not labelled \u2014 only the coil feed/return path is traceable, not what it controls.",
    "keys": [],
-   "status": "open",
-   "opened": "2026-07-25"
+   "status": "answered",
+   "opened": "2026-07-25",
+   "answer": "Relay 19 gives NEGATIVE to relays whose load sits on the NC side, so energising it OPENS those loads. Its diode's direction is unclear on the sheet and is not critical now; possibly overfill protection.",
+   "authority": "engineer",
+   "answered_by": "engineer",
+   "answered_on": "2026-07-26",
+   "answer_scope": "GM_p22"
   },
   {
    "id": "q20",
@@ -373,10 +384,12 @@
    ],
    "status": "answered",
    "opened": "2026-07-25",
-   "answered_by": "GM_p24_GAS-CO-_P._VAPOUR_ALARM",
-   "answered_on": "2026-07-25",
+   "answered_by": "GM_p36_MAST-EXTERIOR_LIGHTS_&_SWITCHES",
+   "answered_on": "2026-07-26",
    "matched_keys": [
     "DWG:GMMS",
+    "MU4",
+    "MU5",
     "TERM:111"
    ]
   },
@@ -532,8 +545,13 @@
     "DWG:102",
     "Q34"
    ],
-   "status": "open",
-   "opened": "2026-07-25"
+   "status": "answered",
+   "opened": "2026-07-25",
+   "answered_by": "GM_p30_PORT-STBD_CREW-GALLEY_LTS",
+   "answered_on": "2026-07-26",
+   "matched_keys": [
+    "DWG:102"
+   ]
   },
   {
    "id": "q32",
@@ -546,8 +564,13 @@
     "DWG:102",
     "TERM:181"
    ],
-   "status": "open",
-   "opened": "2026-07-25"
+   "status": "answered",
+   "opened": "2026-07-25",
+   "answered_by": "GM_p30_PORT-STBD_CREW-GALLEY_LTS",
+   "answered_on": "2026-07-26",
+   "matched_keys": [
+    "DWG:102"
+   ]
   },
   {
    "id": "q33",
@@ -765,12 +788,11 @@
    ],
    "status": "answered",
    "opened": "2026-07-26",
-   "answered_by": "GM_p37_PORT_PEDESTAL_INTERCONNECTIONS",
+   "answer": "Positive for S1 comes from Re3 and for S2 from Re4, through a row of relays and buttons.",
+   "authority": "engineer",
+   "answered_by": "engineer",
    "answered_on": "2026-07-26",
-   "matched_keys": [
-    "DWG:OR",
-    "S1"
-   ]
+   "answer_scope": "GM_p26"
   },
   {
    "id": "q48",
@@ -783,11 +805,11 @@
    ],
    "status": "answered",
    "opened": "2026-07-26",
-   "answered_by": "GM_p37_PORT_PEDESTAL_INTERCONNECTIONS",
+   "answer": "The + side of V1 and the AUX inflate/deflate valve comes through a row of relays activated by specific functions. Both companionways have an inflatable seal (owner's manual; the aft seal is a Likon IFS840425, 2 held in Box 17).",
+   "authority": "engineer",
+   "answered_by": "engineer",
    "answered_on": "2026-07-26",
-   "matched_keys": [
-    "V1"
-   ]
+   "answer_scope": "GM_p26"
   },
   {
    "id": "q49",
@@ -801,11 +823,14 @@
    ],
    "status": "answered",
    "opened": "2026-07-26",
-   "answered_by": "GM_p37_PORT_PEDESTAL_INTERCONNECTIONS",
+   "answered_by": "engineer",
    "answered_on": "2026-07-26",
    "matched_keys": [
     "V1"
-   ]
+   ],
+   "answer": "The + side of V1 and the AUX inflate/deflate valve comes through a row of relays activated by specific functions. Both companionways have an inflatable seal (owner's manual; the aft seal is a Likon IFS840425, 2 held in Box 17).",
+   "authority": "engineer",
+   "answer_scope": "GM_p26"
   },
   {
    "id": "q50",
@@ -898,8 +923,13 @@
     "C3",
     "XC23"
    ],
-   "status": "open",
-   "opened": "2026-07-26"
+   "status": "answered",
+   "opened": "2026-07-26",
+   "answered_by": "GM_p15_GM_MARINE_NAV._LTS_ALARM_SYSTEM",
+   "answered_on": "2026-07-26",
+   "matched_keys": [
+    "C3"
+   ]
   },
   {
    "id": "q56",
@@ -912,8 +942,15 @@
     "DIM2",
     "DIM3"
    ],
-   "status": "open",
-   "opened": "2026-07-26"
+   "status": "answered",
+   "opened": "2026-07-26",
+   "answered_by": "GM_p36_MAST-EXTERIOR_LIGHTS_&_SWITCHES",
+   "answered_on": "2026-07-26",
+   "matched_keys": [
+    "DIM1",
+    "DIM2",
+    "DIM3"
+   ]
   },
   {
    "id": "q57",
@@ -956,13 +993,8 @@
     "SWS108",
     "TERM:7"
    ],
-   "status": "answered",
-   "opened": "2026-07-26",
-   "answered_by": "GM_p41_COCKPIT_HYDRAULIC_CONTROL_PANELS",
-   "answered_on": "2026-07-26",
-   "matched_keys": [
-    "SWS108"
-   ]
+   "status": "open",
+   "opened": "2026-07-26"
   },
   {
    "id": "q61",
@@ -975,13 +1007,8 @@
     "SWS108",
     "TERM:8"
    ],
-   "status": "answered",
-   "opened": "2026-07-26",
-   "answered_by": "GM_p41_COCKPIT_HYDRAULIC_CONTROL_PANELS",
-   "answered_on": "2026-07-26",
-   "matched_keys": [
-    "SWS108"
-   ]
+   "status": "open",
+   "opened": "2026-07-26"
   },
   {
    "id": "q62",
@@ -1007,13 +1034,8 @@
     "CODE0",
     "SWS108"
    ],
-   "status": "answered",
-   "opened": "2026-07-26",
-   "answered_by": "GM_p41_COCKPIT_HYDRAULIC_CONTROL_PANELS",
-   "answered_on": "2026-07-26",
-   "matched_keys": [
-    "SWS108"
-   ]
+   "status": "open",
+   "opened": "2026-07-26"
   },
   {
    "id": "q64",
@@ -1026,8 +1048,13 @@
     "DWG:112",
     "TERM:1"
    ],
-   "status": "open",
-   "opened": "2026-07-26"
+   "status": "answered",
+   "opened": "2026-07-26",
+   "answered_by": "GM_p15_GM_MARINE_NAV._LTS_ALARM_SYSTEM",
+   "answered_on": "2026-07-26",
+   "matched_keys": [
+    "DWG:112"
+   ]
   },
   {
    "id": "q65",
@@ -1115,8 +1142,14 @@
     "DWG:OUT",
     "DWG:TO"
    ],
-   "status": "open",
-   "opened": "2026-07-26"
+   "status": "answered",
+   "opened": "2026-07-26",
+   "answered_by": "GM_p15_GM_MARINE_NAV._LTS_ALARM_SYSTEM",
+   "answered_on": "2026-07-26",
+   "matched_keys": [
+    "DWG:OUT",
+    "DWG:TO"
+   ]
   },
   {
    "id": "q72",
@@ -1132,8 +1165,14 @@
     "CH13",
     "CH16"
    ],
-   "status": "open",
-   "opened": "2026-07-26"
+   "status": "answered",
+   "opened": "2026-07-26",
+   "answered_by": "GM_p36_MAST-EXTERIOR_LIGHTS_&_SWITCHES",
+   "answered_on": "2026-07-26",
+   "matched_keys": [
+    "CH07",
+    "CH13"
+   ]
   },
   {
    "id": "q73",
@@ -1146,8 +1185,13 @@
     "DWG:108'-124D",
     "DWG:124D"
    ],
-   "status": "open",
-   "opened": "2026-07-26"
+   "status": "answered",
+   "opened": "2026-07-26",
+   "answered_by": "GM_p26_AFT_COMPANION_WAY",
+   "answered_on": "2026-07-26",
+   "matched_keys": [
+    "DWG:124D"
+   ]
   },
   {
    "id": "q74",
@@ -1158,6 +1202,613 @@
    "hint": "SWS108 Hydraulic System AFT sailing manifold / Cariboni cylinder detail sheets (open question q63)",
    "keys": [
     "SWS108"
+   ],
+   "status": "open",
+   "opened": "2026-07-26"
+  },
+  {
+   "id": "q75",
+   "sheet": "GM_p15_GM_MARINE_NAV._LTS_ALARM_SYSTEM",
+   "drawing_class": "electrical",
+   "kind": "uncertainty",
+   "text": "The SIEMENS 3UG4621-1AW30 monitoring relay's positive/coil feed side and its exact role (monitoring input vs separate protective trip for PORT/STBD nav lamp circuit) is not traced to a clear source or destination on this sheet \u2014 carried forward from open question q1.",
+   "keys": [],
+   "status": "open",
+   "opened": "2026-07-26"
+  },
+  {
+   "id": "q76",
+   "sheet": "GM_p15_GM_MARINE_NAV._LTS_ALARM_SYSTEM",
+   "drawing_class": "electrical",
+   "kind": "uncertainty",
+   "text": "The NC/NO contact state and full coil feed+return for Re7 and Re8 could not be conclusively determined from the sheet symbols (netlist marks these 'contact=unknown'); this could invert whether the nav/steaming lamps are ON or OFF by default versus on fault \u2014 needs engineer confirmation.",
+   "keys": [
+    "DWG:SYMBOLS"
+   ],
+   "status": "answered",
+   "opened": "2026-07-26",
+   "answered_by": "GM_p36_MAST-EXTERIOR_LIGHTS_&_SWITCHES",
+   "answered_on": "2026-07-26",
+   "matched_keys": [
+    "DWG:SYMBOLS"
+   ]
+  },
+  {
+   "id": "q77",
+   "sheet": "GM_p15_GM_MARINE_NAV._LTS_ALARM_SYSTEM",
+   "drawing_class": "electrical",
+   "kind": "uncertainty",
+   "text": "PLUG C pins [1]-[4] (arrows to an external wire) have no traceable destination on this sheet \u2014 genuinely dead-ends off-sheet.",
+   "keys": [],
+   "status": "open",
+   "opened": "2026-07-26"
+  },
+  {
+   "id": "q78",
+   "sheet": "GM_p15_GM_MARINE_NAV._LTS_ALARM_SYSTEM",
+   "drawing_class": "electrical",
+   "kind": "cross_reference",
+   "text": "Cross-drawing pointer '(see DWG 111a)' near top plug wiring \u2014 continuation of PLUG C wiring or Re7-Re10 supply",
+   "hint": "GMMS 111a",
+   "keys": [
+    "DWG:111A",
+    "DWG:POINTER"
+   ],
+   "status": "answered",
+   "opened": "2026-07-26",
+   "answered_by": "GM_p36_MAST-EXTERIOR_LIGHTS_&_SWITCHES",
+   "answered_on": "2026-07-26",
+   "matched_keys": [
+    "DWG:111A",
+    "DWG:POINTER"
+   ]
+  },
+  {
+   "id": "q79",
+   "sheet": "GM_p15_GM_MARINE_NAV._LTS_ALARM_SYSTEM",
+   "drawing_class": "electrical",
+   "kind": "cross_reference",
+   "text": "Cross-drawing pointer 'to RELAIS 1 (see DWG 111a)' from terminal 37 / Re13 area",
+   "hint": "GMMS 111a",
+   "keys": [
+    "DWG:111A",
+    "DWG:POINTER",
+    "TERM:37"
+   ],
+   "status": "answered",
+   "opened": "2026-07-26",
+   "answered_by": "GM_p26_AFT_COMPANION_WAY",
+   "answered_on": "2026-07-26",
+   "matched_keys": [
+    "TERM:37"
+   ]
+  },
+  {
+   "id": "q80",
+   "sheet": "GM_p15_GM_MARINE_NAV._LTS_ALARM_SYSTEM",
+   "drawing_class": "electrical",
+   "kind": "cross_reference",
+   "text": "MU5-12 [10] and MU5-12 [11] multi-core cable legs to T/S F terminals 51/52",
+   "hint": "GMMS 112 (main panel multi-core cable MU5-12/MU4-12 per established fact 641-vessel-control-panel)",
+   "keys": [
+    "DWG:112",
+    "MU4",
+    "MU5",
+    "TERM:51"
+   ],
+   "status": "answered",
+   "opened": "2026-07-26",
+   "answered_by": "GM_p20_BILGE_-_WATER_VALVE_SYSTEM",
+   "answered_on": "2026-07-26",
+   "matched_keys": [
+    "TERM:51"
+   ]
+  },
+  {
+   "id": "q81",
+   "sheet": "GM_p15_GM_MARINE_NAV._LTS_ALARM_SYSTEM",
+   "drawing_class": "electrical",
+   "kind": "cross_reference",
+   "text": "PLUG C pins [1]-[4] arrows pointing to external wire, off-crop / unresolved destination",
+   "hint": "possibly GMMS 111a or main panel sheet",
+   "keys": [
+    "DWG:111A"
+   ],
+   "status": "answered",
+   "opened": "2026-07-26",
+   "answered_by": "GM_p36_MAST-EXTERIOR_LIGHTS_&_SWITCHES",
+   "answered_on": "2026-07-26",
+   "matched_keys": [
+    "DWG:111A"
+   ]
+  },
+  {
+   "id": "q82",
+   "sheet": "GM_p20_BILGE_-_WATER_VALVE_SYSTEM",
+   "drawing_class": "electrical",
+   "kind": "uncertainty",
+   "text": "Re7-Re11: whether the load (motor terminals 53/54, 58/59, 63/64, 68/69, 73/74) sits on the NC or NO contact of each relay is not legible on this sheet (contact=unknown in the measured netlist) \u2014 this determines whether the valve is normally-open or normally-closed on loss of relay power; needs engineer confirmation (echoes open question q13 from an earlier sheet).",
+   "keys": [
+    "TERM:53"
+   ],
+   "status": "answered",
+   "opened": "2026-07-26",
+   "answered_by": "engineer",
+   "answered_on": "2026-07-26",
+   "matched_keys": [
+    "TERM:53"
+   ],
+   "answer": "The coil energising path IS the XA41 terminal: each relay Re7-Re11 is activated by its respective XA41 terminal, which supplies the coil its NEGATIVE; the relay then supplies POSITIVE to the valve motor. XA60 is signal to Onyx, not the command.",
+   "authority": "engineer",
+   "answer_scope": ""
+  },
+  {
+   "id": "q83",
+   "sheet": "GM_p20_BILGE_-_WATER_VALVE_SYSTEM",
+   "drawing_class": "electrical",
+   "kind": "uncertainty",
+   "text": "Each relay coil's negative/return side beyond terminal 55/60/65/70/75 (i.e., whether it truly returns to a negative bus or is purely a status tap to XA41) is not fully distinguishable from a supply/control conductor on this sheet.",
+   "keys": [
+    "TERM:55",
+    "XA41"
+   ],
+   "status": "answered",
+   "opened": "2026-07-26",
+   "answer": "XA41 terminals are the CONTROL: each relay (Re7-Re11) is activated by its respective XA41 terminal, which supplies the coil its NEGATIVE. The relays then SUPPLY POSITIVE to the valve motors (M).",
+   "authority": "engineer",
+   "answered_by": "engineer",
+   "answered_on": "2026-07-26",
+   "answer_scope": ""
+  },
+  {
+   "id": "q84",
+   "sheet": "GM_p20_BILGE_-_WATER_VALVE_SYSTEM",
+   "drawing_class": "electrical",
+   "kind": "cross_reference",
+   "text": "XA60 pins 02/04/06/08/10/12/14/16/18/20 \u2014 command-in taps driving each valve's OPEN/CLOSE contacts",
+   "hint": "ONYX/monitoring wiring sheet (XA60 block)",
+   "keys": [
+    "XA60"
+   ],
+   "status": "answered",
+   "opened": "2026-07-26",
+   "answer": "XA60 terminals are SIGNAL to the Onyx monitoring system \u2014 cross-reference the Onyx drawings. They are NOT the control commands.",
+   "authority": "engineer",
+   "answered_by": "engineer",
+   "answered_on": "2026-07-26",
+   "answer_scope": ""
+  },
+  {
+   "id": "q85",
+   "sheet": "GM_p20_BILGE_-_WATER_VALVE_SYSTEM",
+   "drawing_class": "electrical",
+   "kind": "cross_reference",
+   "text": "XA41 pins 10/12/14/16/18 \u2014 status-out taps reporting each relay's state to monitoring",
+   "hint": "ONYX/monitoring wiring sheet (XA41 block)",
+   "keys": [
+    "XA41"
+   ],
+   "status": "answered",
+   "opened": "2026-07-26",
+   "answer": "XA41 terminals are the CONTROL: each relay (Re7-Re11) is activated by its respective XA41 terminal, which supplies the coil its NEGATIVE. The relays then SUPPLY POSITIVE to the valve motors (M).",
+   "authority": "engineer",
+   "answered_by": "engineer",
+   "answered_on": "2026-07-26",
+   "answer_scope": ""
+  },
+  {
+   "id": "q86",
+   "sheet": "GM_p26_AFT_COMPANION_WAY",
+   "drawing_class": "electrical",
+   "kind": "uncertainty",
+   "text": "The exact NO/NC state and coil energise direction of Re1-Re5 individually is not fully distinguishable from the raster image beyond netlist confirming Re1_contact/Re3/Re4/Re5 = NO; function (open vs closed vs lock routing) is inferred from terminal grouping and SW19 labels, not from a fully legible per-relay dotted-line trace \u2014 engineer should confirm exact relay-to-function mapping if troubleshooting.",
+   "keys": [
+    "SW19"
+   ],
+   "status": "open",
+   "opened": "2026-07-26"
+  },
+  {
+   "id": "q87",
+   "sheet": "GM_p26_AFT_COMPANION_WAY",
+   "drawing_class": "electrical",
+   "kind": "uncertainty",
+   "text": "BOOM LTS/COCKPIT LTS switch (labelled C22) appears on this sheet only as a switch block with no drawn load-circuit lines to any device on this sheet \u2014 its full lighting circuit is not on this drawing and is cross-referenced only.",
+   "keys": [
+    "C22",
+    "DWG:AND",
+    "DWG:ONLY"
+   ],
+   "status": "answered",
+   "opened": "2026-07-26",
+   "answered_by": "GM_p30_PORT-STBD_CREW-GALLEY_LTS",
+   "answered_on": "2026-07-26",
+   "matched_keys": [
+    "DWG:AND",
+    "DWG:ONLY"
+   ]
+  },
+  {
+   "id": "q88",
+   "sheet": "GM_p26_AFT_COMPANION_WAY",
+   "drawing_class": "electrical",
+   "kind": "cross_reference",
+   "text": "SALOON COMPANION WAY incoming feed via Q25 6A breaker, continuing from an upstream sheet",
+   "hint": "DWG:108'-118 (Saloon Companion Way) / DC distribution schedule",
+   "keys": [
+    "DWG:DWG",
+    "Q25"
+   ],
+   "status": "answered",
+   "opened": "2026-07-26",
+   "answered_by": "GM_p30_PORT-STBD_CREW-GALLEY_LTS",
+   "answered_on": "2026-07-26",
+   "matched_keys": [
+    "DWG:DWG"
+   ]
+  },
+  {
+   "id": "q89",
+   "sheet": "GM_p26_AFT_COMPANION_WAY",
+   "drawing_class": "electrical",
+   "kind": "cross_reference",
+   "text": "Terminal strip 1-5 continuing to PEDESTAL J/BOX 3",
+   "hint": "DWG 124d",
+   "keys": [
+    "DWG:124D"
+   ],
+   "status": "open",
+   "opened": "2026-07-26"
+  },
+  {
+   "id": "q90",
+   "sheet": "GM_p26_AFT_COMPANION_WAY",
+   "drawing_class": "electrical",
+   "kind": "cross_reference",
+   "text": "+24V SERVICE BAT. supply via fuse F6 160A",
+   "hint": "DC distribution / battery sheet",
+   "keys": [
+    "F6"
+   ],
+   "status": "answered",
+   "opened": "2026-07-26",
+   "answered_by": "GM_p30_PORT-STBD_CREW-GALLEY_LTS",
+   "answered_on": "2026-07-26",
+   "matched_keys": [
+    "F6"
+   ]
+  },
+  {
+   "id": "q91",
+   "sheet": "GM_p26_AFT_COMPANION_WAY",
+   "drawing_class": "electrical",
+   "kind": "cross_reference",
+   "text": "BOOM LTS / COCKPIT LTS switch (C22) riding on this J/BOX wiring but belonging to a lighting circuit",
+   "hint": "690-lts-boom lighting circuit sheet",
+   "keys": [
+    "C22"
+   ],
+   "status": "open",
+   "opened": "2026-07-26"
+  },
+  {
+   "id": "q92",
+   "sheet": "GM_p26_AFT_COMPANION_WAY",
+   "drawing_class": "electrical",
+   "kind": "cross_reference",
+   "text": "FWD Remote Receiver #1 full wiring/power supply (only terminal listing shown here)",
+   "hint": "possibly a remote-control/receiver electrical sheet",
+   "keys": [],
+   "status": "open",
+   "opened": "2026-07-26"
+  },
+  {
+   "id": "q93",
+   "sheet": "GM_p30_PORT-STBD_CREW-GALLEY_LTS",
+   "drawing_class": "electrical",
+   "kind": "uncertainty",
+   "text": "The exact identity/location of the COURTESY/EMERGENCY LTS SW and EMERGENCY LTS SW devices (physical switch panel) is not shown on this sheet \u2014 only their terminal taps (66, 67) and arrows indicating an off-sheet connection are drawn; cannot confirm whether these are dedicated physical switches or PLC-driven soft switches without the referenced panel sheet.",
+   "keys": [
+    "DWG:CONNECTION"
+   ],
+   "status": "answered",
+   "opened": "2026-07-26",
+   "answered_by": "GM_p36_MAST-EXTERIOR_LIGHTS_&_SWITCHES",
+   "answered_on": "2026-07-26",
+   "matched_keys": [
+    "DWG:CONNECTION"
+   ]
+  },
+  {
+   "id": "q94",
+   "sheet": "GM_p30_PORT-STBD_CREW-GALLEY_LTS",
+   "drawing_class": "electrical",
+   "kind": "uncertainty",
+   "text": "Circuit labels 8.x, 9.x, 21.x are generic 'CIRCUIT n.n' designations without a named cabin/space per circuit distinguishing PORT vs STBD crew/galley \u2014 the sheet title indicates both port and stbd crew/galley lighting are combined here, but no on-sheet label ties a specific circuit number to a specific physical space (e.g., which circuit is galley vs which is crew cabin) \u2014 engineer should confirm circuit-to-space mapping against the switch bank legend/panel schedule.",
+   "keys": [
+    "DWG:LABEL",
+    "DWG:TITLE"
+   ],
+   "status": "answered",
+   "opened": "2026-07-26",
+   "answered_by": "GM_p36_MAST-EXTERIOR_LIGHTS_&_SWITCHES",
+   "answered_on": "2026-07-26",
+   "matched_keys": [
+    "DWG:LABEL",
+    "DWG:TITLE"
+   ]
+  },
+  {
+   "id": "q95",
+   "sheet": "GM_p30_PORT-STBD_CREW-GALLEY_LTS",
+   "drawing_class": "electrical",
+   "kind": "cross_reference",
+   "text": "CAN bus continues off-sheet at top (incoming) and bottom (outgoing) \u2014 likely links to other Yachtica lighting sheets/nodes for continuity of the network",
+   "hint": "other GMMS 108'-119 series Yachtica lighting sheets",
+   "keys": [
+    "DWG:108'-119",
+    "DWG:AT"
+   ],
+   "status": "answered",
+   "opened": "2026-07-26",
+   "answered_by": "GM_p36_MAST-EXTERIOR_LIGHTS_&_SWITCHES",
+   "answered_on": "2026-07-26",
+   "matched_keys": [
+    "DWG:AT"
+   ]
+  },
+  {
+   "id": "q96",
+   "sheet": "GM_p30_PORT-STBD_CREW-GALLEY_LTS",
+   "drawing_class": "electrical",
+   "kind": "cross_reference",
+   "text": "PORT AFT GUEST CABIN LTS Q43 40A breaker \u2014 origin panel/schedule for this feed",
+   "hint": "AFT DC DB LIGHTS PANELa / PANEL b sheets (GMMS 108'-119, 108'-119a)",
+   "keys": [
+    "DWG:108'-119",
+    "Q43"
+   ],
+   "status": "open",
+   "opened": "2026-07-26"
+  },
+  {
+   "id": "q97",
+   "sheet": "GM_p30_PORT-STBD_CREW-GALLEY_LTS",
+   "drawing_class": "electrical",
+   "kind": "cross_reference",
+   "text": "YACHTICA 10A AC breaker origin",
+   "hint": "GMMS 102 / main AC distribution schedule",
+   "keys": [
+    "DWG:102"
+   ],
+   "status": "open",
+   "opened": "2026-07-26"
+  },
+  {
+   "id": "q98",
+   "sheet": "GM_p30_PORT-STBD_CREW-GALLEY_LTS",
+   "drawing_class": "electrical",
+   "kind": "cross_reference",
+   "text": "COURTESY/EMERGENCY LTS SW and EMERGENCY LTS SW physical switch panel wiring/location",
+   "hint": "main panel / emergency lighting schematic sheets (693-emergency-lighting, 690-lts-courtesy)",
+   "keys": [],
+   "status": "open",
+   "opened": "2026-07-26"
+  },
+  {
+   "id": "q99",
+   "sheet": "GM_p30_PORT-STBD_CREW-GALLEY_LTS",
+   "drawing_class": "electrical",
+   "kind": "cross_reference",
+   "text": "+24V SERVICE BAT supply origin and fuse/breaker protecting it",
+   "hint": "GMMS 108'-111 +24V DC Distribution",
+   "keys": [
+    "DWG:108'-111"
+   ],
+   "status": "open",
+   "opened": "2026-07-26"
+  },
+  {
+   "id": "q100",
+   "sheet": "GM_p36_MAST-EXTERIOR_LIGHTS_&_SWITCHES",
+   "drawing_class": "electrical",
+   "kind": "uncertainty",
+   "text": "QE1 is printed as '10A' on this sheet feeding mast-lights emergency tap, but established facts from other sheets show QE1 as a 32A emergency breaker \u2014 engineer should confirm whether this is a second QE1 tap/sub-fuse or a labelling discrepancy.",
+   "keys": [
+    "DWG:FEEDING",
+    "QE1"
+   ],
+   "status": "answered",
+   "opened": "2026-07-26",
+   "answered_by": "GM_p41_COCKPIT_HYDRAULIC_CONTROL_PANELS",
+   "answered_on": "2026-07-26",
+   "matched_keys": [
+    "DWG:FEEDING"
+   ]
+  },
+  {
+   "id": "q101",
+   "sheet": "GM_p36_MAST-EXTERIOR_LIGHTS_&_SWITCHES",
+   "drawing_class": "electrical",
+   "kind": "uncertainty",
+   "text": "Re12/Re13/Re14/Re15 coil positive/feed sides are not traced on this sheet \u2014 only the NO contact and diode-coupled return/coil side are drawn; the actual command source (which switch/logic energises these mast-light relays) is incomplete.",
+   "keys": [],
+   "status": "open",
+   "opened": "2026-07-26"
+  },
+  {
+   "id": "q102",
+   "sheet": "GM_p36_MAST-EXTERIOR_LIGHTS_&_SWITCHES",
+   "drawing_class": "electrical",
+   "kind": "uncertainty",
+   "text": "FOG HORM and AUX FOG HORM positive supply conductor is not distinctly traced apart from the shared Re18/T1/T2/Re19 relay-contact loop \u2014 consistent with prior open question q40.",
+   "keys": [
+    "T1",
+    "T2"
+   ],
+   "status": "answered",
+   "opened": "2026-07-26",
+   "answered_by": "GM_p41_COCKPIT_HYDRAULIC_CONTROL_PANELS",
+   "answered_on": "2026-07-26",
+   "matched_keys": [
+    "T1",
+    "T2"
+   ]
+  },
+  {
+   "id": "q103",
+   "sheet": "GM_p36_MAST-EXTERIOR_LIGHTS_&_SWITCHES",
+   "drawing_class": "electrical",
+   "kind": "uncertainty",
+   "text": "LED Dimmer 1/2 positive/feed side and downstream destination device are not shown on this sheet (matches prior open question q56 regarding DIM1/DIM2/DIM3) \u2014 no fitting equipment node identified for this function on this sheet.",
+   "keys": [
+    "DIM1",
+    "DIM2",
+    "DIM3"
+   ],
+   "status": "open",
+   "opened": "2026-07-26"
+  },
+  {
+   "id": "q104",
+   "sheet": "GM_p36_MAST-EXTERIOR_LIGHTS_&_SWITCHES",
+   "drawing_class": "electrical",
+   "kind": "cross_reference",
+   "text": "MU4-12 [10] wire continuing to another main-panel drawing",
+   "hint": "DWG120/112/111a",
+   "keys": [
+    "DWG120",
+    "DWG:DWG120",
+    "MU4"
+   ],
+   "status": "open",
+   "opened": "2026-07-26"
+  },
+  {
+   "id": "q105",
+   "sheet": "GM_p36_MAST-EXTERIOR_LIGHTS_&_SWITCHES",
+   "drawing_class": "electrical",
+   "kind": "cross_reference",
+   "text": "Section D pushbutton group (spreader down/up, fwd deck lt) wired 'to PORT LAZ. J/BOX 2'",
+   "hint": "PORT LAZ. J/BOX 2 sheet",
+   "keys": [],
+   "status": "open",
+   "opened": "2026-07-26"
+  },
+  {
+   "id": "q106",
+   "sheet": "GM_p36_MAST-EXTERIOR_LIGHTS_&_SWITCHES",
+   "drawing_class": "electrical",
+   "kind": "cross_reference",
+   "text": "DO22-CH07 / DIO3-CH13 PLC channel tags for Hydraulics Emergency Stop indicator, MYT 0V/24V rails",
+   "hint": "MAST PLC I/O Rack (570-plc-rack-mast) or MYT hydraulic monitoring sheet",
+   "keys": [
+    "CH07",
+    "CH13",
+    "DIO3",
+    "DO22"
+   ],
+   "status": "answered",
+   "opened": "2026-07-26",
+   "answered_by": "GM_p41_COCKPIT_HYDRAULIC_CONTROL_PANELS",
+   "answered_on": "2026-07-26",
+   "matched_keys": [
+    "CH07",
+    "CH13"
+   ]
+  },
+  {
+   "id": "q107",
+   "sheet": "GM_p36_MAST-EXTERIOR_LIGHTS_&_SWITCHES",
+   "drawing_class": "electrical",
+   "kind": "cross_reference",
+   "text": "LED Dimmer 1 / LED Dimmer 2 downstream dimmer module destination",
+   "hint": "possibly PORT PEDESTAL INTERCONNECTIONS sheet (q56 open question re DIM1/DIM2/DIM3)",
+   "keys": [
+    "DIM1",
+    "DIM2",
+    "DIM3"
+   ],
+   "status": "open",
+   "opened": "2026-07-26"
+  },
+  {
+   "id": "q108",
+   "sheet": "GM_p41_COCKPIT_HYDRAULIC_CONTROL_PANELS",
+   "drawing_class": "electrical",
+   "kind": "uncertainty",
+   "text": "Relay bank Re1-Re4: neither the NC/NO contact state for the loads nor the full +/- coil feed and return path is confirmed on this sheet (netlist marks contact=unknown for the coil-question on several nets); the function driven by each individual relay (Re1 vs Re2 vs Re3 vs Re4) is not distinctly labelled beyond a shared 'DI-05 CH12' output and a common 'MYT' terminal \u2014 cannot say which relay corresponds to which sailing function without the PLC program.",
+   "keys": [
+    "CH12"
+   ],
+   "status": "open",
+   "opened": "2026-07-26"
+  },
+  {
+   "id": "q109",
+   "sheet": "GM_p41_COCKPIT_HYDRAULIC_CONTROL_PANELS",
+   "drawing_class": "electrical",
+   "kind": "uncertainty",
+   "text": "The identity of the unlabeled first pushbutton row (row 1, header 'FURL' with no sub-label) is inferred from the engineer-confirmed mapping to Bamar PI20 (Code-0 furler); the sheet itself does not print a distinguishing sub-label for this row beyond 'FURL' shared with the header.",
+   "keys": [
+    "DWG:ITSELF",
+    "PI20"
+   ],
+   "status": "open",
+   "opened": "2026-07-26"
+  },
+  {
+   "id": "q110",
+   "sheet": "GM_p41_COCKPIT_HYDRAULIC_CONTROL_PANELS",
+   "drawing_class": "electrical",
+   "kind": "cross_reference",
+   "text": "Sailing function pushbutton commands (JIB, STAYSAIL, JIB TACK, JIB SHEET, IN/OUT) continuing onward from AFT MYT PLC J/BOX to the actual sailing manifold hydraulic valves/cylinders \u2014 not drawn on this sheet",
+   "hint": "MYT sailing manifold hydraulic schematics (570-myt-aft-sailing-manifold / 570-myt-aft-mast-sailing-manifold)",
+   "keys": [
+    "DWG:MYT"
+   ],
+   "status": "open",
+   "opened": "2026-07-26"
+  },
+  {
+   "id": "q111",
+   "sheet": "GM_p41_COCKPIT_HYDRAULIC_CONTROL_PANELS",
+   "drawing_class": "electrical",
+   "kind": "cross_reference",
+   "text": "Relay bank (Re1-4) combined output at terminal strip pin 1 labelled 'MYT' continues off-sheet",
+   "hint": "to STBD PEDESTAL J/BOX 3 (per sheet's own cross-reference note)",
+   "keys": [
+    "DWG:'S",
+    "DWG:TO"
+   ],
+   "status": "open",
+   "opened": "2026-07-26"
+  },
+  {
+   "id": "q112",
+   "sheet": "GM_p41_COCKPIT_HYDRAULIC_CONTROL_PANELS",
+   "drawing_class": "electrical",
+   "kind": "cross_reference",
+   "text": "DI-04 CH07 (port) and DI-05 CH04 (stbd) PLC input channel assignments \u2014 full PLC program/channel map not detailed on this sheet",
+   "hint": "MYT PLC I/O channel list / AFT PLC I/O Rack documentation",
+   "keys": [
+    "CH04",
+    "CH07",
+    "DWG:MYT"
+   ],
+   "status": "open",
+   "opened": "2026-07-26"
+  },
+  {
+   "id": "q113",
+   "sheet": "GM_p41_COCKPIT_HYDRAULIC_CONTROL_PANELS",
+   "drawing_class": "electrical",
+   "kind": "cross_reference",
+   "text": "DO-01 CH13 (port) and DO-01 CH16 (stbd) PLC output channel assignments",
+   "hint": "MYT PLC I/O channel list / AFT PLC I/O Rack documentation",
+   "keys": [
+    "CH13",
+    "CH16"
    ],
    "status": "open",
    "opened": "2026-07-26"

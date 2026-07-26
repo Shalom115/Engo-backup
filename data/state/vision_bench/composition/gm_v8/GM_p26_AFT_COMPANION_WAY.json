@@ -1,0 +1,284 @@
+{
+ "sheet": "GM_p26_AFT_COMPANION_WAY",
+ "page": 26,
+ "title": "AFT COMPANION WAY",
+ "drawing_class": "electrical",
+ "composition": {
+  "serve_who": "This sheet (\"AFT COMPANION WAY\", DWG GMMS 108'-118a) documents the J/BOX enclosure and control loops for the AFT companion-way's INFLATABLE HATCH SEAL (pneumatic gasket) system, matching the engineer mapping AFT COMPANION WAY -> 575-pneumatic-system. All labeled devices (HATCH OPEN/CLOSED indicators S1/S2, digital pressure switch \"open when inflated\", SW19 open/closed/LOCK selector, inside-locker inflate/deflate switch, V1 inflate/deflate valve, AUX inflate/deflate valve, reed switch closed signal, and the Re1-Re8 relay bank) all serve this one inflatable-seal/hatch-lock system per the sheet's own title and the q48/q49 engineer answers confirming both companionways have an inflatable seal (aft = Likon IFS840425). The FWD REMOTE RECEIVER #1 pinout (open/LOCK/closed/BOOM LIGHT/+24V/COM) is a remote command source feeding into this same loop via terminals 17-20, and the SW/ switch cluster (BOOM LTS/COCKPIT LTS/C22) is cross-wired into the V1 valve's terminal 22 per the netlist (net433) though its lighting role is otherwise routed to 690-lts-boom (BOOM LTS) \u2014 no clean node exists here for \"COCKPIT LTS\" as its own item, per q52 flagged on a prior sheet. Supply origin is SALOON COMPANION WAY via breaker Q25 6A, itself off F6 160A from +24V SERVICE BAT, per q53 already flagged as a cross-reference.",
+  "equipment_groups": [
+   {
+    "equipment_name": "Inflatable hatch seal / hatch lock system \u2014 AFT Companion Way (575-pneumatic-system)",
+    "target_node_id": "575-pneumatic-system",
+    "placement_reasoning": "Sheet titled AFT COMPANION WAY maps directly per engineer-confirmed vocabulary to 575-pneumatic-system. All hatch-open/closed indicators, the inflation pressure switch, the SW19 selector, the locker inflate/deflate switch, V1/AUX valves and the reed closed-signal switch are the pneumatic seal & hatch-lock control loop for this one companionway.",
+    "functions": [
+     {
+      "function_id": "hatch_open_closed_indication",
+      "label": "Hatch position indicators S1 (HATCH OPEN) / S2 (HATCH CLOSED)",
+      "what_it_does": "Two indicator devices report the aft companion-way hatch's open/closed state, fed from the J/BOX relay row (Re3 feeds S1's circuit, Re4 feeds S2's circuit per q47 engineer answer).",
+      "flow_scenarios": [
+       {
+        "state": "default",
+        "path": "Re3/Re4 relay contacts (via terminals 2 and 3) -> S1 HATCH OPEN indicator and S2 HATCH CLOSED indicator; negative/return side not separately traced on this sheet, positive confirmed by engineer answer q47 as coming through the Re3/Re4 relay row"
+       }
+      ],
+      "key_components": [
+       "S1 (HATCH OPEN indicator)",
+       "S2 (HATCH CLOSED indicator)",
+       "Re3 relay",
+       "Re4 relay",
+       "terminal 2",
+       "terminal 3"
+      ],
+      "sheet_region": "top-right, bbox ~0.62-1.0, 0-0.19"
+     },
+     {
+      "function_id": "inflation_pressure_monitor",
+      "label": "Digital pressure switch \u2014 inflation confirmation",
+      "what_it_does": "Contact-type digital pressure switch that opens when the seal is fully inflated, providing a signal into the J/BOX loop (routed via terminals 4/5) confirming the inflatable gasket state; grounded locally.",
+      "flow_scenarios": [
+       {
+        "state": "seal deflated (switch closed)",
+        "path": "terminal 4/5 loop -> digital pressure switch contact closed -> signal held"
+       },
+       {
+        "state": "seal inflated (switch opens)",
+        "path": "terminal 4/5 loop -> digital pressure switch contact opens on inflation -> signal changes state -> switch's other leg returns to earth ground"
+       }
+      ],
+      "key_components": [
+       "Digital Pressure SW (open when inflated)",
+       "terminal 4",
+       "terminal 5",
+       "earth ground stub"
+      ],
+      "sheet_region": "upper-right, bbox ~0.63-0.78, 0.20-0.26"
+     },
+     {
+      "function_id": "sw19_selector",
+      "label": "SW19 open/closed/LOCK selector switch",
+      "what_it_does": "A 3-position (open/closed/LOCK) 6-contact selector switch that commands the hatch/seal function, wired through terminals 6-16 of the J/BOX into the Re1-Re5 relay row (contact=NO for all three functions per the measured netlist), common returned to earth ground.",
+      "flow_scenarios": [
+       {
+        "state": "OPEN selected",
+        "path": "SW19 contact 1/2 (NO, open when selected) -> terminal 6/7 -> Re1/Re3 relay row -> hatch open function; common -> earth ground"
+       },
+       {
+        "state": "CLOSED selected",
+        "path": "SW19 contact 3/4 (NO) -> terminal 8/9 -> Re2/Re4 relay row -> hatch closed function; common -> earth ground"
+       },
+       {
+        "state": "LOCK selected",
+        "path": "SW19 contact 5/6 (NO) -> terminal 10 and 2.7K-tapped terminals 11-16 -> Re5 relay row -> lock function; common -> earth ground"
+       }
+      ],
+      "key_components": [
+       "SW19 6-position switch",
+       "Re1-Re5 relays",
+       "2.7K resistor taps (terminals 12/13/14/16)",
+       "terminals 6-16"
+      ],
+      "sheet_region": "right-middle, bbox ~0.70-0.78, 0.28-0.40"
+     },
+     {
+      "function_id": "locker_inflate_deflate_local_control",
+      "label": "Inside-locker inflate/deflate pushbutton",
+      "what_it_does": "A 2-terminal switch mounted inside the locker lets crew directly command inflate/deflate of the seal, wired via the J/BOX loom into the V1/AUX valve loop.",
+      "flow_scenarios": [
+       {
+        "state": "default/neutral",
+        "path": "switch open, no command issued"
+       },
+       {
+        "state": "pressed (inflate/deflate command)",
+        "path": "SW/ (inside Locker) pin 1/2 -> J/BOX loom -> V1 inflate/deflate valve and/or AUX inflate/deflate valve energised through Re6/Re7/Re8 relay row"
+       }
+      ],
+      "key_components": [
+       "SW/ inside-locker inflate/deflate switch",
+       "Re6",
+       "Re7",
+       "Re8"
+      ],
+      "sheet_region": "right, bbox ~0.85-0.95, 0.38-0.43"
+     },
+     {
+      "function_id": "v1_inflate_deflate_valve",
+      "label": "V1 \u2014 INFLATE/DEFLATE valve",
+      "what_it_does": "Primary pneumatic valve inflating/deflating the companion-way hatch seal, wired from J/BOX terminals 21/22; terminal 22 measured on the same net (net433) as the SW/ (BOOM LTS/COCKPIT LTS/C22) switch's C22 pin, and separately on net471 with the valve body \u2014 the exact functional relationship between C22 and V1 is per q49 (engineer notes both companionways have an inflatable seal, and V1/AUX + side comes through the relay row activated by specific functions; the C22 pairing itself is not further resolved on this sheet).",
+      "flow_scenarios": [
+       {
+        "state": "default/neutral",
+        "path": "valve at rest, no current path present"
+       },
+       {
+        "state": "commanded (inflate or deflate)",
+        "path": "Re6/Re7/Re8 relay row (activated by SW19 LOCK selection or inside-locker SW/ command) -> terminal 21/22 -> V1 valve; return via terminal 22 -> SW/ (BOOM LTS group) C22 pin per net433 measured pairing"
+       }
+      ],
+      "key_components": [
+       "V1 valve",
+       "terminal 21",
+       "terminal 22",
+       "Re6/Re7/Re8 relay row"
+      ],
+      "dry_data": "Positive/feed side of V1 not fully traced on this sheet (per q48 engineer answer: comes through a row of relays activated by specific functions)",
+      "sheet_region": "middle, bbox ~0.29-0.47, 0.79-0.87"
+     },
+     {
+      "function_id": "aux_inflate_deflate_valve",
+      "label": "AUX INFLATE/DEFLATE valve",
+      "what_it_does": "Secondary/auxiliary pneumatic valve for the same hatch seal, wired from terminal 23; likely a backup or secondary inflation path for the seal per q48 engineer note.",
+      "flow_scenarios": [
+       {
+        "state": "default/neutral",
+        "path": "valve at rest"
+       },
+       {
+        "state": "commanded",
+        "path": "relay row (per q48, activated by specific functions) -> terminal 23 -> AUX INFLATE/DEFLATE valve"
+       }
+      ],
+      "key_components": [
+       "AUX INFLATE/DEFLATE valve",
+       "terminal 23"
+      ],
+      "dry_data": "Positive/feed side not fully traced on this sheet \u2014 per q48 engineer answer, comes through a row of relays activated by specific functions",
+      "sheet_region": "middle, bbox ~0.29-0.47, 0.87-0.90"
+     },
+     {
+      "function_id": "closed_signal_reed_switch",
+      "label": "Reed switch \u2014 CLOSED SIGNAL",
+      "what_it_does": "A reed (proximity) switch reports the hatch's closed state as a status signal out via terminal 24, feeding into the wider loop/monitoring.",
+      "flow_scenarios": [
+       {
+        "state": "hatch not closed",
+        "path": "reed switch open, no closed-signal asserted"
+       },
+       {
+        "state": "hatch closed",
+        "path": "reed switch closes -> terminal 24 -> CLOSED SIGNAL status output"
+       }
+      ],
+      "key_components": [
+       "Reed switch",
+       "terminal 24"
+      ],
+      "sheet_region": "middle-right, bbox ~0.55-0.82, 0.88-0.90"
+     },
+     {
+      "function_id": "relay_bank_re1_re5_re6_re8",
+      "label": "Re1-Re8 relay bank \u2014 hatch/seal function switching",
+      "what_it_does": "Eight relays (Re1-Re5 in the upper J/BOX region, Re6-Re8 in the lower region) switch power to the hatch indicators, the SW19-selected functions, and the V1/AUX valves. All SWITCH contacts measured NO with coil=respective relay (Re1/Re2/Re3/Re4/Re5). Re6-Re8 tie together via dotted-line linkages to switch contacts above each coil per the walked loop, forming one interlinked control loop: switch_above_Re7 and switch_above_Re8 both feed forward into Re7/Re8's contact chain, with Re7's contact also driving Re6's coil circuit, and Re8 returning via terminal 25 to earth ground.",
+      "flow_scenarios": [
+       {
+        "state": "loop walk \u2014 Re6/Re7/Re8 interlink",
+        "path": "switch_above_Re7 -> Re7 coil feed; Re7 contact (dotted linkage) -> feeds Re8 and switch_above_Re8; Re7 coil return -> Re6 output line; Re8 -> terminal 25 -> earth ground return; Re8 coil also has a feed path from switch_above_Re8"
+       }
+      ],
+      "key_components": [
+       "Re1",
+       "Re2",
+       "Re3",
+       "Re4",
+       "Re5",
+       "Re6",
+       "Re7",
+       "Re8",
+       "terminal 25 (grounded)"
+      ],
+      "dry_data": "All SW/relay contacts on this bank measured NO (normally open) per netlist; Re7/Re8 coil supply/return only partially traced \u2014 the dotted-linkage side to switch contacts elsewhere on the sheet is the confirmed path, but the ultimate off-sheet continuation is not resolved",
+      "sheet_region": "left, bbox ~0.18-0.47, 0.11-0.42 (Re1-Re5) and ~0.18-0.40, 0.72-0.83 (Re6-Re8)"
+     }
+    ]
+   },
+   {
+    "equipment_name": "FWD REMOTE RECEIVER #1 (remote command source for hatch/seal \u2014 cross-referenced, no dedicated node)",
+    "target_node_id": "575-pneumatic-system",
+    "placement_reasoning": "The remote receiver's pinout (open/LOCK/closed/BOOM LIGHT/+24V SUPPLY/COM) feeds terminals 17-20 of the J/BOX serving the same AFT companion-way pneumatic system; it is a remote command input to this system, not a separate piece of equipment with its own register node.",
+    "functions": [
+     {
+      "function_id": "remote_receiver_command",
+      "label": "FWD Remote Receiver #1 \u2014 open/LOCK/closed/BOOM LIGHT remote commands",
+      "what_it_does": "A remote-control receiver with 7 pins (1=open, 2=LOCK, 3=closed, 4=BOOM LIGHT, 5=unused, 6=+24V SUPPLY, 7=COM) supplies remote open/close/lock commands and a boom-light command into the J/BOX terminal strip (terminals 17-20 connect to pins 4-7 per the sheet's own pin numbering shown, i.e., 17=4/BOOM LIGHT, 18=5, 19=6/+24V SUPPLY [fused terminal], 20=7/COM) \u2014 though the exact 1st-to-1st correspondence between receiver pins 1-3 (open/LOCK/closed) and specific J/BOX terminals is NOT separately measured on this sheet.",
+      "flow_scenarios": [
+       {
+        "state": "remote open/closed/LOCK command received",
+        "path": "FWD REMOTE RECEIVER #1 pins 1/2/3 -> J/BOX terminal strip (pairing not measured beyond the printed pin list) -> Re-bank functions"
+       },
+       {
+        "state": "+24V supply / COM",
+        "path": "FWD REMOTE RECEIVER #1 pin 6 (+24V SUPPLY) and pin 7 (COM) -> terminal 19 (fused terminal, has built-in replaceable fuse) / terminal 20"
+       }
+      ],
+      "key_components": [
+       "FWD REMOTE RECEIVER #1",
+       "fused terminal 19",
+       "terminals 17/18/20"
+      ],
+      "sheet_region": "right-middle, bbox ~0.80-0.95, 0.63-0.73"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "J/BOX # terminal strip and relay enclosure (AFT Companion Way)",
+    "facts": [
+     "Dotted-rectangle enclosure holds terminals numbered 2-25 plus the Re1-Re8 relay bank; this is the wiring hub/junction box for the aft companion-way pneumatic seal system, not a separate piece of equipment.",
+     "Terminal 19 has a built-in replaceable fuse (inner rectangle crossed by a line) \u2014 a known troubleshooting point on the +24V SUPPLY / receiver pin 6 path.",
+     "2.7K resistor callouts appear on the conductors into terminals 12, 13, 14, and 16 \u2014 end-of-line resistor values for monitoring loop supervision, exact function/role not detailed further on this sheet."
+    ]
+   },
+   {
+    "system_name": "+24V DC supply riser (SALOON COMPANION WAY feed)",
+    "facts": [
+     "F6 160A is the main supply fuse from +24V SERVICE BAT feeding downstream to the SALOON COMPANION WAY breaker.",
+     "SALOON COMPANION WAY Q25 6A breaker feeds terminal 1 of the J/BOX network on this sheet; this is the incoming supply for the entire AFT COMPANION WAY loop.",
+     "This supply riser and its Q25 breaker are shared distribution infrastructure, not part of the pneumatic-system equipment itself."
+    ]
+   }
+  ],
+  "cross_references": [
+   {
+    "what": "to PEDESTAL J/BOX 3 \u2014 5-pin connector (pins 1-5) continuing off-sheet",
+    "referenced_sheet_hint": "DWG 124d"
+   },
+   {
+    "what": "SALOON COMPANION WAY incoming feed via Q25 6A breaker, and F6 160A fuse from +24V SERVICE BAT",
+    "referenced_sheet_hint": "GMMS 108'-118 (Saloon Companion Way sheet) or +24V DC Distribution sheet"
+   },
+   {
+    "what": "SW/ (BOOM LTS / COCKPIT LTS / C22) switch cluster \u2014 BOOM LTS branch belongs to boom lighting circuit",
+    "referenced_sheet_hint": "690-lts-boom lighting sheet"
+   },
+   {
+    "what": "COCKPIT LTS branch of the same SW/ switch cluster \u2014 no dedicated register node identified",
+    "referenced_sheet_hint": "unresolved \u2014 possible cockpit lighting sheet"
+   }
+  ],
+  "good_to_have": [
+   "Exact 2.7K resistor part/purpose (end-of-line supervision resistors on terminals 12/13/14/16) \u2014 value is legible on drawing, functional role not detailed further",
+   "F6 160A and Q25 6A are both legible ratings already captured; no further inspection needed",
+   "Terminal 19's built-in fuse rating not given on this sheet \u2014 capture at inspection if ever needed",
+   "FWD Remote Receiver #1 pin 5 appears unused/blank on the printed pinout \u2014 confirm at inspection if ever repurposed"
+  ],
+  "uncertainties": [
+   "The exact terminal-to-pin correspondence between FWD REMOTE RECEIVER #1 pins 1/2/3 (open/LOCK/closed) and specific J/BOX terminals 17-20 is NOT measured on this sheet \u2014 the pinout list and terminal numbers sit close together but no direct netlist pairing is shown for pins 1-3; only pins 4/5 (BOOM LIGHT, net466) are measured as tied to SW/.",
+   "The role of the SW/ (BOOM LTS/COCKPIT LTS/C22) switch's C22 terminal, which the netlist ties directly to V1 valve's terminal 22 (net433), versus its BOOM LTS/COCKPIT LTS lighting functions, remains ambiguous per prior engineer note q49 \u2014 not re-resolved further by this pass.",
+   "Re6, Re7, and Re8 coil positive/negative sides are only partially traceable \u2014 the dotted-linkage contacts reach other switch contacts on the sheet, but the ultimate off-sheet source/destination of those linkages (which function selects inflate vs deflate vs lock at V1/AUX) is not fully resolved on this sheet.",
+   "Positive/feed side of S1 (HATCH OPEN) and S2 (HATCH CLOSED) indicators, and of V1/AUX INFLATE-DEFLATE valves and the reed switch, is per the ALREADY-ANSWERED engineer notes (q47/q48) understood to come through the Re1-Re5 relay row activated by specific functions \u2014 not re-flagging as open, recorded here per rule 10 as resolved not uncertain."
+  ],
+  "_model": "claude-sonnet-5",
+  "_protocol_version": 8
+ },
+ "netlist_stats": {
+  "segments": 16311,
+  "nets": 2567,
+  "conductors": 2247,
+  "labels": 202,
+  "bound": 87,
+  "unbound": 19,
+  "devices_located": 62,
+  "devices_placed": 62
+ }
+}
