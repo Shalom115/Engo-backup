@@ -3,8 +3,8 @@
  "clusters": [
   {
    "cluster": 0,
-   "fingerprint": "-2674026315844101955",
-   "instances": 382,
+   "fingerprint": "3607619363992247890",
+   "instances": 367,
    "pages": [
     11,
     18,
@@ -31,8 +31,8 @@
   },
   {
    "cluster": 1,
-   "fingerprint": "1254012591892570589",
-   "instances": 321,
+   "fingerprint": "8139379458108137067",
+   "instances": 286,
    "pages": [
     3,
     12,
@@ -57,8 +57,8 @@
   },
   {
    "cluster": 2,
-   "fingerprint": "3450145643541065388",
-   "instances": 280,
+   "fingerprint": "-8111231563952919750",
+   "instances": 271,
    "pages": [
     17,
     19,
@@ -81,7 +81,7 @@
   },
   {
    "cluster": 3,
-   "fingerprint": "-671593091132164613",
+   "fingerprint": "-5865601123392020201",
    "instances": 181,
    "pages": [
     4,
@@ -104,8 +104,8 @@
   },
   {
    "cluster": 4,
-   "fingerprint": "1319609231641048988",
-   "instances": 180,
+   "fingerprint": "3806618714872247338",
+   "instances": 166,
    "pages": [
     10,
     11,
@@ -132,7 +132,7 @@
   },
   {
    "cluster": 5,
-   "fingerprint": "6612508111810227660",
+   "fingerprint": "1493439006571882714",
    "instances": 141,
    "pages": [
     15,
@@ -153,7 +153,7 @@
   },
   {
    "cluster": 6,
-   "fingerprint": "32974228021615680",
+   "fingerprint": "-5215769115280580184",
    "instances": 134,
    "pages": [
     9,
@@ -185,7 +185,7 @@
   },
   {
    "cluster": 7,
-   "fingerprint": "-658398752130371366",
+   "fingerprint": "6549654043567198806",
    "instances": 117,
    "pages": [
     2,
@@ -205,7 +205,7 @@
   },
   {
    "cluster": 8,
-   "fingerprint": "223051173495046625",
+   "fingerprint": "5814973315432859081",
    "instances": 101,
    "pages": [
     10,
@@ -232,8 +232,31 @@
   },
   {
    "cluster": 9,
-   "fingerprint": "3357630656378397205",
-   "instances": 83,
+   "fingerprint": "8112701308398609576",
+   "instances": 74,
+   "pages": [
+    3,
+    9,
+    20,
+    22,
+    31
+   ],
+   "example": {
+    "page": 3,
+    "bbox": [
+     90.1,
+     58.6,
+     100.6,
+     61.1
+    ]
+   },
+   "engineer_type": "",
+   "engineer_note": ""
+  },
+  {
+   "cluster": 10,
+   "fingerprint": "-1891112686923798659",
+   "instances": 73,
    "pages": [
     3,
     4,
@@ -255,32 +278,9 @@
    "engineer_note": ""
   },
   {
-   "cluster": 10,
-   "fingerprint": "5106165203726743256",
-   "instances": 76,
-   "pages": [
-    3,
-    9,
-    20,
-    22,
-    31
-   ],
-   "example": {
-    "page": 3,
-    "bbox": [
-     90.1,
-     58.6,
-     100.6,
-     61.1
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
    "cluster": 11,
-   "fingerprint": "-5689224995931146291",
-   "instances": 74,
+   "fingerprint": "-8717045693112295914",
+   "instances": 72,
    "pages": [
     10,
     11,
@@ -296,10 +296,10 @@
    "example": {
     "page": 10,
     "bbox": [
-     275.9,
-     199.7,
-     286.3,
-     202.2
+     111.1,
+     222.6,
+     121.5,
+     225.1
     ]
    },
    "engineer_type": "",
@@ -307,7 +307,7 @@
   },
   {
    "cluster": 12,
-   "fingerprint": "1341455041262326543",
+   "fingerprint": "-3907288302039869321",
    "instances": 63,
    "pages": [
     8,
@@ -330,8 +330,29 @@
   },
   {
    "cluster": 13,
-   "fingerprint": "8517160207755135359",
-   "instances": 61,
+   "fingerprint": "5558475149548396557",
+   "instances": 56,
+   "pages": [
+    12,
+    13,
+    36
+   ],
+   "example": {
+    "page": 12,
+    "bbox": [
+     69.5,
+     44.1,
+     80.0,
+     46.6
+    ]
+   },
+   "engineer_type": "",
+   "engineer_note": ""
+  },
+  {
+   "cluster": 14,
+   "fingerprint": "-3044216999738849779",
+   "instances": 54,
    "pages": [
     3,
     4,
@@ -353,29 +374,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 14,
-   "fingerprint": "8909207752363759378",
-   "instances": 56,
-   "pages": [
-    12,
-    13,
-    36
-   ],
-   "example": {
-    "page": 12,
-    "bbox": [
-     69.5,
-     44.1,
-     80.0,
-     46.6
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
    "cluster": 15,
-   "fingerprint": "3289537210144530585",
+   "fingerprint": "924857365072010645",
    "instances": 51,
    "pages": [
     0
@@ -394,26 +394,7 @@
   },
   {
    "cluster": 16,
-   "fingerprint": "-8261035287171666063",
-   "instances": 44,
-   "pages": [
-    42
-   ],
-   "example": {
-    "page": 42,
-    "bbox": [
-     385.2,
-     458.3,
-     385.9,
-     466.0
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 17,
-   "fingerprint": "2310328476885276481",
+   "fingerprint": "4797337960116474831",
    "instances": 40,
    "pages": [
     10,
@@ -436,8 +417,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 18,
-   "fingerprint": "-7811933565207672533",
+   "cluster": 17,
+   "fingerprint": "-6014647619875011572",
    "instances": 36,
    "pages": [
     11
@@ -455,85 +436,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 19,
-   "fingerprint": "-8470043892492890835",
-   "instances": 35,
-   "pages": [
-    2,
-    5,
-    14
-   ],
-   "example": {
-    "page": 2,
-    "bbox": [
-     148.0,
-     105.7,
-     148.0,
-     114.6
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 20,
-   "fingerprint": "-2031981334651464560",
-   "instances": 34,
-   "pages": [
-    5,
-    6,
-    9,
-    13
-   ],
-   "example": {
-    "page": 5,
-    "bbox": [
-     291.9,
-     124.3,
-     291.9,
-     133.1
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 21,
-   "fingerprint": "-8988118550380227515",
-   "instances": 32,
-   "pages": [
-    10,
-    11,
-    17,
-    18,
-    21,
-    25,
-    26,
-    27,
-    29,
-    30,
-    32,
-    33,
-    35,
-    37,
-    39,
-    41
-   ],
-   "example": {
-    "page": 10,
-    "bbox": [
-     412.6,
-     751.8,
-     414.8,
-     760.5
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 22,
-   "fingerprint": "8693475085176769509",
+   "cluster": 18,
+   "fingerprint": "-4161346846594969651",
    "instances": 26,
    "pages": [
     4,
@@ -556,38 +460,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 23,
-   "fingerprint": "-6196203296674797040",
-   "instances": 24,
-   "pages": [
-    10,
-    11,
-    17,
-    18,
-    21,
-    25,
-    26,
-    32,
-    33,
-    35,
-    37,
-    41
-   ],
-   "example": {
-    "page": 10,
-    "bbox": [
-     463.0,
-     749.6,
-     465.2,
-     760.5
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 24,
-   "fingerprint": "4621361775243440712",
+   "cluster": 19,
+   "fingerprint": "7108371258474639062",
    "instances": 24,
    "pages": [
     15,
@@ -608,9 +482,9 @@
    "engineer_note": ""
   },
   {
-   "cluster": 25,
-   "fingerprint": "2536791142771472627",
-   "instances": 23,
+   "cluster": 20,
+   "fingerprint": "-2711952200530723237",
+   "instances": 21,
    "pages": [
     3,
     12,
@@ -630,156 +504,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 26,
-   "fingerprint": "2278408862220922374",
-   "instances": 22,
-   "pages": [
-    17,
-    27,
-    28,
-    30
-   ],
-   "example": {
-    "page": 17,
-    "bbox": [
-     58.9,
-     200.6,
-     69.3,
-     203.1
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 27,
-   "fingerprint": "2344920782650731377",
-   "instances": 22,
-   "pages": [
-    42
-   ],
-   "example": {
-    "page": 42,
-    "bbox": [
-     386.3,
-     457.4,
-     402.6,
-     458.0
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 28,
-   "fingerprint": "-4216087635390476011",
-   "instances": 22,
-   "pages": [
-    42
-   ],
-   "example": {
-    "page": 42,
-    "bbox": [
-     390.9,
-     457.9,
-     402.8,
-     458.3
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 29,
-   "fingerprint": "-3761679784982668542",
-   "instances": 22,
-   "pages": [
-    42
-   ],
-   "example": {
-    "page": 42,
-    "bbox": [
-     386.3,
-     466.3,
-     402.6,
-     466.9
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 30,
-   "fingerprint": "4604852754677335788",
-   "instances": 22,
-   "pages": [
-    42
-   ],
-   "example": {
-    "page": 42,
-    "bbox": [
-     390.9,
-     466.0,
-     402.8,
-     466.4
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 31,
-   "fingerprint": "-3539199314041277963",
-   "instances": 22,
-   "pages": [
-    42
-   ],
-   "example": {
-    "page": 42,
-    "bbox": [
-     402.9,
-     458.3,
-     403.6,
-     466.0
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 32,
-   "fingerprint": "-6597461609663239468",
-   "instances": 21,
-   "pages": [
-    3,
-    4,
-    7,
-    8,
-    9,
-    12,
-    13,
-    16,
-    20,
-    22,
-    31,
-    36,
-    40
-   ],
-   "example": {
-    "page": 3,
-    "bbox": [
-     652.2,
-     532.1,
-     654.4,
-     540.8
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 33,
-   "fingerprint": "7655982521761211176",
+   "cluster": 21,
+   "fingerprint": "6935270799507234358",
    "instances": 21,
    "pages": [
     15,
@@ -801,9 +527,9 @@
    "engineer_note": ""
   },
   {
-   "cluster": 34,
-   "fingerprint": "-2987916914300360887",
-   "instances": 21,
+   "cluster": 22,
+   "fingerprint": "-1190630968967699926",
+   "instances": 20,
    "pages": [
     17,
     27,
@@ -822,8 +548,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 35,
-   "fingerprint": "-4170180814015147139",
+   "cluster": 23,
+   "fingerprint": "504547453992703544",
    "instances": 19,
    "pages": [
     7,
@@ -842,27 +568,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 36,
-   "fingerprint": "-7670347458748518608",
-   "instances": 17,
-   "pages": [
-    1
-   ],
-   "example": {
-    "page": 1,
-    "bbox": [
-     314.4,
-     489.9,
-     317.8,
-     498.5
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 37,
-   "fingerprint": "-3239352413635590952",
+   "cluster": 24,
+   "fingerprint": "8520338234420762795",
    "instances": 17,
    "pages": [
     4,
@@ -881,8 +588,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 38,
-   "fingerprint": "7128111283512589930",
+   "cluster": 25,
+   "fingerprint": "2009042178274244984",
    "instances": 17,
    "pages": [
     11
@@ -900,28 +607,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 39,
-   "fingerprint": "-5549436642794842934",
-   "instances": 17,
-   "pages": [
-    23,
-    24
-   ],
-   "example": {
-    "page": 23,
-    "bbox": [
-     61.7,
-     162.7,
-     72.0,
-     165.1
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 40,
-   "fingerprint": "5013877883452070746",
+   "cluster": 26,
+   "fingerprint": "4795858495410253429",
    "instances": 16,
    "pages": [
     7
@@ -939,8 +626,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 41,
-   "fingerprint": "5003517986395629935",
+   "cluster": 27,
+   "fingerprint": "-6557859221098355203",
    "instances": 16,
    "pages": [
     12
@@ -958,8 +645,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 42,
-   "fingerprint": "-2076369767441394253",
+   "cluster": 28,
+   "fingerprint": "-4889813621463967991",
    "instances": 16,
    "pages": [
     42
@@ -977,63 +664,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 43,
-   "fingerprint": "-1468782917070628183",
-   "instances": 15,
-   "pages": [
-    6,
-    9,
-    13,
-    16,
-    20,
-    22,
-    29,
-    31,
-    36,
-    39
-   ],
-   "example": {
-    "page": 6,
-    "bbox": [
-     545.2,
-     754.9,
-     547.4,
-     765.9
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 44,
-   "fingerprint": "2974748042848791912",
-   "instances": 13,
-   "pages": [
-    3,
-    6,
-    8,
-    12,
-    13,
-    20,
-    31,
-    36,
-    40
-   ],
-   "example": {
-    "page": 3,
-    "bbox": [
-     703.3,
-     529.8,
-     705.6,
-     540.9
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 45,
-   "fingerprint": "-885142829140906794",
+   "cluster": 29,
+   "fingerprint": "2139513278965585463",
    "instances": 13,
    "pages": [
     4
@@ -1051,8 +683,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 46,
-   "fingerprint": "6459755123082589711",
+   "cluster": 30,
+   "fingerprint": "243543147618236895",
    "instances": 13,
    "pages": [
     42
@@ -1070,110 +702,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 47,
-   "fingerprint": "-390193655297988825",
-   "instances": 12,
-   "pages": [
-    2,
-    4,
-    5,
-    7,
-    14,
-    38
-   ],
-   "example": {
-    "page": 2,
-    "bbox": [
-     705.3,
-     533.0,
-     707.6,
-     544.2
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 48,
-   "fingerprint": "-5443745376229287099",
-   "instances": 12,
-   "pages": [
-    9,
-    16,
-    20,
-    22,
-    29,
-    31
-   ],
-   "example": {
-    "page": 9,
-    "bbox": [
-     478.0,
-     754.3,
-     486.1,
-     765.3
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 49,
-   "fingerprint": "9067357973210634359",
-   "instances": 12,
-   "pages": [
-    10,
-    11,
-    17,
-    18,
-    21,
-    25,
-    27,
-    28,
-    30,
-    33,
-    37,
-    41
-   ],
-   "example": {
-    "page": 10,
-    "bbox": [
-     389.4,
-     751.2,
-     397.4,
-     751.2
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 50,
-   "fingerprint": "-4057004393933760619",
-   "instances": 12,
-   "pages": [
-    15,
-    19,
-    23,
-    24,
-    28,
-    34
-   ],
-   "example": {
-    "page": 15,
-    "bbox": [
-     407.8,
-     748.7,
-     410.0,
-     757.3
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 51,
-   "fingerprint": "-2585368941496129132",
+   "cluster": 31,
+   "fingerprint": "6656713555609621288",
    "instances": 12,
    "pages": [
     42
@@ -1191,134 +721,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 52,
-   "fingerprint": "-5308021442664293357",
-   "instances": 11,
-   "pages": [
-    2,
-    4,
-    5,
-    14,
-    38
-   ],
-   "example": {
-    "page": 2,
-    "bbox": [
-     753.9,
-     533.0,
-     762.2,
-     544.2
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 53,
-   "fingerprint": "-280082235785451156",
-   "instances": 11,
-   "pages": [
-    10,
-    11,
-    17,
-    18,
-    21,
-    22,
-    26,
-    29,
-    30,
-    33,
-    35
-   ],
-   "example": {
-    "page": 10,
-    "bbox": [
-     389.4,
-     750.3,
-     397.4,
-     751.2
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 54,
-   "fingerprint": "8317760339797653254",
-   "instances": 11,
-   "pages": [
-    10,
-    11,
-    18,
-    25,
-    26,
-    29,
-    32,
-    33,
-    35,
-    39,
-    41
-   ],
-   "example": {
-    "page": 10,
-    "bbox": [
-     389.3,
-     759.0,
-     398.1,
-     759.2
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 55,
-   "fingerprint": "-942670471135587827",
-   "instances": 10,
-   "pages": [
-    10,
-    17,
-    21,
-    25
-   ],
-   "example": {
-    "page": 10,
-    "bbox": [
-     478.1,
-     749.6,
-     486.2,
-     760.5
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 56,
-   "fingerprint": "1626917455946920431",
-   "instances": 10,
-   "pages": [
-    19,
-    27,
-    28,
-    30,
-    34
-   ],
-   "example": {
-    "page": 19,
-    "bbox": [
-     460.6,
-     747.9,
-     462.8,
-     758.6
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 57,
-   "fingerprint": "9059579869388047832",
+   "cluster": 32,
+   "fingerprint": "-4266565579101154751",
    "instances": 10,
    "pages": [
     23
@@ -1336,8 +740,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 58,
-   "fingerprint": "-5626668781395272258",
+   "cluster": 33,
+   "fingerprint": "1258698084820294220",
    "instances": 10,
    "pages": [
     42
@@ -1355,60 +759,30 @@
    "engineer_note": ""
   },
   {
-   "cluster": 59,
-   "fingerprint": "1240302800750039844",
+   "cluster": 34,
+   "fingerprint": "-5817167717507573936",
    "instances": 9,
    "pages": [
-    3,
+    2,
     4,
     5,
-    7,
-    8,
-    13,
-    36,
-    38,
-    40
+    14
    ],
    "example": {
-    "page": 3,
+    "page": 2,
     "bbox": [
-     628.6,
-     539.3,
-     637.5,
-     539.6
+     753.9,
+     533.0,
+     762.2,
+     544.2
     ]
    },
    "engineer_type": "",
    "engineer_note": ""
   },
   {
-   "cluster": 60,
-   "fingerprint": "8751822406575643045",
-   "instances": 9,
-   "pages": [
-    3,
-    4,
-    6,
-    8,
-    12,
-    31,
-    38
-   ],
-   "example": {
-    "page": 3,
-    "bbox": [
-     643.6,
-     532.1,
-     645.9,
-     540.8
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 61,
-   "fingerprint": "6003428114022386155",
+   "cluster": 35,
+   "fingerprint": "-5557949093471598983",
    "instances": 9,
    "pages": [
     3,
@@ -1427,8 +801,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 62,
-   "fingerprint": "-7626698300933928436",
+   "cluster": 36,
+   "fingerprint": "-4383727717993425070",
    "instances": 9,
    "pages": [
     18,
@@ -1447,8 +821,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 63,
-   "fingerprint": "2698294031537602359",
+   "cluster": 37,
+   "fingerprint": "1172783609083049012",
    "instances": 9,
    "pages": [
     29,
@@ -1468,51 +842,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 64,
-   "fingerprint": "8306213405739918270",
-   "instances": 8,
-   "pages": [
-    2,
-    14
-   ],
-   "example": {
-    "page": 2,
-    "bbox": [
-     251.4,
-     141.1,
-     267.9,
-     147.0
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 65,
-   "fingerprint": "-3131764957561121190",
-   "instances": 8,
-   "pages": [
-    3,
-    6,
-    7,
-    9,
-    12
-   ],
-   "example": {
-    "page": 3,
-    "bbox": [
-     161.4,
-     578.7,
-     164.7,
-     586.4
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 66,
-   "fingerprint": "8113924071343997913",
+   "cluster": 38,
+   "fingerprint": "5787227998022819684",
    "instances": 8,
    "pages": [
     3
@@ -1530,78 +861,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 67,
-   "fingerprint": "-9146723053851973066",
-   "instances": 8,
-   "pages": [
-    9,
-    13,
-    16,
-    20,
-    31,
-    36
-   ],
-   "example": {
-    "page": 9,
-    "bbox": [
-     510.6,
-     754.3,
-     518.8,
-     765.3
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 68,
-   "fingerprint": "3771413548045272939",
-   "instances": 8,
-   "pages": [
-    9,
-    11,
-    22,
-    26,
-    29,
-    32,
-    39,
-    41
-   ],
-   "example": {
-    "page": 9,
-    "bbox": [
-     388.3,
-     755.9,
-     396.5,
-     755.9
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 69,
-   "fingerprint": "-4846156109532819863",
-   "instances": 8,
-   "pages": [
-    16,
-    36
-   ],
-   "example": {
-    "page": 16,
-    "bbox": [
-     245.0,
-     527.3,
-     261.3,
-     533.2
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 70,
-   "fingerprint": "-2735763592361614402",
+   "cluster": 39,
+   "fingerprint": "-1158335420112124410",
    "instances": 8,
    "pages": [
     16,
@@ -1621,75 +882,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 71,
-   "fingerprint": "8634441427460002766",
-   "instances": 8,
-   "pages": [
-    17,
-    19,
-    24,
-    27,
-    28,
-    30,
-    34,
-    35
-   ],
-   "example": {
-    "page": 17,
-    "bbox": [
-     389.6,
-     750.3,
-     397.6,
-     750.3
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 72,
-   "fingerprint": "-617830003373408548",
-   "instances": 8,
-   "pages": [
-    26,
-    32,
-    41
-   ],
-   "example": {
-    "page": 26,
-    "bbox": [
-     479.1,
-     751.0,
-     487.3,
-     761.9
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 73,
-   "fingerprint": "-2880334666791613361",
-   "instances": 8,
-   "pages": [
-    26,
-    27
-   ],
-   "example": {
-    "page": 26,
-    "bbox": [
-     359.6,
-     464.5,
-     368.8,
-     464.5
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 74,
-   "fingerprint": "-5562965757953889218",
+   "cluster": 40,
+   "fingerprint": "8368430396896534085",
    "instances": 8,
    "pages": [
     42
@@ -1707,30 +901,28 @@
    "engineer_note": ""
   },
   {
-   "cluster": 75,
-   "fingerprint": "6654353824745067309",
+   "cluster": 41,
+   "fingerprint": "7585501683485941452",
    "instances": 7,
    "pages": [
-    10,
-    17,
-    18,
-    25
+    2,
+    14
    ],
    "example": {
-    "page": 10,
+    "page": 2,
     "bbox": [
-     404.2,
-     749.6,
-     414.8,
-     760.5
+     251.4,
+     141.1,
+     267.9,
+     147.0
     ]
    },
    "engineer_type": "",
    "engineer_note": ""
   },
   {
-   "cluster": 76,
-   "fingerprint": "3256752818006568216",
+   "cluster": 42,
+   "fingerprint": "8944134146563648657",
    "instances": 7,
    "pages": [
     12
@@ -1748,8 +940,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 77,
-   "fingerprint": "-453063172244530723",
+   "cluster": 43,
+   "fingerprint": "7134395280015004721",
    "instances": 7,
    "pages": [
     12
@@ -1767,8 +959,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 78,
-   "fingerprint": "667856343606597209",
+   "cluster": 44,
+   "fingerprint": "7553223209822163687",
    "instances": 7,
    "pages": [
     17
@@ -1786,31 +978,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 79,
-   "fingerprint": "2578323747467441198",
-   "instances": 7,
-   "pages": [
-    17,
-    18,
-    21,
-    35,
-    37
-   ],
-   "example": {
-    "page": 17,
-    "bbox": [
-     478.2,
-     748.7,
-     486.3,
-     759.5
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 80,
-   "fingerprint": "-673929962338125534",
+   "cluster": 45,
+   "fingerprint": "-5242928114950758800",
    "instances": 7,
    "pages": [
     17
@@ -1828,147 +997,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 81,
-   "fingerprint": "-2320114564436264810",
-   "instances": 6,
-   "pages": [
-    2,
-    3,
-    5,
-    7,
-    38,
-    40
-   ],
-   "example": {
-    "page": 2,
-    "bbox": [
-     629.9,
-     534.7,
-     638.2,
-     534.7
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 82,
-   "fingerprint": "-5597312649920543556",
-   "instances": 6,
-   "pages": [
-    3,
-    12,
-    13,
-    16,
-    20,
-    36
-   ],
-   "example": {
-    "page": 3,
-    "bbox": [
-     771.6,
-     529.8,
-     781.0,
-     540.9
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 83,
-   "fingerprint": "-7369688822353338150",
-   "instances": 6,
-   "pages": [
-    3,
-    13,
-    16,
-    20,
-    31,
-    36
-   ],
-   "example": {
-    "page": 3,
-    "bbox": [
-     628.6,
-     531.4,
-     636.7,
-     531.5
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 84,
-   "fingerprint": "746805589267349225",
-   "instances": 6,
-   "pages": [
-    8
-   ],
-   "example": {
-    "page": 8,
-    "bbox": [
-     680.6,
-     309.3,
-     689.4,
-     309.3
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 85,
-   "fingerprint": "-146101776883157037",
-   "instances": 6,
-   "pages": [
-    9,
-    12,
-    13,
-    20,
-    31,
-    36
-   ],
-   "example": {
-    "page": 9,
-    "bbox": [
-     388.4,
-     755.8,
-     396.4,
-     755.9
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 86,
-   "fingerprint": "-4867751951511747789",
-   "instances": 6,
-   "pages": [
-    9,
-    12,
-    16,
-    20,
-    22,
-    31
-   ],
-   "example": {
-    "page": 9,
-    "bbox": [
-     388.3,
-     763.7,
-     397.2,
-     764.0
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 87,
-   "fingerprint": "6251054958602897828",
+   "cluster": 46,
+   "fingerprint": "-3417973923309772253",
    "instances": 6,
    "pages": [
     9
@@ -1986,32 +1016,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 88,
-   "fingerprint": "-6573316771435403118",
-   "instances": 6,
-   "pages": [
-    10,
-    18,
-    21,
-    25,
-    33,
-    37
-   ],
-   "example": {
-    "page": 10,
-    "bbox": [
-     389.3,
-     751.2,
-     397.4,
-     751.3
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 89,
-   "fingerprint": "-1370734816651843770",
+   "cluster": 47,
+   "fingerprint": "-5355893493931930939",
    "instances": 6,
    "pages": [
     10
@@ -2029,8 +1035,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 90,
-   "fingerprint": "2595240604803484758",
+   "cluster": 48,
+   "fingerprint": "5082250088034683108",
    "instances": 6,
    "pages": [
     11
@@ -2048,29 +1054,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 91,
-   "fingerprint": "-132743001775913101",
-   "instances": 6,
-   "pages": [
-    15,
-    23,
-    24
-   ],
-   "example": {
-    "page": 15,
-    "bbox": [
-     457.6,
-     746.5,
-     459.8,
-     757.3
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 92,
-   "fingerprint": "6015998761868205642",
+   "cluster": 49,
+   "fingerprint": "-6575960026276015037",
    "instances": 6,
    "pages": [
     15,
@@ -2089,53 +1074,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 93,
-   "fingerprint": "-8603259856168603127",
-   "instances": 6,
-   "pages": [
-    16,
-    22,
-    26,
-    29,
-    32,
-    39
-   ],
-   "example": {
-    "page": 16,
-    "bbox": [
-     389.9,
-     755.1,
-     398.0,
-     755.1
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 94,
-   "fingerprint": "-6964918963330663099",
-   "instances": 6,
-   "pages": [
-    16,
-    18,
-    37
-   ],
-   "example": {
-    "page": 16,
-    "bbox": [
-     521.3,
-     553.4,
-     531.6,
-     557.1
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 95,
-   "fingerprint": "311162564516021948",
+   "cluster": 50,
+   "fingerprint": "213463689753146034",
    "instances": 6,
    "pages": [
     19
@@ -2153,28 +1093,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 96,
-   "fingerprint": "4768016874766572099",
-   "instances": 6,
-   "pages": [
-    19,
-    34
-   ],
-   "example": {
-    "page": 19,
-    "bbox": [
-     71.1,
-     161.7,
-     81.4,
-     164.2
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 97,
-   "fingerprint": "-3842562708120650420",
+   "cluster": 51,
+   "fingerprint": "2714577945007404099",
    "instances": 6,
    "pages": [
     20
@@ -2192,8 +1112,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 98,
-   "fingerprint": "5795982779982194706",
+   "cluster": 52,
+   "fingerprint": "3165019473271914399",
    "instances": 6,
    "pages": [
     21
@@ -2211,8 +1131,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 99,
-   "fingerprint": "-2455757508504316406",
+   "cluster": 53,
+   "fingerprint": "-374717697693571980",
    "instances": 6,
    "pages": [
     22
@@ -2230,8 +1150,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 100,
-   "fingerprint": "-6861305851660834955",
+   "cluster": 54,
+   "fingerprint": "-1009263431943976206",
    "instances": 6,
    "pages": [
     22,
@@ -2250,8 +1170,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 101,
-   "fingerprint": "-5760968538206798000",
+   "cluster": 55,
+   "fingerprint": "8964243140562182162",
    "instances": 6,
    "pages": [
     26,
@@ -2270,8 +1190,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 102,
-   "fingerprint": "-1350268964267921515",
+   "cluster": 56,
+   "fingerprint": "2789578262104431050",
    "instances": 6,
    "pages": [
     28,
@@ -2290,8 +1210,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 103,
-   "fingerprint": "-8128839423220030418",
+   "cluster": 57,
+   "fingerprint": "-6945049031380182005",
    "instances": 6,
    "pages": [
     38
@@ -2309,46 +1229,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 104,
-   "fingerprint": "5981363873403134699",
-   "instances": 6,
-   "pages": [
-    42
-   ],
-   "example": {
-    "page": 42,
-    "bbox": [
-     222.7,
-     780.1,
-     255.7,
-     780.5
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 105,
-   "fingerprint": "7981432712296330041",
-   "instances": 6,
-   "pages": [
-    42
-   ],
-   "example": {
-    "page": 42,
-    "bbox": [
-     222.7,
-     788.5,
-     255.7,
-     788.9
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 106,
-   "fingerprint": "2939426921593739739",
+   "cluster": 58,
+   "fingerprint": "8531349063531552195",
    "instances": 6,
    "pages": [
     42
@@ -2366,8 +1248,27 @@
    "engineer_note": ""
   },
   {
-   "cluster": 107,
-   "fingerprint": "7661690072856594493",
+   "cluster": 59,
+   "fingerprint": "-5873061513415857647",
+   "instances": 5,
+   "pages": [
+    1
+   ],
+   "example": {
+    "page": 1,
+    "bbox": [
+     314.4,
+     489.9,
+     317.8,
+     498.5
+    ]
+   },
+   "engineer_type": "",
+   "engineer_note": ""
+  },
+  {
+   "cluster": 60,
+   "fingerprint": "-5193131858915144667",
    "instances": 5,
    "pages": [
     2
@@ -2385,8 +1286,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 108,
-   "fingerprint": "-7119782594801045084",
+   "cluster": 61,
+   "fingerprint": "-234415728585478606",
    "instances": 5,
    "pages": [
     2
@@ -2404,8 +1305,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 109,
-   "fingerprint": "6782358317310078109",
+   "cluster": 62,
+   "fingerprint": "8579644262642739070",
    "instances": 5,
    "pages": [
     2,
@@ -2424,8 +1325,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 110,
-   "fingerprint": "-6642885085719458179",
+   "cluster": 63,
+   "fingerprint": "-4316306046356396705",
    "instances": 5,
    "pages": [
     3
@@ -2443,74 +1344,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 111,
-   "fingerprint": "-5392076778010333723",
-   "instances": 5,
-   "pages": [
-    4,
-    12,
-    13,
-    20,
-    36
-   ],
-   "example": {
-    "page": 4,
-    "bbox": [
-     629.2,
-     531.2,
-     637.3,
-     532.1
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 112,
-   "fingerprint": "6643950936254924424",
-   "instances": 5,
-   "pages": [
-    4,
-    7,
-    8,
-    38,
-    40
-   ],
-   "example": {
-    "page": 4,
-    "bbox": [
-     629.2,
-     532.1,
-     637.3,
-     532.2
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 113,
-   "fingerprint": "2038950577621873597",
-   "instances": 5,
-   "pages": [
-    8,
-    40
-   ],
-   "example": {
-    "page": 8,
-    "bbox": [
-     719.4,
-     530.5,
-     727.7,
-     541.5
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 114,
-   "fingerprint": "-5160375762517350242",
+   "cluster": 64,
+   "fingerprint": "-135806473211743192",
    "instances": 5,
    "pages": [
     10,
@@ -2529,8 +1364,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 115,
-   "fingerprint": "-7488792599563119231",
+   "cluster": 65,
+   "fingerprint": "-1207146919726769386",
    "instances": 5,
    "pages": [
     10
@@ -2548,27 +1383,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 116,
-   "fingerprint": "6675526765928117131",
-   "instances": 5,
-   "pages": [
-    10
-   ],
-   "example": {
-    "page": 10,
-    "bbox": [
-     320.5,
-     181.8,
-     320.5,
-     190.5
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 117,
-   "fingerprint": "-535498803185845550",
+   "cluster": 66,
+   "fingerprint": "1261787142146815411",
    "instances": 5,
    "pages": [
     12
@@ -2586,8 +1402,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 118,
-   "fingerprint": "-5107681564212167744",
+   "cluster": 67,
+   "fingerprint": "1849331599281631927",
    "instances": 5,
    "pages": [
     12
@@ -2605,8 +1421,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 119,
-   "fingerprint": "-1755429624872548308",
+   "cluster": 68,
+   "fingerprint": "1724090325153790661",
    "instances": 5,
    "pages": [
     12
@@ -2624,31 +1440,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 120,
-   "fingerprint": "-3518475775290802499",
-   "instances": 5,
-   "pages": [
-    13,
-    20,
-    29,
-    31,
-    39
-   ],
-   "example": {
-    "page": 13,
-    "bbox": [
-     707.7,
-     529.3,
-     716.7,
-     540.3
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 121,
-   "fingerprint": "4072600823149769691",
+   "cluster": 69,
+   "fingerprint": "-1869592264400154344",
    "instances": 5,
    "pages": [
     14
@@ -2666,52 +1459,29 @@
    "engineer_note": ""
   },
   {
-   "cluster": 122,
-   "fingerprint": "2640534990771756358",
+   "cluster": 70,
+   "fingerprint": "6362756005140543571",
    "instances": 5,
    "pages": [
-    15,
-    23,
-    24
+    16,
+    18,
+    37
    ],
    "example": {
-    "page": 15,
+    "page": 16,
     "bbox": [
-     504.4,
-     746.5,
-     512.4,
-     757.3
+     521.3,
+     553.4,
+     531.6,
+     557.1
     ]
    },
    "engineer_type": "",
    "engineer_note": ""
   },
   {
-   "cluster": 123,
-   "fingerprint": "3610596976379544662",
-   "instances": 5,
-   "pages": [
-    15,
-    19,
-    23,
-    28,
-    34
-   ],
-   "example": {
-    "page": 15,
-    "bbox": [
-     384.8,
-     755.8,
-     393.5,
-     756.0
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 124,
-   "fingerprint": "2055788149166812121",
+   "cluster": 71,
+   "fingerprint": "7040696200727095661",
    "instances": 5,
    "pages": [
     16
@@ -2729,8 +1499,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 125,
-   "fingerprint": "7793401323541855435",
+   "cluster": 72,
+   "fingerprint": "-5121229571704416052",
    "instances": 5,
    "pages": [
     17,
@@ -2749,54 +1519,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 126,
-   "fingerprint": "3085158213719065286",
-   "instances": 5,
-   "pages": [
-    17,
-    21,
-    27,
-    30,
-    37
-   ],
-   "example": {
-    "page": 17,
-    "bbox": [
-     389.6,
-     758.0,
-     398.3,
-     758.2
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 127,
-   "fingerprint": "-4689433748772012735",
-   "instances": 5,
-   "pages": [
-    18,
-    27,
-    30,
-    35,
-    37
-   ],
-   "example": {
-    "page": 18,
-    "bbox": [
-     564.3,
-     790.8,
-     566.1,
-     799.1
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 128,
-   "fingerprint": "-3076140910942426403",
+   "cluster": 73,
+   "fingerprint": "-6794984127794481713",
    "instances": 5,
    "pages": [
     18,
@@ -2815,8 +1539,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 129,
-   "fingerprint": "-2177713289048937012",
+   "cluster": 74,
+   "fingerprint": "7224619880967329293",
    "instances": 5,
    "pages": [
     19
@@ -2834,8 +1558,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 130,
-   "fingerprint": "5526327573164261988",
+   "cluster": 75,
+   "fingerprint": "-7179358964015146098",
    "instances": 5,
    "pages": [
     19
@@ -2853,8 +1577,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 131,
-   "fingerprint": "5774066051555827509",
+   "cluster": 76,
+   "fingerprint": "4200420167988129347",
    "instances": 5,
    "pages": [
     20
@@ -2872,8 +1596,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 132,
-   "fingerprint": "170479286986275889",
+   "cluster": 77,
+   "fingerprint": "-7904400195442693876",
    "instances": 5,
    "pages": [
     20
@@ -2891,29 +1615,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 133,
-   "fingerprint": "8767070991404493967",
-   "instances": 5,
-   "pages": [
-    22,
-    29,
-    39
-   ],
-   "example": {
-    "page": 22,
-    "bbox": [
-     479.2,
-     753.0,
-     487.4,
-     763.9
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 134,
-   "fingerprint": "8662494289239733351",
+   "cluster": 78,
+   "fingerprint": "-7986963839137157304",
    "instances": 5,
    "pages": [
     23
@@ -2931,28 +1634,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 135,
-   "fingerprint": "5269729053389691100",
-   "instances": 5,
-   "pages": [
-    23,
-    24
-   ],
-   "example": {
-    "page": 23,
-    "bbox": [
-     498.1,
-     187.5,
-     507.2,
-     187.5
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 136,
-   "fingerprint": "7037689391813950050",
+   "cluster": 79,
+   "fingerprint": "-7082330972261410432",
    "instances": 5,
    "pages": [
     23
@@ -2970,73 +1653,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 137,
-   "fingerprint": "6332999707455221645",
-   "instances": 5,
-   "pages": [
-    25,
-    27,
-    32,
-    37,
-    41
-   ],
-   "example": {
-    "page": 25,
-    "bbox": [
-     388.7,
-     749.5,
-     396.7,
-     750.4
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 138,
-   "fingerprint": "-3679197334049732732",
-   "instances": 5,
-   "pages": [
-    26,
-    32,
-    41
-   ],
-   "example": {
-    "page": 26,
-    "bbox": [
-     404.9,
-     751.0,
-     415.5,
-     761.9
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 139,
-   "fingerprint": "3236040806452589695",
-   "instances": 5,
-   "pages": [
-    27,
-    28,
-    30
-   ],
-   "example": {
-    "page": 27,
-    "bbox": [
-     509.4,
-     749.5,
-     517.6,
-     760.4
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 140,
-   "fingerprint": "-8041014550780451904",
+   "cluster": 80,
+   "fingerprint": "8821922412700038937",
    "instances": 5,
    "pages": [
     36
@@ -3054,8 +1672,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 141,
-   "fingerprint": "4411129360399117891",
+   "cluster": 81,
+   "fingerprint": "4834896543590043851",
    "instances": 5,
    "pages": [
     42
@@ -3073,8 +1691,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 142,
-   "fingerprint": "3715765314167197895",
+   "cluster": 82,
+   "fingerprint": "-2876741837380403490",
    "instances": 4,
    "pages": [
     0,
@@ -3093,154 +1711,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 143,
-   "fingerprint": "8004119113676896543",
-   "instances": 4,
-   "pages": [
-    0,
-    1
-   ],
-   "example": {
-    "page": 0,
-    "bbox": [
-     270.6,
-     724.8,
-     273.8,
-     740.8
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 144,
-   "fingerprint": "1941513670445150179",
-   "instances": 4,
-   "pages": [
-    2,
-    4,
-    14,
-    38
-   ],
-   "example": {
-    "page": 2,
-    "bbox": [
-     720.8,
-     533.0,
-     729.1,
-     544.2
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 145,
-   "fingerprint": "-4815263474840518096",
-   "instances": 4,
-   "pages": [
-    2,
-    14
-   ],
-   "example": {
-    "page": 2,
-    "bbox": [
-     653.7,
-     535.3,
-     655.9,
-     544.2
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 146,
-   "fingerprint": "2215669813425625426",
-   "instances": 4,
-   "pages": [
-    3,
-    7,
-    8,
-    40
-   ],
-   "example": {
-    "page": 3,
-    "bbox": [
-     628.6,
-     530.6,
-     636.7,
-     531.4
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 147,
-   "fingerprint": "-8097384616045917159",
-   "instances": 4,
-   "pages": [
-    4,
-    5,
-    7,
-    38
-   ],
-   "example": {
-    "page": 4,
-    "bbox": [
-     772.9,
-     530.5,
-     782.4,
-     541.6
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 148,
-   "fingerprint": "-6581083766967123477",
-   "instances": 4,
-   "pages": [
-    5,
-    7,
-    38
-   ],
-   "example": {
-    "page": 5,
-    "bbox": [
-     644.8,
-     530.0,
-     655.6,
-     541.1
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 149,
-   "fingerprint": "5453592487485720265",
-   "instances": 4,
-   "pages": [
-    8
-   ],
-   "example": {
-    "page": 8,
-    "bbox": [
-     325.3,
-     215.9,
-     334.2,
-     215.9
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 150,
-   "fingerprint": "-866780832212642590",
+   "cluster": 83,
+   "fingerprint": "6018586034002923888",
    "instances": 4,
    "pages": [
     8
@@ -3258,8 +1730,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 151,
-   "fingerprint": "-7878112401393638164",
+   "cluster": 84,
+   "fingerprint": "-992745535178071686",
    "instances": 4,
    "pages": [
     8
@@ -3277,8 +1749,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 152,
-   "fingerprint": "-5205905043050086883",
+   "cluster": 85,
+   "fingerprint": "-1568133064717191111",
    "instances": 4,
    "pages": [
     8
@@ -3296,94 +1768,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 153,
-   "fingerprint": "-864808149822320151",
-   "instances": 4,
-   "pages": [
-    9,
-    16,
-    31,
-    39
-   ],
-   "example": {
-    "page": 9,
-    "bbox": [
-     388.4,
-     755.0,
-     396.4,
-     755.8
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 154,
-   "fingerprint": "272351424674189660",
-   "instances": 4,
-   "pages": [
-    9,
-    12,
-    20,
-    31
-   ],
-   "example": {
-    "page": 9,
-    "bbox": [
-     547.6,
-     794.9,
-     549.4,
-     803.3
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 155,
-   "fingerprint": "2169801443433025471",
-   "instances": 4,
-   "pages": [
-    11,
-    32
-   ],
-   "example": {
-    "page": 11,
-    "bbox": [
-     713.6,
-     527.8,
-     721.7,
-     538.7
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 156,
-   "fingerprint": "-1993067745151662383",
-   "instances": 4,
-   "pages": [
-    13,
-    16,
-    31,
-    36
-   ],
-   "example": {
-    "page": 13,
-    "bbox": [
-     681.1,
-     529.3,
-     691.3,
-     540.3
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 157,
-   "fingerprint": "3174829828069022061",
+   "cluster": 86,
+   "fingerprint": "-8990268565804179710",
    "instances": 4,
    "pages": [
     14
@@ -3401,51 +1787,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 158,
-   "fingerprint": "6001937102210732857",
-   "instances": 4,
-   "pages": [
-    15,
-    23,
-    24
-   ],
-   "example": {
-    "page": 15,
-    "bbox": [
-     472.5,
-     746.5,
-     480.5,
-     757.3
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 159,
-   "fingerprint": "-6970296280737462816",
-   "instances": 4,
-   "pages": [
-    15,
-    23,
-    24,
-    34
-   ],
-   "example": {
-    "page": 15,
-    "bbox": [
-     384.9,
-     748.1,
-     392.8,
-     748.1
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 160,
-   "fingerprint": "-4363908022907775570",
+   "cluster": 87,
+   "fingerprint": "-5787230829251881551",
    "instances": 4,
    "pages": [
     15
@@ -3463,49 +1806,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 161,
-   "fingerprint": "-7270230443496711068",
-   "instances": 4,
-   "pages": [
-    16,
-    31
-   ],
-   "example": {
-    "page": 16,
-    "bbox": [
-     404.9,
-     753.5,
-     415.6,
-     764.5
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 162,
-   "fingerprint": "-79878210937946772",
-   "instances": 4,
-   "pages": [
-    19,
-    28,
-    34
-   ],
-   "example": {
-    "page": 19,
-    "bbox": [
-     402.3,
-     747.9,
-     412.8,
-     758.6
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 163,
-   "fingerprint": "8697150505451364728",
+   "cluster": 88,
+   "fingerprint": "561020701133151117",
    "instances": 4,
    "pages": [
     19
@@ -3523,27 +1825,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 164,
-   "fingerprint": "5250747737523686178",
-   "instances": 4,
-   "pages": [
-    19
-   ],
-   "example": {
-    "page": 19,
-    "bbox": [
-     209.0,
-     260.6,
-     227.0,
-     262.2
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 165,
-   "fingerprint": "-6137857562998606406",
+   "cluster": 89,
+   "fingerprint": "-2250357977667813197",
    "instances": 4,
    "pages": [
     21
@@ -3561,8 +1844,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 166,
-   "fingerprint": "-5356528443460985025",
+   "cluster": 90,
+   "fingerprint": "1186016587242414050",
    "instances": 4,
    "pages": [
     22,
@@ -3581,8 +1864,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 167,
-   "fingerprint": "-449535533930828013",
+   "cluster": 91,
+   "fingerprint": "-5698278877233023877",
    "instances": 4,
    "pages": [
     22
@@ -3600,27 +1883,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 168,
-   "fingerprint": "1348718934752491700",
-   "instances": 4,
-   "pages": [
-    26
-   ],
-   "example": {
-    "page": 26,
-    "bbox": [
-     425.5,
-     83.5,
-     434.7,
-     83.5
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 169,
-   "fingerprint": "-8204274144098727010",
+   "cluster": 92,
+   "fingerprint": "-2668025311968048721",
    "instances": 4,
    "pages": [
     26
@@ -3638,51 +1902,27 @@
    "engineer_note": ""
   },
   {
-   "cluster": 170,
-   "fingerprint": "1606134962783135987",
+   "cluster": 93,
+   "fingerprint": "249955098374435032",
    "instances": 4,
    "pages": [
-    27,
-    28,
-    30,
-    34
+    36
    ],
    "example": {
-    "page": 27,
+    "page": 36,
     "bbox": [
-     466.3,
-     749.5,
-     475.1,
-     760.4
+     260.5,
+     320.2,
+     276.8,
+     326.0
     ]
    },
    "engineer_type": "",
    "engineer_note": ""
   },
   {
-   "cluster": 171,
-   "fingerprint": "2333184218497058606",
-   "instances": 4,
-   "pages": [
-    27,
-    30,
-    34
-   ],
-   "example": {
-    "page": 27,
-    "bbox": [
-     477.2,
-     749.5,
-     485.3,
-     760.4
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 172,
-   "fingerprint": "-8500253376435938525",
+   "cluster": 94,
+   "fingerprint": "-8619374118834957063",
    "instances": 4,
    "pages": [
     42
@@ -3700,8 +1940,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 173,
-   "fingerprint": "4880228945241286585",
+   "cluster": 95,
+   "fingerprint": "-5371857040746212002",
    "instances": 4,
    "pages": [
     42
@@ -3719,8 +1959,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 174,
-   "fingerprint": "-9198291828363971223",
+   "cluster": 96,
+   "fingerprint": "-5070459576767970903",
    "instances": 3,
    "pages": [
     0
@@ -3738,27 +1978,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 175,
-   "fingerprint": "-306846750986957914",
-   "instances": 3,
-   "pages": [
-    0
-   ],
-   "example": {
-    "page": 0,
-    "bbox": [
-     292.8,
-     724.8,
-     304.8,
-     740.8
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 176,
-   "fingerprint": "-6173475375429470494",
+   "cluster": 97,
+   "fingerprint": "8883814184881852096",
    "instances": 3,
    "pages": [
     0,
@@ -3777,8 +1998,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 177,
-   "fingerprint": "-7130617346666352503",
+   "cluster": 98,
+   "fingerprint": "4202487236314147738",
    "instances": 3,
    "pages": [
     1
@@ -3796,8 +2017,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 178,
-   "fingerprint": "-4528146249266303258",
+   "cluster": 99,
+   "fingerprint": "4358604892861665318",
    "instances": 3,
    "pages": [
     2,
@@ -3816,50 +2037,50 @@
    "engineer_note": ""
   },
   {
-   "cluster": 179,
-   "fingerprint": "-8047882955771809739",
+   "cluster": 100,
+   "fingerprint": "1164734081565301931",
    "instances": 3,
    "pages": [
     2,
-    14,
-    38
-   ],
-   "example": {
-    "page": 2,
-    "bbox": [
-     629.9,
-     533.8,
-     638.1,
-     534.6
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 180,
-   "fingerprint": "-4777054352139317703",
-   "instances": 3,
-   "pages": [
-    2,
-    5,
+    4,
     14
    ],
    "example": {
     "page": 2,
     "bbox": [
-     629.9,
-     534.6,
-     638.1,
-     534.7
+     720.8,
+     533.0,
+     729.1,
+     544.2
     ]
    },
    "engineer_type": "",
    "engineer_note": ""
   },
   {
-   "cluster": 181,
-   "fingerprint": "-9060253983449549758",
+   "cluster": 101,
+   "fingerprint": "2024025897887646447",
+   "instances": 3,
+   "pages": [
+    3,
+    12,
+    13
+   ],
+   "example": {
+    "page": 3,
+    "bbox": [
+     771.6,
+     529.8,
+     781.0,
+     540.9
+    ]
+   },
+   "engineer_type": "",
+   "engineer_note": ""
+  },
+  {
+   "cluster": 102,
+   "fingerprint": "-2218596278778649942",
    "instances": 3,
    "pages": [
     3
@@ -3877,8 +2098,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 182,
-   "fingerprint": "-535605159387191191",
+   "cluster": 103,
+   "fingerprint": "-5784348502689387055",
    "instances": 3,
    "pages": [
     3
@@ -3896,8 +2117,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 183,
-   "fingerprint": "-2788900570150643342",
+   "cluster": 104,
+   "fingerprint": "2830325420785226172",
    "instances": 3,
    "pages": [
     3
@@ -3915,8 +2136,29 @@
    "engineer_note": ""
   },
   {
-   "cluster": 184,
-   "fingerprint": "-2052436973327523455",
+   "cluster": 105,
+   "fingerprint": "-120774532124485643",
+   "instances": 3,
+   "pages": [
+    4,
+    5,
+    7
+   ],
+   "example": {
+    "page": 4,
+    "bbox": [
+     772.9,
+     530.5,
+     782.4,
+     541.6
+    ]
+   },
+   "engineer_type": "",
+   "engineer_note": ""
+  },
+  {
+   "cluster": 106,
+   "fingerprint": "-2842994753651923380",
    "instances": 3,
    "pages": [
     4
@@ -3934,8 +2176,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 185,
-   "fingerprint": "6578433643516850665",
+   "cluster": 107,
+   "fingerprint": "1308002880843984182",
    "instances": 3,
    "pages": [
     4
@@ -3953,29 +2195,28 @@
    "engineer_note": ""
   },
   {
-   "cluster": 186,
-   "fingerprint": "6254709731723756648",
+   "cluster": 108,
+   "fingerprint": "2898989292043723993",
    "instances": 3,
    "pages": [
-    7,
-    8,
-    40
+    5,
+    7
    ],
    "example": {
-    "page": 7,
+    "page": 5,
     "bbox": [
-     645.4,
-     529.5,
-     656.2,
-     540.5
+     644.8,
+     530.0,
+     655.6,
+     541.1
     ]
    },
    "engineer_type": "",
    "engineer_note": ""
   },
   {
-   "cluster": 187,
-   "fingerprint": "3453104309485124927",
+   "cluster": 109,
+   "fingerprint": "1258776309847707744",
    "instances": 3,
    "pages": [
     8,
@@ -3995,8 +2236,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 188,
-   "fingerprint": "3848179314892790612",
+   "cluster": 110,
+   "fingerprint": "-7994071564423683467",
    "instances": 3,
    "pages": [
     8,
@@ -4015,8 +2256,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 189,
-   "fingerprint": "6331442455820298663",
+   "cluster": 111,
+   "fingerprint": "-5715605146782545579",
    "instances": 3,
    "pages": [
     8
@@ -4034,50 +2275,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 190,
-   "fingerprint": "-6812279919953791316",
-   "instances": 3,
-   "pages": [
-    9,
-    16,
-    22
-   ],
-   "example": {
-    "page": 9,
-    "bbox": [
-     466.9,
-     754.3,
-     475.9,
-     765.3
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 191,
-   "fingerprint": "5888977758838534940",
-   "instances": 3,
-   "pages": [
-    9,
-    20,
-    36
-   ],
-   "example": {
-    "page": 9,
-    "bbox": [
-     565.4,
-     794.9,
-     567.3,
-     803.3
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 192,
-   "fingerprint": "6865136451310710671",
+   "cluster": 112,
+   "fingerprint": "-4696240756183274467",
    "instances": 3,
    "pages": [
     9
@@ -4095,8 +2294,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 193,
-   "fingerprint": "-261252861373628811",
+   "cluster": 113,
+   "fingerprint": "-1111638821691456547",
    "instances": 3,
    "pages": [
     9
@@ -4114,50 +2313,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 194,
-   "fingerprint": "6759796542805500290",
-   "instances": 3,
-   "pages": [
-    10,
-    21,
-    37
-   ],
-   "example": {
-    "page": 10,
-    "bbox": [
-     440.9,
-     749.6,
-     451.0,
-     760.5
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 195,
-   "fingerprint": "-5071921212313168949",
-   "instances": 3,
-   "pages": [
-    10,
-    17,
-    25
-   ],
-   "example": {
-    "page": 10,
-    "bbox": [
-     467.2,
-     749.6,
-     476.0,
-     760.5
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 196,
-   "fingerprint": "422924348288773613",
+   "cluster": 114,
+   "fingerprint": "7308291214504340091",
    "instances": 3,
    "pages": [
     10
@@ -4175,8 +2332,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 197,
-   "fingerprint": "-5515470640315597921",
+   "cluster": 115,
+   "fingerprint": "-3028461157084399571",
    "instances": 3,
    "pages": [
     10,
@@ -4195,8 +2352,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 198,
-   "fingerprint": "-5611724507537513034",
+   "cluster": 116,
+   "fingerprint": "-3124715024306314684",
    "instances": 3,
    "pages": [
     10
@@ -4214,20 +2371,18 @@
    "engineer_note": ""
   },
   {
-   "cluster": 199,
-   "fingerprint": "6104987088837530222",
+   "cluster": 117,
+   "fingerprint": "-7674964848365010390",
    "instances": 3,
    "pages": [
-    11,
-    26,
-    41
+    11
    ],
    "example": {
     "page": 11,
     "bbox": [
-     676.2,
+     713.6,
      527.8,
-     686.4,
+     721.7,
      538.7
     ]
    },
@@ -4235,8 +2390,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 200,
-   "fingerprint": "-2589943754942215552",
+   "cluster": 118,
+   "fingerprint": "4295423111273350926",
    "instances": 3,
    "pages": [
     13
@@ -4254,8 +2409,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 201,
-   "fingerprint": "-2362273639201401340",
+   "cluster": 119,
+   "fingerprint": "3777260073085434351",
    "instances": 3,
    "pages": [
     13
@@ -4273,175 +2428,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 202,
-   "fingerprint": "-3159048727229159757",
-   "instances": 3,
-   "pages": [
-    15,
-    23,
-    24
-   ],
-   "example": {
-    "page": 15,
-    "bbox": [
-     399.5,
-     746.5,
-     410.0,
-     757.3
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 203,
-   "fingerprint": "-8036056756440799976",
-   "instances": 3,
-   "pages": [
-    18,
-    30,
-    35
-   ],
-   "example": {
-    "page": 18,
-    "bbox": [
-     546.6,
-     790.8,
-     548.4,
-     799.1
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 204,
-   "fingerprint": "-5679051611165325488",
-   "instances": 3,
-   "pages": [
-    18,
-    21,
-    33
-   ],
-   "example": {
-    "page": 18,
-    "bbox": [
-     403.4,
-     750.4,
-     414.0,
-     761.3
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 205,
-   "fingerprint": "-2122497406830303546",
-   "instances": 3,
-   "pages": [
-    18,
-    33,
-    35
-   ],
-   "example": {
-    "page": 18,
-    "bbox": [
-     440.2,
-     750.4,
-     450.3,
-     761.3
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 206,
-   "fingerprint": "-1078493836227704633",
-   "instances": 3,
-   "pages": [
-    18,
-    35
-   ],
-   "example": {
-    "page": 18,
-    "bbox": [
-     477.4,
-     750.4,
-     485.6,
-     761.3
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 207,
-   "fingerprint": "1306689640933035064",
-   "instances": 3,
-   "pages": [
-    18,
-    21,
-    25
-   ],
-   "example": {
-    "page": 18,
-    "bbox": [
-     529.8,
-     750.4,
-     539.1,
-     761.3
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 208,
-   "fingerprint": "1061667586833671012",
-   "instances": 3,
-   "pages": [
-    18,
-    33,
-    35
-   ],
-   "example": {
-    "page": 18,
-    "bbox": [
-     403.4,
-     750.4,
-     414.0,
-     761.3
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 209,
-   "fingerprint": "-9162786967996200091",
-   "instances": 3,
-   "pages": [
-    19,
-    28,
-    34
-   ],
-   "example": {
-    "page": 19,
-    "bbox": [
-     527.4,
-     747.9,
-     536.6,
-     758.6
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 210,
-   "fingerprint": "-772836217887642643",
+   "cluster": 120,
+   "fingerprint": "5561617804510522947",
    "instances": 3,
    "pages": [
     19
@@ -4459,8 +2447,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 211,
-   "fingerprint": "-6040013391418645629",
+   "cluster": 121,
+   "fingerprint": "845353474796920849",
    "instances": 3,
    "pages": [
     19,
@@ -4480,8 +2468,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 212,
-   "fingerprint": "8257824119868174172",
+   "cluster": 122,
+   "fingerprint": "540396324526677688",
    "instances": 3,
    "pages": [
     20
@@ -4499,8 +2487,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 213,
-   "fingerprint": "3672084521164740495",
+   "cluster": 123,
+   "fingerprint": "-8965509680204298906",
    "instances": 3,
    "pages": [
     20
@@ -4518,29 +2506,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 214,
-   "fingerprint": "-5862900154947996311",
-   "instances": 3,
-   "pages": [
-    21,
-    33,
-    35
-   ],
-   "example": {
-    "page": 21,
-    "bbox": [
-     467.7,
-     749.9,
-     476.5,
-     760.8
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 215,
-   "fingerprint": "-5199773257399541843",
+   "cluster": 124,
+   "fingerprint": "-3402487312066880882",
    "instances": 3,
    "pages": [
     21,
@@ -4559,8 +2526,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 216,
-   "fingerprint": "2661508329235982551",
+   "cluster": 125,
+   "fingerprint": "-4199244636182704340",
    "instances": 3,
    "pages": [
     22
@@ -4578,8 +2545,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 217,
-   "fingerprint": "7999164356597759958",
+   "cluster": 126,
+   "fingerprint": "-7258655643216382383",
    "instances": 3,
    "pages": [
     22
@@ -4597,8 +2564,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 218,
-   "fingerprint": "-2220624675698750474",
+   "cluster": 127,
+   "fingerprint": "3127898138119325700",
    "instances": 3,
    "pages": [
     22
@@ -4616,8 +2583,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 219,
-   "fingerprint": "1786423977334156380",
+   "cluster": 128,
+   "fingerprint": "8671790843549722858",
    "instances": 3,
    "pages": [
     23,
@@ -4636,48 +2603,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 220,
-   "fingerprint": "6612484737467596278",
-   "instances": 3,
-   "pages": [
-    27,
-    30
-   ],
-   "example": {
-    "page": 27,
-    "bbox": [
-     403.5,
-     749.5,
-     414.1,
-     760.4
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 221,
-   "fingerprint": "-1154555136671597161",
-   "instances": 3,
-   "pages": [
-    28,
-    34
-   ],
-   "example": {
-    "page": 28,
-    "bbox": [
-     510.6,
-     747.5,
-     518.7,
-     758.3
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 222,
-   "fingerprint": "-5077672441999836432",
+   "cluster": 129,
+   "fingerprint": "-1219258875065869665",
    "instances": 3,
    "pages": [
     28
@@ -4695,48 +2622,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 223,
-   "fingerprint": "6677045007685709558",
-   "instances": 3,
-   "pages": [
-    29,
-    39
-   ],
-   "example": {
-    "page": 29,
-    "bbox": [
-     405.6,
-     751.9,
-     416.2,
-     762.9
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 224,
-   "fingerprint": "-4493887899555008962",
-   "instances": 3,
-   "pages": [
-    29,
-    32
-   ],
-   "example": {
-    "page": 29,
-    "bbox": [
-     385.3,
-     267.3,
-     423.7,
-     268.8
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 225,
-   "fingerprint": "-2837356780095855938",
+   "cluster": 130,
+   "fingerprint": "3432665452947000518",
    "instances": 3,
    "pages": [
     30
@@ -4754,8 +2641,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 226,
-   "fingerprint": "6198868348605967069",
+   "cluster": 131,
+   "fingerprint": "1256897412896405238",
    "instances": 3,
    "pages": [
     31
@@ -4773,50 +2660,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 227,
-   "fingerprint": "-5878568843846545973",
-   "instances": 3,
-   "pages": [
-    32,
-    33,
-    41
-   ],
-   "example": {
-    "page": 32,
-    "bbox": [
-     531.3,
-     751.0,
-     540.6,
-     762.0
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 228,
-   "fingerprint": "-2998133771382737917",
-   "instances": 3,
-   "pages": [
-    32,
-    37,
-    41
-   ],
-   "example": {
-    "page": 32,
-    "bbox": [
-     404.6,
-     751.0,
-     415.2,
-     762.0
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 229,
-   "fingerprint": "-6980784897854335606",
+   "cluster": 132,
+   "fingerprint": "7774752748305591670",
    "instances": 3,
    "pages": [
     33
@@ -4834,8 +2679,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 230,
-   "fingerprint": "-1259750256921610210",
+   "cluster": 133,
+   "fingerprint": "7149141859183635529",
    "instances": 3,
    "pages": [
     36
@@ -4853,46 +2698,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 231,
-   "fingerprint": "-2682489741400446583",
-   "instances": 3,
-   "pages": [
-    36
-   ],
-   "example": {
-    "page": 36,
-    "bbox": [
-     260.5,
-     314.3,
-     276.8,
-     320.2
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 232,
-   "fingerprint": "8889614953077204993",
-   "instances": 3,
-   "pages": [
-    36
-   ],
-   "example": {
-    "page": 36,
-    "bbox": [
-     260.5,
-     357.8,
-     276.8,
-     363.6
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 233,
-   "fingerprint": "2777143222578383873",
+   "cluster": 134,
+   "fingerprint": "-8784233984915601265",
    "instances": 3,
    "pages": [
     37,
@@ -4911,46 +2718,8 @@
    "engineer_note": ""
   },
   {
-   "cluster": 234,
-   "fingerprint": "-1029385238460333837",
-   "instances": 3,
-   "pages": [
-    42
-   ],
-   "example": {
-    "page": 42,
-    "bbox": [
-     398.6,
-     797.3,
-     408.7,
-     797.7
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 235,
-   "fingerprint": "-2458098634522605615",
-   "instances": 3,
-   "pages": [
-    42
-   ],
-   "example": {
-    "page": 42,
-    "bbox": [
-     398.6,
-     790.4,
-     408.7,
-     790.9
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
-  },
-  {
-   "cluster": 236,
-   "fingerprint": "5971090878278005044",
+   "cluster": 135,
+   "fingerprint": "-4492715947469546173",
    "instances": 3,
    "pages": [
     42
@@ -4966,26 +2735,7 @@
    },
    "engineer_type": "",
    "engineer_note": ""
-  },
-  {
-   "cluster": 237,
-   "fingerprint": "198605028750446365",
-   "instances": 3,
-   "pages": [
-    42
-   ],
-   "example": {
-    "page": 42,
-    "bbox": [
-     258.1,
-     74.6,
-     265.1,
-     85.1
-    ]
-   },
-   "engineer_type": "",
-   "engineer_note": ""
   }
  ],
- "residue_shapes": 964
+ "residue_shapes": 481
 }

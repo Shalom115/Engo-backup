@@ -70,14 +70,63 @@ def path_fingerprint(d, R):
     return hash(tuple(sig)) if sig else None, origin
 
 
+def _page_wires(page, R):
+    """Wire segments (render space) + a coarse spatial grid, for the
+    WIRE-TOUCH FILTER."""
+    segs = []
+    for d in page.get_drawings():
+        for it in d["items"]:
+            if it[0] == "l":
+                a, b = fitz.Point(*_pts(it)[0]) * R, fitz.Point(*_pts(it)[1]) * R
+                if math.hypot(b.x - a.x, b.y - a.y) >= 4.0:
+                    segs.append((a.x, a.y, b.x, b.y))
+    grid = defaultdict(list)
+    cell = 10.0
+    for i, (x0, y0, x1, y1) in enumerate(segs):
+        steps = max(1, int(math.hypot(x1 - x0, y1 - y0) / cell))
+        for s in range(steps + 1):
+            t = s / steps
+            grid[(int((x0 + t * (x1 - x0)) / cell),
+                  int((y0 + t * (y1 - y0)) / cell))].append(i)
+    return segs, grid, cell
+
+
+def _near_wire(bb, segs, grid, cell, tol=3.0):
+    cx, cy = (bb[0] + bb[2]) / 2, (bb[1] + bb[3]) / 2
+    cand = set()
+    for dx in (-1, 0, 1):
+        for dy in (-1, 0, 1):
+            cand.update(grid.get((int(cx / cell) + dx, int(cy / cell) + dy), []))
+    hw, hh = (bb[2] - bb[0]) / 2 + tol, (bb[3] - bb[1]) / 2 + tol
+    for j in cand:
+        x0, y0, x1, y1 = segs[j]
+        # segment bbox vs padded symbol bbox overlap (cheap, adequate)
+        if not (max(x0, x1) < cx - hw or min(x0, x1) > cx + hw
+                or max(y0, y1) < cy - hh or min(y0, y1) > cy + hh):
+            return True
+    return False
+
+
 def collect_symbol_instances(doc: fitz.Document):
     """Every closed small stroke-loop + every multi-curve compact path,
-    fingerprinted, across all pages."""
+    fingerprinted, across all pages.
+
+    v2 QUALITY FILTERS (engineer red-pen 2026-07-27 — the bank was full of
+    junk: the GM-logo 'M', pushbutton caption art, title-block furniture):
+      * WIRE-TOUCH: an electrical symbol sits ON or immediately AT a
+        conductor. Shapes that touch no wire segment (logos, decorative art,
+        caption boxes floating in text) are excluded from the bank.
+      * TITLE-BLOCK EXCLUSION: shapes inside the bottom-right title-block
+        region are furniture, never devices."""
     instances = defaultdict(list)   # fp -> [(page, bbox)]  (symbol-sized)
     glyph_pool = defaultdict(list)  # fp -> [(page, bbox)]  (font-decode input)
+    dropped_unwired = 0
     for pno in range(doc.page_count):
         page = doc[pno]
         R = page.rotation_matrix
+        segs, wgrid, wcell = _page_wires(page, R)
+        pr = page.rect * page.rotation_matrix
+        W, H = abs(pr.width), abs(pr.height)
         for d in page.get_drawings():
             items = d["items"]
             kinds = {it[0] for it in items}
@@ -89,6 +138,7 @@ def collect_symbol_instances(doc: fitz.Document):
                 continue
             xs = [p[0] for p in all_pts]; ys = [p[1] for p in all_pts]
             w, h = max(xs) - min(xs), max(ys) - min(ys)
+            bb = [min(xs), min(ys), max(xs), max(ys)]
             # SYMBOL-sized: above glyph height (text here is ~2.5-7pt), below
             # frame scale. Glyph-sized repeated shapes are NOT discarded — they
             # are the FONT-DECODE pool, collected separately below.
@@ -96,37 +146,51 @@ def collect_symbol_instances(doc: fitz.Document):
                 if 1.0 <= max(w, h) < 7.5:
                     fp, _ = path_fingerprint(d, R)
                     if fp is not None:
-                        glyph_pool[fp].append((pno, [min(xs), min(ys),
-                                                     max(xs), max(ys)]))
+                        glyph_pool[fp].append((pno, bb))
                 continue
             # stroke loops and curve-built marks; skip single tiny lines
             if kinds == {"l"} and len(items) < 3:
                 continue
+            # LINE-FRAGMENT FILTER: a device symbol is two-dimensional; a
+            # shape thinner than 2.5pt in either axis is dash/leader debris
+            if w < 2.5 or h < 2.5:
+                continue
+            # TITLE-BLOCK EXCLUSION (bottom-right furniture region)
+            if bb[1] > 0.84 * H and bb[0] > 0.45 * W:
+                continue
+            # WIRE-TOUCH FILTER: no conductor at the shape = not a device
+            if not _near_wire(bb, segs, wgrid, wcell):
+                dropped_unwired += 1
+                continue
             fp, _ = path_fingerprint(d, R)
             if fp is None:
                 continue
-            instances[fp].append((pno, [min(xs), min(ys), max(xs), max(ys)]))
+            instances[fp].append((pno, bb))
+    print(f"  wire-touch filter dropped {dropped_unwired} unwired shapes")
     return instances, glyph_pool
 
 
+_PAGE_CACHE: dict = {}
+
+
 def render_cell(doc, pno, bbox, zoom=6.0):
-    page = doc[pno]
+    """Crop from ONE cached full-page render per page — never
+    get_pixmap(clip=): its rotation-dependent clip semantics produced blank
+    cells on every rotated page (the same trap that broke OCR crops)."""
+    key = (pno, zoom)
+    if key not in _PAGE_CACHE:
+        page = doc[pno]
+        pix = page.get_pixmap(matrix=fitz.Matrix(zoom, zoom))
+        if len(_PAGE_CACHE) >= 4:   # bound memory (~54MB per cached page)
+            _PAGE_CACHE.pop(next(iter(_PAGE_CACHE)))
+        _PAGE_CACHE[key] = Image.frombytes(
+            "RGB", (pix.width, pix.height), pix.samples)
+    img = _PAGE_CACHE[key]
     x0, y0, x1, y1 = bbox
-    clip_rot = fitz.Rect(x0 - CTX_PAD_PT, y0 - CTX_PAD_PT,
-                         x1 + CTX_PAD_PT, y1 + CTX_PAD_PT)
-    # get_pixmap(clip=) expects UNROTATED coords: map back through derotation
-    clip = clip_rot * page.derotation_matrix
-    clip.normalize()
-    clip = clip & page.rect if page.rotation == 0 else clip
-    try:
-        pix = page.get_pixmap(matrix=fitz.Matrix(zoom, zoom), clip=clip)
-        img = Image.frombytes("RGB", (pix.width, pix.height), pix.samples)
-        if page.rotation:
-            img = img.rotate(-page.rotation, expand=True)
-        img.thumbnail((CELL - 8, CELL - 26))
-        return img
-    except Exception:
-        return Image.new("RGB", (CELL - 8, CELL - 26), (255, 220, 220))
+    crop = img.crop((int((x0 - CTX_PAD_PT) * zoom), int((y0 - CTX_PAD_PT) * zoom),
+                     int((x1 + CTX_PAD_PT) * zoom), int((y1 + CTX_PAD_PT) * zoom)))
+    crop.thumbnail((CELL - 8, CELL - 26))
+    return crop
 
 
 def main(argv):
@@ -150,15 +214,66 @@ def main(argv):
     print(f"symbol instances: {sum(len(v) for v in inst.values())} -> "
           f"{len(clusters)} unique shapes; {len(main_clusters)} with >= "
           f"{MIN_INSTANCES} instances (residue shapes: {len(residue)})")
+    # --classify (run on the machine holding the API key, e.g. the Mac):
+    # one vision call per unique cluster against the STANDARD symbol
+    # vocabulary (IEC 60617 device families) — the 'reliable source' half of
+    # the engineer's both-sources directive; his red-pen of the result is the
+    # other half. Gold-blind: vocabulary only, no expected answers.
+    iec_vocab = [
+        "terminal", "terminal_strip_cell", "breaker", "emergency_breaker",
+        "fuse", "retractable_fuse", "relay_coil", "contact_NO", "contact_NC",
+        "changeover_contact", "switch", "pushbutton", "selector_switch",
+        "lamp_indicator", "led", "motor", "pump", "solenoid_valve",
+        "current_transformer", "shunt", "battery", "converter", "inverter",
+        "charger", "diode", "earth_ground", "chassis_ground", "plug_pin",
+        "connector", "junction_dot", "wire_gauge_diamond", "meter_gauge",
+        "horn_buzzer", "heater_resistive", "not_a_device_annotation",
+        "unknown"]
+    if "--classify" in sys.argv:
+        sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+        from providers.vision import get_vision_provider
+        vp = get_vision_provider()
+        _CLS_PROMPT = (
+            "This is one repeated symbol from a marine electrical schematic, "
+            "shown with a little surrounding context. Classify the SYMBOL at "
+            "the center against standard electrical drawing conventions "
+            "(IEC 60617 families). DEVICE DISCIPLINE: breaker != fuse != "
+            "relay != contactor != terminal; a NO contact != NC contact; "
+            "status/annotation marks are not devices. If it is drawing "
+            "annotation (wire-gauge diamond, caption art), say so. If genuinely "
+            "unclear, return 'unknown' — never guess.")
+        _CLS_TOOL = {"name": "classify_symbol", "description": "one symbol",
+                     "input_schema": {"type": "object", "properties": {
+                         "symbol_type": {"type": "string", "enum": iec_vocab},
+                         "confidence": {"type": "string",
+                                        "enum": ["high", "medium", "low"]},
+                         "reason": {"type": "string"}},
+                         "required": ["symbol_type", "confidence"]}}
+        import io as _io
+        for k, (fp, v) in enumerate(main_clusters):
+            img = render_cell(doc, v[0][0], v[0][1])
+            buf = _io.BytesIO(); img.save(buf, "PNG")
+            try:
+                r = vp.extract(buf.getvalue(), "image/png", _CLS_PROMPT, _CLS_TOOL)
+            except Exception as e:
+                r = {"symbol_type": "unknown", "confidence": "low",
+                     "reason": f"vision error {str(e)[:80]}"}
+            main_clusters[k] = (fp, v, r)
     bank = []
-    for k, (fp, v) in enumerate(main_clusters):
+    for k, entry in enumerate(main_clusters):
+        fp, v = entry[0], entry[1]
+        auto = entry[2] if len(entry) > 2 else None
         pages = sorted({p for p, _ in v})
-        bank.append({"cluster": k, "fingerprint": str(fp),
-                     "instances": len(v), "pages": pages[:20],
-                     "example": {"page": v[0][0],
-                                 "bbox": [round(x, 1) for x in v[0][1]]},
-                     "engineer_type": "",   # <- the red-pen field (§6 taxonomy)
-                     "engineer_note": ""})
+        row = {"cluster": k, "fingerprint": str(fp),
+               "instances": len(v), "pages": pages[:20],
+               "example": {"page": v[0][0],
+                           "bbox": [round(x, 1) for x in v[0][1]]},
+               "engineer_type": "",   # <- the red-pen field (final authority)
+               "engineer_note": ""}
+        if auto:
+            row["auto_type"] = auto.get("symbol_type")
+            row["auto_confidence"] = auto.get("confidence")
+        bank.append(row)
     (out_dir / "symbol_bank_DRAFT.json").write_text(json.dumps(
         {"source": Path(pdf_path).name, "clusters": bank,
          "residue_shapes": len(residue)}, indent=1))
@@ -170,7 +285,8 @@ def main(argv):
         W, H = cols * CELL, rows * CELL
         sheet = Image.new("RGB", (W, H), (255, 255, 255))
         dr = ImageDraw.Draw(sheet)
-        for i, (fp, v) in enumerate(batch):
+        for i, entry in enumerate(batch):
+            fp, v = entry[0], entry[1]
             cx, cy = (i % cols) * CELL, (i // cols) * CELL
             cell_img = render_cell(doc, v[0][0], v[0][1])
             sheet.paste(cell_img, (cx + 4, cy + 22))

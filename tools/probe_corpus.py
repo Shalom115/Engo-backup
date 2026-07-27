@@ -48,23 +48,33 @@ REPORT = STATE / f"corpus_probe_{VESSEL}.json"
 
 
 def classify_pdf_bytes(pdf_bytes: bytes) -> dict:
-    """The route_kind-callable core: classify one PDF A1/A2 per page.
-    A file is A1_vector only if EVERY page is a pure vector plot; mixed files
-    report page indices per class so the pipeline can route per page."""
+    """The route_kind-callable core. Per-page classes (v2 — 'has images' is
+    NOT raster; the Electrical System GA has 21k vector wire segments AND 17
+    embedded logo/render images):
+      A1_vector : vector linework, no raster images -> geometry-first path
+      A1_hybrid : vector linework + embedded images -> geometry-first for
+                  lines/labels; images inventoried (equipment photos/logos)
+                  for one-shot vision classification
+      A2_raster : little/no vector content -> vision tiling path
+    Plus text_layer: chars in the PDF text layer (a real text layer means
+    labels come FREE with positions via get_text('words') — no OCR at all;
+    Nav layout 2,188 chars / Steering GA 2,575 chars proved this class)."""
     doc = fitz.open(stream=pdf_bytes, filetype="pdf")
     pages = []
     for i in range(doc.page_count):
         r = probe_page(doc[i])
+        p = doc[i]
+        if len(p.get_drawings()) >= VECTOR_MIN_PATHS:
+            r["class"] = "A1_hybrid" if r["images"] > 0 else "A1_vector"
+        else:
+            r["class"] = "A2_raster"
         pages.append({"page": i, **r})
     classes = Counter(p["class"] for p in pages)
-    if classes.get("A1_vector") == doc.page_count:
-        file_class = "A1_vector"
-    elif classes.get("A2_raster") == doc.page_count:
-        file_class = "A2_raster"
-    else:
-        file_class = "mixed"
+    file_class = (list(classes)[0] if len(classes) == 1 else "mixed")
     return {"file_class": file_class, "page_count": doc.page_count,
-            "class_counts": dict(classes), "pages": pages}
+            "class_counts": dict(classes),
+            "text_layer_chars": sum(p["text_chars"] for p in pages),
+            "pages": pages}
 
 
 def _download_with_retry(connector, file_id: str, tries: int = 4) -> bytes:
