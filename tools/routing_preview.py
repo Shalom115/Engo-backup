@@ -79,13 +79,16 @@ def main(argv):
     for pf in pages:
         rec = json.loads(pf.read_text())
         for lab in rec.get("labels", []):
-            txt = lab.get("text", "")
-            if not txt or lab.get("conf", 0) < min_conf:
+            # prefer the glyph-decoded read when it fully decoded (conf 99);
+            # fall back to tesseract otherwise
+            txt = lab.get("text_final", lab.get("text", ""))
+            conf = lab.get("conf_final", lab.get("conf", 0))
+            if not txt or conf < min_conf:
                 continue
             m = DEVICE_ROW_RE.match(txt.strip())
             load_txt = m.group(3).strip() if m and m.group(3).strip() else txt
             node, via = propose(load_txt, mappings, non_node, entries)
-            row = {"page": rec["page"], "label": txt, "conf": lab.get("conf"),
+            row = {"page": rec["page"], "label": txt, "conf": conf,
                    "bbox": lab.get("bbox")}
             if m:
                 row["device_id"] = m.group(1)
