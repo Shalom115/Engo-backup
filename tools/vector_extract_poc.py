@@ -205,9 +205,20 @@ def build_nets(segs, dots):
 
 
 def cluster_labels(glyph):
-    """Symmetric union-find clustering of glyph strokes into label boxes.
-    GX at word level; height/width filters split horizontal vs vertical text."""
-    gb = [list(b) for b in glyph]
+    """CHAR-CHAIN line builder (v2, 2026-07-27). The v1 box-merge cut first/
+    last characters off ~35% of labels ('DWG'->'WG', 'DECK'->'ECK' — caught by
+    the decoder grading montage) and split words across boxes. v2 builds text
+    the way it is actually laid out:
+      1. glyph strokes -> CHARACTER clusters (strokes that overlap or nearly
+         touch horizontally AND share the line vertically);
+      2. characters -> LINES by baseline chaining (same y-center band, x-gap
+         bounded by char height);
+      3. dot/dash runs (uniform sub-glyph-height chains — dotted enclosures,
+         dashed leaders) are classified OUT as non-text, which also removes
+         the 'eee eee' lint findings at the source;
+      4. leftover single chars re-chained along y -> vertical labels.
+    """
+    gb = [b for b in glyph]
     m = len(gb)
     par = list(range(m))
 
@@ -222,35 +233,116 @@ def cluster_labels(glyph):
         if a != b:
             par[a] = b
 
-    gcell = 6.0
+    # -- 1. char clusters: near-touching strokes on the same line
+    gcell = 4.0
     ggrid = defaultdict(list)
     for i, b in enumerate(gb):
         ggrid[(int(b[0] / gcell), int(b[1] / gcell))].append(i)
-    GX, GY = 4.5, 1.6
     for i, b in enumerate(gb):
+        hi = max(b[3] - b[1], 0.3)
         for dx in (-1, 0, 1):
             for dy in (-1, 0, 1):
                 for j in ggrid.get((int(b[0] / gcell) + dx,
                                     int(b[1] / gcell) + dy), []):
-                    if j != i:
-                        o = gb[j]
-                        if not (b[0] > o[2] + GX or o[0] > b[2] + GX
-                                or b[1] > o[3] + GY or o[1] > b[3] + GY):
-                            union(i, j)
+                    if j <= i:
+                        continue
+                    o = gb[j]
+                    hj = max(o[3] - o[1], 0.3)
+                    gap_thr = 0.12 * max(hi, hj)
+                    yov = min(b[3], o[3]) - max(b[1], o[1])
+                    if (b[0] <= o[2] + gap_thr and o[0] <= b[2] + gap_thr
+                            and yov >= -0.2 * max(hi, hj)):
+                        union(i, j)
     cl = defaultdict(list)
     for i in range(m):
         cl[find(i)].append(i)
-    labels = []
+    chars = []
     for v in cl.values():
-        if len(v) < 2:
-            continue
         x0 = min(gb[i][0] for i in v); y0 = min(gb[i][1] for i in v)
         x1 = max(gb[i][2] for i in v); y1 = max(gb[i][3] for i in v)
-        h, w = y1 - y0, x1 - x0
-        if h <= 10 and w >= 2:
-            labels.append({"bbox": [x0, y0, x1, y1], "vertical": False})
-        elif w <= 10 and h >= 6:
+        chars.append({"bbox": [x0, y0, x1, y1], "n": len(v),
+                      "h": y1 - y0, "w": x1 - x0})
+
+    # -- 2. baseline chaining into lines
+    chars.sort(key=lambda c: c["bbox"][0])
+    lines = []          # each: {"chars": [...], "ycen": float, "h": float}
+    for c in chars:
+        ycen = (c["bbox"][1] + c["bbox"][3]) / 2
+        h = max(c["h"], 0.6)
+        best = None
+        bestgap = 1e9
+        for L in lines:
+            last = L["chars"][-1]["bbox"]
+            gap = c["bbox"][0] - last[2]
+            if gap < -0.5 * L["h"] or gap > 2.6 * max(L["h"], h):
+                continue
+            if abs(ycen - L["ycen"]) > 0.5 * max(L["h"], h):
+                continue
+            if gap < bestgap:
+                bestgap = gap
+                best = L
+        if best is None:
+            lines.append({"chars": [c], "ycen": ycen, "h": h})
+        else:
+            best["chars"].append(c)
+            n = len(best["chars"])
+            best["ycen"] = (best["ycen"] * (n - 1) + ycen) / n
+            best["h"] = max(best["h"], h)
+
+    labels = []
+    leftovers = []
+    for L in lines:
+        cs = L["chars"]
+        x0 = min(c["bbox"][0] for c in cs); y0 = min(c["bbox"][1] for c in cs)
+        x1 = max(c["bbox"][2] for c in cs); y1 = max(c["bbox"][3] for c in cs)
+        hs = sorted(c["h"] for c in cs)
+        med_h = hs[len(hs) // 2]
+        # -- 3. dot/dash-run guard: uniform sub-text-height chains are
+        # enclosure boundaries / leaders, not text
+        if med_h < 0.7 and len(cs) >= 4:
+            continue
+        if len(cs) == 1:
+            leftovers.append(cs[0])
+            continue
+        labels.append({"bbox": [x0, y0, x1, y1], "vertical": False})
+
+    # -- 4. vertical chaining of leftover single chars
+    leftovers.sort(key=lambda c: c["bbox"][1])
+    vlines = []
+    for c in leftovers:
+        xcen = (c["bbox"][0] + c["bbox"][2]) / 2
+        w = max(c["w"], 0.6)
+        best = None
+        bestgap = 1e9
+        for L in vlines:
+            last = L["chars"][-1]["bbox"]
+            gap = c["bbox"][1] - last[3]
+            if gap < -0.5 * L["w"] or gap > 2.6 * max(L["w"], w):
+                continue
+            if abs(xcen - L["xcen"]) > 0.5 * max(L["w"], w):
+                continue
+            if gap < bestgap:
+                bestgap = gap
+                best = L
+        if best is None:
+            vlines.append({"chars": [c], "xcen": xcen, "w": w})
+        else:
+            best["chars"].append(c)
+            best["w"] = max(best["w"], w)
+    for L in vlines:
+        cs = L["chars"]
+        x0 = min(c["bbox"][0] for c in cs); y0 = min(c["bbox"][1] for c in cs)
+        x1 = max(c["bbox"][2] for c in cs); y1 = max(c["bbox"][3] for c in cs)
+        ws = sorted(c["w"] for c in cs)
+        if ws[len(ws) // 2] < 0.7 and len(cs) >= 4:
+            continue
+        if len(cs) >= 2 and (y1 - y0) > (x1 - x0):
             labels.append({"bbox": [x0, y0, x1, y1], "vertical": True})
+        else:
+            for c in cs:
+                b = c["bbox"]
+                if max(c["w"], c["h"]) >= 1.2:   # standalone char (terminal no.)
+                    labels.append({"bbox": list(b), "vertical": False})
     return labels
 
 

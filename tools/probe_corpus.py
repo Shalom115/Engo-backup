@@ -38,7 +38,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import fitz  # PyMuPDF
 
-from vector_probe import probe_page  # noqa: E402
+from vector_probe import probe_page, VECTOR_MIN_PATHS  # noqa: E402
 
 VESSEL = "gelliceaux_001"
 STATE = Path(__file__).resolve().parent.parent / "data" / "state"

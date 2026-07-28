@@ -73,6 +73,25 @@ green). Protocol:
    panel layouts with tag blocks; the XA-tag vocabulary from GM sheets is the
    join key to the monitoring node. Protocol confirmed when sample arrives.
 
+## 3b. ONYX drawings (engineer sample received 2026-07-27 — probed + rendered)
+
+**Best-case class, measured:** 64 pages, ALL vector (44 A1_vector + 20
+A1_hybrid), **full text layer: 104,108 chars** — every label free via
+`get_text('words')` with exact positions, zero OCR. Drawings start p6 (p0-5 =
+index/front matter). The network-layout page alone carries: every OM module
+with its ID, model, CAN ID and IP (D30 CPU MAIN OM-430B 192.168.1.11, D32 CPU
+BAE, A01-A07 I/O modules CAN 1-7, EDS308/205 switches, TS01-04 displays with
+IPs), every cable with ID + spec (W-TS01-ET CAT-6, W-MODEM Belden 8132), and
+printed cross-links to EXOCET, BAE SYSTEM (J1939), MYT HYDRAULICS PROCESSOR,
+FIRE DETECTION, TERMODINAMICA A/C, watermakers. Protocol:
+1. text harvest with positions ($0) — module/cable/IP/CAN vocabulary;
+2. box detection (vector rects) + wire netlist → module-to-module
+   interconnection graph per bus (CAN0/CAN1/ETH/RS485);
+3. facts route to `652-onyx-monitoring` + per-module cards; cable records
+   become cross-links; the XA-tag vocabulary from the GM sheets joins here;
+4. the printed IP/CAN table doubles as the Exocet-channel cross-reference —
+   monitoring topology Engo can cite when a sensor drops off the bus.
+
 ## 4. BAE book (47pp; 40 vector + 7 raster)
 
 - Vector pages: geometry-first as-is; pages are ROTATED (rotation matrix
