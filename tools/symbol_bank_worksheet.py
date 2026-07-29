@@ -313,6 +313,41 @@ h1 {
 }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
+.export-panel {
+  position: sticky; top: 3.6rem; z-index: 25;
+  background: var(--panel);
+  border-bottom: 2px solid var(--pen-red);
+  box-shadow: 0 8px 24px -12px rgba(0,0,0,0.35);
+}
+.export-panel[hidden] { display: none; }
+.export-panel-inner {
+  max-width: 74rem; margin: 0 auto;
+  padding: 1rem clamp(1rem, 4vw, 2.5rem) 1.2rem;
+  display: flex; flex-direction: column; gap: 0.6rem;
+}
+.export-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  font-size: 0.95rem;
+}
+.export-help {
+  margin: 0; color: var(--caption); font-size: 0.85rem; line-height: 1.5;
+  max-width: 52rem;
+}
+#export-text {
+  width: 100%; min-height: 9rem;
+  font-family: var(--mono); font-size: 0.82rem; line-height: 1.5;
+  padding: 0.75rem; border-radius: var(--radius);
+  border: 1.5px solid var(--border); background: var(--ground); color: var(--ink);
+  resize: vertical;
+}
+#export-text:focus { outline: none; border-color: var(--pen-red); box-shadow: 0 0 0 3px var(--focus-ring); }
+.export-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.export-status {
+  margin: 0; font-size: 0.82rem; color: var(--ok-green); min-height: 1.2em;
+  font-family: var(--mono);
+}
+.export-status.error { color: var(--pen-red); }
+
 main { max-width: 74rem; margin: 0 auto; padding: 0 clamp(1rem, 4vw, 2.5rem); }
 
 .sheet-nav {
@@ -456,9 +491,25 @@ footer {
     <button class="filter-chip" id="filter-unanswered" aria-pressed="false" type="button">Unanswered only</button>
     <div class="btn-row">
       <button class="btn ghost" id="clear-all" type="button">Clear all</button>
-      <button class="btn" id="copy-answers" type="button">Copy answers</button>
-      <button class="btn primary" id="download-answers" type="button">Download .txt</button>
+      <button class="btn primary" id="open-export" type="button">Export answers</button>
     </div>
+  </div>
+</div>
+
+<div class="export-panel" id="export-panel" hidden>
+  <div class="export-panel-inner">
+    <div class="export-head">
+      <strong>Export &mdash; <span id="export-count">0</span> answered</strong>
+      <button class="btn ghost" id="close-export" type="button">Close</button>
+    </div>
+    <p class="export-help">Tap inside the box below, select all (long-press &rarr; Select All, or Cmd/Ctrl+A), then copy (Cmd/Ctrl+C) and paste it back into the chat. This always works, even when the buttons below don't &mdash; some browsers block automatic copy/download inside this page.</p>
+    <textarea id="export-text" readonly rows="10" spellcheck="false"></textarea>
+    <div class="export-actions">
+      <button class="btn" id="select-all-export" type="button">Select all text</button>
+      <button class="btn" id="copy-answers" type="button">Try copy button</button>
+      <button class="btn" id="download-answers" type="button">Try download</button>
+    </div>
+    <p class="export-status" id="export-status"></p>
   </div>
 </div>
 
@@ -656,31 +707,88 @@ footer {
     return lines.join("\n");
   }
 
-  document.getElementById("copy-answers").addEventListener("click", function () {
+  // EXPORT PANEL — this environment can silently block navigator.clipboard
+  // and programmatic <a download> (sandboxed iframe permissions vary by
+  // browser/host and fail with no error the page can detect), so the
+  // GUARANTEED path is a visible, pre-selected <textarea>: native OS
+  // select-all + copy always works because it isn't going through any JS
+  // API that can be sandboxed. The buttons below are best-effort extras,
+  // not the primary path.
+  var exportPanel = document.getElementById("export-panel");
+  var exportText = document.getElementById("export-text");
+  var exportCount = document.getElementById("export-count");
+  var exportStatus = document.getElementById("export-status");
+
+  function setStatus(msg, isError) {
+    exportStatus.textContent = msg;
+    exportStatus.classList.toggle("error", !!isError);
+  }
+
+  function openExport() {
     var text = buildExportText();
+    exportText.value = text;
+    exportCount.textContent = String(answeredCount());
+    exportPanel.hidden = false;
+    setStatus("");
+    exportPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+    setTimeout(function () {
+      exportText.focus();
+      exportText.select();
+    }, 50);
+  }
+
+  document.getElementById("open-export").addEventListener("click", openExport);
+  document.getElementById("close-export").addEventListener("click", function () {
+    exportPanel.hidden = true;
+  });
+
+  document.getElementById("select-all-export").addEventListener("click", function () {
+    exportText.focus();
+    exportText.select();
+    setStatus("Text selected — press Cmd/Ctrl+C to copy it.");
+  });
+
+  document.getElementById("copy-answers").addEventListener("click", function () {
+    exportText.focus();
+    exportText.select();
+    var text = exportText.value;
+    var done = false;
+    try {
+      done = document.execCommand && document.execCommand("copy");
+    } catch (e) { done = false; }
+    if (done) {
+      toast("Copied " + answeredCount() + " answers");
+      setStatus("Copied to clipboard.");
+      return;
+    }
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text).then(function () {
-        toast("Copied " + answeredCount() + " answers to clipboard");
+        toast("Copied " + answeredCount() + " answers");
+        setStatus("Copied to clipboard.");
       }, function () {
-        toast("Copy failed — try Download instead");
+        setStatus("Copy blocked by the browser — text is already selected above, press Cmd/Ctrl+C.", true);
       });
     } else {
-      toast("Clipboard unavailable — use Download instead");
+      setStatus("Copy blocked by the browser — text is already selected above, press Cmd/Ctrl+C.", true);
     }
   });
 
   document.getElementById("download-answers").addEventListener("click", function () {
     var text = buildExportText();
-    var blob = new Blob([text], { type: "text/plain" });
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement("a");
-    a.href = url;
-    a.download = "symbol-bank-redpen-answers.txt";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
-    toast("Downloaded " + answeredCount() + " answers");
+    try {
+      var blob = new Blob([text], { type: "text/plain" });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement("a");
+      a.href = url;
+      a.download = "symbol-bank-redpen-answers.txt";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+      setStatus("Download triggered — if you can't find the file, use the text box above instead.");
+    } catch (e) {
+      setStatus("Download blocked by the browser — select the text above and copy it instead.", true);
+    }
   });
 
   document.getElementById("clear-all").addEventListener("click", function () {
