@@ -1,0 +1,137 @@
+# Symbol bank red-pen — SW108-01-600 GM Marine electrical schematics
+# 133 / 136 answered
+# format: #id  type  [note]
+
+#0	cable group	# In this specific electrical wiring/control schematic sheet, the symbol represents a multi-conductor composite or multi-pair cable marker with explicit shield/drain wire terminations. Multi-Pair Cable Identification: the rectangular boxes labeled D 6 and 7 combined with the vertical connecting line designate a specific Cable Group or Conductor Bundle. Each horizontal line to the right represents an individual conductor wire within that same physical cable, leading into the controller block (MPCS-S). Twisted Pairs and Wire Naming: G3-22 is the cable label, P stands for Pair and R stands for Return/Reference; the criss-crossed X symbol indicates a Twisted Pair. Cable Shield / Drain Wire Termination: the vertical line with the solid black dots linking the conductors shows a common shielding layer or drain wire tied across these lines; on the far left the heavy vertical bars terminating the R lines indicate Shield Grounding / Chassis Earth Terminations, protecting the low-voltage communication signals going into the LV5 terminals of the controller from electromagnetic noise.
+#1	terminal_strip	# the T/S means terminal strip, the A after that is the label of the terminal strip and each rectangle with number is the terminal and it's label
+#2	fused terminal	# a rectangle with a line inside it inside another rectangle signifies a terminal with a built in fuse in it, so in this photo it will be terminal strip E terminal #84 that is a fused terminal
+#3	2 joined breakers	# in case of 2 phases or positive and negative there are many occasions there will be 2 breakers that are joined together that way if one trips the other trips with it so in this case it will be breaker Q12 16A joined with Q13 16A. the Q# is the breaker label and the "16A" means its a 16A breaker
+#4	terminal and cable number	# the rectangles are the terminals and their numbers inside them are the label and the numbers outside refer to the cable number in a multi core cable
+#5	terminal	# like before the rectangles are terminals and see the terminal 32 is a fused terminal
+#6	fuse	# this is a fuse, the identifying label is below and it is F18 and the rating is above 125A so 125 amperes
+#8	fuse
+#9	breaker	# again a joined double breaker this time with 1 label only, Q1 is the identifying label and 32A is the rating
+#10	earth_ground
+#11	earth_leak_breaker
+#12	fuse	# the same one as #6
+#13	breaker	# usually in the GM case only for gelliceaux CB will be in the LVPDU and will be used for the hybrid system
+#14	terminal	# these are 2 terminals the line that passes through them is only connected to the bottom one that has a dot on the line in it
+#15	irrelevant
+#16	terminal	# multiple terminals in this case number 2,3,4,5 are connected to a cable from a multi core cable that need to be followed and number 6 has a dot in it and a line going from the dot so it has a cable going out of it (the line) that needs to be followed
+#17	plug_pin	# the entire big rectangle is a plug the Bold writing signifies for what in this case MPCS-S, the rectangle with the triangle next to it is the pin and the writing inside the rectangle cable from a multi core cable that goes in the pin
+#18	terminal	# 2 terminals, 25 fused, 26 not and 25 has 1 cable connected from each side, 26 has 1 from one side and 2 from the other
+#19	terminal	# 2 terminals 24 fused and 25 not, 25 is connected to the line on it's left that why there's a dot there and 24 isnt that's why it continues without a dot
+#20	terminal
+#21	terminal_strip_cell
+#22	terminal	# terminal 75 the sign on it's right means it connects to negative bus bar
+#23	incomplete	# this circuit is one of 2 things either an earth leakage breaker or a current transmitter need to see the rest of it to identify
+#24	earth_leak_breaker
+#25	plug_pin
+#26	breaker	# same as #6 joined double breaker that will trip together
+#27	plug_pin	# ECP is the what the plug is for, each pin has identification inside rectangle
+#28	selector_switch
+#29	current transmitter	# this is a current transmitter that measures the current on a line and transmits it to the control and monitoring in gelliceaux's case to the Onyx system
+#30	selector_switch
+#31	selector_switch
+#32	signal/control	# this sign means it connects to another system usually monitor and control, in gelliceaux's case the Onyx. and it gives the Terminal strip and the terminal so XA 50 is the T/S and the arrow shaped rectangle is the terminal. if the arrow is pointing away from the system as in the case for XA50 01, XA50 02 and XA50 03 it means it measures a signal from the system, if the arrow is pointing toward the electrical system as in the case of XA21 16 it means it gives a control signal to it
+#33	switch
+#34	sheet description	# part of the page identification at the bottom of the page there's a table with the details of the drawing, the details of the company that made the drawing, project name customer etc. need to be noted and when sweeping through the pages to know how to read it
+#35	fuse	# F1 is a fuse of 500A
+#36	motor	# this is a motor in this case a motor of a pump (main bilge pump) the positive line is on the left and the line below is the sign of negative bus bar
+#37	terminal	# terminals of the lighting modules
+#38	relay_NO
+#39	signal/control	# same as #32 a control line from the monitor and control system, XA 61 is T/S and 26,28,30 is the terminals
+#40	switch	# a 3 way switch with off in the middle and 1 or 2 on each side
+#41	earth_ground
+#42	twisted shielded wire	# the crossed 2 lines means its a 2 core wire that the wires are twisted and shielded, the letters and numbers are labels
+#43	twisted shielded wire	# the crossed 2 lines means its a 2 core wire that the wires are twisted and shielded, the letters and numbers are labels
+#44	terminal_strip_cell	# terminal strip 1 is fused 2 is not fused 3 is fused 4 is not and the bottom is ground
+#45	relay_NO
+#46	switch	# SW 16 is a manual switch, CB 2 is a breaker 50A rated
+#47	switch	# SW 16 is a manual switch, CB 2 is a breaker 50A rated
+#48	plug_pin	# P51-22 is one pin in a plug, P51-23 is another pin in a plug
+#49	relay	# The rectangle with the I > < symbol inside represents an overcurrent and undercurrent protection relay (or a combined current monitoring relay)
+#50	bilge_level_sensor	# bilge switch or level sensor when water touch the switch it sends a signal or closes the circuit and the bilge alarm goes off
+#51	signal/control	# same as #32 monitoring/control interface, arrow direction gives measure-vs-command
+#52	motor	# same as #36
+#53	motor	# same as #36
+#54	relay_NC
+#55	solenoid_valve	# pneumatic solenoid valve
+#56	terminal	# these are terminals of a lighting PLC module, as you see the - goes to the negative sign i mentioned before the + goes to other terminals that switch on lights
+#57	relay_changeover	# this symbolizes a relay with a light signal on it
+#58	switch
+#59	irrelevant	# part of the index need to make sure we note which page is the index and regard it as one
+#60	fused_terminal
+#61	fused_terminal
+#62	fuse
+#63	contactor	# High voltage contactor, with NC and NO connections on it this one is the NO side of it on the top and the NC on the bottom
+#64	relay_NO
+#65	fuse
+#66	plug_pin
+#67	contactor	# High voltage contactor, with NC and NO connections on it this one is the NO side of it
+#68	motor	# this is a pump motor AC powered unlike the other ones before there's L and N going to it and a grounding line on it as well to the grounding bar
+#69	current_transmitter	# same as #29
+#70	alarm_buzzer	# an alarm buzzer that when an alarm goes off it makes the sounds
+#71	signal/control	# same as #32 monitoring/control interface, arrow direction gives measure-vs-command
+#72	amp_gauge	# an amp gauge that is in line with the power source/consumers and shows how many amps are going through the line
+#73	signal/control	# same as #32 monitoring/control interface, arrow direction gives measure-vs-command
+#74	motor	# this is a Valve's motor that opens and closes a valve
+#75	signal/control	# same as #32 monitoring/control interface, arrow direction gives measure-vs-command
+#76	motor	# same as #74
+#77	relay_NO
+#78	tank_level_sender	# a level sender of tank levels exist in all tanks
+#79	signal/control	# same as #32 monitoring/control interface, arrow direction gives measure-vs-command
+#80	relay_NO
+#81	emergency_button	# emergency stop button to stop the hybrid system in case of emergency
+#82	sheet description	# same as #34 title block / page identification
+#83	fuse
+#84	relay_NO	# relay with light indication on it
+#85	current_transmitter	# same as #29
+#86	fuse
+#87	relay_NO
+#88	relay_NO	# note that the Positive side of the relay is both giving positive to the coil activation and to the function
+#89	signal/control	# same as #32 monitoring/control interface, arrow direction gives measure-vs-command
+#90	relay_NC
+#91	grey_water_transfer_box	# Grey water box with a level switch and pump inside of it when the box is full the level switch turns the pump on and sends the grey water to the grey water tank
+#92	solenoid_valve
+#93	terminal	# 57 not fused 58 fused and has the same power source as 57 that goes to cable 7 in a multi core cable, 59 not fused 60 fused and piggy backs off 59's power source and sends it to cable 8 in the same multi core cable
+#94	lamp_indicator	# Phase indicator from shore power when on it means there's power between that phase and neutral
+#95	selector_switch
+#96	sheet description	# same as #34 title block / page identification
+#97	sheet description	# same as #34 title block / page identification
+#98	sheet description	# same as #34 title block / page identification
+#99	sheet description	# same as #34 title block / page identification
+#100	sheet description	# same as #34 title block / page identification
+#101	sheet description	# same as #34 title block / page identification
+#102	inverter	# BEL is one of the main power inverters in the hybrid system there are 4 of them 2 port 2 stbd it's in the owner manual that is already ingested and engo should know that. it inverts 600VDC to 230VAC
+#103	contactor
+#104	connector
+#105	sheet description	# same as #101
+#106	relay	# The rectangle with the I > < symbol inside represents an overcurrent and undercurrent protection relay (or a combined current monitoring relay)
+#107	motor	# AC pump motor with L/N and ground line
+#108	sheet description	# same as #34 title block / page identification
+#109	sheet description	# same as #34 title block / page identification
+#110	sheet description	# same as #34 title block / page identification
+#111	converter	# the MAPS is a DC slicer (converter) one of 4 main converters in Gelliceaux's hybrid system that converts 600VDC to 24VDC. in general i already instructed in the previous protocols that a rectangle with a diagonal line and 2 voltages on each side means either inverter/converter it should have been in the protocol why is it not?
+#112	fuse
+#113	fuse
+#114	fuse
+#115	throttle
+#116	battery_charger	# a battery charger for the 24V battery banks. again in general i already instructed in the previous protocols that a rectangle with a diagonal line and 2 voltages on each side means either inverter/converter/charger it should have been in the protocol why is it not?
+#117	sheet description	# same as #34 title block / page identification
+#118	battery_charger	# a battery charger for the 24V battery banks
+#119	switch
+#120	motor	# motorized Valve
+#121	alarm_buzzer	# Alarm buzzer
+#122	motor	# motorized valve
+#123	signal/control	# same as #32 monitoring/control interface, arrow direction gives measure-vs-command
+#124	tank_level_sensor
+#125	relay_NC
+#126	signal/control	# same as #32 monitoring/control interface, arrow direction gives measure-vs-command
+#127	signal/control	# same as #32 monitoring/control interface, arrow direction gives measure-vs-command
+#128	tank_level_sender
+#129	relay_NC
+#131	terminal	# lighting module terminal
+#133	relay_NO
+#134	throttle
+#135	emergency_switch

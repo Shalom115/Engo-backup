@@ -30,23 +30,31 @@ import re
 import sys
 from pathlib import Path
 
-LINE_RE = re.compile(r"^#?(\d+)(?:\t+| {2,})(\S[^\t#]*?)(?:(?:\t+| {2,})#?\s*(.*))?$")
+ID_RE = re.compile(r"^#?(\d+)$")
 
 
 def parse_answers(text: str):
-    """-> {id: {"type": str, "note": str}}, [unparseable lines]"""
+    """-> {id: {"type": str, "note": str}}, [unparseable lines]
+
+    FIELD-SPLIT, not pattern-match: split on TAB (or 2+ spaces), take
+    field 0 = id, field 1 = type, remaining fields = note. A regex that
+    forbade '#' inside the type silently rejected the engineer's own
+    cross-references ('same as #32') — split-then-assign accepts whatever
+    he wrote, which is the point: his vocabulary is the authority."""
     answers, bad = {}, []
     for raw in text.splitlines():
-        line = raw.strip()
-        if not line or line.startswith("# "):
+        line = raw.rstrip()
+        if not line.strip() or line.lstrip().startswith("# "):
             continue
-        m = LINE_RE.match(line)
-        if not m:
+        parts = [p.strip() for p in line.split("\t")]
+        if len(parts) < 2:
+            parts = [p.strip() for p in re.split(r" {2,}", line.strip())]
+        if len(parts) < 2 or not ID_RE.match(parts[0]):
             bad.append(raw)
             continue
-        cid = int(m.group(1))
-        answers[cid] = {"type": m.group(2).strip(),
-                        "note": (m.group(3) or "").strip()}
+        cid = int(parts[0].lstrip("#"))
+        note = " ".join(p for p in parts[2:] if p).lstrip("#").strip()
+        answers[cid] = {"type": parts[1], "note": note}
     return answers, bad
 
 

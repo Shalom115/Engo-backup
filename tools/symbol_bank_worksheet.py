@@ -40,13 +40,32 @@ from PIL import Image
 
 Image.MAX_IMAGE_PIXELS = None
 
+# Vocabulary offered as autocomplete in the worksheet. REVISED 2026-07-28 from
+# the engineer's GM symbol-bank red-pen — his answers named a dozen classes the
+# original IEC-flavoured list did not have (fused_terminal, ganged breakers,
+# the conversion classes, sheet_description, the level/alarm/gauge family), and
+# used "current_transmitter" where the list said "current_transformer". The
+# engineer's vocabulary wins; this list follows it. Free text is always allowed.
 DEFAULT_VOCAB = [
-    "breaker", "emergency_breaker", "fuse", "retractable_fuse",
-    "relay_NO", "relay_NC", "relay_changeover", "terminal", "terminal_strip_cell",
-    "switch", "selector_switch", "pushbutton", "lamp_indicator",
-    "current_transformer", "shunt", "earth_leak_breaker", "earth_ground",
-    "meter_gauge", "motor", "solenoid_valve", "plug_pin", "connector",
-    "wire_gauge_diamond", "junction_dot", "not_a_device", "other",
+    # protection & switching
+    "breaker", "ganged_breaker", "emergency_breaker", "fuse",
+    "retractable_fuse", "fused_terminal", "earth_leak_breaker", "contactor",
+    "relay_NO", "relay_NC", "relay_changeover", "relay_overcurrent",
+    "switch", "selector_switch", "pushbutton", "emergency_stop",
+    # terminals & wiring structure
+    "terminal", "terminal_strip", "terminal_strip_cell", "plug_pin",
+    "connector", "cable_group", "twisted_shielded_pair", "earth_ground",
+    "negative_bus", "wire_gauge_diamond", "junction_dot",
+    # power conversion (rectangle + diagonal + a voltage each side)
+    "inverter", "converter", "battery_charger",
+    # measurement, indication & monitoring interface
+    "signal_control_interface", "current_transmitter", "amp_gauge",
+    "meter_gauge", "lamp_indicator", "alarm_buzzer", "shunt",
+    "tank_level_sender", "bilge_level_sensor",
+    # actuators & equipment
+    "motor", "motorised_valve", "solenoid_valve", "throttle", "pump_assembly",
+    # drawing furniture (read, don't route as equipment)
+    "sheet_description", "index_page", "not_a_device", "incomplete", "other",
 ]
 
 
