@@ -3,6 +3,16 @@ name: extraction-campaign
 description: Run a document-class extraction campaign for Engo/Gelliceaux the disciplined way — render-before-designing, pilot-then-stop, kill-safe ledger under Monitor, per-page verification, cost gate. Use when extracting any new or repeat document class (electrical schematics, PLC, P&ID/BOM, BAE HV, building drawings, vision backlog). This is the proven scaffold that made the 39-page GM book run survive crashes and stay honest.
 ---
 
+> **CURRENT PATH (2026-07-28): VECTOR-FIRST.** For any PDF campaign, start
+> with `tools/sweep_drive.py` (full corpus) or `tools/extract_document.py`
+> (single file) — geometry extraction at ~$0/page with symbol typing from the
+> engineer-confirmed bank, legends-first in-path, lint gate, and a routing
+> preview that WRITES NOTHING. The tiled-vision flow below applies ONLY to
+> documents the dispatcher routes `raster` (image-only exports, scans,
+> photos) — do not run it on vector sheets. OCR residue: use
+> `tools/label_vision_verify.py` with an explicit `--max-usd` cap.
+
+
 # Extraction campaign
 
 The repeatable shape for turning a class of drawings into Register knowledge without

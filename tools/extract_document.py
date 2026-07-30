@@ -124,7 +124,11 @@ def plan(pdf_bytes: bytes, name: str = "") -> Dict[str, Any]:
             "has_text_layer": has_text_layer,
             "images": images, "wire_segments": wires,
             "wires_per_page": round(wpp), "legend_signal": legend,
-            "specialisations_pending": pending}
+            "specialisations_pending": pending,
+            "page_classes": [{"page": pg["page"], "class": pg["class"],
+                              "wires": pg.get("wire_segments", 0),
+                              "text": pg.get("text_chars", 0)}
+                             for pg in cls["pages"]]}
 
 
 def harvest_text_layer(page: fitz.Page) -> List[Dict[str, Any]]:
@@ -208,6 +212,24 @@ def main(argv):
         (out_dir / "figures.json").write_text(json.dumps(figs, indent=1))
         print(f"figures inventoried: {len(figs)} (page+bbox+caption hint) "
               f"-> queued for vision with provenance; text already ingested")
+        # 80%-TEXT / 20%-SCHEMATIC MANUALS (engineer, 2026-07-28): schematic
+        # pages INSIDE a text manual must not be missed. Any page whose wire
+        # count says "drawing" gets the geometry pass, individually.
+        draw_pages = [pg["page"] for pg in p["page_classes"]
+                      if pg["wires"] >= 300 and pg["class"].startswith("A1")]
+        if draw_pages:
+            print(f"DRAWING PAGES inside the manual -> geometry pass: "
+                  f"{draw_pages}")
+            from run_book_extract import main as run_main
+            for dp in draw_pages:
+                run_main([pdf_path, str(out_dir), "--pages", f"{dp}-{dp}"])
+        rp = [pg["page"] for pg in p["page_classes"]
+              if pg["class"] == "A2_raster"]
+        if rp:
+            (out_dir / "queue_vision_pages.json").write_text(json.dumps(
+                {"file": Path(pdf_path).name, "pages": rp,
+                 "queued_for": "vision_tiling_path"}, indent=1))
+            print(f"raster pages queued for vision: {rp}")
         return
 
     # every remaining route runs the geometry pipeline; the differences are
@@ -217,6 +239,47 @@ def main(argv):
     if "--pages" in argv:
         args += ["--pages", argv[argv.index("--pages") + 1]]
     run_main(args)
+
+    # PER-PAGE MIXED-DOCUMENT HANDLING (leak found in pre-flight audit):
+    # routing was per-DOCUMENT, but pages differ. Two real cases:
+    #  (a) BAE book = 40 vector + 7 RASTER pages -> the raster pages went
+    #      through geometry and produced silently near-empty output;
+    #  (b) the engineer's 80%-text/20%-schematic manual -> schematic pages
+    #      inside a text doc must not be missed "just because it was sampled".
+    # Every page below the vector floor is queued for the vision path, per
+    # page, with provenance — reported, never silently empty.
+    raster_pages = [pg["page"] for pg in p["page_classes"]
+                    if pg["class"] == "A2_raster"]
+    if raster_pages:
+        (out_dir / "queue_vision_pages.json").write_text(json.dumps(
+            {"file": Path(pdf_path).name, "pages": raster_pages,
+             "queued_for": "vision_tiling_path",
+             "reason": "raster pages inside a vector/text document — geometry "
+                       "does not apply to these pages"}, indent=1))
+        print(f"RASTER PAGES QUEUED FOR VISION (not silently empty): "
+              f"{raster_pages}")
+
+    # GLYPH FONT DECODE — in the PATH (the audit-F1 lesson applied to the
+    # decoder too: it previously lived only in the caller). Multi-page books
+    # can self-train; a per-house font table is reused/extended when present.
+    ran_pages = sorted(int(q.stem[1:]) for q in out_dir.glob("p*.json")
+                       if q.stem[1:].isdigit())
+    if len(ran_pages) >= 6 and p["route"] == "vector_drawing":
+        from glyph_font_decode import main as decode_main
+        house = "".join(ch for ch in Path(pdf_path).stem.lower()
+                        if ch.isalnum())[:24]
+        ft = Path(__file__).resolve().parent.parent / "data" / "state" /              f"font_table_{house}.json"
+        dargs = [pdf_path, str(out_dir), str(out_dir), "--font-table", str(ft)]
+        decode_main(dargs)
+        # persist the (merged) house font for the next book from this house
+        src = out_dir / "font_table.json"
+        if src.exists():
+            ft.write_text(src.read_text())
+            print(f"house font persisted: {ft.name}")
+    elif p["route"] == "vector_drawing":
+        print(f"decode skipped: {len(ran_pages)} page(s) ran — too few to "
+              f"self-train (needs >= 6); tesseract reads stand, low-conf "
+              f"labels go to the vision-verify queue")
 
     if p["route"] == "text_layer_drawing":
         doc = fitz.open(stream=data, filetype="pdf")

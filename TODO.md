@@ -1,3 +1,48 @@
+# ENGO ROADMAP — updated 2026-07-28 (vector-first pivot landed)
+
+## NOW — FULL DRIVE SWEEP (today)
+1. Mac: merge branch -> main, push both remotes.
+2. `python3.12 tools/probe_corpus.py`            (if not already complete)
+3. `python3.12 tools/sweep_drive.py`             (full corpus; resumable;
+   re-run the same command after any kill. --limit 20 first as a smoke run.)
+4. Read `data/state/sweep/sweep_report.json` (computed from the ledger):
+   route split / lint failures / preview rows / vision-verify queue + PRICE.
+5. Vision-verify the residue at the printed price (engineer approves the
+   number first): per file
+   `python3.12 tools/label_vision_verify.py <sweep_dir> --pdf <src> --max-usd <cap>`
+   Smoke: `--limit-montages 1` on one file, read the ledger, then scale.
+6. Engineer red-pens `routing_preview` rows (write still HELD) ->
+   approved previews become the fixture -> REAL write pass -> full autonomous
+   re-run diffed against approvals (the V1 process).
+
+## HELD FOR ENGINEER
+- cf-003: three live nav-light Register nodes (merge decision).
+- BAE + ONYX + SWS(yard) symbol banks: build worksheets after the sweep
+  (`symbol_bank_build.py` -> `symbol_bank_worksheet.py`), one sitting each.
+- GM lint residue: 16/43 pages carry real L1 findings (dense one-line pages)
+  — review with the vision-verify results.
+
+## NEXT BUILDS (post-sweep)
+- P&ID specialisation: per-service stroke-colour split + BOM tag-join
+  (design in PROTOCOL_vector_first_classes.md §1; reported as pending by the
+  dispatcher on every P&ID it routes).
+- GA specialisation: positioned-callout leader-line router (§2).
+- §9e wiring into routing_preview (today register-name containment stands in;
+  the docstring says so honestly).
+- Per-word decode v3 (glyph decoder): per-word gating instead of per-line.
+- PLC sets: vision path (genuinely raster) with text-sibling cross-validation.
+
+## PHASE 2 (fleet)
+- Per-house assets accumulate: symbol banks + font tables + photo banks
+  transfer to any vessel drawn by the same houses.
+- route_kind integration: `extract_document.plan()` is the classifier the
+  ingest pipeline calls per file — already written as a callable.
+- Onboarding: customer shares Drive -> probe -> sweep -> previews ->
+  one residue page per book. Engineer red-pens shrink per vessel.
+
+---
+(Superseded roadmap below kept for history.)
+
 # ENGO BUILD PLAN — TODO.md
 The whole plan, broken **Milestones → Chapters → Subjects → Sessions**. One SESSION = one
 sitting with a named deliverable and a VERIFY step. Statuses: ✅ done · 🔨 in-process · ⬜ next · 🔴 engineer gate.

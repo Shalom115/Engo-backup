@@ -42,6 +42,14 @@ DEVICE_ID_RE = re.compile(
     re.IGNORECASE)
 HARD_ISOLATED_FRAC = 0.15
 HARD_UNATTACHED_FRAC = 0.15
+# MINIMUM ABSOLUTE COUNTS for a hard fail (2026-07-28, from the 6-file sweep):
+# an INDEX page with 4 big nets fails on ONE floating frame (0.25), and a
+# BAE PINOUT-TABLE page fails L3 because table labels legitimately sit away
+# from nets. Fractions on tiny denominators are noise, not defects. The
+# ceilings are UNCHANGED for real sheets — a page must have a real population
+# AND exceed the fraction to hard-fail; small pages still REPORT their counts.
+HARD_ISOLATED_MIN = 8
+HARD_UNATTACHED_MIN = 15
 
 
 def _touch(bb, nb, pad=3.0):
@@ -109,8 +117,10 @@ def lint_page(rec: dict) -> dict:
         "L7_frac": round(len(l7_unknown) / max(1, len(syms_all)), 3),
         "L8_symbols_need_conductor_verify": len(l8_verify),
         "L6_untrusted_device_ids": l6[:20],
-        "hard_fail": (len(l1) / nn > HARD_ISOLATED_FRAC
-                      or len(l3) / nl > HARD_UNATTACHED_FRAC),
+        "hard_fail": ((len(l1) / nn > HARD_ISOLATED_FRAC
+                       and len(l1) >= HARD_ISOLATED_MIN)
+                      or (len(l3) / nl > HARD_UNATTACHED_FRAC
+                          and len(l3) >= HARD_UNATTACHED_MIN)),
     }
 
 
