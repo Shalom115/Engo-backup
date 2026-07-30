@@ -135,3 +135,9 @@
 #133	relay_NO
 #134	throttle
 #135	emergency_switch
+
+# --- round 2 (2026-07-28, after wider re-crops) ---
+#7	ganged_breaker	# ganged breaker — could be +/- OR L/N depending on where the lines go. MUST VERIFY by following the conductors on the actual sheet, never assume the polarity.
+#23	current_transmitter	# engineer confirmed: current transmitter (agreed with the toroid-around-conductor reading)
+#130	controller_module	# confirmed: Yachtica MGA lighting controller module — A/B bus + V1-V4 output channel pairs + supply
+#132	controller_module	# confirmed: Yachtica MGA lighting controller module — same module as #130 on another page

@@ -203,7 +203,8 @@ def main(argv):
     pdf_path, run_dir, out_dir = argv[0], Path(argv[1]), Path(argv[2])
     out_dir.mkdir(parents=True, exist_ok=True)
     doc = fitz.open(pdf_path)
-    all_pages = sorted(int(p.stem[1:]) for p in run_dir.glob("p*.json"))
+    all_pages = sorted(int(q.stem[1:]) for q in run_dir.glob("p*.json")
+                       if q.stem[1:].isdigit())
     train_pages = [p for p in all_pages if p % 2 == 0]
     test_pages = [p for p in all_pages if p % 2 == 1]
     table, aligned, skipped = learn(doc, run_dir, train_pages)

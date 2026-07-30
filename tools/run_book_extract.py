@@ -41,6 +41,8 @@ from vector_extract_poc import (  # noqa: E402
     extract_primitives, merge_dashes, build_nets, cluster_labels,
     attach_labels, OCR_ZOOM,
 )
+from symbol_typing import load_bank, type_page_symbols  # noqa: E402
+from sheet_legend import read_sheet_legend, legend_override_map  # noqa: E402
 
 WORKERS = 4
 
@@ -122,7 +124,7 @@ def ocr_labels_batch(page: fitz.Page, labels):
     return out
 
 
-def process_page(doc: fitz.Document, idx: int) -> dict:
+def process_page(doc: fitz.Document, idx: int, bank=None) -> dict:
     page = doc[idx]
     wires, sym_boxes, dots, glyph = extract_primitives(page)
     segs = merge_dashes(wires)
@@ -130,6 +132,18 @@ def process_page(doc: fitz.Document, idx: int) -> dict:
     labels = cluster_labels(glyph)
     res = ocr_labels_batch(page, labels)
     attached = attach_labels(res, segs, sym_boxes, netid, grid, cell)
+    # SYMBOL TYPING — in the PATH, not the caller (audit F11 + the
+    # legends-first lesson: a mandated step that lives in whatever script
+    # happens to call it is a step that goes missing). Every symbol instance
+    # gets its engineer-confirmed type by fingerprint; unknown shapes are
+    # flagged, never guessed.
+    # LEGENDS FIRST — read the sheet's own legend BEFORE typing any symbol,
+    # inside the path (audit F1). The sheet's legend overrides the bank.
+    legend = read_sheet_legend(page, res)
+    typed_symbols = []
+    if bank:
+        typed_symbols = type_page_symbols(page, bank,
+                                          legend_map=legend_override_map(legend))
     net_rows = []
     for net in nets:
         xs, ys = [], []
@@ -144,14 +158,22 @@ def process_page(doc: fitz.Document, idx: int) -> dict:
                                   round(max(xs), 1), round(max(ys), 1)]})
     ne = sum(1 for r in res if r["text"])
     hi = sum(1 for r in res if r["conf"] >= 70)
+    n_typed = sum(1 for s in typed_symbols if s.get("type"))
+    n_verify = sum(1 for s in typed_symbols if s.get("verify_required"))
     return {
         "page": idx, "rotation": page.rotation,
         "counts": {"wires": len(segs), "nets": len(nets),
                    "sym_boxes": len(sym_boxes), "dots": len(dots),
                    "labels": len(labels), "ocr_nonempty": ne,
-                   "ocr_conf70": hi, "attached": attached},
+                   "ocr_conf70": hi, "attached": attached,
+                   "symbols": len(typed_symbols), "symbols_typed": n_typed,
+                   "symbols_unknown": len(typed_symbols) - n_typed,
+                   "symbols_need_verify": n_verify,
+                   "legend_entries": len(legend.get("entries", []))},
+        "legend": legend,
         "nets": net_rows,
         "sym_boxes": [[round(v, 1) for v in bb] for bb in sym_boxes],
+        "typed_symbols": typed_symbols,
         "labels": res,
     }
 
@@ -160,6 +182,8 @@ def main(argv):
     pdf_path, out_dir = argv[0], Path(argv[1])
     out_dir.mkdir(parents=True, exist_ok=True)
     doc = fitz.open(pdf_path)
+    bank = load_bank()
+    print(f"symbol bank: {len(bank)} engineer-confirmed shapes", flush=True)
     pages = range(doc.page_count)
     if "--pages" in argv:
         a, b = argv[argv.index("--pages") + 1].split("-")
@@ -178,7 +202,7 @@ def main(argv):
                 continue
             t0 = time.time()
             try:
-                rec = process_page(doc, idx)
+                rec = process_page(doc, idx, bank=bank)
                 (out_dir / f"p{idx}.json").write_text(json.dumps(rec))
                 line = {"page": idx, "ok": True,
                         "secs": round(time.time() - t0, 1), **rec["counts"]}
