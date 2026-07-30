@@ -5,6 +5,7 @@ drive" actually runs.
 
     python3.12 tools/sweep_drive.py                    # full Drive sweep (Mac)
     python3.12 tools/sweep_drive.py --limit 20         # first 20 (smoke)
+    python3.12 tools/sweep_drive.py --only <id,id,..>  # named sheets (red-pen)
     python3.12 tools/sweep_drive.py --local <dir>      # local PDFs (testing)
 
 Per file: probe -> route (extract_document) -> lint -> routing preview.
@@ -215,6 +216,16 @@ def main(argv):
             if r.get("ok"):
                 done.add(r["id"])
     limit = int(argv[argv.index("--limit") + 1]) if "--limit" in argv else None
+    # --only <id,id,...>  restrict the sweep to named Drive ids. The manifest is
+    # ordered by the yard's folder tree, so --limit N takes whatever sits at the
+    # front (hull lines, Gantt charts) rather than a sheet of each CLASS. A
+    # representative red-pen run needs the classes chosen, not the first N — and
+    # it must go through THIS dispatcher, not a bespoke script, or the run
+    # proves nothing about the path a real sweep takes.
+    only = set()
+    if "--only" in argv:
+        only = {s.strip() for s in argv[argv.index("--only") + 1].split(",")
+                if s.strip()}
     if "--local" in argv:
         src = iter_local_pdfs(Path(argv[argv.index("--local") + 1]))
     else:
@@ -240,6 +251,8 @@ def main(argv):
     sup = superseded_ids()
     with ledger.open("a") as led:
         for fid, name, get in src:
+            if only and fid not in only:
+                continue
             if fid in done:
                 continue
             if limit and n >= limit:
