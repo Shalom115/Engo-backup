@@ -143,7 +143,7 @@ def process_one(fid: str, name: str, data: bytes, out_dir: Path) -> dict:
             1 for r in pv if r["proposed"] == "UNRESOLVED")
 
     # vision-verify queue: low-conf, non-decoded labels (priced, not run)
-    vq = []
+    vq: list = []
     for q in page_files:
         rec = json.loads(q.read_text())
         for lab in rec.get("labels", []):
@@ -155,7 +155,14 @@ def process_one(fid: str, name: str, data: bytes, out_dir: Path) -> dict:
         (out_dir / "queue_label_verify.json").write_text(
             json.dumps(vq, indent=1))
     line["label_verify_queue"] = len(vq)
-    pdf_tmp.unlink(missing_ok=True)
+    # KEEP the PDF when there is a verify queue. label_vision_verify needs
+    # --pdf to re-crop the labels; deleting it here forced a re-download from
+    # Drive mid-verify (a network dependency in the middle of a PAID step).
+    # Caught 2026-07-30 by walking the runbook end to end instead of per tool.
+    if vq:
+        line["pdf_kept"] = str(pdf_tmp)
+    else:
+        pdf_tmp.unlink(missing_ok=True)
     return line
 
 
@@ -175,12 +182,24 @@ def main(argv):
     else:
         src = iter_drive_pdfs()
     n = 0
+    # Superseded drawings are refused BEFORE download, not after extraction.
+    # Extracting them was not just wasted time: the glyph decoder trains the
+    # per-house font table on whatever it extracts, so an obsolete revision
+    # was contributing glyphs to the house font that the current revisions
+    # are then decoded against. Refusal is ledgered, so the count is visible.
+    sup = superseded_ids()
     with ledger.open("a") as led:
         for fid, name, get in src:
             if fid in done:
                 continue
             if limit and n >= limit:
                 break
+            if fid in sup:
+                led.write(json.dumps({"id": fid, "name": name, "ok": True,
+                                      "route": "refused_superseded",
+                                      "handled": "refused_superseded"}) + "\n")
+                led.flush()
+                continue
             n += 1
             t0 = time.time()
             out_dir = SWEEP / safe_name(name)

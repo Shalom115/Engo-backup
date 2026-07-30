@@ -1,19 +1,32 @@
-# ENGO ROADMAP — updated 2026-07-28 (vector-first pivot landed)
+# ENGO ROADMAP — updated 2026-07-30 (registry-proposal path closed)
 
-## NOW — FULL DRIVE SWEEP (today)
+## NOW — FULL DRIVE READ -> REGISTRY THE ENGINEER RED-PENS
+0. `python3.12 tools/verify_local_setup.py`      MUST exit 0 first.
 1. Mac: merge branch -> main, push both remotes.
-2. `python3.12 tools/probe_corpus.py`            (if not already complete)
-3. `python3.12 tools/sweep_drive.py`             (full corpus; resumable;
-   re-run the same command after any kill. --limit 20 first as a smoke run.)
-4. Read `data/state/sweep/sweep_report.json` (computed from the ledger):
+2. `python3.12 tools/sweep_drive.py --limit 20`  smoke, then no --limit for
+   the full corpus. Resumable: re-run the same command after any kill.
+   Superseded drawing ids are refused BEFORE download.
+3. Read `data/state/sweep/sweep_report.json` (computed from the ledger):
    route split / lint failures / preview rows / vision-verify queue + PRICE.
-5. Vision-verify the residue at the printed price (engineer approves the
+4. Vision-verify the OCR residue at the printed price (engineer approves the
    number first): per file
-   `python3.12 tools/label_vision_verify.py <sweep_dir> --pdf <src> --max-usd <cap>`
-   Smoke: `--limit-montages 1` on one file, read the ledger, then scale.
-6. Engineer red-pens `routing_preview` rows (write still HELD) ->
-   approved previews become the fixture -> REAL write pass -> full autonomous
-   re-run diffed against approvals (the V1 process).
+   `python3.12 tools/label_vision_verify.py <sweep_dir> --pdf <kept.pdf> --max-usd <cap>`
+   Smoke `--limit-montages 1` first. Verdicts are FOLDED BACK into the page
+   records automatically (agree -> conf 95); `--apply-only` re-folds for $0.
+5. Re-run `tools/routing_preview.py <sweep_dir>` on verified files so the
+   promoted labels route.
+6. `python3.12 tools/registry_proposal.py` -> `registry_proposal_<vessel>.md`
+   THE RED-PEN ARTIFACT: every proposed fact grouped BY NODE with provenance,
+   in four buckets (attach-existing / new-node / unresolved / control).
+7. Engineer red-pens it (CONFIRM / REJECT / RETARGET per node). The approved
+   file is the fixture. THEN the real write pass, then a full autonomous
+   re-run diffed against the approvals (the V1 process).
+
+## NEXT BUILD — the applier (the only piece between red-pen and Register)
+`pipeline/registry_apply.py` (NOT in tools/ — tools/ is provably write-free
+and the verifier enforces it). Reads the red-penned proposal, writes ONLY
+rows marked CONFIRM/RETARGET, via node_write with provenance + revision gate
++ backup, `dry_run=False` only on an explicit engineer GO flag.
 
 ## HELD FOR ENGINEER
 - cf-003: three live nav-light Register nodes (merge decision).

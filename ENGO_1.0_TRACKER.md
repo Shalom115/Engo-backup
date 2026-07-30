@@ -342,3 +342,40 @@ reconciled directly instead of guessed at)?
 - **verify-gate** — "clean means verified": the 4-bucket split (unanimous/same+suspects/multi-instance/lost), exact-id-first matching, render-every-lost, the anti-fabrication rule.
 - **register-write** — node schema, bidirectional cross-links, sfi_allocate R1/R2/R3, parent/child, identity-conflict-to-engineer, integrity gate. Guards (non-dict fact value) baked in.
 All frontmatter-valid, tight (500-725 words), every referenced module/function verified to exist. This is the foundation for the other 6 gaps (word-box extraction, deterministic symbol CV, ground-truth regression suite, campaign harness, red-pen tooling, node-graph→retrieval) — skills first so the procedures are captured before the tooling accelerates them.
+
+---
+
+## N. ENGO v1.0 LOCK (2026-07-30)
+
+**Definition of v1.0 (locked, not aspirational):** the deterministic, ~$0
+extraction chain that reads the vessel's drawing corpus, proposes a
+provenance-tagged registry, and refuses to write until the engineer approves.
+Everything below is BUILT and exercised through its real dispatch path.
+
+### In v1.0 (done)
+- Vector-first geometry extraction (nets / labels / symbols), rotation-correct.
+- Per-house symbol bank, engineer-confirmed: 136/136 shapes = 3,018 instances.
+- Self-learned per-house glyph font decoder (stable fingerprints).
+- Sheet-legend-first typing precedence: legend > bank > glossary > UNKNOWN.
+- Dispatcher `extract_document.plan()` routing 4 document classes + per-page.
+- Electrical lint invariants L1-L8 as a hard gate.
+- Schedule-row assembly (device+rating -> load) by DISCOVERED geometry.
+- Routing preview + `registry_proposal` (by-node red-pen artifact, 4 buckets).
+- Priced, capped vision channel with dual-channel promotion APPLIED back.
+- Revision gate before download; kill-safe ledgers; reports computed not typed.
+- `verify_local_setup.py`: 27 checks incl. doc-drift + AST write-hold proof.
+
+### The ONE piece between v1.0 and a written Register
+`pipeline/registry_apply.py` — reads the RED-PENNED proposal, writes only
+CONFIRM/RETARGET rows through node_write with provenance, backup, integrity
+gate; `dry_run=False` only behind an explicit GO flag. Deliberately NOT in
+tools/ so the sweep chain stays provably write-free.
+
+### Known and stated limits of v1.0 (not defects — scope)
+- `routing_preview` step 4 is Register-NAME containment standing in for the
+  §9e semantic matcher. Weaker evidence; the `via` column says so per row.
+- P&ID and GA have no specialisation yet; the dispatcher REPORTS them as
+  pending rather than pretending to handle them.
+- Locate/OCR recall is stochastic; the resolve-first architecture absorbs it
+  (a later pass enriches a node instead of duplicating it).
+- Symbol banks exist for GM Marine only. BAE / ONYX / SWS need one sitting each.

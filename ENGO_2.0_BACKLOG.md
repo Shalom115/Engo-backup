@@ -82,3 +82,30 @@ Last full audit: 2026-07-02
 - **Full Postgres/pgvector migration — NOT done, NOT scheduled.** Considered and explicitly
   deferred (see offline-first invariant above) rather than rejected — revisit post-blind-run
   when the schema has stopped churning.
+
+## Carried out of the vector-first work (added 2026-07-30)
+- **Per-house assets are the fleet moat.** Symbol bank + glyph font table +
+  (later) photo bank, keyed by DRAFTING HOUSE, not by vessel. A second vessel
+  drawn by GM Marine inherits 136 confirmed shapes and types at ~100% on day
+  one with zero red-pen. Store them per-house, version them, and ship them
+  with the engine — this is the thing that makes vessel #2 cheap.
+- **`extract_document.plan()` IS the pre-classification pass** item 1 above
+  asks for. It already returns route + per-page classes + honestly-named
+  `specialisations_pending`. Promote it to emit the reviewable manifest
+  artifact and it satisfies the gate.
+- **Schedule-row assembly must stay DISCOVERED, never configured.** The
+  device->load relation (below vs right) is measured per page. Do not let a
+  per-house constant creep in: another yard prints it the other way and a
+  hardcoded direction fails silently, which is the whole class of bug this
+  protocol exists to prevent.
+- **`registry_apply.py` is the onboarding write path**, and its red-pen
+  artifact (`registry_proposal_<vessel>.md`) is the §9j onboarding
+  confirmation page in everything but styling. Phase 2 turns the same four
+  buckets into the customer-facing review screen.
+- **The runbook is the unit of testing, not the tool.** All four leaks closed
+  on 2026-07-30 were invisible in per-tool tests and only appeared when the
+  steps ran in order on real files and the output was read. Any Phase-2 CI
+  must exercise sweep -> verify -> preview -> proposal as ONE path.
+- **Non-PDF corpus is out of this chain.** The sweep reads PDFs; docx/xlsx/csv
+  go through the text ingest pipeline. Vessel #2 needs one classifier that
+  routes BOTH, or the split will be rediscovered as a "gap" every onboarding.

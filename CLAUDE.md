@@ -126,7 +126,34 @@ validation — **still governs and is enforced in the new code.**
 | label decode | `glyph_font_decode.py` | self-learned per-house font; unknown glyph → `?`, never guessed |
 | self-grading | `electrical_lint.py` | drafting invariants; hard-fail gate |
 | proposals | `routing_preview.py` | **WRITES NOTHING** — the engineer's red-pen artifact |
-| priced API | `label_vision_verify.py` | OCR residue only; `--max-usd` REQUIRED; dual-channel (vision never overwrites tesseract) |
+| schedule rows | `schedule_rows.py` | re-assembles `[device][rating]→[LOAD]` from separate labels; the device→load relation is **DISCOVERED per page** (below vs right), ambiguity flagged not resolved |
+| priced API | `label_vision_verify.py` | OCR residue only; `--max-usd` REQUIRED; dual-channel (vision never overwrites tesseract); verdicts **applied back** into the page records automatically |
+| the registry | `registry_proposal.py` | the whole sweep inverted into ONE by-node red-pen artifact, 4 buckets, provenance per fact. **WRITES NOTHING** |
+
+### Four leaks closed by tracing the RUNBOOK end-to-end (2026-07-30)
+Each was invisible per-tool and only appeared when the steps were followed in
+order, on real files, and the OUTPUT was read:
+1. **The paid vision channel changed nothing.** `label_vision_verify` wrote
+   its ledger; nothing ever read it, so promoted labels never reached
+   `routing_preview`. Now `apply_ledger()` folds verdicts into the page
+   records on EVERY exit path — you cannot spend money and not get the result.
+2. **The sweep deleted the PDF the verify step needs.** `--pdf` pointed at a
+   file already unlinked, forcing a re-download mid-paid-step. PDFs with a
+   verify queue are now kept and their path recorded in the ledger.
+3. **Superseded revisions were training the house font.** The revision gate
+   ran at preview time, after extraction — so obsolete sheets contributed
+   glyphs that current sheets were then decoded against. Refusal moved BEFORE
+   download.
+4. **No supply fact could ever form.** Discovered by running
+   `registry_proposal` and reading it: 225/225 facts came back
+   `appears_on_drawing`, 0 `electrical_supply`. The geometry pass emits
+   `Q45__ 10A` and `RADAR SYSTEM` as separate labels (correctly — that is
+   what is printed); nothing reassembled the schedule row. `schedule_rows.py`
+   rebuilds them by DISCOVERED geometry → 41 real supply facts on the same
+   data, and fact KIND is now earned (`electrical_supply` only when a device
+   id is actually present, else `appears_on_drawing`).
+Also fixed: the load map's own marker values (`CLARIFY`) were being proposed
+as node ids — a node literally named CLARIFY. Markers now go to unresolved.
 
 ### Locked facts about the new protocol
 - **The symbol bank is the typing authority.** `data/state/symbol_bank_gm_marine_CONFIRMED.json` — 136/136 shapes engineer-red-penned (2026-07-28), = 100% of the GM book's 3,018 symbol instances. Per DRAFTING HOUSE, a durable fleet asset. Precedence: **sheet legend > confirmed bank > fleet glossary > `<UNKNOWN>`**.

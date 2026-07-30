@@ -27,8 +27,24 @@ READ DISCIPLINE:
     A single reader cannot promote itself: promotion needs two independent
     channels agreeing (tesseract + vision), which is the dual-channel rule.
 
+PROMOTION IS APPLIED, NOT JUST LOGGED (leak found 2026-07-30 by tracing the
+consumer: this tool wrote its ledger and nothing ever read it, so a PAID
+verification pass changed nothing downstream — routing_preview still saw the
+old sub-70 confidence and still dropped the label). `apply_ledger()` folds the
+ledger back into the p<N>.json records and runs AUTOMATICALLY at the end of
+every run, so there is no way to spend money and not receive the result:
+    agree_promoted   -> conf_final = 95, text_final = TESSERACT's text
+                        (verbatim — the vision read is corroboration, never
+                        the source), conf_source = dual_channel_agree
+    disagree_flagged -> vision_text recorded + label_flag; text untouched
+    unknown          -> label_flag only
+A full glyph decode (conf_final 99) always outranks a promotion and is left
+alone.
+
     python3.12 tools/label_vision_verify.py <sweep_dir_of_one_file> \
         --pdf <src.pdf> --max-usd 2.00 [--limit-montages 2]
+    python3.12 tools/label_vision_verify.py <sweep_dir> --apply-only
+        (fold an EXISTING ledger into the page records; no API calls, $0)
 
 Requires ANTHROPIC_API_KEY via the project .env (Mac). Smoke-test first:
 --limit-montages 1 on one file, read the ledger, then scale.
@@ -40,6 +56,7 @@ import json
 import re
 import sys
 import time
+from collections import Counter
 from pathlib import Path
 from typing import Any, Dict, List
 
@@ -103,8 +120,73 @@ def build_montage(page_img: Image.Image, items: List[Dict[str, Any]],
     return m
 
 
+def _bkey(b) -> tuple:
+    """Stable key for a label bbox across JSON round-trips."""
+    return tuple(round(float(v), 2) for v in b)
+
+
+def apply_ledger(run_dir: Path) -> dict:
+    """Fold verify verdicts back into p<N>.json. Idempotent — re-running
+    produces the same records, so a resumed/repeated verify is safe."""
+    ledger = run_dir / "labels_verify_ledger.jsonl"
+    if not ledger.exists():
+        return {"applied": 0, "note": "no ledger"}
+    by_page: Dict[int, Dict[tuple, dict]] = {}
+    for line in ledger.read_text().splitlines():
+        if not line.strip():
+            continue
+        try:
+            rec = json.loads(line)
+        except Exception:
+            continue
+        for it in rec.get("items", []):
+            by_page.setdefault(int(rec["page"]), {})[_bkey(it["bbox"])] = it
+
+    stats = Counter()
+    for pno, items in by_page.items():
+        pf = run_dir / f"p{pno}.json"
+        if not pf.exists():
+            stats["page_missing"] += 1
+            continue
+        page = json.loads(pf.read_text())
+        touched = False
+        for lab in page.get("labels", []):
+            it = items.get(_bkey(lab.get("bbox") or []))
+            if not it:
+                continue
+            v = it.get("verdict")
+            lab["vision_text"] = it.get("vision_text", "")
+            lab["vision_verdict"] = v
+            if v == "agree_promoted":
+                # the vision read CORROBORATES; the stored text stays
+                # tesseract's. Only confidence moves. A full glyph decode
+                # (99) is stronger evidence and is never demoted.
+                if float(lab.get("conf_final", lab.get("conf", 0))) < 95.0:
+                    lab["text_final"] = lab.get("text", "")
+                    lab["conf_final"] = 95.0
+                    lab["conf_source"] = "dual_channel_agree"
+                stats["promoted"] += 1
+            elif v == "disagree_flagged":
+                lab["label_flag"] = "dual_channel_disagree"
+                stats["flagged"] += 1
+            else:
+                lab["label_flag"] = "vision_unknown"
+                stats["unknown"] += 1
+            touched = True
+        if touched:
+            pf.write_text(json.dumps(page))
+    out = dict(stats)
+    out["applied"] = stats["promoted"] + stats["flagged"] + stats["unknown"]
+    (run_dir / "labels_verify_applied.json").write_text(json.dumps(out, indent=1))
+    print(f"applied to page records: {out}")
+    return out
+
+
 def main(argv):
     run_dir = Path(argv[0])
+    if "--apply-only" in argv:
+        apply_ledger(run_dir)
+        return
     pdf_path = Path(argv[argv.index("--pdf") + 1])
     if "--max-usd" not in argv:
         print("REFUSED: --max-usd is required — this tool never runs uncapped.")
@@ -163,11 +245,13 @@ def main(argv):
                 if limit_m and m_no > limit_m:
                     print(f"stopping at --limit-montages {limit_m}")
                     print_summary(agree, differ, unknown, spent)
+                    apply_ledger(run_dir)
                     return
                 if spent + EST_USD_PER_CALL > max_usd:
                     print(f"COST CAP REACHED (${spent:.2f} of ${max_usd:.2f})"
                           f" — stopping; re-run with a higher cap to resume.")
                     print_summary(agree, differ, unknown, spent)
+                    apply_ledger(run_dir)
                     return
                 batch = items[s:s + CROPS_PER_MONTAGE]
                 montage = build_montage(page_img, batch, start_no=1)
@@ -202,6 +286,7 @@ def main(argv):
                 print(f"montage {m_no}/{montage_total} p{pno}: "
                       f"{len(batch)} crops", flush=True)
     print_summary(agree, differ, unknown, spent)
+    apply_ledger(run_dir)
 
 
 def print_summary(agree, differ, unknown, spent):
