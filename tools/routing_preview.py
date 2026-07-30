@@ -124,6 +124,50 @@ def propose(text: str, mappings, non_node, entries):
     return None, None
 
 
+def detect_furniture(page_recs) -> set:
+    """DISCOVER this document's sheet furniture (title block, border, the
+    copyright paragraph) instead of listing words.
+
+    Found 2026-07-30: the unresolved bucket the engineer was going to
+    red-pen was topped by 'ERMISSION', 'THIS DRAWII', 'IED WITHOUT PRI' —
+    OCR fragments of the copyright legalese printed on every sheet. Asking an
+    engineer to route those is a waste of the scarcest resource in the
+    project.
+
+    The rule is positional and general: furniture occupies the SAME position
+    on many sheets AND says the SAME thing there. A schedule cell also repeats
+    its position across similar sheets, but its text CHANGES per sheet (that
+    is the whole point of a schedule) — so text diversity separates the two
+    without any word list, and without suppressing real content.
+    """
+    n_pages = max(len(page_recs), 1)
+    slots = {}
+    for rec in page_recs:
+        seen = set()
+        for lab in rec.get("labels", []):
+            b, t = lab.get("bbox"), _norm(_lab_text(lab))
+            if not b or not t:
+                continue
+            key = (round(b[0] / 40), round(b[1] / 40))
+            if key in seen:
+                continue
+            seen.add(key)
+            slots.setdefault(key, []).append(t)
+    furniture = set()
+    threshold = max(3, 0.25 * n_pages)
+    for key, texts in slots.items():
+        if len(texts) < threshold:
+            continue
+        top = Counter(texts).most_common(1)[0][1]
+        if top / len(texts) >= 0.5:      # same text, same place, many sheets
+            furniture.add(key)
+    return furniture
+
+
+def _lab_text(lab) -> str:
+    return lab.get("text_final") or lab.get("text") or ""
+
+
 def main(argv):
     run_dir = Path(argv[0])
     min_conf = float(argv[argv.index("--min-conf") + 1]) if "--min-conf" in argv else 70.0
@@ -142,8 +186,10 @@ def main(argv):
                    key=lambda q: int(q.stem[1:]))
     out_rows = []
     sym_summary = Counter()
-    for pf in pages:
-        rec = json.loads(pf.read_text())
+    page_recs = [json.loads(pf.read_text()) for pf in pages]
+    furniture = detect_furniture(page_recs)
+    n_furn = 0
+    for rec in page_recs:
         for s_ in rec.get("typed_symbols", []):
             sym_summary[s_.get("type") or "UNKNOWN_SHAPE"] += 1
 
@@ -181,6 +227,9 @@ def main(argv):
             _b = lab.get("bbox")
             if _b and tuple(round(float(v), 2) for v in _b) in consumed:
                 continue        # already reported as part of a schedule row
+            if _b and (round(_b[0] / 40), round(_b[1] / 40)) in furniture:
+                n_furn += 1
+                continue        # discovered sheet furniture, not a load
             # prefer the glyph-decoded read when it fully decoded (conf 99);
             # fall back to tesseract otherwise
             txt = lab.get("text_final", lab.get("text", ""))
@@ -233,6 +282,8 @@ def main(argv):
         top = ", ".join(f"{t}:{n}" for t, n in sym_summary.most_common(8))
         print(f"typed symbols on these pages: {sum(sym_summary.values())} "
               f"({top})")
+    print(f"sheet furniture suppressed: {n_furn} label instances in "
+          f"{len(furniture)} repeating slots (title block / border)")
     ctrl = sum(1 for r in out_rows if r.get("role") == "control")
     print(f"rows {len(out_rows)}: proposed {by[False]}, unresolved {by[True]}, "
           f"control-not-supply {ctrl}; via {dict(via)}")

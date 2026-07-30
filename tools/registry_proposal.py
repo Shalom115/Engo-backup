@@ -39,6 +39,7 @@ row instead of blending them into one number.
 from __future__ import annotations
 
 import json
+import re
 import sys
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -47,6 +48,10 @@ ROOT = Path(__file__).resolve().parent.parent
 STATE = ROOT / "data" / "state"
 SWEEP = STATE / "sweep"
 VESSEL = "gelliceaux_001"
+
+def _norm(s: str) -> str:
+    return re.sub(r"[^A-Z0-9 ]+", "", (s or "").upper()).strip()
+
 
 VIA_RANK = {"load_map_exact": 3, "load_map_contain": 2, "register_name": 1}
 # Values the engineer writes in the load map that are NOT node ids.
@@ -158,6 +163,32 @@ def collect(sweep: Path, min_conf: float):
             stats[f"kind_{kind}"] += 1
             stats["proposed_facts"] += 1
 
+    # COLLAPSE the unresolved bucket to DISTINCT questions. The same load
+    # name is printed on many sheets; listing every occurrence turns one
+    # decision ("what is BILGE VALVES?") into forty identical ones. The
+    # engineer answers once, and the answer applies to every occurrence.
+    grouped = {}
+    for u in unresolved:
+        k = _norm(u.get("label"))
+        g = grouped.setdefault(k, {"label": u.get("label"), "occurrences": 0,
+                                   "device_ids": [], "seen_on": [],
+                                   "note": u.get("note"),
+                                   "node": "", "engineer_comment": ""})
+        g["occurrences"] += 1
+        if u.get("device_id") and u["device_id"] not in g["device_ids"]:
+            g["device_ids"].append(u["device_id"])
+        src = (u["provenance"]["source_doc"], u["provenance"]["page"])
+        if len(g["seen_on"]) < 3 and src not in g["seen_on"]:
+            g["seen_on"].append(src)
+    # A label that geometry PAIRED with a protective device is electrical
+    # content by construction, so it is worth the engineer's attention before
+    # anything else. Frequency alone would put the drawing's own title-block
+    # text at the top of his review list.
+    unresolved_distinct = sorted(
+        grouped.values(),
+        key=lambda g: (0 if g["device_ids"] else 1, -g["occurrences"]))
+    stats["unresolved_distinct"] = len(unresolved_distinct)
+
     nodes = []
     for nid, facts in sorted(by_node.items()):
         exists = nid in reg
@@ -176,7 +207,13 @@ def collect(sweep: Path, min_conf: float):
             "engineer_comment": "",
         })
         stats["attach_existing" if exists else "new_node_required"] += 1
-    return nodes, unresolved, control, dict(stats)
+    # WEAKEST EVIDENCE FIRST. A node routed only by Register-name containment
+    # (the §9e stand-in) is the one most likely to be wrong, so it gets read
+    # while attention is fresh; load_map_exact rows are the engineer's own
+    # prior decision and need the least scrutiny.
+    nodes.sort(key=lambda n: (VIA_RANK.get(n["strongest_via"], 0),
+                              -n["fact_count"]))
+    return nodes, unresolved_distinct, control, dict(stats)
 
 
 def write_md(path: Path, nodes, unresolved, control, stats, min_conf):
@@ -212,12 +249,15 @@ def write_md(path: Path, nodes, unresolved, control, stats, min_conf):
                 L.append(f"- … {n['fact_count'] - 12} more")
             L += ["", "**DECISION:** ______   **NOTE:** ______", ""]
     L += ["## 3. UNRESOLVED — read cleanly, routed to nothing",
-          f"({len(unresolved)}) These wait for you; Engo does not guess a "
-          "destination.", ""]
+          f"({len(unresolved)} DISTINCT load names, collapsed from all their "
+          "occurrences). Answer each once; the answer applies everywhere it "
+          "appears. Engo does not guess a destination.", ""]
     for u in unresolved[:400]:
-        L.append(f"- `{u.get('device_id') or ''}` {u.get('rating') or ''} "
-                 f"{u['label']}  _[{u['provenance']['source_doc']}, "
-                 f"p.{u['provenance']['page']}]_  → **NODE:** ______")
+        where = ", ".join(f"{d} p.{p}" for d, p in u["seen_on"])
+        dev = ("  devices: " + ", ".join(u["device_ids"])
+               if u["device_ids"] else "")
+        L.append(f"- **{u['label']}**  (x{u['occurrences']}){dev}  "
+                 f"_[{where}]_  → **NODE:** ______")
     if len(unresolved) > 400:
         L.append(f"- … {len(unresolved) - 400} more in the JSON")
     L += ["", "## 4. CONTROL / NON-NODE — typed, deliberately not routed",
