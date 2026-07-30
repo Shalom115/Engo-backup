@@ -135,6 +135,35 @@ if gl.exists():
 else:
     check("BLOCKER", "drawing_symbol_glossary.md", False, "MISSING")
 
+# ------------------------------------------------- 6b. project docs current
+# CLAUDE.md is read at the start of EVERY session and is the project's stated
+# source of truth. It went stale for a full day after the vector-first pivot
+# (last touched 2026-07-10, zero mention of the new protocol) — a fresh
+# session would have bootstrapped on the OLD spec while git reported
+# everything merged. Doc drift is now a checked failure, not a hope.
+DOC_TOKENS = {
+    "CLAUDE.md": ("VECTOR-FIRST",
+                  "the session bootstrap file does not mention the current "
+                  "protocol — a fresh session will start on the OLD spec"),
+    "TODO.md": ("sweep_drive",
+                "the roadmap does not reference the current sweep runner"),
+    "docs/PROTOCOL_electrical_extraction.md": (
+        "symbol_bank_apply",
+        "the electrical protocol predates the symbol-bank flow"),
+    "docs/PROTOCOL_vector_first_classes.md": (
+        "ONYX", "per-class protocols missing the ONYX section"),
+    ".claude/skills/engo-orient/SKILL.md": (
+        "VECTOR-FIRST", "the orientation skill still points at the old path"),
+}
+for rel, (token, why) in DOC_TOKENS.items():
+    fp = ROOT / rel
+    if not fp.exists():
+        check("BLOCKER", f"doc: {rel}", False, "MISSING")
+        continue
+    ok = token in fp.read_text()
+    check("BLOCKER", f"doc current: {rel}", ok,
+          f"mentions {token!r}" if ok else f"STALE — {why}")
+
 # ---------------------------------------------------------------- 7. live import
 sys.path.insert(0, str(ROOT / "tools"))
 try:

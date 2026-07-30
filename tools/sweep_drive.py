@@ -86,7 +86,11 @@ def process_one(fid: str, name: str, data: bytes, out_dir: Path) -> dict:
     import routing_preview as rp
 
     out_dir.mkdir(parents=True, exist_ok=True)
-    pdf_tmp = out_dir / "src.pdf"
+    # Name the temp file after the REAL document: extract_document derives
+    # the font-table name from the file stem, so writing every book as
+    # "src.pdf" merged EVERY drafting house into one font_table_src.json —
+    # cross-house glyph contamination. Caught pre-flight, 2026-07-28.
+    pdf_tmp = out_dir / f"{safe_name(Path(name).stem)}.pdf"
     pdf_tmp.write_bytes(data)
     line: dict = {"id": fid, "name": name}
 

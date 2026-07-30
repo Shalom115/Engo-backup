@@ -266,8 +266,16 @@ def main(argv):
                        if q.stem[1:].isdigit())
     if len(ran_pages) >= 6 and p["route"] == "vector_drawing":
         from glyph_font_decode import main as decode_main
-        house = "".join(ch for ch in Path(pdf_path).stem.lower()
-                        if ch.isalnum())[:24]
+        # FONT TABLE SCOPE, stated honestly: keyed by --house when given,
+        # else by the DOCUMENT stem. A document-keyed table is per-BOOK, not
+        # per-drafting-house — book 2 from the same house only inherits book
+        # 1's font if the caller passes the same --house. Pass --house gm to
+        # group the GM books; the sweep can group by folder when a house
+        # identifier exists. (Never key it off a temp filename: doing so
+        # merged every book into one table.)
+        house = (argv[argv.index("--house") + 1] if "--house" in argv
+                 else "".join(ch for ch in Path(pdf_path).stem.lower()
+                              if ch.isalnum())[:24])
         ft = Path(__file__).resolve().parent.parent / "data" / "state" /              f"font_table_{house}.json"
         dargs = [pdf_path, str(out_dir), str(out_dir), "--font-table", str(ft)]
         decode_main(dargs)
