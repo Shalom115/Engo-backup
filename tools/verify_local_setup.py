@@ -59,10 +59,11 @@ REQUIRED_TOOLS = [
     "symbol_bank_worksheet.py", "glyph_font_decode.py", "electrical_lint.py",
     "routing_preview.py", "probe_corpus.py", "run_book_extract.py",
     "vector_extract_poc.py", "vector_probe.py", "label_vision_verify.py",
+    "schedule_rows.py", "registry_proposal.py",
 ]
 missing = [t for t in REQUIRED_TOOLS if not (ROOT / "tools" / t).exists()]
 check("BLOCKER", "vector-first tools present", not missing,
-      "all 15 present" if not missing else f"MISSING: {missing} — "
+      f"all {len(REQUIRED_TOOLS)} present" if not missing else f"MISSING: {missing} — "
       f"the merge did not land; re-run the fetch/merge")
 
 # ---------------------------------------------------------------- 3. deps
@@ -135,6 +136,35 @@ if gl.exists():
 else:
     check("BLOCKER", "drawing_symbol_glossary.md", False, "MISSING")
 
+# ------------------------------------------------- 6b. project docs current
+# CLAUDE.md is read at the start of EVERY session and is the project's stated
+# source of truth. It went stale for a full day after the vector-first pivot
+# (last touched 2026-07-10, zero mention of the new protocol) — a fresh
+# session would have bootstrapped on the OLD spec while git reported
+# everything merged. Doc drift is now a checked failure, not a hope.
+DOC_TOKENS = {
+    "CLAUDE.md": ("VECTOR-FIRST",
+                  "the session bootstrap file does not mention the current "
+                  "protocol — a fresh session will start on the OLD spec"),
+    "TODO.md": ("registry_proposal",
+                "the roadmap does not reference the current sweep runner"),
+    "docs/PROTOCOL_electrical_extraction.md": (
+        "symbol_bank_apply",
+        "the electrical protocol predates the symbol-bank flow"),
+    "docs/PROTOCOL_vector_first_classes.md": (
+        "ONYX", "per-class protocols missing the ONYX section"),
+    ".claude/skills/engo-orient/SKILL.md": (
+        "VECTOR-FIRST", "the orientation skill still points at the old path"),
+}
+for rel, (token, why) in DOC_TOKENS.items():
+    fp = ROOT / rel
+    if not fp.exists():
+        check("BLOCKER", f"doc: {rel}", False, "MISSING")
+        continue
+    ok = token in fp.read_text()
+    check("BLOCKER", f"doc current: {rel}", ok,
+          f"mentions {token!r}" if ok else f"STALE — {why}")
+
 # ---------------------------------------------------------------- 7. live import
 sys.path.insert(0, str(ROOT / "tools"))
 try:
@@ -146,6 +176,7 @@ except Exception as e:
     check("BLOCKER", "symbol typing loads the bank", False, f"{type(e).__name__}: {e}")
 try:
     import extract_document, sweep_drive, sheet_legend  # noqa: E402,F401
+    import schedule_rows, registry_proposal  # noqa: E402,F401
     check("BLOCKER", "dispatcher + sweep import cleanly", True, "ok")
 except Exception as e:
     check("BLOCKER", "dispatcher + sweep import cleanly", False,
@@ -175,7 +206,7 @@ for t in (ROOT / "tools").glob("*.py"):
             if isinstance(v, _ast.Constant) and v.value is False:
                 offenders.append(f"{t.name}: dry_run=False")
 check("BLOCKER", "no Register writes in the sweep chain", not offenders,
-      "none of the 15 tools import node_write or set dry_run=False"
+      "no tool in the sweep chain imports node_write or sets dry_run=False"
       if not offenders else f"WRITE PATH PRESENT in {offenders}")
 
 # ---------------------------------------------------------------- report

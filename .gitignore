@@ -16,3 +16,21 @@ logs/
 # this purpose going forward. Existing backups are left on disk, just untracked.
 data/state/*backup*.json
 data/state/vision_bench/sheets/
+
+# Sweep runs are MACHINE-LOCAL working state. The report is computed from the
+# whole ledger, so rows committed from another machine's test run would
+# contaminate the real sweep's numbers. A test run's artifacts were committed
+# once (beb803c) and had to be deleted — never again.
+data/state/sweep/
+
+# Per-house glyph font tables are self-learned on the machine that runs the
+# decode; each machine regenerates its own during the sweep. Partial tables
+# from test runs must not ride along in commits. When a COMPLETE table is
+# promoted to a fleet asset (like the symbol bank), commit it deliberately
+# with `git add -f`.
+data/state/font_table_*.json
+
+# Registry PROPOSAL artifacts are regenerated from whichever sweep just ran.
+# Committing one lets a two-file test run masquerade as the full-drive
+# registry the engineer is about to red-pen.
+data/state/registry_proposal_*

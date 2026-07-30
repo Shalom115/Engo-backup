@@ -48,6 +48,9 @@ import sys
 from collections import Counter
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from schedule_rows import assemble_rows  # noqa: E402
+
 STATE = Path(__file__).resolve().parent.parent / "data" / "state"
 
 
@@ -143,7 +146,41 @@ def main(argv):
         rec = json.loads(pf.read_text())
         for s_ in rec.get("typed_symbols", []):
             sym_summary[s_.get("type") or "UNKNOWN_SHAPE"] += 1
+
+        # SCHEDULE ROWS FIRST. The geometry pass emits 'Q45__ 10A' and
+        # 'RADAR SYSTEM' as two labels because that is what they are on the
+        # sheet; schedule_rows re-assembles the printed row by DISCOVERED
+        # geometry. Without this every routed row was a bare load name and no
+        # electrical_supply fact could ever form (found 2026-07-30).
+        consumed = set()
+        arows, ameta = assemble_rows(rec)
+        for ar in arows:
+            for b in (ar.get("bbox_device"), ar.get("bbox_load")):
+                if b:
+                    consumed.add(tuple(round(float(v), 2) for v in b))
+            if not ar.get("load"):
+                continue
+            if float(ar.get("conf", 0)) < min_conf:
+                continue
+            node, via = propose(ar["load"], mappings, non_node, entries)
+            row = {"page": rec["page"], "label": ar["text"],
+                   "conf": ar["conf"], "bbox": ar.get("bbox_load"),
+                   "device_id": ar["device_id"], "rating": ar.get("rating"),
+                   "role": "supply", "assembled": True,
+                   "assembly_direction": ar.get("direction")}
+            if ar.get("device_id_low_conf"):
+                row["device_id_low_conf"] = True
+            row["proposed"] = node or "UNRESOLVED"
+            if via:
+                row["via"] = via
+            out_rows.append(row)
+        if arows:
+            sym_summary["_assembled_rows"] += 0  # keep counter type stable
+
         for lab in rec.get("labels", []):
+            _b = lab.get("bbox")
+            if _b and tuple(round(float(v), 2) for v in _b) in consumed:
+                continue        # already reported as part of a schedule row
             # prefer the glyph-decoded read when it fully decoded (conf 99);
             # fall back to tesseract otherwise
             txt = lab.get("text_final", lab.get("text", ""))
