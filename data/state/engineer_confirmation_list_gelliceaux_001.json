@@ -158,5 +158,31 @@
    "engineer_comment": "",
    "status": "open"
   }
+ ],
+ "items": [
+  {
+   "id": "cf-003",
+   "node_id": "690-navigation-lights",
+   "issue_type": "duplicate_nodes",
+   "summary": "Three live Register nodes all describe navigation lighting; the load map routes different label spellings to different ones.",
+   "values": [
+    {
+     "value": "690-lts-navigation",
+     "source": "load_map: 'NAVIGATION LTS'"
+    },
+    {
+     "value": "690-lts-nav-em",
+     "source": "load_map: 'NAV. LIGHTS'"
+    },
+    {
+     "value": "690-navigation-lights",
+     "source": "load_map: 'PORT/STBD/STERN/AUX NAV. LT.', 'STEAMING LT. 1/2'"
+    }
+   ],
+   "why_it_matters": "Navigation lights are safety equipment and the engineer's standing rule is that they are ALWAYS their own node. Three nodes means facts about one physical system land in three places. Engo does not merge or pick unilaterally (Case A).",
+   "found_by": "compliance audit F10, 2026-07-28",
+   "engineer_comment": "",
+   "status": "open"
+  }
  ]
 }

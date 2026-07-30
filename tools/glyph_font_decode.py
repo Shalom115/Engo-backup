@@ -26,6 +26,12 @@ non-text — which also fixes the 'eee eee' dotted-boundary lint findings.
 
     python tools/glyph_font_decode.py <book.pdf> <bookrun_dir> <out_dir>
 
+FINGERPRINTS ARE CROSS-PROCESS STABLE (stable_hash/blake2b — the builtin
+hash() is randomised per process; with it the persisted font table could never
+match a later run, so the per-house font asset was dead weight. Same bug
+caught live in the symbol bank: 0/159 typed.) A persisted font table can now
+be RELOADED for later books from the same drafting house via --font-table.
+
 Outputs: font_table_<house>.json, decode_report.json,
          <out_dir>/p<N>.json (bookrun copies with decoded text merged).
 """
@@ -40,6 +46,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import fitz
+
+from symbol_bank_build import stable_hash  # cross-process-stable fingerprints
 
 TRAIN_CONF = 85.0
 MIN_VOTES = 3
@@ -89,13 +97,13 @@ def page_glyphs(page):
             continue
         scale = max(w, h, 0.15)
         ox, oy = min(xs), min(ys)
-        sig = tuple((op,) + tuple((round((x - ox) / scale, 1),
-                                   round((y - oy) / scale, 1))
+        sig = tuple((op,) + tuple((round((x - ox) / scale, 1) + 0.0,
+                                   round((y - oy) / scale, 1) + 0.0)
                                   for (x, y) in pts)
                     for op, pts in raw)
         # aspect bucket keeps '-' distinct from '|' after scale-norm
         aspect = round(min(w, h) / scale, 1)
-        out.append((hash((sig, aspect)), min(xs), min(ys), max(xs), max(ys)))
+        out.append((stable_hash((sig, aspect)), min(xs), min(ys), max(xs), max(ys)))
     return out
 
 
@@ -143,9 +151,9 @@ def chars_of_label(glyphs, bbox, pad=1.2):
         ch = max(cy1 - cy0, cx1 - cx0, 0.3)
         # signature includes each path's RELATIVE OFFSET inside the char —
         # without it 'T' and '+' (both {h-bar, v-stem}) hash identically
-        fps = tuple(sorted((g[0], round((g[1] - cx0) / ch, 1),
-                            round((g[2] - cy0) / ch, 1)) for g in c))
-        out.append({"sig": hash(fps), "x0": cx0, "x1": cx1, "n_paths": len(c)})
+        fps = tuple(sorted((g[0], round((g[1] - cx0) / ch, 1) + 0.0,
+                            round((g[2] - cy0) / ch, 1) + 0.0) for g in c))
+        out.append({"sig": stable_hash(fps), "x0": cx0, "x1": cx1, "n_paths": len(c)})
     return out
 
 
@@ -203,12 +211,26 @@ def main(argv):
     pdf_path, run_dir, out_dir = argv[0], Path(argv[1]), Path(argv[2])
     out_dir.mkdir(parents=True, exist_ok=True)
     doc = fitz.open(pdf_path)
-    all_pages = sorted(int(p.stem[1:]) for p in run_dir.glob("p*.json"))
+    all_pages = sorted(int(q.stem[1:]) for q in run_dir.glob("p*.json")
+                       if q.stem[1:].isdigit())
     train_pages = [p for p in all_pages if p % 2 == 0]
     test_pages = [p for p in all_pages if p % 2 == 1]
     table, aligned, skipped = learn(doc, run_dir, train_pages)
     print(f"TRAIN (even pages): {aligned} labels aligned, {skipped} skipped "
           f"(count mismatch, never forced) -> font table {len(table)} signatures")
+    # PER-HOUSE FONT REUSE: a previously learned table for this drafting house
+    # extends today's (today's votes win on conflict). This is what makes the
+    # font a durable asset instead of a per-run throwaway — and it is only
+    # possible now that fingerprints are cross-process stable.
+    if "--font-table" in argv:
+        ft = Path(argv[argv.index("--font-table") + 1])
+        if ft.exists():
+            prior = json.loads(ft.read_text())
+            merged = dict(prior)
+            merged.update(table)
+            print(f"  merged prior house font {ft.name}: {len(prior)} + "
+                  f"{len(table)} -> {len(merged)} signatures")
+            table = merged
 
     # OUT-OF-SAMPLE test: odd pages, high-conf tesseract as reference
     agree = differ = 0

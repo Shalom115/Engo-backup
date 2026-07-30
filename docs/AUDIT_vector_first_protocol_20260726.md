@@ -201,10 +201,16 @@ Fixed in `tools/vector_extract_poc.py`, proven on p13 (GMMS 111a):
   boxes, fuse elements, relay outlines, diamonds); 1,486 filled marks (junction
   dots — used as net connectors — and arrowheads); 344 label boxes (incl. 14
   vertical). Every class drawn in the overlay; nothing black.
-- **Labels read and attached, locally, $0:** 330/344 OCR non-empty; 163 word-
-  confidence ≥70 untuned ('NAVIGATION LTS' 94, 'PORT NAV. LT.' 95,
-  'NAV.LIGHTS ALARM SYSTEM' 95, 'STEAMING LT. 2' 96); **325/344 labels attached
-  to their net or symbol within 12pt by geometry alone.**
+- **Labels read and attached, locally, $0.** ⚠ CORRECTED 2026-07-28 (audit
+  flag F5): the numbers first published here — 344 boxes / 330 non-empty /
+  163 conf≥70 / 325 attached — came from the v1 box-merge segmentation and
+  are NOT reproducible from the shipped runner. `cluster_labels` was replaced
+  by the char-chain line builder on 2026-07-27 (v1 cut the first/last
+  character off ~35% of labels), which produces FEWER, WHOLER labels. The
+  reproducible figures on p13 today are **235 labels / 208 non-empty /
+  103 conf≥70 / 225 attached**. The geometry numbers below (810 wires, 355
+  nets, 309 symbol boxes, 1486 dots) DO reproduce exactly. Lesson recorded:
+  a published measurement must name the code version that produced it.
 - Known gaps, named: lamp/circle symbols (curve loops) not yet promoted to
   symbol boxes; ~half the labels below conf-70 await the residue channel;
   `get_pixmap(clip=)` is rotation-treacherous — the POC crops from one

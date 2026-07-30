@@ -1,0 +1,28 @@
+{
+ "name": "src.pdf",
+ "route": "text_layer_drawing",
+ "pages": 1,
+ "file_class": "A1_hybrid",
+ "class_counts": {
+  "A1_hybrid": 1
+ },
+ "text_layer_chars": 2188,
+ "distinct_text_per_page": 2188.0,
+ "has_text_layer": true,
+ "images": 32,
+ "wire_segments": 562,
+ "wires_per_page": 562,
+ "legend_signal": true,
+ "specialisations_pending": [
+  "pid: per-service stroke-colour split + BOM tag-join",
+  "ga: positioned-callout router (leader-line tracing)"
+ ],
+ "page_classes": [
+  {
+   "page": 0,
+   "class": "A1_hybrid",
+   "wires": 562,
+   "text": 2188
+  }
+ ]
+}

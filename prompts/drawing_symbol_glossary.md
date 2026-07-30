@@ -9,10 +9,147 @@
 # Provenance: entries marked [ENG] were confirmed by the engineer during the GM
 # electrical red-pen review (batch 1, 2026-07-10, recorded in
 # data/state/redpen_electrical_batch1_raw_20260710.txt + flagged_propagation_20260710.json).
-# Entries marked [STD] are standard drafting conventions already enforced as §6
-# device discipline.
+# Entries marked [ENG-SB] come from the SYMBOL-BANK red-pen (2026-07-28,
+# data/state/redpen_symbol_bank_gm_20260728.txt): 133 of 136 unique repeated
+# shapes in the GM book typed by the engineer, covering 96% of the book's
+# symbol instances. Entries marked [STD] are standard drafting conventions
+# already enforced as §6 device discipline.
+#
+# ─────────────────────────────────────────────────────────────────────────────
+# HOW A SYMBOL IS TYPED — read in this order, first match wins:
+#   1. the sheet's OWN legend (legends-first pass)      — always overrides
+#   2. the confirmed SYMBOL BANK for this drafting house — shape fingerprint
+#      → engineer-confirmed type (data/state/symbol_bank_<house>_CONFIRMED.json)
+#   3. this glossary's shape and id-prefix rules
+#   4. <UNKNOWN> — never guess
+# ─────────────────────────────────────────────────────────────────────────────
 
-## electrical
+## electrical — SHAPE rules (what the drawing looks like)
+
+- [ENG-SB] **POWER-CONVERSION BLOCK — a rectangle with a DIAGONAL line through
+  it and a VOLTAGE printed on EACH side is a power-conversion unit.** Read the
+  two voltages to name the class:
+    DC in → AC out  = INVERTER          (e.g. 600V DC / 230V AC)
+    DC in → DC out  = CONVERTER / DC-DC slicer (e.g. 600V DC / 24V DC)
+    AC in → DC out  = BATTERY CHARGER   (e.g. 230V AC / 24V DC)
+  It is never a terminal, never a plain load, never annotation. Type it as the
+  conversion class and route it to power conversion.
+  ⚠ THIS RULE WAS MISSING FROM THE GLOSSARY UNTIL 2026-07-28 AND THE ENGINEER
+  HAD TO STATE IT TWICE. Root cause recorded in
+  docs/PROTOCOL_electrical_extraction.md §G: his earlier instruction was
+  captured only as INSTANCE routing (BEL→629, MAPS→626, chargers→621 in the
+  load-map red-pen) and never generalised into a SHAPE rule — the exact
+  per-instance-instead-of-per-type failure this whole symbol-bank effort
+  exists to end.
+- [ENG-SB] **FUSED TERMINAL — a rectangle-with-a-line-inside drawn INSIDE
+  another rectangle is a terminal with a built-in fuse.** Distinct from a plain
+  terminal (empty rectangle) and from an inline fuse (rectangle on a
+  conductor). Terminal strips routinely mix fused and unfused terminals in one
+  strip — type each terminal individually, never by strip.
+- [ENG-SB] **TERMINAL STRIP — "T/S <letter>" names the strip; each numbered
+  rectangle is one terminal and the number inside is that terminal's label.**
+  Record strip and terminal separately (T/S E terminal 84), never as one blob.
+- [ENG-SB] **GANGED BREAKERS — two breaker symbols joined by a mechanical link
+  are ganged: if one trips the other trips with it** (2 phases, or + and −).
+  They may carry two labels (Q12 16A + Q13 16A) or one label for the pair
+  (Q1 32A). Record the gang relationship — it is a protection fact.
+- [ENG-SB] **THE DOT RULE (topology-critical) — a solid dot where a line meets
+  a terminal, a component or another line is a REAL ELECTRICAL CONNECTION at
+  that point. No dot = the line passes by/through WITHOUT connecting.** Two
+  terminals crossed by one line, with a dot in only the lower one, means the
+  line connects to the lower terminal only. This governs net building: an
+  extractor that ignores dots will invent connections that do not exist.
+- [ENG-SB] **CABLE-CORE NUMBERING — a number INSIDE a terminal rectangle is the
+  terminal's own label; a number OUTSIDE it is the CORE NUMBER within a
+  multi-core cable.** Both must be captured; they answer different questions
+  (which terminal vs which wire in which cable).
+- [ENG-SB] **TWISTED SHIELDED PAIR / CABLE GROUP — crossed lines (an X) between
+  two conductors mark them as a TWISTED PAIR; a vertical line carrying solid
+  dots across several conductors is the common SHIELD / DRAIN wire; a heavy bar
+  terminating those lines is a SHIELD GROUND / chassis-earth termination.**
+  Naming convention: `<cable>P<n>` = Pair n, `<cable>R<n>` = its Return. These
+  are CABLE STRUCTURE, not devices — but they are facts about the conductor
+  (shielded, twisted, which cable group) and belong on the wire, not discarded.
+- [ENG-SB] **PLUG / CONNECTOR — a large rectangle is the PLUG; the bold text
+  names what the plug serves (e.g. MPCS-S, ECP1); each small rectangle with a
+  triangle beside it inside that plug is ONE PIN, and the text inside the
+  rectangle is the cable core landing on that pin.** Pins attach to their
+  plug's owner — a pin is never an equipment node of its own.
+- [ENG-SB] **NEGATIVE-BUS MARK — the bus symbol on a terminal's side means that
+  terminal connects to the NEGATIVE BUS BAR.** Negative/return paths are part
+  of the circuit loop and must be traced, not dropped as "not power".
+- [ENG-SB] **OVERCURRENT/UNDERCURRENT RELAY — a rectangle enclosing an `I > <`
+  symbol is a current-monitoring / over- and under-current protection relay.**
+- [ENG-SB] **HV CONTACTOR — carries BOTH NO and NC contact sets on one device**
+  (typically NO group above, NC group below). Record which side a circuit uses.
+- [ENG-SB] **RELAY POSITIVE-SIDE RULE — the positive side of a relay can feed
+  BOTH the coil (activation) and the switched function.** A power-path trace
+  that assumes coil and load supplies are separate will mis-read the circuit.
+- [ENG-SB] **PIGGY-BACKED TERMINALS — a terminal may take its supply from its
+  neighbour and pass it onward to a different cable core** (e.g. 58 shares 57's
+  source and feeds core 7; 60 piggybacks 59 and feeds core 8). Supply lineage
+  is per-terminal, not per-strip.
+
+## electrical — MONITORING / CONTROL INTERFACE
+
+- [ENG-SB] **THE XA ARROW-DIRECTION RULE — an arrow-shaped tag block labelled
+  `XA<strip> <terminal>` is the interface to the monitoring & control system
+  (on this vessel, ONYX). `XA50` is the terminal strip; the arrow-shaped
+  rectangle is the terminal. THE ARROW DIRECTION CARRIES THE SEMANTICS:**
+    arrow pointing AWAY from the electrical system  →  the monitoring system
+        MEASURES a signal FROM the circuit  =  STATUS / INDICATION
+    arrow pointing TOWARD the electrical system     →  the monitoring system
+        SENDS a signal INTO the circuit     =  CONTROL / COMMAND
+  This is the CONTROL ≠ INDICATOR ≠ SUPPLY distinction drawn geometrically.
+  Read the arrow before typing: an indication tap routed as a control is a
+  wrong relationship, not a wrong label. Never type these as annotation and
+  never drop them because "the wire goes elsewhere".
+- [ENG-SB] **CURRENT TRANSMITTER — measures the current in a line and TRANSMITS
+  the measurement to the monitoring/control system.** (The engineer's term;
+  "CT / current transformer" appears on some sheets for the same function —
+  the FUNCTION is what routes: a measurement device reporting to monitoring,
+  cross-linked to the line it measures. Not a load, not a power tap.)
+- [ENG-SB] **AMP GAUGE — sits IN LINE with the supply/consumer and displays the
+  current flowing through it.** A gauge is an instrument, not a load.
+- [ENG-SB] **PHASE-INDICATOR LAMP — lit = live between that phase and neutral**
+  (shore-power phase indication). Indicator, never a control.
+
+## electrical — DEVICE CLASSES seen in the GM book
+
+- [ENG-SB] BILGE LEVEL SENSOR / bilge switch — water contact closes the circuit
+  or sends a signal, raising the bilge alarm.
+- [ENG-SB] TANK LEVEL SENDER — level sender fitted in every tank.
+- [ENG-SB] ALARM BUZZER — audible annunciator driven when an alarm is raised.
+- [ENG-SB] SOLENOID VALVE — incl. pneumatic solenoid valves.
+- [ENG-SB] MOTORISED VALVE — a motor that opens and closes a valve. The motor
+  is the actuator; the VALVE is the equipment (equipment ≠ actuator).
+- [ENG-SB] MOTOR variants: a DC motor is fed by a positive line with the
+  negative-bus mark on its return; an AC motor shows L and N plus a grounding
+  line to the earth bar. Record which — it identifies the supply system.
+- [ENG-SB] EMERGENCY STOP BUTTON — e.g. the hybrid-system emergency stop.
+- [ENG-SB] THROTTLE — propulsion control input.
+- [ENG-SB] RELAY WITH LIGHT INDICATION — relay carrying an integral indicator.
+- [ENG-SB] GREY-WATER TRANSFER BOX — a box containing a level switch and a
+  pump: when the box fills, the level switch starts the pump and transfers to
+  the grey-water tank. (An assembly: box + switch + pump, one equipment node
+  with its internal devices as facts.)
+- [ENG-SB] LIGHTING-MODULE TERMINALS — terminals of a lighting PLC module: the
+  − side goes to the negative bus, the + side feeds the terminals that switch
+  individual light circuits.
+
+## drawing furniture — MUST BE READ, NOT DISCARDED
+
+- [ENG-SB] **TITLE BLOCK / SHEET DESCRIPTION — the table at the bottom of every
+  sheet carrying drawing number, title, drafting company, project and customer
+  IS PAGE IDENTIFICATION AND MUST BE READ AND RECORDED PER PAGE.** It is not a
+  device and not noise: it tells the sweep which sheet it is looking at and how
+  to read it. (Note: the symbol-bank builder deliberately EXCLUDES title-block
+  shapes from the device bank — that exclusion is about not typing furniture as
+  equipment, and does not license skipping the block's TEXT.)
+- [ENG-SB] **INDEX PAGE — identify it as the index and treat it as the
+  drawing→system ROUTER** (§9b), not as a schematic to extract devices from.
+
+## electrical — ID-PREFIX and legacy rules
 
 - [ENG] A DIAMOND enclosing a number, sitting ON a wire, is a WIRE-GAUGE CALLOUT —
   the number is the conductor cross-section in mm². It is an ANNOTATION, not a

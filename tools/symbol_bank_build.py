@@ -23,6 +23,7 @@ Outputs: <out_dir>/symbol_bank_DRAFT.json  (fingerprint -> instances, unlabeled)
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import math
 import sys
@@ -53,9 +54,20 @@ def _pts(it):
     return out
 
 
+def stable_hash(obj) -> str:
+    """PERSISTENT fingerprint. Python's built-in hash() is randomised per
+    process for strings (PYTHONHASHSEED), so a fingerprint written to a bank
+    file in one run can NEVER match the same shape fingerprinted in the next
+    run — the bank silently types 0% of everything. Caught 2026-07-28 by
+    actually running symbol_typing against the confirmed bank (0/159 typed).
+    blake2b over a canonical repr is stable across processes and machines."""
+    return hashlib.blake2b(repr(obj).encode("utf-8"), digest_size=12).hexdigest()
+
+
 def path_fingerprint(d, R):
     """Normalized shape signature of one drawing path (rotation-corrected to
-    render space, translation-invariant, 0.1pt quantized)."""
+    render space, translation-invariant, 0.1pt quantized). Returns a STABLE
+    (cross-process) hex fingerprint — see stable_hash."""
     sig = []
     origin = None
     for it in d["items"]:
@@ -65,9 +77,13 @@ def path_fingerprint(d, R):
             continue
         if origin is None:
             origin = pts[0]
+        # `+ 0.0` normalises -0.0 to 0.0: hash(-0.0)==hash(0.0) but
+        # repr(-0.0)!="0.0", so without this the stable hash SPLITS clusters
+        # the old hash() merged (observed: 136 -> 137 clusters on rebuild).
         sig.append((it[0],) + tuple(
-            (round(x - origin[0], 1), round(y - origin[1], 1)) for (x, y) in pts))
-    return hash(tuple(sig)) if sig else None, origin
+            (round(x - origin[0], 1) + 0.0, round(y - origin[1], 1) + 0.0)
+            for (x, y) in pts))
+    return (stable_hash(tuple(sig)) if sig else None), origin
 
 
 def _page_wires(page, R):

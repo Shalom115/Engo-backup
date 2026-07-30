@@ -22,7 +22,21 @@ for your task. Only fall back to CLAUDE.md / EXECUTION_SPECS.md for deep history
   without checking these first).
 - `ENGO_1.0_TRACKER.md` — at-a-glance Phase-1 status. `ENGO_2.0_BACKLOG.md` — Phase-2.
 - `EXECUTION_SPECS.md` §0.5 — the "where we are now" snapshot + engineer queue.
-- `docs/PROTOCOL_electrical_extraction.md` — the consolidated extraction rules.
+- `docs/PROTOCOL_electrical_extraction.md` — the consolidated extraction rules
+  (§A2 symbol bank, §A3 the generalise-rules-in-the-same-pass standing rule).
+- **VECTOR-FIRST (current, 2026-07-28): schematic extraction is geometry-first
+  at ~$0/page.** Entry point `tools/extract_document.py` (probe -> route),
+  full-corpus runner `tools/sweep_drive.py` (kill-safe ledger, resumable),
+  gate `tools/electrical_lint.py`, proposals `tools/routing_preview.py`
+  (WRITES NOTHING). Symbol typing from the engineer-confirmed bank
+  (`data/state/symbol_bank_gm_marine_CONFIRMED.json`, per drafting house);
+  sheet legends override the bank (`tools/sheet_legend.py`). OCR residue goes
+  to the priced, capped API channel `tools/label_vision_verify.py`
+  (--max-usd REQUIRED). The old vision-tiling pipeline
+  (`pipeline/electrical_extract.py` etc.) remains ONLY for genuinely raster
+  documents, which the dispatcher queues instead of attempting.
+- `docs/PROTOCOL_vector_first_classes.md` — per-document-class protocols.
+- `docs/AUDIT_FLAG_RESOLUTIONS_20260728.md` — compliance flags and fixes.
 
 ## Non-negotiable disciplines (violating these has caused real scars)
 

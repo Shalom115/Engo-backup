@@ -30,6 +30,53 @@ Version 1.0 — 2026-07-12. Every rule traces to code + a scar.
    code** — corrected-on-id-match, kept-from-crop-when-dropped, invented ids
    discarded, all guarded against non-dict vision output.
 
+## A2. Typing symbols from the CONFIRMED SYMBOL BANK (2026-07-28)
+
+A device symbol is the SAME VECTOR SHAPE everywhere one drafting house draws.
+So typing is per-SHAPE, not per-instance:
+
+1. `symbol_bank_build.py` clusters every repeated wired shape in a book
+   (wire-touch + title-block + fragment filters) → `symbol_bank_DRAFT.json`.
+2. `symbol_bank_worksheet.py` renders it as a fillable red-pen worksheet.
+3. The engineer types each unique shape ONCE.
+4. `symbol_bank_apply.py` writes his answers in →
+   `data/state/symbol_bank_<house>_CONFIRMED.json`.
+5. Extraction resolves a symbol by fingerprint against the confirmed bank
+   BEFORE falling back to glossary shape/prefix rules.
+
+**GM Marine bank status: 133 of 136 shapes confirmed = 96% of the book's
+3,018 symbol instances typed** (`data/state/redpen_symbol_bank_gm_20260728.txt`
+is the verbatim record). Open: #7, #130, #132 (not answered); #23 answered
+`incomplete` — the crop shows too little to decide earth-leak breaker vs
+current transmitter, so it is re-cropped wider and re-asked, never guessed.
+
+**The bank is a per-drafting-house FLEET ASSET** — the next vessel drawn by
+GM Marine inherits all 133 types with no red-pen at all.
+
+## A3. WHY THE CONVERTER RULE WAS MISSING — root cause, recorded
+
+The engineer had to state twice, in the symbol-bank red-pen (#111, #116/#118),
+that *a rectangle with a diagonal line and a voltage on each side is an
+inverter / converter / charger* — and asked why it was not already in the
+protocol. It was not. Verified by grep on 2026-07-28: zero occurrences of
+"converter", "inverter", "charger" or "diagonal" in the symbol glossary or
+either protocol doc.
+
+He HAD taught it before — on 2026-07-11 in the load-map red-pen
+(`redpen_load_map_batch1_raw_20260711.txt` lines 5-8, 93, 131: "the bel is one
+of the power converters onboard", "MAPS is a power converter", "emergency
+inverter"). **But it was captured only as INSTANCE ROUTING** — BEL→629,
+MAPS→626, chargers→621 went into the load map and the Register — **and was
+never generalised into a SHAPE rule any extractor could apply to an unseen
+block.** So the pipeline knew *those three units*, and would have failed on the
+fourth converter on a sheet it had not seen.
+
+That is precisely the per-instance-instead-of-per-type failure this whole
+symbol-bank effort exists to end. **STANDING RULE ADDED: when the engineer
+explains WHY something is what it is, extract the GENERAL rule into the
+glossary in the same pass as the specific routing — a rule recorded only as an
+instance is a rule that will be asked for twice.**
+
 ## B. Typing symbols (the §6 device discipline + the glossary)
 
 - **breaker ≠ fuse ≠ relay ≠ contactor ≠ terminal ≠ switch; signal ≠ power.**

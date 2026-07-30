@@ -1,0 +1,32 @@
+{
+ "files": 6,
+ "ok": 6,
+ "errors": [],
+ "routes": {
+  "text_layer_drawing": 3,
+  "vector_drawing": 3
+ },
+ "totals": {
+  "labels": 29486,
+  "ocr_conf70": 8872,
+  "attached": 27492,
+  "symbols": 9985,
+  "symbols_typed": 3548,
+  "symbols_unknown": 6437,
+  "symbols_need_verify": 926,
+  "legend_entries": 50,
+  "text_layer_labels": 19069,
+  "preview_proposed": 309,
+  "preview_unresolved": 2330,
+  "label_verify_queue": 18117
+ },
+ "lint_hard_fail_files": [
+  "2d23173e-Nav_layout_schematic.pdf",
+  "4de3a1ff-BAE_Wiring_Diagrams.pdf",
+  "90884c5c-SW10801600_Electrical_schematics__GM_Marine_06_Oct_2023_2.pdf",
+  "c7073c4d-Onyx_drawings_1.pdf"
+ ],
+ "vision_verify_queue": 18117,
+ "vision_verify_est_calls": 453,
+ "vision_verify_est_cost_usd": 9.06
+}
