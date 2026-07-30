@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import importlib
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -181,6 +182,33 @@ try:
 except Exception as e:
     check("BLOCKER", "dispatcher + sweep import cleanly", False,
           f"{type(e).__name__}: {e}")
+
+# -------------------------------------------------- 7b. the connector works
+# The verifier passed 27/27 and the sweep then failed 20/20 on
+# "'SnapshotStructureProvider' object has no attribute 'download_bytes'".
+# "Imports cleanly" is not "can fetch a byte". This checks the CAPABILITY the
+# sweep actually needs, and separates the two failure kinds: a wrong provider
+# class is a CODE defect and blocks; missing credentials on a machine that was
+# never set up for Drive is an environment fact and only warns (that machine
+# can still sweep with --local).
+_creds_set = bool(os.getenv("GDRIVE_SERVICE_ACCOUNT_JSON")
+                  or os.getenv("GDRIVE_OAUTH_TOKEN_JSON"))
+try:
+    import sweep_drive as _sw  # noqa: E402
+    _prov, _man = _sw.drive_downloader()
+    _cls = type(_prov).__name__
+    check("BLOCKER", "Drive connector can download bytes",
+          hasattr(_prov, "download_bytes"),
+          f"{_cls} exposes download_bytes"
+          if hasattr(_prov, "download_bytes")
+          else f"{_cls} has NO download_bytes — the sweep cannot fetch files")
+except Exception as e:
+    check("BLOCKER" if _creds_set else "WARN",
+          "Drive connector can download bytes", False,
+          f"{type(e).__name__}: {str(e)[:150]}" + (
+              "" if _creds_set else
+              "  (no GDRIVE_* credentials on this machine — Drive sweeps "
+              "unavailable; --local sweeps still work)"))
 
 # ---------------------------------------------------------------- 8. write-hold
 # Test for a real WRITE PATH, not a mention. A substring search matched this

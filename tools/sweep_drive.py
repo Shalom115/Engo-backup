@@ -45,20 +45,49 @@ def safe_name(name: str) -> str:
     return "".join(c if c.isalnum() or c in "-_" else "_" for c in name)[:80]
 
 
+def drive_downloader():
+    """Build the connector that can actually FETCH BYTES, and prove it can
+    before the sweep starts.
+
+    Bug found on the Mac 2026-07-30, 20/20 files failed: this used the
+    `get_structure_provider()` factory, which defaults to STRUCTURE_PROVIDER=
+    "snapshot" — a provider that reads the materialised structure JSON and has
+    no download_bytes at all. The manifest is exactly what we already have;
+    what the sweep needs is the LIVE connector, constructed the way the proven
+    path (pipeline/ingest_drive.py) constructs it. Never ask a factory for a
+    capability when you know which implementation provides it.
+    """
+    from providers.structure import GoogleDriveStructureProvider
+    manifest = json.loads((STATE / f"structure_{VESSEL}.json").read_text())
+    provider = GoogleDriveStructureProvider(manifest["root_id"],
+                                            manifest.get("root_name", ""))
+    if not hasattr(provider, "download_bytes"):
+        raise RuntimeError(
+            f"{type(provider).__name__} cannot download bytes — the sweep "
+            f"cannot run against Drive with it.")
+    return provider, manifest
+
+
 def iter_drive_pdfs():
     """Yield (id, name, download_fn) from the structure manifest via the
-    read-only connector — same access path as probe_corpus, nothing new."""
-    from providers.structure import get_structure_provider
-    provider = get_structure_provider()
-    manifest = json.loads((STATE / f"structure_{VESSEL}.json").read_text())
+    read-only Drive connector."""
+    provider, manifest = drive_downloader()
     nodes = manifest.get("nodes") or manifest
     import time as _t
 
-    def dl(fid):
+    def dl(fid, mime):
         delay = 2.0
         for attempt in range(4):
             try:
-                return provider.download_bytes(fid)
+                # download_bytes returns (data, suffix) — the suffix is only
+                # set for exported Google-native files, which a PDF never is.
+                data, _suffix = provider.download_bytes(fid, mime)
+                return data
+            except (AttributeError, TypeError, KeyError):
+                # A programming error is not transient. Retrying it four times
+                # with backoff burned 14s per file on the Mac and produced 20
+                # identical failures that looked like a network problem.
+                raise
             except Exception:
                 if attempt == 3:
                     raise
@@ -67,7 +96,8 @@ def iter_drive_pdfs():
 
     for n in nodes:
         if isinstance(n, dict) and n.get("mime") == "application/pdf":
-            yield n["id"], n.get("name", n["id"]), (lambda fid=n["id"]: dl(fid))
+            yield (n["id"], n.get("name", n["id"]),
+                   (lambda fid=n["id"], mime=n["mime"]: dl(fid, mime)))
 
 
 def iter_local_pdfs(root: Path):
@@ -173,13 +203,33 @@ def main(argv):
     if ledger.exists():
         for l in ledger.read_text().splitlines():
             try:
-                done.add(json.loads(l)["id"])
+                r = json.loads(l)
             except Exception:
-                pass
+                continue
+            # ONLY successful ids are "done". Treating a failed row as done
+            # meant a transient error retired a file permanently — the 20
+            # provider failures on the Mac would never have been retried, and
+            # the final report would have quietly shown 20 fewer files with
+            # nothing marked missing. Resume must retry failures, not bury
+            # them.
+            if r.get("ok"):
+                done.add(r["id"])
     limit = int(argv[argv.index("--limit") + 1]) if "--limit" in argv else None
     if "--local" in argv:
         src = iter_local_pdfs(Path(argv[argv.index("--local") + 1]))
     else:
+        # PREFLIGHT: prove the connector can fetch bytes BEFORE processing a
+        # single file. Without this the failure arrives once per file, with a
+        # retry/backoff delay each time, and reads as a Drive outage.
+        try:
+            provider, _m = drive_downloader()
+            print(f"connector: {type(provider).__name__} — download_bytes OK")
+        except Exception as e:
+            print(f"REFUSED: cannot reach Drive — {type(e).__name__}: {e}\n"
+                  f"  * credentials: GDRIVE_SERVICE_ACCOUNT_JSON must point at "
+                  f"the service-account key file (see .env)\n"
+                  f"  * or sweep local files instead: --local <dir>")
+            sys.exit(2)
         src = iter_drive_pdfs()
     n = 0
     # Superseded drawings are refused BEFORE download, not after extraction.
@@ -220,7 +270,14 @@ def main(argv):
 
 def report(ledger: Path):
     """Computed from the ledger — never typed from memory."""
-    rows = [json.loads(l) for l in ledger.read_text().splitlines() if l.strip()]
+    raw = [json.loads(l) for l in ledger.read_text().splitlines() if l.strip()]
+    # Retries append a second row for the same id. Keep the LAST outcome per
+    # id, otherwise a file that failed then succeeded is counted twice and the
+    # file total exceeds the corpus.
+    latest = {}
+    for r in raw:
+        latest[r.get("id")] = r
+    rows = list(latest.values())
     ok = [r for r in rows if r.get("ok")]
     routes = Counter(r.get("route", "error") for r in rows)
     agg = Counter()

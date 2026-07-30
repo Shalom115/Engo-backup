@@ -155,6 +155,31 @@ order, on real files, and the OUTPUT was read:
 Also fixed: the load map's own marker values (`CLARIFY`) were being proposed
 as node ids — a node literally named CLARIFY. Markers now go to unresolved.
 
+### 5th leak: the sweep could not fetch a single file (2026-07-30, Mac, 20/20)
+`iter_drive_pdfs` asked `get_structure_provider()` for the connector. That
+factory defaults to `STRUCTURE_PROVIDER=snapshot`, which reads the
+materialised structure JSON and has **no `download_bytes` at all**. Three
+defects stacked, each hidden by the one before it:
+1. wrong provider class (the factory, not the live connector — the proven
+   path `pipeline/ingest_drive.py` constructs `GoogleDriveStructureProvider`
+   directly from the manifest's `root_id`);
+2. wrong call contract — `download_bytes(file_id, mime)` takes TWO args and
+   returns `(data, suffix)`; the sweep passed one and used the tuple as bytes;
+3. the retry loop retried an `AttributeError` four times with backoff, so a
+   permanent programming error cost 14s per file and read like a Drive outage.
+Fixed: construct the connector explicitly, PREFLIGHT it before the first file
+(`connector: GoogleDriveStructureProvider — download_bytes OK`), and never
+retry AttributeError/TypeError/KeyError.
+**Two more found while fixing it:** resume treated FAILED ledger rows as
+"done", so those 20 files would have been skipped permanently and the report
+would have shown 20 fewer files with nothing marked missing; and the report
+counted retry rows twice. Resume now only retires `ok:true` ids, and the
+report keeps the LAST outcome per id.
+**Verifier gap closed:** 27/27 passed while the sweep could not fetch a byte,
+because "imports cleanly" is not "can download". A capability check now builds
+the sweep's own connector — a wrong class BLOCKS (code defect); absent
+credentials only WARN (that machine can still sweep `--local`).
+
 ### Locked facts about the new protocol
 - **The symbol bank is the typing authority.** `data/state/symbol_bank_gm_marine_CONFIRMED.json` — 136/136 shapes engineer-red-penned (2026-07-28), = 100% of the GM book's 3,018 symbol instances. Per DRAFTING HOUSE, a durable fleet asset. Precedence: **sheet legend > confirmed bank > fleet glossary > `<UNKNOWN>`**.
 - **Fingerprints must be CROSS-PROCESS STABLE** (`stable_hash`, blake2b). Python's `hash()` is randomised per process — a bank written with it types **0%** on the next run, silently. This bit twice (symbol bank, then the font decoder). Any persisted fingerprint uses `stable_hash`, and `verify_local_setup.py` checks the bank's format.

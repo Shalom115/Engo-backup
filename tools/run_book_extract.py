@@ -144,18 +144,58 @@ def process_page(doc: fitz.Document, idx: int, bank=None) -> dict:
     if bank:
         typed_symbols = type_page_symbols(page, bank,
                                           legend_map=legend_override_map(legend))
+    # NET MEMBERSHIP — what each conductor actually TOUCHES.
+    #
+    # Until 2026-07-30 a net was persisted as {net_id, n_segs, total_len,
+    # bbox} only. The union-find had already worked out the full conductor
+    # topology from the real line segments, and then the page record kept a
+    # bounding box and threw the graph away. So after a complete sweep you
+    # could not walk a circuit: the engineer's "follow L to N through every
+    # terminal, breaker and relay" was computed on every page and forgotten.
+    # Persisting membership costs a few KB per page and is the difference
+    # between a sweep you can trace and a sweep you would have to re-run.
+    #
+    # A symbol/label belongs to a net if the net passes through its box (or
+    # within TOUCH pt of it). Touching is geometric evidence of connection —
+    # the DOT RULE still governs whether two crossing conductors are joined,
+    # and that was already applied when the nets were built.
+    TOUCH = 2.0
+
+    def _hits(bb, x0, y0, x1, y1):
+        """Does segment (x0,y0)-(x1,y1) come within TOUCH of box bb?"""
+        return not (max(x0, x1) < bb[0] - TOUCH or min(x0, x1) > bb[2] + TOUCH
+                    or max(y0, y1) < bb[1] - TOUCH or min(y0, y1) > bb[3] + TOUCH)
+
     net_rows = []
     for net in nets:
         xs, ys = [], []
         tot = 0.0
-        for i in net:
-            x0, y0, x1, y1 = segs[i]
+        members = [segs[i] for i in net]
+        for x0, y0, x1, y1 in members:
             xs += [x0, x1]; ys += [y0, y1]
             tot += math.hypot(x1 - x0, y1 - y0)
+        nb = [min(xs), min(ys), max(xs), max(ys)]
+        touch_sym, touch_lab = [], []
+        for si, s in enumerate(typed_symbols):
+            bb = s.get("bbox")
+            if not bb or bb[2] < nb[0] - TOUCH or bb[0] > nb[2] + TOUCH \
+                    or bb[3] < nb[1] - TOUCH or bb[1] > nb[3] + TOUCH:
+                continue          # cheap reject on the net's own bbox first
+            if any(_hits(bb, *m) for m in members):
+                touch_sym.append(si)
+        for li, lab in enumerate(res):
+            bb = lab.get("bbox")
+            if not bb or not lab.get("text"):
+                continue
+            if bb[2] < nb[0] - TOUCH or bb[0] > nb[2] + TOUCH \
+                    or bb[3] < nb[1] - TOUCH or bb[1] > nb[3] + TOUCH:
+                continue
+            if any(_hits(bb, *m) for m in members):
+                touch_lab.append(li)
         net_rows.append({"net_id": int(netid[net[0]]), "n_segs": len(net),
                          "total_len": round(tot, 1),
-                         "bbox": [round(min(xs), 1), round(min(ys), 1),
-                                  round(max(xs), 1), round(max(ys), 1)]})
+                         "bbox": [round(v, 1) for v in nb],
+                         "symbols": touch_sym, "labels": touch_lab})
     ne = sum(1 for r in res if r["text"])
     hi = sum(1 for r in res if r["conf"] >= 70)
     n_typed = sum(1 for s in typed_symbols if s.get("type"))
