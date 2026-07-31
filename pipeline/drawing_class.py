@@ -81,7 +81,15 @@ SIGNALS: Dict[str, List[Tuple[float, str]]] = {
     ],
     "building_ga": [
         (3.0, r"\bgeneral\s+arrangement\b"), (2.5, r"\bscale\s*1\s*[:/]\s*\d"),
-        (2.5, r"\bframe\s*\d{1,3}\b|\bstation\s*\d{1,3}\b"),
+        # DRAWINGS ABBREVIATE. A saddle-layout GA labels its stations "STN
+        # 5.0", not "station 5" - so a spelled-out-only pattern scored it 5.0
+        # against a floor of 6 and the sheet did not route. STN and FR are
+        # standard drafting shorthand on any yard's structural sheets.
+        # (Dimension DENSITY was tested as a structural alternative and
+        # rejected: GA 12%, BAE 11%, a GM wiring sheet 11%, PLC 10% - it
+        # separates nothing.)
+        (2.5, r"\b(frame|station|stn|fr)\.?\s*\d{1,3}(\.\d)?\b"),
+        (2.0, r"\bsaddle\b|\bbulkhead\b|\bdeck\s*plan\b|\bkeel\b"),
         (2.0, r"\bprofile\b|\belevation\b|\bplan\s+view\b"),
         (2.0, r"\bwaterline\b|\bdatum\b"), (1.5, r"\bsection\s+[A-Z]\s*-\s*[A-Z]\b"),
     ],
