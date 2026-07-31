@@ -153,10 +153,25 @@ def read_all(page_png: bytes, *, kinds: Optional[List[str]] = None,
 
 
 def from_pdf(pdf_bytes: bytes, page_index: int = 0, *, dpi: int = 300,
-             kinds: Optional[List[str]] = None, vp=None) -> Dict[str, Any]:
-    """Convenience wrapper: rasterize once, then read_all."""
-    page = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=dpi)
-    return read_all(page, kinds=kinds, vp=vp)
+             kinds: Optional[List[str]] = None, vp=None,
+             use_cache: bool = True) -> Dict[str, Any]:
+    """Convenience wrapper: rasterize once, then read_all.
+
+    CACHED, and the cache matters for more than this call's own price. The
+    legend context this returns is hashed into the FUSED tile pass's cache key.
+    While this call was uncached, its slight run-to-run variation minted a new
+    fused key every time — measured on GM p20: four consecutive runs of the
+    same page produced four different fused cache entries and zero hits, so
+    every iteration re-paid for the expensive tiled read as well as for this
+    one. Caching here is what makes re-running a sheet after a red-pen cheap.
+    """
+    from pipeline import vcache
+    return vcache.get_or_compute(
+        "legend", pdf_bytes, page_index,
+        {"dpi": dpi, "kinds": sorted(kinds) if kinds else None},
+        lambda: read_all(vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=dpi),
+                         kinds=kinds, vp=vp),
+        enabled=use_cache and vp is None)
 
 
 _MAX_ENTRIES_PER_TABLE = 60  # keep the context block prompt-sized

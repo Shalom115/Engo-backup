@@ -135,6 +135,36 @@ _TOPOLOGY_TOOL = {
 }
 
 
+def _pixel_box(bbox: List[float], W: int, H: int) -> tuple:
+    """Model-returned bbox -> pixel crop box, VALIDATED not trusted.
+
+    The survey prompt asks for normalized 0-1 coordinates. A model does not
+    always comply: it may answer in percent (0-100) or in the pixel space of
+    whatever it thinks it saw. Multiplying those by the page size blindly
+    produced a crop of 43,384,469,022,000 pixels and killed the P&ID pass with
+    a PIL decompression-bomb error — the whole reason this vessel's flow
+    scenarios came back empty.
+
+    Scale is INFERRED from the values themselves, then the box is clamped to
+    the page and rejected if it is degenerate, so a bad read costs one region
+    rather than the run.
+    """
+    x0, y0, x1, y1 = (float(v) for v in bbox)
+    m = max(abs(x0), abs(y0), abs(x1), abs(y1))
+    if m <= 1.5:                      # normalized, as asked
+        x0, y0, x1, y1 = x0 * W, y0 * H, x1 * W, y1 * H
+    elif m <= 100.5:                  # percent
+        x0, y0, x1, y1 = x0 / 100 * W, y0 / 100 * H, x1 / 100 * W, y1 / 100 * H
+    # else: already pixels — used as-is, then clamped below.
+    x0, x1 = sorted((x0, x1))
+    y0, y1 = sorted((y0, y1))
+    x0, y0 = max(0, int(x0)), max(0, int(y0))
+    x1, y1 = min(W, int(x1)), min(H, int(y1))
+    if x1 - x0 < 8 or y1 - y0 < 8:    # degenerate -> read the whole page
+        return (0, 0, W, H)
+    return (x0, y0, x1, y1)
+
+
 def _render(pdf_bytes: bytes, page: int, dpi: int,
             bbox: Optional[List[float]] = None) -> bytes:
     import pypdfium2 as pdfium
@@ -142,8 +172,7 @@ def _render(pdf_bytes: bytes, page: int, dpi: int,
     pil = doc[page].render(scale=dpi / 72).to_pil()
     if bbox:
         W, H = pil.size
-        x0, y0, x1, y1 = bbox
-        pil = pil.crop((int(x0 * W), int(y0 * H), int(x1 * W), int(y1 * H)))
+        pil = pil.crop(_pixel_box(bbox, W, H))
     buf = io.BytesIO()
     pil.save(buf, format="PNG")
     return buf.getvalue()
