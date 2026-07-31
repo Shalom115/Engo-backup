@@ -116,6 +116,91 @@ CHECKS: Dict[str, Dict[str, str]] = {
         "method": "read at the monitor it feeds",
         "if_fails": "measurement only",
         "replaceable": "no"},
+    # ---- HYDRAULIC. A hydraulic sheet has its own testable items, and an
+    # electrical-only index returned ZERO checks for a hydraulic block whose
+    # composition named pilot modules, spools, work-port reliefs and LS
+    # limiters with their bar settings. The engineer's ask was troubleshooting,
+    # not troubleshooting-if-electrical.
+    "pilot_module": {
+        "check": "is the pilot energised, and does the spool actually shift?",
+        "method": "check the coil supply and its return, then feel/observe the "
+                  "spool or watch the function respond",
+        "if_fails": "the function will not move at all; an energised pilot with "
+                    "no movement points at the spool or a blocked pilot supply, "
+                    "not at the actuator",
+        "replaceable": "yes"},
+    "spool": {
+        "check": "does it return to neutral, and shift fully both ways?",
+        "method": "operate both directions and observe; open-centre neutral "
+                  "should bypass P to T freely",
+        "if_fails": "a spool stuck off-centre creeps the function; one that "
+                    "will not shift fully gives reduced or no flow one way",
+        "replaceable": "yes"},
+    "relief_valve": {
+        "check": "is it set to the printed value, and is it passing?",
+        "method": "gauge the port and compare with the setting printed on the "
+                  "sheet; a relief passing at rest is hot and the function is "
+                  "weak",
+        "if_fails": "the function is weak or will not hold load; a relief set "
+                    "too low is the commonest cause of 'it lifts but not "
+                    "fully'",
+        "replaceable": "yes"},
+    "pressure_limiter": {
+        "check": "is the LS limiter at its printed setting?",
+        "method": "gauge the LS line for that branch",
+        "if_fails": "caps the pressure that branch can command, so the "
+                    "function is weak while the rest of the block is normal",
+        "replaceable": "yes"},
+    "cartridge": {
+        "check": "is it passing / blocked?",
+        "method": "isolate and compare behaviour with the mirrored branch when "
+                  "one exists",
+        "if_fails": "a blocked cartridge stops that branch only; a passing one "
+                    "bleeds it to tank and the function creeps",
+        "replaceable": "yes"},
+    "check_valve": {
+        "check": "does it hold in the blocking direction?",
+        "method": "load the line and watch for drift",
+        "if_fails": "the function will not hold position under load",
+        "replaceable": "yes"},
+    "accumulator": {
+        "check": "is the pre-charge correct?",
+        "method": "gauge with the system depressurised",
+        "if_fails": "lost pre-charge gives a soft or pulsing function",
+        "replaceable": "yes"},
+    # ---- FLUID / P&ID
+    "isolation_valve": {
+        "check": "open or closed, and does it match the lineup?",
+        "method": "handle position; compare with the normal lineup for the "
+                  "scenario being run",
+        "if_fails": "a valve in the wrong state silently selects a different "
+                    "lineup — check this BEFORE suspecting the pump",
+        "replaceable": "no — operate it"},
+    "strainer": {
+        "check": "is it blocked?",
+        "method": "differential across it, or open and inspect the basket",
+        "if_fails": "starves the pump: loud running, poor or no discharge, "
+                    "and it will damage the pump if left",
+        "replaceable": "no — clean it"},
+    "pump": {
+        "check": "is it running, and is it making pressure?",
+        "method": "gauge suction and discharge; a pump that runs without "
+                  "discharge is losing prime or starved",
+        "if_fails": "no flow in every scenario that uses it — check its supply "
+                    "breaker and its suction lineup before condemning it",
+        "replaceable": "yes"},
+    "non_return_valve": {
+        "check": "is it holding, or passing backwards?",
+        "method": "pressurise downstream and watch for reverse flow",
+        "if_fails": "back-flow between branches; two pumps on a common header "
+                    "will fight each other",
+        "replaceable": "yes"},
+    "level_switch": {
+        "check": "does it change state at the right level?",
+        "method": "lift/lower the float or simulate, and watch the alarm or "
+                  "the pump start",
+        "if_fails": "the automatic start never fires, or runs continuously",
+        "replaceable": "yes"},
     "status_tag": {
         "check": "what does it report, and to which system?",
         "method": "compare the monitoring system's indication against the "
@@ -155,7 +240,34 @@ def classify_element(label: str, kind: str = "") -> Optional[str]:
 # importance ranking.
 ORDER = ["isolator", "breaker", "emergency_breaker", "earth_leak_breaker",
          "fuse", "switch", "contactor", "relay", "terminal_strip",
-         "current_transformer", "shunt", "status_tag"]
+         "current_transformer", "shunt", "status_tag",
+         # hydraulic: pilot commands the spool, spool directs the oil, the
+         # reliefs limit it, the cartridges/checks hold it
+         "pilot_module", "spool", "pressure_limiter", "relief_valve",
+         "cartridge", "check_valve", "accumulator",
+         # fluid: the lineup first, then what moves the fluid, then what it
+         # passes through, then what reports on it
+         "isolation_valve", "strainer", "pump", "non_return_valve",
+         "level_switch"]
+
+# PHRASES a composition uses for a testable item that has NO id of its own.
+# A hydraulic sheet names "PVEO pilot module", "work-port relief valve on the A
+# branch", "LS_A pressure limiter (240 bar)" — real, checkable, and invisible
+# to a scan that only looks for Q14-shaped identifiers.
+PHRASE_CLASS = [
+    (re.compile(r"\bPVE[OU]\b|\bpilot module\b|\bpilot valve\b", re.I), "pilot_module"),
+    (re.compile(r"\bpressure limiter\b|\bLS[_ ]?[AB] limiter\b", re.I), "pressure_limiter"),
+    (re.compile(r"\b(work[- ]port )?relief valve\b|\binlet relief\b", re.I), "relief_valve"),
+    (re.compile(r"\bdirectional spool\b|\bmain spool\b|\bspool\b", re.I), "spool"),
+    (re.compile(r"\bcartridge\b", re.I), "cartridge"),
+    (re.compile(r"\bcheck valve\b|\bshuttle\b", re.I), "check_valve"),
+    (re.compile(r"\baccumulator\b", re.I), "accumulator"),
+    (re.compile(r"\bstrainer\b|\bstrum ?box\b", re.I), "strainer"),
+    (re.compile(r"\bnon[- ]?return valve\b|\bNRV\b", re.I), "non_return_valve"),
+    (re.compile(r"\b(isolation|sea ?cock|3-way|three-way) valve\b|\bNC valve\b", re.I), "isolation_valve"),
+    (re.compile(r"\b(float|level) switch\b", re.I), "level_switch"),
+    (re.compile(r"\bpump\b", re.I), "pump"),
+]
 
 
 def _rating(after: str) -> Optional[str]:
@@ -240,6 +352,40 @@ def from_composition(comp: Dict[str, Any], sheet: str,
                     "context": ctx.strip(),
                     "sheet": sheet,
                     "provenance": provenance or {"source_doc": sheet},
+                })
+        # PHRASE-NAMED ITEMS, for classes whose devices carry no id. Recorded
+        # once per (class, function) — "the relief valve on this function",
+        # not one entry per mention.
+        for f in g.get("functions") or []:
+            texts = []
+            kc = f.get("key_components")
+            if isinstance(kc, list):
+                texts += [str(x) for x in kc]
+            elif isinstance(kc, str):
+                texts.append(kc)
+            for sc in f.get("flow_scenarios") or []:
+                texts.append(str(sc.get("path")) if isinstance(sc, dict) else str(sc))
+            texts.append(str(f.get("what_it_does") or ""))
+            blob = " ; ".join(texts)
+            for rx, cls in PHRASE_CLASS:
+                m = rx.search(blob)
+                if not m:
+                    continue
+                key = (cls, (f.get("label") or "")[:40])
+                if key in seen:
+                    continue
+                seen.add(key)
+                spec = CHECKS[cls]
+                entries.append({
+                    "device_class": cls,
+                    "device_id": m.group(0).strip(),
+                    "rating": None,
+                    "check": spec["check"], "method": spec["method"],
+                    "if_fails": spec["if_fails"],
+                    "replaceable": spec["replaceable"],
+                    "function": f.get("label"),
+                    "context": blob[max(0, m.start() - 70):m.start() + 120].strip(),
+                    "sheet": sheet, "provenance": provenance or {"source_doc": sheet},
                 })
         if entries:
             # ACCUMULATE, never overwrite. Two equipment groups on one sheet
