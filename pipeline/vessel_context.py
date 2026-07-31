@@ -54,20 +54,41 @@ def glossary_block() -> str:
 
 
 def register_index() -> str:
-    """One line per active node: id — name make model (subsystem)."""
+    """One line per active node: id — name make model (subsystem).
+
+    NO AUTOMATIC DUPLICATE COLLAPSING. It was attempted (2026-07-31) and
+    withdrawn: grouping nodes by shared id tokens merges transitively through
+    short generic ids, so `460-thruster-system` pulled the BOW and STERN
+    thrusters into one node, `695-fire-alarm` swallowed both fire pumps, and
+    `690-lts-crew` absorbed the crew-mess fancoil and the crew medical locker.
+    That is the third time token matching has produced confident nonsense on
+    equipment identity, and no threshold fixes it.
+
+    The Register genuinely does carry duplicate ids for the same machine
+    (`620-modular-accessory-power-system-maps` beside `626-maps`,
+    `620-system-control-unit-scu3` beside `628-scu3`). That is a real problem
+    and it belongs on the engineer's red-pen list as a MERGE decision, not to
+    a heuristic. What removes the routing ambiguity safely is the engineer's
+    own load map, resolved against the sheet's labels in code — see
+    `pipeline/map_resolve.py`.
+    """
     lines = []
     for e in _reg()["entries"]:
         if e.get("retired"):
             continue
-        bits = [e.get("name") or ""]
-        if e.get("make"):
-            bits.append(e["make"])
-        if e.get("model"):
-            bits.append(e["model"])
-        if e.get("subsystem_label"):
-            bits.append(f"({e['subsystem_label']})")
-        lines.append(f"{e['equipment_id']} — {' '.join(b for b in bits if b)}")
+        lines.append(_index_line(e))
     return "\n".join(lines)
+
+
+def _index_line(e: Dict[str, Any]) -> str:
+    bits = [e.get("name") or ""]
+    if e.get("make"):
+        bits.append(e["make"])
+    if e.get("model"):
+        bits.append(e["model"])
+    if e.get("subsystem_label"):
+        bits.append(f"({e['subsystem_label']})")
+    return f"{e['equipment_id']} — {' '.join(b for b in bits if b)}"
 
 
 _IDENT_RE = re.compile(r"\bEV[-\s]?\d+\.\d+\b|\b[A-Z]{2,6}[-\s]?\d+(?:\.\d+)?\b")

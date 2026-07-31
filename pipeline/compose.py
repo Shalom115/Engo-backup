@@ -454,8 +454,10 @@ CLASS-SPECIFIC RULES for this sheet:
 VESSEL ACRONYM GLOSSARY (authoritative — never call one of these unknown):
 {glossary}
 
-ENGINEER-CONFIRMED MAPPINGS (authoritative vocabulary → node; use when a
-label matches):
+{resolved}
+
+ENGINEER-CONFIRMED MAPPINGS (the full vocabulary → node map, for labels not
+already resolved above; the resolved list always wins):
 {maps}
 
 REGISTER INDEX:
@@ -568,7 +570,8 @@ _DROP_KEYS = ("_node_routing", "model", "passes")
 
 
 def _budget_extraction(extraction: Dict[str, Any],
-                       budget: int = EXT_BUDGET) -> str:
+                       budget: int = EXT_BUDGET,
+                       digests_prepended: bool = True) -> str:
     """Serialise the extraction to fit the prompt WITHOUT destroying it.
 
     THE BUG THIS REPLACES (found 2026-07-31, and it is the root cause of the
@@ -638,10 +641,14 @@ def _budget_extraction(extraction: Dict[str, Any],
                 {k: v for k, v in (r or {}).items() if k != "elements"}
                 for r in rr if isinstance(r, dict)]
     # The measured digests are PREPENDED to the prompt by compose() as their
-    # own block; carrying them again inside the extraction JSON spends the
-    # budget twice on identical text.
-    ext.pop("_netlist_digest", None)
-    ext.pop("_circuit_digest", None)
+    # own block — but ONLY for the electrical and pid classes. Dropping them
+    # unconditionally would delete the measured geometry outright for
+    # hydraulic, plc, interconnect and building_ga: the caller must say
+    # whether it is carrying them, or the sheets that need geometry most
+    # silently lose it.
+    if digests_prepended:
+        ext.pop("_netlist_digest", None)
+        ext.pop("_circuit_digest", None)
     # Loop completeness: the COUNTS and the half-traced device names are the
     # finding. The full per-device records are for the report, not the prompt.
     lc = out.get("_loop_completeness")
@@ -658,19 +665,49 @@ def _budget_extraction(extraction: Dict[str, Any],
     js = json.dumps(out, indent=1)
     if len(js) <= budget:
         return js
-    # Still over: trim the LABEL LIST — the only genuinely repetitive part —
-    # and say so, rather than slicing the string and emitting broken JSON.
-    labels = out.get("labels_read") or []
-    while len(js) > budget and len(labels) > 40:
-        drop = max(10, len(labels) // 5)
-        labels = labels[:-drop]
-        out["labels_read"] = labels
-        out["_TRIMMED"] = (f"label list trimmed to {len(labels)} entries to fit "
-                           f"the prompt budget; the full list is on disk. Do "
-                           f"NOT treat the absence of a label here as evidence "
-                           f"that it is not on the sheet.")
+    # STILL OVER — TRIM THE BIGGEST REPEATING LIST, WHATEVER CLASS THIS IS.
+    # The first version only knew about `labels_read`, which is an ELECTRICAL
+    # key: a P&ID extraction (tables + topology) has no such key, so it sailed
+    # past the budget untouched at 91 KB. Every class must be able to fit, so
+    # the trim finds the largest list-valued key by serialised size and shortens
+    # THAT, whatever it is called — and always says which list it shortened, so
+    # a gap is never mistaken for absence from the sheet.
+    protected = {"_header", "_sheet_role", "_loop_completeness", "legends",
+                 "survey", "sub_type", "drawing_class", "_TRIMMED"}
+    for _ in range(60):
         js = json.dumps(out, indent=1)
-    return js
+        if len(js) <= budget:
+            break
+        # Lists can be NESTED. A P&ID's bulk is `topology` — a DICT holding
+        # `components` (278) and `connections` (178) — so a top-level-list-only
+        # search found nothing to trim and let 95 KB through untouched. Walk one
+        # level in.
+        big, big_sz, owner = None, 0, None
+        for k, v in out.items():
+            if k in protected:
+                continue
+            if isinstance(v, list) and len(v) > 8:
+                sz = len(json.dumps(v))
+                if sz > big_sz:
+                    big, big_sz, owner = k, sz, out
+            elif isinstance(v, dict):
+                for k2, v2 in v.items():
+                    if isinstance(v2, list) and len(v2) > 8:
+                        sz = len(json.dumps(v2))
+                        if sz > big_sz:
+                            big, big_sz, owner = f"{k}.{k2}", sz, v
+        if big is None:
+            break                       # nothing safe left to shorten
+        leaf = big.split(".")[-1]
+        v = owner[leaf]
+        owner[leaf] = v[:max(8, len(v) - max(4, len(v) // 5))]
+        note = (f"'{big}' shortened to {len(owner[leaf])} of {len(v)} entries "
+                f"to fit the prompt budget; the full list is on disk. Do NOT "
+                f"read the absence of an item here as evidence it is not on "
+                f"the sheet.")
+        prev = out.get("_TRIMMED")
+        out["_TRIMMED"] = f"{prev} {note}" if prev and note not in prev else note
+    return json.dumps(out, indent=1)
 
 
 def compose(image_png: bytes, extraction: Dict[str, Any],
@@ -685,7 +722,6 @@ def compose(image_png: bytes, extraction: Dict[str, Any],
     if rules is None:
         raise ValueError(f"No composition rules for class '{drawing_class}'. "
                          f"Known: {sorted(CLASS_RULES)}")
-    ext_json = _budget_extraction(extraction)
     # Wiring sheets: walk the graph FIRST so composition discovers the control
     # loop (multi-switch activation) instead of fragmenting it (114a lesson).
     loop_block = ""
@@ -739,11 +775,37 @@ def compose(image_png: bytes, extraction: Dict[str, Any],
         loop_block += "\n\n" + settled
     if oq:
         loop_block += "\n\n" + oq
+    # RESOLVE THE ENGINEER'S MAPS AGAINST THIS SHEET'S LABELS, IN CODE.
+    # Handing over 205 raw map rows under "use when a label matches" left the
+    # matching to the model, and it failed on the first real mismatch: the
+    # sheet prints "MAPS-1/2  2x5KW", the key is "MAPS-1/2", nothing matched,
+    # and the MAPS converters went to the BAE hub. Deciding whether a printed
+    # label is an instance of a mapped load is string work; string work belongs
+    # in code. Composition is handed decisions, and the full map after them.
+    try:
+        from pipeline import map_resolve
+        _labels = [l.get("text") for l in
+                   ((extraction.get("_fused_tiles") or {}).get("labels") or [])
+                   if isinstance(l, dict)]
+        if not _labels:
+            _labels = extraction.get("labels_read") or []
+        _reg_ids = {e["equipment_id"] for e in
+                    json.loads((config.STATE_DIR /
+                                f"register_{config.VESSEL_NAMESPACE}.json"
+                                ).read_text())["entries"]
+                    if not e.get("retired")}
+        _res = map_resolve.resolve(_labels, drawing_class, register_ids=_reg_ids)
+        resolved_block = map_resolve.digest(_res)
+    except Exception as _e:            # never let routing help break the run
+        resolved_block = f"(map resolution unavailable: {type(_e).__name__})"
+    ext_json = _budget_extraction(
+        extraction, digests_prepended=bool(loop_block))
     prompt = _COMPOSE_PROMPT.format(
         class_rules=rules,
         glossary=vessel_context.glossary_block(),
         established=vessel_context.relationship_context(ext_json),
         maps=_maps_digest(drawing_class),
+        resolved=resolved_block,
         corpus=vessel_context.corpus_context(
             _corpus_subject(sheet_name, extraction)) or "(no corpus context)",
         extraction=(loop_block.strip() + "\n\n" + ext_json

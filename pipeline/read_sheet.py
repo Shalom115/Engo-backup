@@ -185,7 +185,27 @@ def read(pdf_bytes: bytes, page_index: int = 0, *,
             full = nl.get("_nets_full")
             if full is not None:
                 net_trace.bind_labels(full, labels, max_dist=10.0)
+                # THE ENGINEER-CONFIRMED SYMBOL TYPES GO IN TOO. `typed_symbols`
+                # was set on the netlist and read by NOTHING: the 136 red-penned
+                # shapes were loaded, counted in the stats, and dropped before
+                # composition ever saw them. They matter beyond naming —
+                # circuit.classify_sources decides polarity from the DEVICE
+                # KINDS on a net, so an engineer-confirmed fuse or breaker is
+                # direct evidence that its net is a supply. Bank types are
+                # bound FIRST so the vision read's guess cannot displace them.
+                bank = nl.get("typed_symbols") or []
+                if bank:
+                    netlist.bind_devices(
+                        nl, [{"label": b.get("label") or "", "kind": b["kind"],
+                              "bbox": b["bbox"]} for b in bank if b.get("bbox")],
+                        page_size=None)
+                    banked = list(nl.get("placed_devices") or [])
+                    layers.append(f"bank:{len(bank)} confirmed types bound")
+                else:
+                    banked = []
                 netlist.bind_devices(nl, devices, page_size=None)
+                # bind_devices REPLACES placed_devices; keep both sources.
+                nl["placed_devices"] = banked + list(nl.get("placed_devices") or [])
                 nl = _refresh(nl, full)
                 layers.append("rebind:fused_labels")
             else:
