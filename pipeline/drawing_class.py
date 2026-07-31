@@ -162,7 +162,12 @@ def detect(text: str, *, page_count: int = 1,
     # The filename is a WEAK corroborator, never a decider: yards misname files,
     # and 'Electrical System GA' is a GA whichever way the name leans. It can
     # break a tie; it cannot create one.
-    fname = (filename or "").lower()
+    # UNDERSCORES DEFEAT WORD BOUNDARIES. The sweep stores the file as
+    # "BAE_Wiring_Diagrams.pdf"; `_` is a word character, so `\bwiring\b` never
+    # matched and the wiring-book hint did not fire — the sheet fell back to
+    # 'electrical' instead of 'interconnect'. Separators are normalised to
+    # spaces before any filename test.
+    fname = re.sub(r"[_\-.]+", " ", (filename or "").lower())
     for cls in scores:
         if cls != "building_ga" and re.search(rf"\b{cls[:5]}", fname):
             scores[cls] += 1.0
