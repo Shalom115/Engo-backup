@@ -662,8 +662,17 @@ def compose(image_png: bytes, extraction: Dict[str, Any],
     # Silently writing that as "0 groups" would look like a real empty result.
     if isinstance(result, dict) and not result.get("serve_who") \
             and not result.get("equipment_groups"):
+        # RETRY WITH MORE ROOM, not with the same ceiling. Measured on GM-111
+        # (+24V DC DISTRIBUTION, 43,117 segments / 2,576 conductors / 485
+        # labels, the densest sheet in the book): the geometry and the fused
+        # read were both perfect, and composition still returned empty TWICE
+        # for $2.29 — because the reply was TRUNCATED mid-tool-call, and the
+        # original retry re-sent the identical max_tokens, so the second
+        # attempt could only fail the same way. A sheet carrying 80-odd loads
+        # simply cannot state them inside a 16k ceiling.
         retry = vp.extract(image_png, "image/png", prompt, _COMPOSE_TOOL,
-                           max_tokens=max_tokens, cache_prefix=cache_prefix)
+                           max_tokens=min(max_tokens * 2, 32000),
+                           cache_prefix=cache_prefix)
         retry = _repair_stringified(retry)
         if isinstance(retry, dict) and (retry.get("serve_who")
                                         or retry.get("equipment_groups")):

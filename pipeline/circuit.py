@@ -94,7 +94,13 @@ RAIL_PATTERNS = [
     ("dc_positive_service",   r"\+?\s*24\s*v?\s*(dc\s*)?service|service\s+bat"),
     ("dc_positive_emergency", r"\+?\s*24\s*v?\s*(dc\s*)?emergency|emergency\s+bat"),
     ("dc_positive",           r"\+\s*24\s*v|\+\s*12\s*v|\+\s*24\b"),
-    ("dc_negative",           r"negative\s+bus|neg\s+bus|0\s*v\s+bus|\bgnd\s+bus"),
+    # ABBREVIATIONS ON DRAWINGS CARRY A FULL STOP. The GM sheets print
+    # "NEG. BUS", which `neg\s+bus` cannot match because of the period — so
+    # the return rail was invisible and GM-112/114 reported 85 and 82 devices
+    # as unanchored while the fused read had captured "NEG. BUS" twice on the
+    # sheet. Every abbreviation here now tolerates a trailing dot.
+    ("dc_negative",           r"negative\.?\s*bus|neg\.?\s*bus|0\s*v\.?\s*bus"
+                              r"|\bgnd\.?\s*bus|\bneg\.?\s*rail"),
     ("hv_dc",                 r"\b600\s*v\s*dc|\bhv\s+dc\s+bus"),
     ("ac_line",               r"\b230\s*v.{0,12}\bbus|\bL1\b|\bL2\b|\bL3\b|ac\s+bus"),
     ("ac_neutral",            r"\bneutral\b|(?<![A-Za-z0-9])N(?![A-Za-z0-9])"),

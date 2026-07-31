@@ -232,6 +232,19 @@ def read(pdf_bytes: bytes, page_index: int = 0, *,
         composition = compose(png, extraction, COMPOSE_CLASS[dc],
                               sheet_name=sheet_name or filename)
         layers.append(f"compose:{COMPOSE_CLASS[dc]}")
+        # A COMPOSITION THAT CAME BACK EMPTY IS A FAILURE, NOT A RESULT.
+        # GM-111 cost $2.29, read 43,117 segments and 485 labels cleanly, and
+        # returned zero systems because the reply truncated — and the batch
+        # ledger booked it `ok: True`. That is the same defect as counting a
+        # failed download as done: the run looks complete and the sheet is
+        # silently missing. Callers must be able to tell the two apart.
+        if isinstance(composition, dict) and \
+                composition.get("_malformed_response"):
+            notes.append(
+                "COMPOSITION FAILED (malformed/truncated response) — the read "
+                "succeeded and is cached, but nothing was composed. This sheet "
+                "must be RE-RUN; it is not an empty sheet.")
+            composition = None
     elif dc not in COMPOSE_CLASS:
         notes.append(f"discipline '{dc}' has no composition rules — the "
                      f"generic geometry path ran and nothing was reasoned "
