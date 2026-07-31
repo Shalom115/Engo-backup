@@ -67,10 +67,32 @@ _DEV_TOOL = {
 
 def locate_devices(pdf_bytes: bytes, page_index: int = 0, *,
                    rows: int = 4, cols: int = 4, dpi: int = 400,
-                   overlap: float = 0.04) -> List[Dict[str, Any]]:
-    """Every device symbol on the page, boxed in PAGE POINTS."""
+                   overlap: float = 0.04,
+                   use_cache: bool = True) -> List[Dict[str, Any]]:
+    """Every device symbol on the page, boxed in PAGE POINTS.
+
+    CACHED BY CONTENT for the same reason as the label layer: the symbols
+    printed on a sheet do not change between runs, so a red-pen cycle must not
+    re-buy ~16 tiled vision calls to rediscover them."""
+    import hashlib
+    from pipeline import vcache
+    params = {"rows": rows, "cols": cols, "dpi": dpi, "overlap": overlap,
+              "prompt": hashlib.sha256(_DEV_PROMPT.encode()).hexdigest()[:12]}
+    return vcache.get_or_compute(
+        "devices", pdf_bytes, page_index, params,
+        lambda: _locate_devices_uncached(pdf_bytes, page_index, rows=rows,
+                                         cols=cols, dpi=dpi, overlap=overlap),
+        enabled=use_cache)
+
+
+def _locate_devices_uncached(pdf_bytes: bytes, page_index: int = 0, *,
+                             rows: int = 4, cols: int = 4, dpi: int = 400,
+                             overlap: float = 0.04) -> List[Dict[str, Any]]:
+    """The real tiled locate pass (cache miss path)."""
+    from pipeline import meter
+    meter.set_layer("devices")
     from providers.vision import get_vision_provider
-    vp = get_vision_provider("electrical")
+    vp = get_vision_provider("electrical", layer="devices")
     W, H = label_ocr.page_size(pdf_bytes, page_index)
     out: List[Dict[str, Any]] = []
     for r in range(rows):

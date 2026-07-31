@@ -1,0 +1,713 @@
+{
+ "page": 5,
+ "title": "230V AFT DISTRIBUTION PANEL",
+ "usd": 0.7852,
+ "seconds": 173,
+ "legend_tables": 2,
+ "composition": {
+  "serve_who": "This sheet is the \"230V AC AFT DISTRIBUTION PANEL\" (GMMS 108'-102a). It is a distribution/load panel serving numerous distinct aft-zone galley appliances, outlet groups and misc loads, each fed from its own breaker off three earth-leakage-protected supply inputs (AFT OUTLETS, GALLEY 1, GALLEY 2). Each load-row names its own equipment per the class rule; the panel/bus structure itself is infrastructure belonging to this AFT distribution panel, not to any single load.",
+  "equipment_groups": [
+   {
+    "equipment_name": "Oven",
+    "target_node_id": "360-oven",
+    "placement_reasoning": "Load row labelled OVEN fed via breaker Q1.",
+    "functions": [
+     {
+      "function_id": "oven-supply",
+      "label": "230V AC supply to Oven",
+      "what_it_does": "Provides mains power to the galley oven.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "Supply from GALLEY 1 input -> Earth Leakage 2 -> breaker Q1 (32A) -> OVEN"
+       }
+      ],
+      "key_components": [
+       "breaker Q1 (32A)",
+       "Earth Leakage 2 (RCD)"
+      ],
+      "dry_data": "Fed via Q1, 32A breaker, from GALLEY 1 earth-leakage-protected input.",
+      "sheet_region": "left column, row Q1"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Dishwasher 3kW",
+    "target_node_id": "360-dishwasher",
+    "placement_reasoning": "Load row labelled DISHWASHER 3 KW fed via Q2; consistent with engineer red-pen mapping Q2 DISHWASHER 3KW.",
+    "functions": [
+     {
+      "function_id": "dishwasher-supply",
+      "label": "230V AC supply to Dishwasher",
+      "what_it_does": "Provides mains power to the 3kW dishwasher.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "Supply from GALLEY 1 input -> Earth Leakage 2 -> breaker Q2 (25A) -> DISHWASHER 3 KW"
+       }
+      ],
+      "key_components": [
+       "breaker Q2 (25A)",
+       "Earth Leakage 2 (RCD)"
+      ],
+      "dry_data": "Fed via Q2, 25A breaker.",
+      "sheet_region": "left column, row Q2"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Washing Machine",
+    "target_node_id": "360-washing-machine",
+    "placement_reasoning": "Load row labelled WASHING MASHINE fed via Q3; matches engineer red-pen Q3 WASHING MACHINE.",
+    "functions": [
+     {
+      "function_id": "washer-supply",
+      "label": "230V AC supply to Washing Machine",
+      "what_it_does": "Provides mains power to the washing machine.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "Supply from GALLEY 1 input -> Earth Leakage 2 -> breaker Q3 (16A) -> WASHING MASHINE"
+       }
+      ],
+      "key_components": [
+       "breaker Q3 (16A)",
+       "Earth Leakage 2 (RCD)"
+      ],
+      "dry_data": "Fed via Q3, 16A breaker.",
+      "sheet_region": "left column, row Q3"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Dryer",
+    "target_node_id": "360-dryer",
+    "placement_reasoning": "Load row labelled DRYER fed via Q4; matches engineer red-pen Q4 DRYER.",
+    "functions": [
+     {
+      "function_id": "dryer-supply",
+      "label": "230V AC supply to Dryer",
+      "what_it_does": "Provides mains power to the tumble dryer.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "Supply from GALLEY 1 input -> Earth Leakage 2 -> breaker Q4 (16A) -> DRYER"
+       }
+      ],
+      "key_components": [
+       "breaker Q4 (16A)",
+       "Earth Leakage 2 (RCD)"
+      ],
+      "dry_data": "Fed via Q4, 16A breaker. Shares common conductor net with Q6/ZIP WATER DISPENSER per measured netlist (net8/net9) but this is a shared feed rail, not a functional interlock.",
+      "sheet_region": "left column, row Q4"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Steam Oven",
+    "target_node_id": "360-steam-oven",
+    "placement_reasoning": "Load row labelled STEAM OVEN fed via Q5; matches engineer red-pen Q5 STEAM OVEN.",
+    "functions": [
+     {
+      "function_id": "steamoven-supply",
+      "label": "230V AC supply to Steam Oven",
+      "what_it_does": "Provides mains power to the steam oven.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "Supply from GALLEY 1 input -> Earth Leakage 2 -> breaker Q5 (16A) -> STEAM OVEN"
+       }
+      ],
+      "key_components": [
+       "breaker Q5 (16A)",
+       "Earth Leakage 2 (RCD)"
+      ],
+      "dry_data": "Fed via Q5, 16A breaker.",
+      "sheet_region": "left column, row Q5"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Zip Water Dispenser",
+    "target_node_id": "360-zip-tap",
+    "placement_reasoning": "Load row labelled ZIP WATER DISPENSER fed via Q6.",
+    "functions": [
+     {
+      "function_id": "ziptap-supply",
+      "label": "230V AC supply to Zip Water Dispenser",
+      "what_it_does": "Provides mains power to the instant hot/filtered water tap unit.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "Supply from GALLEY 1 input -> Earth Leakage 2 -> breaker Q6 (16A) -> ZIP WATER DISPENSER, gated by an internal switch contact (ZIP_WD_switch) measured as NO on the wiring"
+       }
+      ],
+      "key_components": [
+       "breaker Q6 (16A)",
+       "Earth Leakage 2 (RCD)",
+       "internal switch contact ZIP_WD_switch (measured NO on wiring; symbol printed appears NC \u2014 conflict noted)"
+      ],
+      "dry_data": "Fed via Q6, 16A breaker, shares supply rail (net8/net9) with Dryer/Q4/Q5.",
+      "sheet_region": "left column, row Q6"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Maserator (Sink Disposal)",
+    "target_node_id": "360-sink-disposal",
+    "placement_reasoning": "Load row labelled MASERATOR (glossary: MASERATOR -> 360-sink-disposal) fed via Q7.",
+    "functions": [
+     {
+      "function_id": "maserator-supply",
+      "label": "230V AC supply to Maserator (sink disposal unit)",
+      "what_it_does": "Provides mains power to the galley sink disposal/maserator unit.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "Supply from GALLEY 1 input -> Earth Leakage 2 -> breaker Q7 (16A) -> MASERATOR"
+       }
+      ],
+      "key_components": [
+       "breaker Q7 (16A)",
+       "Earth Leakage 2 (RCD)"
+      ],
+      "dry_data": "Fed via Q7, 16A breaker.",
+      "sheet_region": "right column, row Q7"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Wine Cooler (Galley)",
+    "target_node_id": "360-wine-cooler",
+    "placement_reasoning": "Load row labelled WINE COOLER GALLEY fed via Q9; matches engineer red-pen Q9 WINE COOLER GALLEY.",
+    "functions": [
+     {
+      "function_id": "winecoolergalley-supply",
+      "label": "230V AC supply to Galley Wine Cooler",
+      "what_it_does": "Provides mains power to the galley wine cooler.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "Supply from GALLEY 1 input -> Earth Leakage 2 -> breaker Q9 (16A) -> WINE COOLER GALLEY"
+       }
+      ],
+      "key_components": [
+       "breaker Q9 (16A)",
+       "Earth Leakage 2 (RCD)"
+      ],
+      "dry_data": "Fed via Q9, 16A breaker.",
+      "sheet_region": "right column, row Q9"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Galley Outlets (Extractor)",
+    "target_node_id": "360-extraction-hood",
+    "placement_reasoning": "Load row labelled GALLEY OUTLETS (EXTRACTOR) fed via Q10; glossary maps GALLEY OUTLETS (EXTRACTOR) -> 360-extraction-hood.",
+    "functions": [
+     {
+      "function_id": "extractor-supply",
+      "label": "230V AC supply to Galley Extraction Hood outlets",
+      "what_it_does": "Provides mains power to galley outlets serving the extraction hood.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "Supply from AFT OUTLETS input -> Earth Leakage 1 -> breaker Q10 (16A) -> GALLEY OUTLETS (EXTRACTOR)"
+       }
+      ],
+      "key_components": [
+       "breaker Q10 (16A)",
+       "Earth Leakage 1 (RCD)"
+      ],
+      "dry_data": "Fed via Q10, 16A breaker, from AFT OUTLETS input per netlist net6/net7.",
+      "sheet_region": "right column, row Q10"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Nav. Station Outlets",
+    "target_node_id": "712-nav-station",
+    "placement_reasoning": "Load row labelled NAV. STATION OUTLETS fed via Q11; glossary maps NAVIGATION PC -> 712-nav-station; this is the AC outlet supply for that station.",
+    "functions": [
+     {
+      "function_id": "navstation-outlets-supply",
+      "label": "230V AC supply to Nav. Station outlets",
+      "what_it_does": "Provides mains power to 230V outlets at the navigation station.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "Supply -> breaker Q11 (16A) -> NAV. STATION OUTLETS"
+       }
+      ],
+      "key_components": [
+       "breaker Q11 (16A)"
+      ],
+      "dry_data": "Fed via Q11, 16A breaker.",
+      "sheet_region": "right column, row Q11"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Port/Stbd Crew Outlets (with Primary Ventilation 0.5kW)",
+    "target_node_id": "694-230v-outlets",
+    "placement_reasoning": "Load row labelled PORT/STBD CREW OUTLETS (PRIMARY VENTILATION 0.5KW) fed via Q12; glossary maps PORT/STBD CREW OUTLETS -> 694-230v-outlets.",
+    "functions": [
+     {
+      "function_id": "crew-outlets-supply",
+      "label": "230V AC supply to Port/Stbd crew outlets and primary ventilation",
+      "what_it_does": "Provides mains power to crew cabin outlets and a 0.5kW primary ventilation load noted on the same circuit.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "Supply -> breaker Q12 (16A) -> PORT/STBD CREW OUTLETS (incl. primary ventilation 0.5kW)"
+       }
+      ],
+      "key_components": [
+       "breaker Q12 (16A)"
+      ],
+      "dry_data": "Fed via Q12, 16A breaker.",
+      "sheet_region": "right column, row Q12"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Lazarette Outlets",
+    "target_node_id": "694-230v-outlets",
+    "placement_reasoning": "Load row labelled LAZARETTE OUTLETS fed via Q13; glossary maps LAZARETTE OUTLETS -> 694-230v-outlets.",
+    "functions": [
+     {
+      "function_id": "laz-outlets-supply",
+      "label": "230V AC supply to Lazarette outlets",
+      "what_it_does": "Provides mains power to lazarette 230V outlets.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "Supply -> breaker Q13 (16A) -> LAZARETTE OUTLETS"
+       }
+      ],
+      "key_components": [
+       "breaker Q13 (16A)"
+      ],
+      "dry_data": "Fed via Q13, 16A breaker.",
+      "sheet_region": "right column, row Q13"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Blast Chiller",
+    "target_node_id": "no fitting node",
+    "placement_reasoning": "Load row labelled BLAST CHILLER fed via Q14. No register node exists for a galley blast chiller; galley appliance nodes present (oven, dishwasher, etc.) do not cover this device.",
+    "functions": [
+     {
+      "function_id": "blastchiller-supply",
+      "label": "230V AC supply to Blast Chiller",
+      "what_it_does": "Provides mains power to the galley blast chiller.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "Supply -> breaker Q14 (16A) -> BLAST CHILLER"
+       }
+      ],
+      "key_components": [
+       "breaker Q14 (16A)"
+      ],
+      "dry_data": "Fed via Q14, 16A breaker.",
+      "sheet_region": "right column, row Q14"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Induction Hob",
+    "target_node_id": "360-cook-top",
+    "placement_reasoning": "Load row labelled INDUCTION HOB fed via Q17 (50A); glossary maps INDUCTION HOB -> 360-cook-top.",
+    "functions": [
+     {
+      "function_id": "hob-supply",
+      "label": "230V AC supply to Induction Hob",
+      "what_it_does": "Provides mains power to the galley induction cook top.",
+      "flow_scenarios": [
+       {
+        "state": "normal",
+        "path": "Supply from AFT OUTLETS input -> Earth Leakage 1/3 (shared feed) -> breaker Q17 (50A) -> INDUCTION HOB, dual-pole feed"
+       }
+      ],
+      "key_components": [
+       "breaker Q17 (50A)"
+      ],
+      "dry_data": "Fed via Q17, 50A breaker (highest rated way on this panel, consistent with induction hob load).",
+      "sheet_region": "bottom, row Q17"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "230V AC AFT Distribution Panel (bus/supply structure)",
+    "target_node_id": "694-main-ac-panel",
+    "facts": [
+     "Panel receives three separate 230V AC inputs: AFT OUTLETS, GALLEY 1, GALLEY 2, each rated 16/16A on incoming breakers and each protected by its own earth-leakage (RCD) device (Earth Leakage 1/2/3 respectively).",
+     "Earth Leakage 1 (AFT OUTLETS) supplies breakers Q10, Q15, Q16, Q17 per measured netlist (net6/net7).",
+     "Earth Leakage 2 (GALLEY 1) supplies breakers Q1-Q9 area per measured netlist (net4/net5).",
+     "Earth Leakage 3 (GALLEY 2) shares bus ties with Earth Leakage 2/1 per netlist (net12/net13/net618/net619/net620) \u2014 exact downstream breaker split for GALLEY 2 not clearly separated in netlist beyond shared ties with EL1/EL3.",
+     "17 breaker ways total (Q1-Q17); Q15 and Q16 are unlabelled/spare ways (no load name printed) \u2014 per spare-ways rule, these are spare for future installation, not uncertainties.",
+     "This is the AFT distribution panel hub; individual load rows are composed to their own equipment nodes above per the class rule (each row names its own equipment)."
+    ]
+   }
+  ],
+  "cross_references": [
+   {
+    "what": "Diving Compressor load (Q8, 16A) \u2014 glossary maps AIR COMPRESSOR -> 575-pneumatic-system, but this appears to be a distinct 'diving' air compressor for scuba, not the pneumatic companionway system; no register node clearly fits a dive air compressor.",
+    "referenced_sheet_hint": "possible dive equipment register / 970-bauer-dive-compressor"
+   }
+  ],
+  "good_to_have": [
+   "Exact earth-leakage RCD trip ratings for Earth Leakage 1/2/3 not printed/legible \u2014 capture at inspection if needed.",
+   "Breaker part numbers/manufacturer not shown \u2014 function and rating are what matters."
+  ],
+  "uncertainties": [
+   "Diving Compressor (fed via Q8, 16A): no register node clearly matches a scuba/diving air compressor (distinct from 575-pneumatic-system companionway air compressor) \u2014 engineer to confirm correct node or that one should be created.",
+   "GALLEY 2 (Earth Leakage 3) downstream breaker allocation is not clearly separated from GALLEY 1/AFT OUTLETS in the measured netlist beyond shared tie nets (net12/net13/net618-620) \u2014 which specific breakers draw from GALLEY 2 alone is not established on this sheet.",
+   "Zip Water Dispenser's internal switch contact (ZIP_WD_switch / switch_contact) shows a CONFLICT: printed symbol reads NC but measured wiring shows NO \u2014 engineer should confirm actual contact state.",
+   "Q15 and Q16 breaker ways print no load label ('/' only) \u2014 treated as spare ways per rule, but if a load was intended and omitted from the drawing, confirm with engineer."
+  ],
+  "discarded_as_clutter": [
+   "Title block repeat of DWG No./TITLE/DATE/DRAWN \u2014 meta, not equipment data.",
+   "Legend/table restating breaker->load pairs already captured in equipment functions.",
+   "Unbound stray labels '2, 2, 5, 6' and repeated 'AFT OUTLETS' fragment \u2014 orphan netlist labels not tied to any conductor, discarded per extraction-meta rule.",
+   "'230V AC AFT DISTRIBUTION PANEL' title text \u2014 sheet title, not equipment."
+  ],
+  "_model": "claude-sonnet-5",
+  "_protocol_version": 9
+ },
+ "netlist_stats": {
+  "segments": 17506,
+  "nets": 1169,
+  "conductors": 869,
+  "labels": 124,
+  "bound": 107,
+  "bound_to_conductor": 106,
+  "distinct_bound_texts": 79,
+  "unbound": 8,
+  "devices_located": 49,
+  "devices_placed": 49
+ },
+ "write_counts": {
+  "would_attach": 40,
+  "flagged_missing_target": 3
+ },
+ "would_write": [
+  {
+   "action": "would_attach",
+   "node": "360-oven",
+   "kind": "flow_scenarios",
+   "label": "230V AC supply to Oven"
+  },
+  {
+   "action": "would_attach",
+   "node": "360-oven",
+   "kind": "dry_data",
+   "label": "230V AC supply to Oven"
+  },
+  {
+   "action": "would_attach",
+   "node": "360-oven",
+   "kind": "key_components",
+   "label": "230V AC supply to Oven"
+  },
+  {
+   "action": "would_attach",
+   "node": "360-dishwasher",
+   "kind": "flow_scenarios",
+   "label": "230V AC supply to Dishwasher"
+  },
+  {
+   "action": "would_attach",
+   "node": "360-dishwasher",
+   "kind": "dry_data",
+   "label": "230V AC supply to Dishwasher"
+  },
+  {
+   "action": "would_attach",
+   "node": "360-dishwasher",
+   "kind": "key_components",
+   "label": "230V AC supply to Dishwasher"
+  },
+  {
+   "action": "would_attach",
+   "node": "360-washing-machine",
+   "kind": "flow_scenarios",
+   "label": "230V AC supply to Washing Machine"
+  },
+  {
+   "action": "would_attach",
+   "node": "360-washing-machine",
+   "kind": "dry_data",
+   "label": "230V AC supply to Washing Machine"
+  },
+  {
+   "action": "would_attach",
+   "node": "360-washing-machine",
+   "kind": "key_components",
+   "label": "230V AC supply to Washing Machine"
+  },
+  {
+   "action": "would_attach",
+   "node": "360-dryer",
+   "kind": "flow_scenarios",
+   "label": "230V AC supply to Dryer"
+  },
+  {
+   "action": "would_attach",
+   "node": "360-dryer",
+   "kind": "dry_data",
+   "label": "230V AC supply to Dryer"
+  },
+  {
+   "action": "would_attach",
+   "node": "360-dryer",
+   "kind": "key_components",
+   "label": "230V AC supply to Dryer"
+  },
+  {
+   "action": "would_attach",
+   "node": "360-steam-oven",
+   "kind": "flow_scenarios",
+   "label": "230V AC supply to Steam Oven"
+  },
+  {
+   "action": "would_attach",
+   "node": "360-steam-oven",
+   "kind": "dry_data",
+   "label": "230V AC supply to Steam Oven"
+  },
+  {
+   "action": "would_attach",
+   "node": "360-steam-oven",
+   "kind": "key_components",
+   "label": "230V AC supply to Steam Oven"
+  },
+  {
+   "action": "would_attach",
+   "node": "360-zip-tap",
+   "kind": "flow_scenarios",
+   "label": "230V AC supply to Zip Water Dispenser"
+  },
+  {
+   "action": "would_attach",
+   "node": "360-zip-tap",
+   "kind": "dry_data",
+   "label": "230V AC supply to Zip Water Dispenser"
+  },
+  {
+   "action": "would_attach",
+   "node": "360-zip-tap",
+   "kind": "key_components",
+   "label": "230V AC supply to Zip Water Dispenser"
+  },
+  {
+   "action": "would_attach",
+   "node": "360-sink-disposal",
+   "kind": "flow_scenarios",
+   "label": "230V AC supply to Maserator (sink disposal unit)"
+  },
+  {
+   "action": "would_attach",
+   "node": "360-sink-disposal",
+   "kind": "dry_data",
+   "label": "230V AC supply to Maserator (sink disposal unit)"
+  },
+  {
+   "action": "would_attach",
+   "node": "360-sink-disposal",
+   "kind": "key_components",
+   "label": "230V AC supply to Maserator (sink disposal unit)"
+  },
+  {
+   "action": "would_attach",
+   "node": "360-wine-cooler",
+   "kind": "flow_scenarios",
+   "label": "230V AC supply to Galley Wine Cooler"
+  },
+  {
+   "action": "would_attach",
+   "node": "360-wine-cooler",
+   "kind": "dry_data",
+   "label": "230V AC supply to Galley Wine Cooler"
+  },
+  {
+   "action": "would_attach",
+   "node": "360-wine-cooler",
+   "kind": "key_components",
+   "label": "230V AC supply to Galley Wine Cooler"
+  },
+  {
+   "action": "would_attach",
+   "node": "360-extraction-hood",
+   "kind": "flow_scenarios",
+   "label": "230V AC supply to Galley Extraction Hood outlets"
+  },
+  {
+   "action": "would_attach",
+   "node": "360-extraction-hood",
+   "kind": "dry_data",
+   "label": "230V AC supply to Galley Extraction Hood outlets"
+  },
+  {
+   "action": "would_attach",
+   "node": "360-extraction-hood",
+   "kind": "key_components",
+   "label": "230V AC supply to Galley Extraction Hood outlets"
+  },
+  {
+   "action": "would_attach",
+   "node": "712-nav-station",
+   "kind": "flow_scenarios",
+   "label": "230V AC supply to Nav. Station outlets"
+  },
+  {
+   "action": "would_attach",
+   "node": "712-nav-station",
+   "kind": "dry_data",
+   "label": "230V AC supply to Nav. Station outlets"
+  },
+  {
+   "action": "would_attach",
+   "node": "712-nav-station",
+   "kind": "key_components",
+   "label": "230V AC supply to Nav. Station outlets"
+  },
+  {
+   "action": "would_attach",
+   "node": "694-230v-outlets",
+   "kind": "flow_scenarios",
+   "label": "230V AC supply to Port/Stbd crew outlets and primary ventilation"
+  },
+  {
+   "action": "would_attach",
+   "node": "694-230v-outlets",
+   "kind": "dry_data",
+   "label": "230V AC supply to Port/Stbd crew outlets and primary ventilation"
+  },
+  {
+   "action": "would_attach",
+   "node": "694-230v-outlets",
+   "kind": "key_components",
+   "label": "230V AC supply to Port/Stbd crew outlets and primary ventilation"
+  },
+  {
+   "action": "would_attach",
+   "node": "694-230v-outlets",
+   "kind": "flow_scenarios",
+   "label": "230V AC supply to Lazarette outlets"
+  },
+  {
+   "action": "would_attach",
+   "node": "694-230v-outlets",
+   "kind": "dry_data",
+   "label": "230V AC supply to Lazarette outlets"
+  },
+  {
+   "action": "would_attach",
+   "node": "694-230v-outlets",
+   "kind": "key_components",
+   "label": "230V AC supply to Lazarette outlets"
+  },
+  {
+   "action": "flagged_missing_target",
+   "node": "no fitting node",
+   "label": "230V AC supply to Blast Chiller"
+  },
+  {
+   "action": "flagged_missing_target",
+   "node": "no fitting node",
+   "label": "230V AC supply to Blast Chiller"
+  },
+  {
+   "action": "flagged_missing_target",
+   "node": "no fitting node",
+   "label": "230V AC supply to Blast Chiller"
+  },
+  {
+   "action": "would_attach",
+   "node": "360-cook-top",
+   "kind": "flow_scenarios",
+   "label": "230V AC supply to Induction Hob"
+  },
+  {
+   "action": "would_attach",
+   "node": "360-cook-top",
+   "kind": "dry_data",
+   "label": "230V AC supply to Induction Hob"
+  },
+  {
+   "action": "would_attach",
+   "node": "360-cook-top",
+   "kind": "key_components",
+   "label": "230V AC supply to Induction Hob"
+  },
+  {
+   "action": "would_attach",
+   "node": "694-main-ac-panel",
+   "kind": "infrastructure_facts",
+   "label": "230V AC AFT Distribution Panel (bus/supply structure)"
+  }
+ ],
+ "uncertainties": [
+  {
+   "sheet": "GM_p5_FUSED_CLEAN",
+   "drawing_class": "electrical",
+   "text": "Diving Compressor (fed via Q8, 16A): no register node clearly matches a scuba/diving air compressor (distinct from 575-pneumatic-system companionway air compressor) \u2014 engineer to confirm correct node or that one should be created.",
+   "status": "open",
+   "ts": "2026-07-26T20:03:00+00:00"
+  },
+  {
+   "sheet": "GM_p5_FUSED_CLEAN",
+   "drawing_class": "electrical",
+   "text": "GALLEY 2 (Earth Leakage 3) downstream breaker allocation is not clearly separated from GALLEY 1/AFT OUTLETS in the measured netlist beyond shared tie nets (net12/net13/net618-620) \u2014 which specific breakers draw from GALLEY 2 alone is not established on this sheet.",
+   "status": "open",
+   "ts": "2026-07-26T20:03:00+00:00"
+  },
+  {
+   "sheet": "GM_p5_FUSED_CLEAN",
+   "drawing_class": "electrical",
+   "text": "Zip Water Dispenser's internal switch contact (ZIP_WD_switch / switch_contact) shows a CONFLICT: printed symbol reads NC but measured wiring shows NO \u2014 engineer should confirm actual contact state.",
+   "status": "open",
+   "ts": "2026-07-26T20:03:00+00:00"
+  },
+  {
+   "sheet": "GM_p5_FUSED_CLEAN",
+   "drawing_class": "electrical",
+   "text": "Q15 and Q16 breaker ways print no load label ('/' only) \u2014 treated as spare ways per rule, but if a load was intended and omitted from the drawing, confirm with engineer.",
+   "status": "open",
+   "ts": "2026-07-26T20:03:00+00:00"
+  }
+ ],
+ "flags": [
+  {
+   "issue": "target_missing_or_retired",
+   "node_id": "no fitting node",
+   "label": "230V AC supply to Blast Chiller",
+   "sheet": "GM_p5_FUSED_CLEAN"
+  },
+  {
+   "issue": "target_missing_or_retired",
+   "node_id": "no fitting node",
+   "label": "230V AC supply to Blast Chiller",
+   "sheet": "GM_p5_FUSED_CLEAN"
+  },
+  {
+   "issue": "target_missing_or_retired",
+   "node_id": "no fitting node",
+   "label": "230V AC supply to Blast Chiller",
+   "sheet": "GM_p5_FUSED_CLEAN"
+  }
+ ],
+ "cross_refs": [
+  {
+   "sheet": "GM_p5_FUSED_CLEAN",
+   "what": "Diving Compressor load (Q8, 16A) \u2014 glossary maps AIR COMPRESSOR -> 575-pneumatic-system, but this appears to be a distinct 'diving' air compressor for scuba, not the pneumatic companionway system; no register node clearly fits a dive air compressor.",
+   "referenced_sheet_hint": "possible dive equipment register / 970-bauer-dive-compressor",
+   "status": "open"
+  }
+ ]
+}

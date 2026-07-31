@@ -34,3 +34,5 @@ data/state/font_table_*.json
 # Committing one lets a two-file test run masquerade as the full-drive
 # registry the engineer is about to red-pen.
 data/state/registry_proposal_*
+# Content-addressed vision-layer cache — derived, regenerates itself, grows large.
+data/state/cache/

@@ -79,6 +79,8 @@ def build(pdf_bytes: bytes, page_index: int = 0, *,
 
     return {"nets": [{"net_id": n["net_id"], "kind": n["kind"],
                       "devices": n.get("devices", []),
+                      "device_kinds": n.get("device_kinds", []),
+                      "contact_states": n.get("contact_states", []),
                       "bbox": [round(v, 1) for v in n["bbox"]],
                       "n_segments": n["n_segments"],
                       "labels": [l["text"] for l in n["labels"]]}
@@ -88,10 +90,19 @@ def build(pdf_bytes: bytes, page_index: int = 0, *,
             "devices": devices,
             "placed_devices": placed_devices,
             "unbound_labels": [l["text"] for l in unbound],
+            # COUNT LABEL INSTANCES, NOT DISTINCT STRINGS (2026-07-26).
+            # 'bound' used to be the size of a SET of label texts, so seven
+            # terminals all printed "9" counted as one. That under-reported
+            # binding by roughly half and fed a false MEASUREMENT COMPLETENESS
+            # line into every composition — telling it most of the sheet was
+            # unmeasured when 86% of labels were bound.
             "stats": {"segments": len(segs), "nets": len(nets),
                       "conductors": sum(1 for n in nets if n["kind"] == "conductor"),
                       "labels": len(labels),
-                      "bound": len(bound_texts),
+                      "bound": sum(len(n["labels"]) for n in nets),
+                      "bound_to_conductor": sum(len(n["labels"]) for n in nets
+                                                if n["kind"] == "conductor"),
+                      "distinct_bound_texts": len(bound_texts),
                       "unbound": len(unbound),
                       "devices_located": len(located or []),
                       "devices_placed": len(placed_devices)}}
@@ -145,6 +156,17 @@ def bind_devices(netlist: Dict[str, Any],
             for n in nets:
                 if n["net_id"] == nid:
                     n.setdefault("devices", []).append(rec["label"] or rec["kind"])
+                    # KIND kept ALONGSIDE the label (2026-07-26). Storing only
+                    # the label ("Re7") threw away the fact that the device IS a
+                    # relay, so anything reasoning about device TYPE — is there
+                    # a coil on this net? a breaker? — silently found nothing.
+                    # The label is what a human reads; the kind is what the
+                    # circuit logic needs. Keep both.
+                    if rec.get("kind"):
+                        n.setdefault("device_kinds", []).append(rec["kind"])
+                    if rec.get("contact_state"):
+                        n.setdefault("contact_states", []).append(
+                            f"{rec.get('label') or rec['kind']}={rec['contact_state']}")
     netlist["placed_devices"] = placed
     return netlist
 
@@ -233,8 +255,29 @@ def digest(netlist: Dict[str, Any], max_nets: int = 40) -> str:
             coil = f" coil={r['coil_id']}" if r.get("coil_id") else ""
             out.append(f"  {r.get('label') or r.get('kind')}: contact={cs}{coil} "
                        f"on nets {', '.join(r.get('nets', [])[:6])}")
+    # MEASUREMENT COMPLETENESS — the honest statement of what was NOT measured.
+    # (2026-07-26, terminal->relay 1:1 drift.) The old wording called unbound
+    # labels "annotation or off-net text", which told the model they carried no
+    # connection — so it filled the missing pairings from layout order and drifted
+    # one relay off. An unbound label is a GAP IN THE MEASUREMENT, not an
+    # annotation, and a gap must be declared rather than interpolated.
+    s_ = netlist["stats"]
+    out.append(
+        f"MEASUREMENT COMPLETENESS: {s_['bound']} of {s_['labels']} labels were "
+        f"bound to drawn ink, {s_.get('bound_to_conductor', s_['bound'])} of "
+        f"them onto a CONDUCTOR (the ones usable as connections); "
+        f"{s_['unbound']} bound to nothing.")
+    out.append("CLAIM RULE (hard): you may state a connection between two labels "
+               "ONLY where they appear together on one net line above. Where a "
+               "pairing is not shown — because a label is unbound, or because the "
+               "two sit on different nets — you must NOT infer it from row order, "
+               "column order, numbering sequence or physical proximity. Say "
+               "'not measured on this sheet' and put it in uncertainties. Four "
+               "terminals in a row next to four relays do NOT imply 1st-to-1st: "
+               "state only the pairings actually measured, and list the rest as "
+               "unresolved.")
     if netlist["unbound_labels"]:
-        out.append("  (labels not bound to any conductor — treat as annotation "
-                   "or off-net text: " +
-                   ", ".join(netlist["unbound_labels"][:20]) + ")")
+        out.append("  UNBOUND labels (present on the sheet, connection NOT "
+                   "measured — do not guess what they join): " +
+                   ", ".join(netlist["unbound_labels"][:24]))
     return "\n".join(out)

@@ -32,8 +32,23 @@ from typing import Any, Dict, List, Optional, Sequence, Set, Tuple
 
 # device-kind vocabulary (general, no vessel tokens)
 _PROTECTIVE = ("breaker", "fuse", "mcb", "circuit breaker")
-_POS_WORDS = ("+", "positive", "pos bus", "+24", "+ 24", "supply", "vcc", "l1", "line")
-_NEG_WORDS = ("-", "negative", "neg bus", "0v", "gnd", "ground", "rtn", "return", "n ")
+
+# POLARITY VOCABULARY IS MATCHED ON WORD BOUNDARIES, NEVER AS SUBSTRINGS
+# (2026-07-26). The first version tested membership with `in`, and one of the
+# negative tokens was the AC-neutral "n " — which matches inside "MAIN FEED",
+# "STERN LIGHT", "FAN", "GEN". Since an explicit negative marking overrides the
+# breaker rule, any net labelled with such a word was flipped to negative: a
+# silent polarity REVERSAL produced by a substring test. Same failure shape as
+# the loose answer-matcher; the cure is the same — token boundaries only.
+# A signed rail marking ("+24V", "+ 24 V", "-24V") is the clearest polarity
+# statement a drawing makes, so it is matched explicitly rather than left to
+# the word list.
+_POS_RE = re.compile(
+    r"(?<![A-Za-z0-9])(?:\+\s?\d{1,3}\s?v?|\+|positive|pos\s+bus|supply|vcc"
+    r"|l1|line)(?![A-Za-z0-9])", re.I)
+_NEG_RE = re.compile(
+    r"(?<![A-Za-z0-9])(?:-\s?\d{1,3}\s?v(?:dc)?|negative|neg\s+bus|0v|gnd"
+    r"|ground|rtn|return|n)(?![A-Za-z0-9])", re.I)
 _PROT_ID = re.compile(r"^(Q|QE|CB|F|FU)\s?\d{1,3}$", re.I)
 
 
@@ -56,11 +71,12 @@ def classify_sources(netlist: Dict[str, Any]) -> Dict[str, str]:
     """
     pol: Dict[str, str] = {}
     for n in netlist.get("nets", []):
-        blob = _txt(" ".join(n.get("labels", [])), " ".join(n.get("devices", [])))
-        explicit_neg = any(w in blob for w in _NEG_WORDS[1:])  # skip bare "-"
+        blob = _txt(" ".join(n.get("labels", [])), " ".join(n.get("devices", [])),
+                    " ".join(n.get("device_kinds", [])))
+        explicit_neg = bool(_NEG_RE.search(blob))
         has_prot = any(w in blob for w in _PROTECTIVE) or \
             any(_PROT_ID.match(l.strip()) for l in n.get("labels", []))
-        explicit_pos = any(w in blob for w in _POS_WORDS[1:])
+        explicit_pos = bool(_POS_RE.search(blob))
         if explicit_neg:
             pol[n["net_id"]] = "negative"
         elif has_prot or explicit_pos:
@@ -183,11 +199,18 @@ def digest(netlist: Dict[str, Any], max_rails: int = 12) -> str:
     if td:
         out.append("")
         out.append(td)
+    cs = contact_digest(netlist)
+    if cs:
+        out.append("")
+        out.append(cs)
     return "\n".join(out)
 
 
 # --------------------------------------------------------------- tag direction
 _COIL_WORDS = ("coil", "relay", "contactor", "solenoid")
+# a relay drawn as "Re7"/"K12"/"CR3" — label shape as a backup signal
+# when the symbol was typed but not named (general, no vessel token)
+_RELAY_LABEL = re.compile(r"^(RE|K|CR|R)\s?\d{1,3}$", re.I)
 
 
 def tag_direction(netlist: Dict[str, Any]) -> List[Dict[str, Any]]:
@@ -210,8 +233,13 @@ def tag_direction(netlist: Dict[str, Any]) -> List[Dict[str, Any]]:
         if not tags:
             continue
         devs = [d for d in (n.get("devices") or [])]
-        blob = _txt(" ".join(devs))
-        reaches_coil = any(w in blob for w in _COIL_WORDS)
+        kinds = [k for k in (n.get("device_kinds") or [])]
+        # KIND first: bind_devices stores the LABEL ("Re7") as the device name,
+        # so searching names for the word "relay" found nothing and every tag
+        # came back STATUS. The device's TYPE is the thing that decides this.
+        blob = _txt(" ".join(kinds), " ".join(devs))
+        reaches_coil = (any(w in blob for w in _COIL_WORDS)
+                        or any(_RELAY_LABEL.match(str(d).strip()) for d in devs))
         for t in tags:
             out.append({"tag": t.strip(), "net_id": n["net_id"],
                         "direction": "COMMAND (reaches a coil)" if reaches_coil
@@ -237,4 +265,84 @@ def tag_digest(netlist: Dict[str, Any]) -> str:
         seen.add(key)
         devs = ", ".join(t["devices_on_net"][:5]) or "(no devices bound)"
         out.append(f"  {t['tag']} ({t['net_id']}): {t['direction']} — on net with: {devs}")
+    return "\n".join(out)
+
+# --------------------------------------------------------- contact state (geometry)
+_CONTACT_KINDS = ("contact", "relay", "switch", "changeover")
+
+
+def contact_states(netlist: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """
+    NO vs NC READ FROM THE DRAWING'S TOPOLOGY, not from the symbol picture
+    (2026-07-26).
+
+    The insight that makes this free: a contact drawn OPEN is a physical BREAK
+    in the conductor, so the two stubs either side land on DIFFERENT nets. A
+    contact drawn CLOSED is continuous, so the conductor through it is ONE net.
+    The union-find tracer already knows this — nobody had asked it.
+
+      2+ distinct conductor nets under the symbol -> drawn OPEN  -> NO
+      exactly 1                                   -> drawn CLOSED -> NC
+
+    This is EVIDENCE, not a verdict: a tracer can split a continuous conductor
+    at a junction, and a symbol box can overlap a neighbouring wire. So it is
+    reconciled against whatever the vision pass read:
+
+      agree                  -> confirmed (state it plainly)
+      vision unknown         -> use the geometry, labelled as measured
+      disagree               -> FLAG, never silently pick one
+
+    That reconciliation is the point — two independent readings of the same
+    fact is exactly what the multi-source rule asks for, and it turns the
+    commonest "contact=unknown" dead end into an answer.
+    """
+    out: List[Dict[str, Any]] = []
+    conductor = {n["net_id"] for n in netlist.get("nets", [])
+                 if n.get("kind") == "conductor"}
+    for pd in netlist.get("placed_devices", []):
+        kind = (pd.get("kind") or "").lower()
+        if not any(k in kind for k in _CONTACT_KINDS):
+            continue
+        nets = [n for n in (pd.get("nets") or []) if n in conductor]
+        if not nets:
+            continue
+        distinct = len(set(nets))
+        geo = "NO" if distinct >= 2 else "NC"
+        read = (pd.get("contact_state") or "").upper()
+        if read in ("NO", "NC"):
+            verdict = geo if read == geo else "CONFLICT"
+            basis = "confirmed by both the drawn symbol and the wiring" \
+                if read == geo else \
+                f"symbol read as {read} but the wiring shows {geo}"
+        else:
+            verdict, basis = geo, "measured from the wiring (symbol not legible)"
+        out.append({"device": pd.get("label") or pd.get("kind"),
+                    "kind": pd.get("kind", ""),
+                    "coil_id": pd.get("coil_id", ""),
+                    "state": verdict, "basis": basis,
+                    "nets": sorted(set(nets))[:6],
+                    "n_distinct_nets": distinct})
+    return out
+
+
+def contact_digest(netlist: Dict[str, Any], limit: int = 24) -> str:
+    cs = contact_states(netlist)
+    if not cs:
+        return ""
+    out = ["CONTACT STATE (NO/NC) — a contact drawn OPEN breaks the conductor, "
+           "so its two sides sit on DIFFERENT nets; drawn CLOSED it is one "
+           "continuous net. Read from the wiring below and cross-checked "
+           "against the symbol. Use these verdicts: a load on NO is OFF until "
+           "the coil energises; a load on NC is ON until the coil energises "
+           "and energising REMOVES it:"]
+    for c in cs[:limit]:
+        coil = f", coil {c['coil_id']}" if c.get("coil_id") else ""
+        out.append(f"  {c['device']} ({c['kind']}{coil}): {c['state']} "
+                   f"— {c['basis']} [{c['n_distinct_nets']} net(s): "
+                   f"{', '.join(c['nets'][:4])}]")
+    conflicts = [c for c in cs if c["state"] == "CONFLICT"]
+    if conflicts:
+        out.append("  A CONFLICT above means the symbol and the wiring "
+                   "disagree — say so explicitly and record it as an "
+                   "uncertainty; do NOT pick one silently.")
     return "\n".join(out)

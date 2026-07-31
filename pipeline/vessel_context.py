@@ -212,3 +212,80 @@ def relationship_context(text: str) -> str:
             seen.add(line)
             out.append(line)
     return "\n".join(out)
+
+
+# ---------------------------------------------------------------------------
+# CORPUS KNOWLEDGE (2026-07-26) — the gap the engineer found on the aft
+# companionway: "the fact there is an inflatable seal on both companionways is
+# GIVEN IN THE OWNER MANUAL and should have been known to engo."
+#
+# It was not known because this substrate only ever read the REGISTER (nodes +
+# facts) and the glossary. The ingested DOCUMENT CORPUS — owner's manual,
+# handover, OEM manuals — sat in the vector store and was never queried during
+# composition. A drawing tells you what is wired; the manual tells you what the
+# thing IS and DOES. Composition needs both.
+# ---------------------------------------------------------------------------
+
+# Anything above this cosine distance is not really about the subject — it is
+# the embedder returning "best of what's there" (a known behaviour of this
+# store). Measured on real sheet subjects: genuine hits land 0.35-0.46
+# (bilge valves -> Burkert selection valves, companionway -> the Likon seal,
+# hydraulic panels -> the MYT function list), while off-topic filler starts
+# around 0.53 (a nav-lights sheet pulling another project's propeller-pitch
+# alarm list, a Finnish hand-pump manual). Weak context is NOT harmless here:
+# it is exactly the material a composition weaves into an invented scenario,
+# which is the cross-class contamination failure already fixed once. An empty
+# corpus block is a good outcome; a plausible irrelevant one is not.
+# Set at 0.45: across the sheet subjects measured so far every genuinely
+# on-subject hit landed at or below 0.424 while generic OEM catalogue filler
+# (a Finnish hand-pump manual, a Danfoss pump catalogue) started at 0.452 —
+# a clean gap, not a hairline. PROVISIONAL: this is a handful of observations,
+# not an eval harness, and should be re-set against one when it exists. It is
+# deliberately biased toward precision — a missing corpus line costs a naming
+# hint, a plausible irrelevant one costs an invented scenario.
+CORPUS_MAX_DISTANCE = 0.45
+
+
+def corpus_context(subject: str, k: int = 4, max_chars: int = 1600,
+                   max_distance: float = CORPUS_MAX_DISTANCE) -> str:
+    """
+    What the vessel's own documentation says about this sheet's subject.
+
+    Retrieval failure is never fatal to a composition — it degrades to "(no
+    corpus context)" rather than killing the run.
+    """
+    if not subject or not subject.strip():
+        return ""
+    try:
+        from pipeline.retrieve import search
+        hits = search(subject.strip(), k=k, distance_threshold=max_distance)
+    except Exception:
+        return ""
+    if not hits:
+        return ""
+    out = ["VESSEL DOCUMENTATION on this subject (from the ingested corpus — "
+           "the manuals already know things the drawing does not spell out; "
+           "use this to name equipment and understand what a circuit is FOR, "
+           "but never let it override what the drawing actually shows):"]
+    used = 0
+    seen = set()
+    for h in hits:
+        txt = " ".join((h.get("text") or h.get("document") or "").split())
+        src = (h.get("metadata") or {}).get("file_name", "")
+        if not txt:
+            continue
+        # The vessel keeps the same list under several filenames (inventory
+        # exports, Sealogs snapshots, AutoRecovered copies). The same row
+        # arriving four times both burns the budget and READS AS CORROBORATION
+        # from four sources when it is one fact copied — so collapse them and
+        # name every file it came from.
+        key = txt[:140].lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        snippet = txt[:400]
+        used += len(snippet)
+        out.append(f"  [{src}] {snippet}")
+        if used >= max_chars:
+            break
+    return "\n".join(out)

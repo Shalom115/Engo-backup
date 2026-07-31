@@ -138,6 +138,8 @@ def _crop_box(png: bytes, bbox: List[float], pad: float = 0.01) -> bytes:
 def survey(pdf_bytes: bytes, page_index: int = 0, *, dpi: int = 200,
            legend_context: str = "") -> Dict[str, Any]:
     """PASS 1 — classify sub-type + detect regions (gold-blind, structural only)."""
+    from pipeline import meter
+    meter.set_layer("survey")
     vp = get_vision_provider("electrical")
     img = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=dpi)
     r = vp.extract(img, "image/png",
@@ -413,6 +415,8 @@ def read_schedule_coverage(pdf_bytes: bytes, page_index: int,
     survey-detected panel/breaker regions PLUS a fixed full-sheet grid, merged with
     dedupe. Same root cause applies here: the survey's region detection is
     stochastic, so a schedule reader keyed only on it can silently miss rows."""
+    from pipeline import meter
+    meter.set_layer("schedule")
     page = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=dpi)
     vp = get_vision_provider("electrical")
     _prompt = _ctx(legend_context, _SCHEDULE_PROMPT)
@@ -473,6 +477,8 @@ def read_wiring_coverage(pdf_bytes: bytes, page_index: int,
     """Wiring read with the COVERAGE GUARANTEE: reads the survey's wiring regions
     (tight crops, best resolution) PLUS a fixed full-sheet grid, then merges with
     dedupe. An element found by either path is kept; grid-only finds are marked."""
+    from pipeline import meter
+    meter.set_layer("wiring")
     page = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=dpi)
     vp = get_vision_provider("electrical")
     _prompt = _ctx(legend_context, _WIRING_PROMPT)
@@ -506,6 +512,8 @@ def read_wiring_coverage(pdf_bytes: bytes, page_index: int,
 def read_oneline_region(pdf_bytes: bytes, bbox: List[float], page_index: int = 0,
                         *, dpi: int = 400, legend_context: str = "") -> Dict[str, Any]:
     """PASS 2 (sub-type B) — read the topology of a one-line region."""
+    from pipeline import meter
+    meter.set_layer("oneline")
     vp = get_vision_provider("electrical")
     page = vx.rasterize_pdf_page(pdf_bytes, page_index, dpi=dpi)
     return vp.extract(_crop_box(page, bbox), "image/png",

@@ -1,0 +1,484 @@
+{
+ "arm": "A3_CHEAP",
+ "page": 21,
+ "title": "AFT SERVICE PUMPS",
+ "usd": 1.2041,
+ "seconds": 587,
+ "composition": {
+  "cross_references": [
+   {
+    "what": "FWD BLACK WATER TANK FULL SIGNAL \u2014 terminal 102 via tap 7/XA61-18, continues to DWG115a",
+    "referenced_sheet_hint": "DWG 115a (black water system)"
+   },
+   {
+    "what": "T/S F terminal strip and EMERGENCY LTS SW wiring, reached via multi-core cable MU4-12",
+    "referenced_sheet_hint": "DWG-120"
+   },
+   {
+    "what": "XA61 multi-pin connector \u2014 status/command taps for MAST BILGE, ENGINE ROOM BILGE, OWNERS GREY SUMP, FWD GUEST GREY SUMP, AFT A/C SUMP, BACKUP EM POWER (GMDSS) monitoring loom",
+    "referenced_sheet_hint": "ONYX monitoring sheet / 652-onyx-monitoring"
+   },
+   {
+    "what": "XA70 (SWB02/AFT) supply pair to AFT grey water sender/gauge circuit",
+    "referenced_sheet_hint": "gauge/instrument panel sheet"
+   },
+   {
+    "what": "XA30 (SWB01/FWD) supply pair to FWD grey water sender/gauge circuit",
+    "referenced_sheet_hint": "gauge/instrument panel sheet"
+   },
+   {
+    "what": "EMERGENCY LTS SW Link via T/S E terminal 57",
+    "referenced_sheet_hint": "emergency lighting sheet (693-emergency-lighting)"
+   },
+   {
+    "what": "EMERGENCY BAT +24V feed via T/S E terminal 8, source panel not shown on this sheet",
+    "referenced_sheet_hint": "emergency battery/panel sheet (632-battery-emergency)"
+   }
+  ],
+  "discarded_as_clutter": [
+   "Title block repeats (DWG No/Title/Date/Drawn/Project/Customer) \u2014 meta only",
+   "PC CARD / MAIN PANEL boundary dotted rectangles \u2014 enclosure markers not devices",
+   "Diamond-enclosed wire-gauge annotations \u2014 not devices",
+   "Duplicate RUN IND./ALARM lamp entries repeated per pump row \u2014 folded into each pump's function",
+   "T/S B terminals 19/20 'not used' \u2014 spare, no function",
+   "T/S F pins 23/24 'not used' \u2014 spare, no function"
+  ],
+  "equipment_groups": [
+   {
+    "equipment_name": "530-grey-water-pumps (AFT + FWD Grey Water Pumps)",
+    "target_node_id": "530-grey-water-pumps",
+    "placement_reasoning": "Sheet explicitly labels 'AFT GREY WATER P.' breaker Q1 10A feeding the AFT GREY WATER pump, and a second S18 selector block labelled 'FWD GREY WATER' \u2014 matches engineer mapping AFT/FWD GREY WATER PUMP -> 530-grey-water-pumps.",
+    "functions": [
+     {
+      "function_id": "aft-grey-water-pump",
+      "label": "AFT Grey Water Pump control & monitoring",
+      "what_it_does": "Runs the AFT grey water discharge pump on command from an ON/OFF/AUTO selector (S17) via a PC CARD controller, with run-indication and alarm status reported to the monitoring loom, and level sensed via a resistive sender.",
+      "sheet_region": "left/center of sheet, DC MAIN PANEL Q1 breaker row and S17 selector block, right-side AFT GREY WATER pump and sender",
+      "flow_scenarios": [
+       {
+        "state": "default/neutral",
+        "path": "DC MAIN PANEL Q1 10A -> unlabeled contact pair -> T/S C terminal 76 (fused terminal) -> PC CARD controller -> AFT GREY WATER pump; pump run status looped back via T/S C 77 (fused) to RUN IND. lamp"
+       },
+       {
+        "state": "AUTO (S17)",
+        "path": "PC CARD auto-runs pump based on AFT GREY WATER SENDER level input (variable resistor sender fed via SWB02/AFT connector XA70 pins 07(+)/08(-)); ALARM lamp/tap driven via T/S C terminal 80/81 to XA61 pin 08/12 monitoring loom on high level or fault"
+       },
+       {
+        "state": "ON/OFF manual (S17)",
+        "path": "S17 selector (measured NO contact) manually forces pump ON or OFF, overriding AUTO logic; state reported via RUN IND./ALARM taps to XA61 monitoring pins 10/12"
+       }
+      ],
+      "key_components": [
+       "S17 ON/OFF/AUTO selector switch (NO contact, measured)",
+       "AFT GREY WATER SENDER (resistive level sender)",
+       "PC CARD controller module",
+       "T/S C fused terminals 76/77/80/81 (fused-terminal troubleshooting points)",
+       "RUN IND. and ALARM status lamps"
+      ]
+     },
+     {
+      "function_id": "fwd-grey-water-pump",
+      "label": "FWD Grey Water Pump control & monitoring",
+      "what_it_does": "Runs the FWD grey water discharge pump via S18 ON/OFF/AUTO selector, with a FWD GREY WATER SENDER for level, run/alarm status fed to monitoring loom via terminals 97-101.",
+      "sheet_region": "lower-center of sheet, S18 selector block and Q6-area terminal group 97-101, FWD GREY WATER SENDER lower right",
+      "flow_scenarios": [
+       {
+        "state": "default/neutral",
+        "path": "supply (not shown on this sheet) -> PC CARD terminal 97 (RUN tap 1, XA61-04) -> pump run indication; FWD GREY WATER SENDER level -> SWB01/FWD connector XA30 pins 01(+)/02(-) -> gauge circuit off-sheet"
+       },
+       {
+        "state": "AUTO (S18)",
+        "path": "S18 AUTO position (measured NO contact) allows PC CARD to auto-command pump from sender level; ALARM tap 4/terminal 101 (XA61-02) reports to monitoring loom"
+       },
+       {
+        "state": "ON/OFF manual (S18)",
+        "path": "S18 ON position feeds terminal 97 (RUN IND. lamp), OFF position ties to terminal 98 (XA61-06 tap 2)"
+       }
+      ],
+      "key_components": [
+       "S18 ON/OFF/AUTO selector",
+       "FWD GREY WATER SENDER (resistive level sender)",
+       "PC CARD terminals 97-101 (tap 1-4)",
+       "XA61 connector pins 02/04/06 (monitoring taps)"
+      ]
+     }
+    ]
+   },
+   {
+    "equipment_name": "530-sump-pumps (Port/Stbd Aft Guest Grey Sumps, Fwd/Aft Crew Head Sumps, Aft A/C Sump)",
+    "target_node_id": "530-sump-pumps",
+    "placement_reasoning": "Engineer mapping ties PORT AFT GREY GUEST SUMP, STBD AFT GREY GUEST SUMP, FWD/AFT CREW SUMP PUMP, AFT AIRCON SUMP PUMP all to 530-sump-pumps; each is a distinct row/loop on this sheet fed from its own breaker (Q2-Q6) with local switch/fuse/pump and status looped to the PC CARD monitoring terminals.",
+    "functions": [
+     {
+      "function_id": "port-aft-guest-sump",
+      "label": "Port Aft Guest Grey Sump Pump",
+      "what_it_does": "Empties the Port Aft Guest cabin grey-water sump; local switch (measured NO) engages the pump directly, run status reported to monitoring loom via fused terminal 83.",
+      "sheet_region": "upper-left breaker row Q2 20A, upper-right pump/switch/fuse block",
+      "flow_scenarios": [
+       {
+        "state": "default/neutral",
+        "path": "DC MAIN PANEL Q2 20A breaker -> terminal 82 -> local switch -> PORT AFT GUEST GREY SUMP PUMP -> discharge; a 1A fuse sits inline before/bypassing the switch as a protective/bypass leg"
+       },
+       {
+        "state": "run status",
+        "path": "pump run reported via fused terminal 83 to RUN IND. lamp"
+       }
+      ],
+      "key_components": [
+       "Q2 20A breaker",
+       "fused terminal 83 (troubleshooting point)",
+       "1A inline fuse at pump",
+       "local ON/OFF switch"
+      ]
+     },
+     {
+      "function_id": "stbd-aft-guest-sump",
+      "label": "Stbd Aft Guest Grey Sump Pump",
+      "what_it_does": "Empties the Starboard Aft Guest cabin grey-water sump; same architecture as Port Aft Guest sump \u2014 local switch, 1A fuse, run status to monitoring loom via fused terminal 85.",
+      "sheet_region": "breaker row Q3 20A, pump/switch/fuse block right side",
+      "flow_scenarios": [
+       {
+        "state": "default/neutral",
+        "path": "DC MAIN PANEL Q3 20A breaker -> terminal 84 -> local switch -> STBD AFT GUEST GREY SUMP PUMP -> discharge, with 1A inline fuse"
+       },
+       {
+        "state": "run status",
+        "path": "pump run reported via fused terminal 85 to RUN IND. lamp"
+       }
+      ],
+      "key_components": [
+       "Q3 20A breaker",
+       "fused terminal 85",
+       "1A inline fuse",
+       "local ON/OFF switch"
+      ]
+     },
+     {
+      "function_id": "fwd-crew-head-sump",
+      "label": "Fwd Crew Head Grey Sump Pump",
+      "what_it_does": "Empties the Fwd crew head grey-water sump; activated via relay Re13 from breaker Q4, with a manual BY-PASS reed sump switch that can locally override/bypass the level-sensed reed switch to force pump run.",
+      "sheet_region": "breaker row Q4 10A / Re13 relay, pump + BY-PASS reed switch block right side",
+      "flow_scenarios": [
+       {
+        "state": "default/neutral (reed-switch auto)",
+        "path": "DC MAIN PANEL Q4 10A -> Re13 relay contact (measured NO) -> terminal 86 -> FWD CREW HEAD GREY SUMP PUMP, run status via terminal 88"
+       },
+       {
+        "state": "manual BY-PASS",
+        "path": "operator closes the BY-PASS push-switch beside the REED SUMP SW., shorting across the reed switch to force the pump on regardless of sensed sump level"
+       }
+      ],
+      "key_components": [
+       "Q4 10A breaker",
+       "Re13 relay (NO contact, measured)",
+       "REED SUMP SW. (float/reed level switch)",
+       "manual BY-PASS pushbutton"
+      ]
+     },
+     {
+      "function_id": "aft-crew-head-sump",
+      "label": "Aft Crew Head Grey Sump Pump",
+      "what_it_does": "Empties the Aft crew head grey-water sump; activated via relay Re14 from breaker Q5, with the same manual BY-PASS reed sump switch arrangement as the Fwd unit.",
+      "sheet_region": "breaker row Q5 10A / Re14 relay, pump + BY-PASS reed switch block right side",
+      "flow_scenarios": [
+       {
+        "state": "default/neutral (reed-switch auto)",
+        "path": "DC MAIN PANEL Q5 10A -> Re14 relay contact (measured NO) -> terminal 89 -> AFT CREW HEAD GREY SUMP PUMP, run status via terminal 91"
+       },
+       {
+        "state": "manual BY-PASS",
+        "path": "operator closes the BY-PASS pushbutton beside the REED SUMP SW., forcing the pump on independent of sensed sump level"
+       }
+      ],
+      "key_components": [
+       "Q5 10A breaker",
+       "Re14 relay (NO contact, measured)",
+       "REED SUMP SW.",
+       "manual BY-PASS pushbutton"
+      ]
+     },
+     {
+      "function_id": "aft-ac-sump",
+      "label": "Aft A/C Sump Pump",
+      "what_it_does": "Empties the Aft air-conditioning condensate sump via breaker Q6, local switch and 1A inline fuse; run/alarm status reported to the monitoring loom (tap 1, terminal 97).",
+      "sheet_region": "breaker row Q6 20A / terminal group 97-101, AFT A/C SUMP PUMP block right side",
+      "flow_scenarios": [
+       {
+        "state": "default/neutral",
+        "path": "DC MAIN PANEL Q6 20A breaker -> terminal 97 (tap 1) -> local switch -> 1A inline fuse -> AFT A/C SUMP PUMP -> discharge"
+       },
+       {
+        "state": "status/alarm",
+        "path": "run indication at terminal 97 (XA61-04); alarm on terminal 101 (tap 4, XA61-02) to PC CARD monitoring loom"
+       }
+      ],
+      "key_components": [
+       "Q6 20A breaker",
+       "1A inline fuse",
+       "local ON/OFF switch",
+       "terminals 97/101 monitoring taps"
+      ]
+     }
+    ]
+   },
+   {
+    "equipment_name": "652-onyx-monitoring (monitoring loom taps consolidated on this sheet)",
+    "target_node_id": "652-onyx-monitoring",
+    "placement_reasoning": "A dedicated numbered tap block (pins 5,6,8,9 -> terminals 92-96) consolidates status signals from MAST BILGE, ENGINE ROOM BILGE, OWNERS GREY SUMP, FWD GUEST GREY SUMP, AFT A/C SUMP, and BACKUP EM POWER (GMDSS BACKUP) into a single monitoring loom via the PC CARD/XA61 connector \u2014 this is the ONYX monitoring interface, not a function of any one pump equipment.",
+    "functions": [
+     {
+      "function_id": "monitoring-tap-block",
+      "label": "Consolidated status taps to ONYX monitoring",
+      "what_it_does": "Collects individual bilge/sump/grey-water status signals from other equipment (most not detailed on this sheet \u2014 only labelled by name) into terminals 92-96 for onward reporting via the XA61 connector to the ONYX monitoring system.",
+      "sheet_region": "left-center block below Re13/Re14, terminal rows 92-96 with pin labels 5/6/8/9",
+      "flow_scenarios": [
+       {
+        "state": "status report",
+        "path": "MAST BILGE / ENGINE ROOM BILGE / OWNERS GREY SUMP / FWD GUEST GREY SUMP / AFT A/C SUMP / BACKUP EM POWER (GMDSS BACKUP) status signals -> terminals 92-96 -> XA61 connector -> ONYX monitoring (off-sheet)"
+       }
+      ],
+      "key_components": [
+       "terminals 92-96 (fused terminals per netlist)",
+       "XA61 connector"
+      ]
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "DC MAIN PANEL / MAIN PANEL breaker distribution (this sheet)",
+    "facts": [
+     "Breakers Q1(10A)-Q6(20A) on DC MAIN PANEL/MAIN PANEL feed the individual pump circuits detailed above; bus/panel structure itself is shared infrastructure, not equipment.",
+     "T/S B, T/S C, T/S E terminal strips and PC CARD controller module form the local terminal/relay infrastructure of this AFT SERVICE PUMPS panel section.",
+     "Multi-core cable MU4-12 links this sheet's terminal strip to T/S F on DWG-120 (12-wire, see cross-reference)."
+    ]
+   }
+  ],
+  "good_to_have": [
+   "Exact fuse ratings for T/S C terminals 76/77/80/81/83/85/92-96 \u2014 shown as fused-terminal symbols, values not called out; capture at inspection if needed.",
+   "1A inline fuses at each sump/AC pump \u2014 value legible (1A) but part number not given.",
+   "Q1-Q6 breaker part numbers/manufacturer not given, only amperage ratings which are legible on the sheet."
+  ],
+  "serve_who": "This sheet (GMMS 108'-115, 'AFT SERVICE PUMPS') serves the vessel's Grey Water Pump system (530-grey-water-pumps: AFT and FWD grey water discharge pumps) and Sump Pump system (530-sump-pumps: Port/Stbd Aft Guest grey sumps, Fwd/Aft Crew Head sumps, Aft A/C sump) \u2014 evidenced by the load names printed directly above each breaker (AFT GREY WATER P., PORT/STBD AFT GREY GUEST SUMP, FWD/AFT CREW HEAD SUMP PUMP, AFT A/C SUMP PUMP) matching the engineer-confirmed vocabulary mapping. A secondary block of consolidated status taps (terminals 92-96, XA61 connector) serves the ONYX monitoring system (652-onyx-monitoring) by collecting bilge/sump/grey-water status signals for off-sheet reporting.",
+  "uncertainties": [
+   "ALARM relay contact (coil XA61) is flagged as a symbol/wiring CONFLICT in the netlist \u2014 symbol reads NC but wiring measures NO; the true fail-safe alarm behavior (alarm-on-loss-of-power vs alarm-on-signal) needs engineer confirmation.",
+   "Relay contact 90 (coil) is flagged CONFLICT \u2014 symbol read as NO but wiring shows NC; affects whether the Aft Crew Head sump pump run/status line is normally made or normally broken.",
+   "Positive/feed side of EMERGENCY BAT +24V circuit (via T/S E terminal 8) is not traced on this sheet \u2014 only the terminal and downstream line are shown; source panel is off-sheet.",
+   "MAST BILGE / ENGINE ROOM BILGE / OWNERS GREY SUMP / FWD GUEST GREY SUMP status taps (terminals 92-96) name equipment not otherwise detailed on this sheet \u2014 their pump hardware (breakers, switches) is not shown here; only the monitoring tap exists on this sheet, the equipment itself is presumably detailed elsewhere.",
+   "Correspondence between S18's ON/OFF/AUTO positions and terminals 97/98/99 is per the printed layout order only \u2014 not explicitly confirmed by a separate netlist entry; treat with caution pending confirmation."
+  ],
+  "_model": "claude-sonnet-5",
+  "_protocol_version": 9
+ },
+ "netlist_stats": {
+  "segments": 20261,
+  "nets": 2367,
+  "conductors": 1918,
+  "labels": 357,
+  "bound": 191,
+  "bound_to_conductor": 190,
+  "distinct_bound_texts": 113,
+  "unbound": 77,
+  "devices_located": 134,
+  "devices_placed": 134
+ },
+ "write_counts": {
+  "would_attach": 16,
+  "flagged_infra_no_node": 1
+ },
+ "would_write": [
+  {
+   "action": "would_attach",
+   "node": "530-grey-water-pumps",
+   "kind": "flow_scenarios",
+   "label": "AFT Grey Water Pump control & monitoring"
+  },
+  {
+   "action": "would_attach",
+   "node": "530-grey-water-pumps",
+   "kind": "key_components",
+   "label": "AFT Grey Water Pump control & monitoring"
+  },
+  {
+   "action": "would_attach",
+   "node": "530-grey-water-pumps",
+   "kind": "flow_scenarios",
+   "label": "FWD Grey Water Pump control & monitoring"
+  },
+  {
+   "action": "would_attach",
+   "node": "530-grey-water-pumps",
+   "kind": "key_components",
+   "label": "FWD Grey Water Pump control & monitoring"
+  },
+  {
+   "action": "would_attach",
+   "node": "530-sump-pumps",
+   "kind": "flow_scenarios",
+   "label": "Port Aft Guest Grey Sump Pump"
+  },
+  {
+   "action": "would_attach",
+   "node": "530-sump-pumps",
+   "kind": "key_components",
+   "label": "Port Aft Guest Grey Sump Pump"
+  },
+  {
+   "action": "would_attach",
+   "node": "530-sump-pumps",
+   "kind": "flow_scenarios",
+   "label": "Stbd Aft Guest Grey Sump Pump"
+  },
+  {
+   "action": "would_attach",
+   "node": "530-sump-pumps",
+   "kind": "key_components",
+   "label": "Stbd Aft Guest Grey Sump Pump"
+  },
+  {
+   "action": "would_attach",
+   "node": "530-sump-pumps",
+   "kind": "flow_scenarios",
+   "label": "Fwd Crew Head Grey Sump Pump"
+  },
+  {
+   "action": "would_attach",
+   "node": "530-sump-pumps",
+   "kind": "key_components",
+   "label": "Fwd Crew Head Grey Sump Pump"
+  },
+  {
+   "action": "would_attach",
+   "node": "530-sump-pumps",
+   "kind": "flow_scenarios",
+   "label": "Aft Crew Head Grey Sump Pump"
+  },
+  {
+   "action": "would_attach",
+   "node": "530-sump-pumps",
+   "kind": "key_components",
+   "label": "Aft Crew Head Grey Sump Pump"
+  },
+  {
+   "action": "would_attach",
+   "node": "530-sump-pumps",
+   "kind": "flow_scenarios",
+   "label": "Aft A/C Sump Pump"
+  },
+  {
+   "action": "would_attach",
+   "node": "530-sump-pumps",
+   "kind": "key_components",
+   "label": "Aft A/C Sump Pump"
+  },
+  {
+   "action": "would_attach",
+   "node": "652-onyx-monitoring",
+   "kind": "flow_scenarios",
+   "label": "Consolidated status taps to ONYX monitoring"
+  },
+  {
+   "action": "would_attach",
+   "node": "652-onyx-monitoring",
+   "kind": "key_components",
+   "label": "Consolidated status taps to ONYX monitoring"
+  },
+  {
+   "action": "flagged_infra_no_node",
+   "label": "DC MAIN PANEL / MAIN PANEL breaker distribution (this sheet)"
+  }
+ ],
+ "uncertainties": [
+  {
+   "sheet": "GM_p21_A3_CHEAP",
+   "drawing_class": "electrical",
+   "text": "ALARM relay contact (coil XA61) is flagged as a symbol/wiring CONFLICT in the netlist \u2014 symbol reads NC but wiring measures NO; the true fail-safe alarm behavior (alarm-on-loss-of-power vs alarm-on-signal) needs engineer confirmation.",
+   "status": "open",
+   "ts": "2026-07-26T18:04:53+00:00"
+  },
+  {
+   "sheet": "GM_p21_A3_CHEAP",
+   "drawing_class": "electrical",
+   "text": "Relay contact 90 (coil) is flagged CONFLICT \u2014 symbol read as NO but wiring shows NC; affects whether the Aft Crew Head sump pump run/status line is normally made or normally broken.",
+   "status": "open",
+   "ts": "2026-07-26T18:04:53+00:00"
+  },
+  {
+   "sheet": "GM_p21_A3_CHEAP",
+   "drawing_class": "electrical",
+   "text": "Positive/feed side of EMERGENCY BAT +24V circuit (via T/S E terminal 8) is not traced on this sheet \u2014 only the terminal and downstream line are shown; source panel is off-sheet.",
+   "status": "open",
+   "ts": "2026-07-26T18:04:53+00:00"
+  },
+  {
+   "sheet": "GM_p21_A3_CHEAP",
+   "drawing_class": "electrical",
+   "text": "MAST BILGE / ENGINE ROOM BILGE / OWNERS GREY SUMP / FWD GUEST GREY SUMP status taps (terminals 92-96) name equipment not otherwise detailed on this sheet \u2014 their pump hardware (breakers, switches) is not shown here; only the monitoring tap exists on this sheet, the equipment itself is presumably detailed elsewhere.",
+   "status": "open",
+   "ts": "2026-07-26T18:04:53+00:00"
+  },
+  {
+   "sheet": "GM_p21_A3_CHEAP",
+   "drawing_class": "electrical",
+   "text": "Correspondence between S18's ON/OFF/AUTO positions and terminals 97/98/99 is per the printed layout order only \u2014 not explicitly confirmed by a separate netlist entry; treat with caution pending confirmation.",
+   "status": "open",
+   "ts": "2026-07-26T18:04:53+00:00"
+  }
+ ],
+ "flags": [
+  {
+   "issue": "infrastructure_no_node",
+   "system_name": "DC MAIN PANEL / MAIN PANEL breaker distribution (this sheet)",
+   "sheet": "GM_p21_A3_CHEAP",
+   "facts_preview": [
+    "Breakers Q1(10A)-Q6(20A) on DC MAIN PANEL/MAIN PANEL feed the individual pump circuits detailed above; bus/panel structure itself is shared infrastructure, not equipment.",
+    "T/S B, T/S C, T/S E terminal strips and PC CARD controller module form the local terminal/relay infrastructure of this AFT SERVICE PUMPS panel section."
+   ]
+  }
+ ],
+ "cross_refs": [
+  {
+   "sheet": "GM_p21_A3_CHEAP",
+   "what": "FWD BLACK WATER TANK FULL SIGNAL \u2014 terminal 102 via tap 7/XA61-18, continues to DWG115a",
+   "referenced_sheet_hint": "DWG 115a (black water system)",
+   "status": "open"
+  },
+  {
+   "sheet": "GM_p21_A3_CHEAP",
+   "what": "T/S F terminal strip and EMERGENCY LTS SW wiring, reached via multi-core cable MU4-12",
+   "referenced_sheet_hint": "DWG-120",
+   "status": "open"
+  },
+  {
+   "sheet": "GM_p21_A3_CHEAP",
+   "what": "XA61 multi-pin connector \u2014 status/command taps for MAST BILGE, ENGINE ROOM BILGE, OWNERS GREY SUMP, FWD GUEST GREY SUMP, AFT A/C SUMP, BACKUP EM POWER (GMDSS) monitoring loom",
+   "referenced_sheet_hint": "ONYX monitoring sheet / 652-onyx-monitoring",
+   "status": "open"
+  },
+  {
+   "sheet": "GM_p21_A3_CHEAP",
+   "what": "XA70 (SWB02/AFT) supply pair to AFT grey water sender/gauge circuit",
+   "referenced_sheet_hint": "gauge/instrument panel sheet",
+   "status": "open"
+  },
+  {
+   "sheet": "GM_p21_A3_CHEAP",
+   "what": "XA30 (SWB01/FWD) supply pair to FWD grey water sender/gauge circuit",
+   "referenced_sheet_hint": "gauge/instrument panel sheet",
+   "status": "open"
+  },
+  {
+   "sheet": "GM_p21_A3_CHEAP",
+   "what": "EMERGENCY LTS SW Link via T/S E terminal 57",
+   "referenced_sheet_hint": "emergency lighting sheet (693-emergency-lighting)",
+   "status": "open"
+  },
+  {
+   "sheet": "GM_p21_A3_CHEAP",
+   "what": "EMERGENCY BAT +24V feed via T/S E terminal 8, source panel not shown on this sheet",
+   "referenced_sheet_hint": "emergency battery/panel sheet (632-battery-emergency)",
+   "status": "open"
+  }
+ ]
+}

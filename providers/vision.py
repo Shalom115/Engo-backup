@@ -226,7 +226,7 @@ class VisionProvider(ABC):
 
     @abstractmethod
     def extract(self, image_bytes: bytes, media_type: str, prompt: str,
-                tool_schema: Dict[str, Any], max_tokens: int = 4096) -> Dict[str, Any]:
+                tool_schema: Dict[str, Any], max_tokens: int = 4096, cache_prefix: str = "") -> Dict[str, Any]:
         """Generic structured vision call: run caller-owned `prompt` against the
         image and return a dict matching the caller-owned `tool_schema`."""
         ...
@@ -305,6 +305,11 @@ class AnthropicVisionProvider(VisionProvider):
                 ],
             }],
         )
+        try:
+            from pipeline import meter
+            meter.record(self._model, getattr(resp, "usage", None))
+        except Exception:
+            pass
         tool_block = next((b for b in resp.content if b.type == "tool_use"), None)
         if tool_block is None:
             raise ValueError(f"Vision returned no tool_use (stop={resp.stop_reason}).")
@@ -312,31 +317,51 @@ class AnthropicVisionProvider(VisionProvider):
         parsed["model"] = self._model
         return parsed
 
-    def extract(self, image_bytes, media_type, prompt, tool_schema, max_tokens=4096):
+    def extract(self, image_bytes, media_type, prompt, tool_schema,
+                max_tokens=4096, cache_prefix: str = ""):
         """
         Generic structured vision call: run `prompt` against the image and force
         the caller-supplied `tool_schema`, returning the tool input dict. The
         PROMPT and SCHEMA are owned by the caller — this keeps domain logic (and
         the gold-blind discovery prompts) out of the provider, while the vendor
         SDK stays inside providers/ per architecture rule #1.
+
+        `cache_prefix` (optional): text that is IDENTICAL across a run — the
+        composition rules, the acronym glossary, the register index, the control
+        map. It is sent as a separate leading block marked for prompt caching,
+        so the second and later sheets of a run pay ~10% for it instead of full
+        price. It must come FIRST and must be byte-identical between calls, or
+        the cache simply misses and nothing else changes.
         """
         data, mt = self._prepare(image_bytes, media_type)
+        content = []
+        if cache_prefix:
+            # 1-HOUR TTL, NOT THE 5-MINUTE DEFAULT (2026-07-26). Measured on the
+            # arms test: cache_read was 0 on every compose call, with two cache
+            # WRITES and no reads — the default ephemeral cache lives 5 minutes
+            # and a sheet takes 4-10 minutes to extract, so the entry always
+            # expired before the next sheet could use it. A 1h write costs 2x
+            # (vs 1.25x) and breaks even at three requests, which any real run
+            # clears in the first quarter hour.
+            content.append({"type": "text", "text": cache_prefix,
+                            "cache_control": {"type": "ephemeral", "ttl": "1h"}})
+        content.append({"type": "image",
+                        "source": {"type": "base64", "media_type": mt,
+                                   "data": base64.b64encode(data).decode()}})
+        content.append({"type": "text", "text": prompt})
         resp = _call_with_retry(
             self._client.messages.create,
             model=self._model,
             max_tokens=max_tokens,
             tools=[tool_schema],
             tool_choice={"type": "tool", "name": tool_schema["name"]},
-            messages=[{
-                "role": "user",
-                "content": [
-                    {"type": "image",
-                     "source": {"type": "base64", "media_type": mt,
-                                "data": base64.b64encode(data).decode()}},
-                    {"type": "text", "text": prompt},
-                ],
-            }],
+            messages=[{"role": "user", "content": content}],
         )
+        try:
+            from pipeline import meter
+            meter.record(self._model, getattr(resp, "usage", None))
+        except Exception:
+            pass
         tool_block = next((b for b in resp.content if b.type == "tool_use"), None)
         if tool_block is None:
             raise ValueError(f"Vision returned no tool_use (stop={resp.stop_reason}).")
@@ -370,6 +395,11 @@ class AnthropicVisionProvider(VisionProvider):
             tool_choice={"type": "tool", "name": tool_schema["name"]},
             messages=[{"role": "user", "content": content}],
         )
+        try:
+            from pipeline import meter
+            meter.record(self._model, getattr(resp, "usage", None))
+        except Exception:
+            pass
         tool_block = next((b for b in resp.content if b.type == "tool_use"), None)
         if tool_block is None:
             raise ValueError(f"Vision returned no tool_use (stop={resp.stop_reason}).")
@@ -545,7 +575,8 @@ class GeminiVisionProvider(VisionProvider):
         parsed["model"] = self._model
         return parsed
 
-    def extract(self, image_bytes, media_type, prompt, tool_schema, max_tokens=4096):
+    def extract(self, image_bytes, media_type, prompt, tool_schema,
+                max_tokens=4096, cache_prefix: str = ""):
         out = self._generate([self._image_part(image_bytes, media_type), prompt],
                              tool_schema["input_schema"], max_tokens)
         out["_model"] = self._model
@@ -650,7 +681,8 @@ class OpenAIVisionProvider(VisionProvider):
         parsed["model"] = self._model
         return parsed
 
-    def extract(self, image_bytes, media_type, prompt, tool_schema, max_tokens=4096):
+    def extract(self, image_bytes, media_type, prompt, tool_schema,
+                max_tokens=4096, cache_prefix: str = ""):
         content = [self._image_block(image_bytes, media_type),
                    {"type": "input_text", "text": prompt}]
         out = self._call(content, tool_schema, max_tokens)
@@ -687,32 +719,35 @@ class OpenAIVisionProvider(VisionProvider):
 _PROVIDER_CACHE: Dict[str, VisionProvider] = {}
 
 
-def _make_provider(vendor: str) -> VisionProvider:
+def _make_provider(vendor: str, model_override: str = "") -> VisionProvider:
     vendor = vendor.lower().strip()
-    if vendor in _PROVIDER_CACHE:
-        return _PROVIDER_CACHE[vendor]
+    key = f"{vendor}|{model_override}"
+    if key in _PROVIDER_CACHE:
+        return _PROVIDER_CACHE[key]
     if vendor == "anthropic":
         api_key = os.getenv("ANTHROPIC_API_KEY")
         if not api_key:
             raise RuntimeError("ANTHROPIC_API_KEY not set in .env")
-        model = os.getenv("VISION_MODEL", "claude-sonnet-5")
+        model = model_override or os.getenv("VISION_MODEL", "claude-sonnet-5")
         p: VisionProvider = AnthropicVisionProvider(api_key=api_key, model=model)
     elif vendor == "gemini":
         api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
         if not api_key:
             raise RuntimeError("GEMINI_API_KEY (or GOOGLE_API_KEY) not set in .env")
-        model = os.getenv("GEMINI_VISION_MODEL", "gemini-3.1-pro-preview")
+        model = model_override or os.getenv("GEMINI_VISION_MODEL",
+                                            "gemini-3.1-pro-preview")
         p = GeminiVisionProvider(api_key=api_key, model=model)
     elif vendor == "openai":
         api_key = os.getenv("OPENAI_API_KEY")
         if not api_key:
             raise RuntimeError("OPENAI_API_KEY not set in .env")
-        model = os.getenv("OPENAI_VISION_MODEL", "gpt-5.6-sol")
+        model = model_override or os.getenv("OPENAI_VISION_MODEL",
+                                            "gpt-5.6-sol")
         p = OpenAIVisionProvider(api_key=api_key, model=model)
     else:
         raise NotImplementedError(f"vision vendor '{vendor}' not implemented "
                                   f"(anthropic | gemini | openai).")
-    _PROVIDER_CACHE[vendor] = p
+    _PROVIDER_CACHE[key] = p
     return p
 
 
@@ -726,7 +761,8 @@ def _routes() -> Dict[str, str]:
     return routes
 
 
-def get_vision_provider(task_class: Optional[str] = None) -> VisionProvider:
+def get_vision_provider(task_class: Optional[str] = None,
+                        layer: str = "") -> VisionProvider:
     """
     Factory: return the vision provider for a drawing/task class.
 
@@ -739,4 +775,14 @@ def get_vision_provider(task_class: Optional[str] = None) -> VisionProvider:
     vendor = default_vendor
     if task_class:
         vendor = _routes().get(task_class.lower(), default_vendor)
-    return _make_provider(vendor)
+    # PER-LAYER MODEL ROUTING (2026-07-26). Since the geometry layer took over
+    # connectivity, the tiled passes are TRANSCRIPTION — read this text, box
+    # this symbol — not reasoning. Transcription is what a small model is good
+    # at, and it is ~4x cheaper. Composition, which is the actual reasoning,
+    # stays on the strong model. Set e.g. VISION_MODEL_LABELS / _DEVICES /
+    # _TILES in .env; unset means "same model as everything else", so this
+    # changes nothing until deliberately switched on and validated.
+    override = ""
+    if layer:
+        override = os.getenv(f"VISION_MODEL_{layer.upper()}", "")
+    return _make_provider(vendor, override)

@@ -1,0 +1,481 @@
+<title>Extraction cost trial — 4 arms × 3 sheets</title>
+<style>
+  :root{
+    --paper:#eef1f3; --surface:#ffffff; --surface-2:#f7f9fa;
+    --ink:#13181c; --ink-2:#5b656e; --ink-3:#8c959d;
+    --rule:#d5dce0; --rule-strong:#b6c1c7;
+    --redpen:#bd3229; --blueprint:#235c86; --good:#2c6b4d;
+    --bar:#c3ced4;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --paper:#0e1215; --surface:#161b1f; --surface-2:#1b2126;
+      --ink:#e7ecef; --ink-2:#9aa5ad; --ink-3:#727d85;
+      --rule:#283037; --rule-strong:#3a444c;
+      --redpen:#e8695f; --blueprint:#6fadde; --good:#57a97f;
+      --bar:#33404a;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#0e1215; --surface:#161b1f; --surface-2:#1b2126;
+    --ink:#e7ecef; --ink-2:#9aa5ad; --ink-3:#727d85;
+    --rule:#283037; --rule-strong:#3a444c;
+    --redpen:#e8695f; --blueprint:#6fadde; --good:#57a97f;
+    --bar:#33404a;
+  }
+  :root[data-theme="light"]{
+    --paper:#eef1f3; --surface:#ffffff; --surface-2:#f7f9fa;
+    --ink:#13181c; --ink-2:#5b656e; --ink-3:#8c959d;
+    --rule:#d5dce0; --rule-strong:#b6c1c7;
+    --redpen:#bd3229; --blueprint:#235c86; --good:#2c6b4d;
+    --bar:#c3ced4;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-size:15px; line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px; margin:0 auto; padding:32px 24px 96px; display:flex; flex-direction:column; gap:40px}
+
+  .mono{font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace}
+  .label{
+    font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:10.5px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--ink-3);
+  }
+  .num{font-variant-numeric:tabular-nums}
+
+  /* ---- title block, after a drawing sheet's own header ---- */
+  .titleblock{
+    background:var(--surface); border:1px solid var(--rule-strong);
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  }
+  .titleblock .cell{padding:12px 16px; border-right:1px solid var(--rule); display:flex; flex-direction:column; gap:3px}
+  .titleblock .cell:last-child{border-right:none}
+  .titleblock .cell .v{font-size:14px; font-weight:600}
+  .titleblock .cell.head{grid-column:1/-1; border-right:none; border-bottom:1px solid var(--rule); padding:16px}
+  .titleblock h1{margin:0; font-size:23px; letter-spacing:-.015em; font-weight:640; text-wrap:balance}
+  .titleblock h1 + p{margin:6px 0 0; color:var(--ink-2); font-size:14px; max-width:66ch}
+
+  h2{
+    margin:0 0 4px; font-size:17px; font-weight:640; letter-spacing:-.01em;
+    text-wrap:balance;
+  }
+  section > .label{display:block; margin-bottom:10px}
+  .lede{margin:0 0 18px; color:var(--ink-2); max-width:70ch}
+  .lede strong{color:var(--ink); font-weight:600}
+
+  /* ---- arm verdict strip ---- */
+  .arms{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px}
+  .arm{
+    background:var(--surface); border:1px solid var(--rule); padding:16px;
+    display:flex; flex-direction:column; gap:10px; position:relative;
+  }
+  .arm.win{border-color:var(--redpen); border-width:1.5px}
+  .arm .circle{
+    position:absolute; top:10px; right:12px;
+    color:var(--redpen); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase;
+    font-family:ui-monospace,"SF Mono",Menlo,monospace; font-weight:600;
+    border:1.5px solid var(--redpen); border-radius:999px; padding:2px 9px;
+  }
+  .arm .name{font-weight:640; font-size:15px}
+  .arm .desc{color:var(--ink-2); font-size:13px; line-height:1.45}
+  .arm .cost{display:flex; align-items:baseline; gap:8px; margin-top:auto}
+  .arm .cost .big{font-size:26px; font-weight:660; letter-spacing:-.02em}
+  .arm .cost .pct{font-size:12.5px; color:var(--ink-2)}
+  .arm.win .cost .big{color:var(--redpen)}
+
+  /* ---- tables ---- */
+  .scroll{overflow-x:auto; border:1px solid var(--rule); background:var(--surface)}
+  table{border-collapse:collapse; width:100%; min-width:640px; font-size:13.5px}
+  th,td{padding:9px 12px; text-align:right; border-bottom:1px solid var(--rule); white-space:nowrap}
+  th:first-child,td:first-child{text-align:left}
+  thead th{
+    font-family:ui-monospace,"SF Mono",Menlo,monospace;
+    font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-3); font-weight:500; background:var(--surface-2);
+    border-bottom:1px solid var(--rule-strong);
+  }
+  tbody tr:last-child td{border-bottom:none}
+  tr.sheet-head td{
+    background:var(--surface-2); font-family:ui-monospace,"SF Mono",Menlo,monospace;
+    font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-2);
+    padding-top:11px; padding-bottom:11px;
+  }
+  td.best{color:var(--redpen); font-weight:640}
+  td.dead{color:var(--ink-3)}
+  tr.total td{border-top:1.5px solid var(--rule-strong); font-weight:640}
+
+  /* ---- measured-connection bars ---- */
+  .bars{display:flex; flex-direction:column; gap:22px}
+  .barsheet .label{margin-bottom:8px; display:block}
+  .barrow{display:grid; grid-template-columns:96px 1fr 56px; align-items:center; gap:12px; margin-bottom:5px}
+  .barrow .arm-n{font-size:12.5px; color:var(--ink-2)}
+  .track{height:16px; background:var(--surface); border:1px solid var(--rule)}
+  .fill{height:100%; background:var(--bar)}
+  .fill.win{background:var(--redpen)}
+  .fill.none{background:repeating-linear-gradient(45deg,var(--rule) 0 5px,transparent 5px 10px)}
+  .barrow .val{font-size:12.5px; text-align:right; font-variant-numeric:tabular-nums}
+  .barrow.is-win .arm-n,.barrow.is-win .val{color:var(--redpen); font-weight:620}
+
+  /* ---- granularity columns ---- */
+  .cols{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px}
+  .col{background:var(--surface); border:1px solid var(--rule); padding:16px; display:flex; flex-direction:column; gap:10px}
+  .col.win{border-color:var(--redpen); border-width:1.5px}
+  .col h3{margin:0; font-size:13px; font-weight:640; display:flex; align-items:baseline; gap:8px}
+  .col h3 .n{font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:11px; color:var(--ink-3); letter-spacing:.08em}
+  .col.win h3 .n{color:var(--redpen)}
+  .col ul{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:5px}
+  .col li{
+    font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:11.5px; line-height:1.4;
+    padding-left:13px; position:relative; color:var(--ink);
+  }
+  .col li::before{content:"—"; position:absolute; left:0; color:var(--ink-3)}
+  .col li.lump{color:var(--ink-2)}
+  .col li.lump em{font-style:normal; color:var(--redpen)}
+  .col .foot{font-size:12.5px; color:var(--ink-2); margin-top:auto; padding-top:6px; border-top:1px solid var(--rule)}
+
+  /* ---- node matrix ---- */
+  .matrix td.y{color:var(--ink); font-weight:600}
+  .matrix td.n{color:var(--ink-3)}
+  .matrix th.arm-col,.matrix td.arm-col{text-align:center; width:76px}
+
+  /* ---- notes ---- */
+  .notes{display:flex; flex-direction:column; gap:0; border:1px solid var(--rule); background:var(--surface)}
+  .note{padding:15px 18px; border-bottom:1px solid var(--rule); display:flex; gap:14px; align-items:flex-start}
+  .note:last-child{border-bottom:none}
+  .note .tag{
+    flex:0 0 auto; margin-top:1px;
+    font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:10px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--redpen); border:1px solid var(--redpen);
+    padding:2px 7px; white-space:nowrap;
+  }
+  .note p{margin:0; font-size:13.5px; color:var(--ink-2); max-width:76ch}
+  .note p strong{color:var(--ink); font-weight:600}
+
+  .verdict{
+    border:1.5px solid var(--redpen); background:var(--surface); padding:20px 22px;
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .verdict .label{color:var(--redpen)}
+  .verdict p{margin:0; max-width:74ch}
+  .verdict p + p{color:var(--ink-2); font-size:14px}
+
+  footer{color:var(--ink-3); font-size:12px; border-top:1px solid var(--rule); padding-top:14px}
+
+  @media (max-width:600px){
+    .wrap{padding:20px 14px 64px; gap:32px}
+    .barrow{grid-template-columns:74px 1fr 48px; gap:8px}
+  }
+</style>
+
+<div class="wrap">
+
+  <div class="titleblock">
+    <div class="cell head">
+      <div class="label">Gelliceaux · drawing ingestion · cost trial</div>
+      <h1>Four extraction arms, three untouched sheets</h1>
+      <p>Every arm ran the same three GM sheets and ended in a Register dry-run, so the comparison is what each
+        <em>would have written</em> — not what it said. Every figure below is metered from the actual run.</p>
+    </div>
+    <div class="cell"><span class="label">Sheets</span><span class="v mono">p19 · p21 · p5</span></div>
+    <div class="cell"><span class="label">Arms</span><span class="v mono">4</span></div>
+    <div class="cell"><span class="label">Runs</span><span class="v mono">12 · 1 crash</span></div>
+    <div class="cell"><span class="label">Protocol</span><span class="v mono">v9</span></div>
+    <div class="cell"><span class="label">Trial spend</span><span class="v mono num">$12.42</span></div>
+  </div>
+
+  <section>
+    <span class="label">The four arms</span>
+    <h2>What each one changes</h2>
+    <p class="lede">All four share the same free geometry layer. They differ only in what they pay a model to do.</p>
+    <div class="arms">
+      <div class="arm">
+        <div class="name">A0 · Baseline</div>
+        <div class="desc">Protocol v9 as it stands — label OCR, device locate and wiring coverage as three separate passes, strong model throughout.</div>
+        <div class="cost"><span class="big num">$1.67</span><span class="pct">per sheet</span></div>
+      </div>
+      <div class="arm win">
+        <span class="circle">Winner</span>
+        <div class="name">A1 · Fused tiles</div>
+        <div class="desc">One tiled pass returns labels, symbols and elements together, replacing three separate looks at the same ink.</div>
+        <div class="cost"><span class="big num">$0.77</span><span class="pct">46% of baseline</span></div>
+      </div>
+      <div class="arm">
+        <div class="name">A2 · Cached</div>
+        <div class="desc">Same reads as baseline, but the deterministic layers come from the content cache and the invariant prompt prefix is sent as a cached block.</div>
+        <div class="cost"><span class="big num">$1.13</span><span class="pct">68% of baseline</span></div>
+      </div>
+      <div class="arm">
+        <div class="name">A3 · Cheap model</div>
+        <div class="desc">Tiled transcription moved to the small model; composition stays on the strong one.</div>
+        <div class="cost"><span class="big num">$0.58</span><span class="pct">35% of baseline</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="label">Sheet by sheet</span>
+    <h2>Cost, and what came out of it</h2>
+    <p class="lede">Red marks the best value in each column, per sheet. <strong>Facts</strong> is the number of
+      entries that would be attached to Register nodes; <strong>bound</strong> is labels tied to a real conductor —
+      the measurement fed into composition.</p>
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr><th>Arm</th><th>Cost</th><th>Time</th><th>Systems</th><th>Facts</th><th>Nodes</th><th>Open gaps</th><th>Bound</th></tr>
+        </thead>
+        <tbody>
+          <tr class="sheet-head"><td colspan="8">p19 · Bilge system</td></tr>
+          <tr><td>A0 Baseline</td><td class="num">$2.39</td><td class="num">625 s</td><td class="num">3</td><td class="num">14</td><td class="num">4</td><td class="num">5</td><td class="num">414</td></tr>
+          <tr><td>A1 Fused</td><td class="num best">$0.87</td><td class="num best">277 s</td><td class="num best">7</td><td class="num best">21</td><td class="num">3</td><td class="num">4</td><td class="num best">429</td></tr>
+          <tr><td>A2 Cached</td><td class="num">$1.83</td><td class="num">401 s</td><td class="num">4</td><td class="num">12</td><td class="num">4</td><td class="num">4</td><td class="num">414</td></tr>
+          <tr><td>A3 Cheap</td><td class="dead" colspan="7">crashed — small model returned a bare string where the schema required objects</td></tr>
+
+          <tr class="sheet-head"><td colspan="8">p21 · Aft service pumps</td></tr>
+          <tr><td>A0 Baseline</td><td class="num">$1.70</td><td class="num">465 s</td><td class="num">5</td><td class="num best">24</td><td class="num">2</td><td class="num">4</td><td class="num">252</td></tr>
+          <tr><td>A1 Fused</td><td class="num best">$0.82</td><td class="num best">275 s</td><td class="num best">7</td><td class="num">23</td><td class="num best">4</td><td class="num">4</td><td class="num best">313</td></tr>
+          <tr><td>A2 Cached</td><td class="num">$1.09</td><td class="num">251 s</td><td class="num">2</td><td class="num">13</td><td class="num">3</td><td class="num">4</td><td class="num">252</td></tr>
+          <tr><td>A3 Cheap</td><td class="num">$1.20</td><td class="num">587 s</td><td class="num">3</td><td class="num">16</td><td class="num">3</td><td class="num">5</td><td class="num">190</td></tr>
+
+          <tr class="sheet-head"><td colspan="8">p5 · 230 V aft distribution panel</td></tr>
+          <tr><td>A0 Baseline</td><td class="num">$0.91</td><td class="num">243 s</td><td class="num">15</td><td class="num">42</td><td class="num">12</td><td class="num">3</td><td class="num">114</td></tr>
+          <tr><td>A1 Fused</td><td class="num">$0.61</td><td class="num best">162 s</td><td class="num best">17</td><td class="num">42</td><td class="num">12</td><td class="num">4</td><td class="num best">121</td></tr>
+          <tr><td>A2 Cached</td><td class="num best">$0.47</td><td class="num">100 s</td><td class="num">15</td><td class="num best">46</td><td class="num best">14</td><td class="num">4</td><td class="num">114</td></tr>
+          <tr><td>A3 Cheap</td><td class="num">$0.54</td><td class="num">3 808 s</td><td class="num">15</td><td class="num">40</td><td class="num">12</td><td class="num">3</td><td class="num">59</td></tr>
+
+          <tr class="total"><td>A0 Baseline · 3 sheets</td><td class="num">$5.00</td><td class="num">1 333 s</td><td class="num">23</td><td class="num">80</td><td class="num">18</td><td class="num">12</td><td class="num">780</td></tr>
+          <tr class="total"><td>A1 Fused · 3 sheets</td><td class="num best">$2.30</td><td class="num best">714 s</td><td class="num best">31</td><td class="num best">86</td><td class="num">19</td><td class="num">12</td><td class="num best">863</td></tr>
+          <tr class="total"><td>A2 Cached · 3 sheets</td><td class="num">$3.39</td><td class="num">752 s</td><td class="num">21</td><td class="num">71</td><td class="num best">21</td><td class="num">12</td><td class="num">780</td></tr>
+          <tr class="total"><td>A3 Cheap · 2 sheets</td><td class="num">$1.74</td><td class="num">4 395 s</td><td class="num">18</td><td class="num">56</td><td class="num">15</td><td class="num">8</td><td class="num">249</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <span class="label">The metric I'd trust</span>
+    <h2>Labels bound to a real conductor</h2>
+    <p class="lede">This one comes from geometry and OCR, not from a reasoning call, so it doesn't move run to run.
+      <strong>The fused arm leads on all three sheets</strong> — it feeds composition more measured wiring than any
+      other arm, which is why its answers are richer rather than just cheaper.</p>
+    <div class="bars">
+      <div class="barsheet">
+        <span class="label">p19 · Bilge system</span>
+        <div class="barrow"><span class="arm-n">A0 Baseline</span><div class="track"><div class="fill" style="width:96.5%"></div></div><span class="val">414</span></div>
+        <div class="barrow is-win"><span class="arm-n">A1 Fused</span><div class="track"><div class="fill win" style="width:100%"></div></div><span class="val">429</span></div>
+        <div class="barrow"><span class="arm-n">A2 Cached</span><div class="track"><div class="fill" style="width:96.5%"></div></div><span class="val">414</span></div>
+        <div class="barrow"><span class="arm-n">A3 Cheap</span><div class="track"><div class="fill none" style="width:100%"></div></div><span class="val">—</span></div>
+      </div>
+      <div class="barsheet">
+        <span class="label">p21 · Aft service pumps</span>
+        <div class="barrow"><span class="arm-n">A0 Baseline</span><div class="track"><div class="fill" style="width:80.5%"></div></div><span class="val">252</span></div>
+        <div class="barrow is-win"><span class="arm-n">A1 Fused</span><div class="track"><div class="fill win" style="width:100%"></div></div><span class="val">313</span></div>
+        <div class="barrow"><span class="arm-n">A2 Cached</span><div class="track"><div class="fill" style="width:80.5%"></div></div><span class="val">252</span></div>
+        <div class="barrow"><span class="arm-n">A3 Cheap</span><div class="track"><div class="fill" style="width:60.7%"></div></div><span class="val">190</span></div>
+      </div>
+      <div class="barsheet">
+        <span class="label">p5 · 230 V aft distribution panel</span>
+        <div class="barrow"><span class="arm-n">A0 Baseline</span><div class="track"><div class="fill" style="width:94.2%"></div></div><span class="val">114</span></div>
+        <div class="barrow is-win"><span class="arm-n">A1 Fused</span><div class="track"><div class="fill win" style="width:100%"></div></div><span class="val">121</span></div>
+        <div class="barrow"><span class="arm-n">A2 Cached</span><div class="track"><div class="fill" style="width:94.2%"></div></div><span class="val">114</span></div>
+        <div class="barrow"><span class="arm-n">A3 Cheap</span><div class="track"><div class="fill" style="width:48.8%"></div></div><span class="val">59</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="label">The sharpest difference · p21</span>
+    <h2>One node per pump, or five pumps in one node</h2>
+    <p class="lede">Same sheet, same drawing. This is the per-installation granularity you set as the rule for
+      thrusters and winches — and only one arm produced it.</p>
+    <div class="cols">
+      <div class="col win">
+        <h3>A1 Fused <span class="n">7 systems</span></h3>
+        <ul>
+          <li>AFT GREY WATER PUMP</li>
+          <li>PORT AFT GUEST GREY SUMP PUMP</li>
+          <li>STBD AFT GUEST GREY SUMP PUMP</li>
+          <li>FWD CREW HEAD SUMP PUMP</li>
+          <li>AFT CREW HEAD SUMP PUMP</li>
+          <li>AFT A/C SUMP PUMP</li>
+          <li>FWD GREY WATER PUMP</li>
+        </ul>
+        <p class="foot">Every physical pump gets its own node. Fault-isolatable.</p>
+      </div>
+      <div class="col">
+        <h3>A0 Baseline <span class="n">5 systems</span></h3>
+        <ul>
+          <li>AFT Grey Water Pump + Sender</li>
+          <li class="lump">Port/Stbd Aft Guest Grey Sump Pumps <em>· 2 in one</em></li>
+          <li class="lump">Fwd/Aft Crew Head Sump Pumps <em>· 2 in one</em></li>
+          <li>Aft A/C Sump Pump</li>
+          <li>Fwd Grey Water Pump — sender only</li>
+        </ul>
+        <p class="foot">Four pumps collapsed into two nodes.</p>
+      </div>
+      <div class="col">
+        <h3>A3 Cheap <span class="n">3 systems</span></h3>
+        <ul>
+          <li class="lump">530-grey-water-pumps <em>· AFT + FWD</em></li>
+          <li class="lump">530-sump-pumps <em>· 5 in one</em></li>
+          <li>652-onyx-monitoring</li>
+        </ul>
+        <p class="foot">Five pumps in a single node. Fault isolation gone.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="label">Register delta</span>
+    <h2>Which nodes each arm would have touched</h2>
+    <p class="lede">Across all three sheets the arms agree on the great majority of nodes. The disagreements are few
+      and each one is worth a look — they are listed under the tables.</p>
+    <div class="scroll">
+      <table class="matrix">
+        <thead>
+          <tr><th>Node</th><th class="arm-col">A0</th><th class="arm-col">A1</th><th class="arm-col">A2</th><th class="arm-col">A3</th></tr>
+        </thead>
+        <tbody>
+          <tr class="sheet-head"><td colspan="5">p19 · Bilge system</td></tr>
+          <tr><td class="mono">520-bilge-valves</td><td class="arm-col y">yes</td><td class="arm-col y">yes</td><td class="arm-col y">yes</td><td class="arm-col n">—</td></tr>
+          <tr><td class="mono">520-main-bilge-pump</td><td class="arm-col y">yes</td><td class="arm-col y">yes</td><td class="arm-col y">yes</td><td class="arm-col n">—</td></tr>
+          <tr><td class="mono">641-vessel-control-panel</td><td class="arm-col y">yes</td><td class="arm-col y">yes</td><td class="arm-col y">yes</td><td class="arm-col n">—</td></tr>
+          <tr><td class="mono">640-dc-distribution</td><td class="arm-col y">yes</td><td class="arm-col n">—</td><td class="arm-col n">—</td><td class="arm-col n">—</td></tr>
+          <tr><td class="mono">652-onyx-monitoring</td><td class="arm-col n">—</td><td class="arm-col n">—</td><td class="arm-col y">yes</td><td class="arm-col n">—</td></tr>
+
+          <tr class="sheet-head"><td colspan="5">p21 · Aft service pumps</td></tr>
+          <tr><td class="mono">530-grey-water-pumps</td><td class="arm-col y">yes</td><td class="arm-col y">yes</td><td class="arm-col y">yes</td><td class="arm-col y">yes</td></tr>
+          <tr><td class="mono">530-sump-pumps</td><td class="arm-col y">yes</td><td class="arm-col y">yes</td><td class="arm-col y">yes</td><td class="arm-col y">yes</td></tr>
+          <tr><td class="mono">640-dc-distribution</td><td class="arm-col n">—</td><td class="arm-col y">yes</td><td class="arm-col y">yes</td><td class="arm-col n">—</td></tr>
+          <tr><td class="mono">652-onyx-monitoring</td><td class="arm-col n">—</td><td class="arm-col y">yes</td><td class="arm-col n">—</td><td class="arm-col y">yes</td></tr>
+
+          <tr class="sheet-head"><td colspan="5">p5 · 230 V aft distribution panel · 9 galley nodes agreed by all four</td></tr>
+          <tr><td class="mono">694-230v-outlets</td><td class="arm-col y">yes</td><td class="arm-col y">yes</td><td class="arm-col y">yes</td><td class="arm-col y">yes</td></tr>
+          <tr><td class="mono">694-main-ac-panel</td><td class="arm-col n">—</td><td class="arm-col n">—</td><td class="arm-col y">yes</td><td class="arm-col y">yes</td></tr>
+          <tr><td class="mono">970-bauer-dive-compressor</td><td class="arm-col y">yes</td><td class="arm-col n">—</td><td class="arm-col y">yes</td><td class="arm-col n">—</td></tr>
+          <tr><td class="mono">975-diving</td><td class="arm-col n">—</td><td class="arm-col y">yes</td><td class="arm-col n">—</td><td class="arm-col n">—</td></tr>
+          <tr><td class="mono">580-frigomar-refrigerator</td><td class="arm-col n">—</td><td class="arm-col n">—</td><td class="arm-col y">yes</td><td class="arm-col n">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <span class="label">Read these before deciding</span>
+    <h2>What the numbers don't say on their own</h2>
+    <div class="notes">
+      <div class="note">
+        <span class="tag">Variance</span>
+        <p><strong>A0 and A2 receive byte-identical content</strong> — A2 only splits the prompt for caching — yet
+          gave 5 vs 2 systems and 24 vs 13 facts on p21. Composition output varies widely run to run, so system and
+          fact counts alone are a noisy metric. The bound-label numbers are not: they come from geometry, and the
+          fused arm leads there on every sheet.</p>
+      </div>
+      <div class="note">
+        <span class="tag">Warm cache</span>
+        <p>A2 ran after A0 on the same pages, so its label and device layers were served free from the cache A0 had
+          just filled. <strong>That is a truthful measurement of a re-run, not of a first pass.</strong> On genuinely
+          new sheets A2 costs what A0 costs.</p>
+      </div>
+      <div class="note">
+        <span class="tag">Cache miss</span>
+        <p>The prompt cache <strong>never hit once</strong> — <span class="mono">cache_read</span> was 0 on every
+          composition call, with writes and no reads. First guess was the five-minute TTL against four-to-ten-minute
+          sheets; raising it to an hour changed nothing, which is what sent me looking properly.</p>
+      </div>
+      <div class="note">
+        <span class="tag">Real cause</span>
+        <p>The per-sheet <strong>established facts were sitting inside the cacheable prefix</strong>, so every sheet
+          had a different prefix and could only ever write. My own check had missed it — I tested with dummy inputs
+          that returned no facts for either sheet, making two different prefixes look identical. Worse, the reorder
+          that caused it had <strong>split the established-facts instruction mid-sentence</strong>, leaving the
+          composition prompt carrying a truncated rule. Block reassembled, placeholder moved below the marker,
+          re-checked with real differing content: prefixes now byte-identical. Read counts being measured — I'll
+          report them rather than assert it works.</p>
+      </div>
+      <div class="note">
+        <span class="tag">Crash</span>
+        <p>A3 failed outright on p19 — the small model returned a bare string where the schema required objects.
+          Its p5 sheet also took <strong>3 808 seconds</strong>, sixty-three minutes, against 162 for the fused arm on
+          the same page.</p>
+      </div>
+      <div class="note">
+        <span class="tag">Fair test</span>
+        <p>A3 read at a deliberately different resolution so it could not be served from A0's cache — the cheap arm
+          paid cold, as it would in real use.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section>
+    <span class="label">Clean baseline · after the repair</span>
+    <h2>What the fused path really costs, with legends-first back in</h2>
+    <p class="lede">The trial's fused arm had two advantages it should not have had: it skipped the
+      <strong>legends-first pass</strong> (a mandated step that lived in the harness, not in the path), and like every
+      other arm it ran on a composition prompt whose established-facts rule was cut mid-sentence. Both are fixed —
+      legends-first now lives inside <span class="mono">extract_sheet_fused()</span>, and the rule is whole. Re-run on
+      the same three sheets:</p>
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr><th>Sheet</th><th>Trial cost</th><th>Clean cost</th><th>Legends</th><th>Systems</th><th>Facts</th><th>Bound</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>p19 Bilge system</td><td class="num">$0.87</td><td class="num">$1.09</td><td class="num">5</td><td class="num">7 → 2</td><td class="num">21 → 19</td><td class="num">429 → 389</td></tr>
+          <tr><td>p21 Aft service pumps</td><td class="num">$0.82</td><td class="num">$0.92</td><td class="num">1</td><td class="num">7 → 6</td><td class="num">23 → 19</td><td class="num">313 → 301</td></tr>
+          <tr><td>p5 230 V aft distribution</td><td class="num">$0.61</td><td class="num">$0.79</td><td class="num">2</td><td class="num">17 → 14</td><td class="num">42 → 40</td><td class="num">121 → 106</td></tr>
+          <tr class="total"><td>Fused, 3 sheets</td><td class="num">$2.30</td><td class="num">$2.80</td><td class="num">8</td><td class="num">31 → 22</td><td class="num">86 → 78</td><td class="num">863 → 796</td></tr>
+          <tr class="total"><td>Baseline, for reference</td><td class="num" colspan="2">$5.00</td><td class="num">—</td><td class="num">23</td><td class="num">80</td><td class="num">780</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="notes" style="margin-top:18px">
+      <div class="note">
+        <span class="tag">Claim corrected</span>
+        <p><strong>The fused pass is a cost win at parity, not a cost-and-quality win.</strong> Against baseline it is
+          <strong>56% of the cost and 56% of the wall-clock</strong> for the same output — 22 systems vs 23, 78 facts
+          vs 80, and 796 bound conductors vs 780. The quality edge I reported earlier came substantially from the
+          skipped legends step, not from fusing the reads. Legends-first costs about <strong>$0.17 a sheet</strong>,
+          and that is the price of the protocol, not an overhead to argue away.</p>
+      </div>
+      <div class="note">
+        <span class="tag">Granularity holds</span>
+        <p>The result that mattered survived: p21 still resolves <strong>one node per physical pump</strong> — AFT
+          grey water, PORT and STBD aft guest grey sumps, FWD and AFT crew head sumps, AFT A/C sump. Six of the seven
+          the trial found, with the per-installation split intact.</p>
+      </div>
+      <div class="note">
+        <span class="tag">Read with care</span>
+        <p>p19's 7 → 2 systems is the outlier and sits inside the variance band already measured on this pipeline
+          (identical inputs swung 2 → 5 in the trial itself). Facts and bound conductors — the steadier measures —
+          moved only a few percent on every sheet.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="verdict">
+      <span class="label">Recommendation</span>
+      <p><strong>Adopt the fused tile pass as the default extraction path</strong> — on the corrected numbers it
+        delivers baseline-equivalent output at <strong>56% of the cost and 56% of the time</strong>, with
+        legends-first honoured inside the path. It is a clear win, but on cost and speed, not on quality: the
+        quality edge in the raw trial came from the step it was skipping.</p>
+      <p>Keep the content cache — proven, and it makes re-runs cheap, which is how the quality gets won. The prompt
+        cache now reads, but it is worth ~4% of a sheet, not the ~19% I projected: bank it, don't plan around it.
+        Drop the cheap model for the tile layers — on this evidence it is a false economy: barely cheaper once
+        composition dominates, half the measured wiring, far slower, and less robust.</p>
+    </div>
+  </section>
+
+  <footer>
+    Gelliceaux extraction trial · 26 July 2026 · protocol v9 · 12 runs, 1 crash · trial spend $12.42 ·
+    all figures metered from <span class="mono">logs/usage.jsonl</span>, outputs in
+    <span class="mono">data/state/vision_bench/arms/</span>
+  </footer>
+
+</div>

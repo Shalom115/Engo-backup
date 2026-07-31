@@ -1,0 +1,235 @@
+{
+ "sheet": "GM_p20_BILGE_-_WATER_VALVE_SYSTEM",
+ "page": 20,
+ "title": "BILGE / WATER VALVE SYSTEM",
+ "drawing_class": "electrical",
+ "composition": {
+  "serve_who": "This sheet (GMMS 108'-114b, \"BILGE / WATER VALVE SYSTEM\") wires five motor-operated Fresh Water valves (Fresh Water Valve, Fresh Water Port Bunker, Fresh Water Stbd Bunker, Fresh Water Port Suction, Fresh Water Stbd Suction) fed from breaker Q14 10A \"WATER TRANSFER VALVES\" via terminal strip T/S B and relays Re7-Re11. These are the register's 510-water-transfer-valves equipment (engineer mapping: WATER TRANSFER VALVES -> 510-water-transfer-valves; established fact confirms Q14 10A EMERGENCY POWER SUPPLY / EMERGENCY PANEL feed to this same node). Each valve's motor terminals 3/2 are driven from its own relay Re7-Re11, and each relay is commanded by an XA41 terminal (negative side, per engineer-settled q13/q15/q16/q82/q83/q84/q85) while XA60 terminals carry status-only signal to the Onyx monitoring system (652-onyx-monitoring cross-reference). No separate node exists for the bilge selection valves referenced in the owner's manual/inventory (Burkert 520-03) \u2014 those appear to be a distinct Burkert bilge product from 520-bilge-valves, not drawn on this sheet.",
+  "equipment_groups": [
+   {
+    "equipment_name": "Water Transfer Valves \u2014 Fresh Water Valve (motorised)",
+    "target_node_id": "510-water-transfer-valves",
+    "placement_reasoning": "Load name 'FRESH WATER VALVE' matches engineer mapping WATER TRANSFER VALVES -> 510-water-transfer-valves; fed via T/S B terminal 14 branch off Q14 10A breaker, relay Re7.",
+    "functions": [
+     {
+      "function_id": "fwv-open-close",
+      "label": "Fresh Water Valve open/close control loop",
+      "what_it_does": "Motor-operated valve that opens/closes the fresh water line; commanded by relay Re7 which is activated by its XA41 terminal (14\u2192XA41 pin 10, on terminal 55) supplying the coil's negative; the relay then supplies positive to the valve motor (M) OPEN/CLOSE contacts, wired to motor terminals 3 (53) and 2 (54). XA60 terminals 02/04 land on terminals 51/52 (OPEN/CLOSE contact pins) and are status-only taps to the Onyx monitoring system, not commands.",
+      "sheet_region": "top block, T/S B terminals 51-55, relay Re7, ~y 0.16-0.20",
+      "key_components": [
+       "Re7 (relay, activation via XA41 terminal 10)",
+       "T/S B terminals 51-55",
+       "OPEN/CLOSE contact pair (motor terminals 1/4)",
+       "motor terminals 3/2 (53/54)"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "neutral/default",
+        "path": "Q14 10A (breaker, EMERGENCY PANEL) -> T/S B terminal 14 -> Re7 relay contact group -> motor terminals 53/54 idle until commanded"
+       },
+       {
+        "state": "command via XA41",
+        "path": "XA41 pin 10 -> terminal 55 -> Re7 coil negative -> relay energised -> relay supplies positive to OPEN or CLOSE contact (terminals 51/52) -> motor terminals 3/2 -> valve motor drives open or close"
+       },
+       {
+        "state": "status to Onyx",
+        "path": "XA60 pins 02/04 tap terminals 51/52 (OPEN/CLOSE contact pins) -> status reported to Onyx monitoring, not a control input"
+       }
+      ],
+      "dry_data": "24V DC circuit, relay Re7, fed via Q14 10A breaker; motor-operated ball/gate valve actuator"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Water Transfer Valves \u2014 Fresh Water Port Bunker (motorised)",
+    "target_node_id": "510-water-transfer-valves",
+    "placement_reasoning": "Load name 'FRESH WATER PORT BUNKER' \u2014 a fresh water transfer valve function, fed via T/S B terminal 15 branch, relay Re8.",
+    "functions": [
+     {
+      "function_id": "fwpb-open-close",
+      "label": "Fresh Water Port Bunker valve open/close control loop",
+      "what_it_does": "Motor-operated valve controlling the port bunker fresh water line; commanded by relay Re8, activated by XA41 terminal (12, via terminal 60) supplying coil negative; relay supplies positive to valve motor OPEN/CLOSE contacts at terminals 56/57, motor terminals 3/2 at 58/59. XA60 terminals 06/08 tap terminals 56/57 as status to Onyx.",
+      "sheet_region": "second block, T/S B terminals 56-60, relay Re8, ~y 0.24-0.28",
+      "key_components": [
+       "Re8 (relay, activation via XA41 terminal 12)",
+       "T/S B terminals 56-60",
+       "OPEN/CLOSE contact pair"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "neutral/default",
+        "path": "Q14 10A -> T/S B terminal 15 -> Re8 relay contact group -> motor terminals 58/59 idle until commanded"
+       },
+       {
+        "state": "command via XA41",
+        "path": "XA41 pin 12 -> terminal 60 -> Re8 coil negative -> relay energised -> positive to OPEN or CLOSE contact (56/57) -> motor terminals 3/2 (58/59) -> valve drives open or close"
+       },
+       {
+        "state": "status to Onyx",
+        "path": "XA60 pins 06/08 tap terminals 56/57 -> status reported to Onyx monitoring"
+       }
+      ],
+      "dry_data": "24V DC circuit, relay Re8, fed via Q14 10A breaker"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Water Transfer Valves \u2014 Fresh Water Stbd Bunker (motorised)",
+    "target_node_id": "510-water-transfer-valves",
+    "placement_reasoning": "Load name 'FRESH WATER STBD BUNKER' \u2014 fresh water transfer valve function, fed via T/S B terminal 16 branch, relay Re9.",
+    "functions": [
+     {
+      "function_id": "fwsb-open-close",
+      "label": "Fresh Water Stbd Bunker valve open/close control loop",
+      "what_it_does": "Motor-operated valve controlling the starboard bunker fresh water line; commanded by relay Re9, activated by XA41 terminal (14, via terminal 65) supplying coil negative; relay supplies positive to valve motor OPEN/CLOSE contacts at terminals 61/62, motor terminals 3/2 at 63/64. XA60 terminals 10/12 tap terminals 61/62 as status to Onyx.",
+      "sheet_region": "third block, T/S B terminals 61-65, relay Re9, ~y 0.32-0.36",
+      "key_components": [
+       "Re9 (relay, activation via XA41 terminal 14)",
+       "T/S B terminals 61-65",
+       "OPEN/CLOSE contact pair"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "neutral/default",
+        "path": "Q14 10A -> T/S B terminal 16 -> Re9 relay contact group -> motor terminals 63/64 idle until commanded"
+       },
+       {
+        "state": "command via XA41",
+        "path": "XA41 pin 14 -> terminal 65 -> Re9 coil negative -> relay energised -> positive to OPEN or CLOSE contact (61/62) -> motor terminals 3/2 (63/64) -> valve drives open or close"
+       },
+       {
+        "state": "status to Onyx",
+        "path": "XA60 pins 10/12 tap terminals 61/62 -> status reported to Onyx monitoring"
+       }
+      ],
+      "dry_data": "24V DC circuit, relay Re9, fed via Q14 10A breaker"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Water Transfer Valves \u2014 Fresh Water Port Suction (motorised)",
+    "target_node_id": "510-water-transfer-valves",
+    "placement_reasoning": "Load name 'FRESH WATER PORT SUCTION' \u2014 fresh water transfer valve function, fed via T/S B terminal 17 branch, relay Re10.",
+    "functions": [
+     {
+      "function_id": "fwps-open-close",
+      "label": "Fresh Water Port Suction valve open/close control loop",
+      "what_it_does": "Motor-operated valve controlling port suction on fresh water transfer; commanded by relay Re10, activated by XA41 terminal (16, via terminal 70) supplying coil negative; relay supplies positive to valve motor OPEN/CLOSE contacts at terminals 66/67, motor terminals 3/2 at 68/69. XA60 terminals 14/16 tap terminals 66/67 as status to Onyx.",
+      "sheet_region": "fourth block, T/S B terminals 66-70, relay Re10, ~y 0.40-0.44",
+      "key_components": [
+       "Re10 (relay, activation via XA41 terminal 16)",
+       "T/S B terminals 66-70",
+       "OPEN/CLOSE contact pair",
+       "fused terminal 17 on T/S B feed"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "neutral/default",
+        "path": "Q14 10A -> T/S B fused terminal 17 -> Re10 relay contact group -> motor terminals 68/69 idle until commanded"
+       },
+       {
+        "state": "command via XA41",
+        "path": "XA41 pin 16 -> terminal 70 -> Re10 coil negative -> relay energised -> positive to OPEN or CLOSE contact (66/67) -> motor terminals 3/2 (68/69) -> valve drives open or close"
+       },
+       {
+        "state": "status to Onyx",
+        "path": "XA60 pins 14/16 tap terminals 66/67 -> status reported to Onyx monitoring"
+       }
+      ],
+      "dry_data": "24V DC circuit, relay Re10, fed via Q14 10A breaker; terminal 17 shown with a built-in fuse marker \u2014 capture rating at inspection if ever needed"
+     }
+    ]
+   },
+   {
+    "equipment_name": "Water Transfer Valves \u2014 Fresh Water Stbd Suction (motorised)",
+    "target_node_id": "510-water-transfer-valves",
+    "placement_reasoning": "Load name 'FRESH WATER STBD SUCTION' \u2014 fresh water transfer valve function, fed via T/S B terminal 18 branch, relay Re11.",
+    "functions": [
+     {
+      "function_id": "fwss-open-close",
+      "label": "Fresh Water Stbd Suction valve open/close control loop",
+      "what_it_does": "Motor-operated valve controlling starboard suction on fresh water transfer; commanded by relay Re11, activated by XA41 terminal (18, via terminal 75) supplying coil negative; relay supplies positive to valve motor OPEN/CLOSE contacts at terminals 71/72, motor terminals 3/2 at 73/74. XA60 terminals 18/20 tap terminals 71/72 as status to Onyx.",
+      "sheet_region": "fifth/bottom block, T/S B terminals 71-75, relay Re11, ~y 0.47-0.51",
+      "key_components": [
+       "Re11 (relay, activation via XA41 terminal 18)",
+       "T/S B terminals 71-75",
+       "OPEN/CLOSE contact pair",
+       "fused terminal 18 on T/S B feed"
+      ],
+      "flow_scenarios": [
+       {
+        "state": "neutral/default",
+        "path": "Q14 10A -> T/S B fused terminal 18 -> Re11 relay contact group -> motor terminals 73/74 idle until commanded"
+       },
+       {
+        "state": "command via XA41",
+        "path": "XA41 pin 18 -> terminal 75 -> Re11 coil negative -> relay energised -> positive to OPEN or CLOSE contact (71/72) -> motor terminals 3/2 (73/74) -> valve drives open or close"
+       },
+       {
+        "state": "status to Onyx",
+        "path": "XA60 pins 18/20 tap terminals 71/72 -> status reported to Onyx monitoring"
+       }
+      ],
+      "dry_data": "24V DC circuit, relay Re11, fed via Q14 10A breaker; terminal 18 shown with a built-in fuse marker \u2014 capture rating at inspection if ever needed"
+     }
+    ]
+   }
+  ],
+  "infrastructure": [
+   {
+    "system_name": "+24V Service Battery supply / F6 300A fuse (upstream infrastructure)",
+    "facts": [
+     "+24V SERVICE BAT. feeds down through fuse F6 300A, continuing to the panel supplying Q14 (bottom-left of sheet)",
+     "This is shared distribution infrastructure, not part of the water-valve equipment itself"
+    ]
+   },
+   {
+    "system_name": "T/S B terminal strip and Q14 10A breaker (Water Transfer Valves distribution)",
+    "facts": [
+     "Breaker Q14 10A labelled 'WATER TRANSFER VALVES' feeds terminal strip T/S B",
+     "T/S B distributes to five branches at terminals 14/15/16/17/18, each feeding one relay group (Re7-Re11) for the five valves",
+     "Established fact confirms Q14 10A is fed from EMERGENCY POWER SUPPLY / EMERGENCY PANEL (per prior electrical schematic sheet GMMS 108-111)"
+    ]
+   }
+  ],
+  "cross_references": [
+   {
+    "what": "XA60 pins 02/04/06/08/10/12/14/16/18/20 \u2014 status signal taps to Onyx monitoring system reporting each valve's OPEN/CLOSE contact state",
+    "referenced_sheet_hint": "Onyx / 652-onyx-monitoring drawings"
+   },
+   {
+    "what": "XA41 pins 10/12/14/16/18 \u2014 command taps supplying negative to relays Re7-Re11 (control source itself likely originates from Onyx or main panel; not shown on this sheet)",
+    "referenced_sheet_hint": "Onyx / 652-onyx-monitoring or main panel control drawings"
+   },
+   {
+    "what": "Q14 10A breaker feed origin \u2014 EMERGENCY POWER SUPPLY / EMERGENCY PANEL",
+    "referenced_sheet_hint": "GMMS 108'-111 +24V DC Distribution"
+   }
+  ],
+  "good_to_have": [
+   "Fused terminal 17 (feeding Re10 branch) \u2014 exact fuse rating not legible, capture at inspection",
+   "Fused terminal 18 (feeding Re11 branch) \u2014 exact fuse rating not legible, capture at inspection",
+   "F6 300A fuse rating is legible and confirmed on sheet",
+   "Wire gauge callouts near XA41 stubs (terminals 70, 75) \u2014 part number/gauge value not critical to function"
+  ],
+  "uncertainties": [],
+  "discarded_as_clutter": [
+   "Title block DATE/DRAWN/CUSTOMER fields (meta, illegible fragments)",
+   "Copyright notice boilerplate",
+   "Duplicate terminal/label repeats across grid tiles (e.g. terminal 66/67/70/71/72/75 restated in multiple tile extractions) \u2014 merged into single loop-walk entries",
+   "Legend row restating 'DWG No./TITLE/DATE/DRAWN block' content already captured in title_block"
+  ],
+  "_model": "claude-sonnet-5",
+  "_protocol_version": 8
+ },
+ "netlist_stats": {
+  "segments": 13099,
+  "nets": 1116,
+  "conductors": 835,
+  "labels": 239,
+  "bound": 73,
+  "unbound": 23,
+  "devices_located": 76,
+  "devices_placed": 76
+ }
+}
