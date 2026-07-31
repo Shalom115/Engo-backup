@@ -1,0 +1,3906 @@
+{
+ "629-bel1-p": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q1",
+   "rating": "32A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Converts PORT HVPDU 600V DC to 230V AC to supply the 230V AC service bus",
+   "context": "Q1 32A breaker (positive-side protection) ; isolator S1 25A ; relay Re1 ; contactor K1 ; PORT 600V DC BUS (+/-",
+   "sheet": "101a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "101a"
+   }
+  },
+  {
+   "device_class": "contactor",
+   "device_id": "K1",
+   "rating": null,
+   "check": "is the coil energised? do the main contacts close?",
+   "method": "coil voltage, then continuity across the main poles",
+   "if_fails": "the load it switches has no supply even though its breaker is healthy",
+   "replaceable": "yes",
+   "function": "Converts PORT HVPDU 600V DC to 230V AC to supply the 230V AC service bus",
+   "context": "Q1 32A breaker (positive-side protection) ; isolator S1 25A ; relay Re1 ; contactor K1 ; PORT 600V DC BUS (+/-) -> Q1 32A breaker -> PORT BEL-1 converter (600V DC in / 230V AC out, 6KW) -> T/S -",
+   "sheet": "101a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "101a"
+   }
+  },
+  {
+   "device_class": "relay",
+   "device_id": "Re1",
+   "rating": null,
+   "check": "is the coil energised, and is the load on the NO or the NC contact?",
+   "method": "measure the coil supply and its return separately, then continuity across the contact in both coil states",
+   "if_fails": "on NO the load stays OFF until the coil energises; on NC the load stays ON until it does \u2014 an inverted reading inverts the whole function",
+   "replaceable": "yes",
+   "function": "Converts PORT HVPDU 600V DC to 230V AC to supply the 230V AC service bus",
+   "context": "Q1 32A breaker (positive-side protection) ; isolator S1 25A ; relay Re1 ; contactor K1 ; PORT 600V DC BUS (+/-) -> Q1 32A breaker -> PORT BEL-1 converter (600V DC in / 230V AC ou",
+   "sheet": "101a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "101a"
+   }
+  }
+ ],
+ "629-bel2-p": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q2",
+   "rating": "32A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Converts PORT HVPDU 600V DC to 230V AC to supply the 230V AC service bus",
+   "context": "Q2 32A breaker ; isolator S2 25A ; relay Re2 ; contactor K2 ; PORT 600V DC BUS (+/-) -> Q2 32A breaker -> PORT",
+   "sheet": "101a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "101a"
+   }
+  },
+  {
+   "device_class": "contactor",
+   "device_id": "K2",
+   "rating": null,
+   "check": "is the coil energised? do the main contacts close?",
+   "method": "coil voltage, then continuity across the main poles",
+   "if_fails": "the load it switches has no supply even though its breaker is healthy",
+   "replaceable": "yes",
+   "function": "Converts PORT HVPDU 600V DC to 230V AC to supply the 230V AC service bus",
+   "context": "Q2 32A breaker ; isolator S2 25A ; relay Re2 ; contactor K2 ; PORT 600V DC BUS (+/-) -> Q2 32A breaker -> PORT BEL-2 converter (600V DC in / 230V AC out, 6KW) -> T/S -",
+   "sheet": "101a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "101a"
+   }
+  },
+  {
+   "device_class": "relay",
+   "device_id": "Re2",
+   "rating": null,
+   "check": "is the coil energised, and is the load on the NO or the NC contact?",
+   "method": "measure the coil supply and its return separately, then continuity across the contact in both coil states",
+   "if_fails": "on NO the load stays OFF until the coil energises; on NC the load stays ON until it does \u2014 an inverted reading inverts the whole function",
+   "replaceable": "yes",
+   "function": "Converts PORT HVPDU 600V DC to 230V AC to supply the 230V AC service bus",
+   "context": "Q2 32A breaker ; isolator S2 25A ; relay Re2 ; contactor K2 ; PORT 600V DC BUS (+/-) -> Q2 32A breaker -> PORT BEL-2 converter (600V DC in / 230V AC ou",
+   "sheet": "101a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "101a"
+   }
+  }
+ ],
+ "629-bel1-s": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q1",
+   "rating": "32A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Converts STBD HVPDU 600V DC to 230V AC to supply the 230V AC service bus",
+   "context": "Q1 32A breaker (STBD HVPDU) ; isolator S3 25A ; relay Re3 ; contactor K3 ; STBD 600V DC BUS (+/-) -> Q1 32A br",
+   "sheet": "101a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "101a"
+   }
+  },
+  {
+   "device_class": "contactor",
+   "device_id": "K3",
+   "rating": null,
+   "check": "is the coil energised? do the main contacts close?",
+   "method": "coil voltage, then continuity across the main poles",
+   "if_fails": "the load it switches has no supply even though its breaker is healthy",
+   "replaceable": "yes",
+   "function": "Converts STBD HVPDU 600V DC to 230V AC to supply the 230V AC service bus",
+   "context": "Q1 32A breaker (STBD HVPDU) ; isolator S3 25A ; relay Re3 ; contactor K3 ; STBD 600V DC BUS (+/-) -> Q1 32A breaker -> STBD BEL-1 converter (600V DC in / 230V AC out, 6KW) -> T/S -",
+   "sheet": "101a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "101a"
+   }
+  },
+  {
+   "device_class": "relay",
+   "device_id": "Re3",
+   "rating": null,
+   "check": "is the coil energised, and is the load on the NO or the NC contact?",
+   "method": "measure the coil supply and its return separately, then continuity across the contact in both coil states",
+   "if_fails": "on NO the load stays OFF until the coil energises; on NC the load stays ON until it does \u2014 an inverted reading inverts the whole function",
+   "replaceable": "yes",
+   "function": "Converts STBD HVPDU 600V DC to 230V AC to supply the 230V AC service bus",
+   "context": "Q1 32A breaker (STBD HVPDU) ; isolator S3 25A ; relay Re3 ; contactor K3 ; STBD 600V DC BUS (+/-) -> Q1 32A breaker -> STBD BEL-1 converter (600V DC in / 230V AC ou",
+   "sheet": "101a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "101a"
+   }
+  }
+ ],
+ "629-bel2-s": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q2",
+   "rating": "32A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Converts STBD HVPDU 600V DC to 230V AC to supply the 230V AC service bus",
+   "context": "Q2 32A breaker (STBD HVPDU) ; isolator S4 25A ; relay Re4 ; contactor K4 ; STBD 600V DC BUS (+/-) -> Q2 32A br",
+   "sheet": "101a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "101a"
+   }
+  },
+  {
+   "device_class": "contactor",
+   "device_id": "K4",
+   "rating": null,
+   "check": "is the coil energised? do the main contacts close?",
+   "method": "coil voltage, then continuity across the main poles",
+   "if_fails": "the load it switches has no supply even though its breaker is healthy",
+   "replaceable": "yes",
+   "function": "Converts STBD HVPDU 600V DC to 230V AC to supply the 230V AC service bus",
+   "context": "Q2 32A breaker (STBD HVPDU) ; isolator S4 25A ; relay Re4 ; contactor K4 ; STBD 600V DC BUS (+/-) -> Q2 32A breaker -> STBD BEL-2 converter (600V DC in / 230V AC out, 6KW) -> T/S -",
+   "sheet": "101a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "101a"
+   }
+  },
+  {
+   "device_class": "relay",
+   "device_id": "Re4",
+   "rating": null,
+   "check": "is the coil energised, and is the load on the NO or the NC contact?",
+   "method": "measure the coil supply and its return separately, then continuity across the contact in both coil states",
+   "if_fails": "on NO the load stays OFF until the coil energises; on NC the load stays ON until it does \u2014 an inverted reading inverts the whole function",
+   "replaceable": "yes",
+   "function": "Converts STBD HVPDU 600V DC to 230V AC to supply the 230V AC service bus",
+   "context": "Q2 32A breaker (STBD HVPDU) ; isolator S4 25A ; relay Re4 ; contactor K4 ; STBD 600V DC BUS (+/-) -> Q2 32A breaker -> STBD BEL-2 converter (600V DC in / 230V AC ou",
+   "sheet": "101a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "101a"
+   }
+  }
+ ],
+ "510-fresh-water-pump-1": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q22",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Fresh water pump 1 motor supply and overload/pressure control",
+   "context": "ule ; terminals 14/15 ; 230V AC bus -> #2 SERVICES breaker (63A, CT2, earth leakage 2) -> Q22 (10A) via CT13 -> overload contact (RM35JA32MW, I>< symbol) -> terminals 14/15 -> PUMP CONTROL block -> 0.",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  },
+  {
+   "device_class": "current_transformer",
+   "device_id": "CT13",
+   "rating": null,
+   "check": "what does it read?",
+   "method": "read at the meter it feeds",
+   "if_fails": "measurement only; it does not break the supply",
+   "replaceable": "no",
+   "function": "Fresh water pump 1 motor supply and overload/pressure control",
+   "context": "s 14/15 ; 230V AC bus -> #2 SERVICES breaker (63A, CT2, earth leakage 2) -> Q22 (10A) via CT13 -> overload contact (RM35JA32MW, I>< symbol) -> terminals 14/15 -> PUMP CONTROL block -> 0.37kW pump moto",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  },
+  {
+   "device_class": "current_transformer",
+   "device_id": "CT2",
+   "rating": null,
+   "check": "what does it read?",
+   "method": "read at the meter it feeds",
+   "if_fails": "measurement only; it does not break the supply",
+   "replaceable": "no",
+   "function": "Fresh water pump 1 motor supply and overload/pressure control",
+   "context": ", I><) ; pump control module ; terminals 14/15 ; 230V AC bus -> #2 SERVICES breaker (63A, CT2, earth leakage 2) -> Q22 (10A) via CT13 -> overload contact (RM35JA32MW, I>< symbol) -> terminals 14/15 ->",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  }
+ ],
+ "510-fresh-water-pump-2": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q23",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Fresh water pump 2 motor supply and overload control",
+   "context": "><) ; pump control module ; terminals 16/17 ; 230V AC bus -> #2 SERVICES breaker (63A) -> Q23 (10A) via CT13 -> overload contact (RM35JA32, I>< symbol) -> terminals 16/17 -> PUMP CONTROL block -> 0.37",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  },
+  {
+   "device_class": "current_transformer",
+   "device_id": "CT13",
+   "rating": null,
+   "check": "what does it read?",
+   "method": "read at the meter it feeds",
+   "if_fails": "measurement only; it does not break the supply",
+   "replaceable": "no",
+   "function": "Fresh water pump 2 motor supply and overload control",
+   "context": "trol module ; terminals 16/17 ; 230V AC bus -> #2 SERVICES breaker (63A) -> Q23 (10A) via CT13 -> overload contact (RM35JA32, I>< symbol) -> terminals 16/17 -> PUMP CONTROL block -> 0.37kW pump motor",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  }
+ ],
+ "510-salt-water-pump": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q25",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Salt water pump motor supply with pressure-switch and relay/timer control",
+   "context": "40 status terminal 21/22 ; 230V AC bus -> #6 BAE COOLING or associated service breaker -> Q25 (16A) -> terminal block 18-24 -> PRESSURE SW (NO contact) -> terminals 18/19/20 -> Re1 coil / T1 relay ene",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  },
+  {
+   "device_class": "relay",
+   "device_id": "Re1",
+   "rating": null,
+   "check": "is the coil energised, and is the load on the NO or the NC contact?",
+   "method": "measure the coil supply and its return separately, then continuity across the contact in both coil states",
+   "if_fails": "on NO the load stays OFF until the coil energises; on NC the load stays ON until it does \u2014 an inverted reading inverts the whole function",
+   "replaceable": "yes",
+   "function": "Salt water pump motor supply with pressure-switch and relay/timer control",
+   "context": "pressure switch (NO contact) ; relay Re1 ; timer relay T1 ; XA40 status terminal 21/22 ; 230V AC bus -> #6 BAE COOLING or associated service breake",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  },
+  {
+   "device_class": "status_tag",
+   "device_id": "XA40",
+   "rating": null,
+   "check": "what does it report, and to which system?",
+   "method": "compare the monitoring system's indication against the physical state",
+   "if_fails": "a disagreement means the SIGNAL is wrong, not necessarily the equipment \u2014 do not chase the equipment first",
+   "replaceable": "no \u2014 indication",
+   "function": "Salt water pump motor supply with pressure-switch and relay/timer control",
+   "context": "pressure switch (NO contact) ; relay Re1 ; timer relay T1 ; XA40 status terminal 21/22 ; 230V AC bus -> #6 BAE COOLING or associated service breaker -> Q25 (16A) -> termi",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  }
+ ],
+ "580-frigomar-refrigerator": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q24",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Refrigeration system AC supply",
+   "context": "230V AC bus -> service breaker -> Q24 (10A) -> REFRIGERATION SUPPLY load",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "Q32",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Deck fridge AC supply",
+   "context": "230V AC bus -> service breaker -> Q32 (16A) -> DECK FRIDGE load",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  }
+ ],
+ "580-wine-cooler-saloon": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q26",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Wine cooler AC supply",
+   "context": "230V AC bus -> service breaker -> Q26 (16A) -> WINE COOLER load",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  }
+ ],
+ "575-pneumatic-system": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q28",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Air compressor AC supply",
+   "context": "230V AC bus -> service breaker -> Q28 (16A) -> AIR COMPRESSOR load",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  }
+ ],
+ "510-uv-steriliser": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q29",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "UV steriliser AC supply",
+   "context": "230V AC bus -> service breaker -> Q29 (16A) -> SALOON UV STERILISER load",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  }
+ ],
+ "694-230v-outlets": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q10",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Cabin/space 230V socket circuits",
+   "context": "ub-bus -> Q7 (16A) PORT AFT GUEST CAB. / Q8 (16A) STBD AFT GUEST CAB. / Q9 (16A) SALOON / Q10 (16A) PORT FWD GUEST CAB. / Q11 (16A) STUDIO / Q12 (16A) OWNERS CAB. -> respective cabin outlets ; 230V AC",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "Q10",
+   "rating": "16A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "230V AC supply to galley outlets circuit (serving extractor hood outlet)",
+   "context": "Q10 16A breaker ; AFT OUTLETS / GALLEY supply -> panel bus -> Q10 (16A breaker) -> GALLEY OUTLETS (EXTRACTOR);",
+   "sheet": "102a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102a"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "Q11",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Cabin/space 230V socket circuits",
+   "context": "T CAB. / Q8 (16A) STBD AFT GUEST CAB. / Q9 (16A) SALOON / Q10 (16A) PORT FWD GUEST CAB. / Q11 (16A) STUDIO / Q12 (16A) OWNERS CAB. -> respective cabin outlets ; 230V AC bus -> service breaker -> Q30 (",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "Q11",
+   "rating": "16A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "230V AC supply to nav station outlets",
+   "context": "Q11 16A breaker ; AFT panel supply -> panel bus -> Q11 (16A breaker) -> NAV. STATION OUTLETS; return side not",
+   "sheet": "102a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102a"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "Q12",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Cabin/space 230V socket circuits",
+   "context": "TBD AFT GUEST CAB. / Q9 (16A) SALOON / Q10 (16A) PORT FWD GUEST CAB. / Q11 (16A) STUDIO / Q12 (16A) OWNERS CAB. -> respective cabin outlets ; 230V AC bus -> service breaker -> Q30 (16A) LAZ/TECH-ROOM/",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "Q12",
+   "rating": "16A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "230V AC supply to port/stbd crew outlets and primary ventilation load",
+   "context": "Q12 16A breaker ; AFT panel supply -> panel bus -> Q12 (16A breaker) -> PORT/STBD CREW OUTLETS (with 0.5kW pri",
+   "sheet": "102a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102a"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "Q13",
+   "rating": "16A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "230V AC supply to lazarette outlets",
+   "context": "Q13 16A breaker ; local switch (NO) ; AFT panel supply -> panel bus -> Q13 (16A breaker) -> local switch (NO)",
+   "sheet": "102a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102a"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "Q30",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Cabin/space 230V socket circuits",
+   "context": "O / Q12 (16A) OWNERS CAB. -> respective cabin outlets ; 230V AC bus -> service breaker -> Q30 (16A) LAZ/TECH-ROOM/SAIL LKR outlets; Q31 (16A) ENGINE ROOM outlets ; 230V AC bus -> #7 AFT OUTLETS (63A,",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "Q31",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Cabin/space 230V socket circuits",
+   "context": "bin outlets ; 230V AC bus -> service breaker -> Q30 (16A) LAZ/TECH-ROOM/SAIL LKR outlets; Q31 (16A) ENGINE ROOM outlets ; 230V AC bus -> #7 AFT OUTLETS (63A, CT7, earth leakage) -> feeder cable -> 'to",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "Q7",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Cabin/space 230V socket circuits",
+   "context": "230V AC bus -> #2 SERVICES breaker via EARTH LEAKAGE 4 sub-bus -> Q7 (16A) PORT AFT GUEST CAB. / Q8 (16A) STBD AFT GUEST CAB. / Q9 (16A) SALOON / Q10 (16A) PORT FWD GUEST CAB.",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "Q8",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Cabin/space 230V socket circuits",
+   "context": "bus -> #2 SERVICES breaker via EARTH LEAKAGE 4 sub-bus -> Q7 (16A) PORT AFT GUEST CAB. / Q8 (16A) STBD AFT GUEST CAB. / Q9 (16A) SALOON / Q10 (16A) PORT FWD GUEST CAB. / Q11 (16A) STUDIO / Q12 (16A)",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "Q9",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Cabin/space 230V socket circuits",
+   "context": "EARTH LEAKAGE 4 sub-bus -> Q7 (16A) PORT AFT GUEST CAB. / Q8 (16A) STBD AFT GUEST CAB. / Q9 (16A) SALOON / Q10 (16A) PORT FWD GUEST CAB. / Q11 (16A) STUDIO / Q12 (16A) OWNERS CAB. -> respective cabin",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  },
+  {
+   "device_class": "current_transformer",
+   "device_id": "CT7",
+   "rating": null,
+   "check": "what does it read?",
+   "method": "read at the meter it feeds",
+   "if_fails": "measurement only; it does not break the supply",
+   "replaceable": "no",
+   "function": "Cabin/space 230V socket circuits",
+   "context": "OOM/SAIL LKR outlets; Q31 (16A) ENGINE ROOM outlets ; 230V AC bus -> #7 AFT OUTLETS (63A, CT7, earth leakage) -> feeder cable -> 'to AFT DB PANEL' (continues on another sheet)",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  }
+ ],
+ "691-yachtica-lighting-control": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q13",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Yachtica lighting PLC AC supply",
+   "context": "230V AC bus -> service breaker -> Q13 (16A) -> YACHTICA LIGHTS load",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  }
+ ],
+ "590-aircon-system": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q14",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Aircon fan coils and compressor unit AC supply",
+   "context": "230V AC bus -> service breaker -> Q14 (16A) -> AIR-CON FAN COILS load ; 230V AC bus -> service breaker -> Q20 (25A) -> AIRCON 1 load ; 230V AC b",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "Q20",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Aircon fan coils and compressor unit AC supply",
+   "context": "ervice breaker -> Q14 (16A) -> AIR-CON FAN COILS load ; 230V AC bus -> service breaker -> Q20 (25A) -> AIRCON 1 load ; 230V AC bus -> service breaker -> Q21 (25A) -> AIRCON 2 load",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "Q21",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Aircon fan coils and compressor unit AC supply",
+   "context": "bus -> service breaker -> Q20 (25A) -> AIRCON 1 load ; 230V AC bus -> service breaker -> Q21 (25A) -> AIRCON 2 load",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  }
+ ],
+ "510-ecosistems-watermaker": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q15",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Watermaker unit AC supply",
+   "context": "transformer (status tap, no coil on net \u2014 STATUS OUT) ; 230V AC bus -> service breaker -> Q15 (16A) via CT10 -> WATER MAKER 1 (ENG.ROOM) unit",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  },
+  {
+   "device_class": "current_transformer",
+   "device_id": "CT10",
+   "rating": null,
+   "check": "what does it read?",
+   "method": "read at the meter it feeds",
+   "if_fails": "measurement only; it does not break the supply",
+   "replaceable": "no",
+   "function": "Watermaker unit AC supply",
+   "context": "CT10 current transformer (status tap, no coil on net \u2014 STATUS OUT) ; 230V AC bus -> service breaker -> Q15 (16",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  }
+ ],
+ "511-fwd-water-heater": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q16",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Forward water heater AC supply",
+   "context": "CT11 current transformer (status tap) ; 230V AC bus -> service breaker -> Q16 (16A), CT11 status tap -> FWD WATER HEATER (OWNERS CAB.)",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  },
+  {
+   "device_class": "current_transformer",
+   "device_id": "CT11",
+   "rating": null,
+   "check": "what does it read?",
+   "method": "read at the meter it feeds",
+   "if_fails": "measurement only; it does not break the supply",
+   "replaceable": "no",
+   "function": "Forward water heater AC supply",
+   "context": "CT11 current transformer (status tap) ; 230V AC bus -> service breaker -> Q16 (16A), CT11 status tap -> FWD WA",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  }
+ ],
+ "511-aft-water-heater": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q16",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Aft water heater AC supply",
+   "context": "CT11 current transformer (status tap, shared with Q16) ; 230V AC bus -> service breaker -> Q17 (16A), CT11 status tap -> AFT WATER HEATER (PORT GUEST CAB.)",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "Q17",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Aft water heater AC supply",
+   "context": "T11 current transformer (status tap, shared with Q16) ; 230V AC bus -> service breaker -> Q17 (16A), CT11 status tap -> AFT WATER HEATER (PORT GUEST CAB.)",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  },
+  {
+   "device_class": "current_transformer",
+   "device_id": "CT11",
+   "rating": null,
+   "check": "what does it read?",
+   "method": "read at the meter it feeds",
+   "if_fails": "measurement only; it does not break the supply",
+   "replaceable": "no",
+   "function": "Aft water heater AC supply",
+   "context": "CT11 current transformer (status tap, shared with Q16) ; 230V AC bus -> service breaker -> Q17 (16A), CT11 sta",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  }
+ ],
+ "599-engroom-blower-extractor": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q18",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Engine room blower and extractor AC supply",
+   "context": "CT12 current transformer (status tap) ; 230V AC bus -> service breaker -> Q18 (16A), CT12 status tap -> ENG.ROOM BLOWER ; 230V AC bus -> service breaker -> Q19 (16A) -> ENG.ROOM EXTRAC",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "Q19",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Engine room blower and extractor AC supply",
+   "context": "aker -> Q18 (16A), CT12 status tap -> ENG.ROOM BLOWER ; 230V AC bus -> service breaker -> Q19 (16A) -> ENG.ROOM EXTRACTOR",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  },
+  {
+   "device_class": "current_transformer",
+   "device_id": "CT12",
+   "rating": null,
+   "check": "what does it read?",
+   "method": "read at the meter it feeds",
+   "if_fails": "measurement only; it does not break the supply",
+   "replaceable": "no",
+   "function": "Engine room blower and extractor AC supply",
+   "context": "CT12 current transformer (status tap) ; 230V AC bus -> service breaker -> Q18 (16A), CT12 status tap -> ENG.RO",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  }
+ ],
+ "720-entertainment-system": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q1",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Nav station entertainment AC supply",
+   "context": "230V AC bus -> #4 ENTERTAINMENT breaker (63A, CT4, earth leakage 4) -> Q1 (16A) -> NAV. STATION ENTERTAINMENT load",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  },
+  {
+   "device_class": "current_transformer",
+   "device_id": "CT4",
+   "rating": null,
+   "check": "what does it read?",
+   "method": "read at the meter it feeds",
+   "if_fails": "measurement only; it does not break the supply",
+   "replaceable": "no",
+   "function": "Nav station entertainment AC supply",
+   "context": "230V AC bus -> #4 ENTERTAINMENT breaker (63A, CT4, earth leakage 4) -> Q1 (16A) -> NAV. STATION ENTERTAINMENT load",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  }
+ ],
+ "621-charger-gen-start": [
+  {
+   "device_class": "current_transformer",
+   "device_id": "CT5",
+   "rating": null,
+   "check": "what does it read?",
+   "method": "read at the meter it feeds",
+   "if_fails": "measurement only; it does not break the supply",
+   "replaceable": "no",
+   "function": "Start battery charger AC supply",
+   "context": "EARTH LEAKAGE 5 RCD ; 230V AC bus -> #5 CHARGERS breaker (63A, CT5) -> EARTH LEAKAGE 5 -> 16A breaker -> START BAT. CHARGER load",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  }
+ ],
+ "595-grundfos-main-seawater-cooling-pumps": [
+  {
+   "device_class": "breaker",
+   "device_id": "CB21",
+   "rating": "6A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Seawater cooling pump LV control supply (port/stbd)",
+   "context": "breaker CB21 6A ; breaker CB22 6A ; LVPDU + bus -> CB21 (6A) 'SEA WATER PUMP' (PORT-side) -> port pump control relay R",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "CB22",
+   "rating": "6A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Seawater cooling pump LV control supply (port/stbd)",
+   "context": "breaker CB21 6A ; breaker CB22 6A ; LVPDU + bus -> CB21 (6A) 'SEA WATER PUMP' (PORT-side) -> port pump control relay Re4 (per prior fact",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "relay",
+   "device_id": "Re4",
+   "rating": null,
+   "check": "is the coil energised, and is the load on the NO or the NC contact?",
+   "method": "measure the coil supply and its return separately, then continuity across the contact in both coil states",
+   "if_fails": "on NO the load stays OFF until the coil energises; on NC the load stays ON until it does \u2014 an inverted reading inverts the whole function",
+   "replaceable": "yes",
+   "function": "Seawater cooling pump LV control supply (port/stbd)",
+   "context": "B22 6A ; LVPDU + bus -> CB21 (6A) 'SEA WATER PUMP' (PORT-side) -> port pump control relay Re4 (per prior fact); LVPDU + bus -> CB22 (6A) 'SEA WATER PUMP' (STBD-side) -> stbd pump control relay Re5",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "relay",
+   "device_id": "Re5",
+   "rating": null,
+   "check": "is the coil energised, and is the load on the NO or the NC contact?",
+   "method": "measure the coil supply and its return separately, then continuity across the contact in both coil states",
+   "if_fails": "on NO the load stays OFF until the coil energises; on NC the load stays ON until it does \u2014 an inverted reading inverts the whole function",
+   "replaceable": "yes",
+   "function": "Seawater cooling pump LV control supply (port/stbd)",
+   "context": "r fact); LVPDU + bus -> CB22 (6A) 'SEA WATER PUMP' (STBD-side) -> stbd pump control relay Re5",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "current_transformer",
+   "device_id": "CT6",
+   "rating": null,
+   "check": "what does it read?",
+   "method": "read at the meter it feeds",
+   "if_fails": "measurement only; it does not break the supply",
+   "replaceable": "no",
+   "function": "Port/Stbd/CPP seawater cooling pump AC supply",
+   "context": "EARTH LEAKAGE 8/9/10 RCDs ; 230V AC bus -> #6 BAE COOLING breaker (63A, CT6) -> EARTH LEAKAGE 8 -> 16A breaker -> PORT SEAWATER COOLING pump ; 230V AC bus -> #6 BAE COOLING breaker (",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  }
+ ],
+ "730-starlink": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q36",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Starlink terminal AC supply",
+   "context": "230V AC bus -> service breaker -> Q36 (10A) -> STARLINK (MAST BASE) load",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  }
+ ],
+ "732-network": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q35",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "WiFi network equipment AC supply",
+   "context": "230V AC bus -> service breaker -> Q35 (10A) -> WiFi load",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  }
+ ],
+ "630-akasol-ess": [
+  {
+   "device_class": "breaker",
+   "device_id": "CB9",
+   "rating": "6A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "ESS LV control supply",
+   "context": "breaker CB9 6A ; breaker CBx2 1A ; relay Re6 (coil, off-sheet detail per prior fact) ; LVPDU + bus -> PORT bank breake",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "Q34",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "ESS ventilation fan AC supply",
+   "context": "230V AC bus -> service breaker -> Q34 (6A) -> ESS VENTILATION TENDERGARAGE load",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  },
+  {
+   "device_class": "relay",
+   "device_id": "Re6",
+   "rating": null,
+   "check": "is the coil energised, and is the load on the NO or the NC contact?",
+   "method": "measure the coil supply and its return separately, then continuity across the contact in both coil states",
+   "if_fails": "on NO the load stays OFF until the coil energises; on NC the load stays ON until it does \u2014 an inverted reading inverts the whole function",
+   "replaceable": "yes",
+   "function": "ESS LV control supply",
+   "context": "breaker CB9 6A ; breaker CBx2 1A ; relay Re6 (coil, off-sheet detail per prior fact) ; LVPDU + bus -> PORT bank breaker CB9 (6A) 'ESS' -> ESS control;",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  }
+ ],
+ "599-ventilation-fans": [
+  {
+   "device_class": "relay",
+   "device_id": "Re2",
+   "rating": null,
+   "check": "is the coil energised, and is the load on the NO or the NC contact?",
+   "method": "measure the coil supply and its return separately, then continuity across the contact in both coil states",
+   "if_fails": "on NO the load stays OFF until the coil energises; on NC the load stays ON until it does \u2014 an inverted reading inverts the whole function",
+   "replaceable": "yes",
+   "function": "120W ventilation fan motor supply with overload protection and no-power indication",
+   "context": "motor protector/overload relay 3UG4621-1AW30 (NO contact, coil Re2) ; relay Re2 ; terminal block 25-32 ; 230V AC distribution -> motor protector 3UG4621-1AW30 (NO relay cont",
+   "sheet": "102",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102"
+   }
+  },
+  {
+   "device_class": "terminal_strip",
+   "device_id": "T/S C",
+   "rating": null,
+   "check": "voltage present at the numbered way?",
+   "method": "meter to the return rail at that terminal",
+   "if_fails": "narrows the fault to before or after this terminal \u2014 the cheapest single measurement to bisect a run",
+   "replaceable": "no \u2014 a test point",
+   "function": "Blower on/off command output",
+   "context": "SR2 B121BD relay/logic module (4x NO relay outputs) ; T/S C terminal strip (terminals 120-125) ; SR2 B121BD relay module output NO1 -> T/S C terminal 120 (position",
+   "sheet": "116",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "116"
+   }
+  }
+ ],
+ "360-oven": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q1",
+   "rating": "32A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "230V AC supply to oven",
+   "context": "Q1 32A breaker ; Earth Leakage 2 protection (upstream, common to Galley 1 feed) ; GALLEY 1 feed -> Earth Leaka",
+   "sheet": "102a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102a"
+   }
+  }
+ ],
+ "360-dishwasher": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q2",
+   "rating": "25A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "230V AC supply to dishwasher",
+   "context": "Q2 25A breaker ; GALLEY 1 feed -> Earth Leakage 2 -> panel bus -> Q2 (25A breaker) -> DISHWASHER 3 KW",
+   "sheet": "102a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102a"
+   }
+  }
+ ],
+ "360-washing-machine": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q3",
+   "rating": "16A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "230V AC supply to washing machine",
+   "context": "Q3 16A breaker ; GALLEY 1 feed -> Earth Leakage 2 -> panel bus -> Q3 (16A breaker) -> WASHING MASHINE",
+   "sheet": "102a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102a"
+   }
+  }
+ ],
+ "360-dryer": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q4",
+   "rating": "16A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "230V AC supply to dryer",
+   "context": "Q4 16A breaker ; GALLEY 1 feed -> Earth Leakage 2 -> panel bus -> Q4 (16A breaker) -> DRYER",
+   "sheet": "102a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102a"
+   }
+  }
+ ],
+ "360-steam-oven": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q5",
+   "rating": "16A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "230V AC supply to steam oven",
+   "context": "Q5 16A breaker ; GALLEY 1 feed -> Earth Leakage 2 -> panel bus -> Q5 (16A breaker) -> STEAM OVEN",
+   "sheet": "102a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102a"
+   }
+  }
+ ],
+ "360-zip-tap": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q4",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "230V AC supply to zip water dispenser, with local switch/contact in the shared rail",
+   "context": "unknown) sit on the same shared rail (nets net8/net9/net580/net709/net901-905) common to Q4, Q5, Q6 and several unlabelled 16A breakers",
+   "sheet": "102a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102a"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "Q5",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "230V AC supply to zip water dispenser, with local switch/contact in the shared rail",
+   "context": "nown) sit on the same shared rail (nets net8/net9/net580/net709/net901-905) common to Q4, Q5, Q6 and several unlabelled 16A breakers",
+   "sheet": "102a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102a"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "Q6",
+   "rating": "16A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "230V AC supply to zip water dispenser, with local switch/contact in the shared rail",
+   "context": "Q6 16A breaker ; SW1 local switch (NO) ; unlabelled relay contact (NO) on shared rail ; GALLEY 1 feed -> Earth",
+   "sheet": "102a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102a"
+   }
+  },
+  {
+   "device_class": "switch",
+   "device_id": "SW1",
+   "rating": null,
+   "check": "position, and continuity in each position",
+   "method": "operate it and meter through",
+   "if_fails": "the circuit is selected away from the path you are testing",
+   "replaceable": "yes",
+   "function": "230V AC supply to zip water dispenser, with local switch/contact in the shared rail",
+   "context": "Q6 16A breaker ; SW1 local switch (NO) ; unlabelled relay contact (NO) on shared rail ; GALLEY 1 feed -> Earth Leakage 2 -> pan",
+   "sheet": "102a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102a"
+   }
+  }
+ ],
+ "360-sink-disposal": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q7",
+   "rating": "16A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "230V AC supply to maserator (sink disposal unit)",
+   "context": "Q7 16A breaker ; GALLEY 2 feed -> Earth Leakage 3 -> panel bus -> Q7 (16A breaker) -> MASERATOR; return side n",
+   "sheet": "102a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102a"
+   }
+  }
+ ],
+ "360-wine-cooler": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q9",
+   "rating": "16A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "230V AC supply to galley wine cooler",
+   "context": "Q9 16A breaker ; GALLEY 2 feed -> Earth Leakage 3 -> panel bus -> Q9 (16A breaker) -> WINE COOLER GALLEY; retu",
+   "sheet": "102a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102a"
+   }
+  }
+ ],
+ "360-cook-top": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q17",
+   "rating": "50A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "230V AC supply to induction hob",
+   "context": "Q17 50A 2-pole breaker ; AFT panel supply -> panel bus -> Q17 (50A, 2-pole breaker) -> INDUCTION HOB; return s",
+   "sheet": "102a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "102a"
+   }
+  }
+ ],
+ "620-hvpdu": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q1",
+   "rating": "32A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "PORT bus breaker/fuse feeders to converters and control systems",
+   "context": "breaker Q1 32A (BEL1-P feed) ; breaker Q2 32A (BEL2-P feed) ; breaker Q3 32A (EDN-P feed) ; breaker Q4 32A (MAPS-P fee",
+   "sheet": "110",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "Q1",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "600V DC bus distribution to MAPS converters (PORT and STBD)",
+   "context": "breaker Q1-Q4 32A (x2 sets, PORT+STBD) ; fuse F1/F2 500A (x2 sets) ; 600V DC bus bars (PORT+STBD) ; PORT/STBD 600V DC",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "Q2",
+   "rating": "32A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "PORT bus breaker/fuse feeders to converters and control systems",
+   "context": "breaker Q1 32A (BEL1-P feed) ; breaker Q2 32A (BEL2-P feed) ; breaker Q3 32A (EDN-P feed) ; breaker Q4 32A (MAPS-P feed) ; fuse F3 200A ; fuse F4 200",
+   "sheet": "110",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "Q3",
+   "rating": "32A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "PORT bus breaker/fuse feeders to converters and control systems",
+   "context": "breaker Q1 32A (BEL1-P feed) ; breaker Q2 32A (BEL2-P feed) ; breaker Q3 32A (EDN-P feed) ; breaker Q4 32A (MAPS-P feed) ; fuse F3 200A ; fuse F4 200A ; fuse F5 400A ; fuse F6 400A",
+   "sheet": "110",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "Q4",
+   "rating": "32A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "PORT bus breaker/fuse feeders to converters and control systems",
+   "context": "32A (BEL1-P feed) ; breaker Q2 32A (BEL2-P feed) ; breaker Q3 32A (EDN-P feed) ; breaker Q4 32A (MAPS-P feed) ; fuse F3 200A ; fuse F4 200A ; fuse F5 400A ; fuse F6 400A ; HVIL interlock switches per",
+   "sheet": "110",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "Q4",
+   "rating": "32A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "600V DC bus distribution to MAPS converters (PORT and STBD)",
+   "context": "breaker Q1-Q4 32A (x2 sets, PORT+STBD) ; fuse F1/F2 500A (x2 sets) ; 600V DC bus bars (PORT+STBD) ; PORT/STBD 600V DC bus",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "fuse",
+   "device_id": "F1",
+   "rating": "500A",
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "PORT/STBD 600V DC bus distribution with isolator tie",
+   "context": "ISOLATOR switch (isolator_sw1/isolator_sw2) ; F1 500A fuse (NEG tie) ; F2 500A fuse (POS tie) ; PORT 600V DC bus <-> F1 500A / F2 500A fuses <-> ISOLATOR sw",
+   "sheet": "110",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110"
+   }
+  },
+  {
+   "device_class": "fuse",
+   "device_id": "F1",
+   "rating": null,
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "600V DC bus distribution to MAPS converters (PORT and STBD)",
+   "context": "breaker Q1-Q4 32A (x2 sets, PORT+STBD) ; fuse F1/F2 500A (x2 sets) ; 600V DC bus bars (PORT+STBD) ; PORT/STBD 600V DC bus (+/-) -> Q1-Q4 32A breakers -> F1/",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "fuse",
+   "device_id": "F12",
+   "rating": "200A",
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "STBD bus breaker/fuse feeders to converters and control systems (mirror of PORT)",
+   "context": "eaker Q1-Q4 32A (STBD BEL1/BEL2/EDN/MAPS-S feeds) ; fuse F7 400A ; fuse F8 400A ; fuse F9-F12 200A ; relay coils coil_F7/coil_F7b, coil_Q1/coil_Q1b (function unlabelled) ; STBD 600V DC BUS POS/NEG ->",
+   "sheet": "110",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110"
+   }
+  },
+  {
+   "device_class": "fuse",
+   "device_id": "F2",
+   "rating": "500A",
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "PORT/STBD 600V DC bus distribution with isolator tie",
+   "context": "ISOLATOR switch (isolator_sw1/isolator_sw2) ; F1 500A fuse (NEG tie) ; F2 500A fuse (POS tie) ; PORT 600V DC bus <-> F1 500A / F2 500A fuses <-> ISOLATOR switch <-> STBD 600V DC bus",
+   "sheet": "110",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110"
+   }
+  },
+  {
+   "device_class": "fuse",
+   "device_id": "F2",
+   "rating": "500A",
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "600V DC bus distribution to MAPS converters (PORT and STBD)",
+   "context": "breaker Q1-Q4 32A (x2 sets, PORT+STBD) ; fuse F1/F2 500A (x2 sets) ; 600V DC bus bars (PORT+STBD) ; PORT/STBD 600V DC bus (+/-) -> Q1-Q4 32A breakers -> F1/F2",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "fuse",
+   "device_id": "F3",
+   "rating": "200A",
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "PORT bus breaker/fuse feeders to converters and control systems",
+   "context": "Q2 32A (BEL2-P feed) ; breaker Q3 32A (EDN-P feed) ; breaker Q4 32A (MAPS-P feed) ; fuse F3 200A ; fuse F4 200A ; fuse F5 400A ; fuse F6 400A ; HVIL interlock switches per converter (BEL1/BEL2) ; POR",
+   "sheet": "110",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110"
+   }
+  },
+  {
+   "device_class": "fuse",
+   "device_id": "F4",
+   "rating": "200A",
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "PORT bus breaker/fuse feeders to converters and control systems",
+   "context": "feed) ; breaker Q3 32A (EDN-P feed) ; breaker Q4 32A (MAPS-P feed) ; fuse F3 200A ; fuse F4 200A ; fuse F5 400A ; fuse F6 400A ; HVIL interlock switches per converter (BEL1/BEL2) ; PORT 600V DC BUS P",
+   "sheet": "110",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110"
+   }
+  },
+  {
+   "device_class": "fuse",
+   "device_id": "F5",
+   "rating": "400A",
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "PORT bus breaker/fuse feeders to converters and control systems",
+   "context": "r Q3 32A (EDN-P feed) ; breaker Q4 32A (MAPS-P feed) ; fuse F3 200A ; fuse F4 200A ; fuse F5 400A ; fuse F6 400A ; HVIL interlock switches per converter (BEL1/BEL2) ; PORT 600V DC BUS POS/NEG -> Q1 32",
+   "sheet": "110",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110"
+   }
+  },
+  {
+   "device_class": "fuse",
+   "device_id": "F6",
+   "rating": "400A",
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "PORT bus breaker/fuse feeders to converters and control systems",
+   "context": "feed) ; breaker Q4 32A (MAPS-P feed) ; fuse F3 200A ; fuse F4 200A ; fuse F5 400A ; fuse F6 400A ; HVIL interlock switches per converter (BEL1/BEL2) ; PORT 600V DC BUS POS/NEG -> Q1 32A -> BEL 1 (via",
+   "sheet": "110",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110"
+   }
+  },
+  {
+   "device_class": "fuse",
+   "device_id": "F7",
+   "rating": "400A",
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "STBD bus breaker/fuse feeders to converters and control systems (mirror of PORT)",
+   "context": "breaker Q1-Q4 32A (STBD BEL1/BEL2/EDN/MAPS-S feeds) ; fuse F7 400A ; fuse F8 400A ; fuse F9-F12 200A ; relay coils coil_F7/coil_F7b, coil_Q1/coil_Q1b (function unlabelle",
+   "sheet": "110",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110"
+   }
+  },
+  {
+   "device_class": "fuse",
+   "device_id": "F8",
+   "rating": "400A",
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "STBD bus breaker/fuse feeders to converters and control systems (mirror of PORT)",
+   "context": "breaker Q1-Q4 32A (STBD BEL1/BEL2/EDN/MAPS-S feeds) ; fuse F7 400A ; fuse F8 400A ; fuse F9-F12 200A ; relay coils coil_F7/coil_F7b, coil_Q1/coil_Q1b (function unlabelled) ; STBD 600V",
+   "sheet": "110",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110"
+   }
+  },
+  {
+   "device_class": "fuse",
+   "device_id": "F9",
+   "rating": null,
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "STBD bus breaker/fuse feeders to converters and control systems (mirror of PORT)",
+   "context": "breaker Q1-Q4 32A (STBD BEL1/BEL2/EDN/MAPS-S feeds) ; fuse F7 400A ; fuse F8 400A ; fuse F9-F12 200A ; relay coils coil_F7/coil_F7b, coil_Q1/coil_Q1b (function unlabelled) ; STBD 600V DC BUS POS/NEG",
+   "sheet": "110",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110"
+   }
+  }
+ ],
+ "626-maps-p": [
+  {
+   "device_class": "breaker",
+   "device_id": "CB3",
+   "rating": "15A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "MAPS-P LV supply",
+   "context": "breaker CB3 15A ; breaker CB7 15A ; LVPDU 24V + bus -> PORT bank breaker CB3 (15A) 'MAPS-P' -> MAPS-P load; STBD bank",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "CB7",
+   "rating": "15A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "MAPS-P LV supply",
+   "context": "breaker CB3 15A ; breaker CB7 15A ; LVPDU 24V + bus -> PORT bank breaker CB3 (15A) 'MAPS-P' -> MAPS-P load; STBD bank breaker CB7 (15A)",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "fuse",
+   "device_id": "F1",
+   "rating": "250A",
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "PORT 600V DC to 24V DC conversion",
+   "context": "MAPS-1/2 converter ; fuse F1 250A ; fuse F2 250A ; current transformer CT1, CT2, CT3, CT4 (status to ONYX) ; PORT 600V DC bus -> MAPS-1/",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "fuse",
+   "device_id": "F2",
+   "rating": "250A",
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "PORT 600V DC to 24V DC conversion",
+   "context": "MAPS-1/2 converter ; fuse F1 250A ; fuse F2 250A ; current transformer CT1, CT2, CT3, CT4 (status to ONYX) ; PORT 600V DC bus -> MAPS-1/2 2x5kW convert",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "switch",
+   "device_id": "SW1",
+   "rating": null,
+   "check": "position, and continuity in each position",
+   "method": "operate it and meter through",
+   "if_fails": "the circuit is selected away from the path you are testing",
+   "replaceable": "yes",
+   "function": "PORT 600V DC to 24V DC conversion",
+   "context": "/ F2 250A fused outputs -> CT1/CT2 current sense (to ONYX) -> onward to isolator switches SW1-SW5 / SO1-SO5",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "switch",
+   "device_id": "SW5",
+   "rating": null,
+   "check": "position, and continuity in each position",
+   "method": "operate it and meter through",
+   "if_fails": "the circuit is selected away from the path you are testing",
+   "replaceable": "yes",
+   "function": "PORT 600V DC to 24V DC conversion",
+   "context": "250A fused outputs -> CT1/CT2 current sense (to ONYX) -> onward to isolator switches SW1-SW5 / SO1-SO5",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "contactor",
+   "device_id": "SO1",
+   "rating": null,
+   "check": "is the coil energised? do the main contacts close?",
+   "method": "coil voltage, then continuity across the main poles",
+   "if_fails": "the load it switches has no supply even though its breaker is healthy",
+   "replaceable": "yes",
+   "function": "PORT 600V DC to 24V DC conversion",
+   "context": "fused outputs -> CT1/CT2 current sense (to ONYX) -> onward to isolator switches SW1-SW5 / SO1-SO5",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "contactor",
+   "device_id": "SO5",
+   "rating": null,
+   "check": "is the coil energised? do the main contacts close?",
+   "method": "coil voltage, then continuity across the main poles",
+   "if_fails": "the load it switches has no supply even though its breaker is healthy",
+   "replaceable": "yes",
+   "function": "PORT 600V DC to 24V DC conversion",
+   "context": "d outputs -> CT1/CT2 current sense (to ONYX) -> onward to isolator switches SW1-SW5 / SO1-SO5",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "current_transformer",
+   "device_id": "CT1",
+   "rating": null,
+   "check": "what does it read?",
+   "method": "read at the meter it feeds",
+   "if_fails": "measurement only; it does not break the supply",
+   "replaceable": "no",
+   "function": "PORT 600V DC to 24V DC conversion",
+   "context": "MAPS-1/2 converter ; fuse F1 250A ; fuse F2 250A ; current transformer CT1, CT2, CT3, CT4 (status to ONYX) ; PORT 600V DC bus -> MAPS-1/2 2x5kW converter -> 24V DC output -> F1 250A",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "current_transformer",
+   "device_id": "CT2",
+   "rating": null,
+   "check": "what does it read?",
+   "method": "read at the meter it feeds",
+   "if_fails": "measurement only; it does not break the supply",
+   "replaceable": "no",
+   "function": "PORT 600V DC to 24V DC conversion",
+   "context": "MAPS-1/2 converter ; fuse F1 250A ; fuse F2 250A ; current transformer CT1, CT2, CT3, CT4 (status to ONYX) ; PORT 600V DC bus -> MAPS-1/2 2x5kW converter -> 24V DC output -> F1 250A / F2",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "current_transformer",
+   "device_id": "CT3",
+   "rating": null,
+   "check": "what does it read?",
+   "method": "read at the meter it feeds",
+   "if_fails": "measurement only; it does not break the supply",
+   "replaceable": "no",
+   "function": "PORT 600V DC to 24V DC conversion",
+   "context": "MAPS-1/2 converter ; fuse F1 250A ; fuse F2 250A ; current transformer CT1, CT2, CT3, CT4 (status to ONYX) ; PORT 600V DC bus -> MAPS-1/2 2x5kW converter -> 24V DC output -> F1 250A / F2 250A",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "current_transformer",
+   "device_id": "CT4",
+   "rating": null,
+   "check": "what does it read?",
+   "method": "read at the meter it feeds",
+   "if_fails": "measurement only; it does not break the supply",
+   "replaceable": "no",
+   "function": "PORT 600V DC to 24V DC conversion",
+   "context": "MAPS-1/2 converter ; fuse F1 250A ; fuse F2 250A ; current transformer CT1, CT2, CT3, CT4 (status to ONYX) ; PORT 600V DC bus -> MAPS-1/2 2x5kW converter -> 24V DC output -> F1 250A / F2 250A fuse",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  }
+ ],
+ "626-maps-s": [
+  {
+   "device_class": "fuse",
+   "device_id": "F18",
+   "rating": "125A",
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "STBD 600V DC to 24V DC conversion",
+   "context": "DC output -> F3/F4 250A fused outputs -> CT5 (to ONYX) and 24V 110A/230V AC converter -> F18 125A fuse -> isolator/relay bank",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "fuse",
+   "device_id": "F3",
+   "rating": "250A",
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "STBD 600V DC to 24V DC conversion",
+   "context": "MAPS-1/2 converter (STBD) ; fuse F3 250A ; fuse F4 250A ; current transformer CT5 (status to ONYX) ; STBD 600V DC bus -> MAPS-1/2 2x5kW convert",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "fuse",
+   "device_id": "F4",
+   "rating": "250A",
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "STBD 600V DC to 24V DC conversion",
+   "context": "MAPS-1/2 converter (STBD) ; fuse F3 250A ; fuse F4 250A ; current transformer CT5 (status to ONYX) ; STBD 600V DC bus -> MAPS-1/2 2x5kW converter -> 24V DC ou",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "current_transformer",
+   "device_id": "CT5",
+   "rating": null,
+   "check": "what does it read?",
+   "method": "read at the meter it feeds",
+   "if_fails": "measurement only; it does not break the supply",
+   "replaceable": "no",
+   "function": "STBD 600V DC to 24V DC conversion",
+   "context": "MAPS-1/2 converter (STBD) ; fuse F3 250A ; fuse F4 250A ; current transformer CT5 (status to ONYX) ; STBD 600V DC bus -> MAPS-1/2 2x5kW converter -> 24V DC output -> F3/F4 250A fused outpu",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  }
+ ],
+ "625-bae-system": [
+  {
+   "device_class": "breaker",
+   "device_id": "CB1",
+   "rating": "6A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Chart Table HMI LV supply",
+   "context": "breaker CB1 6A ; LVPDU 24V + bus -> PORT bank breaker CB1 (6A) 'CHART TABLE HMI' -> HMI screen",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "CB12",
+   "rating": "25A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "SCU control relay (Re.0) tie",
+   "context": "breaker CB12 25A ; relay Re.0 (NO contact) ; PORT bank -> CB12 SCU CONTROL (25A) -> relay Re.0 coil -> Re.0 NO contact",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "CB5",
+   "rating": "6A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "BAE pedestal alarm supply",
+   "context": "breaker CB5 6A ; LVPDU + bus -> STBD bank breaker CB5 (6A) 'BAE PEDESTAL ALARM' -> alarm",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "switch",
+   "device_id": "SW1",
+   "rating": null,
+   "check": "position, and continuity in each position",
+   "method": "operate it and meter through",
+   "if_fails": "the circuit is selected away from the path you are testing",
+   "replaceable": "yes",
+   "function": "BAE 24V control supply and isolator relay bank (SO1-SO5)",
+   "context": "isolator switch SW1-SW5 ; relay coil/contact SO1-SO5 (NO contacts, confirmed by symbol+wiring) ; current transformer CT1-CT5 (",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "switch",
+   "device_id": "SW5",
+   "rating": null,
+   "check": "position, and continuity in each position",
+   "method": "operate it and meter through",
+   "if_fails": "the circuit is selected away from the path you are testing",
+   "replaceable": "yes",
+   "function": "BAE 24V control supply and isolator relay bank (SO1-SO5)",
+   "context": "isolator switch SW1-SW5 ; relay coil/contact SO1-SO5 (NO contacts, confirmed by symbol+wiring) ; current transformer CT1-CT5 (stat",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "contactor",
+   "device_id": "SO1",
+   "rating": null,
+   "check": "is the coil energised? do the main contacts close?",
+   "method": "coil voltage, then continuity across the main poles",
+   "if_fails": "the load it switches has no supply even though its breaker is healthy",
+   "replaceable": "yes",
+   "function": "BAE 24V control supply and isolator relay bank (SO1-SO5)",
+   "context": "isolator switch SW1-SW5 ; relay coil/contact SO1-SO5 (NO contacts, confirmed by symbol+wiring) ; current transformer CT1-CT5 (status to ONYX) ; shunt SHUNT",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "contactor",
+   "device_id": "SO5",
+   "rating": null,
+   "check": "is the coil energised? do the main contacts close?",
+   "method": "coil voltage, then continuity across the main poles",
+   "if_fails": "the load it switches has no supply even though its breaker is healthy",
+   "replaceable": "yes",
+   "function": "BAE 24V control supply and isolator relay bank (SO1-SO5)",
+   "context": "isolator switch SW1-SW5 ; relay coil/contact SO1-SO5 (NO contacts, confirmed by symbol+wiring) ; current transformer CT1-CT5 (status to ONYX) ; shunt SHUNT #1",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "relay",
+   "device_id": "Re1",
+   "rating": null,
+   "check": "is the coil energised, and is the load on the NO or the NC contact?",
+   "method": "measure the coil supply and its return separately, then continuity across the contact in both coil states",
+   "if_fails": "on NO the load stays OFF until the coil energises; on NC the load stays ON until it does \u2014 an inverted reading inverts the whole function",
+   "replaceable": "yes",
+   "function": "BAE start key switch / service mode control loop",
+   "context": "BAE START KEY SW ; relay Re1 ; relay Re2 ; terminal strip T/S S ; T/S S terminals -> Re1/Re2 coils de-energised -> NO contacts open ; B",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "relay",
+   "device_id": "Re2",
+   "rating": null,
+   "check": "is the coil energised, and is the load on the NO or the NC contact?",
+   "method": "measure the coil supply and its return separately, then continuity across the contact in both coil states",
+   "if_fails": "on NO the load stays OFF until the coil energises; on NC the load stays ON until it does \u2014 an inverted reading inverts the whole function",
+   "replaceable": "yes",
+   "function": "BAE start key switch / service mode control loop",
+   "context": "BAE START KEY SW ; relay Re1 ; relay Re2 ; terminal strip T/S S ; T/S S terminals -> Re1/Re2 coils de-energised -> NO contacts open ; BAE START KEY",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "relay",
+   "device_id": "Re2a",
+   "rating": null,
+   "check": "is the coil energised, and is the load on the NO or the NC contact?",
+   "method": "measure the coil supply and its return separately, then continuity across the contact in both coil states",
+   "if_fails": "on NO the load stays OFF until the coil energises; on NC the load stays ON until it does \u2014 an inverted reading inverts the whole function",
+   "replaceable": "yes",
+   "function": "BAE start key switch / service mode control loop",
+   "context": "energised -> Re1 NO contact closes (on net with SO5, SHUNT #1) -> continues off-sheet to Re2a per DWG 113 note",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "relay",
+   "device_id": "Re7",
+   "rating": null,
+   "check": "is the coil energised, and is the load on the NO or the NC contact?",
+   "method": "measure the coil supply and its return separately, then continuity across the contact in both coil states",
+   "if_fails": "on NO the load stays OFF until the coil energises; on NC the load stays ON until it does \u2014 an inverted reading inverts the whole function",
+   "replaceable": "yes",
+   "function": "HVIL supply and SCU3 tie",
+   "context": "breaker CBx3 5A ; relay Re7 (NO contact, confirmed by symbol+wiring) ; LVPDU + bus -> breaker CBx3 (5A) 'HVIL' -> relay Re7 coil -> Re",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "terminal_strip",
+   "device_id": "T/S S",
+   "rating": null,
+   "check": "voltage present at the numbered way?",
+   "method": "meter to the return rail at that terminal",
+   "if_fails": "narrows the fault to before or after this terminal \u2014 the cheapest single measurement to bisect a run",
+   "replaceable": "no \u2014 a test point",
+   "function": "BAE start key switch / service mode control loop",
+   "context": "BAE START KEY SW ; relay Re1 ; relay Re2 ; terminal strip T/S S ; T/S S terminals -> Re1/Re2 coils de-energised -> NO contacts open ; BAE START KEY SW -> T/S S terminal",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "current_transformer",
+   "device_id": "CT1",
+   "rating": null,
+   "check": "what does it read?",
+   "method": "read at the meter it feeds",
+   "if_fails": "measurement only; it does not break the supply",
+   "replaceable": "no",
+   "function": "BAE 24V control supply and isolator relay bank (SO1-SO5)",
+   "context": "elay coil/contact SO1-SO5 (NO contacts, confirmed by symbol+wiring) ; current transformer CT1-CT5 (status to ONYX) ; shunt SHUNT #1 500A/50mV ; SW1-SW5 open -> SO1-SO5 coils de-energised -> NO contact",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "current_transformer",
+   "device_id": "CT2",
+   "rating": null,
+   "check": "what does it read?",
+   "method": "read at the meter it feeds",
+   "if_fails": "measurement only; it does not break the supply",
+   "replaceable": "no",
+   "function": "BAE 24V control supply and isolator relay bank (SO1-SO5)",
+   "context": "O1 NO contact closes -> 24V DC through relay contact -> SHUNT #1 -> +24V SERVICE BUS; CT1/CT2 report current to ONYX",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "current_transformer",
+   "device_id": "CT5",
+   "rating": null,
+   "check": "what does it read?",
+   "method": "read at the meter it feeds",
+   "if_fails": "measurement only; it does not break the supply",
+   "replaceable": "no",
+   "function": "BAE 24V control supply and isolator relay bank (SO1-SO5)",
+   "context": "coil/contact SO1-SO5 (NO contacts, confirmed by symbol+wiring) ; current transformer CT1-CT5 (status to ONYX) ; shunt SHUNT #1 500A/50mV ; SW1-SW5 open -> SO1-SO5 coils de-energised -> NO contacts op",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  }
+ ],
+ "520-main-bilge-pump": [
+  {
+   "device_class": "fuse",
+   "device_id": "F3",
+   "rating": "60A",
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "Main bilge pump run control",
+   "context": "fuse F3 60A ; switch SW8 ; relay SO6 (coil, NO contact) ; local pump switch (T/S S 13-15) ; pump motor M1 ; DC Main",
+   "sheet": "114",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "114"
+   }
+  },
+  {
+   "device_class": "fuse",
+   "device_id": "F7",
+   "rating": null,
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "24V DC service supply to bilge pump",
+   "context": "fused terminal F7 (60A) ; switch SW8 ; relay coil/contact SO6 ; +24V SERVICE BUS -> F7 fused terminal (60A) -> SW8 open -> SO",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "switch",
+   "device_id": "SW8",
+   "rating": null,
+   "check": "position, and continuity in each position",
+   "method": "operate it and meter through",
+   "if_fails": "the circuit is selected away from the path you are testing",
+   "replaceable": "yes",
+   "function": "24V DC service supply to bilge pump",
+   "context": "fused terminal F7 (60A) ; switch SW8 ; relay coil/contact SO6 ; +24V SERVICE BUS -> F7 fused terminal (60A) -> SW8 open -> SO6 coil de-energise",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "switch",
+   "device_id": "SW8",
+   "rating": null,
+   "check": "position, and continuity in each position",
+   "method": "operate it and meter through",
+   "if_fails": "the circuit is selected away from the path you are testing",
+   "replaceable": "yes",
+   "function": "Main bilge pump run control",
+   "context": "fuse F3 60A ; switch SW8 ; relay SO6 (coil, NO contact) ; local pump switch (T/S S 13-15) ; pump motor M1 ; DC Main Panel +service",
+   "sheet": "114",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "114"
+   }
+  },
+  {
+   "device_class": "contactor",
+   "device_id": "SO6",
+   "rating": null,
+   "check": "is the coil energised? do the main contacts close?",
+   "method": "coil voltage, then continuity across the main poles",
+   "if_fails": "the load it switches has no supply even though its breaker is healthy",
+   "replaceable": "yes",
+   "function": "24V DC service supply to bilge pump",
+   "context": "fused terminal F7 (60A) ; switch SW8 ; relay coil/contact SO6 ; +24V SERVICE BUS -> F7 fused terminal (60A) -> SW8 open -> SO6 coil de-energised -> no supply to BILGE P",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "contactor",
+   "device_id": "SO6",
+   "rating": null,
+   "check": "is the coil energised? do the main contacts close?",
+   "method": "coil voltage, then continuity across the main poles",
+   "if_fails": "the load it switches has no supply even though its breaker is healthy",
+   "replaceable": "yes",
+   "function": "Main bilge pump run control",
+   "context": "fuse F3 60A ; switch SW8 ; relay SO6 (coil, NO contact) ; local pump switch (T/S S 13-15) ; pump motor M1 ; DC Main Panel +service battery -> f",
+   "sheet": "114",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "114"
+   }
+  },
+  {
+   "device_class": "terminal_strip",
+   "device_id": "T/S S",
+   "rating": null,
+   "check": "voltage present at the numbered way?",
+   "method": "meter to the return rail at that terminal",
+   "if_fails": "narrows the fault to before or after this terminal \u2014 the cheapest single measurement to bisect a run",
+   "replaceable": "no \u2014 a test point",
+   "function": "Main bilge pump run control",
+   "context": "ice battery -> fuse F3 (60A) -> switch SW8 -> SO6 relay coil energised by contact through T/S S terminals 13/14/15 closed by LOCAL PUMP SW -> pump motor M1 (+) -> return to NEG. BUS ; SO6 coil circuit",
+   "sheet": "114",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "114"
+   }
+  },
+  {
+   "device_class": "terminal_strip",
+   "device_id": "T/S S 13",
+   "rating": null,
+   "check": "voltage present at the numbered way?",
+   "method": "meter to the return rail at that terminal",
+   "if_fails": "narrows the fault to before or after this terminal \u2014 the cheapest single measurement to bisect a run",
+   "replaceable": "no \u2014 a test point",
+   "function": "Main bilge pump run control",
+   "context": "fuse F3 60A ; switch SW8 ; relay SO6 (coil, NO contact) ; local pump switch (T/S S 13-15) ; pump motor M1 ; DC Main Panel +service battery -> fuse F3 (60A) -> switch SW8 -> SO6 relay coil",
+   "sheet": "114",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "114"
+   }
+  }
+ ],
+ "520-fire-pump": [
+  {
+   "device_class": "fuse",
+   "device_id": "F4",
+   "rating": "100A",
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "Main fire pump run control with FWD and LAZARETTE remote start",
+   "context": "fuse F4 100A ; switch SW9 ; relay SO7 (coil, NO contact) ; FWD PUMP SW station (with indicator lamp) ; LAZ. PUMP SW",
+   "sheet": "114",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "114"
+   }
+  },
+  {
+   "device_class": "fuse",
+   "device_id": "F8",
+   "rating": null,
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "24V DC service supply to fire pump",
+   "context": "fused terminal F8 (60A) ; switch SW9 ; relay coil/contact SO7 ; +24V SERVICE BUS -> F8 fused terminal (60A) -> SW9 open -> SO",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "switch",
+   "device_id": "SW9",
+   "rating": null,
+   "check": "position, and continuity in each position",
+   "method": "operate it and meter through",
+   "if_fails": "the circuit is selected away from the path you are testing",
+   "replaceable": "yes",
+   "function": "24V DC service supply to fire pump",
+   "context": "fused terminal F8 (60A) ; switch SW9 ; relay coil/contact SO7 ; +24V SERVICE BUS -> F8 fused terminal (60A) -> SW9 open -> SO7 coil de-energise",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "switch",
+   "device_id": "SW9",
+   "rating": null,
+   "check": "position, and continuity in each position",
+   "method": "operate it and meter through",
+   "if_fails": "the circuit is selected away from the path you are testing",
+   "replaceable": "yes",
+   "function": "Main fire pump run control with FWD and LAZARETTE remote start",
+   "context": "fuse F4 100A ; switch SW9 ; relay SO7 (coil, NO contact) ; FWD PUMP SW station (with indicator lamp) ; LAZ. PUMP SW station (with in",
+   "sheet": "114",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "114"
+   }
+  },
+  {
+   "device_class": "contactor",
+   "device_id": "SO7",
+   "rating": null,
+   "check": "is the coil energised? do the main contacts close?",
+   "method": "coil voltage, then continuity across the main poles",
+   "if_fails": "the load it switches has no supply even though its breaker is healthy",
+   "replaceable": "yes",
+   "function": "24V DC service supply to fire pump",
+   "context": "fused terminal F8 (60A) ; switch SW9 ; relay coil/contact SO7 ; +24V SERVICE BUS -> F8 fused terminal (60A) -> SW9 open -> SO7 coil de-energised -> no supply to FIRE PU",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "contactor",
+   "device_id": "SO7",
+   "rating": null,
+   "check": "is the coil energised? do the main contacts close?",
+   "method": "coil voltage, then continuity across the main poles",
+   "if_fails": "the load it switches has no supply even though its breaker is healthy",
+   "replaceable": "yes",
+   "function": "Main fire pump run control with FWD and LAZARETTE remote start",
+   "context": "fuse F4 100A ; switch SW9 ; relay SO7 (coil, NO contact) ; FWD PUMP SW station (with indicator lamp) ; LAZ. PUMP SW station (with indicator lamp",
+   "sheet": "114",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "114"
+   }
+  },
+  {
+   "device_class": "terminal_strip",
+   "device_id": "T/S S",
+   "rating": null,
+   "check": "voltage present at the numbered way?",
+   "method": "meter to the return rail at that terminal",
+   "if_fails": "narrows the fault to before or after this terminal \u2014 the cheapest single measurement to bisect a run",
+   "replaceable": "no \u2014 a test point",
+   "function": "Main fire pump run control with FWD and LAZARETTE remote start",
+   "context": "t open -> pump motor M2 off ; Fuse F4 (100A) -> SW9 -> feeds SO7 relay contact circuit -> T/S S terminals 16/17/18/19 -> BR/BL/G conductors run to FWD PUMP SW (terminal 1/2, wires BR/BL/G) OR to LAZ.",
+   "sheet": "114",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "114"
+   }
+  }
+ ],
+ "633-battery-gen-start": [
+  {
+   "device_class": "fuse",
+   "device_id": "F14",
+   "rating": "50A",
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "Gen-start battery fusing, charger feed, and SO9-switched isolator control",
+   "context": "shunt SHUNT #4 ; fuse F14 50A ; fuse F15 250A ; relay contact SO9_contact (NO) ; switch SW14 (NO) ; switch SW11 (NO) ; switches SW15",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "fuse",
+   "device_id": "F15",
+   "rating": "250A",
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "Gen-start battery fusing, charger feed, and SO9-switched isolator control",
+   "context": "shunt SHUNT #4 ; fuse F14 50A ; fuse F15 250A ; relay contact SO9_contact (NO) ; switch SW14 (NO) ; switch SW11 (NO) ; switches SW15/SW16 (NO) ; GE",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "switch",
+   "device_id": "SW11",
+   "rating": null,
+   "check": "position, and continuity in each position",
+   "method": "operate it and meter through",
+   "if_fails": "the circuit is selected away from the path you are testing",
+   "replaceable": "yes",
+   "function": "Gen-start battery fusing, charger feed, and SO9-switched isolator control",
+   "context": "fuse F14 50A ; fuse F15 250A ; relay contact SO9_contact (NO) ; switch SW14 (NO) ; switch SW11 (NO) ; switches SW15/SW16 (NO) ; GEN START BAT.(+) -> Shunt #4 negative return to NEGATIVE BUS; positive",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "switch",
+   "device_id": "SW14",
+   "rating": null,
+   "check": "position, and continuity in each position",
+   "method": "operate it and meter through",
+   "if_fails": "the circuit is selected away from the path you are testing",
+   "replaceable": "yes",
+   "function": "Gen-start battery fusing, charger feed, and SO9-switched isolator control",
+   "context": "shunt SHUNT #4 ; fuse F14 50A ; fuse F15 250A ; relay contact SO9_contact (NO) ; switch SW14 (NO) ; switch SW11 (NO) ; switches SW15/SW16 (NO) ; GEN START BAT.(+) -> Shunt #4 negative return to NEGA",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "switch",
+   "device_id": "SW15",
+   "rating": null,
+   "check": "position, and continuity in each position",
+   "method": "operate it and meter through",
+   "if_fails": "the circuit is selected away from the path you are testing",
+   "replaceable": "yes",
+   "function": "Gen-start battery fusing, charger feed, and SO9-switched isolator control",
+   "context": "15 250A ; relay contact SO9_contact (NO) ; switch SW14 (NO) ; switch SW11 (NO) ; switches SW15/SW16 (NO) ; GEN START BAT.(+) -> Shunt #4 negative return to NEGATIVE BUS; positive through fuse F14 (50A",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "switch",
+   "device_id": "SW16",
+   "rating": null,
+   "check": "position, and continuity in each position",
+   "method": "operate it and meter through",
+   "if_fails": "the circuit is selected away from the path you are testing",
+   "replaceable": "yes",
+   "function": "Gen-start battery fusing, charger feed, and SO9-switched isolator control",
+   "context": "0A ; relay contact SO9_contact (NO) ; switch SW14 (NO) ; switch SW11 (NO) ; switches SW15/SW16 (NO) ; GEN START BAT.(+) -> Shunt #4 negative return to NEGATIVE BUS; positive through fuse F14 (50A) ->",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "contactor",
+   "device_id": "SO 9",
+   "rating": null,
+   "check": "is the coil energised? do the main contacts close?",
+   "method": "coil voltage, then continuity across the main poles",
+   "if_fails": "the load it switches has no supply even though its breaker is healthy",
+   "replaceable": "yes",
+   "function": "Gen-start battery fusing, charger feed, and SO9-switched isolator control",
+   "context": "A) -> CHARGER ; GEN START BAT.(+) -> fuse F15 (250A) -> SO9_contact (NO, closes when coil SO 9 energised) -> switch SW14 -> battery isolator panel -> switch SW11 (fuse '70') and switches SW15/SW16 (fu",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "contactor",
+   "device_id": "SO9",
+   "rating": null,
+   "check": "is the coil energised? do the main contacts close?",
+   "method": "coil voltage, then continuity across the main poles",
+   "if_fails": "the load it switches has no supply even though its breaker is healthy",
+   "replaceable": "yes",
+   "function": "Charging/isolation feed toward Gen Start Battery",
+   "context": "relay contact SO9 ; isolator bank -> SO9 relay contact -> 'to GEN. START BAT.' (conductor leaves sheet toward the gen-start",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  }
+ ],
+ "634-battery-aux-service": [
+  {
+   "device_class": "fuse",
+   "device_id": "F16",
+   "rating": null,
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "24V DC feed/isolation to Aux Service Battery",
+   "context": "switch SW11 ; fused terminal F16 (250A) ; battery bank 200Ah 24V ; isolator bank -> SW11 -> F16 fused terminal (250A) -> AUX SERVICE BAT. (",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "fuse",
+   "device_id": "F16",
+   "rating": "250A",
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "Aux service battery fusing to SO9 line and to inverter",
+   "context": "fuse F16 250A ; fuse F17 100A ; AUX SERVICE BAT.(+) -> NEGATIVE BUS return (no dedicated shunt shown, ties to commo",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "fuse",
+   "device_id": "F17",
+   "rating": "100A",
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "Aux service battery fusing to SO9 line and to inverter",
+   "context": "fuse F16 250A ; fuse F17 100A ; AUX SERVICE BAT.(+) -> NEGATIVE BUS return (no dedicated shunt shown, ties to common negative bus p",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "switch",
+   "device_id": "SW11",
+   "rating": null,
+   "check": "position, and continuity in each position",
+   "method": "operate it and meter through",
+   "if_fails": "the circuit is selected away from the path you are testing",
+   "replaceable": "yes",
+   "function": "24V DC feed/isolation to Aux Service Battery",
+   "context": "switch SW11 ; fused terminal F16 (250A) ; battery bank 200Ah 24V ; isolator bank -> SW11 -> F16 fused terminal (250A)",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "contactor",
+   "device_id": "SO9",
+   "rating": null,
+   "check": "is the coil energised? do the main contacts close?",
+   "method": "coil voltage, then continuity across the main poles",
+   "if_fails": "the load it switches has no supply even though its breaker is healthy",
+   "replaceable": "yes",
+   "function": "Aux service battery fusing to SO9 line and to inverter",
+   "context": "ties to common negative bus per net136/net142); positive through fuse F16 (250A) onto the SO9 switched line (shared with gen-start battery per net8 grouping); positive through fuse F17 (100A) -> INVER",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  }
+ ],
+ "641-vessel-control-panel": [
+  {
+   "device_class": "emergency_breaker",
+   "device_id": "QE7",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever; note it is fed from the EMERGENCY side",
+   "if_fails": "emergency supply to downstream is dead; the normal-side breaker for the same load may still be live",
+   "replaceable": "yes",
+   "function": "QE7 fused feed toward emergency power",
+   "context": "terminal strip T/S E ; breaker QE7 (6A) ; terminal strip T/S E (8/8a) -> QE7 breaker (6A) -> to +24V EMERGENCY POWER (continues off-sheet)",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  },
+  {
+   "device_class": "terminal_strip",
+   "device_id": "T/S E",
+   "rating": null,
+   "check": "voltage present at the numbered way?",
+   "method": "meter to the return rail at that terminal",
+   "if_fails": "narrows the fault to before or after this terminal \u2014 the cheapest single measurement to bisect a run",
+   "replaceable": "no \u2014 a test point",
+   "function": "QE7 fused feed toward emergency power",
+   "context": "terminal strip T/S E ; breaker QE7 (6A) ; terminal strip T/S E (8/8a) -> QE7 breaker (6A) -> to +24V EMERGENCY POWER (continu",
+   "sheet": "110a",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110a"
+   }
+  }
+ ],
+ "625-isg-port": [
+  {
+   "device_class": "breaker",
+   "device_id": "CB1",
+   "rating": "50A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Port generator start/charge selection",
+   "context": "switch SW15 (NO, measured) ; fuse '31 50A' / '70' rated fuse in series ; breaker CB1 50A ; Battery isolator panel bus -> switch SW15 -> fuse '31 50A'/'70' -> B+ terminal on PORT GENERATOR 112",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "switch",
+   "device_id": "SW15",
+   "rating": null,
+   "check": "position, and continuity in each position",
+   "method": "operate it and meter through",
+   "if_fails": "the circuit is selected away from the path you are testing",
+   "replaceable": "yes",
+   "function": "Port generator start/charge selection",
+   "context": "switch SW15 (NO, measured) ; fuse '31 50A' / '70' rated fuse in series ; breaker CB1 50A ; Battery isolator panel bus",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  }
+ ],
+ "625-isg-stbd": [
+  {
+   "device_class": "breaker",
+   "device_id": "CB2",
+   "rating": "50A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Stbd generator start/charge selection",
+   "context": "switch SW16 (NO, measured) ; fuse '32 50A' / '70' ; breaker CB2 50A ; Battery isolator panel bus -> switch SW16 -> fuse '32 50A'/'70' -> B+ terminal on STBD GENERATOR 112",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "switch",
+   "device_id": "SW16",
+   "rating": null,
+   "check": "position, and continuity in each position",
+   "method": "operate it and meter through",
+   "if_fails": "the circuit is selected away from the path you are testing",
+   "replaceable": "yes",
+   "function": "Stbd generator start/charge selection",
+   "context": "switch SW16 (NO, measured) ; fuse '32 50A' / '70' ; breaker CB2 50A ; Battery isolator panel bus -> switch SW16 -> fu",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  }
+ ],
+ "620-modular-propulsion-control-system-mpcs": [
+  {
+   "device_class": "breaker",
+   "device_id": "CB2",
+   "rating": "15A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "MPCS-P LV supply (LVPDU)",
+   "context": "breaker CB2 15A (PORT bank) ; breaker CB6 15A (STBD bank, second MPCS-P tap) ; LVPDU 24V + bus -> PORT bank breaker CB",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "CB6",
+   "rating": "15A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "MPCS-P LV supply (LVPDU)",
+   "context": "breaker CB2 15A (PORT bank) ; breaker CB6 15A (STBD bank, second MPCS-P tap) ; LVPDU 24V + bus -> PORT bank breaker CB2 (15A) 'MPCS-P' -> MPCS-P loa",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  }
+ ],
+ "627-edn": [
+  {
+   "device_class": "breaker",
+   "device_id": "CB4",
+   "rating": "10A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "EDN-P LV supply",
+   "context": "breaker CB4 10A ; breaker CB8 10A ; LVPDU 24V + bus -> PORT bank breaker CB4 (10A) 'EDN-P' -> EDN-P; STBD bank breaker",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "CB8",
+   "rating": "10A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "EDN-P LV supply",
+   "context": "breaker CB4 10A ; breaker CB8 10A ; LVPDU 24V + bus -> PORT bank breaker CB4 (10A) 'EDN-P' -> EDN-P; STBD bank breaker CB8 (10A) also la",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  }
+ ],
+ "420-gpm-12-drive-motor": [
+  {
+   "device_class": "breaker",
+   "device_id": "CB10",
+   "rating": "25A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "ACTM control supply",
+   "context": "breaker CB10 25A ; LVPDU + bus -> PORT bank breaker CB10 (25A) 'ACTM (GPM-12)' -> ACTM control",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  }
+ ],
+ "430-hundested-cpp-sterngear": [
+  {
+   "device_class": "breaker",
+   "device_id": "CB11",
+   "rating": "25A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "CPP PVED valve control supply",
+   "context": "breaker CB11 25A ; LVPDU + bus -> PORT bank breaker CB11 (25A) 'CCP / PVED VALVE A / PVED VALVE B' -> CPP pitch valve",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "contactor",
+   "device_id": "K1",
+   "rating": null,
+   "check": "is the coil energised? do the main contacts close?",
+   "method": "coil voltage, then continuity across the main poles",
+   "if_fails": "the load it switches has no supply even though its breaker is healthy",
+   "replaceable": "yes",
+   "function": "CPP oil pump control supply",
+   "context": "breaker CBx8 1A retractable fuse ; LVPDU + bus -> breaker CBx8 (1A) 'CPP OIL' -> relays K1/K2 (per prior fact) run both CPP oil pumps",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "contactor",
+   "device_id": "K2",
+   "rating": null,
+   "check": "is the coil energised? do the main contacts close?",
+   "method": "coil voltage, then continuity across the main poles",
+   "if_fails": "the load it switches has no supply even though its breaker is healthy",
+   "replaceable": "yes",
+   "function": "CPP oil pump control supply",
+   "context": "reaker CBx8 1A retractable fuse ; LVPDU + bus -> breaker CBx8 (1A) 'CPP OIL' -> relays K1/K2 (per prior fact) run both CPP oil pumps",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  }
+ ],
+ "628-scu3": [
+  {
+   "device_class": "breaker",
+   "device_id": "CB12",
+   "rating": "25A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "SCU3 control + power supply",
+   "context": "breaker CB12 25A ; breaker CB13 6A ; LVPDU + bus -> STBD bank breaker CB12 (25A) 'SCU CONTROL' -> SCU3 control input;",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "CB13",
+   "rating": "6A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "SCU3 control + power supply",
+   "context": "breaker CB12 25A ; breaker CB13 6A ; LVPDU + bus -> STBD bank breaker CB12 (25A) 'SCU CONTROL' -> SCU3 control input; STBD bank breaker C",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  }
+ ],
+ "595-emp-glycol-pumps": [
+  {
+   "device_class": "breaker",
+   "device_id": "CB14",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Glycol cooling pump LV supply bank",
+   "context": "breakers CB14,CB15,CB16,CB17,CB18,CB19,CBx16 (BCP AXIOMATIC) ; LVPDU + bus -> CB14 (20A) 'MCP-P PUMP' -> MCP-P; CB15 (2",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "CB15",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Glycol cooling pump LV supply bank",
+   "context": "breakers CB14,CB15,CB16,CB17,CB18,CB19,CBx16 (BCP AXIOMATIC) ; LVPDU + bus -> CB14 (20A) 'MCP-P PUMP' -> MCP-P; CB15 (20A) '",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "CB16",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Glycol cooling pump LV supply bank",
+   "context": "breakers CB14,CB15,CB16,CB17,CB18,CB19,CBx16 (BCP AXIOMATIC) ; LVPDU + bus -> CB14 (20A) 'MCP-P PUMP' -> MCP-P; CB15 (20A) 'ECP-P",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "CB17",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Glycol cooling pump LV supply bank",
+   "context": "breakers CB14,CB15,CB16,CB17,CB18,CB19,CBx16 (BCP AXIOMATIC) ; LVPDU + bus -> CB14 (20A) 'MCP-P PUMP' -> MCP-P; CB15 (20A) 'ECP-P PUMP",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "CB18",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Glycol cooling pump LV supply bank",
+   "context": "breakers CB14,CB15,CB16,CB17,CB18,CB19,CBx16 (BCP AXIOMATIC) ; LVPDU + bus -> CB14 (20A) 'MCP-P PUMP' -> MCP-P; CB15 (20A) 'ECP-P PUMP' ->",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "CB19",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Glycol cooling pump LV supply bank",
+   "context": "breakers CB14,CB15,CB16,CB17,CB18,CB19,CBx16 (BCP AXIOMATIC) ; LVPDU + bus -> CB14 (20A) 'MCP-P PUMP' -> MCP-P; CB15 (20A) 'ECP-P PUMP' -> ECP-P",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "CB20",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Glycol cooling pump LV supply bank",
+   "context": "LVPDU + bus -> CB19 (20A) 'BCP (ESS) PUMP' -> BCP; CB16 (20A) 'MCP (MOTOR) PUMP' -> MCP; CB20 (20A) 'HYDRAULICS' -> HCP-related hydraulics circuit; CB23 (6A) 'CPP (PITCH) PUMP' -> CPP pump control (4",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "CB21",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Glycol cooling pump LV supply bank",
+   "context": "TIC) ; LVPDU + bus -> CB14 (20A) 'MCP-P PUMP' -> MCP-P; CB15 (20A) 'ECP-P PUMP' -> ECP-P; CB21 (6A) 'SEA WATER PUMP' -> (515/595 seawater pump, separate node) ; LVPDU + bus -> CB19 (20A) 'BCP (ESS) PU",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "CB22",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Glycol cooling pump LV supply bank",
+   "context": "ode) ; LVPDU + bus -> CB18 (20A) 'MCP-S PUMP' -> MCP-S; CB17 (20A) 'ECP-S PUMP' -> ECP-S; CB22 (6A) 'SEA WATER PUMP' -> stbd seawater pump",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "CB23",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Glycol cooling pump LV supply bank",
+   "context": "0A) 'MCP (MOTOR) PUMP' -> MCP; CB20 (20A) 'HYDRAULICS' -> HCP-related hydraulics circuit; CB23 (6A) 'CPP (PITCH) PUMP' -> CPP pump control (430 node) ; LVPDU + bus -> CB18 (20A) 'MCP-S PUMP' -> MCP-S;",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  }
+ ],
+ "631-battery-gmdss": [
+  {
+   "device_class": "fuse",
+   "device_id": "F10",
+   "rating": "35A",
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "GMDSS battery fusing and charger feed",
+   "context": "shunt SHUNT #2 ; fuse F10 35A ; fuse F11 35A ; GMDSS BAT.(+) -> Shunt #2 (negative return to NEGATIVE BUS) ; positive through fuse F",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "fuse",
+   "device_id": "F11",
+   "rating": "35A",
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "GMDSS battery fusing and charger feed",
+   "context": "shunt SHUNT #2 ; fuse F10 35A ; fuse F11 35A ; GMDSS BAT.(+) -> Shunt #2 (negative return to NEGATIVE BUS) ; positive through fuse F10 (35A) -> CHA",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  }
+ ],
+ "632-battery-emergency": [
+  {
+   "device_class": "fuse",
+   "device_id": "F12",
+   "rating": "50A",
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "Emergency battery fusing, charger feed, and SO10-switched supply",
+   "context": "shunt SHUNT #3 ; fuse F12 50A ; fuse F13 250A ; relay contact SO10_contact (NO) ; switch SW12 (NO) ; switch SW13 (NO) ; EMERGENCY BA",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "fuse",
+   "device_id": "F13",
+   "rating": "250A",
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "Emergency battery fusing, charger feed, and SO10-switched supply",
+   "context": "shunt SHUNT #3 ; fuse F12 50A ; fuse F13 250A ; relay contact SO10_contact (NO) ; switch SW12 (NO) ; switch SW13 (NO) ; EMERGENCY BAT.(+) -> Shunt",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "switch",
+   "device_id": "SW12",
+   "rating": null,
+   "check": "position, and continuity in each position",
+   "method": "operate it and meter through",
+   "if_fails": "the circuit is selected away from the path you are testing",
+   "replaceable": "yes",
+   "function": "Emergency battery fusing, charger feed, and SO10-switched supply",
+   "context": "shunt SHUNT #3 ; fuse F12 50A ; fuse F13 250A ; relay contact SO10_contact (NO) ; switch SW12 (NO) ; switch SW13 (NO) ; EMERGENCY BAT.(+) -> Shunt #3 negative return to NEGATIVE BUS; positive through",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "switch",
+   "device_id": "SW13",
+   "rating": null,
+   "check": "position, and continuity in each position",
+   "method": "operate it and meter through",
+   "if_fails": "the circuit is selected away from the path you are testing",
+   "replaceable": "yes",
+   "function": "Emergency battery fusing, charger feed, and SO10-switched supply",
+   "context": "use F12 50A ; fuse F13 250A ; relay contact SO10_contact (NO) ; switch SW12 (NO) ; switch SW13 (NO) ; EMERGENCY BAT.(+) -> Shunt #3 negative return to NEGATIVE BUS; positive through fuse F12 (50A) ->",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "contactor",
+   "device_id": "SO 10",
+   "rating": null,
+   "check": "is the coil energised? do the main contacts close?",
+   "method": "coil voltage, then continuity across the main poles",
+   "if_fails": "the load it switches has no supply even though its breaker is healthy",
+   "replaceable": "yes",
+   "function": "Emergency battery fusing, charger feed, and SO10-switched supply",
+   "context": "RGER ; EMERGENCY BAT.(+) -> fuse F13 (250A) -> SO10_contact (NO contact, closes when coil SO 10 energised) -> battery isolator panel switch SW12 -> 'EMERGENCY BAT. SUPPLY' output; SW13 -> 'GDS SUPPLY'",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  }
+ ],
+ "652-onyx-monitoring": [
+  {
+   "device_class": "fuse",
+   "device_id": "F18",
+   "rating": "125A",
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "ONYX monitoring current/voltage taps and isolator feed",
+   "context": "AC/DC converter (230VAC/24VDC 110A) ; fuse F18 125A ; current transformer CT5 ; isolator switch SW5 ; shunt SHUNT #1 500A/50mV ; fuse F9 125A ; switch SW",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "fuse",
+   "device_id": "F9",
+   "rating": "125A",
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "ONYX monitoring current/voltage taps and isolator feed",
+   "context": "18 125A ; current transformer CT5 ; isolator switch SW5 ; shunt SHUNT #1 500A/50mV ; fuse F9 125A ; switch SW10 ; current transformer CT6 ; shunt SHUNT #5 ; ammeter A ; voltmeter V ; fuse F 2A (rail f",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "switch",
+   "device_id": "SW10",
+   "rating": null,
+   "check": "position, and continuity in each position",
+   "method": "operate it and meter through",
+   "if_fails": "the circuit is selected away from the path you are testing",
+   "replaceable": "yes",
+   "function": "ONYX monitoring current/voltage taps and isolator feed",
+   "context": "transformer CT5 ; isolator switch SW5 ; shunt SHUNT #1 500A/50mV ; fuse F9 125A ; switch SW10 ; current transformer CT6 ; shunt SHUNT #5 ; ammeter A ; voltmeter V ; fuse F 2A (rail fuse) ; 230V AC L/",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "switch",
+   "device_id": "SW5",
+   "rating": null,
+   "check": "position, and continuity in each position",
+   "method": "operate it and meter through",
+   "if_fails": "the circuit is selected away from the path you are testing",
+   "replaceable": "yes",
+   "function": "ONYX monitoring current/voltage taps and isolator feed",
+   "context": "converter (230VAC/24VDC 110A) ; fuse F18 125A ; current transformer CT5 ; isolator switch SW5 ; shunt SHUNT #1 500A/50mV ; fuse F9 125A ; switch SW10 ; current transformer CT6 ; shunt SHUNT #5 ; ammet",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "terminal_strip",
+   "device_id": "T/S C",
+   "rating": null,
+   "check": "voltage present at the numbered way?",
+   "method": "meter to the return rail at that terminal",
+   "if_fails": "narrows the fault to before or after this terminal \u2014 the cheapest single measurement to bisect a run",
+   "replaceable": "no \u2014 a test point",
+   "function": "Bilge level alarm annunciation (5-zone)",
+   "context": "terminal strip T/S C (6-way status input, plus 19/20 run-indication) ; diode input matrix (diode_bridge) ; 5 zone alarm lamps",
+   "sheet": "114",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "114"
+   }
+  },
+  {
+   "device_class": "current_transformer",
+   "device_id": "CT5",
+   "rating": null,
+   "check": "what does it read?",
+   "method": "read at the meter it feeds",
+   "if_fails": "measurement only; it does not break the supply",
+   "replaceable": "no",
+   "function": "ONYX monitoring current/voltage taps and isolator feed",
+   "context": "AC/DC converter (230VAC/24VDC 110A) ; fuse F18 125A ; current transformer CT5 ; isolator switch SW5 ; shunt SHUNT #1 500A/50mV ; fuse F9 125A ; switch SW10 ; current transformer CT6 ;",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "current_transformer",
+   "device_id": "CT6",
+   "rating": null,
+   "check": "what does it read?",
+   "method": "read at the meter it feeds",
+   "if_fails": "measurement only; it does not break the supply",
+   "replaceable": "no",
+   "function": "ONYX monitoring current/voltage taps and isolator feed",
+   "context": "switch SW5 ; shunt SHUNT #1 500A/50mV ; fuse F9 125A ; switch SW10 ; current transformer CT6 ; shunt SHUNT #5 ; ammeter A ; voltmeter V ; fuse F 2A (rail fuse) ; 230V AC L/N input -> AC/DC converter",
+   "sheet": "110b",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "110b"
+   }
+  },
+  {
+   "device_class": "status_tag",
+   "device_id": "XA41",
+   "rating": null,
+   "check": "what does it report, and to which system?",
+   "method": "compare the monitoring system's indication against the physical state",
+   "if_fails": "a disagreement means the SIGNAL is wrong, not necessarily the equipment \u2014 do not chase the equipment first",
+   "replaceable": "no \u2014 indication",
+   "function": "Bilge level alarm annunciation (5-zone)",
+   "context": "ton S14 ; alarm horn/speaker module ; RUN IND. lamps (Mast Bilge, Aux Engine Room) ; PORT XA41-04 / STBD XA41-02 / XA41-06 / XA61-30 / XA61-28 / XA61-26 -> T/S C terminals 1-6 -> diode input matrix on",
+   "sheet": "114",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "114"
+   }
+  },
+  {
+   "device_class": "status_tag",
+   "device_id": "XA61",
+   "rating": null,
+   "check": "what does it report, and to which system?",
+   "method": "compare the monitoring system's indication against the physical state",
+   "if_fails": "a disagreement means the SIGNAL is wrong, not necessarily the equipment \u2014 do not chase the equipment first",
+   "replaceable": "no \u2014 indication",
+   "function": "Bilge level alarm annunciation (5-zone)",
+   "context": "; RUN IND. lamps (Mast Bilge, Aux Engine Room) ; PORT XA41-04 / STBD XA41-02 / XA41-06 / XA61-30 / XA61-28 / XA61-26 -> T/S C terminals 1-6 -> diode input matrix on PC Card -> individual zone lamps (",
+   "sheet": "114",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "114"
+   }
+  }
+ ],
+ "530-grey-water-pumps": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q1",
+   "rating": "10A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "FWD grey water pump supply",
+   "context": "Re1 relay (NO contact in series with pump feed) ; Q1 10A breaker ; T/S F terminal strip terminals 6/7 ; +24V service supply -> F5 100A main fuse -> Q1 10A break",
+   "sheet": "120",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "120"
+   }
+  },
+  {
+   "device_class": "fuse",
+   "device_id": "F5",
+   "rating": "100A",
+   "check": "continuity \u2014 has it blown?",
+   "method": "meter across it with the circuit isolated",
+   "if_fails": "open circuit downstream; a blown fuse is a SYMPTOM \u2014 find what drew the current before refitting",
+   "replaceable": "yes",
+   "function": "FWD grey water pump supply",
+   "context": "pump feed) ; Q1 10A breaker ; T/S F terminal strip terminals 6/7 ; +24V service supply -> F5 100A main fuse -> Q1 10A breaker -> Re1 relay contact (NO) -> T/S F terminals 6/7 -> pump (+); pump return",
+   "sheet": "120",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "120"
+   }
+  },
+  {
+   "device_class": "relay",
+   "device_id": "Re1",
+   "rating": null,
+   "check": "is the coil energised, and is the load on the NO or the NC contact?",
+   "method": "measure the coil supply and its return separately, then continuity across the contact in both coil states",
+   "if_fails": "on NO the load stays OFF until the coil energises; on NC the load stays ON until it does \u2014 an inverted reading inverts the whole function",
+   "replaceable": "yes",
+   "function": "FWD grey water pump supply",
+   "context": "Re1 relay (NO contact in series with pump feed) ; Q1 10A breaker ; T/S F terminal strip terminals 6/7 ; +24V s",
+   "sheet": "120",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "120"
+   }
+  },
+  {
+   "device_class": "terminal_strip",
+   "device_id": "T/S F",
+   "rating": null,
+   "check": "voltage present at the numbered way?",
+   "method": "meter to the return rail at that terminal",
+   "if_fails": "narrows the fault to before or after this terminal \u2014 the cheapest single measurement to bisect a run",
+   "replaceable": "no \u2014 a test point",
+   "function": "FWD grey water pump supply",
+   "context": "Re1 relay (NO contact in series with pump feed) ; Q1 10A breaker ; T/S F terminal strip terminals 6/7 ; +24V service supply -> F5 100A main fuse -> Q1 10A breaker -> Re1 relay c",
+   "sheet": "120",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "120"
+   }
+  },
+  {
+   "device_class": "status_tag",
+   "device_id": "XA61",
+   "rating": null,
+   "check": "what does it report, and to which system?",
+   "method": "compare the monitoring system's indication against the physical state",
+   "if_fails": "a disagreement means the SIGNAL is wrong, not necessarily the equipment \u2014 do not chase the equipment first",
+   "replaceable": "no \u2014 indication",
+   "function": "FWD grey water pump run indication & mode switch",
+   "context": "S16 relay contact (NO) ; RUN IND. lamp ; fused terminal (RUN IND., ALARM) ; XA61 status tap (terminal 02) ; fused terminal (RUN IND./S16) -> S16 relay contact (NO, energised by pump run",
+   "sheet": "112",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "112"
+   }
+  }
+ ],
+ "654-emergency-stops": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q17",
+   "rating": "6A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Emergency engine stop relay loop (Re25)",
+   "context": "relay (NO contact, coil feed not fully traced \u2014 supply side not measured on this sheet) ; Q17 6A breaker ; XA10 status terminal (status-out per netlist, no coil on its net) ; mainpanel E-stop pushbutt",
+   "sheet": "116",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "116"
+   }
+  },
+  {
+   "device_class": "relay",
+   "device_id": "Re25",
+   "rating": null,
+   "check": "is the coil energised, and is the load on the NO or the NC contact?",
+   "method": "measure the coil supply and its return separately, then continuity across the contact in both coil states",
+   "if_fails": "on NO the load stays OFF until the coil energises; on NC the load stays ON until it does \u2014 an inverted reading inverts the whole function",
+   "replaceable": "yes",
+   "function": "Emergency engine stop relay loop (Re25)",
+   "context": "Re25 relay (NO contact, coil feed not fully traced \u2014 supply side not measured on this sheet) ; Q17 6A breaker",
+   "sheet": "116",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "116"
+   }
+  },
+  {
+   "device_class": "terminal_strip",
+   "device_id": "T/S C",
+   "rating": null,
+   "check": "voltage present at the numbered way?",
+   "method": "meter to the return rail at that terminal",
+   "if_fails": "narrows the fault to before or after this terminal \u2014 the cheapest single measurement to bisect a run",
+   "replaceable": "no \u2014 a test point",
+   "function": "Emergency stop pushbutton loop",
+   "context": "S1 pushbutton contact (NC) ; S1_lamp indicator ; T/S C terminals 139/140 -> S1 (NC, closed) -> EMERGENCY STOP output line -> S1_lamp indicator shows healthy/ru",
+   "sheet": "112",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "112"
+   }
+  },
+  {
+   "device_class": "status_tag",
+   "device_id": "XA10",
+   "rating": null,
+   "check": "what does it report, and to which system?",
+   "method": "compare the monitoring system's indication against the physical state",
+   "if_fails": "a disagreement means the SIGNAL is wrong, not necessarily the equipment \u2014 do not chase the equipment first",
+   "replaceable": "no \u2014 indication",
+   "function": "Emergency engine stop relay loop (Re25)",
+   "context": ", coil feed not fully traced \u2014 supply side not measured on this sheet) ; Q17 6A breaker ; XA10 status terminal (status-out per netlist, no coil on its net) ; mainpanel E-stop pushbutton + indicator la",
+   "sheet": "116",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "116"
+   }
+  }
+ ],
+ "693-emergency-lighting": [
+  {
+   "device_class": "terminal_strip",
+   "device_id": "T/S E",
+   "rating": null,
+   "check": "voltage present at the numbered way?",
+   "method": "meter to the return rail at that terminal",
+   "if_fails": "narrows the fault to before or after this terminal \u2014 the cheapest single measurement to bisect a run",
+   "replaceable": "no \u2014 a test point",
+   "function": "Emergency mast lights fused feed",
+   "context": "fused terminal 57 ; T/S E fused terminal 57 -> line to terminal 10 -> EMERGENCY MAST LTS circuit (destination continues off-sheet)",
+   "sheet": "112",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "112"
+   }
+  }
+ ],
+ "690-lts-courtesy": [
+  {
+   "device_class": "terminal_strip",
+   "device_id": "T/S E",
+   "rating": null,
+   "check": "voltage present at the numbered way?",
+   "method": "meter to the return rail at that terminal",
+   "if_fails": "narrows the fault to before or after this terminal \u2014 the cheapest single measurement to bisect a run",
+   "replaceable": "no \u2014 a test point",
+   "function": "Courtesy lights indicator/switch",
+   "context": "indicator lamp (unlabeled, COURTESY LTS row) ; T/S E terminals 55/56/51/58 via PLUG B [5]-[8] -> COURTESY LTS output line/indicator",
+   "sheet": "112",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "112"
+   }
+  }
+ ],
+ "520-aux-bilge-pumps": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q2",
+   "rating": "10A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Aux mast bilge pump run control with bilge switch and override",
+   "context": "breaker Q2 10A ; relay Re2 (coil, NO contact) ; bilge float switch (BILGE SW.) ; override switch with indicator lamp ;",
+   "sheet": "114",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "114"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "Q2",
+   "rating": "10A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Aux mast bilge pump supply and control loop",
+   "context": "commands Re2 coil) ; indicator lamp (engagement indication) ; T/S F terminals 11/12/13 ; Q2 10A breaker ; Q2 10A breaker feed reaches Re2 relay contact (drawn NO, open) -> pump supply line is broken",
+   "sheet": "120",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "120"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "Q3",
+   "rating": "10A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Aux engine-room bilge pump run control with bilge switch and override",
+   "context": "breaker Q3 10A ; relay Re3 (coil, NO contact) ; bilge float switch (BILGE SW.) ; eng.room override switch with indicat",
+   "sheet": "114",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "114"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "Q3",
+   "rating": "10A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Engine room aux bilge pump supply and control loop",
+   "context": "oat switch (NO) ; ENG.ROOM OVERRIDE SW (NO, manual override) ; T/S F terminals 14/15/16 ; Q3 10A breaker ; Q3 10A breaker reaches Re3 relay contact (NO, open) -> pump supply broken -> pump OFF. ; Eith",
+   "sheet": "120",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "120"
+   }
+  },
+  {
+   "device_class": "relay",
+   "device_id": "Re2",
+   "rating": null,
+   "check": "is the coil energised, and is the load on the NO or the NC contact?",
+   "method": "measure the coil supply and its return separately, then continuity across the contact in both coil states",
+   "if_fails": "on NO the load stays OFF until the coil energises; on NC the load stays ON until it does \u2014 an inverted reading inverts the whole function",
+   "replaceable": "yes",
+   "function": "Aux mast bilge pump run control with bilge switch and override",
+   "context": "breaker Q2 10A ; relay Re2 (coil, NO contact) ; bilge float switch (BILGE SW.) ; override switch with indicator lamp ; Breaker Q2 (10",
+   "sheet": "114",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "114"
+   }
+  },
+  {
+   "device_class": "relay",
+   "device_id": "Re2",
+   "rating": null,
+   "check": "is the coil energised, and is the load on the NO or the NC contact?",
+   "method": "measure the coil supply and its return separately, then continuity across the contact in both coil states",
+   "if_fails": "on NO the load stays OFF until the coil energises; on NC the load stays ON until it does \u2014 an inverted reading inverts the whole function",
+   "replaceable": "yes",
+   "function": "Aux mast bilge pump supply and control loop",
+   "context": "Re2 relay (NO contact = pump load) ; BILGE SW. float switch (NO, commands Re2 coil) ; indicator lamp (engageme",
+   "sheet": "120",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "120"
+   }
+  },
+  {
+   "device_class": "relay",
+   "device_id": "Re3",
+   "rating": null,
+   "check": "is the coil energised, and is the load on the NO or the NC contact?",
+   "method": "measure the coil supply and its return separately, then continuity across the contact in both coil states",
+   "if_fails": "on NO the load stays OFF until the coil energises; on NC the load stays ON until it does \u2014 an inverted reading inverts the whole function",
+   "replaceable": "yes",
+   "function": "Aux engine-room bilge pump run control with bilge switch and override",
+   "context": "breaker Q3 10A ; relay Re3 (coil, NO contact) ; bilge float switch (BILGE SW.) ; eng.room override switch with indicator lamp ; Break",
+   "sheet": "114",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "114"
+   }
+  },
+  {
+   "device_class": "relay",
+   "device_id": "Re3",
+   "rating": null,
+   "check": "is the coil energised, and is the load on the NO or the NC contact?",
+   "method": "measure the coil supply and its return separately, then continuity across the contact in both coil states",
+   "if_fails": "on NO the load stays OFF until the coil energises; on NC the load stays ON until it does \u2014 an inverted reading inverts the whole function",
+   "replaceable": "yes",
+   "function": "Engine room aux bilge pump supply and control loop",
+   "context": "Re3 relay (NO contact = pump load) ; BILGE SW. float switch (NO) ; ENG.ROOM OVERRIDE SW (NO, manual override)",
+   "sheet": "120",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "120"
+   }
+  },
+  {
+   "device_class": "terminal_strip",
+   "device_id": "T/S F",
+   "rating": null,
+   "check": "voltage present at the numbered way?",
+   "method": "meter to the return rail at that terminal",
+   "if_fails": "narrows the fault to before or after this terminal \u2014 the cheapest single measurement to bisect a run",
+   "replaceable": "no \u2014 a test point",
+   "function": "Aux mast bilge pump run control with bilge switch and override",
+   "context": "ump motor off ; Breaker Q2 (10A, FWD DC PANEL) -> feeds Re2 relay contact circuit through T/S F terminals 11/12/13 -> conductor to BILGE SW. (float switch) \u2014 closing it energises Re2 coil, closing NO",
+   "sheet": "114",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "114"
+   }
+  },
+  {
+   "device_class": "terminal_strip",
+   "device_id": "T/S F",
+   "rating": null,
+   "check": "voltage present at the numbered way?",
+   "method": "meter to the return rail at that terminal",
+   "if_fails": "narrows the fault to before or after this terminal \u2014 the cheapest single measurement to bisect a run",
+   "replaceable": "no \u2014 a test point",
+   "function": "Aux engine-room bilge pump run control with bilge switch and override",
+   "context": "ump motor off ; Breaker Q3 (10A, FWD DC PANEL) -> feeds Re3 relay contact circuit through T/S F terminals 14/15/16 -> conductor to BILGE SW. (float switch) \u2014 closing it energises Re3 coil, closing NO",
+   "sheet": "114",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "114"
+   }
+  },
+  {
+   "device_class": "terminal_strip",
+   "device_id": "T/S F",
+   "rating": null,
+   "check": "voltage present at the numbered way?",
+   "method": "meter to the return rail at that terminal",
+   "if_fails": "narrows the fault to before or after this terminal \u2014 the cheapest single measurement to bisect a run",
+   "replaceable": "no \u2014 a test point",
+   "function": "Aux mast bilge pump supply and control loop",
+   "context": "BILGE SW. float switch (NO, commands Re2 coil) ; indicator lamp (engagement indication) ; T/S F terminals 11/12/13 ; Q2 10A breaker ; Q2 10A breaker feed reaches Re2 relay contact (drawn NO, open) ->",
+   "sheet": "120",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "120"
+   }
+  },
+  {
+   "device_class": "terminal_strip",
+   "device_id": "T/S F",
+   "rating": null,
+   "check": "voltage present at the numbered way?",
+   "method": "meter to the return rail at that terminal",
+   "if_fails": "narrows the fault to before or after this terminal \u2014 the cheapest single measurement to bisect a run",
+   "replaceable": "no \u2014 a test point",
+   "function": "Engine room aux bilge pump supply and control loop",
+   "context": "= pump load) ; BILGE SW. float switch (NO) ; ENG.ROOM OVERRIDE SW (NO, manual override) ; T/S F terminals 14/15/16 ; Q3 10A breaker ; Q3 10A breaker reaches Re3 relay contact (NO, open) -> pump supply",
+   "sheet": "120",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "120"
+   }
+  }
+ ],
+ "550-fuel-transfer": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q15",
+   "rating": null,
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Manual fuel pump run circuit",
+   "context": "Q15 breaker (20A) ; local on/off switch ; fuse F (in-line to pump/valve) ; pump motor M ; DC MAIN PANEL Q15 20",
+   "sheet": "116",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "116"
+   }
+  },
+  {
+   "device_class": "status_tag",
+   "device_id": "XA21",
+   "rating": null,
+   "check": "what does it report, and to which system?",
+   "method": "compare the monitoring system's indication against the physical state",
+   "if_fails": "a disagreement means the SIGNAL is wrong, not necessarily the equipment \u2014 do not chase the equipment first",
+   "replaceable": "no \u2014 indication",
+   "function": "Auto fuel transfer pump (ONYX) run circuit",
+   "context": "XA21 monitoring terminal block (terminals 01/02) ; auto fuel pump motor ; XA21 terminal 01 (+) -> AUTO FUEL PU",
+   "sheet": "116",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "116"
+   }
+  }
+ ],
+ "570-myt-systems-hydraulics": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q18",
+   "rating": "20A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "MYT Hydraulics power/PLC signal distribution",
+   "context": "Q18 20A breaker ; Re26 relay (NO contact) ; terminals 141-144 ; Q18 20A breaker (MYT HYDRAULICS) -> switch ->",
+   "sheet": "116",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "116"
+   }
+  },
+  {
+   "device_class": "relay",
+   "device_id": "Re26",
+   "rating": null,
+   "check": "is the coil energised, and is the load on the NO or the NC contact?",
+   "method": "measure the coil supply and its return separately, then continuity across the contact in both coil states",
+   "if_fails": "on NO the load stays OFF until the coil energises; on NC the load stays ON until it does \u2014 an inverted reading inverts the whole function",
+   "replaceable": "yes",
+   "function": "MYT Hydraulics power/PLC signal distribution",
+   "context": "Q18 20A breaker ; Re26 relay (NO contact) ; terminals 141-144 ; Q18 20A breaker (MYT HYDRAULICS) -> switch -> Re26 relay (NO con",
+   "sheet": "116",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "116"
+   }
+  }
+ ],
+ "695-fire-system": [
+  {
+   "device_class": "terminal_strip",
+   "device_id": "T/S E",
+   "rating": null,
+   "check": "voltage present at the numbered way?",
+   "method": "meter to the return rail at that terminal",
+   "if_fails": "narrows the fault to before or after this terminal \u2014 the cheapest single measurement to bisect a run",
+   "replaceable": "no \u2014 a test point",
+   "function": "Gas release door switch / engine room fire siren",
+   "context": "DOOR SWITCH (gas release) ; FIRE SIREN (indicator/sounder) ; T/S E terminals 157-159 ; T/S E terminal 157/158/159 -> GAS RELEASE / DOOR SWITCH contact -> FIRE SIREN (ENG.",
+   "sheet": "116",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "116"
+   }
+  }
+ ],
+ "530-sump-pumps": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q4",
+   "rating": "20A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Owners grey sump pump supply",
+   "context": "Q4 20A breaker ; 1A fuse on the pump feed (fused terminal) ; local switch ; Q4 20A breaker -> switch -> fused",
+   "sheet": "120",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "120"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "Q5",
+   "rating": "20A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "FWD guest grey sump pump supply",
+   "context": "Q5 20A breaker ; 1A fuse on the pump feed (fused terminal) ; local switch ; Q5 20A breaker -> switch -> fused",
+   "sheet": "120",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "120"
+   }
+  }
+ ],
+ "540-wc-toilets": [
+  {
+   "device_class": "breaker",
+   "device_id": "Q7",
+   "rating": "20A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "Owners WC pump/valve control",
+   "context": "/S F terminal 17 ; WATER SHUT-OFF solenoid valve (BL line) ; GRY wire marked 'not used' ; Q7 20A breaker -> Re4 NC contact (closed) -> T/S F terminal 17 -> coil block 1 (BR line) -> pump (+) and, via",
+   "sheet": "120",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "120"
+   }
+  },
+  {
+   "device_class": "breaker",
+   "device_id": "Q8",
+   "rating": "20A",
+   "check": "tripped?",
+   "method": "look at the lever / continuity across the poles",
+   "if_fails": "supply to everything downstream is dead; reset and see if it holds \u2014 an immediate re-trip means a downstream fault",
+   "replaceable": "yes",
+   "function": "FWD guest WC pump/valve control",
+   "context": "/S F terminal 18 ; WATER SHUT-OFF solenoid valve (BL line) ; GRY wire marked 'not used' ; Q8 20A breaker -> Re5 NC contact (closed) -> T/S F terminal 18 -> coil block 2 (BR line) -> pump (+) and, via",
+   "sheet": "120",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "120"
+   }
+  },
+  {
+   "device_class": "relay",
+   "device_id": "Re4",
+   "rating": null,
+   "check": "is the coil energised, and is the load on the NO or the NC contact?",
+   "method": "measure the coil supply and its return separately, then continuity across the contact in both coil states",
+   "if_fails": "on NO the load stays OFF until the coil energises; on NC the load stays ON until it does \u2014 an inverted reading inverts the whole function",
+   "replaceable": "yes",
+   "function": "Owners WC pump/valve control",
+   "context": "Re4 relay (NC contact = pump/valve load, open on energise) ; diode D_Re4 across coil ; T/S F terminal 17 ; WAT",
+   "sheet": "120",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "120"
+   }
+  },
+  {
+   "device_class": "relay",
+   "device_id": "Re4",
+   "rating": null,
+   "check": "is the coil energised, and is the load on the NO or the NC contact?",
+   "method": "measure the coil supply and its return separately, then continuity across the contact in both coil states",
+   "if_fails": "on NO the load stays OFF until the coil energises; on NC the load stays ON until it does \u2014 an inverted reading inverts the whole function",
+   "replaceable": "yes",
+   "function": "FWD guest WC pump/valve control",
+   "context": "t, breaking the Q8 feed to pump/valve. Re5's coil ties into the same diode/common line as Re4 and Re6 (net25/net37), suggesting a shared command rail, but the actual command source is not traced on th",
+   "sheet": "120",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "120"
+   }
+  },
+  {
+   "device_class": "relay",
+   "device_id": "Re5",
+   "rating": null,
+   "check": "is the coil energised, and is the load on the NO or the NC contact?",
+   "method": "measure the coil supply and its return separately, then continuity across the contact in both coil states",
+   "if_fails": "on NO the load stays OFF until the coil energises; on NC the load stays ON until it does \u2014 an inverted reading inverts the whole function",
+   "replaceable": "yes",
+   "function": "FWD guest WC pump/valve control",
+   "context": "Re5 relay (NC contact = pump/valve load, open on energise) ; diode D_Re5 across coil ; T/S F terminal 18 ; WAT",
+   "sheet": "120",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "120"
+   }
+  },
+  {
+   "device_class": "relay",
+   "device_id": "Re6",
+   "rating": null,
+   "check": "is the coil energised, and is the load on the NO or the NC contact?",
+   "method": "measure the coil supply and its return separately, then continuity across the contact in both coil states",
+   "if_fails": "on NO the load stays OFF until the coil energises; on NC the load stays ON until it does \u2014 an inverted reading inverts the whole function",
+   "replaceable": "yes",
+   "function": "FWD guest WC pump/valve control",
+   "context": "ing the Q8 feed to pump/valve. Re5's coil ties into the same diode/common line as Re4 and Re6 (net25/net37), suggesting a shared command rail, but the actual command source is not traced on this sheet",
+   "sheet": "120",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "120"
+   }
+  },
+  {
+   "device_class": "terminal_strip",
+   "device_id": "T/S F",
+   "rating": null,
+   "check": "voltage present at the numbered way?",
+   "method": "meter to the return rail at that terminal",
+   "if_fails": "narrows the fault to before or after this terminal \u2014 the cheapest single measurement to bisect a run",
+   "replaceable": "no \u2014 a test point",
+   "function": "Owners WC pump/valve control",
+   "context": "Re4 relay (NC contact = pump/valve load, open on energise) ; diode D_Re4 across coil ; T/S F terminal 17 ; WATER SHUT-OFF solenoid valve (BL line) ; GRY wire marked 'not used' ; Q7 20A breaker -> R",
+   "sheet": "120",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "120"
+   }
+  },
+  {
+   "device_class": "terminal_strip",
+   "device_id": "T/S F",
+   "rating": null,
+   "check": "voltage present at the numbered way?",
+   "method": "meter to the return rail at that terminal",
+   "if_fails": "narrows the fault to before or after this terminal \u2014 the cheapest single measurement to bisect a run",
+   "replaceable": "no \u2014 a test point",
+   "function": "FWD guest WC pump/valve control",
+   "context": "Re5 relay (NC contact = pump/valve load, open on energise) ; diode D_Re5 across coil ; T/S F terminal 18 ; WATER SHUT-OFF solenoid valve (BL line) ; GRY wire marked 'not used' ; Q8 20A breaker -> R",
+   "sheet": "120",
+   "provenance": {
+    "source_doc": "GM book",
+    "sheet": "120"
+   }
+  }
+ ]
+}
