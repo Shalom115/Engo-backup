@@ -367,6 +367,12 @@ class AnthropicVisionProvider(VisionProvider):
             raise ValueError(f"Vision returned no tool_use (stop={resp.stop_reason}).")
         out = dict(tool_block.input)
         out["_model"] = self._model
+        # CARRY stop_reason. A reply cut off at max_tokens still arrives as a
+        # tool_use block holding PARTIAL input, so a truncated answer and a
+        # genuinely empty one look identical to every caller. GM-111 returned
+        # zero systems twice, and without this the only way to tell truncation
+        # from an empty sheet was to guess. Now the caller can read it.
+        out["_stop_reason"] = getattr(resp, "stop_reason", None)
         return out
 
     def extract_multi(self, images, prompt, tool_schema, max_tokens=4096):
