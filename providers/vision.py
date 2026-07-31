@@ -54,6 +54,11 @@ def _is_transient_api_error(exc: Exception) -> bool:
     return False
 
 
+# Above this many output tokens the SDK requires streaming (its 10-minute
+# non-streaming ceiling). Kept well under the documented threshold.
+_STREAM_ABOVE = 20000
+
+
 def _call_with_retry(fn, *args, **kwargs):
     """Run an API call with bounded retry on transient errors only."""
     last_exc: Exception | None = None
@@ -349,14 +354,24 @@ class AnthropicVisionProvider(VisionProvider):
                         "source": {"type": "base64", "media_type": mt,
                                    "data": base64.b64encode(data).decode()}})
         content.append({"type": "text", "text": prompt})
-        resp = _call_with_retry(
-            self._client.messages.create,
-            model=self._model,
-            max_tokens=max_tokens,
-            tools=[tool_schema],
-            tool_choice={"type": "tool", "name": tool_schema["name"]},
-            messages=[{"role": "user", "content": content}],
-        )
+        # STREAM WHEN THE ANSWER IS LARGE. The SDK refuses a non-streaming
+        # request whose max_tokens implies it could run past 10 minutes
+        # ("Streaming is required for operations that may take longer than 10
+        # minutes"). A dense sheet genuinely needs the room - GM-111 carries
+        # ~80 loads and cannot state them inside 16k - so the answer is to
+        # stream, not to cap a sheet's answer to fit a transport limit. The
+        # accumulated final message is identical either way.
+        kw = dict(model=self._model, max_tokens=max_tokens,
+                  tools=[tool_schema],
+                  tool_choice={"type": "tool", "name": tool_schema["name"]},
+                  messages=[{"role": "user", "content": content}])
+        if max_tokens > _STREAM_ABOVE:
+            def _streamed(**k):
+                with self._client.messages.stream(**k) as st:
+                    return st.get_final_message()
+            resp = _call_with_retry(_streamed, **kw)
+        else:
+            resp = _call_with_retry(self._client.messages.create, **kw)
         try:
             from pipeline import meter
             meter.record(self._model, getattr(resp, "usage", None))
@@ -393,14 +408,24 @@ class AnthropicVisionProvider(VisionProvider):
                             "source": {"type": "base64", "media_type": mt,
                                        "data": base64.b64encode(data).decode()}})
         content.append({"type": "text", "text": prompt})
-        resp = _call_with_retry(
-            self._client.messages.create,
-            model=self._model,
-            max_tokens=max_tokens,
-            tools=[tool_schema],
-            tool_choice={"type": "tool", "name": tool_schema["name"]},
-            messages=[{"role": "user", "content": content}],
-        )
+        # STREAM WHEN THE ANSWER IS LARGE. The SDK refuses a non-streaming
+        # request whose max_tokens implies it could run past 10 minutes
+        # ("Streaming is required for operations that may take longer than 10
+        # minutes"). A dense sheet genuinely needs the room - GM-111 carries
+        # ~80 loads and cannot state them inside 16k - so the answer is to
+        # stream, not to cap a sheet's answer to fit a transport limit. The
+        # accumulated final message is identical either way.
+        kw = dict(model=self._model, max_tokens=max_tokens,
+                  tools=[tool_schema],
+                  tool_choice={"type": "tool", "name": tool_schema["name"]},
+                  messages=[{"role": "user", "content": content}])
+        if max_tokens > _STREAM_ABOVE:
+            def _streamed(**k):
+                with self._client.messages.stream(**k) as st:
+                    return st.get_final_message()
+            resp = _call_with_retry(_streamed, **kw)
+        else:
+            resp = _call_with_retry(self._client.messages.create, **kw)
         try:
             from pipeline import meter
             meter.record(self._model, getattr(resp, "usage", None))

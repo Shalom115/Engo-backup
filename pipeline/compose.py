@@ -563,6 +563,116 @@ def _split_cacheable(prompt: str, use_cache: bool = True) -> tuple:
     return prompt[:i], prompt[i:]
 
 
+EXT_BUDGET = 55000          # chars of extraction the prompt will carry
+_DROP_KEYS = ("_node_routing", "model", "passes")
+
+
+def _budget_extraction(extraction: Dict[str, Any],
+                       budget: int = EXT_BUDGET) -> str:
+    """Serialise the extraction to fit the prompt WITHOUT destroying it.
+
+    THE BUG THIS REPLACES (found 2026-07-31, and it is the root cause of the
+    whole batch under-performing). The old line was:
+
+        ext_json = json.dumps(ext, indent=1)[:55000]
+
+    a blind slice of the serialised dict. Measured on all 11 GM sheets:
+
+      * EVERY sheet exceeded the cap, so EVERY sheet sent the model INVALID
+        JSON, cut mid-token (`... "text`).
+      * `_fused_tiles` — the labels the vision read was PAID for, carrying a
+        bbox each — is 76 KB on one sheet and sits early in the dict, so it
+        consumed the budget and then took the cut. GM-111 lost 36% of its
+        labels, 102 lost 24%, 116 16%, 112 14%.
+      * everything appended AFTER it was cut ENTIRELY on every sheet:
+        `_header`, `_circuit_digest`, `_loop_completeness`. The header of
+        110a read "MAPS: MODULAR AUXILARY POWER SYSTEM 600V DC/24V DC" and
+        never reached the model — which is exactly why MAPS, a node that has
+        existed for months, was not recognised and its functions were dumped
+        on the BAE hub.
+
+    The reader got better and the prompt got worse at the same time, and the
+    overflow was silent.
+
+    Now: small critical keys are emitted WHOLE and FIRST; the bulky tile
+    payload is compacted to what composition actually needs — the label TEXT
+    and the symbol identities, not their pixel geometry (which is kept on disk
+    for provenance and jump-to-sheet, and is of no use to a reasoning pass).
+    Only if it still does not fit is the label list trimmed, and then the
+    trim is REPORTED in the prompt instead of happening invisibly. The output
+    is always valid JSON.
+    """
+    ext = {k: v for k, v in extraction.items() if k not in _DROP_KEYS}
+    tiles = ext.pop("_fused_tiles", None)
+
+    # CRITICAL, SMALL, ALWAYS WHOLE — ordered first so nothing can displace them.
+    head_keys = ("_header", "_sheet_role", "legends", "legend_context",
+                 "survey", "sub_type", "drawing_class", "_loop_completeness")
+    out: Dict[str, Any] = {k: ext.pop(k) for k in head_keys if k in ext}
+
+    if tiles:
+        # Compact: text + confidence only. A bbox per label is ~150 chars of
+        # coordinates that a reasoning pass cannot use.
+        labels = [l.get("text") for l in (tiles.get("labels") or [])
+                  if isinstance(l, dict) and (l.get("text") or "").strip()]
+        syms = []
+        for s in tiles.get("symbols") or []:
+            if not isinstance(s, dict):
+                continue
+            bits = [s.get("kind") or "", s.get("id") or s.get("function_label") or ""]
+            if s.get("contact_state"):
+                bits.append(f"contact={s['contact_state']}")
+            if s.get("coil_id"):
+                bits.append(f"coil={s['coil_id']}")
+            syms.append(" ".join(b for b in bits if b))
+        out["labels_read"] = labels
+        out["symbols_read"] = syms
+        out["elements"] = tiles.get("elements") or []
+        # regions_read carries THE SAME element records the fused pass already
+        # returned — 156 of them on GM-111, serialised twice for 46 KB of pure
+        # duplication that then pushed the real labels out of the budget.
+        rr = ext.get("regions_read")
+        if isinstance(rr, list) and any(
+                (r or {}).get("elements") for r in rr if isinstance(r, dict)):
+            ext["regions_read"] = [
+                {k: v for k, v in (r or {}).items() if k != "elements"}
+                for r in rr if isinstance(r, dict)]
+    # The measured digests are PREPENDED to the prompt by compose() as their
+    # own block; carrying them again inside the extraction JSON spends the
+    # budget twice on identical text.
+    ext.pop("_netlist_digest", None)
+    ext.pop("_circuit_digest", None)
+    # Loop completeness: the COUNTS and the half-traced device names are the
+    # finding. The full per-device records are for the report, not the prompt.
+    lc = out.get("_loop_completeness")
+    if isinstance(lc, dict):
+        out["_loop_completeness"] = {
+            "rails": lc.get("rails", [])[:12],
+            "complete": lc.get("n_complete"), "half_traced": lc.get("n_half"),
+            "unreached": lc.get("n_unreached"),
+            "half_traced_devices": [h.get("device") for h in
+                                    (lc.get("half_traced") or [])[:40]],
+        }
+    out.update(ext)          # the rest after
+
+    js = json.dumps(out, indent=1)
+    if len(js) <= budget:
+        return js
+    # Still over: trim the LABEL LIST — the only genuinely repetitive part —
+    # and say so, rather than slicing the string and emitting broken JSON.
+    labels = out.get("labels_read") or []
+    while len(js) > budget and len(labels) > 40:
+        drop = max(10, len(labels) // 5)
+        labels = labels[:-drop]
+        out["labels_read"] = labels
+        out["_TRIMMED"] = (f"label list trimmed to {len(labels)} entries to fit "
+                           f"the prompt budget; the full list is on disk. Do "
+                           f"NOT treat the absence of a label here as evidence "
+                           f"that it is not on the sheet.")
+        js = json.dumps(out, indent=1)
+    return js
+
+
 def compose(image_png: bytes, extraction: Dict[str, Any],
             drawing_class: str,
             vision_kind: str = "hydraulic_schematic",
@@ -575,9 +685,7 @@ def compose(image_png: bytes, extraction: Dict[str, Any],
     if rules is None:
         raise ValueError(f"No composition rules for class '{drawing_class}'. "
                          f"Known: {sorted(CLASS_RULES)}")
-    ext = {k: v for k, v in extraction.items()
-           if k not in ("_node_routing", "model", "passes")}
-    ext_json = json.dumps(ext, indent=1)[:55000]
+    ext_json = _budget_extraction(extraction)
     # Wiring sheets: walk the graph FIRST so composition discovers the control
     # loop (multi-switch activation) instead of fragmenting it (114a lesson).
     loop_block = ""

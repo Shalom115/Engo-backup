@@ -229,7 +229,16 @@ def read(pdf_bytes: bytes, page_index: int = 0, *,
     if compose_sheet and dc in COMPOSE_CLASS:
         from pipeline.compose import compose
         png = _png(pdf_bytes, page_index)
+        # OUTPUT ROOM SCALED TO THE SHEET. The default 16,384 was never
+        # overridden, and GM-111 — 485 labels, ~80 loads — could not state its
+        # systems inside it: the reply truncated mid-tool-call and the sheet
+        # returned nothing, twice, for $2.29. A sheet's answer is roughly
+        # proportional to how many devices it carries, so give it room in
+        # proportion rather than discovering the ceiling by hitting it.
+        n_labels = len((extraction.get("_fused_tiles") or {}).get("labels") or [])
+        mt = 16384 if n_labels < 250 else 24000 if n_labels < 420 else 32000
         composition = compose(png, extraction, COMPOSE_CLASS[dc],
+                              max_tokens=mt,
                               sheet_name=sheet_name or filename)
         layers.append(f"compose:{COMPOSE_CLASS[dc]}")
         # A COMPOSITION THAT CAME BACK EMPTY IS A FAILURE, NOT A RESULT.
