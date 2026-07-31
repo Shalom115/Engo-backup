@@ -84,6 +84,113 @@ def classify_sources(netlist: Dict[str, Any]) -> Dict[str, str]:
     return pol
 
 
+# A named SUPPLY RAIL as a drawing prints one. These are the points the
+# engineer starts a trace FROM: "start at the source — either a bus (+24
+# service / +24 emergency / negative bus / 230VAC L bus / 230VAC N bus) or just
+# a label" (2026-07-31). Both forms appear: an on-sheet bus column (a labelled
+# L1 / N pair with tick-offs down it) and an off-sheet source ARROW carrying
+# the rail name rotated alongside it.
+RAIL_PATTERNS = [
+    ("dc_positive_service",   r"\+?\s*24\s*v?\s*(dc\s*)?service|service\s+bat"),
+    ("dc_positive_emergency", r"\+?\s*24\s*v?\s*(dc\s*)?emergency|emergency\s+bat"),
+    ("dc_positive",           r"\+\s*24\s*v|\+\s*12\s*v|\+\s*24\b"),
+    ("dc_negative",           r"negative\s+bus|neg\s+bus|0\s*v\s+bus|\bgnd\s+bus"),
+    ("hv_dc",                 r"\b600\s*v\s*dc|\bhv\s+dc\s+bus"),
+    ("ac_line",               r"\b230\s*v.{0,12}\bbus|\bL1\b|\bL2\b|\bL3\b|ac\s+bus"),
+    ("ac_neutral",            r"\bneutral\b|(?<![A-Za-z0-9])N(?![A-Za-z0-9])"),
+    ("bus_named",             r"\bbus\s*[-–]?\s*[A-Z]\b"),
+]
+_RAIL_C = [(k, re.compile(p, re.I)) for k, p in RAIL_PATTERNS]
+
+
+def rails(netlist: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """The SOURCES on this sheet — where a trace starts and where it must end.
+
+    A loop is only closed when it leaves one rail and arrives at the opposite
+    one. Naming the rails first is what makes 'complete' checkable instead of
+    a matter of how confidently the composition narrates.
+    """
+    out = []
+    for n in netlist.get("nets", []):
+        if n.get("kind") != "conductor":
+            continue
+        labels = n.get("labels", [])
+        blob = " ".join(labels)
+        if not blob.strip():
+            continue
+        for kind, rx in _RAIL_C:
+            if rx.search(blob):
+                out.append({"net_id": n["net_id"], "rail": kind,
+                            "labels": labels[:6],
+                            "n_devices": len(set(n.get("devices") or [])),
+                            "side": ("return" if kind in
+                                     ("dc_negative", "ac_neutral") else "supply")})
+                break
+    # A rail feeding many devices is more certainly a rail than one feeding
+    # none; report the busiest first so composition anchors on real buses.
+    out.sort(key=lambda r: -r["n_devices"])
+    return out
+
+
+def loop_completeness(netlist: Dict[str, Any], max_hops: int = 14
+                      ) -> Dict[str, Any]:
+    """Can every device be reached from a SUPPLY rail AND from a RETURN rail?
+
+    The engineer's completeness test, made machine-checkable: a circuit that
+    leaves the +24V bus through a breaker, a terminal and a relay contact to a
+    motor is only HALF a loop until the motor's return is traced back to the
+    negative bus. Composition used to narrate the half it could see; this
+    reports the half it cannot, per device, so an incomplete trace is stated
+    rather than presented as a finished loop.
+
+    Adjacency is shared DEVICES between nets — the same join the netlist
+    already records. No new measurement, no model.
+    """
+    nets = [n for n in netlist.get("nets", []) if n.get("kind") == "conductor"]
+    by_id = {n["net_id"]: n for n in nets}
+    dev_nets: Dict[str, List[str]] = {}
+    for n in nets:
+        for d in set(n.get("devices") or []):
+            dev_nets.setdefault(d, []).append(n["net_id"])
+
+    def reach(seeds: List[str]) -> set:
+        seen, frontier, hops = set(seeds), list(seeds), 0
+        while frontier and hops < max_hops:
+            nxt = []
+            for nid in frontier:
+                for d in set((by_id.get(nid) or {}).get("devices") or []):
+                    for other in dev_nets.get(d, []):
+                        if other not in seen:
+                            seen.add(other)
+                            nxt.append(other)
+            frontier, hops = nxt, hops + 1
+        return seen
+
+    rl = rails(netlist)
+    sup_seeds = [r["net_id"] for r in rl if r["side"] == "supply"]
+    ret_seeds = [r["net_id"] for r in rl if r["side"] == "return"]
+    # Fall back to measured polarity when no rail is NAMED on the sheet — a
+    # breaker-bearing net is a supply even if its bus is drawn off-sheet.
+    pol = netlist.get("polarity") or classify_sources(netlist)
+    if not sup_seeds:
+        sup_seeds = [k for k, v in pol.items() if v == "positive"]
+    if not ret_seeds:
+        ret_seeds = [k for k, v in pol.items() if v == "negative"]
+
+    from_sup, from_ret = reach(sup_seeds), reach(ret_seeds)
+    complete, half, orphan = [], [], []
+    for d, nids in dev_nets.items():
+        s = any(x in from_sup for x in nids)
+        r = any(x in from_ret for x in nids)
+        (complete if (s and r) else half if (s or r) else orphan).append(
+            {"device": d, "reaches_supply": s, "reaches_return": r})
+    return {"rails": rl,
+            "supply_seeds": len(sup_seeds), "return_seeds": len(ret_seeds),
+            "complete": complete, "half_traced": half, "unreached": orphan,
+            "n_complete": len(complete), "n_half": len(half),
+            "n_unreached": len(orphan)}
+
+
 def common_rails(netlist: Dict[str, Any], min_devices: int = 3
                  ) -> List[Dict[str, Any]]:
     """
@@ -195,6 +302,31 @@ def digest(netlist: Dict[str, Any], max_rails: int = 12) -> str:
         out.append(f"  supply(+) nets: {', '.join(pos_nets)}")
     if neg_nets:
         out.append(f"  return(-) nets: {', '.join(neg_nets)}")
+    # SOURCE INVENTORY + COMPLETENESS (engineer's reading order, 2026-07-31):
+    # name the buses FIRST, then every trace starts at one and must arrive at
+    # the opposite one. Stating which devices are only half-traced stops a
+    # half-loop from being narrated as a finished one.
+    lc = loop_completeness(netlist)
+    if lc["rails"]:
+        out.append("")
+        out.append("SOURCES ON THIS SHEET — start every trace at one of these "
+                   "and finish at the OPPOSITE one. A loop is not complete "
+                   "until it returns to the other rail:")
+        for r in lc["rails"][:10]:
+            out.append(f"  [{r['side']}/{r['rail']}] net {r['net_id']}: "
+                       f"{', '.join(r['labels'][:4])} "
+                       f"({r['n_devices']} devices on it)")
+    if lc["n_complete"] or lc["n_half"]:
+        out.append(f"LOOP COMPLETENESS (measured): {lc['n_complete']} devices "
+                   f"reach BOTH a supply and a return rail; {lc['n_half']} "
+                   f"reach only ONE; {lc['n_unreached']} reach neither.")
+        if lc["half_traced"]:
+            out.append("  HALF-TRACED — name the missing side explicitly, or "
+                       "say it leaves the sheet and to which drawing. Do NOT "
+                       "present these as closed loops:")
+            for h in lc["half_traced"][:10]:
+                miss = "return" if h["reaches_supply"] else "supply"
+                out.append(f"    {h['device']}: {miss} side not traced")
     td = tag_digest(netlist)
     if td:
         out.append("")

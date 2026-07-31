@@ -205,6 +205,69 @@ def detect(text: str, *, page_count: int = 1,
     }
 
 
+# ------------------------------------------------------- sheet role + header
+# A drawing set is not all schematics. The engineer's first question is what
+# KIND of page this is — index, title/header page, schedule, or a schematic —
+# because an index is a ROUTER to other sheets and a title page carries no
+# circuit at all. Reading either as a schematic wastes a paid pass and invents
+# structure that is not drawn.
+_INDEX_RE = re.compile(r"\b(index|drawing\s+list|sheet\s+list|contents)\b", re.I)
+_TITLE_RE = re.compile(r"\b(cover|title\s+page|electrical\s+systems?\s+manual)\b", re.I)
+
+
+def sheet_role(text: str, *, n_conductors: int = 0, n_labels: int = 0) -> str:
+    """index | title | schedule | schematic — the page's ROLE, not its
+    discipline. Geometry decides more than words here: an index is a page of
+    text with almost no drawn conductor."""
+    # GEOMETRY DECIDES FIRST, because it survives bad OCR. A schematic is a
+    # page of DRAWN CONDUCTORS; a page with almost none is not one, however
+    # many words it carries. Measured on the GM book's index page: 2 conductors
+    # and 62 labels, which the word-based rules called a schematic because its
+    # OCR text was too poor to match "index" — a page of pure text routed to a
+    # circuit reader.
+    if n_conductors < 10:
+        return "index" if n_labels >= 25 else "title"
+    if _INDEX_RE.search(text) and n_conductors < 40:
+        return "index"
+    if _TITLE_RE.search(text) and n_labels < 40:
+        return "title"
+    # A schedule is repeated [device][rating]->[load] rows rather than a traced
+    # circuit: many device ids, few conductors relative to them.
+    ids = len(re.findall(r"\b(?:Q|QE|CB|F)\s?\d{1,3}\b", text))
+    if ids >= 12 and n_conductors < ids * 6:
+        return "schedule"
+    return "schematic"
+
+
+def header_block(rec: Dict[str, Any], top_frac: float = 0.16) -> str:
+    """The sheet's own header — the text band across the TOP of the page.
+
+    "read the page's header if existing… that is a good orientation to start
+    with" (engineer, 2026-07-31). On these drawings the header is exactly what
+    the sheet IS: SHORE POWER INPUT, 230V AC SERVICE SUPPLY / PORT / BEL-1
+    6KW, AC DB PANEL, 230V AC AFT DISTRIBUTION PANEL. It states the scope and
+    the supply before a single conductor is followed, and it is free.
+
+    Ordered left-to-right so a multi-part header reads as printed.
+    """
+    labels = [l for l in (rec.get("labels") or [])
+              if (l.get("text") or "").strip() and l.get("bbox")]
+    if not labels:
+        return ""
+    ys = [l["bbox"][1] for l in labels]
+    y_min, y_max = min(ys), max(ys)
+    cut = y_min + (y_max - y_min) * top_frac
+    top = [l for l in labels if l["bbox"][1] <= cut]
+    top.sort(key=lambda l: (round(l["bbox"][1] / 6), l["bbox"][0]))
+    seen, parts = set(), []
+    for l in top:
+        t = l["text"].strip()
+        if len(t) > 1 and t.upper() not in seen:
+            seen.add(t.upper())
+            parts.append(t)
+    return "  ".join(parts[:24])
+
+
 def text_from_page_record(rec: Dict[str, Any], min_conf: float = 60.0) -> str:
     """Drawing text from a sweep page record — the labels the geometry pass
     already read. Free: no render, no OCR re-run, no API call."""

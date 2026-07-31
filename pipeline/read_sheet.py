@@ -117,7 +117,32 @@ def read(pdf_bytes: bytes, page_index: int = 0, *,
     nl = geometry(pdf_bytes, page_index, sweep_rec)
     layers.append("geometry:" + nl["stats"].get("source", "traced"))
 
-    # ---- 2. DISCIPLINE (free) -------------------------------------------
+    # ---- 2. ORIENTATION: ROLE + HEADER, then DISCIPLINE (all free) -------
+    # The engineer's own reading order (2026-07-31): decide what KIND of page
+    # this is, read its header for scope, and only then start following lines.
+    # An index page is a ROUTER to other sheets and a title page has no
+    # circuit — sending either to a circuit reader spends money to invent
+    # structure that was never drawn.
+    from pipeline import drawing_class as _dcmod
+    role, header = "schematic", ""
+    if sweep_rec:
+        _txt = _dcmod.text_from_page_record(sweep_rec)
+        _cond = sum(1 for n in sweep_rec.get("nets", []) if n.get("n_segs", 0) > 2)
+        _labs = len([l for l in sweep_rec.get("labels", [])
+                     if (l.get("text") or "").strip()])
+        role = _dcmod.sheet_role(_txt, n_conductors=_cond, n_labels=_labs)
+        header = _dcmod.header_block(sweep_rec)
+    layers.append(f"role:{role}")
+    if role in ("index", "title"):
+        notes.append(f"page role '{role}' — no circuit is drawn here, so no "
+                     f"circuit was read. An index is a router to other sheets; "
+                     f"its value is the sheet list, not a traced loop.")
+        return {"drawing_class": role, "class_evidence": {"confidence": "geometry"},
+                "sheet_role": role, "header": header,
+                "geometry_stats": nl["stats"], "extraction": None,
+                "composition": None, "would_write": None,
+                "layers_run": layers, "notes": notes}
+
     cls = classify(sweep_rec, None, filename)
     if drawing_class_override:
         cls = {"drawing_class": drawing_class_override,
@@ -183,9 +208,21 @@ def read(pdf_bytes: bytes, page_index: int = 0, *,
 
     # ---- 5. MEASURED BLOCKS INTO THE EXTRACTION --------------------------
     from pipeline import netlist as _nlmod, circuit as _cir
+    # Re-read the header off the labels we paid for — the free OCR header is
+    # often unreadable on exactly the dense sheets where the header matters.
+    tiles = (extraction.get("_fused_tiles") or {}) if extraction else {}
+    if tiles.get("labels"):
+        better_hdr = _dcmod.header_block({"labels": tiles["labels"]})
+        if len(better_hdr) > len(header):
+            header = better_hdr
+    if header:
+        extraction["_header"] = header
+        extraction["_sheet_role"] = role
+        layers.append("header:read")
     extraction["_netlist_digest"] = _nlmod.digest(nl, max_nets=60)
     extraction["_circuit_digest"] = _cir.digest(nl)
-    layers.append("digests:netlist+circuit")
+    extraction["_loop_completeness"] = _cir.loop_completeness(nl)
+    layers.append("digests:netlist+circuit+loops")
 
     # ---- 6. REASONING ----------------------------------------------------
     composition = None
@@ -214,7 +251,9 @@ def read(pdf_bytes: bytes, page_index: int = 0, *,
                        "cross_refs": w.cross_refs}
 
     return {"drawing_class": dc, "class_evidence": cls,
+            "sheet_role": role, "header": header,
             "geometry_stats": nl["stats"], "extraction": extraction,
+            "loop_completeness": extraction.get("_loop_completeness"),
             "composition": composition, "would_write": would_write,
             "layers_run": layers, "notes": notes}
 
