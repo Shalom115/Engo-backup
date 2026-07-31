@@ -267,8 +267,9 @@ def read(pdf_bytes: bytes, page_index: int = 0, *,
         # ledger booked it `ok: True`. That is the same defect as counting a
         # failed download as done: the run looks complete and the sheet is
         # silently missing. Callers must be able to tell the two apart.
-        if isinstance(composition, dict) and \
-                composition.get("_malformed_response"):
+        if isinstance(composition, dict) and (
+                composition.get("_malformed_response")
+                or not composition.get("equipment_groups")):
             notes.append(
                 "COMPOSITION FAILED (malformed/truncated response) — the read "
                 "succeeded and is cached, but nothing was composed. This sheet "

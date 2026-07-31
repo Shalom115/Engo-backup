@@ -263,11 +263,10 @@ _COMPOSE_TOOL = {
     "input_schema": {
         "type": "object",
         "properties": {
-            "serve_who": {
-                "type": "string",
-                "description": "One short paragraph: which equipment/system "
-                               "this sheet serves and the sheet evidence for "
-                               "that conclusion."},
+            # EQUIPMENT_GROUPS IS DECLARED FIRST ON PURPOSE. Models emit tool
+            # arguments in schema order; with serve_who first, GM-110a poured
+            # the entire answer into that summary field and left the groups
+            # array empty. The deliverable goes first.
             "equipment_groups": {
                 "type": "array",
                 "items": {
@@ -306,6 +305,14 @@ _COMPOSE_TOOL = {
                     "required": ["equipment_name", "functions",
                                  "placement_reasoning"],
                 }},
+            "serve_who": {
+                "type": "string",
+                "maxLength": 900,
+                "description": "ONE SHORT PARAGRAPH (<=900 characters): which "
+                               "equipment/system this sheet serves and the "
+                               "sheet evidence for that conclusion. Do NOT put "
+                               "the per-equipment detail here - it belongs in "
+                               "equipment_groups above."},
             "infrastructure": {
                 "type": "array",
                 "description": "One entry PER DISTINCT SYSTEM on the sheet "
@@ -830,8 +837,12 @@ def compose(image_png: bytes, extraction: Dict[str, Any],
     # placeholder keys (e.g. {"parameter_name": ...}) instead of the schema's
     # fields — seen once on a 31k-segment sheet whose geometry was perfect.
     # Silently writing that as "0 groups" would look like a real empty result.
-    if isinstance(result, dict) and not result.get("serve_who") \
-            and not result.get("equipment_groups"):
+    # A COMPOSITION WITH NO EQUIPMENT GROUPS HAS FAILED, whatever else it
+    # returned. The old guard required BOTH serve_who and equipment_groups to
+    # be missing, so GM-110a - which returned a 17,275-character serve_who and
+    # an empty groups array - sailed past it and was recorded as a real empty
+    # sheet. The groups array is the deliverable; judge on that.
+    if isinstance(result, dict) and not result.get("equipment_groups"):
         # RETRY WITH MORE ROOM, not with the same ceiling. Measured on GM-111
         # (+24V DC DISTRIBUTION, 43,117 segments / 2,576 conductors / 485
         # labels, the densest sheet in the book): the geometry and the fused
@@ -905,4 +916,73 @@ def _repair_stringified(result: Any) -> Any:
                 result[key] = json.loads(v)
             except (ValueError, TypeError):
                 pass  # leave as-is; the writer's guards still catch it
+    # THE WHOLE ANSWER CRAMMED INTO ONE STRING FIELD (seen 2026-07-31 on
+    # GM-110a). `serve_who` is described as "one short paragraph"; it came back
+    # 17,275 characters long, opening with prose and then containing the entire
+    # response object — equipment_groups, uncertainties and all — while the
+    # real `equipment_groups` array stayed empty. stop_reason was `tool_use`,
+    # so nothing was truncated: the model simply answered in the wrong field.
+    # The earlier repair only looked at values that START with a bracket, so a
+    # string that BURIES the JSON slipped straight through and the sheet was
+    # recorded as producing nothing.
+    if not result.get("equipment_groups"):
+        for key, v in list(result.items()):
+            if not isinstance(v, str) or '"equipment_groups"' not in v:
+                continue
+            obj = _embedded_object(v)
+            if isinstance(obj, dict) and obj.get("equipment_groups"):
+                for k2, v2 in obj.items():
+                    if not result.get(k2):
+                        result[k2] = v2
+                result["_recovered_from"] = key
+                break
     return result
+
+
+def _embedded_object(text: str) -> Optional[Dict[str, Any]]:
+    """Pull a JSON object out of prose by bracket-matching around the schema
+    key it must contain. String-aware so a brace inside a label cannot
+    unbalance the scan."""
+    anchor = text.find('"equipment_groups"')
+    if anchor < 0:
+        return None
+    # THE OPENING BRACE IS USUALLY GONE. What arrives is the TAIL of the JSON
+    # body — the model wrote the serve_who value, then `",` and carried on with
+    # the remaining fields, and the SDK handed us everything after the opening
+    # brace as the field's value. So the recoverable object is the text from
+    # the key onward with a brace put back on the front. Scanning BACKWARDS for
+    # a `{` finds either nothing or a brace inside the prose, which is why the
+    # first attempt at this recovered zero groups.
+    for candidate in ("{" + text[anchor:], "{" + text[anchor:].rstrip().rstrip(",") + "}"):
+        try:
+            obj = json.loads(candidate)
+            if isinstance(obj, dict) and obj.get("equipment_groups"):
+                return obj
+        except (ValueError, TypeError):
+            pass
+    start = text.rfind("{", 0, anchor)
+    if start < 0:
+        return None
+    depth, in_str, esc = 0, False, False
+    for i in range(start, len(text)):
+        ch = text[i]
+        if in_str:
+            if esc:
+                esc = False
+            elif ch == "\\":
+                esc = True
+            elif ch == '"':
+                in_str = False
+            continue
+        if ch == '"':
+            in_str = True
+        elif ch == "{":
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+            if depth == 0:
+                try:
+                    return json.loads(text[start:i + 1])
+                except (ValueError, TypeError):
+                    return None
+    return None
