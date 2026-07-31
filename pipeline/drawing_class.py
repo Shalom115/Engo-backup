@@ -160,6 +160,23 @@ def detect(text: str, *, page_count: int = 1,
             scores[cls] += 1.0
     if "ga" in re.split(r"[^a-z]+", fname) or "arrangement" in fname:
         scores["building_ga"] += 1.0
+    # THE DOCUMENT'S OWN TITLE IS EVIDENCE ABOUT ITS PAGES. A connector-pinout
+    # page inside "BAE Wiring Diagrams.pdf" carries almost no discipline
+    # vocabulary — its labels are a title block and bare pin ids (SIZE, DRAWING
+    # NO., 196D5023, DC1, I1, -A) — and scored 4.5 against a floor of 6, so a
+    # whole 47-page wiring book failed to route. Pin DENSITY was tested as a
+    # structural signal and rejected: BAE 22%, a GM wiring sheet 37%, a PLC
+    # rack page 48%, so it separates nothing. The book's title does: a page in
+    # a wiring book is a wiring page. General drafting words only, no vessel
+    # or maker token, so this transfers to any yard's file naming.
+    for pat, cls, w in (
+            (r"\bwiring\b|\bwire\s+list\b|\bpinout\b|\bharness\b", "interconnect", 3.0),
+            (r"\bp\s*&\s*i\s*d\b|\bpiping\b|\bplumbing\b", "pid", 3.0),
+            (r"\bhydraulic\b", "hydraulic", 3.0),
+            (r"\bplc\b|\bi/o\b", "plc", 3.0),
+            (r"\bschematic\b|\bdistribution\b|\bpanel\b", "electrical", 2.0)):
+        if re.search(pat, fname):
+            scores[cls] += w
 
     ranked = sorted(scores.items(), key=lambda kv: -kv[1])
     top, top_s = ranked[0]

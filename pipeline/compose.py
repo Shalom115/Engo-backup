@@ -837,12 +837,16 @@ def compose(image_png: bytes, extraction: Dict[str, Any],
     # placeholder keys (e.g. {"parameter_name": ...}) instead of the schema's
     # fields — seen once on a 31k-segment sheet whose geometry was perfect.
     # Silently writing that as "0 groups" would look like a real empty result.
-    # A COMPOSITION WITH NO EQUIPMENT GROUPS HAS FAILED, whatever else it
-    # returned. The old guard required BOTH serve_who and equipment_groups to
-    # be missing, so GM-110a - which returned a 17,275-character serve_who and
-    # an empty groups array - sailed past it and was recorded as a real empty
-    # sheet. The groups array is the deliverable; judge on that.
-    if isinstance(result, dict) and not result.get("equipment_groups"):
+    # A COMPOSITION WITH NEITHER GROUPS NOR INFRASTRUCTURE HAS FAILED.
+    # First cut of this judged on equipment_groups alone, which was wrong: the
+    # MAST PLC rack page is an INDEX/GA sheet with no per-equipment functions,
+    # so an empty groups array with a full `infrastructure` entry (the rack
+    # inventory on 570-plc-rack-mast) is the CORRECT answer for it - and would
+    # have been re-run forever. The old guard was also too lax, requiring both
+    # serve_who and groups to be missing, which let GM-110a's 17,275-character
+    # serve_who count as success. Judge on real content of either kind.
+    if isinstance(result, dict) and not result.get("equipment_groups") \
+            and not result.get("infrastructure"):
         # RETRY WITH MORE ROOM, not with the same ceiling. Measured on GM-111
         # (+24V DC DISTRIBUTION, 43,117 segments / 2,576 conductors / 485
         # labels, the densest sheet in the book): the geometry and the fused

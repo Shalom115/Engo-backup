@@ -245,6 +245,31 @@ def read(pdf_bytes: bytes, page_index: int = 0, *,
     layers.append("digests:netlist+circuit+loops")
 
     # ---- 6. REASONING ----------------------------------------------------
+    # NEVER DISCARD A PAID READ BECAUSE THE CLASS IS UNSURE. The BAE
+    # connector page was read for $0.74, classified `unknown`, and then
+    # dropped without a single fact — the same waste as truncating the
+    # extraction, just at the other end of the chain. If the sheet has real
+    # drawn conductors and real labels it can be composed; compose it under
+    # the best-scoring electrical-family class and SAY the class was a
+    # fallback, so the engineer knows to check the routing rather than the
+    # reading.
+    if dc not in COMPOSE_CLASS and compose_sheet:
+        n_cond = nl["stats"].get("conductors", 0)
+        n_lab = nl["stats"].get("labels", 0)
+        if n_cond >= 50 and n_lab >= 30:
+            ranked = sorted((cls.get("all_scores") or {}).items(),
+                            key=lambda kv: -kv[1])
+            best = next((k for k, v in ranked if k in COMPOSE_CLASS and v > 0),
+                        "electrical")
+            notes.append(
+                f"CLASS UNCERTAIN ('{dc}', best guess '{best}'): the sheet has "
+                f"{n_cond} drawn conductors and {n_lab} labels, so it was "
+                f"composed under '{best}' rather than discarding a paid read. "
+                f"CHECK THE ROUTING on this sheet — the reading is sound, the "
+                f"discipline is a fallback.")
+            dc = best
+            layers.append(f"fallback_class:{best}")
+
     composition = None
     if compose_sheet and dc in COMPOSE_CLASS:
         from pipeline.compose import compose
@@ -269,7 +294,8 @@ def read(pdf_bytes: bytes, page_index: int = 0, *,
         # silently missing. Callers must be able to tell the two apart.
         if isinstance(composition, dict) and (
                 composition.get("_malformed_response")
-                or not composition.get("equipment_groups")):
+                or not (composition.get("equipment_groups")
+                        or composition.get("infrastructure"))):
             notes.append(
                 "COMPOSITION FAILED (malformed/truncated response) — the read "
                 "succeeded and is cached, but nothing was composed. This sheet "
