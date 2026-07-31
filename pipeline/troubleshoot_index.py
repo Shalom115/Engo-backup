@@ -207,9 +207,16 @@ def from_composition(comp: Dict[str, Any], sheet: str,
             # way 13 — but a bare `S\d` alternative matched the "S 13" inside
             # it and filed a terminal as a switch. The terminal-strip form is
             # tried FIRST so it consumes the whole token.
+            # BARE `S<n>` IS A SWITCH AND MUST BE MATCHED. Removing it to fix
+            # the "T/S S 13" misparse threw out every panel switch: GM-112
+            # named "switch S8 (NO)" and "S8 is closed" in its own text and
+            # yielded 3 checks from 18 functions, GM-116 6 from 15. The
+            # terminal-strip alternative is tried FIRST and consumes the whole
+            # "T/S S 13" token, so the two can coexist — which is what the
+            # ordering was for in the first place.
             for m in re.finditer(
                     r"\b(T/S\s?[A-Z](?:\s?\d{1,3})?"
-                    r"|(?:QE|CB|SO|XA|Re|SW|CT|Q|F|K)\s?\d{1,3}[a-z]?"
+                    r"|(?:QE|CB|SO|XA|Re|SW|CT|Q|F|K|S)\s?\d{1,3}[a-z]?"
                     r"(?:\s*/\s*\d{1,3})?)\b", blob):
                 lab = m.group(1).strip()
                 cls = classify_element(lab)
